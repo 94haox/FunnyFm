@@ -1,0 +1,6 @@
+framework module CardSlider {
+  umbrella header "CardSlider-umbrella.h"
+
+  export *
+  module * { export * }
+}
