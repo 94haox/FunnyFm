@@ -17,10 +17,15 @@ class MainViewModel: NSObject {
        return []
     }()
     
+    lazy var chapterList : [Chapter] = {
+        return []
+    }()
+    
     weak var delegate : ViewModelDelegate?
     
     override init() {
         super.init()
+        self.getHomeChapters()
         self.getAllPods()
     }
     
@@ -28,6 +33,17 @@ class MainViewModel: NSObject {
         FmHttp<Pod>().requestForArray(PodAPI.getPodList(), { (podlist) in
             if let list = podlist {
                 self.podlist = list
+                self.delegate?.viewModelDidGetDataSuccess()
+            }
+        }){ msg in
+            self.delegate?.viewModelDidGetDataFailture(msg: msg)
+        }
+    }
+    
+    func getHomeChapters() {
+        FmHttp<Chapter>().requestForArray(ChapterAPI.getHomeChapterList(), { (capterlist) in
+            if let list = capterlist {
+                self.chapterList = list
                 self.delegate?.viewModelDidGetDataSuccess()
             }
         }){ msg in

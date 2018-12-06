@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Chapter : Codable{
+struct Chapter : Mapable{
     var albumId:                Int
     var trackId:                Int
     var duration:               Int
