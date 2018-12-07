@@ -47,20 +47,27 @@ func RGBA(_ r:CGFloat,_ g:CGFloat,_ b:CGFloat, _ a: CGFloat) -> UIColor{
 public enum CommonColor {
     case title            // 标题颜色
     case subtitle         // 副标题颜色
+    case content         // 内容颜色
     case background       // controller背景色
     case cellbackgroud    // cell 背景色
+    case mainPink
     
     public var color : UIColor {
         switch self {
         case .title:
-            return RGB(114,123,136)
+            return UIColor.init(hex: "464d5c")
         case .subtitle:
             return RGB(202,202,202)
         case .background:
             return RGB(245,245,245)
         case .cellbackgroud:
             return RGB(250,250,250)
+        case .content:
+            return UIColor.init(hex: "b9bbbf")
+        case .mainPink:
+            return UIColor.init(hex: "e3bfc4")
         }
+        
     }
 }
 
@@ -136,3 +143,4 @@ extension UIColor {
         )
     }
 }
+

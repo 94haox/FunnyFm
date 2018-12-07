@@ -25,19 +25,7 @@ extension PodAPI : TargetType {
     
     //请求接口时对应的请求参数
     public var task: Task {
-        var params:[String : Any] = [:]
-        
-        switch self {
-//        case .parserFeed(let rss):
-//            params["rss"] = rss
-//            break;
-//        case .getFeedItemList(let rss):
-//            params["rss"] = rss
-//            break;
-        default:
-            break
-            
-        }
+        let params:[String : Any] = [:]
         return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
     }
     

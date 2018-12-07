@@ -9,8 +9,6 @@ inhibit_all_warnings!
 def layout
     pod 'SnapKit', '~> 4.0.0'
     pod 'pop', '~> 1.0'
-    pod 'CardSlider'
-    pod 'expanding-collection'
 end
 
 def lib

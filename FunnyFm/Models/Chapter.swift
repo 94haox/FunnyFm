@@ -21,6 +21,8 @@ struct Chapter : Mapable{
     var cover_url_high:         String
     var time_until_now:         String
     var formatted_created_at:   String
+    var pod_cover_url:          String
+    var pod_name:               String
     
     init?(jsonData:JSON) {
         albumId = jsonData["albumId"].intValue
@@ -35,6 +37,8 @@ struct Chapter : Mapable{
         duration = jsonData["trackUrl_normal"].intValue
         time_until_now = jsonData["time_until_now"].stringValue
         formatted_created_at = jsonData["formatted_created_at"].stringValue
+        pod_cover_url = jsonData["pod_cover_url"].stringValue
+        pod_name = jsonData["pod_name"].stringValue
     }
     
     enum CodingKeys : String, CodingKey {
@@ -49,6 +53,8 @@ struct Chapter : Mapable{
         case duration
         case time_until_now
         case formatted_created_at
+        case pod_cover_url
+        case pod_name
     }
     
     

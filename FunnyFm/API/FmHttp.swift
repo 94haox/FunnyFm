@@ -45,23 +45,19 @@ public class FmHttp<T> where T: Mapable{
                     let data = try response.mapJSON()
                     let jsonlist = JSON(data)["data"]["items"].array!
                     var models = [T]()
-                    
                     jsonlist.forEach({ (item) in
                         let t = T.init(jsonData:item)!
                         models.append(t)
                     })
-                    
                     success(models)
                 }catch{
+                    print("数据解析失败")
                     failure("数据解析失败")
                 }
             case .failure(_):
                 print("error")
                 failure("未连接到服务器")
             }
-            
-            
-            
         }
     }
     

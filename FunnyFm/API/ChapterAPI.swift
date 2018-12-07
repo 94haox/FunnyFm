@@ -12,11 +12,13 @@ import Moya
 
 
 let kGetHomeChapterListurl = "v1/homeChapterlist"
+let kGetChapterListurl = "v1/chapterlist"
 
 let chapterProvider = MoyaProvider<ChapterAPI>()
 
 public enum ChapterAPI {
     case getHomeChapterList()
+    case getChapterList(Int,Int)
 }
 
 extension ChapterAPI : TargetType {
@@ -24,16 +26,11 @@ extension ChapterAPI : TargetType {
     //请求接口时对应的请求参数
     public var task: Task {
         var params:[String : Any] = [:]
-//        params["pageNum"] = 1
-//        params["pageSize"] = 15
-        
         switch self {
-            //        case .parserFeed(let rss):
-            //            params["rss"] = rss
-            //            break;
-            //        case .getFeedItemList(let rss):
-            //            params["rss"] = rss
-        //            break;
+        case .getChapterList(let pageNum,let albumId):
+            params["pageNum"] = pageNum
+            params["albumId"] = albumId
+            break;
         default:
             break
             
@@ -50,12 +47,17 @@ extension ChapterAPI : TargetType {
         switch self {
         case .getHomeChapterList():
             return kGetHomeChapterListurl
+        case .getChapterList(_):
+            return kGetChapterListurl
         }
+        
     }
     
     public var method: Moya.Method {
         switch self {
         case .getHomeChapterList():
+            return .get
+        case .getChapterList(_):
             return .get
         }
         

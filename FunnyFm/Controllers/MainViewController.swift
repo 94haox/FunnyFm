@@ -19,10 +19,18 @@ class MainViewController:  UIViewController,UICollectionViewDataSource,UICollect
         self.view.backgroundColor = .white
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        configureNavBar()
         self.addConstrains()
         self.vm.getAllPods()
+        UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
     }
+    
+    
+    lazy var titleLB: UILabel = {
+        let lb = UILabel.init(text: "Funny.Fm")
+        lb.textColor = CommonColor.title.color
+        lb.font = p_bfont(AdaptScale(32))
+        return lb
+    }()
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
@@ -48,6 +56,8 @@ class MainViewController:  UIViewController,UICollectionViewDataSource,UICollect
         table.rowHeight = 131
         table.delegate = self
         table.dataSource = self
+        table.showsVerticalScrollIndicator = false
+        table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
         return table
     }()
 }
@@ -57,6 +67,10 @@ extension MainViewController : ViewModelDelegate {
     func viewModelDidGetDataSuccess() {
         collectionView.reloadData()
         tableview.reloadData()
+        
+        if self.vm.chapterList.count > 0 {
+            FMToolBar.shared.configToolBarAtHome(self.vm.chapterList.first!)
+        }
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
@@ -65,13 +79,19 @@ extension MainViewController : ViewModelDelegate {
     
 }
 
-// MARK: UICollectionViewDataSource
+// MARK: UICollectionViewDelegate
 
 extension MainViewController{
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let pod = self.vm.podlist[indexPath.row]
+        let vc = ChapterListViewController.init(pod)
+        self.navigationController?.pushViewController(vc)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chapter = self.vm.chapterList[indexPath.row]
+        FMToolBar.shared.configToolBarAtHome(chapter)
     }
 }
 
@@ -99,7 +119,7 @@ extension MainViewController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
         let chapter = self.vm.chapterList[indexPath.row]
-        cell.configCell(chapter)
+        cell.configHomeCell(chapter)
     }
 
 }
@@ -138,12 +158,18 @@ extension MainViewController {
     
     
     fileprivate func addConstrains() {
+        self.view .addSubview(self.titleLB)
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.tableview)
+        self.titleLB.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view).offset(44)
+            make.left.equalToSuperview().offset(18)
+        }
+        
         self.collectionView.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.height.equalTo(80)
-            make.top.equalTo(self.view.snp.topMargin)
+            make.top.equalTo(self.titleLB.snp.bottom)
         }
         
         self.tableview.snp.makeConstraints { (make) in

@@ -45,6 +45,16 @@
 		AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D9C21B9388800B85135 /* HomeAlbumTableViewCell.swift */; };
 		AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1E6D9D21B9388800B85135 /* HomeAlbumTableViewCell.xib */; };
 		AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DA021B943A100B85135 /* ChapterAPI.swift */; };
+		AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */; };
+		AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DA621BA031B00B85135 /* FMToolBar.swift */; };
+		AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */; };
+		AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */; };
+		AB1E6DB021BA5B4500B85135 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
+		AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB121BA6DA000B85135 /* SwiftNotice.swift */; };
+		AB1E6DB421BA74DA00B85135 /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB321BA74DA00B85135 /* ChapterListViewController.swift */; };
+		AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB521BA771C00B85135 /* ChapterListViewModel.swift */; };
+		AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB721BA809D00B85135 /* PodListViewController.swift */; };
+		AB1E6DBA21BA877D00B85135 /* ChapterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB921BA877D00B85135 /* ChapterDetailViewController.swift */; };
 		AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25797C21945E6F004C5F5D /* AppDelegate.swift */; };
 		AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25797E21945E6F004C5F5D /* MainViewController.swift */; };
 		AB25798221945E6F004C5F5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798021945E6F004C5F5D /* Main.storyboard */; };
@@ -59,15 +69,12 @@
 		AB41AAEA219537B400260851 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE9219537B400260851 /* Const.swift */; };
 		AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAEB2195394C00260851 /* MainViewModel.swift */; };
 		AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAED21955ECF00260851 /* Protocol.swift */; };
-		AB41AAF7219564B800260851 /* AnimationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAF4219564B800260851 /* AnimationBarButton.swift */; };
-		AB41AAF8219564B800260851 /* Rotatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAF6219564B800260851 /* Rotatable.swift */; };
 		AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAFB219564F000260851 /* ScreenShotHelper.swift */; };
 		AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAFD219564F000260851 /* ConstraintsHelper.swift */; };
 		AB41AB07219564F000260851 /* SubviewsForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAFF219564F000260851 /* SubviewsForEach.swift */; };
 		AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB01219564F000260851 /* ConfigurationHelper.swift */; };
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
-		AB41AB0F21957C6A00260851 /* FmToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0E21957C6A00260851 /* FmToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +118,17 @@
 		AB1E6D9C21B9388800B85135 /* HomeAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlbumTableViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D9D21B9388800B85135 /* HomeAlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAlbumTableViewCell.xib; sourceTree = "<group>"; };
 		AB1E6DA021B943A100B85135 /* ChapterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterAPI.swift; sourceTree = "<group>"; };
+		AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+someMethods.m"; sourceTree = "<group>"; };
+		AB1E6DA421BA01E700B85135 /* UIImage+someMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+someMethods.h"; sourceTree = "<group>"; };
+		AB1E6DA621BA031B00B85135 /* FMToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMToolBar.swift; sourceTree = "<group>"; };
+		AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationRectAngle.swift; sourceTree = "<group>"; };
+		AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPlayerManager.swift; sourceTree = "<group>"; };
+		AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtension.swift; sourceTree = "<group>"; };
+		AB1E6DB121BA6DA000B85135 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		AB1E6DB321BA74DA00B85135 /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewController.swift; sourceTree = "<group>"; };
+		AB1E6DB521BA771C00B85135 /* ChapterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewModel.swift; sourceTree = "<group>"; };
+		AB1E6DB721BA809D00B85135 /* PodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListViewController.swift; sourceTree = "<group>"; };
+		AB1E6DB921BA877D00B85135 /* ChapterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterDetailViewController.swift; sourceTree = "<group>"; };
 		AB25797921945E6F004C5F5D /* FunnyFm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyFm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB25797C21945E6F004C5F5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB25797E21945E6F004C5F5D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -127,15 +145,12 @@
 		AB41AAE9219537B400260851 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		AB41AAEB2195394C00260851 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AB41AAED21955ECF00260851 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
-		AB41AAF4219564B800260851 /* AnimationBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationBarButton.swift; sourceTree = "<group>"; };
-		AB41AAF6219564B800260851 /* Rotatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotatable.swift; sourceTree = "<group>"; };
 		AB41AAFB219564F000260851 /* ScreenShotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenShotHelper.swift; sourceTree = "<group>"; };
 		AB41AAFD219564F000260851 /* ConstraintsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
 		AB41AAFF219564F000260851 /* SubviewsForEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubviewsForEach.swift; sourceTree = "<group>"; };
 		AB41AB01219564F000260851 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		AB41AB04219564F000260851 /* CornerAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerAnimatable.swift; sourceTree = "<group>"; };
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		AB41AB0E21957C6A00260851 /* FmToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmToolBar.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				AB1E6D4D21B9252500B85135 /* UIKit */,
+				AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -213,6 +229,23 @@
 			path = CollectionReusebleView;
 			sourceTree = "<group>";
 		};
+		AB1E6DA221BA01C500B85135 /* OC */ = {
+			isa = PBXGroup;
+			children = (
+				AB1E6DA421BA01E700B85135 /* UIImage+someMethods.h */,
+				AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */,
+			);
+			path = OC;
+			sourceTree = "<group>";
+		};
+		AB1E6DA821BA251B00B85135 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		AB25797021945E6F004C5F5D = {
 			isa = PBXGroup;
 			children = (
@@ -234,14 +267,15 @@
 		AB25797B21945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXGroup;
 			children = (
-				AB1E6D4A21B9243000B85135 /* Extension */,
-				AB41AAE6219533E000260851 /* ViewModel */,
 				AB41AAE3219532E500260851 /* API */,
+				AB41AAE6219533E000260851 /* ViewModel */,
+				AB41AADA21952A6400260851 /* Controllers */,
+				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
 				AB41AADC21952A8A00260851 /* Views */,
 				AB41AADB21952A7C00260851 /* Models */,
-				AB41AADA21952A6400260851 /* Controllers */,
 				AB41AAD7219529DB00260851 /* Utils */,
-				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
+				AB1E6DA221BA01C500B85135 /* OC */,
+				AB1E6D4A21B9243000B85135 /* Extension */,
 				AB25798021945E6F004C5F5D /* Main.storyboard */,
 				AB25798321945E70004C5F5D /* Assets.xcassets */,
 				AB25798521945E70004C5F5D /* LaunchScreen.storyboard */,
@@ -257,9 +291,11 @@
 			children = (
 				AB41AAD821952A1300260851 /* FunnyFm.swift */,
 				AB41AADD21952C1C00260851 /* GlobalConfig.swift */,
+				AB1E6DB121BA6DA000B85135 /* SwiftNotice.swift */,
 				AB41AAE9219537B400260851 /* Const.swift */,
 				AB41AAED21955ECF00260851 /* Protocol.swift */,
 				AB41AB0A2195752B00260851 /* Extension.swift */,
+				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -268,6 +304,9 @@
 			isa = PBXGroup;
 			children = (
 				AB25797E21945E6F004C5F5D /* MainViewController.swift */,
+				AB1E6DB321BA74DA00B85135 /* ChapterListViewController.swift */,
+				AB1E6DB721BA809D00B85135 /* PodListViewController.swift */,
+				AB1E6DB921BA877D00B85135 /* ChapterDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -284,10 +323,10 @@
 		AB41AADC21952A8A00260851 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB1E6DA821BA251B00B85135 /* Custom */,
 				AB1E6D8F21B9257E00B85135 /* CollectionReusebleView */,
 				AB41AB0D21957C3F00260851 /* MusicToolBar */,
 				AB41AB0C21957C2D00260851 /* Cells */,
-				AB41AAF3219564B800260851 /* AnimatingBarButton */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,25 +345,9 @@
 			isa = PBXGroup;
 			children = (
 				AB41AAEB2195394C00260851 /* MainViewModel.swift */,
+				AB1E6DB521BA771C00B85135 /* ChapterListViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AB41AAF3219564B800260851 /* AnimatingBarButton */ = {
-			isa = PBXGroup;
-			children = (
-				AB41AAF4219564B800260851 /* AnimationBarButton.swift */,
-				AB41AAF5219564B800260851 /* Animations */,
-			);
-			path = AnimatingBarButton;
-			sourceTree = "<group>";
-		};
-		AB41AAF5219564B800260851 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				AB41AAF6219564B800260851 /* Rotatable.swift */,
-			);
-			path = Animations;
 			sourceTree = "<group>";
 		};
 		AB41AAF9219564F000260851 /* Helpers */ = {
@@ -401,7 +424,7 @@
 		AB41AB0D21957C3F00260851 /* MusicToolBar */ = {
 			isa = PBXGroup;
 			children = (
-				AB41AB0E21957C6A00260851 /* FmToolBar.swift */,
+				AB1E6DA621BA031B00B85135 /* FMToolBar.swift */,
 			);
 			path = MusicToolBar;
 			sourceTree = "<group>";
@@ -519,7 +542,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CardSlider/CardSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
@@ -528,7 +550,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/expanding-collection/expanding_collection.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -536,7 +557,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
@@ -545,7 +565,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/expanding_collection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,22 +579,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
+				AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */,
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
 				AB1E6D8C21B9252500B85135 /* UIFontExtensions.swift in Sources */,
 				AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */,
-				AB41AAF7219564B800260851 /* AnimationBarButton.swift in Sources */,
 				AB1E6D7921B9252500B85135 /* UIBarButtonItemExtensions.swift in Sources */,
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
+				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
 				AB1E6D8D21B9252500B85135 /* UIDatePickerExtensions.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
+				AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
@@ -584,10 +606,13 @@
 				AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */,
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
+				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
+				AB1E6DB021BA5B4500B85135 /* OptionalExtension.swift in Sources */,
 				AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */,
 				AB1E6D7421B9252500B85135 /* UILayoutPriorityExtensions.swift in Sources */,
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
+				AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */,
 				AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */,
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,
 				AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */,
@@ -601,17 +626,18 @@
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
+				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,
 				AB1E6D7221B9252500B85135 /* UIScrollViewExtensions.swift in Sources */,
 				AB1E6D8021B9252500B85135 /* UIViewControllerExtensions.swift in Sources */,
 				AB41AB07219564F000260851 /* SubviewsForEach.swift in Sources */,
+				AB1E6DBA21BA877D00B85135 /* ChapterDetailViewController.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
-				AB41AB0F21957C6A00260851 /* FmToolBar.swift in Sources */,
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
-				AB41AAF8219564B800260851 /* Rotatable.swift in Sources */,
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
+				AB1E6DB421BA74DA00B85135 /* ChapterListViewController.swift in Sources */,
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,

@@ -8,9 +8,11 @@
 
 import UIKit
 import Kingfisher
+import pop
 
 class HomeAlbumTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var playLogoImageView: UIImageView!
     @IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var desLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
@@ -23,15 +25,29 @@ class HomeAlbumTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        UIView.animate(withDuration: 0.1) {
+            self.playLogoImageView.alpha = selected ? 1 : 0
+        }
+    }
+    
+    
+    func configHomeCell(_ chapter:Chapter){
+        self.desLB.text = chapter.intro
+        self.titleLB.text = chapter.title
+        self.timeLB.text = chapter.time_until_now
+        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!))
     }
     
     func configCell(_ chapter:Chapter){
         self.desLB.text = chapter.intro
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!))
+        if(chapter.cover_url_normal.count > 1){
+            self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_normal)!))
+        }else if(chapter.cover_url_high.count > 1){
+            self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!))
+        }
+        
     }
     
 }
