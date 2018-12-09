@@ -8,9 +8,13 @@
 
 import UIKit
 
-class ChapterListViewController: UIViewController , ViewModelDelegate, UITableViewDelegate,UITableViewDataSource{
+class ChapterListViewController: BaseViewController , ViewModelDelegate, UITableViewDelegate,UITableViewDataSource{
 
     var vm: ChapterListViewModel!
+	
+	var topBar: PodDetailTopBar!
+	
+	var topView: PodCastCoverView!
     
     var pod: Pod!
     
@@ -18,11 +22,7 @@ class ChapterListViewController: UIViewController , ViewModelDelegate, UITableVi
     
     init(_ pod: Pod) {
         super.init(nibName: nil, bundle: nil)
-        self.pod = pod
-        self.title = pod.name
-        self.vm = ChapterListViewModel.init(pod.albumId)
-        self.vm.delegate = self
-        
+        self.setupUI(pod)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,6 +34,17 @@ class ChapterListViewController: UIViewController , ViewModelDelegate, UITableVi
         self.addConstrains()
         // Do any additional setup after loading the view.
     }
+	
+	func setupUI(_ pod: Pod){
+		self.pod = pod
+		self.vm = ChapterListViewModel.init(pod.albumId)
+		self.vm.delegate = self
+		self.topBar = PodDetailTopBar.init(frame: CGRect.zero)
+		self.topView = PodCastCoverView.init(frame: CGRect.zero)
+		self.topView.config(pod)
+		self.topBar.config(pod)
+		self.topBar.alpha = 0
+	}
     
     lazy var tableview : UITableView = {
         let table = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -44,7 +55,7 @@ class ChapterListViewController: UIViewController , ViewModelDelegate, UITableVi
         table.delegate = self
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
-        table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+        table.contentInset = UIEdgeInsets.init(top: 260, left: 0, bottom: 120, right: 0)
         return table
     }()
 
@@ -60,6 +71,30 @@ extension ChapterListViewController{
     func viewModelDidGetDataFailture(msg: String?) {
         
     }
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		var offsetY = scrollView.contentOffset.y
+		
+		if offsetY > 0{
+			offsetY = 0
+		}
+		
+		if abs(offsetY) > 260{
+			offsetY = -260
+		}
+		self.topView.snp.updateConstraints { (make) in
+			make.bottom.equalTo(self.view.snp.top).offset(abs(offsetY))
+		}
+		
+		let alpha = offsetY == 0 ? 1 : 0
+		if  CGFloat.init(alpha) != self.topBar.alpha {
+			UIView.animate(withDuration: 0.1) {
+				self.topBar.alpha = CGFloat.init(alpha)
+			}
+		}
+		
+	}
+
     
 }
 
@@ -72,6 +107,7 @@ extension ChapterListViewController{
         let chapter = self.vm.chapterList[indexPath.row]
         FMToolBar.shared.configToolBar(chapter)
     }
+	
 }
 
 extension ChapterListViewController{
@@ -97,13 +133,29 @@ extension ChapterListViewController {
     
     
     fileprivate func addConstrains() {
+	
         self.view.backgroundColor = .white
         self.view.addSubview(self.tableview)
+		self.view.addSubview(self.topView)
+		self.view.addSubview(self.topBar)
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
             make.top.equalTo(self.view.snp.topMargin)
         }
+		
+		self.topView.snp.makeConstraints { (make) in
+			make.left.width.equalToSuperview()
+			make.height.equalTo(260)
+			make.bottom.equalTo(self.view.snp.top).offset(260)
+		}
+		
+		self.topBar.snp.makeConstraints { (make) in
+			make.top.equalTo(self.view.snp.topMargin)
+			make.width.equalToSuperview().offset(-132)
+			make.height.equalTo(70)
+			make.centerX.equalToSuperview()
+		}
     }
     
 }

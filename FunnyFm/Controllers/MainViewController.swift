@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController:  UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
+class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
     
     var vm = MainViewModel()
     fileprivate var cellsIsOpen = [Bool]()
@@ -19,18 +19,12 @@ class MainViewController:  UIViewController,UICollectionViewDataSource,UICollect
         self.view.backgroundColor = .white
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+		self.configureNavBar()
         self.addConstrains()
         self.vm.getAllPods()
         UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
     }
-    
-    
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "Funny.Fm")
-        lb.textColor = CommonColor.title.color
-        lb.font = p_bfont(AdaptScale(32))
-        return lb
-    }()
+	
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
@@ -158,18 +152,14 @@ extension MainViewController {
     
     
     fileprivate func addConstrains() {
-        self.view .addSubview(self.titleLB)
+        
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.tableview)
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view).offset(44)
-            make.left.equalToSuperview().offset(18)
-        }
         
         self.collectionView.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.height.equalTo(80)
-            make.top.equalTo(self.titleLB.snp.bottom)
+            make.top.equalTo(self.view.snp.topMargin)
         }
         
         self.tableview.snp.makeConstraints { (make) in
@@ -181,6 +171,7 @@ extension MainViewController {
     
     fileprivate func configureNavBar() {
         navigationItem.leftBarButtonItem?.image = navigationItem.leftBarButtonItem?.image!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 

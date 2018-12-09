@@ -35,17 +35,20 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.desLB.text = chapter.intro
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!))
+		let resource = ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!)
+		let image = Image.init(named: "ImagePlaceHolder")
+        self.logoImageView.kf.setImage(with: resource, placeholder: image, options: nil, progressBlock: nil, completionHandler: nil)
     }
     
     func configCell(_ chapter:Chapter){
         self.desLB.text = chapter.intro
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now
+		
         if(chapter.cover_url_normal.count > 1){
             self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_normal)!))
         }else if(chapter.cover_url_high.count > 1){
-            self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!))
+            self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!) )
         }
         
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import Kingfisher
 
 enum MAudioPlayState {
     case playing
@@ -17,6 +18,8 @@ enum MAudioPlayState {
 
 protocol FMPlayerManagerDelegate {
     func playerStatusDidChanged(isCanPlay:Bool)
+	func playerDidPlay()
+	func playerDidPause()
     
 }
 
@@ -46,10 +49,12 @@ class FMPlayerManager: NSObject {
     
     override init() {
         super.init()
+		NotificationCenter.default.addObserver(self, selector: #selector(setBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     deinit {
         self.player?.removeObserver(self, forKeyPath: "status")
+
     }
     
     func changePlayItem(_ item: AVPlayerItem){
@@ -87,14 +92,16 @@ class FMPlayerManager: NSObject {
         if(self.isCanPlay){
             self.isPlay = true
             self.player?.play()
+			self.delegate?.playerDidPlay()
         }else{
-            
+           SwiftNotice.noticeOnStatusBar("暂时无法播放", autoClear: true, autoClearTime: 1)
         }
     }
     
     func pause() {
         self.isPlay = false
         self.player?.pause()
+		self.delegate?.playerDidPause()
     }
     
 
@@ -119,9 +126,19 @@ extension FMPlayerManager{
             
         }
     }
-    
-    
+}
 
-    
-    
+
+extension FMPlayerManager {
+	
+	@objc func setBackground() {
+//		let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.pod_cover_url)!)
+		var info = Dictionary<String, Any>()
+		info[MPMediaItemPropertyTitle] = self.currentModel?.title//歌名
+		info[MPMediaItemPropertyArtist] = self.currentModel?.pod_name//作者
+		info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image:UIImage.init(named: "ImagePlaceHolder")!)
+		info[MPMediaItemPropertyPlaybackDuration] = self.currentModel?.duration
+		info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+		MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+	}
 }

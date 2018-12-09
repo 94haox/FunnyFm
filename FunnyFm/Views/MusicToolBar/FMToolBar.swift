@@ -16,7 +16,9 @@ import RxSwift
 class FMToolBar: UIView , FMPlayerManagerDelegate{
 
     static let shared = FMToolBar(frame: CGRect.init(x: 18, y: kScreenHeight-100-10, width: kScreenWidth-36, height: 80))
-    
+	
+	var isPlaying: Bool = false
+	
     var currentChapter: Chapter?
     
     override init(frame: CGRect) {
@@ -99,13 +101,26 @@ extension FMToolBar {
             FMPlayerManager.shared.play()
         }else{
             FMPlayerManager.shared.pause()
+			self.isPlaying = false
         }
     }
     
     func playerStatusDidChanged(isCanPlay: Bool) {
         self.loadingView.isHidden = isCanPlay
         self.playBtn.isHidden = !isCanPlay
+		if isCanPlay && self.isPlaying {
+			self.playBtn.isSelected = true
+			FMPlayerManager.shared.play()
+		}
     }
+	
+	func playerDidPlay() {
+		self.isPlaying = true
+	}
+	
+	func playerDidPause() {
+//		self.isPlaying = false
+	}
 
 }
 
@@ -160,6 +175,7 @@ extension FMToolBar{
         self.playBtn.isSelected = false
         FMPlayerManager.shared.config(chapter.trackUrl_normal)
         FMPlayerManager.shared.delegate = self
+		
         
         let anim = CABasicAnimation.init(keyPath: "transform.rotation.x")
         anim.toValue = NSNumber.init(value: Double.pi*3)
@@ -179,8 +195,8 @@ extension FMToolBar {
         self.addSubview(self.logoImageView)
         self.addSubview(self.titleLB)
         self.addSubview(self.authorLB)
-        self.addSubview(self.rewindBtn)
-        self.addSubview(self.forwardBtn)
+//        self.addSubview(self.rewindBtn)
+//        self.addSubview(self.forwardBtn)
         self.addSubview(self.playBtn)
         self.addSubview(self.loadingView)
         
@@ -192,14 +208,14 @@ extension FMToolBar {
         }
         
         self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.logoImageView)
+            make.top.equalTo(self.logoImageView).offset(5)
             make.left.equalTo(self.logoImageView.snp.right).offset(16)
             make.width.equalTo(AdaptScale(200))
         }
         
         self.authorLB.snp.makeConstraints { (make) in
             make.left.equalTo(self.titleLB)
-            make.bottom.equalTo(self.logoImageView)
+            make.bottom.equalTo(self.logoImageView).offset(-5)
         }
         
         self.loadingView.snp.makeConstraints { (make) in
@@ -210,21 +226,21 @@ extension FMToolBar {
         self.playBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.size.equalTo(CGSize.init(width: 30, height: 30))
-            make.right.equalToSuperview().offset(-30)
+            make.right.equalToSuperview().offset(-10)
         }
         
-        self.rewindBtn.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.playBtn)
-            make.size.equalTo(CGSize.init(width: 30, height: 30))
-            make.right.equalTo(self.playBtn.snp.left).offset(-5)
-        }
-        
-        self.forwardBtn.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.playBtn)
-            make.size.equalTo(CGSize.init(width: 30, height: 30))
-            make.left.equalTo(self.playBtn.snp.right)
-        }
-        
+//        self.rewindBtn.snp.makeConstraints { (make) in
+//            make.centerY.equalTo(self.playBtn)
+//            make.size.equalTo(CGSize.init(width: 30, height: 30))
+//            make.right.equalTo(self.playBtn.snp.left).offset(-5)
+//        }
+//
+//        self.forwardBtn.snp.makeConstraints { (make) in
+//            make.centerY.equalTo(self.playBtn)
+//            make.size.equalTo(CGSize.init(width: 30, height: 30))
+//            make.left.equalTo(self.playBtn.snp.right)
+//        }
+		
         
         
         

@@ -1,0 +1,6 @@
+framework module SHFullscreenPopGestureSwift {
+  umbrella header "SHFullscreenPopGestureSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

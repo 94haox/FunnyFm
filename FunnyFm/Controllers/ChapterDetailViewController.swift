@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChapterDetailViewController: UIViewController {
+class ChapterDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

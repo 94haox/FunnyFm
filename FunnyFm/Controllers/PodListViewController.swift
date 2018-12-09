@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PodListViewController: UIViewController {
+class PodListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

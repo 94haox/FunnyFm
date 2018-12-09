@@ -75,6 +75,9 @@
 		AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB01219564F000260851 /* ConfigurationHelper.swift */; };
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
+		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
+		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
+		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +154,9 @@
 		AB41AB01219564F000260851 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		AB41AB04219564F000260851 /* CornerAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerAnimatable.swift; sourceTree = "<group>"; };
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
+		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */,
+				AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */,
+				AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 		AB25797B21945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXGroup;
 			children = (
+				AB62C46A21BB92F0008D6BA6 /* Base */,
 				AB41AAE3219532E500260851 /* API */,
 				AB41AAE6219533E000260851 /* ViewModel */,
 				AB41AADA21952A6400260851 /* Controllers */,
@@ -429,6 +438,14 @@
 			path = MusicToolBar;
 			sourceTree = "<group>";
 		};
+		AB62C46A21BB92F0008D6BA6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F9DE604A996C7DC4220A9259 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +490,11 @@
 					AB25797821945E6F004C5F5D = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -515,15 +537,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FunnyFm-checkManifestLockResult.txt",
 			);
@@ -537,8 +555,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -548,13 +564,12 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SHFullscreenPopGestureSwift/SHFullscreenPopGestureSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -563,6 +578,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHFullscreenPopGestureSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -584,6 +600,7 @@
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
 				AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */,
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
+				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
 				AB1E6D8C21B9252500B85135 /* UIFontExtensions.swift in Sources */,
@@ -624,6 +641,7 @@
 				AB1E6D7D21B9252500B85135 /* UINavigationBarExtensions.swift in Sources */,
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
+				AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
 				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,
@@ -637,6 +655,7 @@
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
+				AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */,
 				AB1E6DB421BA74DA00B85135 /* ChapterListViewController.swift in Sources */,
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,

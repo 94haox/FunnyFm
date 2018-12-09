@@ -16,7 +16,7 @@ class HomePodListHeader: UICollectionReusableView {
         let label = UILabel()
         label.text = "All"
         label.textColor = UIColor.init(hex: "464d5c")
-        label.font = pfont(18)
+		label.font = UIFont.init(name: "Helvetica-Bold", size: 18)
         self.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
