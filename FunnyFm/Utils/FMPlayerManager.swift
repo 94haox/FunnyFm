@@ -49,11 +49,12 @@ class FMPlayerManager: NSObject {
     
     override init() {
         super.init()
-		NotificationCenter.default.addObserver(self, selector: #selector(setBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(setBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     deinit {
-        self.player?.removeObserver(self, forKeyPath: "status")
+        self.playerItem?.removeObserver(self, forKeyPath: "status")
+        self.player?.removeTimeObserver(self)
 
     }
     
@@ -61,12 +62,17 @@ class FMPlayerManager: NSObject {
         self.isCanPlay = false
         self.delegate?.playerStatusDidChanged(isCanPlay: false)
         self.playerItem?.removeObserver(self, forKeyPath: "status")
+        self.playerItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
         self.playerItem = item
         self.playerItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+        self.playerItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
     }
     
-    func config(_ url:String) {
-        let item = AVPlayerItem.init(url: URL.init(string: url)!)
+    func config(_ chapter:Chapter) {
+        self.currentModel = chapter
+        configPlayBackgroungMode()
+        self.setBackground()
+        let item = AVPlayerItem.init(url: URL.init(string: chapter.trackUrl_normal)!)
         if self.playerItem.isSome {
             if(self.playerItem! == item) {
                 SwiftNotice.noticeOnStatusBar("正在播放", autoClear: true, autoClearTime: 2)
@@ -84,6 +90,9 @@ class FMPlayerManager: NSObject {
             self.player?.replaceCurrentItem(with: self.playerItem)
         }
         
+        self.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 0.1, preferredTimescale: 600), queue: DispatchQueue.main, using: { [unowned self] (time) in
+            self.setBackground()
+        })
     }
     
     
@@ -110,21 +119,25 @@ class FMPlayerManager: NSObject {
 extension FMPlayerManager{
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
+        let value = change?[NSKeyValueChangeKey.newKey]
+        if value.isNone {
+            return
+        }
         if keyPath == "status" {
-            let value = change?[NSKeyValueChangeKey.newKey]
-            if(value.isSome){
-                let status = value! as! Int
-                if(status == 1){
-                    self.isCanPlay = true
-                    self.delegate?.playerStatusDidChanged(isCanPlay: true)
-                }else{
-                    self.isCanPlay = false
-                    self.delegate?.playerStatusDidChanged(isCanPlay: false)
-                }
+            let status = value! as! Int
+            if(status == 1){
+                self.isCanPlay = true
+                self.delegate?.playerStatusDidChanged(isCanPlay: true)
+            }else{
+                self.isCanPlay = false
+                self.delegate?.playerStatusDidChanged(isCanPlay: false)
             }
+        }
+        
+        if keyPath == "loadedTimeRanges" {
             
         }
+        
     }
 }
 
@@ -132,13 +145,22 @@ extension FMPlayerManager{
 extension FMPlayerManager {
 	
 	@objc func setBackground() {
-//		let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.pod_cover_url)!)
+        let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.pod_cover_url)!)
 		var info = Dictionary<String, Any>()
 		info[MPMediaItemPropertyTitle] = self.currentModel?.title//歌名
 		info[MPMediaItemPropertyArtist] = self.currentModel?.pod_name//作者
-		info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image:UIImage.init(named: "ImagePlaceHolder")!)
+        info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: CGSize.init(width: 100, height: 100), requestHandler: { (size) -> UIImage in
+            if image.isSome{
+                return image!
+            }
+            return UIImage.init(named: "ImagePlaceHolder")!
+        })
 		info[MPMediaItemPropertyPlaybackDuration] = self.currentModel?.duration
 		info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.player?.currentTime()
 		MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+        UIApplication.shared.registerForRemoteNotifications()
 	}
+    
+    
 }

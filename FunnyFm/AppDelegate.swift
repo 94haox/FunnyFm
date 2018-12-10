@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
 
@@ -17,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configureNavigationTabBar()
-		configPlayBackgroungMode()
         jspushConfig(launchOptions: launchOptions)
 
         return true
@@ -25,19 +25,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     
     func jspushConfig(launchOptions: [UIApplication.LaunchOptionsKey: Any]?)  {
-//        let entity = JPUSHRegisterEntity.init()
-//        entity.types = Int(JPAuthorizationOptions.alert.rawValue|JPAuthorizationOptions.badge.rawValue|JPAuthorizationOptions.sound.rawValue|JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
-//        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
+        let entity = JPUSHRegisterEntity.init()
+        entity.types = Int(JPAuthorizationOptions.alert.rawValue|JPAuthorizationOptions.badge.rawValue|JPAuthorizationOptions.sound.rawValue|JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
+        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: JPushConfig.shared())
+        JPUSHService.setup(withOption: launchOptions, appKey: FunnyFm.jpushAppKey, channel: "app store", apsForProduction: false)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         JPUSHService.registerDeviceToken(deviceToken)
     }
     
+    override func remoteControlReceived(with event: UIEvent?) {
+        if (event?.type == .remoteControl) {
+            var order = -1
+            switch ((event?.subtype)!) {
+            case .remoteControlPause:
+                order = 0;
+                break;
+            case .remoteControlPlay:
+                order = 1;
+                break;
+            case .remoteControlNextTrack:
+                order = 2;
+                break;
+            case .remoteControlPreviousTrack:
+                order = 3;
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        configPlayBackgroungMode()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

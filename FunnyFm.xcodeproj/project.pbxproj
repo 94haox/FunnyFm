@@ -78,6 +78,8 @@
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
+		ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117C21BE764B0083A81B /* JPushConfig.m */; };
+		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +160,11 @@
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
+		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
+		ABF5117B21BE764B0083A81B /* JPushConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPushConfig.h; sourceTree = "<group>"; };
+		ABF5117C21BE764B0083A81B /* JPushConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPushConfig.m; sourceTree = "<group>"; };
+		ABF5117E21BE8A7C0083A81B /* FMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMTextField.h; path = FunnyFm/OC/FMTextField.h; sourceTree = SOURCE_ROOT; };
+		ABF5117F21BE8A7C0083A81B /* FMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMTextField.m; path = FunnyFm/OC/FMTextField.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,8 +245,12 @@
 		AB1E6DA221BA01C500B85135 /* OC */ = {
 			isa = PBXGroup;
 			children = (
+				ABF5117E21BE8A7C0083A81B /* FMTextField.h */,
+				ABF5117F21BE8A7C0083A81B /* FMTextField.m */,
 				AB1E6DA421BA01E700B85135 /* UIImage+someMethods.h */,
 				AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */,
+				ABF5117B21BE764B0083A81B /* JPushConfig.h */,
+				ABF5117C21BE764B0083A81B /* JPushConfig.m */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -275,6 +286,7 @@
 		AB25797B21945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXGroup;
 			children = (
+				ABF5117A21BE74240083A81B /* FunnyFm.entitlements */,
 				AB62C46A21BB92F0008D6BA6 /* Base */,
 				AB41AAE3219532E500260851 /* API */,
 				AB41AAE6219533E000260851 /* ViewModel */,
@@ -494,6 +506,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -610,6 +625,7 @@
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
+				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
 				AB1E6D8D21B9252500B85135 /* UIDatePickerExtensions.swift in Sources */,
@@ -651,6 +667,7 @@
 				AB1E6DBA21BA877D00B85135 /* ChapterDetailViewController.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
+				ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
@@ -807,6 +824,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
@@ -829,6 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;

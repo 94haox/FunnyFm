@@ -4,4 +4,5 @@
 
 #import <JPUSHService.h>
 #import "UIImage+someMethods.h"
-
+#import "JPushConfig.h"
+#import "FMTextField.h"

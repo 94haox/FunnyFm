@@ -26,8 +26,10 @@ public func configureNavigationTabBar() {
 public func configPlayBackgroungMode(){
 	let session = AVAudioSession.sharedInstance()
 	do {
-		try session.setActive(true)
-		try session.setCategory(.playback, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.allowAirPlay)
+        try session.setActive(true)
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+        try session.setCategory(.playAndRecord, mode: .moviePlayback, options: .allowAirPlay)
 	} catch {
 		print(error)
 	}
