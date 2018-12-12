@@ -36,8 +36,8 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now
 		let resource = ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!)
-		let image = Image.init(named: "ImagePlaceHolder")
-        self.logoImageView.kf.setImage(with: resource, placeholder: image, options: nil, progressBlock: nil, completionHandler: nil)
+//        let image = Image.init(named: "ImagePlaceHolder")
+        self.logoImageView.kf.setImage(with: resource)
     }
     
     func configCell(_ chapter:Chapter){

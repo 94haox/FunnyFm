@@ -54,6 +54,27 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
         table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
         return table
     }()
+    
+    lazy var searchBar : FMTextField = {
+        let tf = FMTextField.init(frame: CGRect.zero)
+        tf.cornerRadius = 15;
+        tf.tintColor = CommonColor.mainPink.color
+        tf.backgroundColor = CommonColor.cellbackgroud.color
+        tf.placeholder = "search"
+        tf.returnKeyType = .done
+        tf.font = pfont(fontsize4)
+        tf.textColor = CommonColor.title.color
+        tf.delegate = tf
+        tf.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
+        tf.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
+        return tf
+    }()
+    
+    lazy var searchBtn : UIButton = {
+        let btn = UIButton.init(type: .custom)
+        btn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
+        return btn
+    }()
 }
 
 
@@ -152,14 +173,29 @@ extension MainViewController {
     
     
     fileprivate func addConstrains() {
-        
+        self.view.addSubview(self.searchBtn)
+        self.view.addSubview(self.searchBar)
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.tableview)
+        
+        
+        self.searchBtn.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize.init(width: 40, height: 40))
+            make.right.equalToSuperview().offset(-32)
+            make.centerY.equalTo(self.searchBar)
+        }
+        
+        self.searchBar.snp.makeConstraints { (make) in
+            make.height.equalTo(40)
+            make.left.equalToSuperview().offset(32)
+            make.right.equalTo(self.searchBtn.snp.left).offset(-16)
+            make.top.equalTo(self.view.snp.topMargin)
+        }
         
         self.collectionView.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.height.equalTo(80)
-            make.top.equalTo(self.view.snp.topMargin)
+            make.top.equalTo(self.searchBar.snp.bottom).offset(32)
         }
         
         self.tableview.snp.makeConstraints { (make) in

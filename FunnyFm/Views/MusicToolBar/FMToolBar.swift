@@ -173,7 +173,7 @@ extension FMToolBar{
     func setUpChapter(_ chapter: Chapter){
         FMPlayerManager.shared.pause()
         self.playBtn.isSelected = false
-        FMPlayerManager.shared.config(chapter.trackUrl_normal)
+        FMPlayerManager.shared.config(chapter)
         FMPlayerManager.shared.delegate = self
 		
         
