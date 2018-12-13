@@ -10,6 +10,7 @@ import UIKit
 
 class HomePodListHeader: UICollectionReusableView {
     
+    var tapClosure: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,10 +22,18 @@ class HomePodListHeader: UICollectionReusableView {
         label.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
         }
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapHeader))
+        self.addGestureRecognizer(tap)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    @objc func tapHeader(){
+        self.tapClosure!()
     }
     
 }

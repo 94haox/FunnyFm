@@ -28,7 +28,6 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize.init(width: 2, height: 10)
         self.layer.shadowRadius = 10
-        
         self.addConstraints()
     }
     
@@ -89,6 +88,13 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         loading.startAnimating()
         return loading
     }()
+    
+    lazy var progressLine: UIView = {
+        let view = UIView.init()
+        view.cornerRadius = 2
+        view.layer.masksToBounds = false
+        return view
+    }()
 
 }
 
@@ -108,9 +114,11 @@ extension FMToolBar {
     func playerStatusDidChanged(isCanPlay: Bool) {
         self.loadingView.isHidden = isCanPlay
         self.playBtn.isHidden = !isCanPlay
-		if isCanPlay && self.isPlaying {
-			self.playBtn.isSelected = true
-			FMPlayerManager.shared.play()
+		if isCanPlay{
+            if (self.isPlaying || !FMPlayerManager.shared.isFirst){
+                self.playBtn.isSelected = true
+                FMPlayerManager.shared.play()
+            }
 		}
     }
 	
@@ -121,6 +129,10 @@ extension FMToolBar {
 	func playerDidPause() {
 //		self.isPlaying = false
 	}
+    
+    func managerDidChangeProgress(progess: Double) {
+        self.changeProgress(progess)
+    }
 
 }
 
@@ -140,7 +152,7 @@ extension FMToolBar{
     
     func configToolBar(_ chapter : Chapter) {
         self.config(chapter)
-        let resource = ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_normal)!)
+        let resource = ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!)
         self.logoImageView.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil) { [unowned self] (downImage, error, type, url) in
             if(downImage != nil){
                 self.configShadowColor()
@@ -153,10 +165,11 @@ extension FMToolBar{
         if self.currentChapter.isNone {
            self.currentChapter = chapter
         }else{
-            if self.currentChapter?.trackId == chapter.trackId {
+            if self.currentChapter?.trackId == chapter.trackId  && self.isPlaying{
                 SwiftNotice.noticeOnStatusBar("正在播放", autoClear: true, autoClearTime: 2)
                 return
             }
+            DatabaseManager.add(history: ListenHistoryModel.init(with: chapter))
             self.currentChapter = chapter
         }
         
@@ -168,6 +181,8 @@ extension FMToolBar{
     func configShadowColor() {
         let color = self.logoImageView.image!.mostColor()
         self.logoImageView.layer.shadowColor = color!.cgColor
+        self.progressLine.backgroundColor = color
+        
     }
     
     func setUpChapter(_ chapter: Chapter){
@@ -175,14 +190,21 @@ extension FMToolBar{
         self.playBtn.isSelected = false
         FMPlayerManager.shared.config(chapter)
         FMPlayerManager.shared.delegate = self
-		
-        
         let anim = CABasicAnimation.init(keyPath: "transform.rotation.x")
         anim.toValue = NSNumber.init(value: Double.pi*3)
         anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         anim.duration = 0.2
         anim.isCumulative = true
         self.layer.add(anim, forKey: "rotationX")
+    }
+    
+    func changeProgress(_ progress:Double){
+
+        self.progressLine.snp.updateConstraints { (make) in
+            make.width.equalTo(Double.init((kScreenWidth-36-36)) * progress)
+        }
+        
+        self.layoutIfNeeded()
     }
 }
 
@@ -195,10 +217,9 @@ extension FMToolBar {
         self.addSubview(self.logoImageView)
         self.addSubview(self.titleLB)
         self.addSubview(self.authorLB)
-//        self.addSubview(self.rewindBtn)
-//        self.addSubview(self.forwardBtn)
         self.addSubview(self.playBtn)
         self.addSubview(self.loadingView)
+        self.addSubview(self.progressLine)
         
         self.logoImageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
@@ -227,6 +248,13 @@ extension FMToolBar {
             make.centerY.equalToSuperview()
             make.size.equalTo(CGSize.init(width: 30, height: 30))
             make.right.equalToSuperview().offset(-10)
+        }
+        
+        self.progressLine.snp.makeConstraints { (make) in
+            make.left.equalTo(self.logoImageView)
+            make.height.equalTo(2)
+            make.width.equalTo(0)
+            make.bottom.equalToSuperview().offset(-2)
         }
         
 //        self.rewindBtn.snp.makeConstraints { (make) in

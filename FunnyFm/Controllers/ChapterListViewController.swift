@@ -55,7 +55,7 @@ class ChapterListViewController: BaseViewController , ViewModelDelegate, UITable
         table.delegate = self
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
-        table.contentInset = UIEdgeInsets.init(top: 260, left: 0, bottom: 120, right: 0)
+        table.contentInset = UIEdgeInsets.init(top: 220, left: 0, bottom: 120, right: 0)
         return table
     }()
 
@@ -141,7 +141,7 @@ extension ChapterListViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.view.snp.topMargin)
+            make.top.equalTo(self.view)
         }
 		
 		self.topView.snp.makeConstraints { (make) in

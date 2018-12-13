@@ -11,17 +11,19 @@ import SnapKit
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
     
-    var vm = MainViewModel()
+    var vm = MainViewModel.init()
+    
     fileprivate var cellsIsOpen = [Bool]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.vm.delegate = self
+        self.vm.getAllPods()
+        self.vm.getHomeChapters()
         self.view.backgroundColor = .white
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
 		self.configureNavBar()
-        self.addConstrains()
-        self.vm.getAllPods()
         UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
     }
 	
@@ -44,7 +46,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     lazy var tableview : UITableView = {
         let table = UITableView.init(frame: CGRect.zero, style: .plain)
         let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
-        table.sectionHeaderHeight = 18
+        table.sectionHeaderHeight = 36
         table.register(nib, forCellReuseIdentifier: "tablecell")
         table.separatorStyle = .none
         table.rowHeight = 131
@@ -73,8 +75,28 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     lazy var searchBtn : UIButton = {
         let btn = UIButton.init(type: .custom)
         btn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
+        btn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
         return btn
     }()
+    
+    lazy var profileBtn : UIButton = {
+        let btn = UIButton.init(type: .custom)
+        btn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)
+        btn.addTarget(self, action: #selector(toUserCenter), for:.touchUpInside)
+        return btn
+    }()
+}
+
+
+extension MainViewController{
+    @objc func toUserCenter() {
+        let usercenterVC = UserCenterViewController()
+        self.navigationController?.pushViewController(usercenterVC)
+    }
+    
+    @objc func toSearch() {
+        
+    }
 }
 
 
@@ -82,14 +104,14 @@ extension MainViewController : ViewModelDelegate {
     func viewModelDidGetDataSuccess() {
         collectionView.reloadData()
         tableview.reloadData()
-        
+        self.addConstrains()
         if self.vm.chapterList.count > 0 {
             FMToolBar.shared.configToolBarAtHome(self.vm.chapterList.first!)
         }
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
-        
+        SwiftNotice.noticeOnStatusBar("请求失败", autoClear: true, autoClearTime: 2)
     }
     
 }
@@ -103,6 +125,7 @@ extension MainViewController{
         let vc = ChapterListViewController.init(pod)
         self.navigationController?.pushViewController(vc)
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chapter = self.vm.chapterList[indexPath.row]
@@ -125,7 +148,7 @@ extension MainViewController{
         let label = UILabel.init(text: "最近更新")
         label.textColor = UIColor.init(hex: "e0e2e6")
         label.textAlignment = .center
-        label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 18);
+        label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 36);
         label.font = p_bfont(14)
         label.backgroundColor = .white
         return label
@@ -157,6 +180,11 @@ extension MainViewController{
         var header = HomePodListHeader()
         if kind == UICollectionView.elementKindSectionHeader {
             header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath as IndexPath) as! HomePodListHeader;
+            header.tapClosure = {
+                let podlistvc = PodListViewController()
+                self.navigationController?.pushViewController(podlistvc)
+                
+            }
         }
         return header
     }
@@ -173,11 +201,17 @@ extension MainViewController {
     
     
     fileprivate func addConstrains() {
+        self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.searchBar)
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.tableview)
         
+        self.profileBtn.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize.init(width: 35, height: 35))
+            make.left.equalToSuperview().offset(32)
+            make.centerY.equalTo(self.searchBar)
+        }
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))
@@ -187,7 +221,7 @@ extension MainViewController {
         
         self.searchBar.snp.makeConstraints { (make) in
             make.height.equalTo(40)
-            make.left.equalToSuperview().offset(32)
+            make.left.equalTo(self.profileBtn.snp.right).offset(32)
             make.right.equalTo(self.searchBtn.snp.left).offset(-16)
             make.top.equalTo(self.view.snp.topMargin)
         }
@@ -201,7 +235,7 @@ extension MainViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.collectionView.snp.bottom).offset(18)
+            make.top.equalTo(self.collectionView.snp.bottom).offset(14)
         }
     }
     

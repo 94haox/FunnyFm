@@ -25,8 +25,6 @@ class MainViewModel: NSObject {
     
     override init() {
         super.init()
-        self.getHomeChapters()
-        self.getAllPods()
     }
     
     func getAllPods() {

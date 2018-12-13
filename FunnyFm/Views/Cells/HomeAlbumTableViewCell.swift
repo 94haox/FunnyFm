@@ -17,10 +17,10 @@ class HomeAlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var desLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,6 +51,36 @@ class HomeAlbumTableViewCell: UITableViewCell {
             self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!) )
         }
         
+    }
+    
+    func configHistory(_ history:ListenHistoryModel){
+        self.desLB.text = history.intro
+        self.titleLB.text = history.title
+        self.timeLB.text = history.time_until_now
+        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: history.cover_url!)!) )
+    }
+    
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        UIView.animate(withDuration: 0.1) {
+            self.contentView.alpha = 0.5
+        }
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        UIView.animate(withDuration: 0.1) {
+            self.contentView.alpha = 1
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        UIView.animate(withDuration: 0.1) {
+            self.contentView.alpha = 1
+        }
     }
     
 }

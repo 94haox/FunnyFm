@@ -74,7 +74,7 @@ class PodCastCoverView: UIView {
 	}()
 	
 	lazy var visulView: UIVisualEffectView = {
-		let effect = UIBlurEffect.init(style: UIBlurEffect.Style.light)
+		let effect = UIBlurEffect.init(style: UIBlurEffect.Style.dark)
 		let view = UIVisualEffectView.init(effect: effect)
 		return view
 	}()
@@ -126,7 +126,7 @@ extension PodCastCoverView {
 		self.logoImageView.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.size.equalTo(CGSize.init(width: AdaptScale(55), height: AdaptScale(55)))
-			make.top.equalToSuperview().offset(40)
+			make.top.equalToSuperview().offset(60)
 		}
 		
 		self.cycelView.snp.makeConstraints { (make) in

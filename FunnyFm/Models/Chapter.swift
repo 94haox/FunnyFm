@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 struct Chapter : Mapable{
+    var chapterId:              String
     var albumId:                Int
     var trackId:                Int
     var duration:               Int
@@ -39,6 +40,7 @@ struct Chapter : Mapable{
         formatted_created_at = jsonData["formatted_created_at"].stringValue
         pod_cover_url = jsonData["pod_cover_url"].stringValue
         pod_name = jsonData["pod_name"].stringValue
+        chapterId = jsonData["_id"].stringValue
     }
     
     enum CodingKeys : String, CodingKey {
@@ -55,6 +57,7 @@ struct Chapter : Mapable{
         case formatted_created_at
         case pod_cover_url
         case pod_name
+        case chapterId
     }
     
     

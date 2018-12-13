@@ -3,6 +3,7 @@ PODS:
   - JCore (1.2.5)
   - JPush (3.1.1.1):
     - JCore (~> 1.2.5)
+  - KeychainAccess (3.1.2)
   - Kingfisher (5.0.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -10,65 +11,69 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
   - pop (1.0.12)
-  - PromiseKit (6.7.0):
-    - PromiseKit/CorePromise (= 6.7.0)
-    - PromiseKit/Foundation (= 6.7.0)
-    - PromiseKit/UIKit (= 6.7.0)
-  - PromiseKit/CorePromise (6.7.0)
-  - PromiseKit/Foundation (6.7.0):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.7.0):
-    - PromiseKit/CorePromise
   - Result (4.0.0)
   - RxAtomic (4.4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
   - SHFullscreenPopGestureSwift (1.2.1)
   - SnapKit (4.0.1)
+  - SQLiteRepairKit (1.2.1):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (4.2.0)
+  - WCDB.swift (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
 
 DEPENDENCIES:
   - JPush
+  - KeychainAccess
   - Kingfisher
   - Moya
   - pop (~> 1.0)
-  - PromiseKit
   - RxSwift
   - SHFullscreenPopGestureSwift
   - SnapKit (~> 4.0.0)
   - SwiftyJSON
+  - WCDB.swift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - JCore
     - JPush
+    - KeychainAccess
     - Kingfisher
     - Moya
     - pop
-    - PromiseKit
     - Result
     - RxAtomic
     - RxSwift
     - SHFullscreenPopGestureSwift
     - SnapKit
+    - SQLiteRepairKit
     - SwiftyJSON
+    - WCDB.swift
+    - WCDBOptimizedSQLCipher
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: 2b0dd651e4fe5a07305b8242fde56f8e2d410f58
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 990625221879241fa48eccd30964ab7cb765ac88
+PODFILE CHECKSUM: 52257c313c6af44579493899af38c596a2e4ec26
 
 COCOAPODS: 1.5.3

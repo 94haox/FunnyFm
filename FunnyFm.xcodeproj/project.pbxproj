@@ -60,6 +60,8 @@
 		AB25798221945E6F004C5F5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798021945E6F004C5F5D /* Main.storyboard */; };
 		AB25798421945E70004C5F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798521945E70004C5F5D /* LaunchScreen.storyboard */; };
+		AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */; };
+		AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
 		AB41AAE021952D2200260851 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
@@ -78,8 +80,25 @@
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
+		ABE7ACAA21C20D7300FC6B8E /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */; };
+		ABE7ACAC21C20DAC00FC6B8E /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */; };
+		ABE7ACAE21C20E1400FC6B8E /* SubscribListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */; };
+		ABE7ACB021C20E3300FC6B8E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */; };
+		ABE7ACB221C20E4800FC6B8E /* DownloadListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */; };
+		ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */; };
+		ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB521C2177400FC6B8E /* SettingTableViewCell.swift */; };
+		ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE7ACB621C2177400FC6B8E /* SettingTableViewCell.xib */; };
+		ABE7ACBA21C21C1A00FC6B8E /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */; };
+		ABE7ACBD21C22B9400FC6B8E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */; };
+		ABE7ACBF21C2334000FC6B8E /* ChapterProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */; };
 		ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117C21BE764B0083A81B /* JPushConfig.m */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
+		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
+		ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118321BF43E50083A81B /* NormalHeaderView.swift */; };
+		ABF5118621BF4BCB0083A81B /* ListenHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */; };
+		ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */; };
+		ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */; };
+		ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +160,8 @@
 		AB25798321945E70004C5F5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB25798621945E70004C5F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB25798821945E70004C5F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		AB41AADF21952D2200260851 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
@@ -160,11 +181,28 @@
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
+		ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
+		ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribListController.swift; sourceTree = "<group>"; };
+		ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListController.swift; sourceTree = "<group>"; };
+		ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListController.swift; sourceTree = "<group>"; };
+		ABE7ACB521C2177400FC6B8E /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		ABE7ACB621C2177400FC6B8E /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterProgress.swift; sourceTree = "<group>"; };
 		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		ABF5117B21BE764B0083A81B /* JPushConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPushConfig.h; sourceTree = "<group>"; };
 		ABF5117C21BE764B0083A81B /* JPushConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPushConfig.m; sourceTree = "<group>"; };
 		ABF5117E21BE8A7C0083A81B /* FMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMTextField.h; path = FunnyFm/OC/FMTextField.h; sourceTree = SOURCE_ROOT; };
 		ABF5117F21BE8A7C0083A81B /* FMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMTextField.m; path = FunnyFm/OC/FMTextField.m; sourceTree = SOURCE_ROOT; };
+		ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
+		ABF5118321BF43E50083A81B /* NormalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalHeaderView.swift; sourceTree = "<group>"; };
+		ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenHistoryModel.swift; sourceTree = "<group>"; };
+		ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListCollectionViewCell.swift; sourceTree = "<group>"; };
+		ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodListCollectionViewCell.xib; sourceTree = "<group>"; };
+		ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +299,7 @@
 				AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */,
 				AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */,
 				AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */,
+				ABF5118321BF43E50083A81B /* NormalHeaderView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -292,6 +331,7 @@
 				AB41AAE6219533E000260851 /* ViewModel */,
 				AB41AADA21952A6400260851 /* Controllers */,
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
+				ABE7ACBB21C22B8700FC6B8E /* Manager */,
 				AB41AADC21952A8A00260851 /* Views */,
 				AB41AADB21952A7C00260851 /* Models */,
 				AB41AAD7219529DB00260851 /* Utils */,
@@ -316,7 +356,6 @@
 				AB41AAE9219537B400260851 /* Const.swift */,
 				AB41AAED21955ECF00260851 /* Protocol.swift */,
 				AB41AB0A2195752B00260851 /* Extension.swift */,
-				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -328,6 +367,12 @@
 				AB1E6DB321BA74DA00B85135 /* ChapterListViewController.swift */,
 				AB1E6DB721BA809D00B85135 /* PodListViewController.swift */,
 				AB1E6DB921BA877D00B85135 /* ChapterDetailViewController.swift */,
+				ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */,
+				ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */,
+				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
+				ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */,
+				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
+				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -337,6 +382,8 @@
 			children = (
 				AB41AADF21952D2200260851 /* Pod.swift */,
 				AB41AAE121952EAA00260851 /* Chapter.swift */,
+				ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */,
+				ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +414,7 @@
 			children = (
 				AB41AAEB2195394C00260851 /* MainViewModel.swift */,
 				AB1E6DB521BA771C00B85135 /* ChapterListViewModel.swift */,
+				ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -438,6 +486,12 @@
 				AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */,
 				AB1E6D9C21B9388800B85135 /* HomeAlbumTableViewCell.swift */,
 				AB1E6D9D21B9388800B85135 /* HomeAlbumTableViewCell.xib */,
+				ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */,
+				ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */,
+				AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */,
+				AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */,
+				ABE7ACB521C2177400FC6B8E /* SettingTableViewCell.swift */,
+				ABE7ACB621C2177400FC6B8E /* SettingTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -454,8 +508,19 @@
 			isa = PBXGroup;
 			children = (
 				AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */,
+				ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */,
+				ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		ABE7ACBB21C22B8700FC6B8E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
+				ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		F9DE604A996C7DC4220A9259 /* Pods */ = {
@@ -536,8 +601,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
+				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
+				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				AB25798221945E6F004C5F5D /* Main.storyboard in Resources */,
@@ -573,29 +641,35 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SHFullscreenPopGestureSwift/SHFullscreenPopGestureSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHFullscreenPopGestureSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqliterk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,18 +688,24 @@
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
 				AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */,
+				ABE7ACBA21C21C1A00FC6B8E /* BaseTableViewCell.swift in Sources */,
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
+				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
 				AB1E6D8C21B9252500B85135 /* UIFontExtensions.swift in Sources */,
 				AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */,
 				AB1E6D7921B9252500B85135 /* UIBarButtonItemExtensions.swift in Sources */,
+				ABE7ACAC21C20DAC00FC6B8E /* HistoryListViewController.swift in Sources */,
+				ABE7ACB021C20E3300FC6B8E /* SettingViewController.swift in Sources */,
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
+				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
+				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
 				AB1E6D8D21B9252500B85135 /* UIDatePickerExtensions.swift in Sources */,
@@ -635,24 +715,30 @@
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
 				AB1E6D7F21B9252500B85135 /* UISliderExtensions.swift in Sources */,
+				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
 				AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */,
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
+				ABE7ACBD21C22B9400FC6B8E /* DatabaseManager.swift in Sources */,
 				AB1E6DB021BA5B4500B85135 /* OptionalExtension.swift in Sources */,
 				AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */,
 				AB1E6D7421B9252500B85135 /* UILayoutPriorityExtensions.swift in Sources */,
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
+				ABE7ACBF21C2334000FC6B8E /* ChapterProgress.swift in Sources */,
 				AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */,
+				ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */,
 				AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */,
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,
 				AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */,
 				AB1E6D8321B9252500B85135 /* UIViewExtensions.swift in Sources */,
+				ABE7ACB221C20E4800FC6B8E /* DownloadListController.swift in Sources */,
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
 				AB1E6D7A21B9252500B85135 /* UIStoryboardExtensions.swift in Sources */,
+				ABF5118621BF4BCB0083A81B /* ListenHistoryModel.swift in Sources */,
 				AB41AAE221952EAA00260851 /* Chapter.swift in Sources */,
 				AB1E6D7D21B9252500B85135 /* UINavigationBarExtensions.swift in Sources */,
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
@@ -660,13 +746,16 @@
 				AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
+				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,
 				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,
 				AB1E6D7221B9252500B85135 /* UIScrollViewExtensions.swift in Sources */,
+				ABE7ACAA21C20D7300FC6B8E /* BaseCollectionViewCell.swift in Sources */,
 				AB1E6D8021B9252500B85135 /* UIViewControllerExtensions.swift in Sources */,
 				AB41AB07219564F000260851 /* SubviewsForEach.swift in Sources */,
 				AB1E6DBA21BA877D00B85135 /* ChapterDetailViewController.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
+				ABE7ACAE21C20E1400FC6B8E /* SubscribListController.swift in Sources */,
 				ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
@@ -674,6 +763,7 @@
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
 				AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */,
 				AB1E6DB421BA74DA00B85135 /* ChapterListViewController.swift in Sources */,
+				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,

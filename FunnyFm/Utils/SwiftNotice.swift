@@ -106,7 +106,7 @@ class SwiftNotice: NSObject {
         let window = UIWindow()
         window.backgroundColor = UIColor.clear
         let view = UIView()
-        view.backgroundColor = CommonColor.mainPink.color
+        view.backgroundColor = .red
         
         let label = UILabel(frame: frame.height > 20 ? CGRect(x: frame.origin.x, y: frame.origin.y + frame.height - 17, width: frame.width, height: 20) : frame)
         label.textAlignment = NSTextAlignment.center
