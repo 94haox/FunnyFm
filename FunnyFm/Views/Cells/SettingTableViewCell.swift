@@ -12,17 +12,13 @@ class SettingTableViewCell: BaseTableViewCell {
 
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var titleLB: UILabel!
-    @IBOutlet weak var rightView: UIImageView!
+    @IBOutlet weak var rightImageView: UIImageView!
+    @IBOutlet weak var rightView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
         // Initialization code
-    }
-    
-    func configCell(_ dic: [String : String]){
-        print(dic)
-//        self.leftImageView.image = UIImage.init(named: image)
     }
     
     func config(dic : Dictionary<String, String>){

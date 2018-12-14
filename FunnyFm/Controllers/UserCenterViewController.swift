@@ -79,7 +79,7 @@ extension UserCenterViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 4 {
-            let setvc = SettingViewController.init(style: .plain)
+            let setvc = SettingViewController()
             self.navigationController?.pushViewController(setvc)
         }
         
