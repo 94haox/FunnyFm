@@ -14,7 +14,7 @@ import SHFullscreenPopGestureSwift
 
 public func configureNavigationTabBar() {
 	SHFullscreenPopGesture.configure()
-//    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     UINavigationBar.appearance().shadowImage = UIImage()
     UINavigationBar.appearance().isTranslucent = true
     UINavigationBar.appearance().titleTextAttributes = [

@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import MediaPlayer
 import RxSwift
+import pop
 
 
 

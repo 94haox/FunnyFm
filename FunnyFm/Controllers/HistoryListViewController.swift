@@ -25,8 +25,6 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
             make.bottom.equalToSuperview()
             make.top.equalTo(self.titleLB.snp.bottom)
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     

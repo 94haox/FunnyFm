@@ -20,7 +20,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         self.view.addSubview(self.titleLB)
         
         self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(30)
+            make.top.equalTo(self.view.snp.topMargin)
             make.left.equalToSuperview().offset(16)
         }
         self.tableview.snp.makeConstraints { (make) in
@@ -31,12 +31,14 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
     
     lazy var datasource : Array = {return []}()
+	lazy var settings : Array = {return []}()
+	lazy var feedbacks : Array = {return []}()
     
     func setUpDataSource (){
         
-        self.datasource.append(["title":"接收通知","imageName":"notify"])
-        self.datasource.append(["title":"github issue","imageName":"github","rightImage":""])
-        self.datasource.append(["title":"www.funnyfm@outlook.com","imageName":"mail"])
+        self.settings.append(["title":"接收通知","imageName":"notify"])
+        self.feedbacks.append(["title":"github issue","imageName":"github","rightImage":""])
+        self.feedbacks.append(["title":"www.funnyfm@outlook.com","imageName":"mail"])
     }
     
     lazy var titleLB: UILabel = {
@@ -52,6 +54,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         table.register(nib, forCellReuseIdentifier: "cell")
         table.separatorStyle = .none
         table.rowHeight = 50
+		table.sectionHeaderHeight = 30
         table.delegate = self
         table.dataSource = self
         table.tableFooterView = UIView()
@@ -63,24 +66,65 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 
 
 extension SettingViewController {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.datasource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingTableViewCell
-        cell.backgroundColor = CommonColor.cellbackgroud.color
-        let item = self.datasource[indexPath.row] as! Dictionary<String,String>
-//        cell.configCell(item)
-        cell.config(dic: item)
-        return cell
-    }
+	
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+		if indexPath.section == 0{
+			
+			
+			return
+		}
+		
+		
+		
     }
     
     
+}
+
+extension SettingViewController {
+	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 2
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if section == 0 {
+			return self.settings.count
+		}
+		return self.feedbacks.count
+	}
+	
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let view = UIView.init()
+		let lb = UILabel.init(text: "通知")
+		lb.backgroundColor = CommonColor.background.color
+		lb.textColor = CommonColor.subtitle.color
+		lb.font = pfont(fontsize2)
+		if section == 1 {
+			lb.text = "反馈"
+		}
+		view.addSubview(lb)
+		lb.snp.makeConstraints { (make) in
+			make.top.height.right.equalToSuperview()
+			make.left.equalToSuperview().offset(17)
+		}
+		return view
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingTableViewCell
+		cell.backgroundColor = CommonColor.cellbackgroud.color
+		if indexPath.section == 0 {
+			let item = self.settings[indexPath.row] as! Dictionary<String,String>
+			cell.config(dic: item)
+		}else{
+			let item = self.feedbacks[indexPath.row] as! Dictionary<String,String>
+			cell.config(dic: item)
+		}
+		
+		return cell
+	}
 }
