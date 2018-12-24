@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42CBF1388E6D4B91B3B11DABEA5F84B8"
-               BuildableName = "RxSwift.framework"
-               BlueprintName = "RxSwift"
+               BlueprintIdentifier = "0BEA60F4596D00F48A6699FDF604D9F4"
+               BuildableName = "SPStorkController.framework"
+               BlueprintName = "SPStorkController"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42CBF1388E6D4B91B3B11DABEA5F84B8"
-            BuildableName = "RxSwift.framework"
-            BlueprintName = "RxSwift"
+            BlueprintIdentifier = "0BEA60F4596D00F48A6699FDF604D9F4"
+            BuildableName = "SPStorkController.framework"
+            BlueprintName = "SPStorkController"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

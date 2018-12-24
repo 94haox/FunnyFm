@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SPStorkController
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
     
@@ -21,8 +22,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
         self.vm.getAllPods()
         self.vm.getHomeChapters()
         self.view.backgroundColor = .white
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
 		self.configureNavBar()
         UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
     }
@@ -33,13 +32,15 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
         layout.itemSize = CGSize(width: 65, height: 65)
         layout.headerReferenceSize = CGSize(width: 95, height: 65)
         layout.scrollDirection = .horizontal
-        let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
+        let collectionview = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 80), collectionViewLayout: layout)
         collectionview.showsHorizontalScrollIndicator = false
         let nib = UINib(nibName: String(describing: HomePodCollectionViewCell.self), bundle: nil)
         let headernib = UINib(nibName: String(describing: HomePodListHeader.self), bundle: nil)
         collectionview.register(nib, forCellWithReuseIdentifier: "cell")
         collectionview.register(HomePodListHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionview.backgroundColor = .white
+        collectionview.delegate = self
+        collectionview.dataSource = self
         return collectionview
     }()
     
@@ -54,6 +55,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
         table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+        table.tableHeaderView = self.collectionView;
         return table
     }()
     
@@ -95,7 +97,11 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-        
+        let controller = ChapterDetailViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller.transitioningDelegate = transitionDelegate
+        controller.modalPresentationStyle = .custom
+        self.present(controller, animated: true, completion: nil)
     }
 }
 
@@ -204,7 +210,6 @@ extension MainViewController {
         self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.searchBar)
-        self.view.addSubview(self.collectionView)
         self.view.addSubview(self.tableview)
         
         self.profileBtn.snp.makeConstraints { (make) in
@@ -226,16 +231,16 @@ extension MainViewController {
             make.top.equalTo(self.view.snp.topMargin)
         }
         
-        self.collectionView.snp.makeConstraints { (make) in
-            make.left.width.equalToSuperview()
-            make.height.equalTo(80)
-            make.top.equalTo(self.searchBar.snp.bottom).offset(32)
-        }
+//        self.collectionView.snp.makeConstraints { (make) in
+//            make.left.width.equalToSuperview()
+//            make.height.equalTo(80)
+//            make.top.equalTo(self.searchBar.snp.bottom).offset(32)
+//        }
         
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.collectionView.snp.bottom).offset(14)
+            make.top.equalTo(self.searchBar.snp.bottom).offset(32)
         }
     }
     

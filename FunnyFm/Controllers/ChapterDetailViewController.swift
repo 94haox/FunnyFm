@@ -10,10 +10,14 @@ import UIKit
 
 class ChapterDetailViewController: BaseViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .white
+        self.modalPresentationCapturesStatusBarAppearance = true
     }
     
 

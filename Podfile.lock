@@ -17,6 +17,7 @@ PODS:
     - RxAtomic (~> 4.4)
   - SHFullscreenPopGestureSwift (1.2.1)
   - SnapKit (4.0.1)
+  - SPStorkController (1.1.6)
   - SQLiteRepairKit (1.2.1):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (4.2.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - RxSwift
   - SHFullscreenPopGestureSwift
   - SnapKit (~> 4.0.0)
+  - SPStorkController
   - SwiftyJSON
   - WCDB.swift
 
@@ -51,6 +53,7 @@ SPEC REPOS:
     - RxSwift
     - SHFullscreenPopGestureSwift
     - SnapKit
+    - SPStorkController
     - SQLiteRepairKit
     - SwiftyJSON
     - WCDB.swift
@@ -69,11 +72,12 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SPStorkController: 5e8bb5c22041dab7c23ced543ab076d2be2df3b9
   SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 52257c313c6af44579493899af38c596a2e4ec26
+PODFILE CHECKSUM: e5a94ff5345b37df4ebca7b0b880d2fefd49d19b
 
 COCOAPODS: 1.5.3

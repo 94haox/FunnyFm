@@ -65,7 +65,7 @@ public enum CommonColor {
         case .content:
             return UIColor.init(hex: "b9bbbf")
         case .mainPink:
-            return UIColor.init(hex: "e3bfc4")
+            return UIColor.init(hex: "fd5795")
         }
         
     }
