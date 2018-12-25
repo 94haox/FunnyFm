@@ -12,8 +12,8 @@ class ChapterProgressView: UIView {
     
     var fontSize: CGFloat = 6 {
         didSet{
-            self.allDot.font = pfont(fontSize)
-            self.nowDot.font = pfont(fontSize)
+            self.allDot.font = hfont(fontSize)
+            self.nowDot.font = hfont(fontSize)
         }
     }
     
@@ -102,7 +102,7 @@ class ChapterProgressView: UIView {
         let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
-        lb.font = pfont(self.fontSize)
+        lb.font = hfont(self.fontSize)
         return lb
     }()
     
@@ -110,7 +110,7 @@ class ChapterProgressView: UIView {
         let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
-        lb.font = pfont(self.fontSize)
+        lb.font = hfont(self.fontSize)
         return lb
     }()
     

@@ -105,6 +105,20 @@ func p_bfont(_ fontsize:CGFloat) -> UIFont {
     return UIFont.init(name: "PingFangSC-Semibold", size: fontsize)!
 }
 
+func hfont(_ fontsize:CGFloat) -> UIFont {
+	return UIFont.init(name: "Helvetica", size: fontsize)!
+}
+
+func h_mfont(_ fontsize:CGFloat) -> UIFont {
+	return UIFont.init(name: "Helvetica-Medium", size: fontsize)!
+}
+
+func h_bfont(_ fontsize:CGFloat) -> UIFont {
+	return UIFont.init(name: "Helvetica-Semibold", size: fontsize)!
+}
+
+
+
 
 extension UIColor {
     

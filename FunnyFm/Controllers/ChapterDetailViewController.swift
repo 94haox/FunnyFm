@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ChapterDetailViewController: BaseViewController {
     
@@ -97,6 +98,11 @@ extension ChapterDetailViewController {
             make.top.equalTo(self.subTitle!.snp.bottom).offset(57)
             make.size.equalTo(CGSize.init(width: 244, height: 244))
         })
+		
+		self.coverImageView?.snp.makeConstraints({ (make) in
+			make.center.equalTo(self.blackImageView!)
+			make.size.equalTo(CGSize.init(width: 140, height: 140))
+		})
         
         self.likeBtn?.snp.makeConstraints({ (make) in
             make.top.equalTo(self.blackImageView!.snp.bottom).offset(77)
@@ -141,9 +147,14 @@ extension ChapterDetailViewController {
         self.subTitle?.font = pfont(fontsize0)
         self.view.addSubview(self.subTitle!)
         
-        self.blackImageView = UIImageView.init()
-        self.blackImageView?.backgroundColor = .black
+        self.blackImageView = UIImageView.init(image: UIImage.init(named: "blackground"))
         self.view.addSubview(self.blackImageView!)
+		
+		self.coverImageView = UIImageView.init()
+		let resource = ImageResource.init(downloadURL: URL.init(string: (self.chapter?.cover_url_high)!)!)
+		self.coverImageView!.kf.setImage(with: resource)
+		self.coverImageView?.cornerRadius = 70
+		self.view.addSubview(self.coverImageView!)
         
         self.likeBtn = UIButton.init(type: .custom)
         self.likeBtn?.setImage(UIImage.init(named: "favor-nor"), for: .normal)
