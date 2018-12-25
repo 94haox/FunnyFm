@@ -40,8 +40,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     
     lazy var playBtn : UIButton = {
         let btn = UIButton.init(type: .custom)
-        btn.setImage(UIImage.init(named: "Play"), for: .normal)
-        btn.setImage(UIImage.init(named: "pause"), for: .selected)
+        btn.setImage(UIImage.init(named: "play-red"), for: .normal)
+        btn.setImage(UIImage.init(named: "pause-red"), for: .selected)
         btn.backgroundColor = .white
         btn.cornerRadius = 15
         btn.isHidden = true
@@ -90,20 +90,29 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         return loading
     }()
     
-//    lazy var progressLine: UIView = {
-//        let view = UIView.init()
-//        view.cornerRadius = 2
-//        view.layer.masksToBounds = false
-//        return view
-//    }()
-    
     lazy var progressLine: ChapterProgressView = {
         let line = ChapterProgressView.init(frame: CGRect.zero)
         line.isHidden = true
         return line
     }()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchbegin---------")
+        let vc = ChapterDetailViewController()
+        vc.chapter = self.currentChapter
+        let nav = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
+        nav.pushViewController(vc)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        print("touchmove---------")
+    }
 
 }
+
+
+
 
 // MARK: FMPlayerManagerDelegate
 extension FMToolBar {
@@ -257,7 +266,7 @@ extension FMToolBar {
         
         self.progressLine.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().offset(-50)
+            make.width.equalToSuperview().offset(-10)
             make.height.equalTo(20)
             make.bottom.equalToSuperview()
         }
