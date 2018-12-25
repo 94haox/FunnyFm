@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         configureNavigationTabBar()
         jspushConfig(launchOptions: launchOptions)
         DatabaseManager.setupDefaultDatabase()
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
     

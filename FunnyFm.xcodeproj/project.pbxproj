@@ -91,6 +91,7 @@
 		ABE7ACBA21C21C1A00FC6B8E /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */; };
 		ABE7ACBD21C22B9400FC6B8E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */; };
 		ABE7ACBF21C2334000FC6B8E /* ChapterProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */; };
+		ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */; };
 		ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117C21BE764B0083A81B /* JPushConfig.m */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
@@ -192,6 +193,7 @@
 		ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterProgress.swift; sourceTree = "<group>"; };
+		ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterProgressView.swift; sourceTree = "<group>"; };
 		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		ABF5117B21BE764B0083A81B /* JPushConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPushConfig.h; sourceTree = "<group>"; };
 		ABF5117C21BE764B0083A81B /* JPushConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPushConfig.m; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */,
 				AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */,
 				ABF5118321BF43E50083A81B /* NormalHeaderView.swift */,
+				ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
 				AB1E6D7F21B9252500B85135 /* UISliderExtensions.swift in Sources */,
+				ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
 				AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */,

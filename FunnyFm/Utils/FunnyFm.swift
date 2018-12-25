@@ -23,4 +23,38 @@ class FunnyFm: NSObject {
     static func sharedDatabaseUrl() -> URL{
         return self.sharedUrl()!.appendingPathComponent("FunnyFM.db")
     }
+    
+    static func formatIntervalToMM(_ second:NSInteger) -> String {
+        
+        let hour = second/3600
+        let min = second%3600/60
+        let sec = second%3600%60
+        
+        var hourStr = ""
+        if  hour > 0 {
+            hourStr = "0" + String(hour) + ":"
+        }
+        
+        var minStr = "00:"
+        if  min > 0 {
+            if min > 9 {
+                minStr = String(min)
+            }else{
+                minStr = "0" + String(min)
+            }
+            minStr = minStr + ":"
+        }
+        
+        var secStr = "00"
+        if  sec > 0 {
+            if  sec > 9 {
+                secStr = String(sec)
+            }else{
+                secStr = "0" + String(sec)
+            }
+        }
+        
+        return hourStr + minStr + secStr
+    }
+    
 }

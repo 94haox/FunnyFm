@@ -89,6 +89,8 @@ class FMPlayerManager: NSObject {
                 if(time.seconds == 0){
                     self.delegate?.managerDidChangeProgress(progess:0)
                 }
+                self.currentTime = NSInteger(time.seconds)
+                self.totalTime = NSInteger((self.playerItem?.duration.seconds)!)
                 self.delegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!)
             }else{
                 self.delegate?.managerDidChangeProgress(progess:0)
@@ -127,13 +129,8 @@ extension FMPlayerManager{
         }
         if keyPath == "status" {
             let status = value! as! Int
-            if(status == 1){
-                self.isCanPlay = true
-                self.delegate?.playerStatusDidChanged(isCanPlay: true)
-            }else{
-                self.isCanPlay = false
-                self.delegate?.playerStatusDidChanged(isCanPlay: false)
-            }
+            self.isCanPlay = status == 1
+            self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
         }
         
         if keyPath == "loadedTimeRanges" {

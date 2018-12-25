@@ -90,16 +90,22 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         return loading
     }()
     
-    lazy var progressLine: UIView = {
-        let view = UIView.init()
-        view.cornerRadius = 2
-        view.layer.masksToBounds = false
-        return view
+//    lazy var progressLine: UIView = {
+//        let view = UIView.init()
+//        view.cornerRadius = 2
+//        view.layer.masksToBounds = false
+//        return view
+//    }()
+    
+    lazy var progressLine: ChapterProgressView = {
+        let line = ChapterProgressView.init(frame: CGRect.zero)
+        line.isHidden = true
+        return line
     }()
 
 }
 
-
+// MARK: FMPlayerManagerDelegate
 extension FMToolBar {
     
     @objc func didTapPlayBtnAction(btn:UIButton){
@@ -120,11 +126,13 @@ extension FMToolBar {
                 self.playBtn.isSelected = true
                 FMPlayerManager.shared.play()
             }
+            self.progressLine.changeProgress(progress: 0, current: "00:00", total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
 		}
     }
 	
 	func playerDidPlay() {
 		self.isPlaying = true
+        self.progressLine.isHidden = false
 	}
 	
 	func playerDidPause() {
@@ -133,6 +141,7 @@ extension FMToolBar {
     
     func managerDidChangeProgress(progess: Double) {
         self.changeProgress(progess)
+        self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.currentTime), total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
     }
 
 }
@@ -182,7 +191,7 @@ extension FMToolBar{
     func configShadowColor() {
         let color = self.logoImageView.image!.mostColor()
         self.logoImageView.layer.shadowColor = color!.cgColor
-        self.progressLine.backgroundColor = color
+//        self.progressLine.backgroundColor = color
         
     }
     
@@ -200,12 +209,7 @@ extension FMToolBar{
     }
     
     func changeProgress(_ progress:Double){
-
-        self.progressLine.snp.updateConstraints { (make) in
-            make.width.equalTo(Double.init((kScreenWidth-36-36)) * progress)
-        }
-        
-        self.layoutIfNeeded()
+//        self.progressLine.changeProgress(progress: progress)
     }
 }
 
@@ -252,26 +256,10 @@ extension FMToolBar {
         }
         
         self.progressLine.snp.makeConstraints { (make) in
-            make.left.equalTo(self.logoImageView)
-            make.height.equalTo(2)
-            make.width.equalTo(0)
-            make.bottom.equalToSuperview().offset(-2)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().offset(-50)
+            make.height.equalTo(20)
+            make.bottom.equalToSuperview()
         }
-        
-//        self.rewindBtn.snp.makeConstraints { (make) in
-//            make.centerY.equalTo(self.playBtn)
-//            make.size.equalTo(CGSize.init(width: 30, height: 30))
-//            make.right.equalTo(self.playBtn.snp.left).offset(-5)
-//        }
-//
-//        self.forwardBtn.snp.makeConstraints { (make) in
-//            make.centerY.equalTo(self.playBtn)
-//            make.size.equalTo(CGSize.init(width: 30, height: 30))
-//            make.left.equalTo(self.playBtn.snp.right)
-//        }
-		
-        
-        
-        
     }
 }
