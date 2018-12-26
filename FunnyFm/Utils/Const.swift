@@ -51,6 +51,7 @@ public enum CommonColor {
     case background       // controller背景色
     case cellbackgroud    // cell 背景色
     case mainPink
+    case mainRed
     
     public var color : UIColor {
         switch self {
@@ -66,7 +67,11 @@ public enum CommonColor {
             return UIColor.init(hex: "b9bbbf")
         case .mainPink:
             return UIColor.init(hex: "fd5795")
+        case .mainRed:
+            return UIColor.init(hex: "ff2453")
         }
+        
+        
         
     }
 }
@@ -106,15 +111,15 @@ func p_bfont(_ fontsize:CGFloat) -> UIFont {
 }
 
 func hfont(_ fontsize:CGFloat) -> UIFont {
-	return UIFont.init(name: "Helvetica", size: fontsize)!
+	return UIFont.init(name: "HelveticaNeue", size: fontsize)!
 }
 
 func h_mfont(_ fontsize:CGFloat) -> UIFont {
-	return UIFont.init(name: "Helvetica-Medium", size: fontsize)!
+	return UIFont.init(name: "HelveticaNeue-Medium", size: fontsize)!
 }
 
 func h_bfont(_ fontsize:CGFloat) -> UIFont {
-	return UIFont.init(name: "Helvetica-Semibold", size: fontsize)!
+	return UIFont.init(name: "HelveticaNeue-Bold", size: fontsize)!
 }
 
 

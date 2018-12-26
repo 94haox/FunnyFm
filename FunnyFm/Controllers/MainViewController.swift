@@ -62,7 +62,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     lazy var searchBar : FMTextField = {
         let tf = FMTextField.init(frame: CGRect.zero)
         tf.cornerRadius = 15;
-        tf.tintColor = CommonColor.mainPink.color
+        tf.tintColor = CommonColor.mainRed.color
         tf.backgroundColor = CommonColor.cellbackgroud.color
         tf.placeholder = "search"
         tf.returnKeyType = .done

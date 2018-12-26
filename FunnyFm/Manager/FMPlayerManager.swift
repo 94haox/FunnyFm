@@ -30,6 +30,8 @@ class FMPlayerManager: NSObject {
     
     var delegate: FMPlayerManagerDelegate?
     
+    var timerObserver: Any?
+    
     var isPlay: Bool = false
     
     var isFirst: Bool = true
@@ -57,9 +59,76 @@ class FMPlayerManager: NSObject {
     
     deinit {
         self.playerItem?.removeObserver(self, forKeyPath: "status")
-        self.player?.removeTimeObserver(self)
-
+        self.player?.removeTimeObserver(self.timerObserver!)
     }
+
+}
+
+
+// MARK: playControll
+
+extension FMPlayerManager {
+    
+    func play(){
+        
+        if(self.isCanPlay){
+            self.isPlay = true
+            self.player?.play()
+            self.delegate?.playerDidPlay()
+        }else{
+            SwiftNotice.noticeOnStatusBar("暂时无法播放", autoClear: true, autoClearTime: 1)
+        }
+    }
+    
+    func pause() {
+        self.isPlay = false
+        self.player?.pause()
+        self.delegate?.playerDidPause()
+    }
+    
+    func seekToProgress(_ progress: CGFloat) {
+        if self.playerItem.isNone {
+            return;
+        }
+        self.player?.pause()
+        self.player?.removeTimeObserver(self.timerObserver!)
+        let seekSecond = self.playerItem!.duration.seconds * Double(progress)
+        let seekTime = CMTimeMakeWithSeconds(seekSecond, preferredTimescale: 1*600)
+        self.player?.seek(to: seekTime, completionHandler: { [unowned self] (isComplete) in
+            self.addTimeObserver()
+            self.player?.play()
+        })
+    }
+    
+}
+
+
+// MARK: observers
+
+extension FMPlayerManager{
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        let value = change?[NSKeyValueChangeKey.newKey]
+        if value.isNone {
+            return
+        }
+        if keyPath == "status" {
+            let status = value! as! Int
+            self.isCanPlay = status == 1
+            self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
+        }
+        
+        if keyPath == "loadedTimeRanges" {
+            
+        }
+        
+    }
+}
+
+
+// MARK: config
+
+extension FMPlayerManager {
     
     func changePlayItem(_ item: AVPlayerItem){
         self.isCanPlay = false
@@ -83,8 +152,11 @@ class FMPlayerManager: NSObject {
         }else{
             self.player?.replaceCurrentItem(with: self.playerItem)
         }
-        
-        self.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 0.1, preferredTimescale: 600), queue: DispatchQueue.main, using: { [unowned self] (time) in
+        self.addTimeObserver()
+    }
+    
+    func addTimeObserver(){
+        self.timerObserver = self.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 0.1, preferredTimescale: 600), queue: DispatchQueue.main, using: { [unowned self] (time) in
             if(time.seconds > 0 && (self.playerItem?.duration.seconds).isSome){
                 if(time.seconds == 0){
                     self.delegate?.managerDidChangeProgress(progess:0)
@@ -100,46 +172,9 @@ class FMPlayerManager: NSObject {
     }
     
     
-    func play(){
-        
-        if(self.isCanPlay){
-            self.isPlay = true
-            self.player?.play()
-			self.delegate?.playerDidPlay()
-        }else{
-           SwiftNotice.noticeOnStatusBar("暂时无法播放", autoClear: true, autoClearTime: 1)
-        }
-    }
-    
-    func pause() {
-        self.isPlay = false
-        self.player?.pause()
-		self.delegate?.playerDidPause()
-    }
-    
-
 }
 
-extension FMPlayerManager{
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        let value = change?[NSKeyValueChangeKey.newKey]
-        if value.isNone {
-            return
-        }
-        if keyPath == "status" {
-            let status = value! as! Int
-            self.isCanPlay = status == 1
-            self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
-        }
-        
-        if keyPath == "loadedTimeRanges" {
-            
-        }
-        
-    }
-}
-
+// MARK: back
 
 extension FMPlayerManager {
 	

@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import pop
+
 
 class ChapterProgressView: UIView {
+    
+    var isDrag = false
+    
+    var beginPoint: CGPoint?
     
     var fontSize: CGFloat = 6 {
         didSet{
@@ -22,7 +28,7 @@ class ChapterProgressView: UIView {
     var cycleW: CGFloat = 10 {
         didSet{
             self.nowCycle.cornerRadius = cycleW/2.0
-            self.nowCycle.addShadow(ofColor: CommonColor.mainPink.color)
+            self.nowCycle.addShadow(ofColor: CommonColor.mainRed.color)
             self.nowCycle.snp.updateConstraints { (make) in
                 make.size.equalTo(CGSize.init(width: cycleW, height: cycleW))
             }
@@ -39,12 +45,15 @@ class ChapterProgressView: UIView {
     }
     
     func changeProgress(progress:Double, current:String, total:String){
-        self.currentProgress.snp.updateConstraints { (make) in
-            make.width.equalTo(Double(self.frame.width) * progress)
-        }
-        self.layoutIfNeeded()
         self.allDot.text = total
         self.nowDot.text = current
+        if self.isDrag {
+            return
+        }
+        self.currentProgress.snp.updateConstraints { (make) in
+            make.width.equalTo(Double(self.totalProgress.frame.width) * progress)
+        }
+        self.layoutIfNeeded()
     }
     
     func dw_addSubviews(){
@@ -56,7 +65,6 @@ class ChapterProgressView: UIView {
         
         self.nowDot.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.width.equalTo(35)
             make.left.equalToSuperview().offset(2)
         }
         
@@ -90,16 +98,16 @@ class ChapterProgressView: UIView {
     
     lazy var nowCycle : UIView = {
         let view = UIView.init()
-        view.backgroundColor = CommonColor.mainPink.color
+        view.backgroundColor = CommonColor.mainRed.color
         view.borderWidth = 1
         view.borderColor = .white
         view.cornerRadius = self.cycleW/2
-        view.addShadow(ofColor: CommonColor.mainPink.color)
+        view.addShadow(ofColor: CommonColor.mainRed.color)
         return view
     }()
     
     lazy var nowDot : UILabel = {
-        let lb = UILabel.init(text: "00:00")
+        let lb = UILabel.init(text: "00:00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
         lb.font = hfont(self.fontSize)
@@ -107,7 +115,7 @@ class ChapterProgressView: UIView {
     }()
     
     lazy var allDot : UILabel = {
-        let lb = UILabel.init(text: "00:00")
+        let lb = UILabel.init(text: "00:00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
         lb.font = hfont(self.fontSize)
@@ -123,18 +131,61 @@ class ChapterProgressView: UIView {
     
     lazy var currentProgress: UIView = {
         let view = UIView.init()
-        view.backgroundColor = CommonColor.mainPink.color
+        view.backgroundColor = CommonColor.mainRed.color
         view.cornerRadius = self.progressHeigth/2.0
         return view;
     }()
     
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }
+
+extension ChapterProgressView {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.randomElement()
+        let point = touch?.location(in: self)
+        
+        if self.nowCycle.layer.frame.contains(point!) {
+            self.beginPoint = point
+            self.isDrag = true
+            if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
+                anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
+                anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.5, y: 1.5))
+                anim.springBounciness = 30
+                self.nowCycle.layer.pop_add(anim, forKey: "size")
+            }
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if(self.isDrag) {
+            let touch = touches.randomElement()
+            let progressPoint = touch!.location(in: self.totalProgress)
+            if progressPoint.x > 0{
+                var x = progressPoint.x
+                if x > self.totalProgress.frame.width {
+                    x = self.totalProgress.frame.width
+                }
+                self.currentProgress.snp.updateConstraints { (make) in
+                    make.width.equalTo(x)
+                }
+            }
+        }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.isDrag = false
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.isDrag {
+            let progress = self.currentProgress.frame.width/self.totalProgress.frame.width
+            FMPlayerManager.shared.seekToProgress(progress)
+        }
+        self.isDrag = false
+    }
+    
+    
+}
+
+

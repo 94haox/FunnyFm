@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ChapterDetailViewController: BaseViewController {
+class ChapterDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
     var chapter: Chapter?
     
@@ -21,7 +21,11 @@ class ChapterDetailViewController: BaseViewController {
     
     var likeBtn: UIButton?
     
+    var rateBtn: UIButton?
+    
     var downBtn: UIButton?
+    
+    var sleepBtn: UIButton?
     
     var blackImageView: UIImageView?
     
@@ -29,7 +33,7 @@ class ChapterDetailViewController: BaseViewController {
     
     var progressLine: ChapterProgressView?
     
-    var playBtn : UIButton?
+    var playBtn : AnimationButton?
     
     
     override func viewDidLoad() {
@@ -37,6 +41,8 @@ class ChapterDetailViewController: BaseViewController {
         self.dw_addSubviews()
         self.dw_addConstraints()
         self.view.backgroundColor = .white
+        FMPlayerManager.shared.delegate = self
+        self.sh_interactivePopDisabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +59,39 @@ class ChapterDetailViewController: BaseViewController {
 }
 
 
+
+// MARK: FMPlayerManagerDelegate
+extension ChapterDetailViewController {
+    
+    @objc func tapPlayBtnAction(btn:UIButton){
+        btn.isSelected = !self.playBtn!.isSelected
+        if btn.isSelected {
+            FMPlayerManager.shared.play()
+        }else{
+            FMPlayerManager.shared.pause()
+
+        }
+    }
+    
+    func playerStatusDidChanged(isCanPlay: Bool) {
+        self.playBtn!.isHidden = !isCanPlay
+    }
+    
+    func playerDidPlay() {
+        
+    }
+    
+    func playerDidPause() {
+        //        self.isPlaying = false
+    }
+    
+    func managerDidChangeProgress(progess: Double) {
+        self.progressLine!.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.currentTime), total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
+    }
+    
+}
+
+
 // MARK: actions
 extension ChapterDetailViewController {
     
@@ -65,11 +104,26 @@ extension ChapterDetailViewController {
         }
     }
     
+    @objc func changeRateAction(btn: UIButton){
+        switch btn.titleLabel?.text {
+        case "1x":
+            btn.setTitle("1.5x", for: .normal)
+            break
+        case "2x":
+            btn.setTitle("1x", for: .normal)
+            break
+        case "1.5x":
+            btn.setTitle("2x", for: .normal)
+            break
+        default:
+            break
+        }
+    }
+    
     @objc func back(){
         self.navigationController?.popViewController()
     }
 }
-
 
 
 // MARK:  UI
@@ -78,7 +132,7 @@ extension ChapterDetailViewController {
     func dw_addConstraints(){
         self.titleLB?.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(AdaptScale(60))
             make.width.equalTo(200)
         })
         
@@ -105,14 +159,26 @@ extension ChapterDetailViewController {
 		})
         
         self.likeBtn?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.blackImageView!.snp.bottom).offset(77)
-            make.right.equalTo(self.view.snp.centerX).offset(-37)
+            make.top.equalTo(self.blackImageView!.snp.bottom).offset(AdaptScale(77))
+            make.right.equalTo(self.view.snp.centerX).offset(-32)
+            make.size.equalTo(CGSize.init(width: 25, height: 25))
+        })
+        
+        self.rateBtn?.snp.makeConstraints({ (make) in
+            make.top.equalTo(self.blackImageView!.snp.bottom).offset(AdaptScale(77))
+            make.left.equalTo(self.view.snp.centerX).offset(32)
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
         
         self.downBtn?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.blackImageView!.snp.bottom).offset(77)
-            make.left.equalTo(self.view.snp.centerX).offset(37)
+            make.centerY.equalTo(self.likeBtn!)
+            make.left.equalTo(self.rateBtn!.snp.right).offset(AdaptScale(74))
+            make.size.equalTo(CGSize.init(width: 25, height: 25))
+        })
+        
+        self.sleepBtn?.snp.makeConstraints({ (make) in
+            make.centerY.equalTo(self.likeBtn!)
+            make.right.equalTo(self.likeBtn!.snp.left).offset(-74)
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
         
@@ -165,17 +231,31 @@ extension ChapterDetailViewController {
         self.downBtn?.setImage(UIImage.init(named: "download-black"), for: .normal)
         self.view.addSubview(self.downBtn!)
         
+        self.sleepBtn = UIButton.init(type: .custom)
+        self.sleepBtn?.imageView?.contentMode = .scaleAspectFit
+        self.sleepBtn?.setImage(UIImage.init(named: "timer-sleep"), for: .normal)
+        self.view.addSubview(self.sleepBtn!)
+        
+        self.rateBtn = UIButton.init(type: .custom)
+        self.rateBtn?.setTitle("1x", for: .normal)
+        self.rateBtn?.titleLabel?.font = h_bfont(fontsize6)
+        self.rateBtn?.setTitleColor(CommonColor.title.color, for: .normal)
+        self.rateBtn?.addTarget(self, action: #selector(changeRateAction(btn:)), for: .touchUpInside)
+        self.view.addSubview(self.rateBtn!)
+        
         self.progressLine = ChapterProgressView()
         self.progressLine?.cycleW = 18
         self.progressLine?.fontSize = fontsize0
         self.view.addSubview(self.progressLine!)
         
-        self.playBtn = UIButton.init(type: .custom)
+        self.playBtn = AnimationButton.init(type: .custom)
         self.playBtn?.setImage(UIImage.init(named: "play-red"), for: .normal)
+        self.playBtn?.setImage(UIImage.init(named: "play-high"), for: .highlighted)
         self.playBtn?.setImage(UIImage.init(named: "pause-red"), for: .selected)
-        self.playBtn?.backgroundColor = .white
         self.playBtn?.isSelected = FMPlayerManager.shared.isPlay
-        self.playBtn!.addTarget(self, action: #selector(didTapPlayBtnAction(btn:)), for: .touchUpInside)
+        self.playBtn!.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
+        self.playBtn?.cornerRadius = 30
+        self.playBtn?.addShadow(ofColor: CommonColor.mainRed.color, opacity: 0.8)
         self.view.addSubview(self.playBtn!)
     }
 

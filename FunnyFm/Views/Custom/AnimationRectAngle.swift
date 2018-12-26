@@ -34,19 +34,19 @@ class AnimationRectAngle: UIView {
     
     lazy var line4 : UIView = {
         let view = UIView.init()
-        view.backgroundColor = CommonColor.mainPink.color
+        view.backgroundColor = CommonColor.mainRed.color
         return view
     }()
     
     lazy var line3 : UIView = {
         let view = UIView.init()
-        view.backgroundColor = CommonColor.mainPink.color
+        view.backgroundColor = CommonColor.mainRed.color
         return view
     }()
     
     lazy var line2 : UIView = {
         let view = UIView.init()
-        view.backgroundColor = CommonColor.mainPink.color
+        view.backgroundColor = CommonColor.mainRed.color
         return view
     }()
     

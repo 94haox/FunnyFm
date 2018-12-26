@@ -97,18 +97,14 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     }()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchbegin---------")
+        if !FMPlayerManager.shared.isCanPlay {
+            return
+        }
         let vc = ChapterDetailViewController()
         vc.chapter = self.currentChapter
         let nav = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
         nav.pushViewController(vc)
     }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        print("touchmove---------")
-    }
-
 }
 
 
@@ -135,7 +131,7 @@ extension FMToolBar {
                 self.playBtn.isSelected = true
                 FMPlayerManager.shared.play()
             }
-            self.progressLine.changeProgress(progress: 0, current: "00:00", total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
+            self.progressLine.changeProgress(progress: 0, current: "00:00:00", total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
 		}
     }
 	
@@ -149,7 +145,6 @@ extension FMToolBar {
 	}
     
     func managerDidChangeProgress(progess: Double) {
-        self.changeProgress(progess)
         self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.currentTime), total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
     }
 
@@ -217,9 +212,6 @@ extension FMToolBar{
         self.layer.add(anim, forKey: "rotationX")
     }
     
-    func changeProgress(_ progress:Double){
-//        self.progressLine.changeProgress(progress: progress)
-    }
 }
 
 
