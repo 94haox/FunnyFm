@@ -17,7 +17,7 @@ class MainViewModel: NSObject {
        return []
     }()
     
-    lazy var chapterList : [Chapter] = {
+    lazy var chapterList : [Episode] = {
         return []
     }()
     
@@ -39,7 +39,7 @@ class MainViewModel: NSObject {
     }
     
     func getHomeChapters() {
-        FmHttp<Chapter>().requestForArray(ChapterAPI.getHomeChapterList(), { (capterlist) in
+        FmHttp<Episode>().requestForArray(ChapterAPI.getHomeChapterList(), { (capterlist) in
             if let list = capterlist {
                 self.chapterList = list
                 self.delegate?.viewModelDidGetDataSuccess()

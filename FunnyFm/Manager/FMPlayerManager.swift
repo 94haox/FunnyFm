@@ -20,7 +20,7 @@ protocol FMPlayerManagerDelegate {
     func playerStatusDidChanged(isCanPlay:Bool)
 	func playerDidPlay()
 	func playerDidPause()
-    func managerDidChangeProgress(progess:Double)
+    func managerDidChangeProgress(progess:Double, currentTime: Double, totalTime: Double)
     
 }
 
@@ -30,36 +30,48 @@ class FMPlayerManager: NSObject {
     
     var delegate: FMPlayerManagerDelegate?
     
+    /// 事件观察者
     var timerObserver: Any?
     
+    /// 是否在播放状态
     var isPlay: Bool = false
     
     var isFirst: Bool = true
     
+    /// 资源是否成功加载
     var isCanPlay: Bool = false
     
+    /// 播放器
     var player: AVPlayer?
     
+    /// 播放资源
     var playerItem: AVPlayerItem?
     
+    /// 当前时长
     var currentTime: NSInteger = 0
     
+    /// 总时长
     var totalTime: NSInteger = 0
     
     var playState: MAudioPlayState = .waiting
     
+    /// 倍数播放
     var ratevalue: Float = 0
     
-    var currentModel: Chapter?
+    /// 当前资源文件
+    var currentModel: Episode?
     
     override init() {
         super.init()
 //        NotificationCenter.default.addObserver(self, selector: #selector(setBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reciveRemoteNotification(_:)), name: NSNotification.Name.init("FMREMOTECONTROLNOTIFICATION"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     deinit {
         self.playerItem?.removeObserver(self, forKeyPath: "status")
         self.player?.removeTimeObserver(self.timerObserver!)
+        NotificationCenter.default.removeObserver(self)
     }
 
 }
@@ -70,11 +82,12 @@ class FMPlayerManager: NSObject {
 extension FMPlayerManager {
     
     func play(){
-        
         if(self.isCanPlay){
             self.isPlay = true
             self.player?.play()
             self.delegate?.playerDidPlay()
+            let rate = UserDefaults.standard.float(forKey: "playrate")
+            self.player?.rate = rate
         }else{
             SwiftNotice.noticeOnStatusBar("暂时无法播放", autoClear: true, autoClearTime: 1)
         }
@@ -95,9 +108,32 @@ extension FMPlayerManager {
         let seekSecond = self.playerItem!.duration.seconds * Double(progress)
         let seekTime = CMTimeMakeWithSeconds(seekSecond, preferredTimescale: 1*600)
         self.player?.seek(to: seekTime, completionHandler: { [unowned self] (isComplete) in
+            if(self.isPlay){
+                self.player?.play()
+            }
             self.addTimeObserver()
-            self.player?.play()
+            self.setBackground()
         })
+    }
+    
+    @objc func reciveRemoteNotification(_ notify:Notification){
+        let userInfo = notify.userInfo
+        if userInfo.isSome {
+            let action = userInfo!["action"]! as! String
+            if action == "0" {
+                self.pause()
+            }
+            
+            if action == "1" {
+                self.play()
+            }
+        }
+    }
+    
+    @objc func recivEndNotification(_ notify: Notification){
+        self.seekToProgress(0)
+        self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
+        self.pause()
     }
     
 }
@@ -123,6 +159,22 @@ extension FMPlayerManager{
         }
         
     }
+    
+    func addTimeObserver(){
+        self.timerObserver = self.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 0.1, preferredTimescale: 600), queue: DispatchQueue.main, using: { [unowned self] (time) in
+            if(time.seconds > 0 && (self.playerItem?.duration.seconds).isSome){
+                if(time.seconds == 0){
+                    self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
+                }
+                self.currentTime = NSInteger(time.seconds)
+                self.totalTime = NSInteger((self.playerItem?.duration.seconds)!)
+                self.delegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
+            }else{
+                self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: 0)
+            }
+            self.setBackground()
+        })
+    }
 }
 
 
@@ -136,11 +188,13 @@ extension FMPlayerManager {
         self.playerItem?.removeObserver(self, forKeyPath: "status")
         self.playerItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
         self.playerItem = item
+        UserDefaults.standard.set(1.0, forKey: "playrate")
+        UserDefaults.standard.synchronize()
         self.playerItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         self.playerItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
     }
     
-    func config(_ chapter:Chapter) {
+    func config(_ chapter:Episode) {
         if(self.currentModel != nil){ self.isFirst = false}
         self.currentModel = chapter
         configPlayBackgroungMode()
@@ -154,23 +208,6 @@ extension FMPlayerManager {
         }
         self.addTimeObserver()
     }
-    
-    func addTimeObserver(){
-        self.timerObserver = self.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 0.1, preferredTimescale: 600), queue: DispatchQueue.main, using: { [unowned self] (time) in
-            if(time.seconds > 0 && (self.playerItem?.duration.seconds).isSome){
-                if(time.seconds == 0){
-                    self.delegate?.managerDidChangeProgress(progess:0)
-                }
-                self.currentTime = NSInteger(time.seconds)
-                self.totalTime = NSInteger((self.playerItem?.duration.seconds)!)
-                self.delegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!)
-            }else{
-                self.delegate?.managerDidChangeProgress(progess:0)
-            }
-            self.setBackground()
-        })
-    }
-    
     
 }
 
@@ -189,10 +226,9 @@ extension FMPlayerManager {
             }
             return UIImage.init(named: "ImagePlaceHolder")!
         })
-        
-		info[MPMediaItemPropertyPlaybackDuration] = self.currentModel?.duration
+		info[MPMediaItemPropertyPlaybackDuration] = self.totalTime
 		info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
-        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.player?.currentTime().seconds
+        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.currentTime
 		MPNowPlayingInfoCenter.default().nowPlayingInfo = info
         UIApplication.shared.registerForRemoteNotifications()
 	}

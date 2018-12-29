@@ -10,18 +10,18 @@ import UIKit
 import WCDBSwift
 
 class ChapterProgress: TableCodable {
-    var chapterId:              String?
+    var episodeId:              String?
     var progress:               Double
     
     init(chapterId:String, progress: Double) {
-        self.chapterId = chapterId
+        self.episodeId = chapterId
         self.progress = progress
     }
     
     enum CodingKeys: String, CodingTableKey {
         typealias Root = ChapterProgress
         static let objectRelationalMapping = TableBinding(CodingKeys.self)
-        case chapterId
+        case episodeId
         case progress
     }
 }

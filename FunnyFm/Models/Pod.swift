@@ -17,7 +17,7 @@ struct Pod : Mapable{
     var img:        String
     var sourceType: String
     var update_time:String
-    var last_chapter_title:String
+    var last_episode_title:String
     var albumId:    Int
     var count:      Int
     
@@ -30,7 +30,7 @@ struct Pod : Mapable{
         albumId = jsonData["albumId"].intValue
         count = jsonData["count"].intValue
         update_time = jsonData["update_time"].stringValue
-        last_chapter_title = jsonData["last_chapter_title"].stringValue
+        last_episode_title = jsonData["last_chapter_title"].stringValue
     }
 
     
@@ -44,7 +44,7 @@ struct Pod : Mapable{
         case albumId
         case count
         case update_time
-        case last_chapter_title
+        case last_episode_title
     }
     
     

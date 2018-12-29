@@ -30,13 +30,13 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
             make.left.width.bottom.equalToSuperview()
         }
         
-        self.view.backgroundColor = CommonColor.cellbackgroud.color
+        self.view.backgroundColor = CommonColor.background.color
 
     }
     
     lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "未登录")
-        lb.font = p_bfont(32)
+        let lb = UILabel.init(text: "Hi")
+        lb.font = h_bfont(32)
         lb.textColor = CommonColor.subtitle.color
         return lb
     }()
@@ -50,7 +50,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         let nib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
         let headernib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
         collectionview.register(nib, forCellWithReuseIdentifier: "cell")
-        collectionview.backgroundColor = CommonColor.cellbackgroud.color
+        collectionview.backgroundColor = CommonColor.background.color
         collectionview.delegate = self
         collectionview.dataSource = self
         return collectionview
@@ -78,14 +78,30 @@ extension UserCenterViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 4 {
-            let setvc = SettingViewController()
-            self.navigationController?.pushViewController(setvc)
-        }
         
         if indexPath.row == 0 {
             let historyVc = HistoryListViewController()
             self.navigationController?.pushViewController(historyVc)
+        }
+        
+        if indexPath.row == 1 {
+            let favorVc = FavouriteListController()
+            self.navigationController?.pushViewController(favorVc)
+        }
+        
+        if indexPath.row == 2 {
+            let downloadVc = DownloadListController()
+            self.navigationController?.pushViewController(downloadVc)
+        }
+        
+        if indexPath.row == 3 {
+            let subscribVc = SubscribListController()
+            self.navigationController?.pushViewController(subscribVc)
+        }
+        
+        if indexPath.row == 4 {
+            let setvc = SettingViewController()
+            self.navigationController?.pushViewController(setvc)
         }
     }
 }

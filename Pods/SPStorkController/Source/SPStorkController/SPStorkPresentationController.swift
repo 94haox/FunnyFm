@@ -24,9 +24,13 @@ import UIKit
 class SPStorkPresentationController: UIPresentationController, UIGestureRecognizerDelegate {
     
     var isSwipeToDismissEnabled: Bool = true
+    var isTapAroundToDismissEnabled: Bool = true
     var showIndicator: Bool = true
+    var customHeight: CGFloat? = nil
     var transitioningDelegate: SPStorkTransitioningDelegate?
+    
     var pan: UIPanGestureRecognizer?
+    var tap: UITapGestureRecognizer?
     
     private var indicatorView = SPStorkIndicatorView()
     private var gradeView: UIView = UIView()
@@ -55,13 +59,14 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
     
     private var scaleForPresentingView: CGFloat {
         guard let containerView = containerView else { return 0 }
-        let factor = 1 - (topSpace * 2 / containerView.frame.height)
+        let factor = 1 - (self.topSpace * 2 / containerView.frame.height)
         return factor
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let containerView = containerView else { return .zero }
-        let yOffset: CGFloat = topSpace + 13
+        let additionTranslate = containerView.bounds.height - (self.customHeight ?? containerView.bounds.height)
+        let yOffset: CGFloat = self.topSpace + 13 + additionTranslate
         return CGRect(x: 0, y: yOffset, width: containerView.bounds.width, height: containerView.bounds.height - yOffset)
     }
     
@@ -82,6 +87,7 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
         containerView.insertSubview(self.snapshotViewContainer, belowSubview: presentedViewController.view)
         self.snapshotViewContainer.frame = initialFrame
         self.updateSnapshot()
+        self.snapshotView?.layer.cornerRadius = 0
         self.backgroundView.backgroundColor = UIColor.black
         self.backgroundView.translatesAutoresizingMaskIntoConstraints = false
         containerView.insertSubview(self.backgroundView, belowSubview: self.snapshotViewContainer)
@@ -145,19 +151,30 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
     override func presentationTransitionDidEnd(_ completed: Bool) {
         super.presentationTransitionDidEnd(completed)
         guard let containerView = containerView else { return }
+        self.updateSnapshot()
         self.presentedViewController.view.frame = self.frameOfPresentedViewInContainerView
         self.snapshotViewContainer.transform = .identity
         self.snapshotViewContainer.translatesAutoresizingMaskIntoConstraints = false
         self.snapshotViewContainer.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         self.updateSnapshotAspectRatio()
         
+        if self.isTapAroundToDismissEnabled {
+            self.tap = UITapGestureRecognizer.init(target: self, action: #selector(self.handleTap))
+            self.tap?.cancelsTouchesInView = false
+            self.snapshotViewContainer.addGestureRecognizer(self.tap!)
+        }
+        
         if self.isSwipeToDismissEnabled {
-            self.pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+            self.pan = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan))
             self.pan!.delegate = self
             self.pan!.maximumNumberOfTouches = 1
             self.pan!.cancelsTouchesInView = false
             self.presentedViewController.view.addGestureRecognizer(self.pan!)
         }
+    }
+    
+    @objc func handleTap() {
+        self.presentedViewController.dismiss(animated: true, completion: nil)
     }
     
     override func dismissalTransitionWillBegin() {
@@ -284,12 +301,17 @@ extension SPStorkPresentationController {
         }
     }
     
+    func updatePresentingController() {
+        if self.startDismissing { return }
+        self.updateSnapshot()
+    }
+    
     private func updatePresentedViewForTranslation(inVerticalDirection translation: CGFloat) {
         if self.startDismissing { return }
         
         let elasticThreshold: CGFloat = 120
         let translationFactor: CGFloat = 1 / 2
-        
+
         if translation >= 0 {
             let translationForModal: CGFloat = {
                 if translation >= elasticThreshold {
@@ -348,6 +370,11 @@ extension SPStorkPresentationController {
         self.snapshotViewContainer.addSubview(currentSnapshotView)
         self.constraints(view: currentSnapshotView, to: self.snapshotViewContainer)
         self.snapshotView = currentSnapshotView
+        self.snapshotView?.layer.cornerRadius = self.cornerRadius
+        self.snapshotView?.layer.masksToBounds = true
+        if #available(iOS 11.0, *) {
+            snapshotView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
         self.gradeView.removeFromSuperview()
         self.gradeView.backgroundColor = UIColor.black
         self.snapshotView!.addSubview(self.gradeView)

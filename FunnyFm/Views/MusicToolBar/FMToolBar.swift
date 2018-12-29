@@ -20,15 +20,29 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 	
 	var isPlaying: Bool = false
 	
-    var currentChapter: Chapter?
+    var isShrink: Bool = false
+    
+    var currentChapter: Episode?
+    
+    var containerView: UIView!
+    
+    var playBtn : UIButton!
+    
+    var authorLB : UILabel!
+    
+    var titleLB : UILabel!
+    
+    var logoImageView : UIImageView!
+    
+    var loadingView: UIActivityIndicatorView!
+    
+    var progressLine: ChapterProgressView!
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.cornerRadius = 15.0
-        self.layer.shadowColor = UIColor.lightGray.cgColor
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize.init(width: 2, height: 10)
-        self.layer.shadowRadius = 10
+        self.setUpUI()
         self.addConstraints()
     }
     
@@ -36,74 +50,20 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         fatalError("init(coder:) has not been implemented")
     }
     
-
-    
-    lazy var playBtn : UIButton = {
-        let btn = UIButton.init(type: .custom)
-        btn.setImage(UIImage.init(named: "play-red"), for: .normal)
-        btn.setImage(UIImage.init(named: "pause-red"), for: .selected)
-        btn.backgroundColor = .white
-        btn.cornerRadius = 15
-        btn.isHidden = true
-        btn.addTarget(self, action: #selector(didTapPlayBtnAction(btn:)), for: .touchUpInside)
-        return btn
-    }()
-    
-    lazy var rewindBtn : UIButton = {
-        let btn = UIButton.init(type: .custom)
-        btn.setImage(UIImage.init(named: "rewind"), for: .normal)
-        return btn
-    }()
-    
-    lazy var forwardBtn : UIButton = {
-        let btn = UIButton.init(type: .custom)
-        btn.setImage(UIImage.init(named: "forward"), for: .normal)
-        return btn
-    }()
-    
-    lazy var authorLB : UILabel = {
-        let lb = UILabel.init()
-        lb.font = pfont(10)
-        lb.textColor = CommonColor.content.color
-        return lb
-    }()
-    
-    lazy var titleLB : UILabel = {
-        let lb = UILabel.init()
-        lb.font = p_bfont(12)
-        lb.textColor = CommonColor.title.color
-        return lb
-    }()
-    
-    lazy var logoImageView : UIImageView = {
-        let imageview = UIImageView.init()
-        imageview.layer.cornerRadius = 5;
-        imageview.layer.shadowOpacity = 0.5
-        imageview.layer.shadowOffset = CGSize.init(width: 2, height: 10)
-        imageview.layer.shadowRadius = 10
-        return imageview
-    }()
-    
-    lazy var loadingView: UIActivityIndicatorView = {
-        let loading = UIActivityIndicatorView.init(style: .gray)
-        loading.startAnimating()
-        return loading
-    }()
-    
-    lazy var progressLine: ChapterProgressView = {
-        let line = ChapterProgressView.init(frame: CGRect.zero)
-        line.isHidden = true
-        return line
-    }()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !FMPlayerManager.shared.isCanPlay {
             return
         }
-        let vc = ChapterDetailViewController()
+        let vc = PlayerDetailViewController()
         vc.chapter = self.currentChapter
         let nav = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
         nav.pushViewController(vc)
+//        if self.isShrink {
+//            self.explain()
+//        }else{
+//            self.shrink()
+//        }
     }
 }
 
@@ -138,23 +98,26 @@ extension FMToolBar {
 	func playerDidPlay() {
 		self.isPlaying = true
         self.progressLine.isHidden = false
+        if self.isShrink {
+            PopManager.addRotationAnimation(self.logoImageView!.layer)
+        }
 	}
 	
 	func playerDidPause() {
 //		self.isPlaying = false
+        PopManager.removeRotationAnimation(self.logoImageView!.layer)
 	}
     
-    func managerDidChangeProgress(progess: Double) {
-        self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.currentTime), total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
+    func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
+        self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
     }
-
 }
 
 
 extension FMToolBar{
     
     
-    func configToolBarAtHome(_ chapter : Chapter) {
+    func configToolBarAtHome(_ chapter : Episode) {
         self.config(chapter)
         let resource = ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!)
         self.logoImageView.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil) { [unowned self] (downImage, error, type, url) in
@@ -164,7 +127,7 @@ extension FMToolBar{
         }
     }
     
-    func configToolBar(_ chapter : Chapter) {
+    func configToolBar(_ chapter : Episode) {
         self.config(chapter)
         let resource = ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!)
         self.logoImageView.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil) { [unowned self] (downImage, error, type, url) in
@@ -174,7 +137,7 @@ extension FMToolBar{
         }
     }
     
-    func config(_ chapter: Chapter){
+    func config(_ chapter: Episode){
         
         if self.currentChapter.isNone {
            self.currentChapter = chapter
@@ -195,11 +158,9 @@ extension FMToolBar{
     func configShadowColor() {
         let color = self.logoImageView.image!.mostColor()
         self.logoImageView.layer.shadowColor = color!.cgColor
-//        self.progressLine.backgroundColor = color
-        
     }
     
-    func setUpChapter(_ chapter: Chapter){
+    func setUpChapter(_ chapter: Episode){
         FMPlayerManager.shared.pause()
         self.playBtn.isSelected = false
         FMPlayerManager.shared.config(chapter)
@@ -217,21 +178,118 @@ extension FMToolBar{
 
 extension FMToolBar {
     
-    func addConstraints() {
+    
+    
+    func shrink(){
+        self.containerView.isHidden = true
+        let animationTime = 0.3
+        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
+            anim.fromValue = NSNumber.init(value: 15)
+            anim.toValue = NSNumber.init(value: Double(self.logoImageView.frame.size.width/2.0))
+            anim.duration = animationTime
+            self.layer.pop_add(anim, forKey: "self_radius")
+        }
         
+        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
+            anim.fromValue = NSNumber.init(value: 5)
+            anim.toValue = NSNumber.init(value: Double(self.logoImageView.frame.size.width/2.0))
+            anim.duration = animationTime
+            self.logoImageView.layer.masksToBounds = true
+            self.logoImageView.layer.pop_add(anim, forKey: "radius")
+        }
+
+        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY) {
+            anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 0.8, y: 0.8))
+            anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
+            anim.duration = animationTime
+            self.playBtn.layer.pop_add(anim, forKey: "scale")
+        }
+        
+        UIView.animate(withDuration: animationTime, animations: {
+            self.frame = CGRect.init(x: kScreenWidth-50-18, y: kScreenHeight-110+15, width: 50, height: 50)
+            self.logoImageView.snp.remakeConstraints { (make) in
+                make.center.equalToSuperview()
+                make.size.equalTo(CGSize.init(width: 45, height: 45))
+            }
+            
+            self.playBtn.snp.remakeConstraints { (make) in
+                make.center.equalToSuperview()
+                make.size.equalTo(CGSize.init(width: 30, height: 30))
+            }
+        }) { (isComplete) in
+            if self.isPlaying {
+                PopManager.addRotationAnimation(self.logoImageView!.layer)
+            }
+            self.isShrink = true
+        }
+    }
+    
+    func explain() {
+        PopManager.removeRotationAnimation(self.logoImageView!.layer)
+        let animationTime = 0.3
+        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
+            anim.toValue = NSNumber.init(value: 15)
+            anim.fromValue = NSNumber.init(value: Double(self.frame.size.width/2.0))
+            anim.duration = animationTime
+            self.layer.pop_add(anim, forKey: "reset_self_radius")
+        }
+        
+        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
+            anim.toValue = NSNumber.init(value: 5)
+            anim.fromValue = NSNumber.init(value: Double(self.logoImageView.frame.size.width/2.0))
+            anim.duration = animationTime
+            self.logoImageView.layer.masksToBounds = true
+            self.logoImageView.layer.pop_add(anim, forKey: "reset_radius")
+        }
+        
+        
+        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY) {
+            anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 0.8, y: 0.8))
+            anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
+            anim.duration = animationTime
+            self.playBtn.layer.pop_add(anim, forKey: "reset_scale")
+        }
+        
+    
+        UIView.animate(withDuration: animationTime, animations: {
+            self.frame = CGRect.init(x: 18, y: kScreenHeight-100-10, width: kScreenWidth-36, height: 80)
+            self.logoImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.left.equalToSuperview().offset(16)
+                make.size.equalTo(CGSize.init(width: 45, height: 45))
+            }
+            
+            self.playBtn.snp.remakeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.size.equalTo(CGSize.init(width: 30, height: 30))
+                make.right.equalToSuperview().offset(-10)
+            }
+        }) { (isComplete) in
+            self.containerView.isHidden = false
+            self.isShrink = false
+        }
+        
+    }
+    
+}
+
+
+extension FMToolBar {
+    
+    func addConstraints() {
         self.backgroundColor = .white
+        self.cornerRadius = 15.0
+        self.addShadow(ofColor: UIColor.lightGray, radius: 10, offset: CGSize.init(width: 2, height: 10), opacity: 0.5)
+        self.addSubview(self.containerView)
         self.addSubview(self.logoImageView)
-        self.addSubview(self.titleLB)
-        self.addSubview(self.authorLB)
+        self.containerView.addSubview(self.titleLB)
+        self.containerView.addSubview(self.authorLB)
         self.addSubview(self.playBtn)
         self.addSubview(self.loadingView)
-        self.addSubview(self.progressLine)
+        self.containerView.addSubview(self.progressLine)
         
-        self.logoImageView.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(16)
-            make.top.equalToSuperview().offset(16)
-            make.size.equalTo(CGSize.init(width: 45, height: 45))
+        self.containerView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
         
         self.titleLB.snp.makeConstraints { (make) in
@@ -243,6 +301,12 @@ extension FMToolBar {
         self.authorLB.snp.makeConstraints { (make) in
             make.left.equalTo(self.titleLB)
             make.bottom.equalTo(self.logoImageView).offset(-5)
+        }
+        
+        self.logoImageView.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.size.equalTo(CGSize.init(width: 45, height: 45))
         }
         
         self.loadingView.snp.makeConstraints { (make) in
@@ -262,5 +326,41 @@ extension FMToolBar {
             make.height.equalTo(20)
             make.bottom.equalToSuperview()
         }
+        
+    }
+    
+    
+    func setUpUI() {
+        self.containerView = UIView()
+        
+        self.playBtn = UIButton.init(type: .custom)
+        self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
+        self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
+        self.playBtn.backgroundColor = .white
+        self.playBtn.cornerRadius = 15
+        self.playBtn.isHidden = true
+        self.playBtn.addTarget(self, action: #selector(didTapPlayBtnAction(btn:)), for: .touchUpInside)
+        
+        self.authorLB = UILabel.init()
+        self.authorLB.font = pfont(10)
+        self.authorLB.textColor = CommonColor.content.color
+        
+        self.titleLB = UILabel.init()
+        self.titleLB.font = p_bfont(12)
+        self.titleLB.textColor = CommonColor.title.color
+        
+        self.logoImageView = UIImageView.init()
+        self.logoImageView.layer.cornerRadius = 5;
+        self.logoImageView.layer.shadowOpacity = 0.5
+        self.logoImageView.layer.shadowOffset = CGSize.init(width: 2, height: 10)
+        self.logoImageView.layer.shadowRadius = 10
+        
+        self.loadingView = UIActivityIndicatorView.init(style: .gray)
+        self.loadingView.isHidden = true
+        self.loadingView.startAnimating()
+        
+        self.progressLine = ChapterProgressView.init(frame: CGRect.zero)
+        self.progressLine.isHidden = true
+        
     }
 }

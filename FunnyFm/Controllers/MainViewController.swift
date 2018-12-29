@@ -22,7 +22,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
         self.vm.getAllPods()
         self.vm.getHomeChapters()
         self.view.backgroundColor = .white
-		self.configureNavBar()
         UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
     }
 	
@@ -77,7 +76,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     lazy var searchBtn : UIButton = {
         let btn = UIButton.init(type: .custom)
         btn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
-        btn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
+//        btn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
         return btn
     }()
     
@@ -97,7 +96,7 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-        let controller = ChapterDetailViewController()
+        let controller = PlayerDetailViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
         controller.transitioningDelegate = transitionDelegate
         controller.modalPresentationStyle = .custom
@@ -128,7 +127,7 @@ extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let pod = self.vm.podlist[indexPath.row]
-        let vc = ChapterListViewController.init(pod)
+        let vc = EpisodeListViewController.init(pod)
         self.navigationController?.pushViewController(vc)
     }
     
@@ -230,13 +229,7 @@ extension MainViewController {
             make.right.equalTo(self.searchBtn.snp.left).offset(-16)
             make.top.equalTo(self.view.snp.topMargin)
         }
-        
-//        self.collectionView.snp.makeConstraints { (make) in
-//            make.left.width.equalToSuperview()
-//            make.height.equalTo(80)
-//            make.top.equalTo(self.searchBar.snp.bottom).offset(32)
-//        }
-        
+                
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -244,10 +237,6 @@ extension MainViewController {
         }
     }
     
-    fileprivate func configureNavBar() {
-        navigationItem.leftBarButtonItem?.image = navigationItem.leftBarButtonItem?.image!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-		self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
 }
 
 

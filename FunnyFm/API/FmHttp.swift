@@ -26,6 +26,7 @@ public class FmHttp<T> where T: Mapable{
     typealias SuccessModelClosure = (_ result: T?) -> Void
     typealias SuccessArrModelClosure = (_ result: [T]?) -> Void
     typealias SuccessJSONClosure = (_ result:JSON) -> Void
+
     
     /// 失败
     typealias FailClosure = (_ errorMsg: String?) -> Void
@@ -80,7 +81,5 @@ public class FmHttp<T> where T: Mapable{
             }
         }
     }
-    
-    
     
 }

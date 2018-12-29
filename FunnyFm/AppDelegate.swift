@@ -27,7 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     func jspushConfig(launchOptions: [UIApplication.LaunchOptionsKey: Any]?)  {
         let entity = JPUSHRegisterEntity.init()
-        entity.types = Int(JPAuthorizationOptions.alert.rawValue|JPAuthorizationOptions.badge.rawValue|JPAuthorizationOptions.sound.rawValue|JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
+        if #available(iOS 12.0, *) {
+            entity.types = Int(JPAuthorizationOptions.alert.rawValue|JPAuthorizationOptions.badge.rawValue|JPAuthorizationOptions.sound.rawValue|JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
+        } else {
+            entity.types = Int(JPAuthorizationOptions.alert.rawValue|JPAuthorizationOptions.badge.rawValue|JPAuthorizationOptions.sound.rawValue)
+        }
+
         JPUSHService.register(forRemoteNotificationConfig: entity, delegate: JPushConfig.shared())
         JPUSHService.setup(withOption: launchOptions, appKey: FunnyFm.jpushAppKey, channel: "app store", apsForProduction: false)
     }
@@ -46,15 +51,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             case .remoteControlPlay:
                 order = 1;
                 break;
-            case .remoteControlNextTrack:
-                order = 2;
-                break;
-            case .remoteControlPreviousTrack:
-                order = 3;
-                break;
+//            case .remoteControlNextTrack:
+//                order = 2;
+//                break;
+//            case .remoteControlPreviousTrack:
+//                order = 3;
+//                break;
             default:
                 break;
             }
+            NotificationCenter.default.post(name: NSNotification.Name.init("FMREMOTECONTROLNOTIFICATION"), object: nil, userInfo: ["action":String(order)])
         }
     }
     

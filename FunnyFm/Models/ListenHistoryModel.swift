@@ -11,7 +11,7 @@ import WCDBSwift
 
 class ListenHistoryModel: TableCodable{
     
-    var chapterId:              String?
+    var episodeId:              String?
     var albumId:                Int
     var trackId:                Int
     var duration:               Int
@@ -20,19 +20,19 @@ class ListenHistoryModel: TableCodable{
     var intro:                  String?
     var time_until_now:         String?
     
-    init(with chapter:Chapter) {
-        self.albumId = chapter.albumId
-        self.trackId = chapter.trackId
-        self.duration = chapter.duration
-        self.title = chapter.title
-        self.chapterId = chapter.chapterId
-        self.cover_url = chapter.cover_url_high
-        self.intro = chapter.intro
-        self.time_until_now = chapter.time_until_now
-        if(chapter.cover_url_normal.count > 1){
-            self.cover_url = chapter.cover_url_normal
-        }else if(chapter.cover_url_high.count > 1){
-            self.cover_url = chapter.cover_url_high
+    init(with episode:Episode) {
+        self.albumId = episode.albumId
+        self.trackId = episode.trackId
+        self.duration = episode.duration
+        self.title = episode.title
+        self.episodeId = episode.episodeId
+        self.cover_url = episode.cover_url_high
+        self.intro = episode.intro
+        self.time_until_now = episode.time_until_now
+        if(episode.cover_url_normal.count > 1){
+            self.cover_url = episode.cover_url_normal
+        }else if(episode.cover_url_high.count > 1){
+            self.cover_url = episode.cover_url_high
         }
     }
     
@@ -43,7 +43,7 @@ class ListenHistoryModel: TableCodable{
         case trackId
         case duration
         case title
-        case chapterId
+        case episodeId
         case cover_url
         case intro
         case time_until_now

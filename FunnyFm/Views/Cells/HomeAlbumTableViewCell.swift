@@ -31,7 +31,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
     }
     
     
-    func configHomeCell(_ chapter:Chapter){
+    func configHomeCell(_ chapter:Episode){
         self.desLB.text = chapter.intro
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now
@@ -40,7 +40,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.logoImageView.kf.setImage(with: resource)
     }
     
-    func configCell(_ chapter:Chapter){
+    func configCell(_ chapter:Episode){
         self.desLB.text = chapter.intro
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now

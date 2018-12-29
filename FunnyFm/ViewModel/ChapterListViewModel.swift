@@ -14,7 +14,7 @@ class ChapterListViewModel: NSObject {
     
     var pageNum: Int = 1
     
-    lazy var chapterList : [Chapter] = {
+    lazy var chapterList : [Episode] = {
         return []
     }()
     
@@ -37,7 +37,7 @@ class ChapterListViewModel: NSObject {
     }
     
     fileprivate func getChapters() {
-	FmHttp<Chapter>().requestForArray(ChapterAPI.getChapterList(self.pageNum,self.podId), { (capterlist) in
+	FmHttp<Episode>().requestForArray(ChapterAPI.getChapterList(self.pageNum,self.podId), { (capterlist) in
 			if let list = capterlist {
 				if self.pageNum == 1{
 					self.chapterList = list

@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (4.8.0)
-  - JCore (1.2.5)
-  - JPush (3.1.1.1):
-    - JCore (~> 1.2.5)
+  - JCore (1.2.6)
+  - JPush (3.1.2):
+    - JCore (~> 1.2.6)
   - KeychainAccess (3.1.2)
-  - Kingfisher (5.0.0)
+  - Kingfisher (5.0.1)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -17,7 +17,7 @@ PODS:
     - RxAtomic (~> 4.4)
   - SHFullscreenPopGestureSwift (1.2.1)
   - SnapKit (4.0.1)
-  - SPStorkController (1.1.6)
+  - SPStorkController (1.2)
   - SQLiteRepairKit (1.2.1):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (4.2.0)
@@ -61,10 +61,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
-  JCore: 14706de2640b25fb77dbd02332696491407f37c9
-  JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
+  JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
+  JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
-  Kingfisher: 2b0dd651e4fe5a07305b8242fde56f8e2d410f58
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
@@ -72,7 +72,7 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SPStorkController: 5e8bb5c22041dab7c23ced543ab076d2be2df3b9
+  SPStorkController: c7f7480a23e1dd4d2c9440496f9798abf8fe8128
   SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2

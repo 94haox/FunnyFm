@@ -16,6 +16,7 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
         
+        
         self.titleLB.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.snp.topMargin).offset(30)
             make.left.equalToSuperview().offset(16)
