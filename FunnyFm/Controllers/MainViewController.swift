@@ -25,6 +25,11 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
         UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		FMPlayerManager.shared.delegate = FMToolBar.shared
+	}
+	
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()

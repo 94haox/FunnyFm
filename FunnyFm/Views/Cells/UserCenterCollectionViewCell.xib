@@ -21,7 +21,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HD-eP-Y9z">
                         <rect key="frame" x="43.5" y="28" width="45" height="45"/>
-                        <color key="backgroundColor" red="1" green="0.97254901960784312" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="45" id="F2w-JO-vo5"/>
                             <constraint firstAttribute="height" constant="45" id="dfh-5U-XKh"/>
@@ -33,10 +33,10 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OUV-QA-QNd">
-                        <rect key="frame" x="53.5" y="38" width="25" height="25"/>
+                        <rect key="frame" x="51" y="35.5" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="akK-Ti-Rpk"/>
-                            <constraint firstAttribute="width" constant="25" id="mt4-Sg-4ub"/>
+                            <constraint firstAttribute="height" constant="30" id="akK-Ti-Rpk"/>
+                            <constraint firstAttribute="width" constant="30" id="mt4-Sg-4ub"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-If-Wb5">
