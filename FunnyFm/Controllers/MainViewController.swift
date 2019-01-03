@@ -27,7 +27,12 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		FMPlayerManager.shared.delegate = FMToolBar.shared
+		FMToolBar.shared.explain()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		FMToolBar.shared.shrink()
 	}
 	
     
@@ -114,7 +119,8 @@ extension MainViewController : ViewModelDelegate {
     func viewModelDidGetDataSuccess() {
         collectionView.reloadData()
         tableview.reloadData()
-        self.addConstrains()
+		self.addConstrains()
+		self.addFooter()
         if self.vm.chapterList.count > 0  && !FMToolBar.shared.isPlaying{
             FMToolBar.shared.configToolBarAtHome(self.vm.chapterList.first!)
         }
@@ -154,21 +160,23 @@ extension MainViewController{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel.init(text: "最近更新")
-        label.textColor = UIColor.init(hex: "e0e2e6")
-        label.textAlignment = .center
-        label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 36);
-        label.font = p_bfont(14)
-        label.backgroundColor = .white
-        return label
-    }
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
         let chapter = self.vm.chapterList[indexPath.row]
         cell.configHomeCell(chapter)
     }
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let label = UILabel.init(text: "最近更新")
+		label.textColor = UIColor.init(hex: "e0e2e6")
+		label.textAlignment = .center
+		label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 36);
+		label.font = p_bfont(14)
+		label.backgroundColor = .white
+		return label
+	}
+	
+	
 
 }
 
@@ -208,6 +216,16 @@ extension MainViewController{
 }
 
 extension MainViewController {
+	
+	func addFooter(){
+		let label = UILabel.init(text: "- only last 15 -")
+		label.textColor = UIColor.init(hex: "e0e2e6")
+		label.textAlignment = .center
+		label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 36);
+		label.font = h_bfont(14)
+		label.backgroundColor = .white
+		self.tableview.tableFooterView = label
+	}
     
     
     fileprivate func addConstrains() {

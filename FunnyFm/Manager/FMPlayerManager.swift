@@ -29,6 +29,8 @@ class FMPlayerManager: NSObject {
     static let shared = FMPlayerManager()
     
     var delegate: FMPlayerManagerDelegate?
+	
+	var playerDelegate: FMPlayerManagerDelegate?
     
     /// 事件观察者
     var timerObserver: Any?
@@ -86,6 +88,7 @@ extension FMPlayerManager {
             self.isPlay = true
             self.player?.play()
             self.delegate?.playerDidPlay()
+			self.playerDelegate?.playerDidPlay()
             let rate = UserDefaults.standard.float(forKey: "playrate")
             self.player?.rate = rate
         }else{
@@ -97,6 +100,7 @@ extension FMPlayerManager {
         self.isPlay = false
         self.player?.pause()
         self.delegate?.playerDidPause()
+		self.playerDelegate?.playerDidPause()
     }
     
     func seekToProgress(_ progress: CGFloat) {
@@ -133,6 +137,7 @@ extension FMPlayerManager {
     @objc func recivEndNotification(_ notify: Notification){
         self.seekToProgress(0)
         self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
+		self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
         self.pause()
     }
     
@@ -152,6 +157,7 @@ extension FMPlayerManager{
             let status = value! as! Int
             self.isCanPlay = status == 1
             self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
+			self.playerDelegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
         }
         
         if keyPath == "loadedTimeRanges" {
@@ -165,12 +171,14 @@ extension FMPlayerManager{
             if(time.seconds > 0 && (self.playerItem?.duration.seconds).isSome){
                 if(time.seconds == 0){
                     self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
+					self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
                 }
                 self.currentTime = NSInteger(time.seconds)
                 self.totalTime = NSInteger((self.playerItem?.duration.seconds)!)
                 self.delegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
+				self.playerDelegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
             }else{
-                self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: 0)
+                self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: 0)
             }
             self.setBackground()
         })
@@ -185,6 +193,7 @@ extension FMPlayerManager {
     func changePlayItem(_ item: AVPlayerItem){
         self.isCanPlay = false
         self.delegate?.playerStatusDidChanged(isCanPlay: false)
+		self.playerDelegate?.playerStatusDidChanged(isCanPlay: false)
         self.playerItem?.removeObserver(self, forKeyPath: "status")
         self.playerItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
         self.playerItem = item

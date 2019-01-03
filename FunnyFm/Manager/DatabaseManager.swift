@@ -31,6 +31,23 @@ class DatabaseManager: NSObject {
         }
         try! self.database.insert(objects: history, intoTable: historyTable)
     }
+	
+	static public func add(download:Episode){
+		let exsitDownload = self.qurey(episodeId: download.episodeId)
+		if exsitDownload.isSome {
+			return
+		}
+		try! self.database.insert(objects: download, intoTable: downloadTable)
+	}
+	
+	static public func add(progress:ChapterProgress){
+		let exsitProgress = self.qureyProgress(chapterId: progress.episodeId!)
+		if exsitProgress.isSome {
+			self.updateProgress(progress: progress)
+			return
+		}
+		try! self.database.insert(objects: progress, intoTable: progressTable)
+	}
     
     static public func qurey(chapterId: String) -> ListenHistoryModel?{
         let historyList = self.allHistory()
@@ -54,17 +71,7 @@ class DatabaseManager: NSObject {
         try! database.delete(fromTable: historyTable,
                             where: ListenHistoryModel.Properties.episodeId == chapterId)
     }
-    
-    static public func add(progress:ChapterProgress){
-        let exsitProgress = self.qureyProgress(chapterId: progress.episodeId!)
-        if exsitProgress.isSome {
-            self.updateProgress(progress: progress)
-            return
-        }
-        try! self.database.insert(objects: progress, intoTable: progressTable)
-    }
-    
-    
+	
     static public func updateProgress(progress: ChapterProgress){
         let row : [ColumnEncodable] = ["update"]
         try! database.update(table: progressTable, on: [ChapterProgress.Properties.episodeId], with: row, where: ChapterProgress.Properties.episodeId.stringValue == progress.episodeId, orderBy: nil, limit: nil, offset: nil)

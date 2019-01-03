@@ -39,6 +39,8 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     var downProgressLayer: CAShapeLayer!
     
     var downBackView: UIView!
+	
+	var downloadManager: DownloadManager!
     
     
     override func viewDidLoad() {
@@ -47,22 +49,12 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
         self.dw_addConstraints()
         self.view.backgroundColor = .white
         self.sh_interactivePopDisabled = true
+		FMPlayerManager.shared.playerDelegate = self
+		self.downloadManager = DownloadManager.init()
+		if FMPlayerManager.shared.isPlay {
+			self.addRotationAnimation()
+		}
     }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        FMToolBar.shared.isHidden = true
-        FMPlayerManager.shared.delegate = self
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        FMToolBar.shared.isHidden = false
-        FMPlayerManager.shared.delegate = FMToolBar.shared
-    }
-    
     
     func addRotationAnimation() {
        PopManager.addRotationAnimation(self.blackImageView!.layer)
@@ -100,6 +92,40 @@ extension PlayerDetailViewController {
     
 }
 
+extension PlayerDetailViewController: DownloadManagerDelegate {
+	
+	func downloadProgress(progress: Double) {
+		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
+			anim.fromValue = self.downProgressLayer.strokeEnd
+			anim.toValue = progress
+			anim.duration = 0.2
+			anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+			self.downProgressLayer.pop_add(anim, forKey: "image_rotaion")
+		}
+	}
+	
+	func didDownloadSuccess(fileUrl: String?) {
+		if fileUrl.isNone{
+			SwiftNotice.showText("下载失败")
+			return
+		}
+		SwiftNotice.showText("下载成功，您可以在个人中心-我的下载查看")
+		if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
+			anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
+			anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.5, y: 1.5))
+			anim.springBounciness = 20
+			self.downBtn!.layer.pop_add(anim, forKey: "size")
+		}
+		self.chapter!.download_filpath = fileUrl!
+		DatabaseManager.add(download: self.chapter!)
+	}
+	
+	func didDownloadFailure() {
+		SwiftNotice.showText("下载失败")
+	}
+	
+}
+
 
 // MARK: actions
 extension PlayerDetailViewController {
@@ -110,41 +136,12 @@ extension PlayerDetailViewController {
             FMPlayerManager.shared.play()
         }else{
             FMPlayerManager.shared.pause()
-            
         }
     }
     
     @objc func downloadAction(){
-        
-        DownloadServiceProvider.request(DownloadService.downloadAsset(assetUrl: self.chapter!.trackUrl_high), callbackQueue: DispatchQueue.init(label: "downQueue"), progress: { (response) in
-            DispatchQueue.main.async(execute: {
-                if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
-                    anim.fromValue = self.downProgressLayer.strokeEnd
-                    anim.toValue = response.progress
-                    anim.duration = 0.2
-                    anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-                    self.downProgressLayer.pop_add(anim, forKey: "image_rotaion")
-                }
-            })
-        }) { (result) in
-            switch result {
-            case .success(_):
-                DispatchQueue.main.async(execute: {
-                    SwiftNotice.showText("下载成功，您可以在个人中心-我的下载查看")
-                    if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
-                        anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
-                        anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.2, y: 1.2))
-                        anim.springBounciness = 20
-                        self.downBtn!.layer.pop_add(anim, forKey: "size")
-                    }
-                })
-            case .failure(_):
-                DispatchQueue.main.async(execute: {
-                    SwiftNotice.showText("下载失败")
-                })
-            }
-        }
-        
+		self.downloadManager.delegate = self;
+		self.downloadManager.beginDownload(self.chapter!.trackUrl_high)
     }
     
     @objc func setSleepTime(){

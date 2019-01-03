@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		FMPlayerManager.shared.delegate = FMToolBar.shared
         configureNavigationTabBar()
         jspushConfig(launchOptions: launchOptions)
         DatabaseManager.setupDefaultDatabase()

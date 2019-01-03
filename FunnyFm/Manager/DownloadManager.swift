@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 
 protocol DownloadManagerDelegate {
-    func downloadProgress();
-    func didDownloadSuccess() -> NSURL;
+	func downloadProgress(progress:Double);
+	func didDownloadSuccess(fileUrl: String?);
     func didDownloadFailure();
 }
 
@@ -19,10 +19,11 @@ protocol DownloadManagerDelegate {
 
 class DownloadManager: NSObject {
     
-    let shared = DownloadManager.init()
+//    let shared = DownloadManager.init()
     var downloadRequest:DownloadRequest!
     var cancelledData:Data?
-    let delegate: DownloadManagerDelegate?
+	var delegate: DownloadManagerDelegate?
+    
     
     let destination:DownloadRequest.DownloadFileDestination = { url, response in
         let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -32,8 +33,7 @@ class DownloadManager: NSObject {
     }
     
     func downloadProgress(progress:Progress){
-//        self.progress.setProgress(Float(progress.fractionCompleted), animated: true)
-        print("当前进度:\(progress.fractionCompleted*100)%")
+		self.delegate?.downloadProgress(progress: Double(progress.fractionCompleted))
     }
     
     func beginDownload(_ url: String){
@@ -54,10 +54,10 @@ class DownloadManager: NSObject {
     func downloadResponse(response:DownloadResponse<Data>){
         switch response.result {
         case .success(_):
-            //下载完成
-            print("路径:\(response.destinationURL?.path)")
+			self.delegate?.didDownloadSuccess(fileUrl: response.destinationURL?.path)
         case .failure(error:):
             self.cancelledData = response.resumeData //意外中止的话把已下载的数据存起来
+			self.delegate?.didDownloadFailure()
             break
         }
     }
