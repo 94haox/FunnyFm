@@ -25,6 +25,7 @@ struct Episode : Mapable, TableCodable{
     var formatted_created_at:   String
     var pod_cover_url:          String
     var pod_name:               String
+    var download_filpath:               String
     
     init?(jsonData:JSON) {
         albumId = jsonData["albumId"].intValue
@@ -42,6 +43,7 @@ struct Episode : Mapable, TableCodable{
         pod_cover_url = jsonData["pod_cover_url"].stringValue
         pod_name = jsonData["pod_name"].stringValue
         episodeId = jsonData["_id"].stringValue
+        download_filpath = ""
     }
     
     enum CodingKeys : String, CodingKey ,CodingTableKey {
@@ -61,6 +63,7 @@ struct Episode : Mapable, TableCodable{
         case pod_cover_url
         case pod_name
         case episodeId
+        case download_filpath
     }
     
     
