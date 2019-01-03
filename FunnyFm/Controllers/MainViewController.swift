@@ -115,7 +115,7 @@ extension MainViewController : ViewModelDelegate {
         collectionView.reloadData()
         tableview.reloadData()
         self.addConstrains()
-        if self.vm.chapterList.count > 0 {
+        if self.vm.chapterList.count > 0  && !FMToolBar.shared.isPlaying{
             FMToolBar.shared.configToolBarAtHome(self.vm.chapterList.first!)
         }
     }

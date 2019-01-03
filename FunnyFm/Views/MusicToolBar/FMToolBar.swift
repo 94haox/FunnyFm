@@ -59,11 +59,6 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         vc.chapter = self.currentChapter
         let nav = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
         nav.pushViewController(vc)
-//        if self.isShrink {
-//            self.explain()
-//        }else{
-//            self.shrink()
-//        }
     }
 }
 
@@ -118,26 +113,14 @@ extension FMToolBar{
     
     
     func configToolBarAtHome(_ chapter : Episode) {
-        self.config(chapter)
-        let resource = ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!)
-        self.logoImageView.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil) { [unowned self] (downImage, error, type, url) in
-            if(downImage != nil){
-                self.configShadowColor()
-            }
-        }
+        self.config(chapter, url: chapter.pod_cover_url)
     }
     
     func configToolBar(_ chapter : Episode) {
-        self.config(chapter)
-        let resource = ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!)
-        self.logoImageView.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil) { [unowned self] (downImage, error, type, url) in
-            if(downImage != nil){
-                self.configShadowColor()
-            }
-        }
+        self.config(chapter,url: chapter.cover_url_high)
     }
     
-    func config(_ chapter: Episode){
+	func config(_ chapter: Episode, url: String){
         
         if self.currentChapter.isNone {
            self.currentChapter = chapter
@@ -153,6 +136,12 @@ extension FMToolBar{
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.pod_name
         self.setUpChapter(chapter)
+		let resource = ImageResource.init(downloadURL: URL.init(string: url)!)
+		self.logoImageView.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil) { [unowned self] (downImage, error, type, url) in
+			if(downImage != nil){
+				self.configShadowColor()
+			}
+		}
     }
     
     func configShadowColor() {
