@@ -23,6 +23,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
         self.vm.getHomeChapters()
         self.view.backgroundColor = .white
         UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
+        print("sssss",PrivacyManager.isOpenPusn())
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -106,8 +107,9 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-        let login = LoginViewController()
-        self.present(login, animated: true, completion: nil)
+//        let login = LoginViewController()
+//        self.present(login, animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.init("firstSetUpPush"), object: nil)
     }
 }
 

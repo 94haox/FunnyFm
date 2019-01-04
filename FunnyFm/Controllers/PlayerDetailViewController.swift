@@ -39,8 +39,10 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     var downProgressLayer: CAShapeLayer!
     
     var downBackView: UIView!
+    
+    var timer: Timer?
 	
-	var downloadManager: DownloadManager!
+	
     
     
     override func viewDidLoad() {
@@ -50,7 +52,6 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
         self.view.backgroundColor = .white
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
-		self.downloadManager = DownloadManager.init()
 		if FMPlayerManager.shared.isPlay {
 			self.addRotationAnimation()
 		}
@@ -140,8 +141,8 @@ extension PlayerDetailViewController {
     }
     
     @objc func downloadAction(){
-		self.downloadManager.delegate = self;
-		self.downloadManager.beginDownload(self.chapter!.trackUrl_high)
+		DownloadManager.shared.delegate = self;
+		DownloadManager.shared.beginDownload(self.chapter!.trackUrl_high)
     }
     
     @objc func setSleepTime(){
@@ -199,8 +200,22 @@ extension PlayerDetailViewController {
     }
     
     func sleep(with time: String) {
+        switch time {
+        case "15分钟后":
+            break
+        case "30分钟后":
+            break
+        case "一个小时后":
+            break
+        default:
+            break
+        }
+    }
+    
+    func timerAction(){
         
     }
+    
 }
 
 

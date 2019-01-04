@@ -17,7 +17,6 @@ def lib
     pod 'KeychainAccess'
     pod 'WCDB.swift'
     pod 'JPush'
-#    pod 'PromiseKit'
     pod 'RxSwift'
     pod 'Kingfisher'
     pod 'SwiftyJSON'

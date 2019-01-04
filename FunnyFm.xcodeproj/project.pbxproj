@@ -62,6 +62,9 @@
 		AB25798221945E6F004C5F5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798021945E6F004C5F5D /* Main.storyboard */; };
 		AB25798421945E70004C5F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798521945E70004C5F5D /* LaunchScreen.storyboard */; };
+		AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */; };
+		AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */; };
+		AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */; };
 		AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */; };
 		AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
@@ -210,6 +213,10 @@
 		AB25798321945E70004C5F5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB25798621945E70004C5F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB25798821945E70004C5F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyManager.swift; sourceTree = "<group>"; };
+		AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualActivityViewController.swift; sourceTree = "<group>"; };
+		AB2D266921DF826F00BF3391 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
@@ -364,6 +371,8 @@
 		AB1E6DA221BA01C500B85135 /* OC */ = {
 			isa = PBXGroup;
 			children = (
+				AB2D266921DF826F00BF3391 /* UIScrollView+EmptyDataSet.h */,
+				AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */,
 				ABF5117E21BE8A7C0083A81B /* FMTextField.h */,
 				ABF5117F21BE8A7C0083A81B /* FMTextField.m */,
 				AB1E6DA421BA01E700B85135 /* UIImage+someMethods.h */,
@@ -512,6 +521,7 @@
 		AB41AAF9219564F000260851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */,
 				AB41AAFA219564F000260851 /* ScreenShot */,
 				AB41AAFC219564F000260851 /* Constraints Helpers */,
 				AB41AAFE219564F000260851 /* SubviewsForEach */,
@@ -638,6 +648,7 @@
 			children = (
 				ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */,
 				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
+				AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */,
 				ABE765F021D6414C00470D8F /* PopManager.swift */,
 				AB09A53D21DDBACB00CB621C /* DownloadManager.swift */,
 			);
@@ -873,6 +884,7 @@
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
+				AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ABE7660921D7196700470D8F /* NSAttributedStringExtensions.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
@@ -880,6 +892,7 @@
 				ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
 				ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */,
+				AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */,
 				ABE7660521D7196700470D8F /* FileManagerExtensions.swift in Sources */,
 				ABE7660321D7196700470D8F /* DataExtensions.swift in Sources */,
 				AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */,
@@ -939,6 +952,7 @@
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
 				ABA8BDC121DF1DE800366C6F /* LoginViewController.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
+				AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */,
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
 				ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */,
 				AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */,

@@ -93,3 +93,15 @@ extension HistoryListViewController{
     }
     
 }
+
+extension HistoryListViewController : DZNEmptyDataSetSource {
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage.init(named: "download-empty")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString.init(string: "您还未收听哦~", attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
+    }
+    
+}

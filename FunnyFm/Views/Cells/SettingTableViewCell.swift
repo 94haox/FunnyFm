@@ -24,6 +24,12 @@ class SettingTableViewCell: BaseTableViewCell {
     func config(dic : Dictionary<String, String>){
         self.titleLB.text = dic["title"]
         self.leftImageView.image = UIImage.init(named: dic["imageName"]!)
+        if dic["rightImage"].isSome{
+            self.rightImageView.image = UIImage.init(named: dic["rightImage"]!)
+            self.rightView.isHidden = self.rightImageView.image.isNone
+        }else{
+            self.rightView.isHidden = true
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -19,7 +19,7 @@ protocol DownloadManagerDelegate {
 
 class DownloadManager: NSObject {
     
-//    let shared = DownloadManager.init()
+    static let shared = DownloadManager()
     var downloadRequest:DownloadRequest!
     var cancelledData:Data?
 	var delegate: DownloadManagerDelegate?

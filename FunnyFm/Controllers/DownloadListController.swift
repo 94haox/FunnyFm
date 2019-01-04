@@ -44,6 +44,7 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
         table.delegate = self
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
+        table.emptyDataSetSource = self
         return table
     }()
     
@@ -51,16 +52,6 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
     lazy var episodeList : [Episode] = {
         return DatabaseManager.allDownload()
     }()
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
@@ -92,4 +83,18 @@ extension DownloadListController{
     }
     
 }
+
+extension DownloadListController : DZNEmptyDataSetSource {
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage.init(named: "download-empty")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString.init(string: "您还没下载过哦~", attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
+    }
+    
+}
+
+
 

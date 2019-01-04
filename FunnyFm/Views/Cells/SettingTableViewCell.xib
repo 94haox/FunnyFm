@@ -57,13 +57,14 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B1l-Rv-EI5">
                                 <rect key="frame" x="7.5" y="7.5" width="15" height="15"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="YY5-Rt-CXF"/>
                                     <constraint firstAttribute="height" constant="15" id="fa0-Vu-vNH"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.97254901959999995" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="1xM-Qg-Iff"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="H9r-aq-weY"/>

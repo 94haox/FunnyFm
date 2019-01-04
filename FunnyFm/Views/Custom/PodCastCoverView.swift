@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 
+/// Pod详情顶部
 class PodCastCoverView: UIView {
 	
 	override init(frame: CGRect) {

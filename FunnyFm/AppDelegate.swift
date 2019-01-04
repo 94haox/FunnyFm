@@ -14,15 +14,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
-
+    
+    var options: [UIApplication.LaunchOptionsKey: Any]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.options = launchOptions
 		FMPlayerManager.shared.delegate = FMToolBar.shared
         configureNavigationTabBar()
-        jspushConfig(launchOptions: launchOptions)
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(setUpPush), name: NSNotification.Name.init("firstSetUpPush"), object: nil)
         return true
+    }
+    
+    
+    @objc func setUpPush(){
+        jspushConfig(launchOptions: self.options)
     }
     
     
@@ -52,12 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             case .remoteControlPlay:
                 order = 1;
                 break;
-//            case .remoteControlNextTrack:
-//                order = 2;
-//                break;
-//            case .remoteControlPreviousTrack:
-//                order = 3;
-//                break;
             default:
                 break;
             }
@@ -84,6 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        NotificationCenter.default.removeObserver(self)
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     

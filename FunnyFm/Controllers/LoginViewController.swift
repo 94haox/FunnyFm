@@ -74,19 +74,30 @@ class LoginViewController: BaseViewController {
     }
     
     
+    @objc func loginAction(){
+        
+    }
+    
+    @objc func wxLoginAction(){
+        
+    }
+    
+    
     lazy var confirmBtn :UIButton = {
        let btn = UIButton.init(type: .custom)
         btn.setTitle("登录", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = pfont(fontsize4)
         btn.backgroundColor = CommonColor.mainRed.color
-        btn.cornerRadius = 8;
+        btn.cornerRadius = 15;
+        btn.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         return btn
     }()
     
     lazy var wechatBtn :UIButton = {
         let btn = UIButton.init(type: .custom)
         btn.setImage(UIImage.init(named: "wechat"), for: .normal)
+        btn.addTarget(self, action: #selector(wxLoginAction), for: .touchUpInside)
         return btn
     }()
     
