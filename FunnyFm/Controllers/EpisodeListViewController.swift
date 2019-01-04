@@ -34,6 +34,7 @@ class EpisodeListViewController: BaseViewController , ViewModelDelegate, UITable
         super.viewDidLoad()
         self.setupUI(self.pod)
         self.addConstrains()
+        self.addHeader()
         // Do any additional setup after loading the view.
     }
 	
@@ -129,10 +130,18 @@ extension EpisodeListViewController{
         cell.configCell(chapter)
     }
     
+    
 }
 
 extension EpisodeListViewController {
     
+    func addHeader(){
+        let header = UILabel.init(text: "   最近更新")
+        header.textColor = CommonColor.content.color
+        header.font = p_bfont(fontsize4)
+        header.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 30)
+        self.tableview.tableHeaderView = header;
+    }
     
     fileprivate func addConstrains() {
 	

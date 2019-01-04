@@ -11,6 +11,7 @@ import pop
 
 class PopManager: NSObject {
     
+    /// 添加旋转动画
     static func addRotationAnimation(_ layer: CALayer) {
         let rotaionAnim = layer.pop_animation(forKey: "image_rotaion")
         if rotaionAnim != nil {
@@ -30,6 +31,7 @@ class PopManager: NSObject {
         
     }
     
+    /// 移除旋转动画
     static func removeRotationAnimation(_ layer: CALayer) {
         let rotaionAnim = layer.pop_animation(forKey: "image_rotaion")
         if rotaionAnim == nil {

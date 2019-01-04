@@ -83,10 +83,13 @@
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
+		ABA8BDC121DF1DE800366C6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDBF21DF1DE800366C6F /* LoginViewController.swift */; };
+		ABA8BDC221DF1DE800366C6F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC021DF1DE800366C6F /* LoginViewController.xib */; };
+		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
+		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
 		ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */; };
 		ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */; };
 		ABE765F121D6414C00470D8F /* PopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F021D6414C00470D8F /* PopManager.swift */; };
-		ABE765F321D657EE00470D8F /* DownloadAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F221D657EE00470D8F /* DownloadAPI.swift */; };
 		ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F521D7196700470D8F /* NSPredicateExtensions.swift */; };
 		ABE7660321D7196700470D8F /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F721D7196700470D8F /* DataExtensions.swift */; };
 		ABE7660421D7196700470D8F /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F821D7196700470D8F /* URLRequestExtensions.swift */; };
@@ -228,11 +231,15 @@
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
+		ABA8BDBA21DF054700366C6F /* FunnyShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyShare.entitlements; sourceTree = "<group>"; };
+		ABA8BDBF21DF1DE800366C6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ABA8BDC021DF1DE800366C6F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
 		ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeEpisodeTableViewCell.xib; sourceTree = "<group>"; };
 		ABE765F021D6414C00470D8F /* PopManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopManager.swift; sourceTree = "<group>"; };
-		ABE765F221D657EE00470D8F /* DownloadAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAPI.swift; sourceTree = "<group>"; };
 		ABE765F521D7196700470D8F /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensions.swift; sourceTree = "<group>"; };
 		ABE765F721D7196700470D8F /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		ABE765F821D7196700470D8F /* URLRequestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
@@ -407,8 +414,8 @@
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
 				AB62C46A21BB92F0008D6BA6 /* Base */,
 				AB41AAE3219532E500260851 /* API */,
-				AB41AAE6219533E000260851 /* ViewModel */,
 				AB41AADA21952A6400260851 /* Controllers */,
+				AB41AAE6219533E000260851 /* ViewModel */,
 				ABE7ACBB21C22B8700FC6B8E /* Manager */,
 				AB41AADC21952A8A00260851 /* Views */,
 				AB41AADB21952A7C00260851 /* Models */,
@@ -452,6 +459,10 @@
 				ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */,
 				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
+				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
+				ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */,
+				ABA8BDBF21DF1DE800366C6F /* LoginViewController.swift */,
+				ABA8BDC021DF1DE800366C6F /* LoginViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -484,7 +495,6 @@
 				AB41AAE42195333000260851 /* FmHttp.swift */,
 				AB41AAE72195343200260851 /* PodAPI.swift */,
 				AB1E6DA021B943A100B85135 /* ChapterAPI.swift */,
-				ABE765F221D657EE00470D8F /* DownloadAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -615,6 +625,7 @@
 		ABE7661121D7650E00470D8F /* FunnyShare */ = {
 			isa = PBXGroup;
 			children = (
+				ABA8BDBA21DF054700366C6F /* FunnyShare.entitlements */,
 				ABE7661221D7650E00470D8F /* ShareViewController.swift */,
 				ABE7661421D7650E00470D8F /* MainInterface.storyboard */,
 				ABE7661721D7650E00470D8F /* Info.plist */,
@@ -625,8 +636,8 @@
 		ABE7ACBB21C22B8700FC6B8E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
 				ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */,
+				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
 				ABE765F021D6414C00470D8F /* PopManager.swift */,
 				AB09A53D21DDBACB00CB621C /* DownloadManager.swift */,
 			);
@@ -697,6 +708,9 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -707,6 +721,11 @@
 					};
 					ABE7660F21D7650E00470D8F = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -734,6 +753,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */,
+				ABA8BDC221DF1DE800366C6F /* LoginViewController.xib in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
@@ -902,7 +923,6 @@
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
 				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,
-				ABE765F321D657EE00470D8F /* DownloadAPI.swift in Sources */,
 				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,
 				AB1E6D7221B9252500B85135 /* UIScrollViewExtensions.swift in Sources */,
 				ABE7ACAA21C20D7300FC6B8E /* BaseCollectionViewCell.swift in Sources */,
@@ -917,8 +937,10 @@
 				ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
+				ABA8BDC121DF1DE800366C6F /* LoginViewController.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
+				ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */,
 				AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
 				AB1E6DB421BA74DA00B85135 /* EpisodeListViewController.swift in Sources */,
@@ -1098,7 +1120,7 @@
 			baseConfigurationReference = 496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-red";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-white";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1125,7 +1147,7 @@
 			baseConfigurationReference = 66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-red";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-white";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1149,6 +1171,7 @@
 		ABE7661B21D7650E00470D8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FunnyShare/FunnyShare.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
@@ -1170,6 +1193,7 @@
 		ABE7661C21D7650E00470D8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FunnyShare/FunnyShare.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tao Wu (F3PARDF2VE)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;

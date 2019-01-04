@@ -22,6 +22,7 @@ def lib
     pod 'Kingfisher'
     pod 'SwiftyJSON'
     pod 'Moya'
+    pod 'WechatOpenSDK'
 end
 
 

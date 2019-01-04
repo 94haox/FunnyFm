@@ -86,7 +86,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     lazy var searchBtn : UIButton = {
         let btn = UIButton.init(type: .custom)
         btn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
-//        btn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
+        btn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
         return btn
     }()
     
@@ -106,11 +106,8 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-        let controller = PlayerDetailViewController()
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        controller.transitioningDelegate = transitionDelegate
-        controller.modalPresentationStyle = .custom
-        self.present(controller, animated: true, completion: nil)
+        let login = LoginViewController()
+        self.present(login, animated: true, completion: nil)
     }
 }
 

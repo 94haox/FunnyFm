@@ -6,3 +6,4 @@
 #import "UIImage+someMethods.h"
 #import "JPushConfig.h"
 #import "FMTextField.h"
+#import <WXApi.h>

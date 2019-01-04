@@ -9,8 +9,10 @@
 import UIKit
 import Social
 
-class ShareViewController: SLComposeServiceViewController {
+var podCastUrl = ""
 
+class ShareViewController: SLComposeServiceViewController {
+    
     override func presentationAnimationDidFinish() {
         self.extensionContext!.inputItems.forEach { (item) in
             let newItem = item as! NSExtensionItem
@@ -21,6 +23,7 @@ class ShareViewController: SLComposeServiceViewController {
                         if url.isSome{
                             DispatchQueue.main.async(execute: {
                                 self.textView.text = url!.absoluteString
+                                podCastUrl = url!.absoluteString
                             })
                         }
                     })
@@ -35,16 +38,29 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func didSelectPost() {
-        // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
+        print(self.extensionContext!.inputItems)
+        self.redirectToHostApp()
+        self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+    }
     
-        // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
-//        print(self.extensionContext!.inputItems)
-//        self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+    func redirectToHostApp() {
+        let url = URL(string: "funnyfm://itunsUrl=\(podCastUrl)")
+        var responder = self as UIResponder?
+        let selectorOpenURL = sel_registerName("openURL:")
+        
+        while (responder != nil) {
+            if (responder?.responds(to: selectorOpenURL))! {
+                let _ = responder?.perform(selectorOpenURL, with: url)
+            }
+            responder = responder!.next
+        }
     }
 
     override func configurationItems() -> [Any]! {
         // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
         return []
     }
+    
+    
 
 }

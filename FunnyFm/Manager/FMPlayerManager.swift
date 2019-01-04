@@ -83,6 +83,7 @@ class FMPlayerManager: NSObject {
 
 extension FMPlayerManager {
     
+    /// 开始播放
     func play(){
         if(self.isCanPlay){
             self.isPlay = true
