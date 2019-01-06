@@ -11,6 +11,7 @@ def layout
     pod 'pop', '~> 1.0'
     pod 'SHFullscreenPopGestureSwift'
     pod 'SPStorkController'
+	pod 'lottie-ios'
 end
 
 def lib

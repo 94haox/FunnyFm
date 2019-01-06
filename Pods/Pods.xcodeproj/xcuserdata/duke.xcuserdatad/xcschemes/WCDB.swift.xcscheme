@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30766DF230A051561C117B05E704A0ED"
+               BlueprintIdentifier = "DAFDDAF20D94B03193562562720F3E11"
                BuildableName = "WCDBSwift.framework"
                BlueprintName = "WCDB.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30766DF230A051561C117B05E704A0ED"
+            BlueprintIdentifier = "DAFDDAF20D94B03193562562720F3E11"
             BuildableName = "WCDBSwift.framework"
             BlueprintName = "WCDB.swift"
             ReferencedContainer = "container:Pods.xcodeproj">

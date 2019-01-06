@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED3A5E653244D139B96BF1D7DDB04FFE"
+               BlueprintIdentifier = "459F399526DAB449C9F4DD9C5AF5DA24"
                BlueprintName = "SHFullscreenPopGestureSwift"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SHFullscreenPopGestureSwift.framework">

@@ -52,7 +52,7 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !FMPlayerManager.shared.isCanPlay {
+        if !FMPlayerManager.shared.isCanPlay || self.isShrink {
             return
         }
         let vc = PlayerDetailViewController()

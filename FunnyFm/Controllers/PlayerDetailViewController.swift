@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import pop
+import Lottie
 
 class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
@@ -21,7 +22,9 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     var subTitle: UILabel!
     
     var likeBtn: UIButton!
-    
+	
+	var likeAniView: LOTAnimationView!
+	
     var rateBtn: UIButton!
     
     var downBtn: UIButton!
@@ -156,6 +159,18 @@ extension PlayerDetailViewController {
 		DownloadManager.shared.delegate = self;
 		DownloadManager.shared.beginDownload(self.chapter!.trackUrl_high)
     }
+	
+	@objc func likeAction(){
+		if self.likeBtn.isHidden {
+			self.likeAniView.play(fromProgress: 1, toProgress: 0) {[unowned self] (isEnd) in
+				self.likeBtn.isHidden = false
+			}
+			return
+		}
+		self.likeBtn.isHidden = true
+		self.likeAniView.play()
+
+	}
     
     @objc func setSleepTime(){
         let alertController = UIAlertController.init(title: "定时关闭", message: nil, preferredStyle: .actionSheet)
@@ -315,6 +330,11 @@ extension PlayerDetailViewController {
             make.left.equalTo(self.playBtn.snp.right).offset(50)
             make.size.equalTo(CGSize.init(width: 30, height: 30))
         })
+		
+		self.likeAniView.snp.makeConstraints { (make) in
+			make.center.equalTo(self.likeBtn)
+			make.size.equalTo(self.likeBtn).multipliedBy(2)
+		}
         
     }
     
@@ -340,7 +360,7 @@ extension PlayerDetailViewController {
 		
 		self.coverImageView = UIImageView.init()
         self.coverImageView.kf.setImage(with: URL.init(string: (self.chapter?.cover_url_high)!)!) {[unowned self] result in
-            switch result {
+            switch result { 
             case .success(let value):
                 self.coverBackView.addShadow(ofColor: value.image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
             case .failure(let error):
@@ -349,10 +369,16 @@ extension PlayerDetailViewController {
         }
 		self.coverImageView.cornerRadius = 15
 		self.coverBackView.addSubview(self.coverImageView)
-        
+		
+		self.likeAniView = LOTAnimationView(name: "like_button", bundle: Bundle.main)
+		let tap = UITapGestureRecognizer.init(target: self, action: #selector(likeAction))
+		self.likeAniView.addGestureRecognizer(tap)
+		self.view.addSubview(self.likeAniView)
+		
         self.likeBtn = UIButton.init(type: .custom)
         self.likeBtn.setImage(UIImage.init(named: "favor-nor"), for: .normal)
         self.likeBtn.setImage(UIImage.init(named: "favor-sel"), for: .selected)
+		self.likeBtn.addTarget(self, action: #selector(likeAction), for: .touchUpInside)
         self.view.addSubview(self.likeBtn)
         
         self.downProgressLayer = CAShapeLayer.init()
@@ -413,7 +439,6 @@ extension PlayerDetailViewController {
         self.forwardBtn.setImage(UIImage.init(named: "forward"), for: .normal)
         self.forwardBtn.addTarget(self, action: #selector(forwardAction), for: .touchUpInside)
         self.view.addSubview(self.forwardBtn)
-
 
     }
 

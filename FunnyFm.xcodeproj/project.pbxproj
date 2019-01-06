@@ -88,6 +88,7 @@
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
 		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
 		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
+		ABAFF27221E22E440009A3A2 /* like_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABAFF27121E22E440009A3A2 /* like_button.json */; };
 		ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */; };
 		ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */; };
 		ABE765F121D6414C00470D8F /* PopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F021D6414C00470D8F /* PopManager.swift */; };
@@ -241,6 +242,7 @@
 		ABA8BDBA21DF054700366C6F /* FunnyShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyShare.entitlements; sourceTree = "<group>"; };
 		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		ABAFF27121E22E440009A3A2 /* like_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_button.json; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
 		ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeEpisodeTableViewCell.xib; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		AB25797B21945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXGroup;
 			children = (
+				ABAFF26E21E22CA30009A3A2 /* Lotties */,
 				ABF5117A21BE74240083A81B /* FunnyFm.entitlements */,
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
 				AB62C46A21BB92F0008D6BA6 /* Base */,
@@ -616,6 +619,14 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				ABAFF27121E22E440009A3A2 /* like_button.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
 		ABE765F421D7196700470D8F /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -775,6 +786,7 @@
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				AB25798221945E6F004C5F5D /* Main.storyboard in Resources */,
+				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,6 +840,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -846,6 +859,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
