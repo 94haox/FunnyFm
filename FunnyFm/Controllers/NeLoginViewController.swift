@@ -1,22 +1,22 @@
 //
-//  RegisterViewController.swift
+//  NeLoginViewController.swift
 //  FunnyFm
 //
-//  Created by Duke on 2019/1/4.
+//  Created by Duke on 2019/1/6.
 //  Copyright © 2019 Duke. All rights reserved.
 //
 
 import UIKit
 
-class RegisterViewController: BaseViewController {
+class NeLoginViewController: BaseViewController {
 
-    @IBOutlet var tipLB: UIView!
+    @IBOutlet weak var tipLB: UILabel!
+    
+    @IBOutlet weak var loginBtn: UIButton!
+    
+    @IBOutlet weak var nextImageView: UIImageView!
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
-    
-    @IBOutlet weak var nextImageVIew: UIImageView!
-    
-    @IBOutlet weak var registerBtn: UIButton!
     
     var mailTF : FMTextField!
     
@@ -24,30 +24,49 @@ class RegisterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadingView.isHidden = true
         self.setupUI()
         self.dw_addSubviews()
-        self.loadingView.isHidden = true
-        
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(endEidted))
         self.view.addGestureRecognizer(tap)
+        // Do any additional setup after loading the view.
     }
 
-    @IBAction func registerAction(_ sender: Any) {
-        
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController()
+    }
+    
+    @IBAction func wxLoginAction(_ sender: Any) {
         
     }
     
-    @IBAction func backAction(_ sender: Any) {
-        self.navigationController?.popViewController()
+    @IBAction func loginAction(_ sender: Any) {
+        self.loadingView.isHidden = false
+        self.nextImageView.isHidden = true
+        self.loadingView.startAnimating()
+    }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        self.navigationController?.pushViewController(RegisterViewController())
     }
     
     @objc func endEidted(){
         self.view.endEditing(true)
     }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
 
-extension RegisterViewController {
+
+extension NeLoginViewController {
     
     func dw_addSubviews() {
         
@@ -65,7 +84,7 @@ extension RegisterViewController {
             make.height.equalTo(50)
         }
         
-        self.registerBtn.snp.makeConstraints { (make) in
+        self.loginBtn.snp.makeConstraints { (make) in
             make.top.equalTo(self.passTF.snp.bottom).offset(AdaptScale(40))
         }
         
@@ -98,5 +117,8 @@ extension RegisterViewController {
         self.passTF.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
         self.passTF.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
         self.view.addSubview(self.passTF)
+        
+        
     }
+    
 }

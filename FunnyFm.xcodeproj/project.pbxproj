@@ -86,8 +86,6 @@
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
-		ABA8BDC121DF1DE800366C6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDBF21DF1DE800366C6F /* LoginViewController.swift */; };
-		ABA8BDC221DF1DE800366C6F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC021DF1DE800366C6F /* LoginViewController.xib */; };
 		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
 		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
 		ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */; };
@@ -126,6 +124,8 @@
 		ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */; };
 		ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */; };
 		ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */; };
+		ABF6DD2321E1A66E0080BE46 /* NeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */; };
+		ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,8 +239,6 @@
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
 		ABA8BDBA21DF054700366C6F /* FunnyShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyShare.entitlements; sourceTree = "<group>"; };
-		ABA8BDBF21DF1DE800366C6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		ABA8BDC021DF1DE800366C6F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -283,6 +281,8 @@
 		ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodListCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListViewModel.swift; sourceTree = "<group>"; };
+		ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NeLoginViewController.xib; sourceTree = "<group>"; };
+		ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,8 +470,8 @@
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
 				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
 				ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */,
-				ABA8BDBF21DF1DE800366C6F /* LoginViewController.swift */,
-				ABA8BDC021DF1DE800366C6F /* LoginViewController.xib */,
+				ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */,
+				ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -765,7 +765,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */,
-				ABA8BDC221DF1DE800366C6F /* LoginViewController.xib in Resources */,
+				ABF6DD2321E1A66E0080BE46 /* NeLoginViewController.xib in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
@@ -860,6 +860,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
@@ -950,7 +951,6 @@
 				ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
-				ABA8BDC121DF1DE800366C6F /* LoginViewController.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
 				AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */,
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
@@ -1135,6 +1135,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-white";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1162,6 +1163,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-white";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

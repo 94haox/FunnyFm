@@ -107,9 +107,8 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-//        let login = LoginViewController()
-//        self.present(login, animated: true, completion: nil)
-        NotificationCenter.default.post(name: NSNotification.Name.init("firstSetUpPush"), object: nil)
+        let login = NeLoginViewController()
+        self.navigationController?.pushViewController(login)
     }
 }
 

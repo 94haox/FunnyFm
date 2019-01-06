@@ -43,7 +43,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: 146, height: 168)
+        layout.itemSize = CGSize(width: AdaptScale(146), height: AdaptScale(168))
         layout.minimumLineSpacing = 16
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 30, bottom: 0, right: 30)
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)

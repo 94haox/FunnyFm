@@ -12,29 +12,33 @@ import pop
 
 class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
-    var chapter: Episode?
+    var chapter: Episode!
     
-    var backBtn: UIButton?
+    var backBtn: UIButton!
     
-    var titleLB: UILabel?
+    var titleLB: UILabel!
     
-    var subTitle: UILabel?
+    var subTitle: UILabel!
     
-    var likeBtn: UIButton?
+    var likeBtn: UIButton!
     
-    var rateBtn: UIButton?
+    var rateBtn: UIButton!
     
-    var downBtn: UIButton?
+    var downBtn: UIButton!
     
-    var sleepBtn: UIButton?
+    var rewindBtn: UIButton!
     
-    var blackImageView: UIImageView?
+    var forwardBtn: UIButton!
     
-    var coverImageView: UIImageView?
+    var sleepBtn: UIButton!
     
-    var progressLine: ChapterProgressView?
+    var coverBackView: UIView!
     
-    var playBtn : AnimationButton?
+    var coverImageView: UIImageView!
+    
+    var progressLine: ChapterProgressView!
+    
+    var playBtn : AnimationButton!
     
     var downProgressLayer: CAShapeLayer!
     
@@ -58,11 +62,11 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     }
     
     func addRotationAnimation() {
-       PopManager.addRotationAnimation(self.blackImageView!.layer)
+//       PopManager.addRotationAnimation(self.blackImageView!.layer)
     }
     
     func removeRotationAnimation() {
-        PopManager.removeRotationAnimation(self.blackImageView!.layer)
+//        PopManager.removeRotationAnimation(self.blackImageView!.layer)
     }
     
     
@@ -138,6 +142,14 @@ extension PlayerDetailViewController {
         }else{
             FMPlayerManager.shared.pause()
         }
+    }
+    
+    @objc func rewindAction(){
+        
+    }
+    
+    @objc func forwardAction(){
+        
     }
     
     @objc func downloadAction(){
@@ -223,108 +235,125 @@ extension PlayerDetailViewController {
 extension PlayerDetailViewController {
     
     func dw_addConstraints(){
-        self.titleLB?.snp.makeConstraints({ (make) in
+        self.titleLB.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(AdaptScale(60))
             make.width.equalTo(200)
         })
         
-        self.subTitle?.snp.makeConstraints({ (make) in
+        self.subTitle.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.titleLB!.snp.bottom).offset(2.5)
+            make.top.equalTo(self.titleLB.snp.bottom).offset(2.5)
         })
         
-        self.backBtn?.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.titleLB!)
+        self.backBtn.snp.makeConstraints({ (make) in
+            make.centerY.equalTo(self.titleLB)
             make.left.equalToSuperview().offset(24)
-            make.size.equalTo(CGSize.init(width: 25, height: 25))
+            make.size.equalTo(CGSize.init(width: 30, height: 30))
         })
         
-        self.blackImageView?.snp.makeConstraints({ (make) in
+        self.coverBackView.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.subTitle!.snp.bottom).offset(57)
+            make.top.equalTo(self.subTitle.snp.bottom).offset(57)
             make.size.equalTo(CGSize.init(width: 244, height: 244))
         })
 		
-		self.coverImageView?.snp.makeConstraints({ (make) in
-			make.center.equalTo(self.blackImageView!)
-			make.size.equalTo(CGSize.init(width: 140, height: 140))
+		self.coverImageView.snp.makeConstraints({ (make) in
+			make.edges.equalTo(self.coverBackView)
 		})
         
-        self.likeBtn?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.blackImageView!.snp.bottom).offset(AdaptScale(77))
+        self.likeBtn.snp.makeConstraints({ (make) in
+            make.top.equalTo(self.coverBackView.snp.bottom).offset(AdaptScale(77))
             make.right.equalTo(self.view.snp.centerX).offset(-32)
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
         
-        self.rateBtn?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.blackImageView!.snp.bottom).offset(AdaptScale(77))
+        self.rateBtn.snp.makeConstraints({ (make) in
+            make.top.equalTo(self.coverBackView.snp.bottom).offset(AdaptScale(77))
             make.left.equalTo(self.view.snp.centerX).offset(32)
             make.size.equalTo(CGSize.init(width: 35, height: 25))
         })
         
-        self.downBtn?.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.likeBtn!)
+        self.downBtn.snp.makeConstraints({ (make) in
+            make.centerY.equalTo(self.likeBtn)
             make.left.equalTo(self.rateBtn!.snp.right).offset(AdaptScale(70))
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
         
         self.downBackView.snp.makeConstraints { (make) in
-            make.center.equalTo(self.downBtn!)
+            make.center.equalTo(self.downBtn)
             make.size.equalTo(CGSize.init(width: 35, height: 35))
         }
         
-        self.sleepBtn?.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.likeBtn!)
-            make.right.equalTo(self.likeBtn!.snp.left).offset(-74)
+        self.sleepBtn.snp.makeConstraints({ (make) in
+            make.centerY.equalTo(self.likeBtn)
+            make.right.equalTo(self.likeBtn.snp.left).offset(-74)
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
         
-        self.progressLine?.snp.makeConstraints({ (make) in
+        self.progressLine.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-48)
             make.height.equalTo(20)
-            make.top.equalTo(self.downBtn!.snp.bottom).offset(72)
+            make.top.equalTo(self.downBtn.snp.bottom).offset(72)
         })
         
-        self.playBtn?.snp.makeConstraints({ (make) in
+        self.playBtn.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.progressLine!.snp.bottom).offset(72)
+            make.top.equalTo(self.progressLine.snp.bottom).offset(72)
             make.size.equalTo(CGSize.init(width: 60, height: 60))
+        })
+        
+        self.rewindBtn.snp.makeConstraints({ (make) in
+            make.centerY.equalTo(self.playBtn)
+            make.right.equalTo(self.playBtn.snp.left).offset(-50)
+            make.size.equalTo(CGSize.init(width: 30, height: 30))
+        })
+        
+        self.forwardBtn.snp.makeConstraints({ (make) in
+            make.centerY.equalTo(self.playBtn)
+            make.left.equalTo(self.playBtn.snp.right).offset(50)
+            make.size.equalTo(CGSize.init(width: 30, height: 30))
         })
         
     }
     
     func dw_addSubviews(){
         self.backBtn = UIButton.init(type: .custom)
-        self.backBtn!.addTarget(self, action: #selector(back), for: .touchUpInside)
-        self.backBtn?.setImage(UIImage.init(named: "back_black"), for: .normal)
-        self.view.addSubview(self.backBtn!)
+        self.backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
+        self.backBtn.setImage(UIImage.init(named: "back_black"), for: .normal)
+        self.view.addSubview(self.backBtn)
         
-        self.titleLB = UILabel.init(text: self.chapter?.title)
-        self.titleLB?.textColor = CommonColor.title.color
-        self.titleLB?.font = p_bfont(fontsize6)
-        self.view.addSubview(self.titleLB!)
+        self.titleLB = UILabel.init(text: self.chapter.title)
+        self.titleLB.textColor = CommonColor.title.color
+        self.titleLB.font = p_bfont(fontsize6)
+        self.view.addSubview(self.titleLB)
         
-        self.subTitle = UILabel.init(text: self.chapter?.pod_name)
-        self.subTitle?.textColor = CommonColor.content.color
-        self.subTitle?.font = pfont(fontsize0)
-        self.view.addSubview(self.subTitle!)
+        self.subTitle = UILabel.init(text: self.chapter.pod_name)
+        self.subTitle.textColor = CommonColor.content.color
+        self.subTitle.font = pfont(fontsize0)
+        self.view.addSubview(self.subTitle)
         
-        self.blackImageView = UIImageView.init(image: UIImage.init(named: "blackground"))
-        self.blackImageView?.addShadow(ofColor: CommonColor.title.color, radius: 10, offset: CGSize.init(width: 1, height: 1), opacity: 0.9)
-        self.view.addSubview(self.blackImageView!)
+        self.coverBackView = UIView.init()
+        self.coverBackView.cornerRadius = 15
+        self.view.addSubview(self.coverBackView)
 		
 		self.coverImageView = UIImageView.init()
-		let resource = ImageResource.init(downloadURL: URL.init(string: (self.chapter?.cover_url_high)!)!)
-		self.coverImageView!.kf.setImage(with: resource)
-		self.coverImageView?.cornerRadius = 70
-		self.blackImageView!.addSubview(self.coverImageView!)
+        self.coverImageView.kf.setImage(with: URL.init(string: (self.chapter?.cover_url_high)!)!) {[unowned self] result in
+            switch result {
+            case .success(let value):
+                self.coverBackView.addShadow(ofColor: value.image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+		self.coverImageView.cornerRadius = 15
+		self.coverBackView.addSubview(self.coverImageView)
         
         self.likeBtn = UIButton.init(type: .custom)
-        self.likeBtn?.setImage(UIImage.init(named: "favor-nor"), for: .normal)
-        self.likeBtn?.setImage(UIImage.init(named: "favor-sel"), for: .selected)
-        self.view.addSubview(self.likeBtn!)
+        self.likeBtn.setImage(UIImage.init(named: "favor-nor"), for: .normal)
+        self.likeBtn.setImage(UIImage.init(named: "favor-sel"), for: .selected)
+        self.view.addSubview(self.likeBtn)
         
         self.downProgressLayer = CAShapeLayer.init()
         let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 35, height: 35))
@@ -342,38 +371,48 @@ extension PlayerDetailViewController {
         self.view.addSubview(self.downBackView)
         
         self.downBtn = UIButton.init(type: .custom)
-        self.downBtn?.setImage(UIImage.init(named: "download-black"), for: .normal)
-        self.downBtn!.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
-        self.view.addSubview(self.downBtn!)
+        self.downBtn.setImage(UIImage.init(named: "download-black"), for: .normal)
+        self.downBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
+        self.view.addSubview(self.downBtn)
         
         
         self.sleepBtn = UIButton.init(type: .custom)
-        self.sleepBtn?.imageView?.contentMode = .scaleAspectFit
-        self.sleepBtn?.setImage(UIImage.init(named: "timer-sleep"), for: .normal)
-        self.sleepBtn?.addTarget(self, action: #selector(setSleepTime), for: .touchUpInside)
-        self.view.addSubview(self.sleepBtn!)
+        self.sleepBtn.imageView?.contentMode = .scaleAspectFit
+        self.sleepBtn.setImage(UIImage.init(named: "timer-sleep"), for: .normal)
+        self.sleepBtn.addTarget(self, action: #selector(setSleepTime), for: .touchUpInside)
+        self.view.addSubview(self.sleepBtn)
         
         self.rateBtn = UIButton.init(type: .custom)
-        self.rateBtn?.setTitle("1x", for: .normal)
-        self.rateBtn?.titleLabel?.font = h_bfont(fontsize6)
-        self.rateBtn?.setTitleColor(CommonColor.title.color, for: .normal)
-        self.rateBtn?.addTarget(self, action: #selector(changeRateAction(btn:)), for: .touchUpInside)
-        self.view.addSubview(self.rateBtn!)
+        self.rateBtn.setTitle("1x", for: .normal)
+        self.rateBtn.titleLabel?.font = h_bfont(fontsize6)
+        self.rateBtn.setTitleColor(CommonColor.title.color, for: .normal)
+        self.rateBtn.addTarget(self, action: #selector(changeRateAction(btn:)), for: .touchUpInside)
+        self.view.addSubview(self.rateBtn)
         
         self.progressLine = ChapterProgressView()
-        self.progressLine?.cycleW = 18
-        self.progressLine?.fontSize = fontsize0
-        self.view.addSubview(self.progressLine!)
+        self.progressLine.cycleW = 18
+        self.progressLine.fontSize = fontsize0
+        self.view.addSubview(self.progressLine)
         
         self.playBtn = AnimationButton.init(type: .custom)
-        self.playBtn?.setImage(UIImage.init(named: "play-red"), for: .normal)
-        self.playBtn?.setImage(UIImage.init(named: "play-high"), for: .highlighted)
-        self.playBtn?.setImage(UIImage.init(named: "pause-red"), for: .selected)
-        self.playBtn?.isSelected = FMPlayerManager.shared.isPlay
-        self.playBtn!.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
-        self.playBtn?.cornerRadius = 30
-        self.playBtn?.addShadow(ofColor: CommonColor.mainRed.color, opacity: 0.8)
-        self.view.addSubview(self.playBtn!)
+        self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
+        self.playBtn.setImage(UIImage.init(named: "play-high"), for: .highlighted)
+        self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
+        self.playBtn.isSelected = FMPlayerManager.shared.isPlay
+        self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
+        self.playBtn.cornerRadius = 30
+        self.playBtn.addShadow(ofColor: CommonColor.mainRed.color, opacity: 0.8)
+        self.view.addSubview(self.playBtn)
+        
+        self.rewindBtn = UIButton.init(type: .custom)
+        self.rewindBtn.setImage(UIImage.init(named: "rewind"), for: .normal)
+        self.rewindBtn.addTarget(self, action: #selector(rewindAction), for: .touchUpInside)
+        self.view.addSubview(self.rewindBtn)
+        
+        self.forwardBtn = UIButton.init(type: .custom)
+        self.forwardBtn.setImage(UIImage.init(named: "forward"), for: .normal)
+        self.forwardBtn.addTarget(self, action: #selector(forwardAction), for: .touchUpInside)
+        self.view.addSubview(self.forwardBtn)
 
 
     }

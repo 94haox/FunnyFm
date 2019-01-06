@@ -11,11 +11,19 @@ import StoreKit
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 
+    var titleLB: UILabel!
+    
+    var tableview : UITableView!
+    
+    var backBtn : UIButton!
+    
+    var naviBar: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "设置"
-        self.view.backgroundColor = CommonColor.background.color
-        self.tableview.backgroundColor = CommonColor.background.color
+        self.setupUI()
+        self.view.backgroundColor = .white
+        self.tableview.backgroundColor = .white
         self.setUpDataSource()
         self.dw_addsubviews()
     }
@@ -39,10 +47,9 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     
     func toShare(){
         let textToShare = "FunnyFM"
-        let subtitleToShare = "有趣的播客由你自己发掘"
         let imageToShare = UIImage.init(named: "logo-white")
         let urlToShare = NSURL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
-        var items = [textToShare,subtitleToShare,imageToShare!] as [Any]
+        var items = [textToShare,imageToShare!] as [Any]
         if urlToShare != nil {
             items.append(urlToShare!)
         }
@@ -68,26 +75,10 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         }
     }
     
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "设置")
-        lb.font = p_bfont(32)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
+    @objc func backAction(){
+        self.navigationController?.popViewController()
+    }
     
-    lazy var tableview : UITableView = {
-        let table = UITableView.init(frame: CGRect.zero, style: .plain)
-        let nib = UINib(nibName: String(describing: SettingTableViewCell.self), bundle: nil)
-        table.register(nib, forCellReuseIdentifier: "cell")
-        table.separatorStyle = .none
-        table.rowHeight = 50
-		table.sectionHeaderHeight = 30
-        table.delegate = self
-        table.dataSource = self
-        table.tableFooterView = UIView()
-        table.showsVerticalScrollIndicator = false
-        return table
-    }()
     
 }
 
@@ -150,7 +141,6 @@ extension SettingViewController {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView.init()
 		let lb = UILabel.init(text: "通知")
-		lb.backgroundColor = CommonColor.background.color
 		lb.textColor = CommonColor.subtitle.color
 		lb.font = pfont(fontsize2)
 		if section == 1 {
@@ -170,7 +160,6 @@ extension SettingViewController {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingTableViewCell
-		cell.backgroundColor = CommonColor.cellbackgroud.color
 		if indexPath.section == 0 {
 			let item = self.settings[indexPath.row] as! Dictionary<String,String>
 			cell.config(dic: item)
@@ -190,17 +179,57 @@ extension SettingViewController {
 extension SettingViewController {
     
     func dw_addsubviews(){
+        self.view.addSubview(self.naviBar)
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
+        self.view.addSubview(self.backBtn)
+        
+        self.naviBar.snp.makeConstraints { (make) in
+            make.left.width.equalToSuperview()
+            make.top.equalTo(self.view.snp_topMargin)
+            make.height.equalTo(44)
+        }
         
         self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.left.equalToSuperview().offset(16)
+            make.centerY.equalTo(self.naviBar)
+            make.centerX.equalToSuperview()
         }
+        
+        self.backBtn.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.naviBar)
+            make.left.equalToSuperview().offset(16)
+            make.size.equalTo(CGSize.init(width: 30, height: 30))
+        }
+        
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.titleLB.snp.bottom)
+            make.top.equalTo(self.naviBar.snp.bottom)
         }
+    }
+    
+    func setupUI(){
+        self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
+        let nib = UINib(nibName: String(describing: SettingTableViewCell.self), bundle: nil)
+        self.tableview.register(nib, forCellReuseIdentifier: "cell")
+        self.tableview.separatorStyle = .none
+        self.tableview.rowHeight = 50
+        self.tableview.sectionHeaderHeight = 30
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
+        self.tableview.tableFooterView = UIView()
+        self.tableview.showsVerticalScrollIndicator = false
+        
+        self.titleLB = UILabel.init(text: "设置")
+        self.titleLB.font = p_bfont(18)
+        self.titleLB.textColor = CommonColor.title.color
+        
+        self.backBtn = UIButton.init(type: .custom)
+        self.backBtn.setImage(UIImage.init(named: "back_black"), for: .normal)
+        self.backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        
+        self.naviBar = UIView.init()
+        self.naviBar.backgroundColor = .white
+        
     }
 }
