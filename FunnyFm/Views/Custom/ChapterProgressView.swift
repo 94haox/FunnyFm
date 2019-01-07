@@ -12,7 +12,10 @@ import pop
 
 class ChapterProgressView: UIView {
     
+    /// 是否是拖动状态
     var isDrag = false
+    
+    let feedBackGenertor = UIImpactFeedbackGenerator.init(style: .light)
     
     var beginPoint: CGPoint?
     
@@ -162,6 +165,7 @@ extension ChapterProgressView {
             let touch = touches.randomElement()
             let progressPoint = touch!.location(in: self.totalProgress)
             if progressPoint.x > 0{
+                self.feedBackGenertor.impactOccurred()
                 var x = progressPoint.x
                 if x > self.totalProgress.frame.width {
                     x = self.totalProgress.frame.width

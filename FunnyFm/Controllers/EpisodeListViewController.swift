@@ -33,9 +33,10 @@ class EpisodeListViewController: BaseViewController , ViewModelDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI(self.pod)
-        self.addConstrains()
         self.addHeader()
-        // Do any additional setup after loading the view.
+        self.addConstrains()
+        self.tableview.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(refreshAction))
+        self.tableview.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
     }
 	
 	func setupUI(_ pod: Pod){
@@ -57,22 +58,43 @@ class EpisodeListViewController: BaseViewController , ViewModelDelegate, UITable
         table.rowHeight = 131
         table.delegate = self
         table.dataSource = self
-        table.showsVerticalScrollIndicator = false
-        table.contentInset = UIEdgeInsets.init(top: 220, left: 0, bottom: 120, right: 0)
+        table.contentInset = UIEdgeInsets.init(top: 220, left: 0, bottom: 0, right: 0)
         return table
     }()
 
+}
+
+/// MARK: Actions
+extension EpisodeListViewController {
+    
+    @objc func refreshAction(){
+        self.vm.first()
+        self.tableview.mj_footer.resetNoMoreData()
+    }
+    
+    @objc func loadMore(){
+        self.vm.next()
+    }
+    
 }
 
 
 extension EpisodeListViewController{
     
     func viewModelDidGetDataSuccess() {
+        if self.vm.isNoMore {
+            self.tableview.mj_footer.endRefreshingWithNoMoreData()
+        }else{
+            self.tableview.mj_footer.endRefreshing()
+        }
+        self.tableview.mj_header.endRefreshing()
+
         self.tableview.reloadData()
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
-        
+        self.tableview.mj_header.endRefreshing()
+        self.tableview.mj_footer.endRefreshing()
     }
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {

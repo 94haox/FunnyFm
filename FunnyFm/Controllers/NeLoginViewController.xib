@@ -98,7 +98,7 @@
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pjC-kg-UGr">
                     <rect key="frame" x="177" y="420" width="20" height="20"/>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mz-Lt-WCM">
+                <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mz-Lt-WCM">
                     <rect key="frame" x="230" y="380" width="30" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="AjT-YR-z59"/>

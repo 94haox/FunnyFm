@@ -38,7 +38,6 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func didSelectPost() {
-        print(self.extensionContext!.inputItems)
         self.redirectToHostApp()
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }

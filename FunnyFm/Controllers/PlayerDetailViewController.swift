@@ -46,9 +46,6 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
     var timer: Timer?
 	
-	
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dw_addSubviews()
@@ -56,20 +53,8 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
         self.view.backgroundColor = .white
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
-		if FMPlayerManager.shared.isPlay {
-			self.addRotationAnimation()
-		}
     }
-    
-    func addRotationAnimation() {
-//       PopManager.addRotationAnimation(self.blackImageView!.layer)
-    }
-    
-    func removeRotationAnimation() {
-//        PopManager.removeRotationAnimation(self.blackImageView!.layer)
-    }
-    
-    
+
 }
 
 
@@ -82,12 +67,10 @@ extension PlayerDetailViewController {
     }
     
     func playerDidPlay() {
-        self.addRotationAnimation()
         self.playBtn!.isSelected = true
     }
     
     func playerDidPause() {
-        self.removeRotationAnimation()
         self.playBtn!.isSelected = false
     }
     

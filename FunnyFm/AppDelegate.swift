@@ -91,10 +91,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if let key = url.absoluteString.components(separatedBy: "=").last{
-            print(key)
+            print("jek---",key)
             return true
         }
-        print(url.absoluteString)
         return false
     }
 

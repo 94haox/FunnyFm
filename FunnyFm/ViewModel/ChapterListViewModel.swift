@@ -14,6 +14,8 @@ class ChapterListViewModel: NSObject {
     
     var pageNum: Int = 1
     
+    var isNoMore = false
+    
     lazy var chapterList : [Episode] = {
         return []
     }()
@@ -39,6 +41,7 @@ class ChapterListViewModel: NSObject {
     fileprivate func getChapters() {
 	FmHttp<Episode>().requestForArray(ChapterAPI.getChapterList(self.pageNum,self.podId), { (capterlist) in
 			if let list = capterlist {
+                self.isNoMore = list.count == 0
 				if self.pageNum == 1{
 					self.chapterList = list
 				}else{

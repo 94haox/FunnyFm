@@ -27,6 +27,11 @@ class MainViewModel: NSObject {
         super.init()
     }
     
+    func refresh() {
+        self.getAllPods()
+        self.getHomeChapters()
+    }
+    
     func getAllPods() {
         FmHttp<Pod>().requestForArray(PodAPI.getPodList(), { (podlist) in
             if let list = podlist {

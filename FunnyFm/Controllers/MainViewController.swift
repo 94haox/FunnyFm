@@ -14,16 +14,29 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     
     var vm = MainViewModel.init()
     
-    fileprivate var cellsIsOpen = [Bool]()
+    var containerView: UIView!
+    
+    var collectionView : UICollectionView!
+    
+    var tableview : UITableView!
+    
+    var searchBar : FMTextField!
+    
+    var searchBtn : UIButton!
+    
+    var profileBtn : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.vm.delegate = self
         self.vm.getAllPods()
         self.vm.getHomeChapters()
+        self.dw_addViews()
+        self.addConstrains()
+        self.addHeader();
+        self.addFooter()
         self.view.backgroundColor = .white
         UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
-        print("sssss",PrivacyManager.isOpenPusn())
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -36,71 +49,12 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		FMToolBar.shared.shrink()
 	}
 	
-    
-    lazy var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: 65, height: 65)
-        layout.headerReferenceSize = CGSize(width: 95, height: 65)
-        layout.scrollDirection = .horizontal
-        let collectionview = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 80), collectionViewLayout: layout)
-        collectionview.showsHorizontalScrollIndicator = false
-        let nib = UINib(nibName: String(describing: HomePodCollectionViewCell.self), bundle: nil)
-        let headernib = UINib(nibName: String(describing: HomePodListHeader.self), bundle: nil)
-        collectionview.register(nib, forCellWithReuseIdentifier: "cell")
-        collectionview.register(HomePodListHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
-        collectionview.backgroundColor = .white
-        collectionview.delegate = self
-        collectionview.dataSource = self
-        return collectionview
-    }()
-    
-    lazy var tableview : UITableView = {
-        let table = UITableView.init(frame: CGRect.zero, style: .plain)
-        let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
-        table.sectionHeaderHeight = 36
-        table.register(nib, forCellReuseIdentifier: "tablecell")
-        table.separatorStyle = .none
-        table.rowHeight = 131
-        table.delegate = self
-        table.dataSource = self
-        table.showsVerticalScrollIndicator = false
-        table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
-        table.tableHeaderView = self.collectionView;
-        return table
-    }()
-    
-    lazy var searchBar : FMTextField = {
-        let tf = FMTextField.init(frame: CGRect.zero)
-        tf.cornerRadius = 15;
-        tf.tintColor = CommonColor.mainRed.color
-        tf.backgroundColor = CommonColor.cellbackgroud.color
-        tf.placeholder = "search"
-        tf.returnKeyType = .done
-        tf.font = pfont(fontsize4)
-        tf.textColor = CommonColor.title.color
-        tf.delegate = tf
-        tf.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
-        tf.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
-        return tf
-    }()
-    
-    lazy var searchBtn : UIButton = {
-        let btn = UIButton.init(type: .custom)
-        btn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
-        btn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
-        return btn
-    }()
-    
-    lazy var profileBtn : UIButton = {
-        let btn = UIButton.init(type: .custom)
-        btn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)
-        btn.addTarget(self, action: #selector(toUserCenter), for:.touchUpInside)
-        return btn
-    }()
 }
 
 
+// MARK: - Actions
 extension MainViewController{
+    
     @objc func toUserCenter() {
         let usercenterVC = UserCenterViewController()
         self.navigationController?.pushViewController(usercenterVC)
@@ -110,28 +64,35 @@ extension MainViewController{
         let login = NeLoginViewController()
         self.navigationController?.pushViewController(login)
     }
+    
+    @objc func refreshData(){
+        let feedBackGenertor = UIImpactFeedbackGenerator.init(style: .medium)
+        feedBackGenertor.impactOccurred()
+        self.vm.refresh()
+    }
 }
 
 
+// MARK: - ViewModelDelegate
 extension MainViewController : ViewModelDelegate {
+    
     func viewModelDidGetDataSuccess() {
-        collectionView.reloadData()
-        tableview.reloadData()
-		self.addConstrains()
-		self.addFooter()
+        self.tableview.refreshControl?.endRefreshing()
+        self.collectionView.reloadData()
+        self.tableview.reloadData()
         if self.vm.chapterList.count > 0  && !FMToolBar.shared.isPlaying{
             FMToolBar.shared.configToolBarAtHome(self.vm.chapterList.first!)
         }
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
+        self.tableview.refreshControl?.endRefreshing()
         SwiftNotice.noticeOnStatusBar("请求失败", autoClear: true, autoClearTime: 2)
     }
     
 }
 
 // MARK: UICollectionViewDelegate
-
 extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -147,6 +108,8 @@ extension MainViewController{
     }
 }
 
+
+// MARK: - TablviewDataSource
 extension MainViewController{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -180,7 +143,6 @@ extension MainViewController{
 
 
 // MARK: UICollectionViewDataSource
-
 extension MainViewController{
     
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
@@ -213,6 +175,8 @@ extension MainViewController{
     }
 }
 
+
+// MARK: - UI
 extension MainViewController {
 	
 	func addFooter(){
@@ -224,6 +188,12 @@ extension MainViewController {
 		label.backgroundColor = .white
 		self.tableview.tableFooterView = label
 	}
+    
+    func addHeader(){
+        let refreshControl = UIRefreshControl.init()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        self.tableview.refreshControl = refreshControl;
+    }
     
     
     fileprivate func addConstrains() {
@@ -256,6 +226,56 @@ extension MainViewController {
             make.bottom.equalToSuperview()
             make.top.equalTo(self.searchBar.snp.bottom).offset(32)
         }
+    }
+    
+    func dw_addViews(){
+        let layout = UICollectionViewFlowLayout.init()
+        layout.itemSize = CGSize(width: 65, height: 65)
+        layout.headerReferenceSize = CGSize(width: 95, height: 65)
+        layout.scrollDirection = .horizontal
+        self.collectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 80), collectionViewLayout: layout)
+        self.collectionView.showsHorizontalScrollIndicator = false
+        let nib = UINib(nibName: String(describing: HomePodCollectionViewCell.self), bundle: nil)
+//        let headernib = UINib(nibName: String(describing: HomePodListHeader.self), bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        self.collectionView.register(HomePodListHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+        self.collectionView.backgroundColor = .white
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        
+        
+        self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
+        let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
+        self.tableview.sectionHeaderHeight = 36
+        self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+        self.tableview.separatorStyle = .none
+        self.tableview.rowHeight = 131
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
+        self.tableview.showsVerticalScrollIndicator = false
+        self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+        self.tableview.tableHeaderView = self.collectionView;
+        
+        
+        self.searchBtn = UIButton.init(type: .custom)
+        self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
+        self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
+        
+        self.searchBar = FMTextField.init(frame: CGRect.zero)
+        self.searchBar.cornerRadius = 15;
+        self.searchBar.tintColor = CommonColor.mainRed.color
+        self.searchBar.backgroundColor = CommonColor.cellbackgroud.color
+        self.searchBar.placeholder = "search"
+        self.searchBar.returnKeyType = .done
+        self.searchBar.font = pfont(fontsize4)
+        self.searchBar.textColor = CommonColor.title.color
+        self.searchBar.delegate = self.searchBar
+        self.searchBar.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
+        self.searchBar.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
+        
+        self.profileBtn = UIButton.init(type: .custom)
+        self.profileBtn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)
+        self.profileBtn.addTarget(self, action: #selector(toUserCenter), for:.touchUpInside)
     }
     
 }

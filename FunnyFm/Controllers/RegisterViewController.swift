@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: BaseViewController {
+class RegisterViewController: BaseViewController, ViewModelDelegate {
 
     @IBOutlet var tipLB: UIView!
     
@@ -17,6 +17,10 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var nextImageVIew: UIImageView!
     
     @IBOutlet weak var registerBtn: UIButton!
+    
+    var isLoading = false
+    
+    var viewModel: LoginViewModel = LoginViewModel()
     
     var mailTF : FMTextField!
     
@@ -27,14 +31,36 @@ class RegisterViewController: BaseViewController {
         self.setupUI()
         self.dw_addSubviews()
         self.loadingView.isHidden = true
+        self.viewModel.delegate = self
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(endEidted))
         self.view.addGestureRecognizer(tap)
     }
 
     @IBAction func registerAction(_ sender: Any) {
+        self.endEidted()
         
+        if self.isLoading {
+            return
+        }
         
+        if let mail = self.mailTF.text, mail.count < 1 {
+            SwiftNotice.showText("请输入邮箱地址")
+            return
+        }else if let mail = self.mailTF.text, !VaildManager.isMail(mail) {
+            SwiftNotice.showText("请输入正确邮箱地址")
+            return
+        }
+        
+        if let pwd = self.passTF.text, pwd.count < 1 {
+            SwiftNotice.showText("请输入密码")
+            return
+        }else if let pwd = self.passTF.text, pwd.count != 6{
+            SwiftNotice.showText("请输入正确密码（六位）")
+            return
+        }
+        self.showLoading()
+        self.viewModel.register(mail: self.mailTF.text!, and: self.passTF.text!)
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -44,7 +70,35 @@ class RegisterViewController: BaseViewController {
     @objc func endEidted(){
         self.view.endEditing(true)
     }
+    
+    func showLoading() {
+        self.isLoading = true
+        self.loadingView.isHidden = false
+        self.nextImageVIew.isHidden = true
+        self.loadingView.startAnimating()
+    }
+    
+    func hideLoading(){
+        self.isLoading = false
+        self.loadingView.isHidden = true
+        self.nextImageVIew.isHidden = false
+        self.loadingView.stopAnimating()
+    }
 
+}
+
+
+extension RegisterViewController {
+    
+    func viewModelDidGetDataSuccess() {
+        self.hideLoading()
+    }
+    
+    func viewModelDidGetDataFailture(msg: String?) {
+        self.hideLoading()
+    }
+    
+    
 }
 
 extension RegisterViewController {
@@ -79,7 +133,7 @@ extension RegisterViewController {
         self.mailTF.backgroundColor = CommonColor.cellbackgroud.color
         self.mailTF.placeholder = "邮箱"
         self.mailTF.returnKeyType = .done
-        self.mailTF.font = pfont(fontsize4)
+        self.mailTF.font = h_bfont(fontsize4)
         self.mailTF.textColor = CommonColor.title.color
         self.mailTF.delegate = self.mailTF
         self.mailTF.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
@@ -90,11 +144,11 @@ extension RegisterViewController {
         self.passTF.cornerRadius = 15;
         self.passTF.tintColor = CommonColor.mainRed.color
         self.passTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.passTF.placeholder = "密码"
+        self.passTF.placeholder = "密码（6位）"
         self.passTF.returnKeyType = .done
-        self.passTF.font = pfont(fontsize4)
+        self.passTF.font = h_bfont(fontsize4)
         self.passTF.textColor = CommonColor.title.color
-        self.passTF.delegate = self.mailTF
+        self.passTF.delegate = self.passTF
         self.passTF.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
         self.passTF.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
         self.view.addSubview(self.passTF)
