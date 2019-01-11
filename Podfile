@@ -12,6 +12,7 @@ def layout
     pod 'SHFullscreenPopGestureSwift'
     pod 'SPStorkController'
 	pod 'lottie-ios'
+    pod 'CBFlashyTabBarController'
 end
 
 def lib

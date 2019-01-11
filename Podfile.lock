@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.0)
+  - CBFlashyTabBarController (0.8.0)
   - JCore (1.2.6)
   - JPush (3.1.2):
     - JCore (~> 1.2.6)
@@ -12,7 +13,7 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
   - pop (1.0.12)
-  - Result (4.1.0)
+  - Result (4.0.0)
   - RxAtomic (4.4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
@@ -29,6 +30,7 @@ PODS:
   - WechatOpenSDK (1.8.3)
 
 DEPENDENCIES:
+  - CBFlashyTabBarController
   - JPush
   - KeychainAccess
   - Kingfisher
@@ -46,6 +48,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - CBFlashyTabBarController
     - JCore
     - JPush
     - KeychainAccess
@@ -67,6 +70,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  CBFlashyTabBarController: 4a5373a5b586646f8c4c22b28a6d33d01328538e
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
@@ -74,7 +78,7 @@ SPEC CHECKSUMS:
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
@@ -86,6 +90,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
 
-PODFILE CHECKSUM: 6db7bae7095e0803322cf6c316d0ffb964cb7713
+PODFILE CHECKSUM: 7dacba013ae4144a136b89c5e36ee050c4a8e0c0
 
 COCOAPODS: 1.5.3

@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
         NotificationCenter.default.addObserver(self, selector: #selector(setUpPush), name: NSNotification.Name.init("firstSetUpPush"), object: nil)
+        sleep(1)
         return true
     }
     

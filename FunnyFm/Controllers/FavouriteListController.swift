@@ -7,63 +7,41 @@
 //
 
 import UIKit
+import Lottie
 
 class FavouriteListController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var titleLB: UILabel!
+    
+    var tableview: UITableView!
+    
+    var syncAniView: LOTAnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.view.addSubview(self.tableview)
-        self.view.addSubview(self.titleLB)
-        
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(30)
-            make.left.equalToSuperview().offset(16)
-        }
-        self.tableview.snp.makeConstraints { (make) in
-            make.left.width.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.top.equalTo(self.titleLB.snp.bottom)
-        }
+        self.setupUI()
+        self.addSubViews()
     }
-    
-    
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "我的收藏")
-        lb.font = p_bfont(32)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
-    
-    lazy var tableview : UITableView = {
-        let table = UITableView.init(frame: CGRect.zero, style: .plain)
-        let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
-        table.register(nib, forCellReuseIdentifier: "tablecell")
-        table.separatorStyle = .none
-        table.rowHeight = 131
-        table.delegate = self
-        table.dataSource = self
-        table.showsVerticalScrollIndicator = false
-        table.emptyDataSetSource = self;
-        return table
-    }()
-    
     
     lazy var historyList : [ListenHistoryModel] = {
         //        return DatabaseManager.allHistory()
         return []
     }()
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+}
+
+extension FavouriteListController {
+    @objc func syncAction(){
+        if self.syncAniView.isAnimationPlaying {
+            self.syncAniView.stop()
+            return
+        }
+        self.syncAniView.play()
+        self.syncAniView.loopAnimation = true
+        
+    }
 }
 
 
@@ -105,4 +83,51 @@ extension FavouriteListController : DZNEmptyDataSetSource {
         return NSAttributedString.init(string: "收藏为空哦~", attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
     }
     
+}
+
+extension FavouriteListController{
+    
+    func addSubViews(){
+        self.view.addSubview(self.tableview)
+        self.view.addSubview(self.titleLB)
+        self.view.addSubview(self.syncAniView)
+        
+        self.titleLB.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.snp.topMargin).offset(30)
+            make.left.equalToSuperview().offset(16)
+        }
+        
+        self.tableview.snp.makeConstraints { (make) in
+            make.left.width.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(self.titleLB.snp.bottom)
+        }
+        
+        self.syncAniView.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-16)
+            make.centerY.equalTo(self.titleLB).offset(8.7)
+            make.size.equalTo(CGSize.init(width: 70, height: 70))
+        }
+    }
+    
+    func setupUI() {
+        self.titleLB = UILabel.init(text: "我的收藏")
+        self.titleLB.font = p_bfont(32)
+        self.titleLB.textColor = CommonColor.subtitle.color
+        
+        self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
+        let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
+        self.tableview.register(nib, forCellReuseIdentifier: "tablecell")
+        self.tableview.separatorStyle = .none
+        self.tableview.rowHeight = 131
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
+        self.tableview.showsVerticalScrollIndicator = false
+        self.tableview.emptyDataSetSource = self;
+        
+        self.syncAniView = LOTAnimationView(name: "cloud_sync", bundle: Bundle.main)
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(syncAction))
+        self.syncAniView.addGestureRecognizer(tap)
+        
+    }
 }

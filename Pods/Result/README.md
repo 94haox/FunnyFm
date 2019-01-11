@@ -28,11 +28,12 @@ func stringForKey(json: JSONObject, key: String) -> Result<String, JSONError> {
         return .failure(.noSuchKey(key))
     }
     
-    guard let value = value as? String else {
+    if let value = value as? String {
+        return .success(value)
+    }
+    else {
         return .failure(.typeMismatch)
     }
-
-    return .success(value)
 }
 ```
 
@@ -93,7 +94,7 @@ An in depth discussion of `map` and `flatMap` is beyond the scope of this docume
 ### Cocoapods
 
 ```ruby
-pod 'Result', '~> 4.0.0'
+pod 'Result', '~> 3.0.0'
 ```
 
 ### Swift Package Manager
@@ -106,7 +107,7 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/antitypical/Result.git",
-                 majorVersion: 4)
+                 majorVersion: 3)
     ]
 )
 ```

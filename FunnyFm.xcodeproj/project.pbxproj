@@ -67,6 +67,7 @@
 		AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */; };
 		AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */; };
 		AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */; };
+		AB3CB84821E4A09600D6F2F5 /* cloud_sync.json in Resources */ = {isa = PBXBuildFile; fileRef = AB3CB84721E4A09600D6F2F5 /* cloud_sync.json */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
 		AB41AAE021952D2200260851 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
@@ -245,6 +246,7 @@
 		AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterCollectionViewCell.xib; sourceTree = "<group>"; };
+		AB3CB84721E4A09600D6F2F5 /* cloud_sync.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloud_sync.json; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		AB41AADF21952D2200260851 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				AB3CB84721E4A09600D6F2F5 /* cloud_sync.json */,
 				ABAFF27121E22E440009A3A2 /* like_button.json */,
 			);
 			path = Lotties;
@@ -952,6 +955,7 @@
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
+				AB3CB84821E4A09600D6F2F5 /* cloud_sync.json in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
@@ -999,6 +1003,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -1018,6 +1023,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CBFlashyTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",

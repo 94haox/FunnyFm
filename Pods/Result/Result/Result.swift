@@ -5,19 +5,6 @@ public enum Result<Value, Error: Swift.Error>: ResultProtocol, CustomStringConve
 	case success(Value)
 	case failure(Error)
 
-	/// The compatibility alias for the Swift 5's `Result` in the standard library.
-	///
-	/// See https://github.com/apple/swift-evolution/blob/master/proposals/0235-add-result.md
-	/// and https://forums.swift.org/t/accepted-with-modifications-se-0235-add-result-to-the-standard-library/18603
-	/// for the details.
-	public typealias Success = Value
-	/// The compatibility alias for the Swift 5's `Result` in the standard library.
-	///
-	/// See https://github.com/apple/swift-evolution/blob/master/proposals/0235-add-result.md
-	/// and https://forums.swift.org/t/accepted-with-modifications-se-0235-add-result-to-the-standard-library/18603
-	/// for the details.
-	public typealias Failure = Error
-
 	// MARK: Constructors
 
 	/// Constructs a success wrapping a `value`.
@@ -37,23 +24,13 @@ public enum Result<Value, Error: Swift.Error>: ResultProtocol, CustomStringConve
 
 	/// Constructs a result from a function that uses `throw`, failing with `Error` if throws.
 	public init(_ f: @autoclosure () throws -> Value) {
-		self.init(catching: f)
+		self.init(attempt: f)
 	}
 
 	/// Constructs a result from a function that uses `throw`, failing with `Error` if throws.
-	@available(*, deprecated, renamed: "init(catching:)")
 	public init(attempt f: () throws -> Value) {
-		self.init(catching: f)
-	}
-
-	/// The same as `init(attempt:)` aiming for the compatibility with the Swift 5's `Result` in the standard library.
-	///
-	/// See https://github.com/apple/swift-evolution/blob/master/proposals/0235-add-result.md
-	/// and https://forums.swift.org/t/accepted-with-modifications-se-0235-add-result-to-the-standard-library/18603
-	/// for the details.
-	public init(catching body: () throws -> Success) {
 		do {
-			self = .success(try body())
+			self = .success(try f())
 		} catch var error {
 			if Error.self == AnyError.self {
 				error = AnyError(error)
@@ -65,17 +42,7 @@ public enum Result<Value, Error: Swift.Error>: ResultProtocol, CustomStringConve
 	// MARK: Deconstruction
 
 	/// Returns the value from `success` Results or `throw`s the error.
-	@available(*, deprecated, renamed: "get()")
 	public func dematerialize() throws -> Value {
-		return try get()
-	}
-
-	/// The same as `dematerialize()` aiming for the compatibility with the Swift 5's `Result` in the standard library.
-	///
-	/// See https://github.com/apple/swift-evolution/blob/master/proposals/0235-add-result.md
-	/// and https://forums.swift.org/t/accepted-with-modifications-se-0235-add-result-to-the-standard-library/18603
-	/// for the details.
-	public func get() throws -> Success {
 		switch self {
 		case let .success(value):
 			return value
@@ -148,7 +115,7 @@ public enum Result<Value, Error: Swift.Error>: ResultProtocol, CustomStringConve
 	}
 }
 
-extension Result where Result.Failure == AnyError {
+extension Result where Error == AnyError {
 	/// Constructs a result from an expression that uses `throw`, failing with `AnyError` if throws.
 	public init(_ f: @autoclosure () throws -> Value) {
 		self.init(attempt: f)
@@ -173,7 +140,7 @@ public func materialize<T>(_ f: () throws -> T) -> Result<T, AnyError> {
 
 @available(*, deprecated, renamed: "Result.init(_:)")
 public func materialize<T>(_ f: @autoclosure () throws -> T) -> Result<T, AnyError> {
-	return Result(try f())
+	return Result(f)
 }
 
 // MARK: - ErrorConvertible conformance
