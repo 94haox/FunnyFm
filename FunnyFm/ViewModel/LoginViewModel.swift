@@ -8,16 +8,26 @@
 
 import UIKit
 
-class LoginViewModel: NSObject {
-    
-    weak var delegate : ViewModelDelegate?
+class LoginViewModel: BaseViewModel {
 
     func login(mail: String, and pwd: String) {
-        
+        FmHttp<User>().requestForSingle(UserAPI.login(mail, pwd), success: { (person) in
+            if person.isSome {
+                self.delegate?.viewModelDidGetDataSuccess()
+            }
+        }, { (message) in
+            self.delegate?.viewModelDidGetDataFailture(msg: message)
+        })
     }
     
     func register(mail: String, and pwd: String) {
-        
+        FmHttp<User>().requestForSingle(UserAPI.register(mail, pwd), success: { (person) in
+            if person.isSome {
+                self.delegate?.viewModelDidGetDataSuccess()
+            }
+        }, { (message) in
+            self.delegate?.viewModelDidGetDataFailture(msg: message)
+        })
     }
     
 }

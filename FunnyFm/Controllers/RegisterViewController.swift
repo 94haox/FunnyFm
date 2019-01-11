@@ -92,10 +92,13 @@ extension RegisterViewController {
     
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
+        SwiftNotice.showText("注册成功")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
         self.hideLoading()
+        SwiftNotice.showText(msg!)
     }
     
     

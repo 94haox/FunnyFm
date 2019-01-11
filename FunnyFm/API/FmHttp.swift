@@ -43,8 +43,14 @@ public class FmHttp<T> where T: Mapable{
             switch result {
             case .success(let response):
                 do{
-                    let data = try response.mapJSON()
-                    let jsonlist = JSON(data)["data"]["items"].array!
+                    let jsondata = try response.mapJSON()
+                    let json = JSON(jsondata)
+                    let code = json["data"]["code"]
+                    if code.intValue != 0 {
+                        failure(json["message"].string)
+                        return
+                    }
+                    let jsonlist = json["data"]["items"].array!
                     var models = [T]()
                     jsonlist.forEach({ (item) in
                         let t = T.init(jsonData:item)!
@@ -62,14 +68,21 @@ public class FmHttp<T> where T: Mapable{
         }
     }
     
-    func requestForSingle<R:TargetType>(_ type:R,success:@escaping SuccessModelClosure, _ failure: @escaping FailClosure){
+    func requestForSingle<R:TargetType>(_ type:R,success:@escaping SuccessModelClosure,
+                                        _ failure: @escaping FailClosure){
         let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
             switch result {
             case .success(let data):
                 do{
                     let jsondata = try data.mapJSON()
+                    let json = JSON(jsondata)
                     let detail = JSON(jsondata)["data"]["detail"]
+                    let code = JSON(jsondata)["data"]["code"]
+                    if code.intValue != 0 {
+                        failure(json["message"].string)
+                        return
+                    }
                     let t = T.init(jsonData:detail)!
                     success(t)
                 }catch{

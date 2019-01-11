@@ -13,12 +13,26 @@ import Moya
 
 let kLoginUrl = "v1/user/login"
 let kRegisterUrl = "v1/user/register"
+let kUpdateInfo = "v1/user/updateInfo"
+let kAddFavour = "v1/user/favour"
+let kDissFavour = "v1/user/disFavour"
+let kAddSubscribe = "v1/user/subscribe"
+let kDisSubscribe = "v1/user/disSubscribe"
+let kSubscribeList = "v1/user/subscribeList"
+let kFavourList = "v1/user/favourList"
+
 
 let UserProvider = MoyaProvider<UserAPI>()
 
 public enum UserAPI {
     case login(String,String)
     case register(String,String)
+    case addFavour(String,String)
+    case disFavour(String,String)
+    case addSubscribe(String,String)
+    case disSubscribe(String,String)
+    case getFavourList(String)
+    case getSubscribeList(String)
 }
 
 extension UserAPI : TargetType {
@@ -27,14 +41,22 @@ extension UserAPI : TargetType {
     public var task: Task {
         var params:[String : Any] = [:]
         switch self {
-        case .login(let mail,let password):
+        case .login(let mail,let password),.register(let mail, let password):
             params["mail"] = mail
             params["password"] = password
+            params["type"] = "email"
             break;
-        case .register(let mail, let password):
-            params["mail"] = mail
-            params["password"] = password
-            break;
+        case .addFavour(let userId, let episodeId), .disFavour(let userId, let episodeId):
+            params["user_id"] = userId
+            params["episode_id"] = episodeId
+            break
+        case .addSubscribe(let userId, let podId),.disSubscribe(let userId, let podId):
+            params["user_id"] = userId
+            params["pod_id"] = podId
+            break
+        case .getFavourList(let userId),.getSubscribeList(let userId):
+            params["user_id"] = userId
+            break
         }
         return .requestParameters(parameters: params, encoding: JSONEncoding.default)
     }
@@ -50,6 +72,18 @@ extension UserAPI : TargetType {
             return kLoginUrl
         case .register(_):
             return kRegisterUrl
+        case .addFavour(_, _):
+            return kAddFavour
+        case .disFavour(_, _):
+            return kDissFavour
+        case .addSubscribe(_, _):
+            return kAddSubscribe
+        case .disSubscribe(_, _):
+            return kDisSubscribe
+        case .getFavourList(_):
+            return kFavourList
+        case .getSubscribeList(_):
+            return kSubscribeList
         }
         
     }

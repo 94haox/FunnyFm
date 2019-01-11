@@ -36,7 +36,10 @@ class EpisodeListViewController: BaseViewController , ViewModelDelegate, UITable
         self.addHeader()
         self.addConstrains()
         self.tableview.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        self.tableview.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
+        let mjFooter = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
+        mjFooter?.triggerAutomaticallyRefreshPercent = 0.5;
+        mjFooter!.ignoredScrollViewContentInsetBottom = 100.0
+        self.tableview.mj_footer = mjFooter;
     }
 	
 	func setupUI(_ pod: Pod){
@@ -79,6 +82,7 @@ extension EpisodeListViewController {
 }
 
 
+// MARK: - network delegate
 extension EpisodeListViewController{
     
     func viewModelDidGetDataSuccess() {
@@ -135,6 +139,7 @@ extension EpisodeListViewController{
 	
 }
 
+// MARK: - UITableViewDataSource
 extension EpisodeListViewController{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -155,6 +160,7 @@ extension EpisodeListViewController{
     
 }
 
+// MARK: - UI
 extension EpisodeListViewController {
     
     func addHeader(){

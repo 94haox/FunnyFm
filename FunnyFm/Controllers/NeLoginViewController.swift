@@ -68,7 +68,7 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
             return
         }
         self.showLoading()
-        self.viewModel.register(mail: self.mailTF.text!, and: self.passTF.text!)
+        self.viewModel.login(mail: self.mailTF.text!, and: self.passTF.text!)
     }
     
     @IBAction func registerAction(_ sender: Any) {
@@ -99,10 +99,13 @@ extension NeLoginViewController {
     
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
+        SwiftNotice.showText("登录成功")
+        self.navigationController?.popViewController()
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
         self.hideLoading()
+        SwiftNotice.showText(msg)
     }
     
 }

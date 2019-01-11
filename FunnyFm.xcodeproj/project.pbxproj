@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */; };
 		AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09A53D21DDBACB00CB621C /* DownloadManager.swift */; };
+		AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */; };
 		AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14632021D385FC00D41B83 /* AnimationButton.swift */; };
 		AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */; };
 		AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */; };
@@ -143,6 +144,7 @@
 		ABEE40E921E35DC300FCB16F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE40E821E35DC300FCB16F /* LoginViewModel.swift */; };
 		ABEE40EB21E35EF800FCB16F /* VaildManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE40EA21E35EF800FCB16F /* VaildManager.swift */; };
 		ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */; };
+		ABEF471221E8B6E400212DCA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471121E8B6E400212DCA /* User.swift */; };
 		ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117C21BE764B0083A81B /* JPushConfig.m */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
@@ -184,6 +186,7 @@
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		AB09A53D21DDBACB00CB621C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AB14632021D385FC00D41B83 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePodCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -344,6 +347,7 @@
 		ABEE40E821E35DC300FCB16F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ABEE40EA21E35EF800FCB16F /* VaildManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaildManager.swift; sourceTree = "<group>"; };
 		ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterProgressView.swift; sourceTree = "<group>"; };
+		ABEF471121E8B6E400212DCA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		ABF5117B21BE764B0083A81B /* JPushConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPushConfig.h; sourceTree = "<group>"; };
 		ABF5117C21BE764B0083A81B /* JPushConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPushConfig.m; sourceTree = "<group>"; };
@@ -559,6 +563,7 @@
 				AB41AAE121952EAA00260851 /* Episode.swift */,
 				ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */,
 				ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */,
+				ABEF471121E8B6E400212DCA /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */,
 				ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */,
 				ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */,
+				AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1169,6 +1175,7 @@
 				ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */,
 				ABEE40D421E3246E00FCB16F /* MJRefreshAutoStateFooter.m in Sources */,
 				AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */,
+				AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
 				AB1E6DB421BA74DA00B85135 /* EpisodeListViewController.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
@@ -1179,6 +1186,7 @@
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,
 				ABEE40D121E3246E00FCB16F /* MJRefreshBackGifFooter.m in Sources */,
+				ABEF471221E8B6E400212DCA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

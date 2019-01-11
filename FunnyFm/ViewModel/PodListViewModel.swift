@@ -8,13 +8,11 @@
 
 import UIKit
 
-class PodListViewModel: NSObject {
+class PodListViewModel: BaseViewModel {
 
     lazy var podlist : [Pod] = {
         return []
     }()
-    
-    weak var delegate : ViewModelDelegate?
     
     override init() {
         super.init()
