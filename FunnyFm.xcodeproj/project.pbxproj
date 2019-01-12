@@ -91,6 +91,8 @@
 		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
 		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
 		ABAFF27221E22E440009A3A2 /* like_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABAFF27121E22E440009A3A2 /* like_button.json */; };
+		ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */; };
+		ABE57E2C21EA088A00F90EED /* done_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE57E2B21EA088A00F90EED /* done_button.json */; };
 		ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */; };
 		ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */; };
 		ABE765F121D6414C00470D8F /* PopManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F021D6414C00470D8F /* PopManager.swift */; };
@@ -274,6 +276,8 @@
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		ABAFF27121E22E440009A3A2 /* like_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_button.json; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
+		ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonHUD.swift; sourceTree = "<group>"; };
+		ABE57E2B21EA088A00F90EED /* done_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done_button.json; sourceTree = "<group>"; };
 		ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeEpisodeTableViewCell.xib; sourceTree = "<group>"; };
 		ABE765F021D6414C00470D8F /* PopManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopManager.swift; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 				ABF5118321BF43E50083A81B /* NormalHeaderView.swift */,
 				ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */,
 				AB14632021D385FC00D41B83 /* AnimationButton.swift */,
+				ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -705,6 +710,7 @@
 			children = (
 				AB3CB84721E4A09600D6F2F5 /* cloud_sync.json */,
 				ABAFF27121E22E440009A3A2 /* like_button.json */,
+				ABE57E2B21EA088A00F90EED /* done_button.json */,
 			);
 			path = Lotties;
 			sourceTree = "<group>";
@@ -966,6 +972,7 @@
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
+				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				AB25798221945E6F004C5F5D /* Main.storyboard in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
@@ -1131,6 +1138,7 @@
 				AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */,
 				ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */,
 				ABEE40CC21E3246E00FCB16F /* MJRefreshConst.m in Sources */,
+				ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */,
 				AB440DC321D466D900E0A634 /* EpisodeDetailViewController.swift in Sources */,
 				ABEE40CB21E3246E00FCB16F /* UIScrollView+MJRefresh.m in Sources */,
 				AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */,

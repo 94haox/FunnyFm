@@ -105,7 +105,7 @@ extension NeLoginViewController {
     
     func viewModelDidGetDataFailture(msg: String?) {
         self.hideLoading()
-        SwiftNotice.showText(msg)
+        SwiftNotice.showText(msg!)
     }
     
 }
