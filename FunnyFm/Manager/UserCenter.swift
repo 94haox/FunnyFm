@@ -14,11 +14,10 @@ class UserCenter: NSObject {
     
     var userId: String {
         set {
-            UserDefaults.standard.set(newValue, forKey: "isLogin")
+            UserDefaults.standard.set(newValue, forKey: "userId")
             UserDefaults.standard.synchronize()
         }
         get {
-            
             let userId = UserDefaults.standard.string(forKey: "userId")
             if userId.isSome {
                 return userId!

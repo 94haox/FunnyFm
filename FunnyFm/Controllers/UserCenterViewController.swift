@@ -56,7 +56,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         return collectionview
     }()
     
-    var datasource: Array<[String:String]> = [["title":"收听记录","subtitle":"","imageName":"lishijilu"],
+    var datasource: Array<[String:String]> = [["title":"近期收听","subtitle":"","imageName":"lishijilu"],
                                            ["title":"我的收藏","subtitle":"","imageName":"mark"],
                                            ["title":"我的下载","subtitle":"","imageName":"download"],
                                            ["title":"我的订阅","subtitle":"","imageName":"handbag"],

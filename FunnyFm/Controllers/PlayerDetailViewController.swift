@@ -221,7 +221,8 @@ extension PlayerDetailViewController {
     }
     
     @objc func back(){
-        self.navigationController?.popViewController()
+//        self.navigationController?.popViewController()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func sleep(with time: String) {
@@ -339,7 +340,7 @@ extension PlayerDetailViewController {
     func dw_addSubviews(){
         self.backBtn = UIButton.init(type: .custom)
         self.backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
-        self.backBtn.setImage(UIImage.init(named: "back_black"), for: .normal)
+        self.backBtn.setImage(UIImage.init(named: "dismiss"), for: .normal)
         self.view.addSubview(self.backBtn)
         
         self.titleLB = UILabel.init(text: self.chapter.title)

@@ -25,6 +25,22 @@ class UserViewModel: BaseViewModel {
             self.delegate?.viewModelDidGetDataFailture(msg: msg)
         }
     }
+    
+    func addSubscribe(_ podId: String){
+        FmHttp<User>().requestForSingle(UserAPI.addSubscribe(podId), success: { (_) in
+            self.delegate?.viewModelDidGetDataSuccess()
+        }) { (msg) in
+            self.delegate?.viewModelDidGetDataFailture(msg: msg)
+        }
+    }
+    
+    func cancelSubscribe(_ podId: String){
+        FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), success: { (_) in
+            self.delegate?.viewModelDidGetDataSuccess()
+        }) { (msg) in
+            self.delegate?.viewModelDidGetDataFailture(msg: msg)
+        }
+    }
 
     
 }

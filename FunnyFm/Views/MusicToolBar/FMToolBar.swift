@@ -57,8 +57,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         }
         let vc = PlayerDetailViewController()
         vc.chapter = self.currentChapter
-        let nav = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
-        nav.pushViewController(vc)
+        let nav = UIApplication.shared.keyWindow?.rootViewController
+        nav?.present(vc, animated: true, completion: nil)
     }
 }
 
