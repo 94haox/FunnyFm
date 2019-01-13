@@ -27,10 +27,10 @@ let UserProvider = MoyaProvider<UserAPI>()
 public enum UserAPI {
     case login(String,String)
     case register(String,String)
-    case addFavour(String,String)
-    case disFavour(String,String)
-    case addSubscribe(String,String)
-    case disSubscribe(String,String)
+    case addFavour(String)
+    case disFavour(String)
+    case addSubscribe(String)
+    case disSubscribe(String)
     case getFavourList(String)
     case getSubscribeList(String)
 }
@@ -46,12 +46,12 @@ extension UserAPI : TargetType {
             params["password"] = password
             params["type"] = "email"
             break;
-        case .addFavour(let userId, let episodeId), .disFavour(let userId, let episodeId):
-            params["user_id"] = userId
+        case .addFavour(let episodeId), .disFavour(let episodeId):
+            params["user_id"] = UserCenter.shared.userId
             params["episode_id"] = episodeId
             break
-        case .addSubscribe(let userId, let podId),.disSubscribe(let userId, let podId):
-            params["user_id"] = userId
+        case .addSubscribe(let podId),.disSubscribe(let podId):
+            params["user_id"] = UserCenter.shared.userId
             params["pod_id"] = podId
             break
         case .getFavourList(let userId),.getSubscribeList(let userId):
@@ -72,13 +72,13 @@ extension UserAPI : TargetType {
             return kLoginUrl
         case .register(_):
             return kRegisterUrl
-        case .addFavour(_, _):
+        case .addFavour(_):
             return kAddFavour
-        case .disFavour(_, _):
+        case .disFavour(_):
             return kDissFavour
-        case .addSubscribe(_, _):
+        case .addSubscribe(_):
             return kAddSubscribe
-        case .disSubscribe(_, _):
+        case .disSubscribe(_):
             return kDisSubscribe
         case .getFavourList(_):
             return kFavourList

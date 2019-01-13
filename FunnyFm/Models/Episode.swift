@@ -18,13 +18,12 @@ struct Episode : Mapable, TableCodable{
     var title:                  String
     var intro:                  String
     var trackUrl_high:          String
-    var trackUrl_normal:        String
-    var cover_url_normal:       String
     var cover_url_high:         String
     var time_until_now:         String
     var formatted_created_at:   String
     var pod_cover_url:          String
     var pod_name:               String
+    var isFavour:               Bool
     var download_filpath:               String
     
     init?(jsonData:JSON) {
@@ -33,9 +32,6 @@ struct Episode : Mapable, TableCodable{
         title = jsonData["title"].stringValue
         intro = jsonData["intro"].stringValue
         trackUrl_high = jsonData["trackUrl_high"].stringValue
-        trackUrl_normal = jsonData["trackUrl_normal"].stringValue
-        trackUrl_normal = jsonData["trackUrl_normal"].stringValue
-        cover_url_normal = jsonData["cover_url_normal"].stringValue
         cover_url_high = jsonData["cover_url_high"].stringValue
         duration = jsonData["trackUrl_normal"].intValue
         time_until_now = jsonData["time_until_now"].stringValue
@@ -43,6 +39,7 @@ struct Episode : Mapable, TableCodable{
         pod_cover_url = jsonData["pod_cover_url"].stringValue
         pod_name = jsonData["pod_name"].stringValue
         episodeId = jsonData["_id"].stringValue
+        isFavour = jsonData["isFavour"].boolValue
         download_filpath = ""
     }
     
@@ -54,8 +51,6 @@ struct Episode : Mapable, TableCodable{
         case title
         case intro
         case trackUrl_high
-        case trackUrl_normal
-        case cover_url_normal
         case cover_url_high
         case duration
         case time_until_now
@@ -63,6 +58,7 @@ struct Episode : Mapable, TableCodable{
         case pod_cover_url
         case pod_name
         case episodeId
+        case isFavour
         case download_filpath
     }
     

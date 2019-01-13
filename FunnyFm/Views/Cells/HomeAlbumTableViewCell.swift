@@ -9,10 +9,12 @@
 import UIKit
 import Kingfisher
 import pop
+import Lottie
 
 class HomeAlbumTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var playLogoImageView: UIImageView!
+    
+    var playStateView: LOTAnimationView!
     @IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var desLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
@@ -21,13 +23,20 @@ class HomeAlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        self.playStateView = LOTAnimationView.init(name: "play_state", bundle: Bundle.main)
+        self.playStateView.loopAnimation = true
+        self.contentView.addSubview(self.playStateView)
+        self.playStateView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.logoImageView.snp.bottom)
+            make.centerX.equalTo(self.logoImageView)
+            make.size.equalTo(CGSize.init(width: 50, height: 50))
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        UIView.animate(withDuration: 0.1) {
-            self.playLogoImageView.alpha = selected ? 1 : 0
-        }
+        self.playStateView.alpha = selected ? 1 : 0
+        selected ? self.playStateView.play() : self.playStateView.stop()
     }
     
     
@@ -36,7 +45,6 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now
 		let resource = ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!)
-//        let image = Image.init(named: "ImagePlaceHolder")
         self.logoImageView.kf.setImage(with: resource)
     }
     
@@ -45,11 +53,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.time_until_now
 		
-        if(chapter.cover_url_normal.count > 1){
-            self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_normal)!))
-        }else if(chapter.cover_url_high.count > 1){
-            self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!) )
-        }
+       self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!) )
         
     }
     

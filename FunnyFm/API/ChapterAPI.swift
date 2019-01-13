@@ -26,6 +26,7 @@ extension ChapterAPI : TargetType {
     //请求接口时对应的请求参数
     public var task: Task {
         var params:[String : Any] = [:]
+        params["userId"] = UserCenter.shared.userId
         switch self {
         case .getChapterList(let pageNum,let albumId):
             params["pageNum"] = pageNum

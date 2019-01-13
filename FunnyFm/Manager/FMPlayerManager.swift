@@ -209,7 +209,7 @@ extension FMPlayerManager {
         self.currentModel = chapter
         configPlayBackgroungMode()
         self.setBackground()
-        let item = AVPlayerItem.init(url: URL.init(string: chapter.trackUrl_normal)!)
+        let item = AVPlayerItem.init(url: URL.init(string: chapter.trackUrl_high)!)
         self.changePlayItem(item)
         if self.player.isNone {
             self.player = AVPlayer.init(playerItem: self.playerItem)

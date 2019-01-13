@@ -29,11 +29,7 @@ class ListenHistoryModel: TableCodable{
         self.cover_url = episode.cover_url_high
         self.intro = episode.intro
         self.time_until_now = episode.time_until_now
-        if(episode.cover_url_normal.count > 1){
-            self.cover_url = episode.cover_url_normal
-        }else if(episode.cover_url_high.count > 1){
-            self.cover_url = episode.cover_url_high
-        }
+        self.cover_url = episode.cover_url_high
     }
     
     enum CodingKeys: String, CodingTableKey {

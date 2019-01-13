@@ -9,10 +9,11 @@
 import UIKit
 
 class LoginViewModel: BaseViewModel {
-
+    var user: User?
     func login(mail: String, and pwd: String) {
         FmHttp<User>().requestForSingle(UserAPI.login(mail, pwd), success: { (person) in
             if person.isSome {
+                self.user = person
                 self.delegate?.viewModelDidGetDataSuccess()
             }
         }, { (message) in
@@ -23,6 +24,7 @@ class LoginViewModel: BaseViewModel {
     func register(mail: String, and pwd: String) {
         FmHttp<User>().requestForSingle(UserAPI.register(mail, pwd), success: { (person) in
             if person.isSome {
+                self.user = person
                 self.delegate?.viewModelDidGetDataSuccess()
             }
         }, { (message) in

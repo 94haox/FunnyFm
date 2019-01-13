@@ -92,7 +92,7 @@ extension RegisterViewController {
     
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
-        SwiftNotice.showText("注册成功")
+        HorizonHUD.showSuccess("登录成功")
         self.navigationController?.popToRootViewController(animated: true)
     }
     

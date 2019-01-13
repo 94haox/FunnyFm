@@ -57,22 +57,13 @@
                         <color key="textColor" red="0.72549019609999998" green="0.73333333329999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mp3" translatesAutoresizingMaskIntoConstraints="NO" id="YPl-Oe-l0h">
-                        <rect key="frame" x="27" y="64" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="gF6-wR-f9E"/>
-                            <constraint firstAttribute="height" constant="20" id="p81-6B-zbV"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="iDd-zJ-gei" secondAttribute="bottom" constant="13" id="1U5-f4-hPR"/>
-                    <constraint firstItem="YPl-Oe-l0h" firstAttribute="top" secondItem="SRA-sb-TP5" secondAttribute="bottom" constant="8" id="2gT-KA-uyk"/>
                     <constraint firstItem="SRA-sb-TP5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="8yD-FR-jHz"/>
                     <constraint firstItem="Zj1-Jf-osQ" firstAttribute="centerY" secondItem="SRA-sb-TP5" secondAttribute="centerY" id="95o-qx-dAf"/>
                     <constraint firstItem="4rZ-jN-ERL" firstAttribute="leading" secondItem="Zj1-Jf-osQ" secondAttribute="leading" id="I2R-PM-FQe"/>
                     <constraint firstItem="Zj1-Jf-osQ" firstAttribute="leading" secondItem="SRA-sb-TP5" secondAttribute="trailing" constant="18" id="LLO-qw-iTq"/>
-                    <constraint firstItem="YPl-Oe-l0h" firstAttribute="centerX" secondItem="SRA-sb-TP5" secondAttribute="centerX" id="Oud-aW-g5m"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4rZ-jN-ERL" secondAttribute="trailing" constant="23" id="PSZ-I5-fVz"/>
                     <constraint firstItem="SRA-sb-TP5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Qx5-VV-pIj"/>
                     <constraint firstItem="4rZ-jN-ERL" firstAttribute="top" secondItem="SRA-sb-TP5" secondAttribute="bottom" constant="3" id="h0C-rm-hXr"/>
@@ -84,14 +75,10 @@
             <connections>
                 <outlet property="desLB" destination="4rZ-jN-ERL" id="zQK-c3-Fzd"/>
                 <outlet property="logoImageView" destination="SRA-sb-TP5" id="7Y8-dj-syz"/>
-                <outlet property="playLogoImageView" destination="YPl-Oe-l0h" id="a0O-hK-D8x"/>
                 <outlet property="timeLB" destination="iDd-zJ-gei" id="ZqP-zp-wCB"/>
                 <outlet property="titleLB" destination="Zj1-Jf-osQ" id="gAC-PO-dld"/>
             </connections>
             <point key="canvasLocation" x="181.59999999999999" y="189.80509745127438"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="mp3" width="409.60000610351562" height="409.60000610351562"/>
-    </resources>
 </document>

@@ -61,9 +61,8 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-//        let login = NeLoginViewController()
-//        self.navigationController?.pushViewController(login)
-		HorizonHUD.showSuccess("登录成功")
+        let login = NeLoginViewController()
+        self.navigationController?.pushViewController(login)
     }
     
     @objc func refreshData(){

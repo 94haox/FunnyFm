@@ -32,8 +32,7 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
         self.setupUI()
         self.dw_addSubviews()
         self.viewModel.delegate = self;
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(endEidted))
-        self.view.addGestureRecognizer(tap)
+
         // Do any additional setup after loading the view.
     }
 
@@ -67,6 +66,7 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
             SwiftNotice.showText("请输入正确密码（六位）")
             return
         }
+        UserDefaults.standard.set(self.mailTF.text!, forKey: "lastLoginAccount")
         self.showLoading()
         self.viewModel.login(mail: self.mailTF.text!, and: self.passTF.text!)
     }
@@ -99,7 +99,12 @@ extension NeLoginViewController {
     
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
-        SwiftNotice.showText("登录成功")
+        UserCenter.shared.userId = self.viewModel.user!.userId
+        UserCenter.shared.isLogin = true
+//        UserDefaults.standard.set(self.viewModel.user!.userId, forKey: "userId")
+//        UserDefaults.standard.set(true, forKey: "isLogin")
+//        UserDefaults.standard.synchronize()
+        HorizonHUD.showSuccess("登录成功")
         self.navigationController?.popViewController()
     }
     
@@ -137,6 +142,10 @@ extension NeLoginViewController {
     }
     
     func setupUI() {
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(endEidted))
+        self.view.addGestureRecognizer(tap)
+        
         self.mailTF = FMTextField.init(frame: CGRect.zero)
         self.mailTF.cornerRadius = 15;
         self.mailTF.tintColor = CommonColor.mainRed.color
@@ -149,6 +158,11 @@ extension NeLoginViewController {
         self.mailTF.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
         self.mailTF.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
         self.view.addSubview(self.mailTF)
+        let account = UserDefaults.standard.object(forKey: "lastLoginAccount")
+        if account.isSome {
+            self.mailTF.text = (account as! String)
+        }
+        
         
         self.passTF = FMTextField.init(frame: CGRect.zero)
         self.passTF.cornerRadius = 15;

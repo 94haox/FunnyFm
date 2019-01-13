@@ -68,7 +68,6 @@
 		AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */; };
 		AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */; };
 		AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */; };
-		AB3CB84821E4A09600D6F2F5 /* cloud_sync.json in Resources */ = {isa = PBXBuildFile; fileRef = AB3CB84721E4A09600D6F2F5 /* cloud_sync.json */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
 		AB41AAE021952D2200260851 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
@@ -147,6 +146,10 @@
 		ABEE40EB21E35EF800FCB16F /* VaildManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE40EA21E35EF800FCB16F /* VaildManager.swift */; };
 		ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */; };
 		ABEF471221E8B6E400212DCA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471121E8B6E400212DCA /* User.swift */; };
+		ABEF471421EAF7EE00212DCA /* UserCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471321EAF7EE00212DCA /* UserCenter.swift */; };
+		ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */ = {isa = PBXBuildFile; fileRef = ABEF471521EAF9DE00212DCA /* cloud_sync.json */; };
+		ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */ = {isa = PBXBuildFile; fileRef = ABEF471921EAFD7F00212DCA /* play_state.json */; };
+		ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471B21EB038500212DCA /* UserViewModel.swift */; };
 		ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117C21BE764B0083A81B /* JPushConfig.m */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
@@ -251,7 +254,6 @@
 		AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterCollectionViewCell.xib; sourceTree = "<group>"; };
-		AB3CB84721E4A09600D6F2F5 /* cloud_sync.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloud_sync.json; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		AB41AADF21952D2200260851 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
@@ -352,6 +354,10 @@
 		ABEE40EA21E35EF800FCB16F /* VaildManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaildManager.swift; sourceTree = "<group>"; };
 		ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterProgressView.swift; sourceTree = "<group>"; };
 		ABEF471121E8B6E400212DCA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ABEF471321EAF7EE00212DCA /* UserCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenter.swift; sourceTree = "<group>"; };
+		ABEF471521EAF9DE00212DCA /* cloud_sync.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloud_sync.json; sourceTree = "<group>"; };
+		ABEF471921EAFD7F00212DCA /* play_state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = play_state.json; sourceTree = "<group>"; };
+		ABEF471B21EB038500212DCA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		ABF5117B21BE764B0083A81B /* JPushConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPushConfig.h; sourceTree = "<group>"; };
 		ABF5117C21BE764B0083A81B /* JPushConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPushConfig.m; sourceTree = "<group>"; };
@@ -602,6 +608,7 @@
 				AB1E6DB521BA771C00B85135 /* ChapterListViewModel.swift */,
 				ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */,
 				ABEE40E821E35DC300FCB16F /* LoginViewModel.swift */,
+				ABEF471B21EB038500212DCA /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -708,7 +715,8 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
-				AB3CB84721E4A09600D6F2F5 /* cloud_sync.json */,
+				ABEF471921EAFD7F00212DCA /* play_state.json */,
+				ABEF471521EAF9DE00212DCA /* cloud_sync.json */,
 				ABAFF27121E22E440009A3A2 /* like_button.json */,
 				ABE57E2B21EA088A00F90EED /* done_button.json */,
 			);
@@ -753,6 +761,7 @@
 				AB09A53D21DDBACB00CB621C /* DownloadManager.swift */,
 				ABEE40DF21E3292400FCB16F /* SchemManager.swift */,
 				ABEE40EA21E35EF800FCB16F /* VaildManager.swift */,
+				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -967,7 +976,6 @@
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
-				AB3CB84821E4A09600D6F2F5 /* cloud_sync.json in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
@@ -975,6 +983,8 @@
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				AB25798221945E6F004C5F5D /* Main.storyboard in Resources */,
+				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
+				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1066,6 +1076,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
+				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
@@ -1131,6 +1142,7 @@
 				ABEE40E921E35DC300FCB16F /* LoginViewModel.swift in Sources */,
 				AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */,
 				AB1E6D7421B9252500B85135 /* UILayoutPriorityExtensions.swift in Sources */,
+				ABEF471421EAF7EE00212DCA /* UserCenter.swift in Sources */,
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
 				ABEE40D221E3246E00FCB16F /* MJRefreshBackStateFooter.m in Sources */,
 				ABE7660421D7196700470D8F /* URLRequestExtensions.swift in Sources */,
@@ -1366,7 +1378,7 @@
 			baseConfigurationReference = 496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-white";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-blue";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
@@ -1394,7 +1406,7 @@
 			baseConfigurationReference = 66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-white";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-blue";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
