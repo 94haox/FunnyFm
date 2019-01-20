@@ -35,6 +35,10 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
     var sleepBtn: UIButton!
     
+    var infoImageView: UIImageView!
+    
+    var infoScrollView: UIScrollView!
+    
     var coverBackView: UIView!
     
     var coverImageView: UIImageView!
@@ -64,6 +68,11 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
                 self.likeBtn.isHidden = true;
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
 }
@@ -123,6 +132,37 @@ extension PlayerDetailViewController: DownloadManagerDelegate {
 		SwiftNotice.showText("下载失败")
 	}
 	
+}
+
+extension PlayerDetailViewController : UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x < -60 {
+            self.infoImageView.image = UIImage.init(named: "episode_info_sel")
+            self.infoImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.size.equalTo(CGSize.init(width: 50, height: 50))
+                make.right.equalTo(self.view.snp.left).offset(60)
+            }
+            let generator = UIImpactFeedbackGenerator.init(style: .heavy)
+            generator.impactOccurred()
+        }else{
+            self.infoImageView.image = UIImage.init(named: "episode_info_nor")
+            self.infoImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.size.equalTo(CGSize.init(width: 50, height: 50))
+                make.right.equalTo(self.infoScrollView.snp.left)
+            }
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.x < -60 {
+            let episodeDetailVC = EpisodeDetailViewController()
+            episodeDetailVC.episode = self.chapter
+            self.navigationController?.pushViewController(episodeDetailVC)
+        }
+    }
 }
 
 
@@ -221,8 +261,7 @@ extension PlayerDetailViewController {
     }
     
     @objc func back(){
-//        self.navigationController?.popViewController()
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     func sleep(with time: String) {
@@ -249,6 +288,7 @@ extension PlayerDetailViewController {
 extension PlayerDetailViewController {
     
     func dw_addConstraints(){
+        
         self.titleLB.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(AdaptScale(60))
@@ -266,10 +306,22 @@ extension PlayerDetailViewController {
             make.size.equalTo(CGSize.init(width: 30, height: 30))
         })
         
+        self.infoScrollView.snp.makeConstraints { (make) in
+            make.centerX.width.equalToSuperview()
+            make.centerY.equalTo(self.coverBackView)
+            make.height.equalTo(self.coverBackView).offset(30)
+        }
+        
+        self.infoImageView.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.size.equalTo(CGSize.init(width: 50, height: 50))
+            make.right.equalTo(self.infoScrollView.snp.left)
+        }
+        
         self.coverBackView.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.subTitle.snp.bottom).offset(57)
-            make.size.equalTo(CGSize.init(width: 244, height: 244))
+            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(57))
+            make.size.equalTo(CGSize.init(width: AdaptScale(244), height: AdaptScale(244)))
         })
 		
 		self.coverImageView.snp.makeConstraints({ (make) in
@@ -277,13 +329,13 @@ extension PlayerDetailViewController {
 		})
         
         self.likeBtn.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.coverBackView.snp.bottom).offset(AdaptScale(77))
+            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
             make.right.equalTo(self.view.snp.centerX).offset(-32)
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
         
         self.rateBtn.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.coverBackView.snp.bottom).offset(AdaptScale(77))
+            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
             make.left.equalTo(self.view.snp.centerX).offset(32)
             make.size.equalTo(CGSize.init(width: 35, height: 25))
         })
@@ -353,11 +405,22 @@ extension PlayerDetailViewController {
         self.subTitle.font = pfont(fontsize0)
         self.view.addSubview(self.subTitle)
         
+        self.infoScrollView = UIScrollView.init(frame: CGRect.zero)
+        self.infoScrollView.showsHorizontalScrollIndicator = false;
+        self.infoScrollView.alwaysBounceHorizontal = true;
+        self.infoScrollView.layer.masksToBounds = false;
+        self.infoScrollView.delegate = self;
+        self.view.addSubview(self.infoScrollView)
+        
+        self.infoImageView = UIImageView.init(image: UIImage.init(named: "episode_info_nor"))
+        self.infoScrollView.addSubview(self.infoImageView);
+        
         self.coverBackView = UIView.init()
         self.coverBackView.cornerRadius = 15
-        self.view.addSubview(self.coverBackView)
-		
+        self.infoScrollView.addSubview(self.coverBackView)
+        
 		self.coverImageView = UIImageView.init()
+        self.coverImageView.isUserInteractionEnabled = true
         self.coverImageView.kf.setImage(with: URL.init(string: (self.chapter?.cover_url_high)!)!) {[unowned self] result in
             switch result { 
             case .success(let value):
@@ -438,6 +501,8 @@ extension PlayerDetailViewController {
         self.forwardBtn.setImage(UIImage.init(named: "forward"), for: .normal)
         self.forwardBtn.addTarget(self, action: #selector(forwardAction), for: .touchUpInside)
         self.view.addSubview(self.forwardBtn)
+        
+        
 
     }
 

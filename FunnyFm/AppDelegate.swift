@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 
 
@@ -24,7 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
         NotificationCenter.default.addObserver(self, selector: #selector(setUpPush), name: NSNotification.Name.init("firstSetUpPush"), object: nil)
-        sleep(1)
+
+        MSAppCenter.start("f9778dd8-1385-462e-a4e1-fa37182cb200", withServices:[
+            MSAnalytics.self,
+            MSCrashes.self,
+            MSEventLog.self,
+            MSErrorReport.self
+            ])
         return true
     }
     

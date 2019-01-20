@@ -33,7 +33,7 @@ struct Episode : Mapable, TableCodable{
         intro = jsonData["intro"].stringValue
         trackUrl_high = jsonData["trackUrl_high"].stringValue
         cover_url_high = jsonData["cover_url_high"].stringValue
-        duration = jsonData["trackUrl_normal"].intValue
+        duration = jsonData["duration"].intValue
         time_until_now = jsonData["time_until_now"].stringValue
         formatted_created_at = jsonData["formatted_created_at"].stringValue
         pod_cover_url = jsonData["pod_cover_url"].stringValue

@@ -36,9 +36,7 @@ class EpisodeListViewController: BaseViewController , ViewModelDelegate, UITable
         self.addHeader()
         self.addConstrains()
         self.tableview.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        let mjFooter = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
-        mjFooter?.triggerAutomaticallyRefreshPercent = 0.5;
-        mjFooter!.ignoredScrollViewContentInsetBottom = 100.0
+        let mjFooter = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
         self.tableview.mj_footer = mjFooter;
     }
 	
@@ -86,14 +84,13 @@ extension EpisodeListViewController {
 extension EpisodeListViewController{
     
     func viewModelDidGetDataSuccess() {
+        self.tableview.reloadData()
         if self.vm.isNoMore {
             self.tableview.mj_footer.endRefreshingWithNoMoreData()
         }else{
             self.tableview.mj_footer.endRefreshing()
         }
         self.tableview.mj_header.endRefreshing()
-
-        self.tableview.reloadData()
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
@@ -101,28 +98,28 @@ extension EpisodeListViewController{
         self.tableview.mj_footer.endRefreshing()
     }
 	
-	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		var offsetY = scrollView.contentOffset.y
-		
-		if offsetY > 0{
-			offsetY = 0
-		}
-		
-		if abs(offsetY) > 260{
-			offsetY = -260
-		}
-		self.topView.snp.updateConstraints { (make) in
-			make.bottom.equalTo(self.view.snp.top).offset(abs(offsetY))
-		}
-		
-		let alpha = offsetY == 0 ? 1 : 0
-		if  CGFloat.init(alpha) != self.topBar.alpha {
-			UIView.animate(withDuration: 0.1) {
-				self.topBar.alpha = CGFloat.init(alpha)
-			}
-		}
-		
-	}
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        var offsetY = scrollView.contentOffset.y
+//
+//        if offsetY > 0{
+//            offsetY = 0
+//        }
+//
+//        if abs(offsetY) > 260{
+//            offsetY = -260
+//        }
+//        self.topView.snp.updateConstraints { (make) in
+//            make.bottom.equalTo(self.view.snp.top).offset(abs(offsetY))
+//        }
+//
+//        let alpha = offsetY == 0 ? 1 : 0
+//        if  CGFloat.init(alpha) != self.topBar.alpha {
+//            UIView.animate(withDuration: 0.1) {
+//                self.topBar.alpha = CGFloat.init(alpha)
+//            }
+//        }
+//
+//    }
 
     
 }
@@ -147,14 +144,18 @@ extension EpisodeListViewController{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as! HomeAlbumTableViewCell
+        let chapter = self.vm.chapterList[indexPath.row]
+        cell.configCell(chapter)
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? HomeAlbumTableViewCell else { return }
-        let chapter = self.vm.chapterList[indexPath.row]
-        cell.configCell(chapter)
+        let row = indexPath.row
+        if row == (self.vm.chapterList.count - 2)  {
+            self.loadMore()
+        }
+        
     }
     
     

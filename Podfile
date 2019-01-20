@@ -24,6 +24,7 @@ def lib
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'
+    pod 'AppCenter'
 end
 
 
