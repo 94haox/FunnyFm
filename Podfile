@@ -13,6 +13,7 @@ def layout
     pod 'SPStorkController'
 	pod 'lottie-ios'
     pod 'CBFlashyTabBarController'
+    pod 'CleanyModal', '~> 0.1.1'
 end
 
 def lib

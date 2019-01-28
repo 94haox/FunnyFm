@@ -9,6 +9,7 @@ PODS:
   - AppCenter/Crashes (1.13.0):
     - AppCenter/Core
   - CBFlashyTabBarController (0.8.0)
+  - CleanyModal (0.1.1)
   - JCore (1.2.6)
   - JPush (3.1.2):
     - JCore (~> 1.2.6)
@@ -40,6 +41,7 @@ PODS:
 DEPENDENCIES:
   - AppCenter
   - CBFlashyTabBarController
+  - CleanyModal (~> 0.1.1)
   - JPush
   - KeychainAccess
   - Kingfisher
@@ -59,6 +61,7 @@ SPEC REPOS:
     - Alamofire
     - AppCenter
     - CBFlashyTabBarController
+    - CleanyModal
     - JCore
     - JPush
     - KeychainAccess
@@ -82,6 +85,7 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AppCenter: a70408f15de23f925001bfc7b7473094a009a4eb
   CBFlashyTabBarController: 4a5373a5b586646f8c4c22b28a6d33d01328538e
+  CleanyModal: cb749a1d44a95d2ce0cf4263e4aadd5bee96be16
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
@@ -101,6 +105,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
 
-PODFILE CHECKSUM: d57eeb399ef26c13c54c73fb49efea45dc2ec81d
+PODFILE CHECKSUM: d53ca40a55198f8ab3657b310b8e571424dd54dc
 
 COCOAPODS: 1.5.3
