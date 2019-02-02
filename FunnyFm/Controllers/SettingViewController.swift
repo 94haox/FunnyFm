@@ -43,6 +43,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         self.others.append(["title":"给 FunnyFM 评分","imageName":"rate"])
         self.others.append(["title":"将 FunnyFM 推荐给好友","imageName":"share"])
         self.others.append(["title":"查看开发者其他的 App ","imageName":"github"])
+        self.others.append(["title":"关于 FunnyFM ","imageName":"github"])
     }
     
     func toShare(){

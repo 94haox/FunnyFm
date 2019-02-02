@@ -10,6 +10,8 @@
 		33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */; };
 		AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09A53D21DDBACB00CB621C /* DownloadManager.swift */; };
 		AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */; };
+		AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */; };
+		AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */; };
 		AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14632021D385FC00D41B83 /* AnimationButton.swift */; };
 		AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */; };
 		AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */; };
@@ -83,7 +85,6 @@
 		AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB01219564F000260851 /* ConfigurationHelper.swift */; };
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
-		AB440DC321D466D900E0A634 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB440DC221D466D900E0A634 /* EpisodeDetailViewController.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
@@ -192,6 +193,8 @@
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		AB09A53D21DDBACB00CB621C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		AB14632021D385FC00D41B83 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePodCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -269,7 +272,6 @@
 		AB41AB01219564F000260851 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		AB41AB04219564F000260851 /* CornerAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerAnimatable.swift; sourceTree = "<group>"; };
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		AB440DC221D466D900E0A634 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
@@ -551,8 +553,9 @@
 				AB25797E21945E6F004C5F5D /* MainViewController.swift */,
 				AB1E6DB721BA809D00B85135 /* PodListViewController.swift */,
 				AB1E6DB321BA74DA00B85135 /* EpisodeListViewController.swift */,
-				AB440DC221D466D900E0A634 /* EpisodeDetailViewController.swift */,
 				AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */,
+				AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */,
+				AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */,
 				ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */,
 				ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */,
 				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
@@ -985,6 +988,7 @@
 				AB25798221945E6F004C5F5D /* Main.storyboard in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
+				AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1027,6 +1031,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -1047,6 +1052,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CBFlashyTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanyModal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -1112,6 +1118,7 @@
 				ABEE40E221E32C1700FCB16F /* StringExtension.swift in Sources */,
 				ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
+				AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */,
 				ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */,
 				AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */,
 				ABE7660521D7196700470D8F /* FileManagerExtensions.swift in Sources */,
@@ -1151,7 +1158,6 @@
 				ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */,
 				ABEE40CC21E3246E00FCB16F /* MJRefreshConst.m in Sources */,
 				ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */,
-				AB440DC321D466D900E0A634 /* EpisodeDetailViewController.swift in Sources */,
 				ABEE40CB21E3246E00FCB16F /* UIScrollView+MJRefresh.m in Sources */,
 				AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */,
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,

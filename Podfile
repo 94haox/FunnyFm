@@ -13,6 +13,7 @@ def layout
     pod 'SPStorkController'
 	pod 'lottie-ios'
     pod 'CBFlashyTabBarController'
+    pod 'CleanyModal', '~> 0.1.1'
 end
 
 def lib
@@ -24,6 +25,7 @@ def lib
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'
+    pod 'AppCenter'
 end
 
 
