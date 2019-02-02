@@ -136,10 +136,12 @@ extension FMToolBar{
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.pod_name
         self.setUpChapter(chapter)
-		let resource = ImageResource.init(downloadURL: URL.init(string: url)!)
-		self.logoImageView.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil) { [unowned self] (downImage, error, type, url) in
-			if(downImage != nil){
+		self.logoImageView.kf.setImage(with: URL.init(string: (self.currentChapter?.cover_url_high)!)!) {[unowned self] result in
+			switch result {
+			case .success(let _):
 				self.configShadowColor()
+			case .failure(let error):
+				print("Error: \(error)")
 			}
 		}
     }
