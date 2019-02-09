@@ -6,7 +6,7 @@ Preview GIF is loading `3mb`. Please, wait.
 
 <img src="https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/Preview.gif" width="500">
 
-You can download example [from AppStore](https://itunes.apple.com/app/id1446635818). If you want to buy source code of the app shown on the GIF above, please go to [xcode-shop.com](https://xcode-shop.com). Price: $200.
+You can download example [from AppStore](https://itunes.apple.com/app/id1446635818). Also in the app you can donate me a cup of coffee. If you want to buy source code of the app shown on the GIF above, please go to [xcode-shop.com](https://xcode-shop.com). Price: $200.
 
 <img src="https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/Shop.svg"/>
 
@@ -99,6 +99,11 @@ transitionDelegate.isTapAroundToDismissEnabled = true
 - Parameter `showIndicator` shows or hides top arrow indicator. Default is `true`:
 ```swift
 transitionDelegate.showIndicator = true
+```
+
+- Parameter `indicatorColor` for customize color of arrow. Default is `gray`:
+```swift
+transitionDelegate.indicatorColor = UIColor.white
 ```
 
 - Parameter `customHeight` sets custom height for modal controller. Default is `nil`:

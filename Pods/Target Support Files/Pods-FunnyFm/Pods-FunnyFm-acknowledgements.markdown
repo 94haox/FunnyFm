@@ -1197,7 +1197,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## WechatOpenSDK
 
-Copyright 2018 tencent.com. All rights reserved.
+Copyright 2019 tencent.com. All rights reserved.
 
 
 ## lottie-ios

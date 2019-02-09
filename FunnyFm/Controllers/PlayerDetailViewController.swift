@@ -52,7 +52,8 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     var downBackView: UIView!
     
     var viewModel: UserViewModel = UserViewModel()
-    
+	
+	var startPoint: CGPoint!
     var timer: Timer?
 	
     override func viewDidLoad() {
@@ -62,7 +63,7 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
         self.view.backgroundColor = .white
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
-        
+		
         if self.chapter.isFavour {
             self.likeAniView.play(fromProgress: 0.9, toProgress: 1) { (complete) in
                 self.likeBtn.isHidden = true;
@@ -76,6 +77,8 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     }
 
 }
+
+
 
 
 
@@ -282,6 +285,26 @@ extension PlayerDetailViewController {
     }
     
 }
+
+extension PlayerDetailViewController {
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let touch = touches.randomElement()
+		let point = touch?.location(in: self.view)
+		self.startPoint = point
+	}
+	
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let touch = touches.randomElement()
+		let point = touch?.location(in: self.view)
+		if (point!.y - self.startPoint.y > 100) {
+			self.back()
+		}
+		
+	}
+	
+}
+
 
 
 // MARK:  UI

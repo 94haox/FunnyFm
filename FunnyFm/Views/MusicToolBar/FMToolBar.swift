@@ -140,7 +140,7 @@ extension FMToolBar{
         self.setUpChapter(chapter)
 		self.logoImageView.kf.setImage(with: URL.init(string: (self.currentChapter?.cover_url_high)!)!) {[unowned self] result in
 			switch result {
-			case .success(let _):
+			case .success(_):
 				self.configShadowColor()
 			case .failure(let error):
 				print("Error: \(error)")

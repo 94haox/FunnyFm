@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E1640BC3140C31FD99C222BBD1A94B64"
+               BlueprintIdentifier = "67EF7FDADA045E28AB5E2F9BDF37DAC8"
                BlueprintName = "CBFlashyTabBarController"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "CBFlashyTabBarController.framework">
