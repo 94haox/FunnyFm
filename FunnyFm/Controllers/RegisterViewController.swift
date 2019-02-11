@@ -94,6 +94,7 @@ extension RegisterViewController {
         self.hideLoading()
         HorizonHUD.showSuccess("登录成功")
         self.navigationController?.popToRootViewController(animated: true)
+//		let profileVC = profil
     }
     
     func viewModelDidGetDataFailture(msg: String?) {

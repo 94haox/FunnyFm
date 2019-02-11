@@ -12,6 +12,7 @@ import Moya
 
 
 let kGetPodListurl = "v1/podlist"
+let kCheckPodSourceUrl = "v1/checkPodSource"
 
 
 
@@ -19,6 +20,7 @@ let apiProvider = MoyaProvider<PodAPI>()
 
 public enum PodAPI {
     case getPodList()
+	case checkPodSource()
 }
 
 extension PodAPI : TargetType {
@@ -26,7 +28,12 @@ extension PodAPI : TargetType {
     //请求接口时对应的请求参数
     public var task: Task {
         let params:[String : Any] = [:]
-        return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+		switch self {
+		case .checkPodSource():
+			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+		default:
+			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+		}
     }
     
     
@@ -38,15 +45,17 @@ extension PodAPI : TargetType {
         switch self {
         case .getPodList():
             return kGetPodListurl
-        }
+		case .checkPodSource:
+			return kCheckPodSourceUrl
+		}
     }
     
     public var method: Moya.Method {
         switch self {
         case .getPodList():
             return .get
-//        default:
-//            return .post
+        default:
+            return .post
         }
         
     }

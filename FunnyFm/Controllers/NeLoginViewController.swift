@@ -168,7 +168,7 @@ extension NeLoginViewController {
         self.passTF.cornerRadius = 15;
         self.passTF.tintColor = CommonColor.mainRed.color
         self.passTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.passTF.placeholder = "密码"
+        self.passTF.placeholder = "密码（6位）"
         self.passTF.returnKeyType = .done
         self.passTF.font = h_bfont(fontsize4)
         self.passTF.textColor = CommonColor.title.color
