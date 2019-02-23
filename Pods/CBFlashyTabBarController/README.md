@@ -7,11 +7,6 @@
 
 ![Animation](https://raw.githubusercontent.com/Cuberto/flashy-tabbar/master/Screenshots/animation.gif)
 
-## Requirements
-
-- iOS 9.0+
-- xCode 9
-
 ## Example
 
 To run the example project, clone the repo, and run `ExampleApp`  scheme from FlashyTabBar.xcodeproj
@@ -19,7 +14,7 @@ To run the example project, clone the repo, and run `ExampleApp`  scheme from Fl
 ## Requirements
 
 - iOS 10.0+
-- xCode 9
+- Xcode 9
 
 ## Installation
 
@@ -60,7 +55,7 @@ Add CBFlashyTabBarController folder to your project
 
 1. Import CBFlashyTabBarController
 2. Instantiate `CBFlashyTabBarController`
-3. Add some child conrollers and don't forget to set them tabBar items with title and image
+3. Add some child controllers and don't forget to set them tabBar items with title and image
 
 
 ## Author

@@ -10,7 +10,7 @@ import UIKit
 import AppCenter
 import AppCenterAnalytics
 import AppCenterCrashes
-
+import SPStorkController
 
 
 @UIApplicationMain
@@ -94,14 +94,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if let key = url.absoluteString.components(separatedBy: "=").last{
-            print("jek---",key)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool{
+		print(url.absoluteString)
+        if let key = url.absoluteString.components(separatedBy: "?").first{
+			if let id = key.components(separatedBy: "/").last{
+				let podid = id.subString(from: 2)
+				print("podId------",podid)
+				GlobalViewModel.shared.delegate = self;
+				GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
+				
+			}
             return true
         }
+		
+		if url.absoluteString.hasPrefix("funnyfm://itunsUrl=https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast") {
+			if let key = url.absoluteString.components(separatedBy: "?").last{
+				if let id = key.components(separatedBy: "#").first{
+					let podid = id.subString(from: 2)
+					print("podId------",podid)
+					GlobalViewModel.shared.delegate = self;
+					GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
+
+				}
+				return true
+			}
+		}
+		
+		SwiftNotice.showText("暂不支持此分享源")
         return false
     }
 
 
 }
+
+extension AppDelegate : ViewModelDelegate {
+	
+	func viewModelDidGetDataSuccess() {
+		let preview = PodPreviewViewController()
+		preview.modalPresentationStyle = .overCurrentContext
+		let vc = self.window!.rootViewController!
+		let transitionDelegate = SPStorkTransitioningDelegate()
+		transitionDelegate.customHeight = 450;
+		preview.transitioningDelegate = transitionDelegate
+		preview.modalPresentationStyle = .custom
+		preview.modalPresentationCapturesStatusBarAppearance = true
+		vc.present(preview, animated: true, completion: nil)
+		preview.configWithPod(pod: GlobalViewModel.shared.importPod!)
+	}
+	
+	func viewModelDidGetDataFailture(msg: String?) {
+	
+	}
+}
+
+
 

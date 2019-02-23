@@ -12,27 +12,31 @@ import SwiftyJSON
 
 struct Pod : Mapable{
     var name:       String
+	var author:     String
     var weburl:     String
     var des:        String
     var img:        String
     var sourceType: String
     var update_time:String
-    var last_episode_title:String
     var albumId:    Int
     var count:      Int
     var isSubscribed: Bool
+	var last_episode_title:String
+	var sourceUrl   :String
     
     init?(jsonData:JSON) {
         name = jsonData["name"].stringValue
         weburl = jsonData["weburl"].stringValue
         des = jsonData["des"].stringValue
         img = jsonData["img"].stringValue
-        sourceType = jsonData["sourceType"].stringValue
+        sourceType = jsonData["source_type"].stringValue
         albumId = jsonData["albumId"].intValue
         count = jsonData["count"].intValue
         update_time = jsonData["update_time"].stringValue
         last_episode_title = jsonData["last_chapter_title"].stringValue
         isSubscribed = jsonData["isSubscribed"].boolValue
+		author = jsonData["author"].stringValue
+		sourceUrl = jsonData["source_url"].stringValue
     }
 
     
@@ -48,6 +52,7 @@ struct Pod : Mapable{
         case update_time
         case last_episode_title
         case isSubscribed
+		case sourceUrl
     }
     
     

@@ -11,7 +11,7 @@ def layout
     pod 'pop', '~> 1.0'
     pod 'SHFullscreenPopGestureSwift'
     pod 'SPStorkController'
-	pod 'lottie-ios'
+    pod 'lottie-ios'
     pod 'CBFlashyTabBarController'
     pod 'CleanyModal', '~> 0.1.1'
 end
