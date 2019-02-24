@@ -56,7 +56,7 @@ class PodPreviewViewController: BaseViewController {
 
 extension PodPreviewViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
-		
+		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
