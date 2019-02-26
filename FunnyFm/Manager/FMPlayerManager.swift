@@ -155,6 +155,7 @@ extension FMPlayerManager{
             return
         }
         if keyPath == "status" {
+			print(value)
             let status = value! as! Int
             self.isCanPlay = status == 1
             self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
@@ -209,7 +210,17 @@ extension FMPlayerManager {
         self.currentModel = chapter
         configPlayBackgroungMode()
         self.setBackground()
-        let item = AVPlayerItem.init(url: URL.init(string: chapter.trackUrl_high)!)
+		var url = URL.init(string: chapter.trackUrl_high);
+		var item : AVPlayerItem;
+		if let episode = DatabaseManager.qurey(episodeId: chapter.episodeId) {
+			let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+			let mp3Path = documentURL.appendingPathComponent("mp3")
+			url = mp3Path.appendingPathComponent(episode.download_filpath)
+			let asset = AVAsset.init(url: url!)
+			item = AVPlayerItem.init(asset: asset)
+		}else{
+			item = AVPlayerItem.init(url: url!)
+		}
         self.changePlayItem(item)
         if self.player.isNone {
             self.player = AVPlayer.init(playerItem: self.playerItem)

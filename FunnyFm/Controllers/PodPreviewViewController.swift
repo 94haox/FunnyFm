@@ -148,6 +148,7 @@ extension PodPreviewViewController {
 		self.subscribeBtn.cornerRadius = 15;
 		self.subscribeBtn.layer.masksToBounds = true;
 		self.subscribeBtn.backgroundColor = CommonColor.mainRed.color
+		self.subscribeBtn.addTarget(self, action: #selector(addPodToLibary), for: .touchUpInside)
 		self.view.addSubview(self.subscribeBtn)
 	}
 	

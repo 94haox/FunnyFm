@@ -23,7 +23,7 @@ class DownloadManager: NSObject {
     var downloadRequest:DownloadRequest!
     var cancelledData:Data?
 	var delegate: DownloadManagerDelegate?
-    
+	
     
     let destination:DownloadRequest.DownloadFileDestination = { url, response in
         let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -36,7 +36,7 @@ class DownloadManager: NSObject {
 		self.delegate?.downloadProgress(progress: Double(progress.fractionCompleted))
     }
     
-    func beginDownload(_ url: String){
+    func beginDownload(_ episode: Episode){
         if let cancelledData = self.cancelledData {
             //续传
             self.downloadRequest = Alamofire.download(resumingWith: cancelledData, to: self.destination)
@@ -44,7 +44,7 @@ class DownloadManager: NSObject {
             self.downloadRequest.responseData(completionHandler: downloadResponse)
         }else{
             //开始下载
-            self.downloadRequest = Alamofire.download(url, to: self.destination)
+            self.downloadRequest = Alamofire.download(episode.trackUrl_high, to: self.destination)
             self.downloadRequest.downloadProgress(closure: downloadProgress)
             self.downloadRequest.responseData(completionHandler: downloadResponse)
         }

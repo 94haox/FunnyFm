@@ -59,8 +59,8 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
 extension DownloadListController{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        let history = self.historyList[indexPath.row]
-        //        FMToolBar.shared.configToolBar(history)
+		let history = self.episodeList[indexPath.row]
+		FMToolBar.shared.configToolBar(history)
     }
     
 }

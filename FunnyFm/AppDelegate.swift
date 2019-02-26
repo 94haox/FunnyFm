@@ -96,6 +96,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool{
 		print(url.absoluteString)
+		if url.absoluteString.hasPrefix("funnyfm://itunsUrl=https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast") {
+			if let key = url.absoluteString.components(separatedBy: "?").last{
+				if let id = key.components(separatedBy: "#").first{
+					let podid = id.subString(from: 3)
+					print("podId------",podid)
+					GlobalViewModel.shared.delegate = self;
+					GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
+				}
+				return true
+			}
+		}
         if let key = url.absoluteString.components(separatedBy: "?").first{
 			if let id = key.components(separatedBy: "/").last{
 				let podid = id.subString(from: 2)
@@ -106,19 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 			}
             return true
         }
-		
-		if url.absoluteString.hasPrefix("funnyfm://itunsUrl=https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast") {
-			if let key = url.absoluteString.components(separatedBy: "?").last{
-				if let id = key.components(separatedBy: "#").first{
-					let podid = id.subString(from: 2)
-					print("podId------",podid)
-					GlobalViewModel.shared.delegate = self;
-					GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
-
-				}
-				return true
-			}
-		}
 		
 		SwiftNotice.showText("暂不支持此分享源")
         return false
@@ -143,7 +141,7 @@ extension AppDelegate : ViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-	
+		SwiftNotice.showText(msg!)
 	}
 }
 

@@ -77,12 +77,13 @@ public class FmHttp<T> where T: Mapable{
                 do{
                     let jsondata = try data.mapJSON()
                     let json = JSON(jsondata)
-                    let detail = JSON(jsondata)["data"]["detail"]
-                    let code = JSON(jsondata)["data"]["code"]
-                    if code.intValue != 0 {
+                    let code = json["code"]
+					let resultCode = json["result"]
+                    if code.intValue != 0 || resultCode.intValue != 1 {
                         failure(json["message"].string)
                         return
                     }
+					let detail = json["data"]["detail"]
                     let t = T.init(jsonData:detail)!
                     success(t)
                 }catch{

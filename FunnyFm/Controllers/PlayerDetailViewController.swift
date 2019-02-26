@@ -56,6 +56,8 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 	var startPoint: CGPoint!
     var timer: Timer?
 	
+	var isImpact = false
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dw_addSubviews()
@@ -69,6 +71,10 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
                 self.likeBtn.isHidden = true;
             }
         }
+		
+		if DatabaseManager.qurey(episodeId: self.chapter.episodeId).isSome {
+			self.downBtn.isSelected = true
+		}
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,6 +126,8 @@ extension PlayerDetailViewController: DownloadManagerDelegate {
 			SwiftNotice.showText("下载失败")
 			return
 		}
+		self.downBtn.isSelected = true
+		self.downProgressLayer.isHidden = true
 		SwiftNotice.showText("下载成功，您可以在个人中心-我的下载查看")
 		if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
 			anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
@@ -127,7 +135,7 @@ extension PlayerDetailViewController: DownloadManagerDelegate {
 			anim.springBounciness = 20
 			self.downBtn!.layer.pop_add(anim, forKey: "size")
 		}
-		self.chapter!.download_filpath = fileUrl!
+		self.chapter!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
 		DatabaseManager.add(download: self.chapter!)
 	}
 	
@@ -147,9 +155,13 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
                 make.size.equalTo(CGSize.init(width: 50, height: 50))
                 make.right.equalTo(self.view.snp.left).offset(60)
             }
-            let generator = UIImpactFeedbackGenerator.init(style: .heavy)
-            generator.impactOccurred()
+			if !self.isImpact {
+				self.isImpact = true
+				let generator = UIImpactFeedbackGenerator.init(style: .heavy)
+				generator.impactOccurred()
+			}
         }else{
+			self.isImpact = false;
             self.infoImageView.image = UIImage.init(named: "episode_info_nor")
             self.infoImageView.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview()
@@ -158,7 +170,7 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
             }
         }
     }
-    
+	
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.x < -60 {
             let episodeDetailVC = EpisodeDetailViewController()
@@ -190,8 +202,12 @@ extension PlayerDetailViewController {
     }
     
     @objc func downloadAction(){
+		if self.downBtn.isSelected {
+			SwiftNotice.showText("已下载")
+			return;
+		}
 		DownloadManager.shared.delegate = self;
-		DownloadManager.shared.beginDownload(self.chapter!.trackUrl_high)
+		DownloadManager.shared.beginDownload(self.chapter)
     }
 	
 	@objc func likeAction(){
@@ -483,6 +499,7 @@ extension PlayerDetailViewController {
         
         self.downBtn = UIButton.init(type: .custom)
         self.downBtn.setImage(UIImage.init(named: "download-black"), for: .normal)
+		self.downBtn.setImage(UIImage.init(named: "download-red"), for: .selected)
         self.downBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
         self.view.addSubview(self.downBtn)
         
