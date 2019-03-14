@@ -19,6 +19,7 @@ struct Pod : Mapable{
     var sourceType: String
     var update_time:String
     var albumId:    Int
+	var itunesId:		Int
     var count:      Int
     var isSubscribed: Bool
 	var last_episode_title:String
@@ -37,6 +38,7 @@ struct Pod : Mapable{
         isSubscribed = jsonData["isSubscribed"].boolValue
 		author = jsonData["author"].stringValue
 		sourceUrl = jsonData["source_url"].stringValue
+		itunesId = jsonData["itunesId"].intValue
     }
 
     
@@ -53,6 +55,7 @@ struct Pod : Mapable{
         case last_episode_title
         case isSubscribed
 		case sourceUrl
+		case itunesId
     }
     
     

@@ -51,7 +51,12 @@ class EpisodeListViewController: BaseViewController , ViewModelDelegate, UITable
     }
 	
 	func setupUI(_ pod: Pod){
-		self.vm = ChapterListViewModel.init(pod.albumId)
+		if pod.sourceType == "iTunes" {
+			self.vm = ChapterListViewModel.init(pod.itunesId)
+		}else{
+			self.vm = ChapterListViewModel.init(pod.albumId)
+		}
+		
 		self.vm.delegate = self
 		self.topBar = PodDetailTopBar.init(frame: CGRect.zero)
 		self.topView = PodCastCoverView.init(frame: CGRect.zero)

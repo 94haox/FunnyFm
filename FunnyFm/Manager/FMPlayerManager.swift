@@ -148,14 +148,13 @@ extension FMPlayerManager {
 // MARK: observers
 
 extension FMPlayerManager{
-    
+	
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         let value = change?[NSKeyValueChangeKey.newKey]
         if value.isNone {
             return
         }
         if keyPath == "status" {
-			print(value)
             let status = value! as! Int
             self.isCanPlay = status == 1
             self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
@@ -213,9 +212,7 @@ extension FMPlayerManager {
 		var url = URL.init(string: chapter.trackUrl_high);
 		var item : AVPlayerItem;
 		if let episode = DatabaseManager.qurey(episodeId: chapter.episodeId) {
-			let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-			let mp3Path = documentURL.appendingPathComponent("mp3")
-			url = mp3Path.appendingPathComponent(episode.download_filpath)
+			url = self.completePath(episode)
 			let asset = AVAsset.init(url: url!)
 			item = AVPlayerItem.init(asset: asset)
 		}else{
@@ -228,7 +225,22 @@ extension FMPlayerManager {
             self.player?.replaceCurrentItem(with: self.playerItem)
         }
         self.addTimeObserver()
+		
+		if let progress = self.checkProgress(chapter) {
+			self.seekToProgress(CGFloat(progress.progress))
+		}
     }
+	
+	func completePath(_ episode: Episode) -> URL {
+		let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+		let mp3Path = documentURL.appendingPathComponent("mp3")
+		let url = mp3Path.appendingPathComponent(episode.download_filpath)
+		return url;
+	}
+	
+	func checkProgress(_ episode: Episode) -> ChapterProgress? {
+		return DatabaseManager.qureyProgress(chapterId: episode.episodeId)
+	}
     
 }
 
@@ -250,6 +262,7 @@ extension FMPlayerManager {
 		info[MPMediaItemPropertyPlaybackDuration] = self.totalTime
 		info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
         info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.currentTime
+		info[MPMediaItemPropertySkipCount] = NSNumber.init(value: 15)
 		MPNowPlayingInfoCenter.default().nowPlayingInfo = info
         UIApplication.shared.registerForRemoteNotifications()
 	}

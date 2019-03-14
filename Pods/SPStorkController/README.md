@@ -6,7 +6,7 @@ Preview GIF is loading `3mb`. Please, wait.
 
 <img src="https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/Preview.gif" width="500">
 
-You can download example [from AppStore](https://itunes.apple.com/app/id1446635818). Also in the app you can donate me a cup of coffee. If you want to buy source code of the app shown on the GIF above, please go to [xcode-shop.com](https://xcode-shop.com). Price: $200.
+You can download example [from AppStore](https://itunes.apple.com/app/id1446635818) or see [video preview](https://xcode-shop.com/assets/preview/debts.mov). If you want to buy source code of the full app, please go to [xcode-shop.com](https://xcode-shop.com). Price: $200.
 
 <img src="https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/Shop.svg"/>
 
@@ -62,10 +62,6 @@ controller.transitioningDelegate = SPStorkTransitioningDelegate()
 ```
 
 You will get an error about weak property.
-
-### Need help
-
-Please, see [this issue](https://github.com/IvanVorobei/SPStorkController/issues/30). Bug with work table. Need help for fix it and update project. 
 
 ### Video Tutorial
 
@@ -124,6 +120,11 @@ transitionDelegate.showIndicator = true
 transitionDelegate.indicatorColor = UIColor.white
 ```
 
+- Parameter `cornerRadius` for customize corner radius of controller's view. Default is `10`:
+```swift
+transitionDelegate.cornerRadius = 10
+```
+
 ### Snapshots
 
 The project uses a snapshot of the screen in order to avoid compatibility and customization issues. Before controller presentation, a snapshot of the parent view is made, and size and position are changed for the snapshot. Sometimes you will need to update the screenshot of the parent view, for that use static func:
@@ -170,7 +171,7 @@ pod 'SparrowKit'
 
 ### Working with UIScrollView
 
-If you use `UIScrollView` (or UITableView & UICollectionView) on your controller, I recommend making it more interactive. When scrolling reaches the top position, the controller will interactively drag down, simulating a closing animation. To do this, set the delegate and in the function `scrollViewDidScroll` call:
+If you use `UIScrollView` (or UITableView & UICollectionView) on your controller, I recommend making it more interactive. When scrolling reaches the top position, the controller will interactively drag down, simulating a closing animation. Also available close controller by drag down on `UIScrollView`. To do this, set the delegate and in the function `scrollViewDidScroll` call:
 
 ```swift
 func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -182,17 +183,14 @@ func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
 Working with a collections classes is not difficult. In the `Example` folder you can find an implementation. However, I will give a couple of tips for making the table look better.
 
-Firstly, if you use `SPFakeBarView`, don't forget to set top insets for content & scroll indicator. Also, I recommend setting bottom insets:
+Firstly, if you use `SPFakeBarView`, don't forget to set top insets for content & scroll indicator. Also, I recommend setting bottom insets (it optional):
 
 ```swift
 tableView.contentInset.top = self.navBar.height
 tableView.scrollIndicatorInsets.top = self.navBar.height
-
-tableView.contentInset.bottom = self.safeAreaInsets.bottom
-tableView.scrollIndicatorInsets.bottom = self.safeAreaInsets.bottom
 ```
 
-Please, also use `SPStorkController.scrollViewDidScroll()` function in delegate for more interactiveness with your collection or table view
+Please, also use `SPStorkController.scrollViewDidScroll` function in scroll delegate for more interactiveness with your collection or table view.
 
 ### Modal presentation of different controller
 

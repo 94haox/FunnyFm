@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import NVActivityIndicatorView
 
 class PodPreviewViewController: BaseViewController {
 	
@@ -20,6 +21,8 @@ class PodPreviewViewController: BaseViewController {
 	var subscribeBtn: UIButton!
 	var loadingView: UIActivityIndicatorView!
 	var pod: Pod!
+	var addLoadView: NVActivityIndicatorView!
+	var subTempView: UIView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,19 +51,37 @@ class PodPreviewViewController: BaseViewController {
 	}
 	
 	@objc func addPodToLibary(){
+		self.shinkBtn()
 		GlobalViewModel.shared.addItunesPod(podId: String(self.pod.albumId), feedUrl: self.pod.sourceUrl, sourceType: self.pod.sourceType)
 		GlobalViewModel.shared.delegate = self;
+	}
+	
+	func shinkBtn() {
+		self.subscribeBtn.isHidden = true
+		self.subTempView.cornerRadius = 5.0
+		self.subTempView.snp.remakeConstraints { (make) in
+			make.size.equalTo(CGSize.init(width: 10, height: 10))
+			make.centerY.equalTo(self.subscribeBtn)
+			make.right.equalTo(self.addLoadView)
+		}
+		
+		UIView.animate(withDuration: 0.3, animations: {
+			self.view.layoutIfNeeded()
+		}) { (complete) in
+			self.addLoadView.startAnimating()
+			self.subTempView.isHidden = true
+		};
 	}
 }
 
 
 extension PodPreviewViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
+		SwiftNotice.showText("添加成功，正在抓取所有节目单，请稍候刷新")
 		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-		
 	}
 	
 }
@@ -104,8 +125,18 @@ extension PodPreviewViewController {
 			make.top.equalTo(self.desLB.snp.bottom).offset(20)
 		}
 		
+		self.subTempView.snp.makeConstraints { (make) in
+			make.edges.equalTo(self.subscribeBtn)
+		}
+		
 		self.loadingView.snp.makeConstraints { (make) in
 			make.center.equalTo(self.podImageView)
+		}
+		
+		self.addLoadView.snp.makeConstraints { (make) in
+			make.size.equalTo(CGSize.init(width: 50, height: 50))
+			make.centerY.equalTo(self.subscribeBtn);
+			make.centerX.equalTo(self.view)
 		}
 	}
 	
@@ -141,6 +172,13 @@ extension PodPreviewViewController {
 		self.authorLB.textColor = CommonColor.content.color
 		self.view.addSubview(self.authorLB)
 		
+		
+		self.subTempView = UIView.init()
+		self.subTempView.cornerRadius = 15;
+		self.subTempView.layer.masksToBounds = true;
+		self.subTempView.backgroundColor = CommonColor.mainRed.color
+		self.view.addSubview(self.subTempView)
+		
 		self.subscribeBtn = UIButton.init(type: .custom)
 		self.subscribeBtn.setTitle("添加至订阅库", for: .normal)
 		self.subscribeBtn.setTitleColor(.white, for: .normal)
@@ -150,6 +188,9 @@ extension PodPreviewViewController {
 		self.subscribeBtn.backgroundColor = CommonColor.mainRed.color
 		self.subscribeBtn.addTarget(self, action: #selector(addPodToLibary), for: .touchUpInside)
 		self.view.addSubview(self.subscribeBtn)
+		
+		self.addLoadView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);
+		self.view.addSubview(self.addLoadView);
 	}
 	
 	

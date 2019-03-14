@@ -28,7 +28,7 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
     var showIndicator: Bool = true
     var indicatorColor: UIColor = UIColor.init(red: 202/255, green: 201/255, blue: 207/255, alpha: 1)
     var customHeight: CGFloat? = nil
-    var translateForDismiss: CGFloat = 240
+    var translateForDismiss: CGFloat = 200
     
     var transitioningDelegate: SPStorkTransitioningDelegate?
     
@@ -44,6 +44,7 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
     private var snapshotViewTopConstraint: NSLayoutConstraint?
     private var snapshotViewWidthConstraint: NSLayoutConstraint?
     private var snapshotViewAspectRatioConstraint: NSLayoutConstraint?
+    
     private var workGester: Bool = false
     private var startDismissing: Bool = false
     
@@ -52,13 +53,8 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
         return (statusBarHeight < 25) ? 30 : statusBarHeight
     }
     
-    private var alpha: CGFloat {
-        return 0.51
-    }
-    
-    private var cornerRadius: CGFloat {
-        return 10
-    }
+    private let alpha: CGFloat =  0.51
+    var cornerRadius: CGFloat = 10
     
     private var scaleForPresentingView: CGFloat {
         guard let containerView = containerView else { return 0 }
@@ -135,8 +131,9 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
             containerView.insertSubview(snapshotView, aboveSubview: self.backgroundView)
             snapshotView.frame = initialFrame
             snapshotView.transform = transformForSnapshotView
-            snapshotView.alpha = self.alpha
+            snapshotView.alpha = 1 - self.alpha
             snapshotView.layer.cornerRadius = self.cornerRadius
+            snapshotView.contentMode = .top
             snapshotView.layer.masksToBounds = true
             rootSnapshotView = snapshotView
             
@@ -227,6 +224,7 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
             containerView.insertSubview(snapshotView, aboveSubview: backgroundView)
             snapshotView.frame = initialFrame
             snapshotView.transform = initialTransform
+            snapshotView.contentMode = .top
             rootSnapshotView = snapshotView
             snapshotView.layer.cornerRadius = self.cornerRadius
             snapshotView.layer.masksToBounds = true
@@ -234,7 +232,7 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
             let snapshotRoundedView = UIView()
             snapshotRoundedView.layer.cornerRadius = self.cornerRadius
             snapshotRoundedView.layer.masksToBounds = true
-            snapshotRoundedView.backgroundColor = UIColor.black.withAlphaComponent(1 - self.alpha)
+            snapshotRoundedView.backgroundColor = UIColor.black.withAlphaComponent(self.alpha)
             containerView.insertSubview(snapshotRoundedView, aboveSubview: snapshotView)
             snapshotRoundedView.frame = initialFrame
             snapshotRoundedView.transform = initialTransform
@@ -260,6 +258,7 @@ class SPStorkPresentationController: UIPresentationController, UIGestureRecogniz
         self.backgroundView.removeFromSuperview()
         self.snapshotView?.removeFromSuperview()
         self.snapshotViewContainer.removeFromSuperview()
+        self.indicatorView.removeFromSuperview()
         
         let offscreenFrame = CGRect(x: 0, y: containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
         presentedViewController.view.frame = offscreenFrame
@@ -292,7 +291,7 @@ extension SPStorkPresentationController {
             self.workGester = false
             let translation = gestureRecognizer.translation(in: presentedView).y
             if translation >= self.translateForDismiss {
-                presentedViewController.dismiss(animated: true, completion: nil)
+                self.presentedViewController.dismiss(animated: true, completion: nil)
             } else {
                 self.indicatorView.style = .arrow
                 UIView.animate(
@@ -323,6 +322,10 @@ extension SPStorkPresentationController {
         self.updateSnapshot()
     }
     
+    func setIndicator(style: SPStorkIndicatorView.Style) {
+        self.indicatorView.style = style
+    }
+    
     private func updatePresentedViewForTranslation(inVerticalDirection translation: CGFloat) {
         if self.startDismissing { return }
         
@@ -342,9 +345,12 @@ extension SPStorkPresentationController {
             
             self.presentedView?.transform = CGAffineTransform(translationX: 0, y: translationForModal)
             
-            let factor = 1 + (translationForModal / 6000)
-            self.snapshotView?.transform = CGAffineTransform.init(scaleX: factor, y: factor)
-            self.gradeView.alpha = self.alpha - ((factor - 1) * 15)
+            let scaleFactor = 1 + (translationForModal / 5000)
+            self.snapshotView?.transform = CGAffineTransform.init(scaleX: scaleFactor, y: scaleFactor)
+            let gradeFactor = 1 + (translationForModal / 7000)
+            self.gradeView.alpha = self.alpha - ((gradeFactor - 1) * 15)
+        } else {
+            self.presentedView?.transform = CGAffineTransform.identity
         }
     }
 }
