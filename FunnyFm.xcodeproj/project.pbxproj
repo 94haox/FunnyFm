@@ -67,6 +67,7 @@
 		AB25798221945E6F004C5F5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798021945E6F004C5F5D /* Main.storyboard */; };
 		AB25798421945E70004C5F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798521945E70004C5F5D /* LaunchScreen.storyboard */; };
+		AB28ECAD224E241500C7FE43 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AB28ECAC224E241400C7FE43 /* refresh.json */; };
 		AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */; };
 		AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */; };
 		AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */; };
@@ -259,6 +260,7 @@
 		AB25798321945E70004C5F5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB25798621945E70004C5F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB25798821945E70004C5F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB28ECAC224E241400C7FE43 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
 		AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyManager.swift; sourceTree = "<group>"; };
 		AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualActivityViewController.swift; sourceTree = "<group>"; };
 		AB2D266921DF826F00BF3391 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
@@ -736,6 +738,7 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				AB28ECAC224E241400C7FE43 /* refresh.json */,
 				ABEF471921EAFD7F00212DCA /* play_state.json */,
 				ABEF471521EAF9DE00212DCA /* cloud_sync.json */,
 				ABAFF27121E22E440009A3A2 /* like_button.json */,
@@ -995,6 +998,7 @@
 				ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */,
 				ABF6DD2321E1A66E0080BE46 /* NeLoginViewController.xib in Resources */,
 				ABEE40CD21E3246E00FCB16F /* MJRefresh.bundle in Resources */,
+				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
@@ -1486,7 +1490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = FunnyShare/FunnyShare.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tao Wu (F3PARDF2VE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyShare/Info.plist;

@@ -15,6 +15,7 @@ def layout
     pod 'CBFlashyTabBarController'
     pod 'CleanyModal', '~> 0.1.1'
 	pod 'NVActivityIndicatorView'
+	pod 'lottie-ios', '~> 3.0.3'
 end
 
 def lib

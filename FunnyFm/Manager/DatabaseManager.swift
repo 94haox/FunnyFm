@@ -49,15 +49,6 @@ class DatabaseManager: NSObject {
     
     /// 添加进度记录
     ///
-    /// - Parameter progress: 进度记录
-	static public func add(progress:ChapterProgress){
-		let exsitProgress = self.qureyProgress(chapterId: progress.episodeId!)
-		if exsitProgress.isSome {
-			self.updateProgress(progress: progress)
-			return
-		}
-		try! self.database.insert(objects: progress, intoTable: progressTable)
-	}
     
     /// 查询历史记录
     static public func qurey(chapterId: String) -> ListenHistoryModel?{
@@ -74,10 +65,11 @@ class DatabaseManager: NSObject {
     }
     
     /// 查询进度记录
-    static public func qureyProgress(chapterId: String) -> ChapterProgress?{
-        let progressList = self.allProgress()
-        let progress = progressList.filter { $0.episodeId! == chapterId }
-        return progress.first
+    static public func qureyProgress(episodeId: String) -> Double{
+		return UserDefaults.standard.double(forKey: "Progress_" + episodeId)
+//        let progressList = self.allProgress()
+//        let progress = progressList.filter { $0.episodeId! == episodeId }
+//        return progress.first
     }
     
     /// 删除历史记录
@@ -87,9 +79,11 @@ class DatabaseManager: NSObject {
     }
 	
     /// 更新进度记录
-    static public func updateProgress(progress: ChapterProgress){
-        let row : [ColumnEncodable] = ["update"]
-        try! database.update(table: progressTable, on: [ChapterProgress.Properties.episodeId], with: row, where: ChapterProgress.Properties.episodeId.stringValue == progress.episodeId, orderBy: nil, limit: nil, offset: nil)
+	static public func updateProgress(progress: Double, episodeId:String){
+		UserDefaults.standard.set(progress, forKey: "Progress_" + episodeId)
+		UserDefaults.standard.synchronize()
+//		self.delete(chapterId: progress.episodeId!)
+//		try! self.database.insert(objects: progress, intoTable: progressTable)
     }
     
     /// 删除进度记录

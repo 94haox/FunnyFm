@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import SPStorkController
+import Lottie
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
     
@@ -25,6 +26,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     var searchBtn : UIButton!
     
     var profileBtn : UIButton!
+	
+	var loadAnimationView : AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +83,7 @@ extension MainViewController{
 extension MainViewController : ViewModelDelegate {
     
     func viewModelDidGetDataSuccess() {
+		self.loadAnimationView.removeFromSuperview()
         self.tableview.refreshControl?.endRefreshing()
         self.collectionView.reloadData()
         self.tableview.reloadData()
@@ -89,6 +93,7 @@ extension MainViewController : ViewModelDelegate {
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
+		self.loadAnimationView.removeFromSuperview()
         self.tableview.refreshControl?.endRefreshing()
         SwiftNotice.noticeOnStatusBar("请求失败", autoClear: true, autoClearTime: 2)
     }
@@ -204,6 +209,7 @@ extension MainViewController {
         self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.searchBar)
         self.view.addSubview(self.tableview)
+		self.view.addSubview(self.loadAnimationView);
         
         self.profileBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 35, height: 35))
@@ -229,6 +235,11 @@ extension MainViewController {
             make.bottom.equalToSuperview()
             make.top.equalTo(self.searchBar.snp.bottom).offset(32)
         }
+		
+		self.loadAnimationView.snp.makeConstraints { (make) in
+			make.center.equalTo(self.view);
+			make.size.equalTo(CGSize.init(width: 100, height: 100))
+		}
     }
     
     func dw_addViews(){
@@ -279,6 +290,10 @@ extension MainViewController {
         self.profileBtn = UIButton.init(type: .custom)
         self.profileBtn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)
         self.profileBtn.addTarget(self, action: #selector(toUserCenter), for:.touchUpInside)
+		
+		self.loadAnimationView = AnimationView(name: "refresh")
+		self.loadAnimationView.loopMode = .loop;
+		self.loadAnimationView.play()
     }
     
 }

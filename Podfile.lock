@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (4.8.1)
-  - AppCenter (1.13.2):
-    - AppCenter/Analytics (= 1.13.2)
-    - AppCenter/Crashes (= 1.13.2)
-  - AppCenter/Analytics (1.13.2):
+  - Alamofire (4.8.2)
+  - AppCenter (1.14.0):
+    - AppCenter/Analytics (= 1.14.0)
+    - AppCenter/Crashes (= 1.14.0)
+  - AppCenter/Analytics (1.14.0):
     - AppCenter/Core
-  - AppCenter/Core (1.13.2)
-  - AppCenter/Crashes (1.13.2):
+  - AppCenter/Core (1.14.0)
+  - AppCenter/Crashes (1.14.0):
     - AppCenter/Core
   - CBFlashyTabBarController (0.8.2)
   - CleanyModal (0.1.1)
@@ -14,8 +14,8 @@ PODS:
   - JPush (3.1.2):
     - JCore (~> 1.2.6)
   - KeychainAccess (3.1.2)
-  - Kingfisher (5.2.0)
-  - lottie-ios (2.5.3)
+  - Kingfisher (5.3.1)
+  - lottie-ios (3.0.3)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -26,16 +26,16 @@ PODS:
   - NVActivityIndicatorView/Presenter (4.6.1)
   - pop (1.0.12)
   - Result (4.1.0)
-  - RxAtomic (4.4.1)
-  - RxSwift (4.4.1):
-    - RxAtomic (~> 4.4)
+  - RxAtomic (4.4.2)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
   - SHFullscreenPopGestureSwift (1.2.1)
   - SnapKit (4.0.1)
-  - SPStorkController (1.5.4)
-  - SQLiteRepairKit (1.2.1):
+  - SPStorkController (1.6)
+  - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (4.2.0)
-  - WCDB.swift (1.0.7.5):
+  - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
@@ -49,6 +49,7 @@ DEPENDENCIES:
   - KeychainAccess
   - Kingfisher
   - lottie-ios
+  - lottie-ios (~> 3.0.3)
   - Moya
   - NVActivityIndicatorView
   - pop (~> 1.0)
@@ -87,30 +88,30 @@ SPEC REPOS:
     - WechatOpenSDK
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  AppCenter: bce7fe1098e8e8aeb70aaae1898600534069f549
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AppCenter: 02c5efe08d3bbab5421ae41d5f7aa7238906b817
   CBFlashyTabBarController: 8955b82496974b54016dc89207bc9e0704a33507
   CleanyModal: cb749a1d44a95d2ce0cf4263e4aadd5bee96be16
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
-  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
-  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+  Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  lottie-ios: 06e0b54aab85ba128e332687d7f4ac4861a7a7ae
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
-  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SPStorkController: 6c34a0375ef1254299e460784886ff4e929b82ed
-  SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
+  SPStorkController: 54293a8a1ca3c691a09eb6274b6e487b602e975a
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
+  WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
 
-PODFILE CHECKSUM: 0343a387c36f685ca0b178530f6556929296342c
+PODFILE CHECKSUM: 8e1d8a9abd4e876e1a08b1dcdfdca6459af21ee3
 
 COCOAPODS: 1.5.3

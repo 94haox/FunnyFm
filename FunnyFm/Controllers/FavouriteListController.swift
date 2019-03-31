@@ -15,7 +15,7 @@ class FavouriteListController: BaseViewController, UITableViewDelegate, UITableV
     
     var tableview: UITableView!
     
-    var syncAniView: LOTAnimationView!
+    var syncAniView: AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ extension FavouriteListController {
             return
         }
         self.syncAniView.play()
-        self.syncAniView.loopAnimation = true
+        self.syncAniView.loopMode = .loop
         
     }
 }
@@ -125,7 +125,7 @@ extension FavouriteListController{
         self.tableview.showsVerticalScrollIndicator = false
         self.tableview.emptyDataSetSource = self;
         
-        self.syncAniView = LOTAnimationView(name: "cloud_sync", bundle: Bundle.main)
+        self.syncAniView = AnimationView(name: "cloud_sync")
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(syncAction))
         self.syncAniView.addGestureRecognizer(tap)
         

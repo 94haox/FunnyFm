@@ -59,6 +59,8 @@ class FMPlayerManager: NSObject {
     
     /// 倍数播放
     var ratevalue: Float = 0
+	
+	var lastTime: Double = 0
     
     /// 当前资源文件
     var currentModel: Episode?
@@ -102,7 +104,16 @@ extension FMPlayerManager {
         self.player?.pause()
         self.delegate?.playerDidPause()
 		self.playerDelegate?.playerDidPause()
+		self.updateProgress()
     }
+	
+	func updateProgress() {
+		if self.currentModel.isNone {
+			return;
+		}
+		
+		DatabaseManager.updateProgress(progress: Double(self.currentTime), episodeId: self.currentModel!.episodeId)
+	}
     
     func seekToProgress(_ progress: CGFloat) {
         if self.playerItem.isNone {
@@ -120,6 +131,22 @@ extension FMPlayerManager {
             self.setBackground()
         })
     }
+	
+	func seekToTime(_ time:Double) {
+		if self.playerItem.isNone {
+			return;
+		}
+		self.player?.pause()
+		self.player?.removeTimeObserver(self.timerObserver!)
+		let seekTime = CMTimeMakeWithSeconds(time, preferredTimescale:600)
+		self.player?.seek(to: seekTime, completionHandler: { [unowned self] (isComplete) in
+			if(self.isPlay){
+				self.player?.play()
+			}
+			self.addTimeObserver()
+			self.setBackground()
+		})
+	}
     
     @objc func reciveRemoteNotification(_ notify:Notification){
         let userInfo = notify.userInfo
@@ -162,7 +189,16 @@ extension FMPlayerManager{
         }
         
         if keyPath == "loadedTimeRanges" {
-            
+			if self.lastTime < 1 {
+				return
+			}
+			let timeRanges = self.playerItem!.loadedTimeRanges
+			let timeRange = timeRanges.first!.timeRangeValue
+			let duration = timeRange.duration.seconds
+			if self.lastTime < duration {
+				self.seekToTime(self.lastTime)
+				self.lastTime = 0
+			}
         }
         
     }
@@ -218,6 +254,7 @@ extension FMPlayerManager {
 		}else{
 			item = AVPlayerItem.init(url: url!)
 		}
+		self.lastTime = self.checkProgress(chapter)
         self.changePlayItem(item)
         if self.player.isNone {
             self.player = AVPlayer.init(playerItem: self.playerItem)
@@ -225,10 +262,6 @@ extension FMPlayerManager {
             self.player?.replaceCurrentItem(with: self.playerItem)
         }
         self.addTimeObserver()
-		
-		if let progress = self.checkProgress(chapter) {
-			self.seekToProgress(CGFloat(progress.progress))
-		}
     }
 	
 	func completePath(_ episode: Episode) -> URL {
@@ -238,8 +271,8 @@ extension FMPlayerManager {
 		return url;
 	}
 	
-	func checkProgress(_ episode: Episode) -> ChapterProgress? {
-		return DatabaseManager.qureyProgress(chapterId: episode.episodeId)
+	func checkProgress(_ episode: Episode) -> Double {
+		return DatabaseManager.qureyProgress(episodeId: episode.episodeId)
 	}
     
 }

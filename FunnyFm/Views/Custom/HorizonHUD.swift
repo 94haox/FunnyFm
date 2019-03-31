@@ -14,7 +14,7 @@ import pop
 class HorizonHUD: NSObject {
 	
 	static func showSuccess(_ text: String) {
-		let doneView = LOTAnimationView.init(name: "done_button", bundle: Bundle.main)
+		let doneView = AnimationView.init(name: "done_button")
 		let hud = UIView.init(frame: CGRect.init(x: -kScreenWidth/2.0, y: kScreenHeight/4.0*3, width: kScreenWidth/2.0, height: 50))
 		let lb = UILabel.init(text: text)
 		lb.textColor = .white

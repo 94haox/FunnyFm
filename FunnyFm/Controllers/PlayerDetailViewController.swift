@@ -23,7 +23,7 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
     var likeBtn: UIButton!
 	
-	var likeAniView: LOTAnimationView!
+	var likeAniView: AnimationView!
 	
     var rateBtn: UIButton!
     
@@ -471,7 +471,8 @@ extension PlayerDetailViewController {
 		self.coverImageView.cornerRadius = 15
 		self.coverBackView.addSubview(self.coverImageView)
 		
-		self.likeAniView = LOTAnimationView(name: "like_button", bundle: Bundle.main)
+		self.likeAniView = AnimationView(name: "like_button")
+		
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(likeAction))
 		self.likeAniView.addGestureRecognizer(tap)
 		self.view.addSubview(self.likeAniView)

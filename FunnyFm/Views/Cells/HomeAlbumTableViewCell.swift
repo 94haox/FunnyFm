@@ -14,7 +14,7 @@ import Lottie
 class HomeAlbumTableViewCell: UITableViewCell {
 
     
-    var playStateView: LOTAnimationView!
+    var playStateView: AnimationView!
     @IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var desLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
@@ -23,8 +23,8 @@ class HomeAlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        self.playStateView = LOTAnimationView.init(name: "play_state", bundle: Bundle.main)
-        self.playStateView.loopAnimation = true
+        self.playStateView = AnimationView.init(name: "play_state")
+        self.playStateView.loopMode = .loop
         self.contentView.addSubview(self.playStateView)
         self.playStateView.snp.makeConstraints { (make) in
             make.top.equalTo(self.logoImageView.snp.bottom)
