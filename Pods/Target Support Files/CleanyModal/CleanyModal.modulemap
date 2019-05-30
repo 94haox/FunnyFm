@@ -1,6 +1,0 @@
-framework module CleanyModal {
-  umbrella header "CleanyModal-umbrella.h"
-
-  export *
-  module * { export * }
-}

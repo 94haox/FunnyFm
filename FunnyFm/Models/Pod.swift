@@ -31,6 +31,9 @@ struct Pod : Mapable{
         des = jsonData["des"].stringValue
         img = jsonData["img"].stringValue
         sourceType = jsonData["source_type"].stringValue
+		if sourceType.length() < 1 {
+			sourceType = jsonData["sourceType"].stringValue
+		}
         albumId = jsonData["albumId"].intValue
         count = jsonData["count"].intValue
         update_time = jsonData["update_time"].stringValue

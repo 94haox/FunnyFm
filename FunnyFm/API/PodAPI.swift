@@ -13,6 +13,7 @@ import Moya
 
 let kGetPodListurl = "v1/podlist"
 let kCheckPodSourceUrl = "v1/checkPodSource"
+let kCheckNeteasePodSourceUrl = "v1/netease/podInfo"
 let kAddPodSourceUrl = "v1/addPodSource"
 
 
@@ -32,8 +33,12 @@ extension PodAPI : TargetType {
         var params:[String : Any] = [:]
 		switch self {
 		case .checkPodSource(let podId, let source):
-			params["podId"] = podId
-			params["source"] = source
+			if source == "netease"{
+				params["rid"] = podId
+			}else{
+				params["podId"] = podId
+				params["source"] = source
+			}
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .addPodSource(let podId, let feedUrl, let sourceType):
 			params["podId"] = podId
@@ -54,7 +59,10 @@ extension PodAPI : TargetType {
         switch self {
         case .getPodList():
             return kGetPodListurl
-		case .checkPodSource:
+		case .checkPodSource(_ ,let source):
+			if source == "netease" {
+				return kCheckNeteasePodSourceUrl
+			}
 			return kCheckPodSourceUrl
 		case .addPodSource(_, _, _):
 			return kAddPodSourceUrl

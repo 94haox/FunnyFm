@@ -14,20 +14,21 @@ def layout
     pod 'lottie-ios'
     pod 'CBFlashyTabBarController'
     pod 'CleanyModal', '~> 0.1.1'
-	pod 'NVActivityIndicatorView'
-	pod 'lottie-ios', '~> 3.0.3'
+		pod 'NVActivityIndicatorView'
+		pod 'OfficeUIFabric', '~> 0.2.0'
 end
 
 def lib
     pod 'KeychainAccess'
     pod 'WCDB.swift'
-    pod 'JPush'
     pod 'RxSwift'
     pod 'Kingfisher'
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'
     pod 'AppCenter'
+		pod 'AppCenter/Distribute'
+		pod 'AppCenter/Push'
 end
 
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */; };
+		AB091D12229FCF8800723602 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB091D11229FCF8800723602 /* ShareViewController.swift */; };
+		AB091D15229FCF8800723602 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB091D13229FCF8800723602 /* MainInterface.storyboard */; };
+		AB091D19229FCF8800723602 /* FunnyFM.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB091D0F229FCF8800723602 /* FunnyFM.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AB091D1D229FCFB800723602 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
 		AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09A53D21DDBACB00CB621C /* DownloadManager.swift */; };
 		AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */; };
 		AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */; };
@@ -112,10 +116,6 @@
 		ABE7660821D7196700470D8F /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FC21D7196700470D8F /* DateExtensions.swift */; };
 		ABE7660921D7196700470D8F /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FD21D7196700470D8F /* NSAttributedStringExtensions.swift */; };
 		ABE7660A21D7196700470D8F /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FE21D7196700470D8F /* CalendarExtensions.swift */; };
-		ABE7661321D7650E00470D8F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7661221D7650E00470D8F /* ShareViewController.swift */; };
-		ABE7661621D7650E00470D8F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE7661421D7650E00470D8F /* MainInterface.storyboard */; };
-		ABE7661A21D7650E00470D8F /* FunnyShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ABE7661021D7650E00470D8F /* FunnyShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		ABE7661F21D76AA600470D8F /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
 		ABE7ACAA21C20D7300FC6B8E /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */; };
 		ABE7ACAC21C20DAC00FC6B8E /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */; };
 		ABE7ACAE21C20E1400FC6B8E /* SubscribListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */; };
@@ -158,7 +158,6 @@
 		ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */ = {isa = PBXBuildFile; fileRef = ABEF471521EAF9DE00212DCA /* cloud_sync.json */; };
 		ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */ = {isa = PBXBuildFile; fileRef = ABEF471921EAFD7F00212DCA /* play_state.json */; };
 		ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471B21EB038500212DCA /* UserViewModel.swift */; };
-		ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117C21BE764B0083A81B /* JPushConfig.m */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
 		ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118321BF43E50083A81B /* NormalHeaderView.swift */; };
@@ -171,12 +170,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ABE7661821D7650E00470D8F /* PBXContainerItemProxy */ = {
+		AB091D17229FCF8800723602 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = ABE7660F21D7650E00470D8F;
-			remoteInfo = FunnyShare;
+			remoteGlobalIDString = AB091D0E229FCF8800723602;
+			remoteInfo = FunnyFM;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -187,7 +186,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				ABE7661A21D7650E00470D8F /* FunnyShare.appex in Embed App Extensions */,
+				AB091D19229FCF8800723602 /* FunnyFM.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +197,10 @@
 		1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
+		AB091D0F229FCF8800723602 /* FunnyFM.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFM.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB091D11229FCF8800723602 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		AB091D14229FCF8800723602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		AB091D16229FCF8800723602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB09A53D21DDBACB00CB621C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
@@ -285,7 +288,6 @@
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
-		ABA8BDBA21DF054700366C6F /* FunnyShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyShare.entitlements; sourceTree = "<group>"; };
 		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		ABA99AC02219060900840382 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
@@ -308,10 +310,6 @@
 		ABE765FC21D7196700470D8F /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		ABE765FD21D7196700470D8F /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		ABE765FE21D7196700470D8F /* CalendarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
-		ABE7661021D7650E00470D8F /* FunnyShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABE7661221D7650E00470D8F /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		ABE7661521D7650E00470D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		ABE7661721D7650E00470D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
 		ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribListController.swift; sourceTree = "<group>"; };
@@ -375,8 +373,6 @@
 		ABEF471921EAFD7F00212DCA /* play_state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = play_state.json; sourceTree = "<group>"; };
 		ABEF471B21EB038500212DCA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
-		ABF5117B21BE764B0083A81B /* JPushConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPushConfig.h; sourceTree = "<group>"; };
-		ABF5117C21BE764B0083A81B /* JPushConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPushConfig.m; sourceTree = "<group>"; };
 		ABF5117E21BE8A7C0083A81B /* FMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMTextField.h; path = FunnyFm/OC/FMTextField.h; sourceTree = SOURCE_ROOT; };
 		ABF5117F21BE8A7C0083A81B /* FMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMTextField.m; path = FunnyFm/OC/FMTextField.m; sourceTree = SOURCE_ROOT; };
 		ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
@@ -390,18 +386,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AB091D0C229FCF8800723602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB25797621945E6F004C5F5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABE7660D21D7650E00470D8F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +410,16 @@
 				1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB091D10229FCF8800723602 /* FunnyFM */ = {
+			isa = PBXGroup;
+			children = (
+				AB091D11229FCF8800723602 /* ShareViewController.swift */,
+				AB091D13229FCF8800723602 /* MainInterface.storyboard */,
+				AB091D16229FCF8800723602 /* Info.plist */,
+			);
+			path = FunnyFM;
 			sourceTree = "<group>";
 		};
 		AB1E6D4A21B9243000B85135 /* Extension */ = {
@@ -482,8 +488,6 @@
 				ABF5117F21BE8A7C0083A81B /* FMTextField.m */,
 				AB1E6DA421BA01E700B85135 /* UIImage+someMethods.h */,
 				AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */,
-				ABF5117B21BE764B0083A81B /* JPushConfig.h */,
-				ABF5117C21BE764B0083A81B /* JPushConfig.m */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -507,7 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
-				ABE7661121D7650E00470D8F /* FunnyShare */,
+				AB091D10229FCF8800723602 /* FunnyFM */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -518,7 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				AB25797921945E6F004C5F5D /* FunnyFm.app */,
-				ABE7661021D7650E00470D8F /* FunnyShare.appex */,
+				AB091D0F229FCF8800723602 /* FunnyFM.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -764,17 +768,6 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		ABE7661121D7650E00470D8F /* FunnyShare */ = {
-			isa = PBXGroup;
-			children = (
-				ABA8BDBA21DF054700366C6F /* FunnyShare.entitlements */,
-				ABE7661221D7650E00470D8F /* ShareViewController.swift */,
-				ABE7661421D7650E00470D8F /* MainInterface.storyboard */,
-				ABE7661721D7650E00470D8F /* Info.plist */,
-			);
-			path = FunnyShare;
-			sourceTree = "<group>";
-		};
 		ABE7ACBB21C22B8700FC6B8E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -897,6 +890,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AB091D0E229FCF8800723602 /* FunnyFM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB091D1A229FCF8800723602 /* Build configuration list for PBXNativeTarget "FunnyFM" */;
+			buildPhases = (
+				AB091D0B229FCF8800723602 /* Sources */,
+				AB091D0C229FCF8800723602 /* Frameworks */,
+				AB091D0D229FCF8800723602 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FunnyFM;
+			productName = FunnyFM;
+			productReference = AB091D0F229FCF8800723602 /* FunnyFM.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		AB25797821945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB25798B21945E70004C5F5D /* Build configuration list for PBXNativeTarget "FunnyFm" */;
@@ -907,33 +917,17 @@
 				AB25797721945E6F004C5F5D /* Resources */,
 				FE0B038FAAFA1EB55467A8B2 /* [CP] Embed Pods Frameworks */,
 				ABE7661E21D7650E00470D8F /* Embed App Extensions */,
+				60BE2C2278E42CDB9F2157F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ABE7661921D7650E00470D8F /* PBXTargetDependency */,
+				AB091D18229FCF8800723602 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
 			productReference = AB25797921945E6F004C5F5D /* FunnyFm.app */;
 			productType = "com.apple.product-type.application";
-		};
-		ABE7660F21D7650E00470D8F /* FunnyShare */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ABE7661D21D7650E00470D8F /* Build configuration list for PBXNativeTarget "FunnyShare" */;
-			buildPhases = (
-				ABE7660C21D7650E00470D8F /* Sources */,
-				ABE7660D21D7650E00470D8F /* Frameworks */,
-				ABE7660E21D7650E00470D8F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FunnyShare;
-			productName = FunnyShare;
-			productReference = ABE7661021D7650E00470D8F /* FunnyShare.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -941,10 +935,13 @@
 		AB25797121945E6F004C5F5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Duke;
 				TargetAttributes = {
+					AB091D0E229FCF8800723602 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					AB25797821945E6F004C5F5D = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -960,14 +957,6 @@
 							};
 						};
 					};
-					ABE7660F21D7650E00470D8F = {
-						CreatedOnToolsVersion = 10.1;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = AB25797421945E6F004C5F5D /* Build configuration list for PBXProject "FunnyFm" */;
@@ -977,6 +966,41 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				he,
+				ar,
+				el,
+				ja,
+				uk,
+				"zh-Hant",
+				es,
+				da,
+				"zh-Hans",
+				it,
+				"nb-NO",
+				sk,
+				"en-GB",
+				ms,
+				sv,
+				cs,
+				ko,
+				hu,
+				tr,
+				pl,
+				vi,
+				ru,
+				"pt-PT",
+				fr,
+				"pt-BR",
+				fi,
+				id,
+				nl,
+				th,
+				"es-MX",
+				ro,
+				hr,
+				hi,
+				ca,
 			);
 			mainGroup = AB25797021945E6F004C5F5D;
 			productRefGroup = AB25797A21945E6F004C5F5D /* Products */;
@@ -984,12 +1008,20 @@
 			projectRoot = "";
 			targets = (
 				AB25797821945E6F004C5F5D /* FunnyFm */,
-				ABE7660F21D7650E00470D8F /* FunnyShare */,
+				AB091D0E229FCF8800723602 /* FunnyFM */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AB091D0D229FCF8800723602 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB091D15229FCF8800723602 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB25797721945E6F004C5F5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1016,14 +1048,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABE7660E21D7650E00470D8F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABE7661621D7650E00470D8F /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1045,13 +1069,35 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		60BE2C2278E42CDB9F2157F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AppCenter/AppCenterDistributeResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppCenterDistributeResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FE0B038FAAFA1EB55467A8B2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework",
@@ -1059,8 +1105,8 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/OfficeUIFabric/OfficeUIFabric.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SHFullscreenPopGestureSwift/SHFullscreenPopGestureSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
@@ -1081,8 +1127,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OfficeUIFabric.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHFullscreenPopGestureSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
@@ -1096,12 +1142,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AB091D0B229FCF8800723602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB091D12229FCF8800723602 /* ShareViewController.swift in Sources */,
+				AB091D1D229FCFB800723602 /* OptionalExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB25797521945E6F004C5F5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1220,7 +1275,6 @@
 				ABE7660721D7196700470D8F /* LocaleExtensions.swift in Sources */,
 				ABE7ACAE21C20E1400FC6B8E /* SubscribListController.swift in Sources */,
 				AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */,
-				ABF5117D21BE764B0083A81B /* JPushConfig.m in Sources */,
 				ABEE40D621E3246E00FCB16F /* MJRefreshAutoNormalFooter.m in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
@@ -1246,26 +1300,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABE7660C21D7650E00470D8F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABE7661321D7650E00470D8F /* ShareViewController.swift in Sources */,
-				ABE7661F21D76AA600470D8F /* OptionalExtension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		ABE7661921D7650E00470D8F /* PBXTargetDependency */ = {
+		AB091D18229FCF8800723602 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ABE7660F21D7650E00470D8F /* FunnyShare */;
-			targetProxy = ABE7661821D7650E00470D8F /* PBXContainerItemProxy */;
+			target = AB091D0E229FCF8800723602 /* FunnyFM */;
+			targetProxy = AB091D17229FCF8800723602 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AB091D13229FCF8800723602 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB091D14229FCF8800723602 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		AB25798021945E6F004C5F5D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1282,17 +1335,51 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		ABE7661421D7650E00470D8F /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABE7661521D7650E00470D8F /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AB091D1B229FCF8800723602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB091D1C229FCF8800723602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AB25798921945E70004C5F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1464,53 +1551,18 @@
 			};
 			name = Release;
 		};
-		ABE7661B21D7650E00470D8F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = FunnyShare/FunnyShare.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				INFOPLIST_FILE = FunnyShare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyShare;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		ABE7661C21D7650E00470D8F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = FunnyShare/FunnyShare.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				INFOPLIST_FILE = FunnyShare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyShare;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AB091D1A229FCF8800723602 /* Build configuration list for PBXNativeTarget "FunnyFM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB091D1B229FCF8800723602 /* Debug */,
+				AB091D1C229FCF8800723602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AB25797421945E6F004C5F5D /* Build configuration list for PBXProject "FunnyFm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1525,15 +1577,6 @@
 			buildConfigurations = (
 				AB25798C21945E70004C5F5D /* Debug */,
 				AB25798D21945E70004C5F5D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ABE7661D21D7650E00470D8F /* Build configuration list for PBXNativeTarget "FunnyShare" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ABE7661B21D7650E00470D8F /* Debug */,
-				ABE7661C21D7650E00470D8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -24,7 +24,6 @@ class GlobalViewModel: BaseViewModel {
 		}, { (message) in
 			self.delegate?.viewModelDidGetDataFailture(msg: message)
 		})
-		
 	}
 	
 	func addItunesPod(podId:String, feedUrl:String,sourceType:String) {

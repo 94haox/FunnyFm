@@ -64,11 +64,11 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-//        let login = NeLoginViewController()
-//        self.navigationController?.pushViewController(login)
-		let preview = PodPreviewViewController()
-		preview.modalPresentationStyle = .overCurrentContext
-		self.present(preview, animated: false, completion: nil)
+        let login = NeLoginViewController()
+        self.navigationController?.pushViewController(login)
+//		let preview = PodPreviewViewController()
+//		preview.modalPresentationStyle = .overCurrentContext
+//		self.present(preview, animated: false, completion: nil)
     }
     
     @objc func refreshData(){
