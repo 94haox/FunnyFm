@@ -46,7 +46,7 @@ class EpisodeListViewController: BaseViewController , ViewModelDelegate, UITable
         self.addHeader()
         self.addConstrains()
         self.tableview.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(refreshAction))
-        let mjFooter = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
+        let mjFooter = MJRefreshBackFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
         self.tableview.mj_footer = mjFooter;
     }
 	

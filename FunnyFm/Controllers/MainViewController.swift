@@ -31,15 +31,16 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.view.backgroundColor = .white
         self.vm.delegate = self
         self.vm.getAllPods()
         self.vm.getHomeChapters()
-        self.dw_addViews()
-        self.addConstrains()
-        self.addHeader();
-        self.addFooter()
-        self.view.backgroundColor = .white
-        UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
+		self.dw_addViews()
+		self.addConstrains()
+		self.addHeader();
+		self.addFooter()
+		self.loadAnimationView.play()
+		UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +84,7 @@ extension MainViewController{
 extension MainViewController : ViewModelDelegate {
     
     func viewModelDidGetDataSuccess() {
+		self.tableview.isHidden = false
 		self.loadAnimationView.removeFromSuperview()
         self.tableview.refreshControl?.endRefreshing()
         self.collectionView.reloadData()
@@ -250,7 +252,6 @@ extension MainViewController {
         self.collectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 80), collectionViewLayout: layout)
         self.collectionView.showsHorizontalScrollIndicator = false
         let nib = UINib(nibName: String(describing: HomePodCollectionViewCell.self), bundle: nil)
-//        let headernib = UINib(nibName: String(describing: HomePodListHeader.self), bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "cell")
         self.collectionView.register(HomePodListHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         self.collectionView.backgroundColor = .white
@@ -263,13 +264,13 @@ extension MainViewController {
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
         self.tableview.separatorStyle = .none
-        self.tableview.rowHeight = 131
+        self.tableview.rowHeight = 100
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
         self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
-        
+		self.tableview.isHidden = true
         
         self.searchBtn = UIButton.init(type: .custom)
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
@@ -293,7 +294,6 @@ extension MainViewController {
 		
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
-		self.loadAnimationView.play()
     }
     
 }

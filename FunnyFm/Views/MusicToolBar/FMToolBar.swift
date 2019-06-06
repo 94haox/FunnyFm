@@ -49,18 +49,22 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+	
+	func toPlayDetailView(){
+		let vc = PlayerDetailViewController()
+		vc.chapter = self.currentChapter
+		let nav = UIApplication.shared.keyWindow?.rootViewController
+		let presentNavi = UINavigationController.init(rootViewController: vc)
+		presentNavi.navigationBar.isHidden = true
+		nav?.present(presentNavi, animated: true, completion: nil)
+	}
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !FMPlayerManager.shared.isCanPlay || self.isShrink {
             return
         }
-        let vc = PlayerDetailViewController()
-        vc.chapter = self.currentChapter
-        let nav = UIApplication.shared.keyWindow?.rootViewController
-        let presentNavi = UINavigationController.init(rootViewController: vc)
-        presentNavi.navigationBar.isHidden = true
-        nav?.present(presentNavi, animated: true, completion: nil)
+        self.toPlayDetailView()
     }
 }
 
