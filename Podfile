@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '11.1'
+platform :ios, '12.0'
 use_frameworks!
 inhibit_all_warnings!
 
@@ -29,6 +29,7 @@ def lib
     pod 'AppCenter'
 		pod 'AppCenter/Distribute'
 		pod 'AppCenter/Push'
+		pod 'FeedKit', '~> 8.0'
 end
 
 

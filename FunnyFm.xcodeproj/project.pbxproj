@@ -92,6 +92,7 @@
 		AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB01219564F000260851 /* ConfigurationHelper.swift */; };
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
+		AB571D8D22B209E80021236C /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB571D8C22B209E80021236C /* FeedManager.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
@@ -285,6 +286,7 @@
 		AB41AB01219564F000260851 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		AB41AB04219564F000260851 /* CornerAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerAnimatable.swift; sourceTree = "<group>"; };
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 				ABEE40DF21E3292400FCB16F /* SchemManager.swift */,
 				ABEE40EA21E35EF800FCB16F /* VaildManager.swift */,
 				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
+				AB571D8C22B209E80021236C /* FeedManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1101,6 +1104,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework",
+				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -1123,6 +1127,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CBFlashyTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanyModal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -1255,6 +1260,7 @@
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
 				ABEE40D521E3246E00FCB16F /* MJRefreshAutoGifFooter.m in Sources */,
 				ABEE40D721E3246E00FCB16F /* MJRefreshNormalHeader.m in Sources */,
+				AB571D8D22B209E80021236C /* FeedManager.swift in Sources */,
 				AB1E6D7D21B9252500B85135 /* UINavigationBarExtensions.swift in Sources */,
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
@@ -1509,7 +1515,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1537,7 +1543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

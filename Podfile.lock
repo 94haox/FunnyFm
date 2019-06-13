@@ -14,6 +14,7 @@ PODS:
     - AppCenter/Core
   - CBFlashyTabBarController (0.8.3)
   - CleanyModal (0.1.2)
+  - FeedKit (8.1.1)
   - KeychainAccess (3.2.0)
   - Kingfisher (5.5.0)
   - lottie-ios (3.1.0)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - AppCenter/Push
   - CBFlashyTabBarController
   - CleanyModal (~> 0.1.1)
+  - FeedKit (~> 8.0)
   - KeychainAccess
   - Kingfisher
   - lottie-ios
@@ -68,6 +70,7 @@ SPEC REPOS:
     - AppCenter
     - CBFlashyTabBarController
     - CleanyModal
+    - FeedKit
     - KeychainAccess
     - Kingfisher
     - lottie-ios
@@ -91,6 +94,7 @@ SPEC CHECKSUMS:
   AppCenter: 6a5ff2fd007b53431259fdd74f91eb3d0dfea3d1
   CBFlashyTabBarController: bc6b11dd4cbc9b54785c8944156e2f4d4f03b088
   CleanyModal: abd96bb77747ba0e6434955cdc290c099eed3fc5
+  FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
   lottie-ios: 9467723922dfff46f6d4e3019c32594a62440b7c
@@ -109,6 +113,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
 
-PODFILE CHECKSUM: 6180ca003b9a18c03512da08c91f2e17c52b2269
+PODFILE CHECKSUM: 09ce9c4c939dda6f3a050a5a9a0b3363d4e196c5
 
 COCOAPODS: 1.6.2

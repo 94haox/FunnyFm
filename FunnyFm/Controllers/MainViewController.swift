@@ -65,11 +65,12 @@ extension MainViewController{
     }
     
     @objc func toSearch() {
-        let login = NeLoginViewController()
-        self.navigationController?.pushViewController(login)
+//        let login = NeLoginViewController()
+//        self.navigationController?.pushViewController(login)
 //		let preview = PodPreviewViewController()
 //		preview.modalPresentationStyle = .overCurrentContext
 //		self.present(preview, animated: false, completion: nil)
+		FeedManager.shared.parserRss(url: "https://rsshub.app/ncm/djradio/348319107")
     }
     
     @objc func refreshData(){
@@ -280,13 +281,11 @@ extension MainViewController {
         self.searchBar.cornerRadius = 15;
         self.searchBar.tintColor = CommonColor.mainRed.color
         self.searchBar.backgroundColor = CommonColor.cellbackgroud.color
-        self.searchBar.placeholder = "search"
         self.searchBar.returnKeyType = .done
         self.searchBar.font = pfont(fontsize4)
         self.searchBar.textColor = CommonColor.title.color
         self.searchBar.delegate = self.searchBar
-        self.searchBar.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
-        self.searchBar.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
+		self.searchBar.attributedPlaceholder = FunnyFm.attributePlaceholder("search")
         
         self.profileBtn = UIButton.init(type: .custom)
         self.profileBtn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)

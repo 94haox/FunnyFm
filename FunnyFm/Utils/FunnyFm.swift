@@ -16,6 +16,11 @@ class FunnyFm: NSObject {
 
 //    static let baseurl = "http://127.0.0.1:7001/api/"
 	
+	static func attributePlaceholder(_ placeHolder:String)-> NSAttributedString{
+		let attr = NSAttributedString.init(string: placeHolder, attributes: [NSAttributedString.Key.font : pfont(12),NSAttributedString.Key.foregroundColor:CommonColor.content.color])
+		return attr
+	}
+	
     static func sharedUrl() -> URL?{
         return try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     }

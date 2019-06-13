@@ -135,26 +135,23 @@ extension RegisterViewController {
         self.mailTF.cornerRadius = 15;
         self.mailTF.tintColor = CommonColor.mainRed.color
         self.mailTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.mailTF.placeholder = "邮箱"
+        self.mailTF.attributedPlaceholder = FunnyFm.attributePlaceholder("邮箱")
         self.mailTF.returnKeyType = .done
         self.mailTF.font = h_bfont(fontsize4)
         self.mailTF.textColor = CommonColor.title.color
         self.mailTF.delegate = self.mailTF
-        self.mailTF.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
-        self.mailTF.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
         self.view.addSubview(self.mailTF)
         
         self.passTF = FMTextField.init(frame: CGRect.zero)
         self.passTF.cornerRadius = 15;
         self.passTF.tintColor = CommonColor.mainRed.color
         self.passTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.passTF.placeholder = "密码（6位）"
+        self.passTF.attributedPlaceholder = FunnyFm.attributePlaceholder("密码（6位）")
         self.passTF.returnKeyType = .done
         self.passTF.font = h_bfont(fontsize4)
         self.passTF.textColor = CommonColor.title.color
         self.passTF.delegate = self.passTF
-        self.passTF.setValue(p_bfont(12), forKeyPath: "_placeholderLabel.font")
-        self.passTF.setValue(CommonColor.content.color, forKeyPath: "_placeholderLabel.textColor")
+
         self.view.addSubview(self.passTF)
     }
 }
