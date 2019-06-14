@@ -15,6 +15,7 @@ let kGetPodListurl = "v1/podlist"
 let kCheckPodSourceUrl = "v1/checkPodSource"
 let kCheckNeteasePodSourceUrl = "v1/netease/podInfo"
 let kAddPodSourceUrl = "v1/addPodSource"
+let kSearchPodUrl = "/search"
 
 
 
@@ -24,6 +25,7 @@ public enum PodAPI {
     case getPodList()
 	case checkPodSource(String, String)
 	case addPodSource(String, String, String)
+	case searchPod(String)
 }
 
 extension PodAPI : TargetType {
@@ -45,6 +47,11 @@ extension PodAPI : TargetType {
 			params["feedUrl"] = feedUrl
 			params["sourceType"] = sourceType
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+		case .searchPod(let keyWord):
+			params["term"] = keyWord
+			params["limit"] = "10"
+			params["media"] = "podcast"
+			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
 		default:
 			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
 		}
@@ -52,7 +59,12 @@ extension PodAPI : TargetType {
     
     
     public var baseURL: URL {
-        return URL.init(string: FunnyFm.baseurl)!;
+		switch self {
+		case .searchPod(_):
+			return URL.init(string: "https://itunes.apple.com")!
+		default:
+			return URL.init(string: FunnyFm.baseurl)!
+		}
     }
     
     public var path: String {
@@ -66,12 +78,15 @@ extension PodAPI : TargetType {
 			return kCheckPodSourceUrl
 		case .addPodSource(_, _, _):
 			return kAddPodSourceUrl
+		case .searchPod(_):
+			return kSearchPodUrl;
 		}
     }
     
     public var method: Moya.Method {
         switch self {
-        case .getPodList():
+		case .getPodList(),
+			 .searchPod(_):
             return .get
         default:
             return .post

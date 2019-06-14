@@ -70,7 +70,9 @@ extension MainViewController{
 //		let preview = PodPreviewViewController()
 //		preview.modalPresentationStyle = .overCurrentContext
 //		self.present(preview, animated: false, completion: nil)
-		FeedManager.shared.parserRss(url: "https://rsshub.app/ncm/djradio/348319107")
+		let search = SearchViewController.init()
+		self.navigationController?.pushViewController(search);
+//		FeedManager.shared.parserRss(url: "https://rsshub.app/ncm/djradio/348319107")
     }
     
     @objc func refreshData(){

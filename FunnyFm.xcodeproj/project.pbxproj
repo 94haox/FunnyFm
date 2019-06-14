@@ -77,6 +77,12 @@
 		AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */; };
 		AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */; };
 		AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */; };
+		AB32CF5222B38400007C9E41 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB32CF5022B38400007C9E41 /* SearchViewController.xib */; };
+		AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5122B38400007C9E41 /* SearchViewController.swift */; };
+		AB32CF5522B38FA0007C9E41 /* iTunsPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */; };
+		AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */; };
+		AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */; };
+		AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
 		AB41AAE021952D2200260851 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
@@ -102,7 +108,6 @@
 		ABAFF27221E22E440009A3A2 /* like_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABAFF27121E22E440009A3A2 /* like_button.json */; };
 		ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */; };
 		ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */; };
-		ABD3EDBC220F302B00D5BA5C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3EDBB220F302B00D5BA5C /* SearchViewController.swift */; };
 		ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */; };
 		ABE57E2C21EA088A00F90EED /* done_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE57E2B21EA088A00F90EED /* done_button.json */; };
 		ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */; };
@@ -271,6 +276,13 @@
 		AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterCollectionViewCell.xib; sourceTree = "<group>"; };
+		AB32CF5022B38400007C9E41 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		AB32CF5122B38400007C9E41 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunsPod.swift; sourceTree = "<group>"; };
+		AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItunsPodTableViewCell.xib; sourceTree = "<group>"; };
+		AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunsPodTableViewCell.swift; sourceTree = "<group>"; };
+		AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		AB32CF5B22B39A32007C9E41 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		AB41AADF21952D2200260851 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
@@ -296,7 +308,6 @@
 		ABAFF27121E22E440009A3A2 /* like_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_button.json; sourceTree = "<group>"; };
 		ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFillViewController.xib; sourceTree = "<group>"; };
 		ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFillViewController.swift; sourceTree = "<group>"; };
-		ABD3EDBB220F302B00D5BA5C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
 		ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonHUD.swift; sourceTree = "<group>"; };
 		ABE57E2B21EA088A00F90EED /* done_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done_button.json; sourceTree = "<group>"; };
@@ -488,6 +499,8 @@
 				AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */,
 				ABF5117E21BE8A7C0083A81B /* FMTextField.h */,
 				ABF5117F21BE8A7C0083A81B /* FMTextField.m */,
+				AB32CF5B22B39A32007C9E41 /* NSDate+Utils.h */,
+				AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */,
 				AB1E6DA421BA01E700B85135 /* UIImage+someMethods.h */,
 				AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */,
 			);
@@ -589,8 +602,9 @@
 				ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */,
 				ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */,
 				ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */,
-				ABD3EDBB220F302B00D5BA5C /* SearchViewController.swift */,
 				AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */,
+				AB32CF5022B38400007C9E41 /* SearchViewController.xib */,
+				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -603,6 +617,7 @@
 				ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */,
 				ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */,
 				ABEF471121E8B6E400212DCA /* User.swift */,
+				AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -718,6 +733,8 @@
 				ABE7ACB621C2177400FC6B8E /* SettingTableViewCell.xib */,
 				ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */,
 				ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */,
+				AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */,
+				AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1038,6 +1055,7 @@
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
+				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
@@ -1047,6 +1065,7 @@
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */,
+				AB32CF5222B38400007C9E41 /* SearchViewController.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1171,11 +1190,13 @@
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
+				AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */,
 				AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */,
 				ABEE40E021E3292400FCB16F /* SchemManager.swift in Sources */,
 				ABE7ACBA21C21C1A00FC6B8E /* BaseTableViewCell.swift in Sources */,
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
+				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
@@ -1207,7 +1228,6 @@
 				AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */,
 				ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */,
 				AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */,
-				ABD3EDBC220F302B00D5BA5C /* SearchViewController.swift in Sources */,
 				ABE7660521D7196700470D8F /* FileManagerExtensions.swift in Sources */,
 				ABE7660321D7196700470D8F /* DataExtensions.swift in Sources */,
 				AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */,
@@ -1229,6 +1249,7 @@
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
+				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
 				ABEE40D921E3246E00FCB16F /* MJRefreshGifHeader.m in Sources */,
 				ABEE40D321E3246E00FCB16F /* MJRefreshBackNormalFooter.m in Sources */,
 				ABE7ACBD21C22B9400FC6B8E /* DatabaseManager.swift in Sources */,
@@ -1241,6 +1262,7 @@
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
 				ABEE40D221E3246E00FCB16F /* MJRefreshBackStateFooter.m in Sources */,
 				ABE7660421D7196700470D8F /* URLRequestExtensions.swift in Sources */,
+				AB32CF5522B38FA0007C9E41 /* iTunsPod.swift in Sources */,
 				ABE7ACBF21C2334000FC6B8E /* ChapterProgress.swift in Sources */,
 				AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */,
 				ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */,

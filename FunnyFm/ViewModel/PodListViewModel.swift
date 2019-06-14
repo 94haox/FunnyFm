@@ -13,6 +13,10 @@ class PodListViewModel: BaseViewModel {
     lazy var podlist : [Pod] = {
         return []
     }()
+	
+	lazy var itunsPodlist : [iTunsPod] = {
+		return []
+	}()
     
     override init() {
         super.init()
@@ -28,5 +32,16 @@ class PodListViewModel: BaseViewModel {
             self.delegate?.viewModelDidGetDataFailture(msg: msg)
         }
     }
+	
+	func searchPod(keyword:String){
+		FmHttp<iTunsPod>().requestForItuns(PodAPI.searchPod(keyword), { (podlist) in
+			if let list = podlist {
+				self.itunsPodlist = list
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
+		}){ msg in
+			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+		}
+	}
     
 }

@@ -21,6 +21,7 @@ class PodPreviewViewController: BaseViewController {
 	var subscribeBtn: UIButton!
 	var loadingView: UIActivityIndicatorView!
 	var pod: Pod!
+	var itunsPod: iTunsPod!
 	var addLoadView: NVActivityIndicatorView!
 	var subTempView: UIView!
 	
@@ -50,9 +51,22 @@ class PodPreviewViewController: BaseViewController {
 		self.sourceLB.text = "来自：" + pod.sourceType;
 	}
 	
+	func configWithPod(pod :iTunsPod){
+		self.itunsPod = pod;
+		self.podNameLB.text = pod.trackName
+//		self.authorLB.text = pod.author
+//		self.desLB.text = pod.des
+		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
+		self.sourceLB.text = "来自：" + "iTuns";
+	}
+	
 	@objc func addPodToLibary(){
 		self.shinkBtn()
-		GlobalViewModel.shared.addItunesPod(podId: String(self.pod.albumId), feedUrl: self.pod.sourceUrl, sourceType: self.pod.sourceType)
+		if self.itunsPod.isSome {
+			GlobalViewModel.shared.addItunesPod(podId: String(self.itunsPod.collectionId), feedUrl: self.itunsPod.feedUrl, sourceType: "iTuns")
+		}else{
+			GlobalViewModel.shared.addItunesPod(podId: String(self.pod.albumId), feedUrl: self.pod.sourceUrl, sourceType: self.pod.sourceType)
+		}
 		GlobalViewModel.shared.delegate = self;
 	}
 	

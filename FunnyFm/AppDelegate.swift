@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         self.options = launchOptions
 		FMPlayerManager.shared.delegate = FMToolBar.shared
         configureNavigationTabBar()
+		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
         NotificationCenter.default.addObserver(self, selector: #selector(setUpPush), name: NSNotification.Name.init("firstSetUpPush"), object: nil)

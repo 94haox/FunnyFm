@@ -23,6 +23,10 @@ public func configureNavigationTabBar() {
     ]
 }
 
+public func configureTextfield(){
+	UITextField.appearance().tintColor = CommonColor.mainRed.color
+}
+
 public func configPlayBackgroungMode(){
 	let session = AVAudioSession.sharedInstance()
 	do {
