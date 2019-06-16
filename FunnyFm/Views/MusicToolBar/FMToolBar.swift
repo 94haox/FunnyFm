@@ -119,11 +119,11 @@ extension FMToolBar{
     
     
     func configToolBarAtHome(_ chapter : Episode) {
-        self.config(chapter, url: chapter.pod_cover_url)
+        self.config(chapter, url: chapter.coverUrl)
     }
     
     func configToolBar(_ chapter : Episode) {
-        self.config(chapter,url: chapter.cover_url_high)
+        self.config(chapter,url: chapter.coverUrl)
     }
     
 	func config(_ chapter: Episode, url: String){
@@ -131,18 +131,18 @@ extension FMToolBar{
         if self.currentChapter.isNone {
            self.currentChapter = chapter
         }else{
-            if self.currentChapter?.trackId == chapter.trackId  && self.isPlaying{
+            if self.currentChapter?.title == chapter.title  && self.isPlaying{
                 SwiftNotice.noticeOnStatusBar("正在播放", autoClear: true, autoClearTime: 2)
                 return
             }
-            DatabaseManager.add(history: ListenHistoryModel.init(with: chapter))
+//            DatabaseManager.add(history: .init(with: chapter))
             self.currentChapter = chapter
         }
         
         self.titleLB.text = chapter.title
-        self.authorLB.text = chapter.pod_name
+        self.authorLB.text = chapter.author
         self.setUpChapter(chapter)
-		self.logoImageView.kf.setImage(with: URL.init(string: (self.currentChapter?.cover_url_high)!)!) {[unowned self] result in
+		self.logoImageView.kf.setImage(with: URL.init(string: (self.currentChapter?.coverUrl)!)!) {[unowned self] result in
 			switch result {
 			case .success(_):
 				self.configShadowColor()

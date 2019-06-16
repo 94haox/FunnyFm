@@ -112,7 +112,7 @@ extension FMPlayerManager {
 			return;
 		}
 		
-		DatabaseManager.updateProgress(progress: Double(self.currentTime), episodeId: self.currentModel!.episodeId)
+//		DatabaseManager.updateProgress(progress: Double(self.currentTime), episodeId: self.currentModel!.episodeId)
 	}
     
     func seekToProgress(_ progress: CGFloat) {
@@ -245,9 +245,9 @@ extension FMPlayerManager {
         self.currentModel = chapter
         configPlayBackgroungMode()
         self.setBackground()
-		var url = URL.init(string: chapter.trackUrl_high);
+		var url = URL.init(string: chapter.trackUrl);
 		var item : AVPlayerItem;
-		if let episode = DatabaseManager.qurey(episodeId: chapter.episodeId) {
+		if let episode = DatabaseManager.qurey(title: chapter.title) {
 			url = self.completePath(episode)
 			let asset = AVAsset.init(url: url!)
 			item = AVPlayerItem.init(asset: asset)
@@ -272,7 +272,7 @@ extension FMPlayerManager {
 	}
 	
 	func checkProgress(_ episode: Episode) -> Double {
-		return DatabaseManager.qureyProgress(episodeId: episode.episodeId)
+		return DatabaseManager.qureyProgress(episodeId: episode.title)
 	}
     
 }
@@ -282,10 +282,10 @@ extension FMPlayerManager {
 extension FMPlayerManager {
 	
 	@objc func setBackground() {
-        let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.pod_cover_url)!)
+        let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.coverUrl)!)
 		var info = Dictionary<String, Any>()
 		info[MPMediaItemPropertyTitle] = self.currentModel?.title//歌名
-		info[MPMediaItemPropertyArtist] = self.currentModel?.pod_name//作者
+		info[MPMediaItemPropertyArtist] = self.currentModel?.author//作者
         info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: CGSize.init(width: 100, height: 100), requestHandler: { (size) -> UIImage in
             if image.isSome{
                 return image!

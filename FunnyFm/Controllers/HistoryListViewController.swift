@@ -49,7 +49,7 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
     }()
     
     
-    lazy var historyList : [ListenHistoryModel] = {
+    lazy var historyList : [Episode] = {
         return DatabaseManager.allHistory()
     }()
 
@@ -80,7 +80,7 @@ extension HistoryListViewController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
         let history = self.historyList[indexPath.row]
-        cell.configHistory(history)
+        cell.configCell(history)
     }
     
 }

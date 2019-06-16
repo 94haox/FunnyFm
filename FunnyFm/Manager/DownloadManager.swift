@@ -44,7 +44,7 @@ class DownloadManager: NSObject {
             self.downloadRequest.responseData(completionHandler: downloadResponse)
         }else{
             //开始下载
-            self.downloadRequest = Alamofire.download(episode.trackUrl_high, to: self.destination)
+            self.downloadRequest = Alamofire.download(episode.trackUrl, to: self.destination)
             self.downloadRequest.downloadProgress(closure: downloadProgress)
             self.downloadRequest.responseData(completionHandler: downloadResponse)
         }

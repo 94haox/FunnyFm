@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     var options: [UIApplication.LaunchOptionsKey: Any]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		
+		self.window = UIWindow.init()
         self.options = launchOptions
 		FMPlayerManager.shared.delegate = FMToolBar.shared
         configureNavigationTabBar()
@@ -31,8 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
         NotificationCenter.default.addObserver(self, selector: #selector(setUpPush), name: NSNotification.Name.init("firstSetUpPush"), object: nil)
-
         MSAppCenter.start("f9778dd8-1385-462e-a4e1-fa37182cb200", withServices:[MSAnalytics.self,MSCrashes.self])
+		
+		let navi = UINavigationController.init(rootViewController: MainViewController.init())
+		self.window?.rootViewController = navi
+		self.window?.makeKeyAndVisible()
         return true
     }
     

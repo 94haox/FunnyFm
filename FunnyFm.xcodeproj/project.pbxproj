@@ -68,7 +68,6 @@
 		AB1E93092211B39900A8F07B /* PodPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */; };
 		AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25797C21945E6F004C5F5D /* AppDelegate.swift */; };
 		AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25797E21945E6F004C5F5D /* MainViewController.swift */; };
-		AB25798221945E6F004C5F5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798021945E6F004C5F5D /* Main.storyboard */; };
 		AB25798421945E70004C5F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798521945E70004C5F5D /* LaunchScreen.storyboard */; };
 		AB28ECAD224E241500C7FE43 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AB28ECAC224E241400C7FE43 /* refresh.json */; };
@@ -102,6 +101,7 @@
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
+		ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA7052122B641000012FD0A /* NetEasyPod.swift */; };
 		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
 		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
 		ABA99AC12219060900840382 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA99AC02219060900840382 /* GlobalViewModel.swift */; };
@@ -167,7 +167,6 @@
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
 		ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118321BF43E50083A81B /* NormalHeaderView.swift */; };
-		ABF5118621BF4BCB0083A81B /* ListenHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */; };
 		ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */; };
 		ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */; };
 		ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */; };
@@ -265,7 +264,6 @@
 		AB25797921945E6F004C5F5D /* FunnyFm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyFm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB25797C21945E6F004C5F5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB25797E21945E6F004C5F5D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		AB25798121945E6F004C5F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB25798321945E70004C5F5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB25798621945E70004C5F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB25798821945E70004C5F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -302,6 +300,7 @@
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
+		ABA7052122B641000012FD0A /* NetEasyPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetEasyPod.swift; sourceTree = "<group>"; };
 		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		ABA99AC02219060900840382 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
@@ -390,7 +389,6 @@
 		ABF5117F21BE8A7C0083A81B /* FMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMTextField.m; path = FunnyFm/OC/FMTextField.m; sourceTree = SOURCE_ROOT; };
 		ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		ABF5118321BF43E50083A81B /* NormalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalHeaderView.swift; sourceTree = "<group>"; };
-		ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenHistoryModel.swift; sourceTree = "<group>"; };
 		ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodListCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListViewModel.swift; sourceTree = "<group>"; };
@@ -558,7 +556,6 @@
 				AB41AAD7219529DB00260851 /* Utils */,
 				AB1E6DA221BA01C500B85135 /* OC */,
 				AB1E6D4A21B9243000B85135 /* Extension */,
-				AB25798021945E6F004C5F5D /* Main.storyboard */,
 				AB25798321945E70004C5F5D /* Assets.xcassets */,
 				AB25798521945E70004C5F5D /* LaunchScreen.storyboard */,
 				AB25798821945E70004C5F5D /* Info.plist */,
@@ -614,10 +611,10 @@
 			children = (
 				AB41AADF21952D2200260851 /* Pod.swift */,
 				AB41AAE121952EAA00260851 /* Episode.swift */,
-				ABF5118521BF4BCB0083A81B /* ListenHistoryModel.swift */,
 				ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */,
 				ABEF471121E8B6E400212DCA /* User.swift */,
 				AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */,
+				ABA7052122B641000012FD0A /* NetEasyPod.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1061,7 +1058,6 @@
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
-				AB25798221945E6F004C5F5D /* Main.storyboard in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */,
@@ -1244,6 +1240,7 @@
 				ABEE40CE21E3246E00FCB16F /* UIScrollView+MJExtension.m in Sources */,
 				ABEE40DE21E3246E00FCB16F /* MJRefreshComponent.m in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
+				ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */,
 				AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */,
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
@@ -1277,7 +1274,6 @@
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
 				AB1E6D7A21B9252500B85135 /* UIStoryboardExtensions.swift in Sources */,
-				ABF5118621BF4BCB0083A81B /* ListenHistoryModel.swift in Sources */,
 				AB41AAE221952EAA00260851 /* Episode.swift in Sources */,
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
 				ABEE40D521E3246E00FCB16F /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1345,14 +1341,6 @@
 				AB091D14229FCF8800723602 /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		AB25798021945E6F004C5F5D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AB25798121945E6F004C5F5D /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		AB25798521945E70004C5F5D /* LaunchScreen.storyboard */ = {

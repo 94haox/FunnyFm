@@ -32,19 +32,20 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.view.backgroundColor = .white
-        self.vm.delegate = self
-        self.vm.getAllPods()
-        self.vm.getHomeChapters()
 		self.dw_addViews()
 		self.addConstrains()
 		self.addHeader();
 		self.addFooter()
 		self.loadAnimationView.play()
-		UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
+		self.vm.delegate = self
+		self.vm.getAllPods()
+		self.vm.getHomeChapters()
+		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
 	}
 	
@@ -72,7 +73,6 @@ extension MainViewController{
 //		self.present(preview, animated: false, completion: nil)
 		let search = SearchViewController.init()
 		self.navigationController?.pushViewController(search);
-//		FeedManager.shared.parserRss(url: "https://rsshub.app/ncm/djradio/348319107")
     }
     
     @objc func refreshData(){
@@ -92,8 +92,8 @@ extension MainViewController : ViewModelDelegate {
         self.tableview.refreshControl?.endRefreshing()
         self.collectionView.reloadData()
         self.tableview.reloadData()
-        if self.vm.chapterList.count > 0  && !FMToolBar.shared.isPlaying{
-            FMToolBar.shared.configToolBarAtHome(self.vm.chapterList.first!)
+        if self.vm.episodeList.count > 0  && !FMToolBar.shared.isPlaying{
+            FMToolBar.shared.configToolBarAtHome(self.vm.episodeList.first!)
         }
     }
     
@@ -109,14 +109,14 @@ extension MainViewController : ViewModelDelegate {
 extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pod = self.vm.podlist[indexPath.row]
-        let vc = EpisodeListViewController.init(pod)
-        self.navigationController?.pushViewController(vc)
+//        let pod = self.vm.podlist[indexPath.row]
+//        let vc = EpisodeListViewController.init(pod)
+//        self.navigationController?.pushViewController(vc)
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chapter = self.vm.chapterList[indexPath.row]
+        let chapter = self.vm.episodeList[indexPath.row]
         FMToolBar.shared.configToolBarAtHome(chapter)
     }
 }
@@ -126,7 +126,7 @@ extension MainViewController{
 extension MainViewController{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.vm.chapterList.count
+        return self.vm.episodeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,22 +136,9 @@ extension MainViewController{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
-        let chapter = self.vm.chapterList[indexPath.row]
+        let chapter = self.vm.episodeList[indexPath.row]
         cell.configHomeCell(chapter)
     }
-	
-	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let label = UILabel.init(text: "最近更新")
-		label.textColor = UIColor.init(hex: "e0e2e6")
-		label.textAlignment = .center
-		label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 36);
-		label.font = p_bfont(14)
-		label.backgroundColor = .white
-		return label
-	}
-	
-	
-
 }
 
 
@@ -266,6 +253,7 @@ extension MainViewController {
         let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
         self.tableview.rowHeight = 100
         self.tableview.delegate = self

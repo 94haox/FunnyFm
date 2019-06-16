@@ -17,8 +17,8 @@ class HomePodCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configCell(_ pod: Pod) {
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.img)!))
+    func configCell(_ pod: iTunsPod) {
+        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
     }
 
 }

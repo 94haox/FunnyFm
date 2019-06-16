@@ -24,8 +24,7 @@ class FavouriteListController: BaseViewController, UITableViewDelegate, UITableV
         self.addSubViews()
     }
     
-    lazy var historyList : [ListenHistoryModel] = {
-        //        return DatabaseManager.allHistory()
+    lazy var historyList : [Episode] = {
         return []
     }()
     
@@ -68,7 +67,7 @@ extension FavouriteListController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
         let history = self.historyList[indexPath.row]
-        cell.configHistory(history)
+        cell.configCell(history)
     }
     
 }

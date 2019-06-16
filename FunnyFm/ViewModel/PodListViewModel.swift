@@ -10,7 +10,7 @@ import UIKit
 
 class PodListViewModel: BaseViewModel {
 
-    lazy var podlist : [Pod] = {
+    lazy var podlist : [iTunsPod] = {
         return []
     }()
 	
@@ -23,14 +23,16 @@ class PodListViewModel: BaseViewModel {
     }
     
     func getAllPods() {
-        FmHttp<Pod>().requestForArray(PodAPI.getPodList(), { (podlist) in
-            if let list = podlist {
-                self.podlist = list
-                self.delegate?.viewModelDidGetDataSuccess()
-            }
-        }){ msg in
-            self.delegate?.viewModelDidGetDataFailture(msg: msg)
-        }
+		self.podlist = DatabaseManager.allItunsPod()
+		self.delegate?.viewModelDidGetDataSuccess()
+//        FmHttp<Pod>().requestForArray(PodAPI.getPodList(), { (podlist) in
+//            if let list = podlist {
+//                self.podlist = list
+//                self.delegate?.viewModelDidGetDataSuccess()
+//            }
+//        }){ msg in
+//            self.delegate?.viewModelDidGetDataFailture(msg: msg)
+//        }
     }
 	
 	func searchPod(keyword:String){

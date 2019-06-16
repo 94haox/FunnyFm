@@ -23,10 +23,8 @@ class EpisodeDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.desLB.text = self.episode.intro;
-        self.podLB.text = self.episode.pod_name
         self.titleLB.text = self.episode.title
         self.duration.text = String(self.episode.duration)
-        self.dateLB.text = self.episode.formatted_created_at
         self.containerView.snp.updateConstraints { (make) in
             make.bottom.equalTo(self.desLB).offset(30)
         }

@@ -25,10 +25,10 @@ class PodListCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configCell(_ pod: Pod){
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.img)!))
-        self.titleLB.text = pod.name
-        self.updateTimeLB.text = pod.update_time
+    func configCell(_ pod: iTunsPod){
+        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
+        self.titleLB.text = pod.trackName
+        self.updateTimeLB.text = pod.releaseDate
     }
 
 }

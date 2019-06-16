@@ -66,13 +66,13 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
 		
-        if self.chapter.isFavour {
-            self.likeAniView.play(fromProgress: 0.9, toProgress: 1) { (complete) in
-                self.likeBtn.isHidden = true;
-            }
-        }
+//        if self.chapter.isFavour {
+//            self.likeAniView.play(fromProgress: 0.9, toProgress: 1) { (complete) in
+//                self.likeBtn.isHidden = true;
+//            }
+//        }
 		
-		if DatabaseManager.qurey(episodeId: self.chapter.episodeId).isSome {
+		if DatabaseManager.qureyDownload(title: self.chapter.title).isSome {
 			self.downBtn.isSelected = true
 		}
     }
@@ -220,10 +220,10 @@ extension PlayerDetailViewController {
 			self.likeAniView.play(fromProgress: 1, toProgress: 0) {[unowned self] (isEnd) in
 				self.likeBtn.isHidden = false
 			}
-            self.viewModel.deleteFavour(self.chapter.episodeId)
+//            self.viewModel.deleteFavour(self.chapter.episodeId)
 			return
 		}
-        self.viewModel.addFavour(self.chapter.episodeId)
+//        self.viewModel.addFavour(self.chapter.episodeId)
 		self.likeBtn.isHidden = true
 		self.likeAniView.play()
 
@@ -439,7 +439,7 @@ extension PlayerDetailViewController {
         self.titleLB.font = p_bfont(fontsize6)
         self.view.addSubview(self.titleLB)
         
-        self.subTitle = UILabel.init(text: self.chapter.pod_name)
+        self.subTitle = UILabel.init(text: "self.chapter.pod_name")
         self.subTitle.textColor = CommonColor.content.color
         self.subTitle.font = pfont(fontsize0)
         self.view.addSubview(self.subTitle)
@@ -460,7 +460,7 @@ extension PlayerDetailViewController {
         
 		self.coverImageView = UIImageView.init()
         self.coverImageView.isUserInteractionEnabled = true
-        self.coverImageView.kf.setImage(with: URL.init(string: (self.chapter?.cover_url_high)!)!) {[unowned self] result in
+        self.coverImageView.kf.setImage(with: URL.init(string: (self.chapter?.coverUrl)!)!) {[unowned self] result in
             switch result { 
             case .success(let value):
                 self.coverBackView.addShadow(ofColor: value.image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)

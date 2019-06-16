@@ -11,7 +11,9 @@ import WCDBSwift
 
 let downloadTable = "downloadTable"
 let historyTable = "listenHistory"
-let progressTable = "chapter_progress"
+let progressTable = "episode_progress"
+let exsitEpisodeTable = "exsit_episode"
+let exsitPodTable = "exsit_iTunsPod"
 
 class DatabaseManager: NSObject {
     
@@ -19,7 +21,9 @@ class DatabaseManager: NSObject {
     static public var database : Database = Database(withFileURL: FunnyFm.sharedDatabaseUrl())
     
     static func setupDefaultDatabase(){
-        try! database.create(table: historyTable, of: ListenHistoryModel.self)
+		try! database.create(table: exsitPodTable, of: iTunsPod.self)
+		try! database.create(table: exsitEpisodeTable, of: Episode.self)
+        try! database.create(table: historyTable, of: Episode.self)
         try! database.create(table: progressTable, of: ChapterProgress.self)
         try! database.create(table: downloadTable, of: Episode.self)
     }
@@ -27,8 +31,8 @@ class DatabaseManager: NSObject {
     /// 添加历史记录
     ///
     /// - Parameter history: 历史记录
-    static public func add(history:ListenHistoryModel){
-        let exsithistory = self.qurey(chapterId: history.episodeId!)
+    static public func add(history:Episode){
+        let exsithistory = self.qurey(title: history.title)
         if exsithistory.isSome {
             return
         }
@@ -39,7 +43,7 @@ class DatabaseManager: NSObject {
     ///
     /// - Parameter download:   下载记录
 	static public func add(download:Episode){
-		let exsitDownload = self.qurey(episodeId: download.episodeId)
+		let exsitDownload = self.qureyDownload(title: download.title)
 		if exsitDownload.isSome {
 			return
 		}
@@ -51,16 +55,16 @@ class DatabaseManager: NSObject {
     ///
     
     /// 查询历史记录
-    static public func qurey(chapterId: String) -> ListenHistoryModel?{
+    static public func qurey(title: String) -> Episode?{
         let historyList = self.allHistory()
-        let history = historyList.filter { $0.episodeId! == chapterId }
+        let history = historyList.filter { $0.title == title }
         return history.first
     }
     
     /// 查询下载记录
-    static public func qurey(episodeId: String) -> Episode?{
+    static public func qureyDownload(title: String) -> Episode?{
         let episodeList = self.allDownload()
-        let episode = episodeList.filter { $0.episodeId == episodeId }
+        let episode = episodeList.filter { $0.title == title }
         return episode.first
     }
     
@@ -73,9 +77,9 @@ class DatabaseManager: NSObject {
     }
     
     /// 删除历史记录
-    static public func delete(chapterId: String){
+    static public func delete(title: String){
         try! database.delete(fromTable: historyTable,
-                            where: ListenHistoryModel.Properties.episodeId == chapterId)
+                            where: Episode.Properties.title == title)
     }
 	
     /// 更新进度记录
@@ -98,8 +102,8 @@ class DatabaseManager: NSObject {
         return episodeList
     }
     
-    static public func allHistory() -> [ListenHistoryModel]{
-        let historyList : [ListenHistoryModel] = try! database.getObjects(fromTable: historyTable)
+    static public func allHistory() -> [Episode]{
+        let historyList : [Episode] = try! database.getObjects(fromTable: historyTable)
         return historyList
     }
     
@@ -107,8 +111,48 @@ class DatabaseManager: NSObject {
         let ChapterProgressList : [ChapterProgress] = try! database.getObjects(fromTable: progressTable)
         return ChapterProgressList
     }
-    
-    
+	
+	
+	/// pod 缓存
+	static public func allItunsPod() -> [iTunsPod] {
+		let itunsPodList : [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable)
+		return itunsPodList
+	}
+	
+	static public func getItunsPod(collectionId:String) -> iTunsPod?{
+		let podList = self.allItunsPod()
+		let pod = podList.filter { $0.collectionId == collectionId }
+		return pod.first
+	}
+	
+	static public func addItunsPod(pod: iTunsPod){
+		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
+		if exsitPod.isSome {
+			return
+		}
+		try! self.database.insert(objects: pod, intoTable: exsitPodTable)
+	}
+	
+	
+	/// episode 缓存
+	static public func allEpisodes() -> [Episode] {
+		let episodeList : [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable)
+		return episodeList
+	}
+	
+	static public func getEpisode(title:String) -> Episode?{
+		let episodeList = self.allEpisodes()
+		let episodes = episodeList.filter { $0.title == title }
+		return episodes.first
+	}
+	
+	static public func addEpisode(episode: Episode){
+		let exsitEpisode = self.getEpisode(title: episode.title)
+		if exsitEpisode.isSome {
+			return
+		}
+		try! self.database.insert(objects: episode, intoTable: exsitEpisodeTable)
+	}
     
     
 

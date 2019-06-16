@@ -1,8 +1,8 @@
 //
-//  iTunsPod.swift
+//  NetEasyPod.swift
 //  FunnyFm
 //
-//  Created by Duke on 2019/6/14.
+//  Created by Duke on 2019/6/16.
 //  Copyright © 2019 Duke. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import WCDBSwift
 
-struct iTunsPod : Mapable, TableCodable {
+struct NeteasyPod : Mapable, TableCodable {
 	var trackName:     String
 	var trackCount:     String
 	var collectionId:     String
@@ -28,7 +28,7 @@ struct iTunsPod : Mapable, TableCodable {
 	}
 	
 	enum CodingKeys : String, CodingKey,CodingTableKey {
-		typealias Root = iTunsPod
+		typealias Root = NeteasyPod
 		static let objectRelationalMapping = TableBinding(CodingKeys.self)
 		case trackName
 		case feedUrl

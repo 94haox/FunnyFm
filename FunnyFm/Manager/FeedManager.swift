@@ -13,19 +13,28 @@ import FeedKit
 class FeedManager: NSObject {
 	static let shared = FeedManager()
 	
-	public func parserRss(url:String) {
-		let feedURL = URL(string: url)!
+	typealias SuccessParserClosure = ([Episode]) -> Void
+	
+	public func parserRss(_ itunsPod:iTunsPod,
+						_ success: @escaping SuccessParserClosure) {
+		
+		let feedURL = URL(string: itunsPod.feedUrl)!
 		let parser = FeedParser(URL: feedURL)
 		parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-			// Do your thing, then back to the Main thread
 			if result.rssFeed.isSome {
-				result.rssFeed!.items!.map { (item) -> RSSFeedItem in
-					print(item.enclosure!.attributes!.url!)
-					return item
+				if result.rssFeed!.iTunes.isNone {
+					return;
 				}
-			}
-			DispatchQueue.main.async {
-				
+				var list = [Episode]()
+				result.rssFeed!.items!.forEach { (feedItem) in
+					var episode = Episode.init(feedItem: feedItem)
+					episode.collectionId = itunsPod.collectionId;
+					episode.author = itunsPod.trackName
+					episode.podCoverUrl = itunsPod.artworkUrl600
+					DatabaseManager.addEpisode(episode: episode);
+					list.append(episode)
+				}
+				success(list)
 			}
 		}
 	}

@@ -40,30 +40,21 @@ class HomeAlbumTableViewCell: UITableViewCell {
     }
     
     
-    func configHomeCell(_ chapter:Episode){
-        self.titleLB.text = chapter.title
-        self.updateLB.text = chapter.time_until_now
-		self.timeLB.text = String(chapter.duration)
-		let resource = ImageResource.init(downloadURL: URL.init(string: chapter.pod_cover_url)!)
+    func configHomeCell(_ episode:Episode){
+        self.titleLB.text = episode.title
+        self.updateLB.text = episode.pubDate
+		self.timeLB.text = String(episode.duration)
+		let resource = ImageResource.init(downloadURL: URL.init(string: episode.podCoverUrl)!)
         self.logoImageView.kf.setImage(with: resource)
     }
     
-    func configCell(_ chapter:Episode){
-        self.titleLB.text = chapter.title
-		self.updateLB.text = chapter.time_until_now
-		self.timeLB.text = String(chapter.duration)
-       self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: chapter.cover_url_high)!) )
+    func configCell(_ episode:Episode){
+        self.titleLB.text = episode.title
+		self.updateLB.text = episode.pubDate
+		self.timeLB.text = String(episode.duration)
+       self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: episode.coverUrl)!) )
         
     }
-    
-    func configHistory(_ history:ListenHistoryModel){
-        self.titleLB.text = history.title
-		self.updateLB.text = history.time_until_now
-		self.timeLB.text = String(history.duration)
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: history.cover_url!)!) )
-    }
-    
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

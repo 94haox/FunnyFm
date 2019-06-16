@@ -13,11 +13,11 @@ import UIKit
 
 class MainViewModel: NSObject {
     
-    lazy var podlist : [Pod] = {
+    lazy var podlist : [iTunsPod] = {
        return []
     }()
     
-    lazy var chapterList : [Episode] = {
+    lazy var episodeList : [Episode] = {
         return []
     }()
     
@@ -33,25 +33,40 @@ class MainViewModel: NSObject {
     }
     
     func getAllPods() {
-        FmHttp<Pod>().requestForArray(PodAPI.getPodList(), { (podlist) in
-            if let list = podlist {
-                self.podlist = list
-                self.delegate?.viewModelDidGetDataSuccess()
-            }
-        }){ msg in
-            self.delegate?.viewModelDidGetDataFailture(msg: msg)
-        }
+		if UserCenter.shared.isLogin {
+			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList(), { (podlist) in
+				if let list = podlist {
+					self.podlist = list
+					self.delegate?.viewModelDidGetDataSuccess()
+				}
+			}){ msg in
+				self.delegate?.viewModelDidGetDataFailture(msg: msg)
+			}
+		}else{
+			self.podlist = DatabaseManager.allItunsPod()
+			DispatchQueue.main.async {
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
+		}
+		
     }
     
     func getHomeChapters() {
-        FmHttp<Episode>().requestForArray(ChapterAPI.getHomeChapterList(), { (capterlist) in
-            if let list = capterlist {
-                self.chapterList = list
-                self.delegate?.viewModelDidGetDataSuccess()
-            }
-        }){ msg in
-            self.delegate?.viewModelDidGetDataFailture(msg: msg)
-        }
+		let podList = DatabaseManager.allItunsPod()
+		
+		podList.forEach { (pod) in
+			FeedManager.shared.parserRss(pod, {(episodeList) in
+				self.episodeList.append(contentsOf: episodeList)
+//				self.episodeList.sort { (obj1, obj2) -> Bool in
+//					let obj1Date = NSDate.init(from: obj1.pubDate)
+//					let obj2Date = NSDate.init(from: obj2.pubDate)
+//				}
+				DispatchQueue.main.async {
+					self.delegate?.viewModelDidGetDataSuccess()
+				}
+			})
+		}
+		
     }
     
 

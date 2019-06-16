@@ -39,19 +39,7 @@ class ChapterListViewModel: NSObject {
     }
     
     fileprivate func getChapters() {
-	FmHttp<Episode>().requestForArray(ChapterAPI.getChapterList(self.pageNum,self.podId), { (capterlist) in
-			if let list = capterlist {
-                self.isNoMore = list.count == 0
-				if self.pageNum == 1{
-					self.chapterList = list
-				}else{
-					self.chapterList += list
-				}
-				self.delegate?.viewModelDidGetDataSuccess()
-			}
-        }){ msg in
-            self.delegate?.viewModelDidGetDataFailture(msg: msg)
-        }
+	
     }
     
 }

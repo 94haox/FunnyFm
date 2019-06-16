@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 import NVActivityIndicatorView
+import OfficeUIFabric
 
 class PodPreviewViewController: BaseViewController {
 	
@@ -62,12 +63,19 @@ class PodPreviewViewController: BaseViewController {
 	
 	@objc func addPodToLibary(){
 		self.shinkBtn()
-		if self.itunsPod.isSome {
-			GlobalViewModel.shared.addItunesPod(podId: String(self.itunsPod.collectionId), feedUrl: self.itunsPod.feedUrl, sourceType: "iTuns")
-		}else{
-			GlobalViewModel.shared.addItunesPod(podId: String(self.pod.albumId), feedUrl: self.pod.sourceUrl, sourceType: self.pod.sourceType)
-		}
-		GlobalViewModel.shared.delegate = self;
+		SwiftNotice.showText("添加成功，正在抓取所有节目单，请稍候")
+		DatabaseManager.addItunsPod(pod: self.itunsPod);
+		FeedManager.shared.parserRss(self.itunsPod, {(_) in
+			DispatchQueue.main.async {
+				self.dismiss(animated: true, completion: nil)
+			}
+		})
+//		if self.itunsPod.isSome {
+//			GlobalViewModel.shared.addItunesPod(podId: String(self.itunsPod.collectionId), feedUrl: self.itunsPod.feedUrl, sourceType: "iTuns")
+//		}else{
+//			GlobalViewModel.shared.addItunesPod(podId: String(self.pod.albumId), feedUrl: self.pod.sourceUrl, sourceType: self.pod.sourceType)
+//		}
+//		GlobalViewModel.shared.delegate = self;
 	}
 	
 	func shinkBtn() {
