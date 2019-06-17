@@ -13,7 +13,7 @@ import Lottie
 
 class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
-    var chapter: Episode!
+    var episode: Episode!
     
     var backBtn: UIButton!
     
@@ -72,7 +72,7 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 //            }
 //        }
 		
-		if DatabaseManager.qureyDownload(title: self.chapter.title).isSome {
+		if DatabaseManager.qureyDownload(title: self.episode.title).isSome {
 			self.downBtn.isSelected = true
 		}
     }
@@ -135,8 +135,8 @@ extension PlayerDetailViewController: DownloadManagerDelegate {
 			anim.springBounciness = 20
 			self.downBtn!.layer.pop_add(anim, forKey: "size")
 		}
-		self.chapter!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
-		DatabaseManager.add(download: self.chapter!)
+		self.episode!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
+		DatabaseManager.add(download: self.episode!)
 	}
 	
 	func didDownloadFailure() {
@@ -174,7 +174,7 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.x < -60 {
             let episodeDetailVC = EpisodeDetailViewController()
-            episodeDetailVC.episode = self.chapter
+            episodeDetailVC.episode = self.episode
             self.navigationController?.pushViewController(episodeDetailVC)
         }
     }
@@ -207,7 +207,7 @@ extension PlayerDetailViewController {
 			return;
 		}
 		DownloadManager.shared.delegate = self;
-		DownloadManager.shared.beginDownload(self.chapter)
+		DownloadManager.shared.beginDownload(self.episode)
     }
 	
 	@objc func likeAction(){
@@ -434,12 +434,12 @@ extension PlayerDetailViewController {
         self.backBtn.setImage(UIImage.init(named: "dismiss"), for: .normal)
         self.view.addSubview(self.backBtn)
         
-        self.titleLB = UILabel.init(text: self.chapter.title)
+        self.titleLB = UILabel.init(text: self.episode.title)
         self.titleLB.textColor = CommonColor.title.color
         self.titleLB.font = p_bfont(fontsize6)
         self.view.addSubview(self.titleLB)
         
-        self.subTitle = UILabel.init(text: "self.chapter.pod_name")
+        self.subTitle = UILabel.init(text: self.episode.author)
         self.subTitle.textColor = CommonColor.content.color
         self.subTitle.font = pfont(fontsize0)
         self.view.addSubview(self.subTitle)
@@ -460,7 +460,7 @@ extension PlayerDetailViewController {
         
 		self.coverImageView = UIImageView.init()
         self.coverImageView.isUserInteractionEnabled = true
-        self.coverImageView.kf.setImage(with: URL.init(string: (self.chapter?.coverUrl)!)!) {[unowned self] result in
+        self.coverImageView.kf.setImage(with: URL.init(string: (self.episode?.coverUrl)!)!) {[unowned self] result in
             switch result { 
             case .success(let value):
                 self.coverBackView.addShadow(ofColor: value.image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)

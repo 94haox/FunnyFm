@@ -24,6 +24,7 @@ class EpisodeDetailViewController: BaseViewController {
         super.viewDidLoad()
         self.desLB.text = self.episode.intro;
         self.titleLB.text = self.episode.title
+		self.dateLB.text = self.episode.pubDate
         self.duration.text = String(self.episode.duration)
         self.containerView.snp.updateConstraints { (make) in
             make.bottom.equalTo(self.desLB).offset(30)

@@ -17,25 +17,32 @@ struct Episode : TableCodable{
     var title:                String
     var intro:                String
 	var author:               String
-	var duration:             Double
-    var trackUrl:          	  String
-    var coverUrl:         String
-	var podCoverUrl:         String
-    var pubDate:         String
-    var download_filpath:               String
+	var duration:              Double
+    var trackUrl:          	String
+    var coverUrl:         		String
+	var podCoverUrl:         	String
+    var pubDate:         		String
+	var pubDateSecond:         	Double
+    var download_filpath:        String
 	
 	init(feedItem: RSSFeedItem) {
 		title = feedItem.title!
 		duration = feedItem.iTunes!.iTunesDuration!
 		intro = feedItem.description!
 		pubDate = feedItem.pubDate!.dateString()
+		pubDateSecond = feedItem.pubDate!.secondsSince(Date.init(timeIntervalSince1970: 0));
 		download_filpath = ""
 		trackUrl = feedItem.enclosure!.attributes!.url!
-		coverUrl = feedItem.iTunes!.iTunesImage!.attributes!.href!
 		if feedItem.author.isSome {
 			author = feedItem.author!
 		}else{
 			author = ""
+		}
+		
+		if let image = feedItem.iTunes?.iTunesImage {
+			coverUrl = image.attributes!.href!
+		}else{
+			coverUrl = ""
 		}
 		podCoverUrl = ""
 		collectionId = ""
@@ -65,6 +72,7 @@ struct Episode : TableCodable{
 		case intro
 		case duration
         case pubDate
+		case pubDateSecond
         case trackUrl
 		case coverUrl
 		case podCoverUrl

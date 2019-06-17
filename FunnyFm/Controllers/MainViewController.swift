@@ -38,8 +38,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.addFooter()
 		self.loadAnimationView.play()
 		self.vm.delegate = self
-		self.vm.getAllPods()
-		self.vm.getHomeChapters()
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
     }
 	
@@ -47,6 +45,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		super.viewWillAppear(animated)
 		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
+		self.vm.getAllPods()
+		self.vm.getHomeChapters()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -61,16 +61,16 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 extension MainViewController{
     
     @objc func toUserCenter() {
+		if !UserCenter.shared.isLogin {
+			let login = NeLoginViewController()
+			self.navigationController?.pushViewController(login)
+			return
+		}
         let usercenterVC = UserCenterViewController()
         self.navigationController?.pushViewController(usercenterVC)
     }
     
     @objc func toSearch() {
-//        let login = NeLoginViewController()
-//        self.navigationController?.pushViewController(login)
-//		let preview = PodPreviewViewController()
-//		preview.modalPresentationStyle = .overCurrentContext
-//		self.present(preview, animated: false, completion: nil)
 		let search = SearchViewController.init()
 		self.navigationController?.pushViewController(search);
     }
@@ -93,7 +93,12 @@ extension MainViewController : ViewModelDelegate {
         self.collectionView.reloadData()
         self.tableview.reloadData()
         if self.vm.episodeList.count > 0  && !FMToolBar.shared.isPlaying{
-            FMToolBar.shared.configToolBarAtHome(self.vm.episodeList.first!)
+			guard self.vm.episodeList.count > 0 else {
+				FMToolBar.shared.isHidden = true
+				return
+			}
+			FMToolBar.shared.isHidden = false
+            FMToolBar.shared.configToolBarAtHome(self.vm.episodeList.first!.first!)
         }
     }
     
@@ -116,17 +121,22 @@ extension MainViewController{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chapter = self.vm.episodeList[indexPath.row]
-        FMToolBar.shared.configToolBarAtHome(chapter)
+        let episodeList = self.vm.episodeList[indexPath.section]
+        FMToolBar.shared.configToolBarAtHome(episodeList[indexPath.row])
     }
 }
 
 
 // MARK: - TablviewDataSource
 extension MainViewController{
+	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return self.vm.episodeList.count
+	}
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.vm.episodeList.count
+		let episodeList = self.vm.episodeList[section]
+        return episodeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,9 +146,43 @@ extension MainViewController{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
-        let chapter = self.vm.episodeList[indexPath.row]
-        cell.configHomeCell(chapter)
+		let episodeList = self.vm.episodeList[indexPath.section]
+        let episode = episodeList[indexPath.row]
+        cell.configHomeCell(episode)
     }
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let episodeList = self.vm.episodeList[section]
+		let view = UIView.init()
+		view.backgroundColor = .white
+		let titleLB = UILabel.init(text: episodeList.first!.pubDate)
+		titleLB.textColor = CommonColor.content.color
+		titleLB.font = p_bfont(12)
+		view.addSubview(titleLB)
+		titleLB.snp.makeConstraints { (make) in
+			make.center.equalTo(view)
+		}
+		
+		let line = UIView.init()
+		line.backgroundColor = CommonColor.mainRed.color
+		view.addSubview(line)
+		line.snp.makeConstraints { (make) in
+			make.centerX.equalTo(view)
+			make.top.equalTo(titleLB.snp.bottom).offset(2)
+			make.height.equalTo(3)
+			make.width.equalTo(10)
+		}
+		return view
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 30
+	}
+	
+//	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//		let episodeList = self.vm.episodeList[section]
+//		return episodeList.first!.pubDate
+//	}
 }
 
 
@@ -169,8 +213,7 @@ extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? HomePodCollectionViewCell else { return }
-        let index = indexPath.row % self.vm.podlist.count
-        let pod = self.vm.podlist[index]
+        let pod = self.vm.podlist[indexPath.row]
         cell.configCell(pod)
     }
 }

@@ -17,7 +17,7 @@ class MainViewModel: NSObject {
        return []
     }()
     
-    lazy var episodeList : [Episode] = {
+    lazy var episodeList : [[Episode]] = {
         return []
     }()
     
@@ -53,21 +53,45 @@ class MainViewModel: NSObject {
     
     func getHomeChapters() {
 		let podList = DatabaseManager.allItunsPod()
-		
-		podList.forEach { (pod) in
-			FeedManager.shared.parserRss(pod, {(episodeList) in
-				self.episodeList.append(contentsOf: episodeList)
-//				self.episodeList.sort { (obj1, obj2) -> Bool in
-//					let obj1Date = NSDate.init(from: obj1.pubDate)
-//					let obj2Date = NSDate.init(from: obj2.pubDate)
-//				}
-				DispatchQueue.main.async {
-					self.delegate?.viewModelDidGetDataSuccess()
-				}
-			})
+		self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+		self.delegate?.viewModelDidGetDataSuccess()
+		DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
+			var episodeList = [Episode]()
+			podList.forEach { (pod) in
+				let list = FeedManager.shared.parserRssSync(pod)
+				episodeList.append(contentsOf: list)
+				print("episode count = \(list.count)")
+			}
+			self.episodeList = self.sortEpisodeToGroup(episodeList)
+			DispatchQueue.main.async {
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
 		}
 		
     }
+	
+	
+	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
+		
+		var dateList = [String]()
+		var sortEpisodeList = [[Episode]]()
+		episodeList.forEach { (episode) in
+			if !dateList.contains(episode.pubDate) {
+				dateList.append(episode.pubDate)
+			}
+		}
+		
+		dateList.forEach { (pubDate) in
+			var list = [Episode]()
+			episodeList.forEach { (episode) in
+				if episode.pubDate == pubDate {
+					list.append(episode)
+				}
+			}
+			sortEpisodeList.append(list)
+		}
+		return sortEpisodeList
+	}
     
 
 }

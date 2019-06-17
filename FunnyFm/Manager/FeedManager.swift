@@ -23,6 +23,7 @@ class FeedManager: NSObject {
 		parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
 			if result.rssFeed.isSome {
 				if result.rssFeed!.iTunes.isNone {
+					success([])
 					return;
 				}
 				var list = [Episode]()
@@ -31,12 +32,41 @@ class FeedManager: NSObject {
 					episode.collectionId = itunsPod.collectionId;
 					episode.author = itunsPod.trackName
 					episode.podCoverUrl = itunsPod.artworkUrl600
+					if episode.coverUrl.length() < 1 {
+						episode.coverUrl = itunsPod.artworkUrl600
+					}
 					DatabaseManager.addEpisode(episode: episode);
 					list.append(episode)
 				}
 				success(list)
 			}
 		}
+	}
+	
+	public func parserRssSync(_ itunsPod:iTunsPod) -> [Episode] {
+		
+		let feedURL = URL(string: itunsPod.feedUrl)!
+		let parser = FeedParser(URL: feedURL)
+		let result = parser.parse()
+		if result.rssFeed.isSome {
+			if result.rssFeed!.iTunes.isNone {
+				return []
+			}
+			var list = [Episode]()
+			result.rssFeed!.items!.forEach { (feedItem) in
+				var episode = Episode.init(feedItem: feedItem)
+				episode.collectionId = itunsPod.collectionId;
+				episode.author = itunsPod.trackName
+				episode.podCoverUrl = itunsPod.artworkUrl600
+				if episode.coverUrl.length() < 1 {
+					episode.coverUrl = itunsPod.artworkUrl600
+				}
+				DatabaseManager.addEpisode(episode: episode);
+				list.append(episode)
+			}
+			return list
+		}
+		return []
 	}
 	
 }

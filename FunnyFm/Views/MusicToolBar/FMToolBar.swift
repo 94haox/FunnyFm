@@ -22,7 +22,7 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 	
     var isShrink: Bool = false
     
-    var currentChapter: Episode?
+    var currentEpisode: Episode?
     
     var containerView: UIView!
     
@@ -52,7 +52,7 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 	
 	func toPlayDetailView(){
 		let vc = PlayerDetailViewController()
-		vc.chapter = self.currentChapter
+		vc.episode = self.currentEpisode
 		let nav = UIApplication.shared.keyWindow?.rootViewController
 		let presentNavi = UINavigationController.init(rootViewController: vc)
 		presentNavi.navigationBar.isHidden = true
@@ -98,7 +98,7 @@ extension FMToolBar {
 	
 	func playerDidPlay() {
 		self.isPlaying = true
-        self.progressLine.isHidden = false
+//        self.progressLine.isHidden = false
         if self.isShrink {
             PopManager.addRotationAnimation(self.logoImageView!.layer)
         }
@@ -122,27 +122,27 @@ extension FMToolBar{
         self.config(chapter, url: chapter.coverUrl)
     }
     
-    func configToolBar(_ chapter : Episode) {
-        self.config(chapter,url: chapter.coverUrl)
+    func configToolBar(_ episode : Episode) {
+        self.config(episode,url: episode.coverUrl)
     }
     
 	func config(_ chapter: Episode, url: String){
         
-        if self.currentChapter.isNone {
-           self.currentChapter = chapter
+        if self.currentEpisode.isNone {
+           self.currentEpisode = chapter
         }else{
-            if self.currentChapter?.title == chapter.title  && self.isPlaying{
+            if self.currentEpisode?.title == chapter.title  && self.isPlaying{
                 SwiftNotice.noticeOnStatusBar("正在播放", autoClear: true, autoClearTime: 2)
                 return
             }
 //            DatabaseManager.add(history: .init(with: chapter))
-            self.currentChapter = chapter
+            self.currentEpisode = chapter
         }
         
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.author
         self.setUpChapter(chapter)
-		self.logoImageView.kf.setImage(with: URL.init(string: (self.currentChapter?.coverUrl)!)!) {[unowned self] result in
+		self.logoImageView.kf.setImage(with: URL.init(string: (self.currentEpisode?.coverUrl)!)!) {[unowned self] result in
 			switch result {
 			case .success(_):
 				self.configShadowColor()
@@ -329,7 +329,7 @@ extension FMToolBar {
     
     func setUpUI() {
         self.containerView = UIView()
-        
+		
         self.playBtn = UIButton.init(type: .custom)
         self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
         self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
