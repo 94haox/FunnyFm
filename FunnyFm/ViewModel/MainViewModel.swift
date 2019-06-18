@@ -52,10 +52,16 @@ class MainViewModel: NSObject {
     }
     
     func getHomeChapters() {
-		let podList = DatabaseManager.allItunsPod()
-		self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-		self.delegate?.viewModelDidGetDataSuccess()
+		DispatchQueue.global().async {
+			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+			DispatchQueue.main.async {
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
+		}
+
 		DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
+
+			let podList = DatabaseManager.allItunsPod()
 			var episodeList = [Episode]()
 			podList.forEach { (pod) in
 				let list = FeedManager.shared.parserRssSync(pod)

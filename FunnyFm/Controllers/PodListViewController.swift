@@ -32,7 +32,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
     }
     
     lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "浏览")
+        let lb = UILabel.init(text: "订阅库")
         lb.font = p_bfont(32)
         lb.textColor = CommonColor.subtitle.color
         return lb

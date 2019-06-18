@@ -35,9 +35,9 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.dw_addViews()
 		self.addConstrains()
 		self.addHeader();
-		self.addFooter()
 		self.loadAnimationView.play()
 		self.vm.delegate = self
+		FMToolBar.shared.isHidden = true
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
     }
 	
@@ -122,6 +122,7 @@ extension MainViewController{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episodeList = self.vm.episodeList[indexPath.section]
+		FMToolBar.shared.isHidden = false
         FMToolBar.shared.configToolBarAtHome(episodeList[indexPath.row])
     }
 }
@@ -179,10 +180,6 @@ extension MainViewController{
 		return 30
 	}
 	
-//	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//		let episodeList = self.vm.episodeList[section]
-//		return episodeList.first!.pubDate
-//	}
 }
 
 

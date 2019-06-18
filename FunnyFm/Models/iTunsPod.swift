@@ -15,8 +15,8 @@ struct iTunsPod : Mapable, TableCodable {
 	var trackCount:     String
 	var collectionId:     String
 	var artworkUrl600:     String
-	var feedUrl:     String
-	var releaseDate: String
+	var feedUrl:     	String
+	var releaseDate: 	String
 	
 	init?(jsonData:JSON) {
 		feedUrl = jsonData["feedUrl"].stringValue

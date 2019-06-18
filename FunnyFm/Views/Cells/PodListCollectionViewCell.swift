@@ -28,7 +28,15 @@ class PodListCollectionViewCell: UICollectionViewCell {
     func configCell(_ pod: iTunsPod){
         self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
         self.titleLB.text = pod.trackName
-        self.updateTimeLB.text = pod.releaseDate
+        self.updateTimeLB.text = self.fromStringToDate(string: pod.releaseDate).dateString()
     }
+	
+	func fromStringToDate(string :String) ->Date{
+		let dformatter = DateFormatter()
+		dformatter.dateFormat = "yyyy-MM-dd"
+		let date = dformatter.date(from: string.subString(to: 10))
+		return date!
+	}
+
 
 }
