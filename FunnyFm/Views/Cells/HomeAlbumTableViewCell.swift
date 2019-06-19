@@ -43,7 +43,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
     func configHomeCell(_ episode:Episode){
         self.titleLB.text = episode.title
         self.updateLB.text = episode.pubDate
-		self.timeLB.text = String(episode.duration)
+		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
 		let resource = ImageResource.init(downloadURL: URL.init(string: episode.podCoverUrl)!)
         self.logoImageView.kf.setImage(with: resource)
     }
@@ -51,7 +51,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
     func configCell(_ episode:Episode){
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
-		self.timeLB.text = String(episode.duration)
+		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: episode.coverUrl)!) )
         
     }

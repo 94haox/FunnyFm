@@ -330,7 +330,6 @@ extension FMToolBar {
     func setUpUI() {
         self.containerView = UIView()
 		
-
 		self.playBtn = UIButton.init(type: .custom)
         self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
         self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)

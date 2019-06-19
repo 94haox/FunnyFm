@@ -79,27 +79,6 @@ class FMPlayerManager: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
 	
-	func addRemoteCommand() {
-		MPRemoteCommandCenter.shared().skipBackwardCommand.preferredIntervals = [15.0]
-		MPRemoteCommandCenter.shared().skipForwardCommand.preferredIntervals = [15.0]
-		MPRemoteCommandCenter.shared().skipForwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
-			self.seekAdditionSecond(15)
-			return .success
-		}
-		
-		MPRemoteCommandCenter.shared().skipBackwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
-			self.seekAdditionSecond(-15)
-			return .success
-		}
-		
-		MPRemoteCommandCenter.shared().playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
-			return .success
-		}
-		
-		MPRemoteCommandCenter.shared().pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
-			return .success
-		}
-	}
 
 }
 
@@ -297,6 +276,30 @@ extension FMPlayerManager {
 // MARK: back
 
 extension FMPlayerManager {
+	
+	func addRemoteCommand() {
+		MPRemoteCommandCenter.shared().skipBackwardCommand.preferredIntervals = [15.0]
+		MPRemoteCommandCenter.shared().skipForwardCommand.preferredIntervals = [15.0]
+		MPRemoteCommandCenter.shared().skipForwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			self.seekAdditionSecond(15)
+			return .success
+		}
+		
+		MPRemoteCommandCenter.shared().skipBackwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			self.seekAdditionSecond(-15)
+			return .success
+		}
+		
+		MPRemoteCommandCenter.shared().playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			self.play()
+			return .success
+		}
+		
+		MPRemoteCommandCenter.shared().pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			self.pause()
+			return .success
+		}
+	}
 	
 	@objc func setBackground() {
         let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.coverUrl)!)

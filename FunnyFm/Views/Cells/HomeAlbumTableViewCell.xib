@@ -42,8 +42,8 @@
                         <color key="textColor" red="0.72549019607843135" green="0.73333333333333328" blue="0.74901960784313726" alpha="0.66067891725352113" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKQ-Bw-xS1">
-                        <rect key="frame" x="340" y="92" width="19" height="26"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKQ-Bw-xS1">
+                        <rect key="frame" x="340" y="91" width="19" height="26"/>
                         <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="22"/>
                         <color key="textColor" red="0.72549019609999998" green="0.73333333329999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -64,6 +64,7 @@
                     <constraint firstItem="eKQ-Bw-xS1" firstAttribute="leading" secondItem="IEv-QG-ewQ" secondAttribute="trailing" constant="38.5" id="Hii-6R-bmj"/>
                     <constraint firstItem="Zj1-Jf-osQ" firstAttribute="leading" secondItem="SRA-sb-TP5" secondAttribute="trailing" constant="18" id="LLO-qw-iTq"/>
                     <constraint firstItem="SRA-sb-TP5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Qx5-VV-pIj"/>
+                    <constraint firstItem="eKQ-Bw-xS1" firstAttribute="bottom" secondItem="IEv-QG-ewQ" secondAttribute="bottom" id="S0c-no-qTv"/>
                     <constraint firstItem="iDd-zJ-gei" firstAttribute="leading" secondItem="Zj1-Jf-osQ" secondAttribute="leading" id="iDf-Km-fWf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Zj1-Jf-osQ" secondAttribute="trailing" constant="23" id="l4Z-vd-vSK"/>
                     <constraint firstItem="IEv-QG-ewQ" firstAttribute="bottom" secondItem="iDd-zJ-gei" secondAttribute="bottom" id="lbu-f9-TYc"/>
