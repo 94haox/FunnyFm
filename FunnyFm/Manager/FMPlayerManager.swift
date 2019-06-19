@@ -67,9 +67,10 @@ class FMPlayerManager: NSObject {
     
     override init() {
         super.init()
+		
 //        NotificationCenter.default.addObserver(self, selector: #selector(setBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reciveRemoteNotification(_:)), name: NSNotification.Name.init("FMREMOTECONTROLNOTIFICATION"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+		self.addRemoteCommand()
     }
     
     deinit {
@@ -77,6 +78,28 @@ class FMPlayerManager: NSObject {
         self.player?.removeTimeObserver(self.timerObserver!)
         NotificationCenter.default.removeObserver(self)
     }
+	
+	func addRemoteCommand() {
+		MPRemoteCommandCenter.shared().skipBackwardCommand.preferredIntervals = [15.0]
+		MPRemoteCommandCenter.shared().skipForwardCommand.preferredIntervals = [15.0]
+		MPRemoteCommandCenter.shared().skipForwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			self.seekAdditionSecond(15)
+			return .success
+		}
+		
+		MPRemoteCommandCenter.shared().skipBackwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			self.seekAdditionSecond(-15)
+			return .success
+		}
+		
+		MPRemoteCommandCenter.shared().playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			return .success
+		}
+		
+		MPRemoteCommandCenter.shared().pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+			return .success
+		}
+	}
 
 }
 
@@ -132,6 +155,14 @@ extension FMPlayerManager {
         })
     }
 	
+	func seekAdditionSecond(_ time: Double){
+		if self.playerItem.isNone {
+			return
+		}
+		let skiptime = (self.player?.currentTime().seconds)! + time
+		self.seekToTime(skiptime)
+	}
+	
 	func seekToTime(_ time:Double) {
 		if self.playerItem.isNone {
 			return;
@@ -147,21 +178,7 @@ extension FMPlayerManager {
 			self.setBackground()
 		})
 	}
-    
-    @objc func reciveRemoteNotification(_ notify:Notification){
-        let userInfo = notify.userInfo
-        if userInfo.isSome {
-            let action = userInfo!["action"]! as! String
-            if action == "0" {
-                self.pause()
-            }
-            
-            if action == "1" {
-                self.play()
-            }
-        }
-    }
-    
+	
     @objc func recivEndNotification(_ notify: Notification){
         self.seekToProgress(0)
         self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
@@ -292,12 +309,14 @@ extension FMPlayerManager {
             }
             return UIImage.init(named: "ImagePlaceHolder")!
         })
+		info[MPNowPlayingInfoPropertyAssetURL] = URL.init(string: self.currentModel!.trackUrl)
 		info[MPMediaItemPropertyPlaybackDuration] = self.totalTime
 		info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
         info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.currentTime
 		info[MPMediaItemPropertySkipCount] = NSNumber.init(value: 15)
 		MPNowPlayingInfoCenter.default().nowPlayingInfo = info
         UIApplication.shared.registerForRemoteNotifications()
+		
 	}
     
     

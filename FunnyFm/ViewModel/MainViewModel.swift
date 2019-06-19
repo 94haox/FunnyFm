@@ -14,7 +14,7 @@ import UIKit
 class MainViewModel: NSObject {
     
     lazy var podlist : [iTunsPod] = {
-       return []
+       return DatabaseManager.allItunsPod()
     }()
     
     lazy var episodeList : [[Episode]] = {

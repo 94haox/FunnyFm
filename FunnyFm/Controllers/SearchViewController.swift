@@ -37,6 +37,7 @@ class SearchViewController: UIViewController {
 		self.tableview.delegate = self
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false
+		self.tableview.keyboardDismissMode = .onDrag
 		self.view.addSubview(self.tableview)
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.bottom.width.equalTo(self.view);
@@ -51,7 +52,10 @@ class SearchViewController: UIViewController {
 extension SearchViewController : ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
 		MSHUD.shared.hide()
-		self.tableview.reloadData();
+		self.tableview.reloadData()
+		DispatchQueue.main.asyncAfter(deadline: .init(uptimeNanoseconds: UInt64(0.2))) {
+			self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+		}
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
@@ -99,6 +103,7 @@ extension SearchViewController : UITextFieldDelegate {
 			self.searchTF.backgroundColor = .white;
 			self.searchTF.addShadow(ofColor: UIColor.init(hex: "#d6d80e", alpha: 0.3), radius: 5, offset: CGSize.init(width: 0, height: 5), opacity: 0.6)
 		}
+		self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
 		return true
 	}
 	

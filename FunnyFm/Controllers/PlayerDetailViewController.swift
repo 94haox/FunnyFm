@@ -194,11 +194,11 @@ extension PlayerDetailViewController {
     }
     
     @objc func rewindAction(){
-        
+        FMPlayerManager.shared.seekAdditionSecond(-15)
     }
     
     @objc func forwardAction(){
-        
+        FMPlayerManager.shared.seekAdditionSecond(15)
     }
     
     @objc func downloadAction(){

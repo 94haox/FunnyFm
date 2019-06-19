@@ -21,7 +21,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     
     var tableview : UITableView!
     
-    var searchBar : FMTextField!
+//    var searchBar : FMTextField!
+	var titileLB: UILabel!
     
     var searchBtn : UIButton!
     
@@ -211,6 +212,9 @@ extension MainViewController{
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? HomePodCollectionViewCell else { return }
         let pod = self.vm.podlist[indexPath.row]
+		if pod.collectionId.length() < 1 {
+			return
+		}
         cell.configCell(pod)
     }
 }
@@ -239,33 +243,31 @@ extension MainViewController {
     fileprivate func addConstrains() {
         self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
-        self.view.addSubview(self.searchBar)
+        self.view.addSubview(self.titileLB)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
         
         self.profileBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 35, height: 35))
-            make.left.equalToSuperview().offset(32)
-            make.centerY.equalTo(self.searchBar)
+            make.right.equalTo(self.searchBtn.snp.left).offset(-5)
+            make.centerY.equalTo(self.titileLB)
         }
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))
-            make.right.equalToSuperview().offset(-32)
-            make.centerY.equalTo(self.searchBar)
+            make.right.equalToSuperview().offset(-16)
+            make.centerY.equalTo(self.titileLB)
         }
         
-        self.searchBar.snp.makeConstraints { (make) in
-            make.height.equalTo(40)
-            make.left.equalTo(self.profileBtn.snp.right).offset(32)
-            make.right.equalTo(self.searchBtn.snp.left).offset(-16)
+        self.titileLB.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view).offset(16)
             make.top.equalTo(self.view.snp.topMargin)
         }
                 
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.searchBar.snp.bottom).offset(32)
+            make.top.equalTo(self.titileLB.snp.bottom).offset(32)
         }
 		
 		self.loadAnimationView.snp.makeConstraints { (make) in
@@ -306,16 +308,10 @@ extension MainViewController {
         self.searchBtn = UIButton.init(type: .custom)
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
-        
-        self.searchBar = FMTextField.init(frame: CGRect.zero)
-        self.searchBar.cornerRadius = 15;
-        self.searchBar.tintColor = CommonColor.mainRed.color
-        self.searchBar.backgroundColor = CommonColor.cellbackgroud.color
-        self.searchBar.returnKeyType = .done
-        self.searchBar.font = pfont(fontsize4)
-        self.searchBar.textColor = CommonColor.title.color
-        self.searchBar.delegate = self.searchBar
-		self.searchBar.attributedPlaceholder = FunnyFm.attributePlaceholder("search")
+		
+		self.titileLB = UILabel.init(text: "最近更新")
+		self.titileLB.font = p_bfont(32)
+		self.titileLB.textColor = CommonColor.subtitle.color
         
         self.profileBtn = UIButton.init(type: .custom)
         self.profileBtn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)
