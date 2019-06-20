@@ -22,8 +22,6 @@ let kHMargin = AdaptScale(14)
 let kVMargin = AdaptScale(12)
 
 
-
-
 // MARK: Device
 
 let kIOS9 = Double(UIDevice.current.systemVersion)! >= 9.0 ? 1 :0
@@ -163,3 +161,9 @@ extension UIColor {
     }
 }
 
+
+
+//MARK:
+
+/// 操作需要登录
+let kNeedLoginAction = "kNeedLoginAction"

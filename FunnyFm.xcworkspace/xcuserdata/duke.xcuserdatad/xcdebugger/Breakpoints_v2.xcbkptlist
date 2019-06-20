@@ -15,5 +15,69 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A607B240-BB77-4F26-8B63-9B4A5DDDF3C1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FunnyFm/Views/Custom/ChapterProgressView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "touchesEnded(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A88C9544-5706-4635-B723-0B4C4053FF1B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FunnyFm/Manager/FeedManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "parserRss(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A88C9544-5706-4635-B723-0B4C4053FF1B - 11e6240c9cd15537"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FunnyFm.FeedManager.parserRss(FunnyFm.iTunsPod, (Swift.Array&lt;FunnyFm.Episode&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duke/FunnyFm/FunnyFm/Manager/FeedManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "668">
+               </Location>
+               <Location
+                  uuid = "A88C9544-5706-4635-B723-0B4C4053FF1B - 3e7ffc9b556e5fb8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FeedKit.Result) -&gt; () in FunnyFm.FeedManager.parserRss(FunnyFm.iTunsPod, (Swift.Array&lt;FunnyFm.Episode&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duke/FunnyFm/FunnyFm/Manager/FeedManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

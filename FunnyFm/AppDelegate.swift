@@ -43,23 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 		
     }
-    
-    override func remoteControlReceived(with event: UIEvent?) {
-        if (event?.type == .remoteControl) {
-            var order = -1
-            switch ((event?.subtype)!) {
-            case .remoteControlPause:
-                order = 0;
-                break;
-            case .remoteControlPlay:
-                order = 1;
-                break;
-            default:
-                break;
-            }
-            NotificationCenter.default.post(name: NSNotification.Name.init("FMREMOTECONTROLNOTIFICATION"), object: nil, userInfo: ["action":String(order)])
-        }
-    }
 	
     func applicationWillTerminate(_ application: UIApplication) {
         NotificationCenter.default.removeObserver(self)

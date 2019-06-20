@@ -68,7 +68,6 @@ class FMPlayerManager: NSObject {
     override init() {
         super.init()
 		
-//        NotificationCenter.default.addObserver(self, selector: #selector(setBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
 		self.addRemoteCommand()
     }
@@ -114,7 +113,7 @@ extension FMPlayerManager {
 			return;
 		}
 		
-//		DatabaseManager.updateProgress(progress: Double(self.currentTime), episodeId: self.currentModel!.episodeId)
+		DatabaseManager.updateProgress(progress: Double(self.currentTime), episodeId: self.currentModel!.title)
 	}
     
     func seekToProgress(_ progress: CGFloat) {

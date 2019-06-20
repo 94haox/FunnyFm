@@ -71,9 +71,6 @@ class DatabaseManager: NSObject {
     /// 查询进度记录
     static public func qureyProgress(episodeId: String) -> Double{
 		return UserDefaults.standard.double(forKey: "Progress_" + episodeId)
-//        let progressList = self.allProgress()
-//        let progress = progressList.filter { $0.episodeId! == episodeId }
-//        return progress.first
     }
     
     /// 删除历史记录
@@ -86,8 +83,6 @@ class DatabaseManager: NSObject {
 	static public func updateProgress(progress: Double, episodeId:String){
 		UserDefaults.standard.set(progress, forKey: "Progress_" + episodeId)
 		UserDefaults.standard.synchronize()
-//		self.delete(chapterId: progress.episodeId!)
-//		try! self.database.insert(objects: progress, intoTable: progressTable)
     }
     
     /// 删除进度记录

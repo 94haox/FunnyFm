@@ -213,6 +213,7 @@ extension PlayerDetailViewController {
 	@objc func likeAction(){
         
         if !UserCenter.shared.isLogin {
+			NotificationCenter.default.post(name: NSNotification.Name.init(kNeedLoginAction), object: nil)
             return
         }
         
