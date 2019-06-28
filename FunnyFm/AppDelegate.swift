@@ -7,10 +7,6 @@
 //
 
 import UIKit
-import AppCenter
-import AppCenterDistribute
-import AppCenterAnalytics
-import AppCenterCrashes
 import SPStorkController
 import OfficeUIFabric
 
@@ -28,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 		FMPlayerManager.shared.delegate = FMToolBar.shared
         configureNavigationTabBar()
 		configureTextfield()
+		configureThridSDK(launchOptions: launchOptions)
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
-        MSAppCenter.start("f9778dd8-1385-462e-a4e1-fa37182cb200", withServices:[MSAnalytics.self,MSCrashes.self])
 		
 		let navi = UINavigationController.init(rootViewController: MainViewController.init())
 		navi.navigationBar.isHidden = true

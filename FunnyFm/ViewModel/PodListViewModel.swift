@@ -25,6 +25,7 @@ class PodListViewModel: BaseViewModel {
     func getAllPods() {
 		self.podlist = DatabaseManager.allItunsPod()
 		self.delegate?.viewModelDidGetDataSuccess()
+		
 //        FmHttp<Pod>().requestForArray(PodAPI.getPodList(), { (podlist) in
 //            if let list = podlist {
 //                self.podlist = list
@@ -43,6 +44,13 @@ class PodListViewModel: BaseViewModel {
 			}
 		}){ msg in
 			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+		}
+	}
+	
+	func registerPod(params: Dictionary<String, String>){
+		FmHttp<Pod>().requestForSingle(PodAPI.registerPod(params), success: { (_) in
+			
+		}) { (_) in
 		}
 	}
     

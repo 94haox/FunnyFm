@@ -65,6 +65,13 @@ class PodPreviewViewController: BaseViewController {
 		self.shinkBtn()
 		SwiftNotice.showText("添加成功，正在抓取所有节目单，请稍候")
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
+		
+		var params = [String: String]()
+		params["track_name"] = self.itunsPod.trackName;
+		params["rss_url"] = self.itunsPod.feedUrl;
+		params["collection_id"] = self.itunsPod.collectionId;
+		params["source_type"] = "iTunes";
+		PodListViewModel.init().registerPod(params: params)
 		FeedManager.shared.parserRss(self.itunsPod, {(_) in
 			DispatchQueue.main.async {
 				self.dismiss(animated: true, completion: nil)

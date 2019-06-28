@@ -95,7 +95,7 @@ extension UserCenterViewController {
         }
         
         if indexPath.row == 3 {
-            let subscribVc = SubscribListController()
+            let subscribVc = PodListViewController()
             self.navigationController?.pushViewController(subscribVc)
         }
         

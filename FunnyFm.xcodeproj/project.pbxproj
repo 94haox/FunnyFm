@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -97,10 +97,13 @@
 		AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB01219564F000260851 /* ConfigurationHelper.swift */; };
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
+		AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB4E145B22C63F8F0053BE00 /* sound.wav */; };
 		AB571D8D22B209E80021236C /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB571D8C22B209E80021236C /* FeedManager.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
+		AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D1B1722C633EA00E9E221 /* NotificationService.swift */; };
+		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA7052122B641000012FD0A /* NetEasyPod.swift */; };
 		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
 		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
@@ -172,6 +175,7 @@
 		ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */; };
 		ABF6DD2321E1A66E0080BE46 /* NeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */; };
 		ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */; };
+		C2AAA04DB06DFC0F128AF81A /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +186,13 @@
 			remoteGlobalIDString = AB091D0E229FCF8800723602;
 			remoteInfo = FunnyFM;
 		};
+		AB6D1B1A22C633EA00E9E221 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB6D1B1422C633E900E9E221;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -191,6 +202,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 				AB091D19229FCF8800723602 /* FunnyFM.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -199,9 +211,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
+		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		AB091D0F229FCF8800723602 /* FunnyFM.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFM.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB091D11229FCF8800723602 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AB091D14229FCF8800723602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -296,10 +311,15 @@
 		AB41AB01219564F000260851 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		AB41AB04219564F000260851 /* CornerAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerAnimatable.swift; sourceTree = "<group>"; };
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtensionRelease.entitlements; sourceTree = "<group>"; };
+		AB4E145B22C63F8F0053BE00 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
+		AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6D1B1722C633EA00E9E221 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		AB6D1B1922C633EA00E9E221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABA7052122B641000012FD0A /* NetEasyPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetEasyPod.swift; sourceTree = "<group>"; };
 		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -412,6 +432,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB6D1B1222C633E900E9E221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2AAA04DB06DFC0F128AF81A /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -419,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */,
+				022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -525,6 +554,7 @@
 			children = (
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
 				AB091D10229FCF8800723602 /* FunnyFM */,
+				AB6D1B1622C633EA00E9E221 /* OneSignalNotificationServiceExtension */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -536,6 +566,7 @@
 			children = (
 				AB25797921945E6F004C5F5D /* FunnyFm.app */,
 				AB091D0F229FCF8800723602 /* FunnyFM.appex */,
+				AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -557,6 +588,7 @@
 				AB1E6DA221BA01C500B85135 /* OC */,
 				AB1E6D4A21B9243000B85135 /* Extension */,
 				AB25798321945E70004C5F5D /* Assets.xcassets */,
+				AB4E145B22C63F8F0053BE00 /* sound.wav */,
 				AB25798521945E70004C5F5D /* LaunchScreen.storyboard */,
 				AB25798821945E70004C5F5D /* Info.plist */,
 				AB41AAF9219564F000260851 /* Helpers */,
@@ -755,6 +787,16 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		AB6D1B1622C633EA00E9E221 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */,
+				AB6D1B1722C633EA00E9E221 /* NotificationService.swift */,
+				AB6D1B1922C633EA00E9E221 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
@@ -900,6 +942,8 @@
 			children = (
 				496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */,
 				66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */,
+				14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -940,11 +984,30 @@
 			);
 			dependencies = (
 				AB091D18229FCF8800723602 /* PBXTargetDependency */,
+				AB6D1B1B22C633EA00E9E221 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
 			productReference = AB25797921945E6F004C5F5D /* FunnyFm.app */;
 			productType = "com.apple.product-type.application";
+		};
+		AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB6D1B1F22C633EA00E9E221 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				144D6788558D6BCE54C11C4E /* [CP] Check Pods Manifest.lock */,
+				AB6D1B1122C633E900E9E221 /* Sources */,
+				AB6D1B1222C633E900E9E221 /* Frameworks */,
+				AB6D1B1322C633E900E9E221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -973,6 +1036,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					AB6D1B1422C633E900E9E221 = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -1026,6 +1092,7 @@
 			targets = (
 				AB25797821945E6F004C5F5D /* FunnyFm */,
 				AB091D0E229FCF8800723602 /* FunnyFM */,
+				AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1059,6 +1126,7 @@
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
+				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */,
 				AB32CF5222B38400007C9E41 /* SearchViewController.xib in Resources */,
@@ -1066,9 +1134,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB6D1B1322C633E900E9E221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		144D6788558D6BCE54C11C4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4C1BB038A9C73B4AC704AFA7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1093,16 +1190,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/AppCenter/AppCenterDistributeResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppCenterDistributeResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1114,51 +1206,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework",
-				"${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework",
-				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/OfficeUIFabric/OfficeUIFabric.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SHFullscreenPopGestureSwift/SHFullscreenPopGestureSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CBFlashyTabBarController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanyModal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OfficeUIFabric.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHFullscreenPopGestureSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqliterk.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1324,6 +1377,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB6D1B1122C633E900E9E221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1331,6 +1392,11 @@
 			isa = PBXTargetDependency;
 			target = AB091D0E229FCF8800723602 /* FunnyFM */;
 			targetProxy = AB091D17229FCF8800723602 /* PBXContainerItemProxy */;
+		};
+		AB6D1B1B22C633EA00E9E221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */;
+			targetProxy = AB6D1B1A22C633EA00E9E221 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1569,6 +1635,51 @@
 			};
 			name = Release;
 		};
+		AB6D1B1D22C633EA00E9E221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB6D1B1E22C633EA00E9E221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtensionRelease.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1595,6 +1706,15 @@
 			buildConfigurations = (
 				AB25798C21945E70004C5F5D /* Debug */,
 				AB25798D21945E70004C5F5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB6D1B1F22C633EA00E9E221 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB6D1B1D22C633EA00E9E221 /* Debug */,
+				AB6D1B1E22C633EA00E9E221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

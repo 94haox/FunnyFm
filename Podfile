@@ -30,10 +30,15 @@ def lib
 		pod 'AppCenter/Distribute'
 		pod 'AppCenter/Push'
 		pod 'FeedKit', '~> 8.0'
+		pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end
 
 
 target "FunnyFm" do
     layout
     lib
+end
+
+target 'OneSignalNotificationServiceExtension' do
+	pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end

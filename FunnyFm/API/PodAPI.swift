@@ -11,21 +11,23 @@ import Moya
 
 
 
-let kGetPodListurl = "v1/podlist"
+let kGetPodListurl = "v1/pod/podlist"
 let kCheckPodSourceUrl = "v1/checkPodSource"
 let kCheckNeteasePodSourceUrl = "v1/netease/podInfo"
 let kAddPodSourceUrl = "v1/addPodSource"
 let kSearchPodUrl = "/search"
+let kRegisterPodUrl = "v1/pod/registerPod"
 
 
 
 let apiProvider = MoyaProvider<PodAPI>()
 
 public enum PodAPI {
-    case getPodList()
+	case getPodList()
 	case checkPodSource(String, String)
 	case addPodSource(String, String, String)
 	case searchPod(String)
+	case registerPod(Dictionary<String, String>)
 }
 
 extension PodAPI : TargetType {
@@ -52,6 +54,12 @@ extension PodAPI : TargetType {
 			params["limit"] = "10"
 			params["media"] = "podcast"
 			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+		case .registerPod(let param):
+			params = param
+			if UserCenter.shared.isLogin {
+				params["user_id"] = UserCenter.shared.userId
+			}
+			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		default:
 			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
 		}
@@ -80,6 +88,8 @@ extension PodAPI : TargetType {
 			return kAddPodSourceUrl
 		case .searchPod(_):
 			return kSearchPodUrl;
+		case .registerPod(_):
+			return kRegisterPodUrl
 		}
     }
     
