@@ -9,7 +9,8 @@
 import UIKit
 import SPStorkController
 import OfficeUIFabric
-
+import AppCenterPush
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -24,20 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 		FMPlayerManager.shared.delegate = FMToolBar.shared
         configureNavigationTabBar()
 		configureTextfield()
-		configureThridSDK(launchOptions: launchOptions)
+		PushManager().configureThridSDK(launchOptions: launchOptions)
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
 		
-		let navi = UINavigationController.init(rootViewController: MainViewController.init())
-		navi.navigationBar.isHidden = true
+		var navi = UINavigationController.init(rootViewController: MainViewController.init())
+		navi.navigationBar.isHidden = true		
 		self.window?.rootViewController = navi
 		self.window?.makeKeyAndVisible()
         return true
-    }
-	
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-		
     }
 	
     func applicationWillTerminate(_ application: UIApplication) {
@@ -99,6 +95,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 
 }
+
+
+// MARK: - 推送设置
+extension AppDelegate {
+	
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		MSPush.didRegisterForRemoteNotifications(withDeviceToken: deviceToken)
+	}
+	
+	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+		MSPush.didFailToRegisterForRemoteNotificationsWithError(error)
+	}
+	
+	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		let result = MSPush.didReceiveRemoteNotification(userInfo)
+		if (result) {
+			completionHandler(UIBackgroundFetchResult.newData);
+		} else {
+			completionHandler(UIBackgroundFetchResult.noData);
+		}
+	}
+	
+}
+
 
 extension AppDelegate : ViewModelDelegate {
 	

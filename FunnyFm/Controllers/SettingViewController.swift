@@ -47,7 +47,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
     
     func toShare(){
-        let textToShare = "FunnyFM"
+        let textToShare = "嘿，我发现了一个好用的播客 APP， 你也来试试吧"
         let imageToShare = UIImage.init(named: "logo-white")
         let urlToShare = NSURL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
         var items = [textToShare,imageToShare!] as [Any]

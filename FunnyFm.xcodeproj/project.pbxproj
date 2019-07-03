@@ -111,6 +111,11 @@
 		ABAFF27221E22E440009A3A2 /* like_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABAFF27121E22E440009A3A2 /* like_button.json */; };
 		ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */; };
 		ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */; };
+		ABDC4D2822CC9AF900EF31C0 /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC4D2722CC9AF900EF31C0 /* PushManager.swift */; };
+		ABDC4D2B22CCAAB700EF31C0 /* EmptyMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2922CCAAB700EF31C0 /* EmptyMainViewController.xib */; };
+		ABDC4D2C22CCAAB700EF31C0 /* EmptyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */; };
+		ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2D22CCD79900EF31C0 /* point_loading.json */; };
+		ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2F22CCD7AB00EF31C0 /* firework.json */; };
 		ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */; };
 		ABE57E2C21EA088A00F90EED /* done_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE57E2B21EA088A00F90EED /* done_button.json */; };
 		ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */; };
@@ -328,6 +333,11 @@
 		ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFillViewController.xib; sourceTree = "<group>"; };
 		ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFillViewController.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
+		ABDC4D2722CC9AF900EF31C0 /* PushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
+		ABDC4D2922CCAAB700EF31C0 /* EmptyMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyMainViewController.xib; sourceTree = "<group>"; };
+		ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMainViewController.swift; sourceTree = "<group>"; };
+		ABDC4D2D22CCD79900EF31C0 /* point_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = point_loading.json; sourceTree = "<group>"; };
+		ABDC4D2F22CCD7AB00EF31C0 /* firework.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework.json; sourceTree = "<group>"; };
 		ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonHUD.swift; sourceTree = "<group>"; };
 		ABE57E2B21EA088A00F90EED /* done_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done_button.json; sourceTree = "<group>"; };
 		ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEpisodeTableViewCell.swift; sourceTree = "<group>"; };
@@ -579,9 +589,9 @@
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
 				AB62C46A21BB92F0008D6BA6 /* Base */,
 				AB41AAE3219532E500260851 /* API */,
-				AB41AADA21952A6400260851 /* Controllers */,
-				AB41AAE6219533E000260851 /* ViewModel */,
 				ABE7ACBB21C22B8700FC6B8E /* Manager */,
+				AB41AAE6219533E000260851 /* ViewModel */,
+				AB41AADA21952A6400260851 /* Controllers */,
 				AB41AADC21952A8A00260851 /* Views */,
 				AB41AADB21952A7C00260851 /* Models */,
 				AB41AAD7219529DB00260851 /* Utils */,
@@ -634,6 +644,8 @@
 				AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */,
 				AB32CF5022B38400007C9E41 /* SearchViewController.xib */,
 				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
+				ABDC4D2922CCAAB700EF31C0 /* EmptyMainViewController.xib */,
+				ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -800,6 +812,8 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				ABDC4D2F22CCD7AB00EF31C0 /* firework.json */,
+				ABDC4D2D22CCD79900EF31C0 /* point_loading.json */,
 				AB28ECAC224E241400C7FE43 /* refresh.json */,
 				ABEF471921EAFD7F00212DCA /* play_state.json */,
 				ABEF471521EAF9DE00212DCA /* cloud_sync.json */,
@@ -838,6 +852,7 @@
 				ABEE40EA21E35EF800FCB16F /* VaildManager.swift */,
 				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 				AB571D8C22B209E80021236C /* FeedManager.swift */,
+				ABDC4D2722CC9AF900EF31C0 /* PushManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1116,7 +1131,9 @@
 				ABEE40CD21E3246E00FCB16F /* MJRefresh.bundle in Resources */,
 				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
+				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
+				ABDC4D2B22CCAAB700EF31C0 /* EmptyMainViewController.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
@@ -1131,6 +1148,7 @@
 				AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */,
 				AB32CF5222B38400007C9E41 /* SearchViewController.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
+				ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1369,11 +1387,13 @@
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,
 				ABEE40D021E3246E00FCB16F /* UIView+MJExtension.m in Sources */,
 				ABEE40CF21E3246E00FCB16F /* NSBundle+MJRefresh.m in Sources */,
+				ABDC4D2822CC9AF900EF31C0 /* PushManager.swift in Sources */,
 				ABE7660621D7196700470D8F /* URLExtensions.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,
 				ABEE40D121E3246E00FCB16F /* MJRefreshBackGifFooter.m in Sources */,
 				ABEF471221E8B6E400212DCA /* User.swift in Sources */,
+				ABDC4D2C22CCAAB700EF31C0 /* EmptyMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

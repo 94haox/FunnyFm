@@ -20,8 +20,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     var collectionView : UICollectionView!
     
     var tableview : UITableView!
-    
-//    var searchBar : FMTextField!
+	
 	var titileLB: UILabel!
     
     var searchBtn : UIButton!
@@ -40,6 +39,11 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.vm.delegate = self
 		FMToolBar.shared.isHidden = true
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
+		if self.vm.podlist.count < 1{
+			let emptyVC = EmptyMainViewController.init()
+			self.navigationController?.pushViewController(emptyVC, animated: false)
+			return
+		}
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +92,7 @@ extension MainViewController{
 extension MainViewController : ViewModelDelegate {
     
     func viewModelDidGetDataSuccess() {
+
 		self.tableview.isHidden = false
 		self.loadAnimationView.removeFromSuperview()
         self.tableview.refreshControl?.endRefreshing()
@@ -321,6 +326,28 @@ extension MainViewController {
 		self.loadAnimationView.loopMode = .loop;
     }
     
+}
+
+
+
+// MARK: - 空页面 UI 布局
+extension MainViewController {
+	
+	func addEmptyViews(){
+		let addBtn = UIButton.init(type: .custom)
+		addBtn.setTitle("自己挖掘", for: .normal)
+		addBtn.setTitleColor(.white, for: .normal)
+		addBtn.backgroundColor = CommonColor.mainRed.color
+		addBtn.cornerRadius = 5.0
+		
+		
+		let loginBtn = UIButton.init(type: .custom)
+		loginBtn.setTitle("同步云端", for: .normal)
+		loginBtn.setTitleColor(.white, for: .normal)
+		loginBtn.backgroundColor = CommonColor.mainRed.color
+		loginBtn.cornerRadius = 5.0
+	}
+	
 }
 
 
