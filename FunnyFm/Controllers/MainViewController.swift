@@ -27,7 +27,13 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     
     var profileBtn : UIButton!
 	
+	var addBtn : UIButton!
+	
+	var emptyView: UIView!
+	
 	var loadAnimationView : AnimationView!
+	
+	var emptyAnimationView : AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +45,13 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.vm.delegate = self
 		FMToolBar.shared.isHidden = true
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
-		if self.vm.podlist.count < 1{
+		self.addEmptyViews()
+		if !UserDefaults.standard.bool(forKey: "isFirst") {
 			let emptyVC = EmptyMainViewController.init()
 			self.navigationController?.pushViewController(emptyVC, animated: false)
-			return
+			UserDefaults.standard.set(true, forKey: "isFirst")
 		}
+		return
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +60,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		FMToolBar.shared.explain()
 		self.vm.getAllPods()
 		self.vm.getHomeChapters()
+		self.emptyAnimationView.play()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -98,14 +107,16 @@ extension MainViewController : ViewModelDelegate {
         self.tableview.refreshControl?.endRefreshing()
         self.collectionView.reloadData()
         self.tableview.reloadData()
-        if self.vm.episodeList.count > 0  && !FMToolBar.shared.isPlaying{
-			guard self.vm.episodeList.count > 0 else {
-				FMToolBar.shared.isHidden = true
-				return
-			}
-			FMToolBar.shared.isHidden = false
-            FMToolBar.shared.configToolBarAtHome(self.vm.episodeList.first!.first!)
-        }
+//        if self.vm.episodeList.count > 0  && !FMToolBar.shared.isPlaying{
+//			guard self.vm.episodeList.count > 0 else {
+//				FMToolBar.shared.isHidden = true
+//				return
+//			}
+//			FMToolBar.shared.isHidden = false
+//        }
+		
+		self.emptyView.isHidden = self.vm.podlist.count > 0
+		
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
@@ -324,6 +335,21 @@ extension MainViewController {
 		
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
+		
+		self.emptyAnimationView = AnimationView(name:"home_empty")
+		self.emptyAnimationView.loopMode = .loop;
+		
+		self.addBtn = UIButton.init(type: .custom)
+		addBtn.setTitle("添加播客", for: .normal)
+		addBtn.setTitleColor(.white, for: .normal)
+		addBtn.backgroundColor = CommonColor.mainRed.color
+		addBtn.cornerRadius = 5.0
+		addBtn.titleLabel?.font = p_bfont(14);
+		addBtn.addTarget(self, action: #selector(toSearch), for: .touchUpInside)
+		
+		self.emptyView = UIView.init()
+		emptyView.backgroundColor = .white
+		emptyView.isHidden = true
     }
     
 }
@@ -334,18 +360,38 @@ extension MainViewController {
 extension MainViewController {
 	
 	func addEmptyViews(){
-		let addBtn = UIButton.init(type: .custom)
-		addBtn.setTitle("自己挖掘", for: .normal)
-		addBtn.setTitleColor(.white, for: .normal)
-		addBtn.backgroundColor = CommonColor.mainRed.color
-		addBtn.cornerRadius = 5.0
+		self.view.addSubview(self.emptyView)
+		self.emptyView.snp.makeConstraints { (make) in
+			make.left.width.bottom.equalToSuperview()
+			make.top.equalTo(self.tableview)
+		}
 		
+		self.emptyView.addSubview(self.emptyAnimationView)
+		self.emptyAnimationView.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.centerY.equalToSuperview().offset(-50)
+			make.size.equalTo(CGSize.init(width: kScreenWidth, height: AdaptScale(150)))
+		}
 		
-		let loginBtn = UIButton.init(type: .custom)
-		loginBtn.setTitle("同步云端", for: .normal)
-		loginBtn.setTitleColor(.white, for: .normal)
-		loginBtn.backgroundColor = CommonColor.mainRed.color
-		loginBtn.cornerRadius = 5.0
+		let label = UILabel.init(text: "快来添加你的第一个播客吧")
+		label.textColor = .lightGray
+		label.font = pfont(14);
+		self.emptyView.addSubview(label)
+		label.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(self.emptyAnimationView.snp.bottom).offset(15)
+		}
+		
+		self.emptyView.addSubview(self.addBtn);
+		self.addBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(label.snp.bottom).offset(40)
+			make.width.equalToSuperview().offset(-40)
+			make.height.equalTo(50)
+		}
+		
+		self.emptyAnimationView.play()
+		
 	}
 	
 }

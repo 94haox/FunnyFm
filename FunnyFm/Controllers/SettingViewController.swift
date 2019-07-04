@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import OneSignal
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 
@@ -23,10 +24,14 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         super.viewDidLoad()
         self.setupUI()
         self.view.backgroundColor = .white
-        self.tableview.backgroundColor = .white
-        self.setUpDataSource()
         self.dw_addsubviews()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.setUpDataSource()
+		self.tableview.reloadData()
+	}
     
     lazy var datasource : Array = {return []}()
 	lazy var settings : Array = {return []}()
@@ -90,6 +95,7 @@ extension SettingViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 		if indexPath.section == 0{
+			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
             UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
 			return
 		}

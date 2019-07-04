@@ -110,7 +110,7 @@ public class FmHttp<T> where T: Mapable{
 					let json = JSON(jsondata)
 					let count = json["resultCount"]
 					if count.intValue < 1 {
-						failure("没有播客")
+						failure("无结果")
 						return
 					}
 					let jsonlist = json["results"].array!

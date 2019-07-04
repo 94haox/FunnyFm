@@ -60,42 +60,47 @@ class MainViewModel: NSObject {
 		}
 
 		DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-
+			let start = Date().timeIntervalSince1970
 			let podList = DatabaseManager.allItunsPod()
 			var episodeList = [Episode]()
 			podList.forEach { (pod) in
 				let list = FeedManager.shared.parserRssSync(pod)
 				episodeList.append(contentsOf: list)
-				print("episode count = \(list.count)")
 			}
 			self.episodeList = self.sortEpisodeToGroup(episodeList)
 			DispatchQueue.main.async {
 				self.delegate?.viewModelDidGetDataSuccess()
 			}
+			print("parse time------", Date().timeIntervalSince1970 - start)
 		}
 		
     }
 	
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
-		
+		let start = Date().timeIntervalSince1970
 		var dateList = [String]()
+		var timeList = [Double]()
 		var sortEpisodeList = [[Episode]]()
 		episodeList.forEach { (episode) in
 			if !dateList.contains(episode.pubDate) {
 				dateList.append(episode.pubDate)
+				timeList.append(episode.pubDateSecond)
 			}
 		}
 		
-		dateList.forEach { (pubDate) in
+		timeList.sort(by: {$0 > $1})
+		timeList.forEach { (pubDateSecond) in
 			var list = [Episode]()
 			episodeList.forEach { (episode) in
-				if episode.pubDate == pubDate {
+				if episode.pubDateSecond == pubDateSecond {
 					list.append(episode)
 				}
 			}
 			sortEpisodeList.append(list)
 		}
+		
+		print("time------", Date().timeIntervalSince1970 - start)
 		return sortEpisodeList
 	}
     

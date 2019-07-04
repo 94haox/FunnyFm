@@ -7,22 +7,12 @@
 //
 
 import UIKit
-import AppCenter
-import AppCenterPush
-import AppCenterAnalytics
-import AppCenterCrashes
 import OneSignal
-import UserNotifications
 
 
 class PushManager: NSObject {
-	var isUserTap = false
 	
-	func configureThridSDK(launchOptions: [UIApplication.LaunchOptionsKey: Any]?){
-		
-		MSAppCenter.start("f9778dd8-1385-462e-a4e1-fa37182cb200", withServices:[MSAnalytics.self,MSCrashes.self,MSPush.self])
-		MSPush.setDelegate(self)
-		UNUserNotificationCenter.current().delegate = self
+	func configurePushSDK(launchOptions: [UIApplication.LaunchOptionsKey: Any]?){
 		
 		let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,kOSSettingsKeyInAppLaunchURL: true]
 		
@@ -57,26 +47,4 @@ class PushManager: NSObject {
 	
 	
 	
-}
-
-
-extension PushManager : MSPushDelegate {
-	
-	func push(_ push: MSPush!, didReceive pushNotification: MSPushNotification!) {
-		self.isUserTap = true
-	}
-	
-}
-
-extension PushManager : UNUserNotificationCenterDelegate {
-	
-	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-		MSPush.didReceiveRemoteNotification(notification.request.content.userInfo)
-		completionHandler(UNNotificationPresentationOptions.badge);
-	}
-	
-	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-		self.isUserTap = true
-		completionHandler()
-	}
 }

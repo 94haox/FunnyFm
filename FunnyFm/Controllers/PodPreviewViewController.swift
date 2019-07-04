@@ -40,7 +40,9 @@ class PodPreviewViewController: BaseViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-		FMToolBar.shared.isHidden = false
+		if FMPlayerManager.shared.currentModel.isSome {
+			FMToolBar.shared.isHidden = false
+		}
 	}
 	
 	func configWithPod(pod :Pod){
@@ -58,14 +60,14 @@ class PodPreviewViewController: BaseViewController {
 //		self.authorLB.text = pod.author
 //		self.desLB.text = pod.des
 		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
-		self.sourceLB.text = "来自：" + "iTuns";
+		self.sourceLB.text = "来自：" + "iTunes";
 	}
 	
 	@objc func addPodToLibary(){
 		self.shinkBtn()
-		SwiftNotice.showText("添加成功，正在抓取所有节目单，请稍候")
+		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候")
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
-		
+		NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
 		var params = [String: String]()
 		params["track_name"] = self.itunsPod.trackName;
 		params["rss_url"] = self.itunsPod.feedUrl;
@@ -74,6 +76,7 @@ class PodPreviewViewController: BaseViewController {
 		PodListViewModel.init().registerPod(params: params)
 		FeedManager.shared.parserRss(self.itunsPod, {(_) in
 			DispatchQueue.main.async {
+				HorizonHUD.showSuccess("获取成功")
 				self.dismiss(animated: true, completion: nil)
 			}
 		})

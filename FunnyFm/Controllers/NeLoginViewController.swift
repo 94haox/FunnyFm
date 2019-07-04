@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class NeLoginViewController: BaseViewController, ViewModelDelegate {
 
@@ -17,6 +18,12 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
     @IBOutlet weak var nextImageView: UIImageView!
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
+	
+	var emptyAnimationView : AnimationView = {
+		let view = AnimationView.init(name: "login_anim")
+		view.loopMode = .loop
+		return view
+	}()
     
     var isLoading = false
     
@@ -32,9 +39,17 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
         self.setupUI()
         self.dw_addSubviews()
         self.viewModel.delegate = self;
-
-        // Do any additional setup after loading the view.
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.navigationController?.navigationBar.isHidden = true
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		self.emptyAnimationView.play()
+	}
 
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController()
@@ -137,6 +152,13 @@ extension NeLoginViewController {
         self.loginBtn.snp.makeConstraints { (make) in
             make.top.equalTo(self.passTF.snp.bottom).offset(AdaptScale(40))
         }
+		
+		self.view.addSubview(self.emptyAnimationView)
+		self.emptyAnimationView.snp.makeConstraints { (make) in
+			make.bottom.equalTo(self.tipLB.snp.top).offset(-AdaptScale(10))
+			make.size.equalTo(CGSize.init(width: AdaptScale(200), height: AdaptScale(200)))
+			make.right.equalToSuperview()
+		}
         
         
     }

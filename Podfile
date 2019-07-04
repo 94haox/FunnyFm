@@ -26,9 +26,7 @@ def lib
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'
-    pod 'AppCenter'
-		pod 'AppCenter/Distribute'
-		pod 'AppCenter/Push'
+		pod 'AppCenter'
 		pod 'FeedKit', '~> 8.0'
 		pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end

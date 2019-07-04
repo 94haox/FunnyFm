@@ -28,6 +28,9 @@ class FeedManager: NSObject {
 				}
 				var list = [Episode]()
 				result.rssFeed!.items!.forEach { (feedItem) in
+					guard feedItem.iTunes.isSome else{
+						return
+					}
 					var episode = Episode.init(feedItem: feedItem)
 					episode.collectionId = itunsPod.collectionId;
 					episode.author = itunsPod.trackName
@@ -54,12 +57,17 @@ class FeedManager: NSObject {
 			}
 			var list = [Episode]()
 			result.rssFeed!.items!.forEach { (feedItem) in
+				guard feedItem.iTunes.isSome else{
+					return
+				}
 				var episode = Episode.init(feedItem: feedItem)
 				episode.collectionId = itunsPod.collectionId;
-				episode.author = itunsPod.trackName
 				episode.podCoverUrl = itunsPod.artworkUrl600
 				if episode.coverUrl.length() < 1 {
 					episode.coverUrl = itunsPod.artworkUrl600
+				}
+				if episode.author.length() < 1 {
+					episode.author = itunsPod.trackName
 				}
 				DatabaseManager.addEpisode(episode: episode);
 				list.append(episode)

@@ -166,4 +166,6 @@ extension UIColor {
 //MARK:
 
 /// 操作需要登录
-let kNeedLoginAction = "kNeedLoginAction"
+let kNeedLoginAction = "NeedLoginAction"
+
+let kSetupNotification = "setupNotification"

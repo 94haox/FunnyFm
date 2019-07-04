@@ -9,12 +9,13 @@
 import UIKit
 import OfficeUIFabric
 import SPStorkController
+import Lottie
 
 class SearchViewController: UIViewController {
 
 	@IBOutlet weak var searchTF: UITextField!
 	
-	var tableview : UITableView!;
+	var tableview : UITableView!
 	
 	let vm : PodListViewModel = {
 		return PodListViewModel.init()
@@ -26,6 +27,10 @@ class SearchViewController: UIViewController {
 		self.searchTF.delegate = self;
 		self.vm.delegate = self;
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+	}
 	
 	func dw_addSubviews(){
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -44,6 +49,8 @@ class SearchViewController: UIViewController {
 			make.top.equalTo(self.searchTF.snp.bottom).offset(16);
 		}
 		self.searchTF.attributedPlaceholder = FunnyFm.attributePlaceholder("搜索播客")
+		self.searchTF.font = p_bfont(14)
+		self.searchTF.textColor = CommonColor.title.color
 	}
 
 }

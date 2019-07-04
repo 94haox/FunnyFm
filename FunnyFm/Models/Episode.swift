@@ -27,14 +27,18 @@ struct Episode : TableCodable{
 	
 	init(feedItem: RSSFeedItem) {
 		title = feedItem.title!
-		duration = feedItem.iTunes!.iTunesDuration!
+		if feedItem.iTunes!.iTunesDuration.isSome {
+			duration = feedItem.iTunes!.iTunesDuration!
+		}else{
+			duration = 0;
+		}
 		intro = feedItem.description!
 		pubDate = feedItem.pubDate!.dateString()
 		pubDateSecond = feedItem.pubDate!.secondsSince(Date.init(timeIntervalSince1970: 0));
 		download_filpath = ""
 		trackUrl = feedItem.enclosure!.attributes!.url!
-		if feedItem.author.isSome {
-			author = feedItem.author!
+		if feedItem.iTunes!.iTunesAuthor.isSome {
+			author = feedItem.iTunes!.iTunesAuthor!
 		}else{
 			author = ""
 		}

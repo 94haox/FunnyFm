@@ -12,9 +12,6 @@ class FunnyFm: NSObject {
     
     static let baseurl = "https://api.funnyfm.top/api/"
 //	static let baseurl = "http://127.0.0.1:7002/api/"
-	
-    static let jpushAppKey = "96982e6dbcb84da30216bdb1"
-
 //    static let baseurl = "http://127.0.0.1:7001/api/"
 	
 	static func attributePlaceholder(_ placeHolder:String)-> NSAttributedString{

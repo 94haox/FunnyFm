@@ -25,6 +25,8 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 	
 	var likeAniView: AnimationView!
 	
+	var swipeAniView: AnimationView!
+	
     var rateBtn: UIButton!
     
     var downBtn: UIButton!
@@ -71,6 +73,10 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 //                self.likeBtn.isHidden = true;
 //            }
 //        }
+		if !UserDefaults.standard.bool(forKey: "isFristSwip") {
+			self.swipeAniView.play()
+			UserDefaults.standard.set(true, forKey: "isFristSwip")
+		}
 		
 		if DatabaseManager.qureyDownload(title: self.episode.title).isSome {
 			self.downBtn.isSelected = true
@@ -175,6 +181,7 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
         if scrollView.contentOffset.x < -60 {
             let episodeDetailVC = EpisodeDetailViewController()
             episodeDetailVC.episode = self.episode
+			self.swipeAniView.removeSubviews()
             self.navigationController?.pushViewController(episodeDetailVC)
         }
     }
@@ -213,7 +220,7 @@ extension PlayerDetailViewController {
 	@objc func likeAction(){
         
         if !UserCenter.shared.isLogin {
-			NotificationCenter.default.post(name: NSNotification.Name.init(kNeedLoginAction), object: nil)
+			self.navigationController?.pushViewController(NeLoginViewController.init())
             return
         }
         
@@ -426,6 +433,12 @@ extension PlayerDetailViewController {
 			make.center.equalTo(self.likeBtn)
 			make.size.equalTo(self.likeBtn).multipliedBy(2)
 		}
+		
+		self.swipeAniView.snp.makeConstraints { (make) in
+			make.center.equalTo(self.coverImageView)
+			make.width.equalToSuperview()
+			make.height.equalTo(self.coverImageView)
+		}
         
     }
     
@@ -544,7 +557,9 @@ extension PlayerDetailViewController {
         self.forwardBtn.addTarget(self, action: #selector(forwardAction), for: .touchUpInside)
         self.view.addSubview(self.forwardBtn)
         
-        
+        self.swipeAniView = AnimationView.init(name: "swip_guid")
+		self.swipeAniView.loopMode = .loop
+		self.infoScrollView.addSubview(self.swipeAniView)
 
     }
 

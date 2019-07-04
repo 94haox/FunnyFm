@@ -88,10 +88,12 @@ extension FMToolBar {
         self.loadingView.isHidden = isCanPlay
         self.playBtn.isHidden = !isCanPlay
 		if isCanPlay{
-            if (self.isPlaying || !FMPlayerManager.shared.isFirst){
-                self.playBtn.isSelected = true
-                FMPlayerManager.shared.play()
-            }
+//            if (self.isPlaying || !FMPlayerManager.shared.isFirst){
+//                self.playBtn.isSelected = true
+//                FMPlayerManager.shared.play()
+//            }
+			self.playBtn.isSelected = true
+			FMPlayerManager.shared.play()
             self.progressLine.changeProgress(progress: 0, current: "00:00:00", total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
 		}
     }
@@ -135,7 +137,7 @@ extension FMToolBar{
                 SwiftNotice.noticeOnStatusBar("正在播放", autoClear: true, autoClearTime: 2)
                 return
             }
-//            DatabaseManager.add(history: .init(with: chapter))
+            DatabaseManager.add(history: chapter)
             self.currentEpisode = chapter
         }
         

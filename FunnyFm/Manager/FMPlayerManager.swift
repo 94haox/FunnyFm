@@ -105,7 +105,6 @@ extension FMPlayerManager {
         self.player?.pause()
         self.delegate?.playerDidPause()
 		self.playerDelegate?.playerDidPause()
-		self.updateProgress()
     }
 	
 	func updateProgress() {
@@ -209,8 +208,10 @@ extension FMPlayerManager{
                 self.totalTime = NSInteger((self.playerItem?.duration.seconds)!)
                 self.delegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
 				self.playerDelegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
+				self.updateProgress()
             }else{
                 self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: 0)
+				self.updateProgress()
             }
             self.setBackground()
         })
@@ -242,7 +243,7 @@ extension FMPlayerManager {
         self.setBackground()
 		var url = URL.init(string: chapter.trackUrl);
 		var item : AVPlayerItem;
-		if let episode = DatabaseManager.qurey(title: chapter.title) {
+		if let episode = DatabaseManager.qureyDownload(title: chapter.title) {
 			url = self.completePath(episode)
 			let asset = AVAsset.init(url: url!)
 			item = AVPlayerItem.init(asset: asset)

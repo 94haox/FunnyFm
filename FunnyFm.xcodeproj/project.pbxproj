@@ -99,6 +99,12 @@
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
 		AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB4E145B22C63F8F0053BE00 /* sound.wav */; };
 		AB571D8D22B209E80021236C /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB571D8C22B209E80021236C /* FeedManager.swift */; };
+		AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2822CDDF9200BABEF2 /* firework_2.json */; };
+		AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2A22CDE16A00BABEF2 /* boom.json */; };
+		AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2C22CDE5C200BABEF2 /* home_empty.json */; };
+		AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2E22CDE5E500BABEF2 /* search_empty.json */; };
+		AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE3022CDF1D600BABEF2 /* login_anim.json */; };
+		AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
@@ -319,6 +325,13 @@
 		AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtensionRelease.entitlements; sourceTree = "<group>"; };
 		AB4E145B22C63F8F0053BE00 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
+		AB57FE2822CDDF9200BABEF2 /* firework_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework_2.json; sourceTree = "<group>"; };
+		AB57FE2A22CDE16A00BABEF2 /* boom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = boom.json; sourceTree = "<group>"; };
+		AB57FE2C22CDE5C200BABEF2 /* home_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home_empty.json; sourceTree = "<group>"; };
+		AB57FE2E22CDE5E500BABEF2 /* search_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_empty.json; sourceTree = "<group>"; };
+		AB57FE3022CDF1D600BABEF2 /* login_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_anim.json; sourceTree = "<group>"; };
+		AB57FE3222CDFBB800BABEF2 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swip_guid.json; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
@@ -802,6 +815,7 @@
 		AB6D1B1622C633EA00E9E221 /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				AB57FE3222CDFBB800BABEF2 /* OneSignalNotificationServiceExtension.entitlements */,
 				AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */,
 				AB6D1B1722C633EA00E9E221 /* NotificationService.swift */,
 				AB6D1B1922C633EA00E9E221 /* Info.plist */,
@@ -812,6 +826,9 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */,
+				AB57FE2A22CDE16A00BABEF2 /* boom.json */,
+				AB57FE2822CDDF9200BABEF2 /* firework_2.json */,
 				ABDC4D2F22CCD7AB00EF31C0 /* firework.json */,
 				ABDC4D2D22CCD79900EF31C0 /* point_loading.json */,
 				AB28ECAC224E241400C7FE43 /* refresh.json */,
@@ -819,6 +836,9 @@
 				ABEF471521EAF9DE00212DCA /* cloud_sync.json */,
 				ABAFF27121E22E440009A3A2 /* like_button.json */,
 				ABE57E2B21EA088A00F90EED /* done_button.json */,
+				AB57FE2C22CDE5C200BABEF2 /* home_empty.json */,
+				AB57FE2E22CDE5E500BABEF2 /* search_empty.json */,
+				AB57FE3022CDF1D600BABEF2 /* login_anim.json */,
 			);
 			path = Lotties;
 			sourceTree = "<group>";
@@ -1054,6 +1074,11 @@
 					};
 					AB6D1B1422C633E900E9E221 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -1129,14 +1154,20 @@
 				ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */,
 				ABF6DD2321E1A66E0080BE46 /* NeLoginViewController.xib in Resources */,
 				ABEE40CD21E3246E00FCB16F /* MJRefresh.bundle in Resources */,
+				AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */,
+				AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */,
+				AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */,
 				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
+				AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
+				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
 				ABDC4D2B22CCAAB700EF31C0 /* EmptyMainViewController.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
+				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
@@ -1681,7 +1712,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtensionRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
