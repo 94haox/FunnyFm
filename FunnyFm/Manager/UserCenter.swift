@@ -27,7 +27,6 @@ class UserCenter: NSObject {
     }
     
     var isLogin : Bool {
-//        return UserDefaults.standard.bool(forKey: "isLogin")
         set {
             UserDefaults.standard.set(newValue, forKey: "isLogin")
             UserDefaults.standard.synchronize()

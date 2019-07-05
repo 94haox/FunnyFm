@@ -26,6 +26,7 @@ class SearchViewController: UIViewController {
 		self.dw_addSubviews()
 		self.searchTF.delegate = self;
 		self.vm.delegate = self;
+//		self.dw_addTouchEndEdit()
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

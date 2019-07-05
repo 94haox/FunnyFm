@@ -59,7 +59,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
 		self.vm.getAllPods()
-		self.vm.getHomeChapters()
 		self.emptyAnimationView.play()
 	}
 	

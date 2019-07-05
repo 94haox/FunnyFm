@@ -73,6 +73,7 @@ class PodPreviewViewController: BaseViewController {
 		params["rss_url"] = self.itunsPod.feedUrl;
 		params["collection_id"] = self.itunsPod.collectionId;
 		params["source_type"] = "iTunes";
+		params["artwork_url"] = self.itunsPod.artworkUrl600
 		PodListViewModel.init().registerPod(params: params)
 		FeedManager.shared.parserRss(self.itunsPod, {(_) in
 			DispatchQueue.main.async {

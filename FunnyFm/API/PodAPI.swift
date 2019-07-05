@@ -23,7 +23,7 @@ let kRegisterPodUrl = "v1/pod/registerPod"
 let apiProvider = MoyaProvider<PodAPI>()
 
 public enum PodAPI {
-	case getPodList()
+	case getPodList
 	case checkPodSource(String, String)
 	case addPodSource(String, String, String)
 	case searchPod(String)
@@ -60,6 +60,9 @@ extension PodAPI : TargetType {
 				params["user_id"] = UserCenter.shared.userId
 			}
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+		case .getPodList:
+			params["user_id"] = UserCenter.shared.userId
+			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		default:
 			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
 		}
@@ -77,7 +80,7 @@ extension PodAPI : TargetType {
     
     public var path: String {
         switch self {
-        case .getPodList():
+        case .getPodList:
             return kGetPodListurl
 		case .checkPodSource(_ ,let source):
 			if source == "netease" {
@@ -95,8 +98,7 @@ extension PodAPI : TargetType {
     
     public var method: Moya.Method {
         switch self {
-		case .getPodList(),
-			 .searchPod(_):
+		case .searchPod(_):
             return .get
         default:
             return .post

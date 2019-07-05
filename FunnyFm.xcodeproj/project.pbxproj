@@ -105,6 +105,9 @@
 		AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2E22CDE5E500BABEF2 /* search_empty.json */; };
 		AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE3022CDF1D600BABEF2 /* login_anim.json */; };
 		AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */; };
+		AB57FE3822CEE2AC00BABEF2 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57FE3722CEE2AC00BABEF2 /* ViewControllerExtension.swift */; };
+		AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE3A22CEE63400BABEF2 /* normal_empty.json */; };
+		AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57FE3C22CF346900BABEF2 /* Favor.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
@@ -332,6 +335,9 @@
 		AB57FE3022CDF1D600BABEF2 /* login_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_anim.json; sourceTree = "<group>"; };
 		AB57FE3222CDFBB800BABEF2 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swip_guid.json; sourceTree = "<group>"; };
+		AB57FE3722CEE2AC00BABEF2 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		AB57FE3A22CEE63400BABEF2 /* normal_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = normal_empty.json; sourceTree = "<group>"; };
+		AB57FE3C22CF346900BABEF2 /* Favor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favor.swift; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
@@ -498,6 +504,7 @@
 		AB1E6D4D21B9252500B85135 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				AB57FE3722CEE2AC00BABEF2 /* ViewControllerExtension.swift */,
 				AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */,
 				AB1E6D4F21B9252500B85135 /* UITableViewExtensions.swift */,
 				AB1E6D5021B9252500B85135 /* UIEdgeInsetsExtensions.swift */,
@@ -672,6 +679,7 @@
 				ABEF471121E8B6E400212DCA /* User.swift */,
 				AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */,
 				ABA7052122B641000012FD0A /* NetEasyPod.swift */,
+				AB57FE3C22CF346900BABEF2 /* Favor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -826,6 +834,7 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				AB57FE3A22CEE63400BABEF2 /* normal_empty.json */,
 				AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */,
 				AB57FE2A22CDE16A00BABEF2 /* boom.json */,
 				AB57FE2822CDDF9200BABEF2 /* firework_2.json */,
@@ -1165,6 +1174,7 @@
 				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
 				ABDC4D2B22CCAAB700EF31C0 /* EmptyMainViewController.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
+				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
@@ -1335,6 +1345,7 @@
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
 				AB1E6D7F21B9252500B85135 /* UISliderExtensions.swift in Sources */,
 				ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */,
+				AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */,
 				ABEE40DA21E3246E00FCB16F /* MJRefreshFooter.m in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				ABEE40E721E35C3800FCB16F /* UserAPI.swift in Sources */,
@@ -1400,6 +1411,7 @@
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
 				ABE7660721D7196700470D8F /* LocaleExtensions.swift in Sources */,
 				ABE7ACAE21C20E1400FC6B8E /* SubscribListController.swift in Sources */,
+				AB57FE3822CEE2AC00BABEF2 /* ViewControllerExtension.swift in Sources */,
 				AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */,
 				ABEE40D621E3246E00FCB16F /* MJRefreshAutoNormalFooter.m in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,

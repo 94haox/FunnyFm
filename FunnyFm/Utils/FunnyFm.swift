@@ -9,10 +9,12 @@
 import UIKit
 
 class FunnyFm: NSObject {
-    
-    static let baseurl = "https://api.funnyfm.top/api/"
+	#if targetEnvironment(simulator)
+	static let baseurl = "http://127.0.0.1:7001/api/"
+	#else
+	static let baseurl = "https://api.funnyfm.top/api/"
+	#endif
 //	static let baseurl = "http://127.0.0.1:7002/api/"
-//    static let baseurl = "http://127.0.0.1:7001/api/"
 	
 	static func attributePlaceholder(_ placeHolder:String)-> NSAttributedString{
 		let attr = NSAttributedString.init(string: placeHolder, attributes: [NSAttributedString.Key.font : pfont(12),NSAttributedString.Key.foregroundColor:CommonColor.content.color])

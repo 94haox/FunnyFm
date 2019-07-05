@@ -11,10 +11,18 @@ import UIKit
 
 class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
+	var logoutBtn: UIButton!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dw_addSubviews()
     }
+	
+	@objc func toLogoutAction(){
+		UserCenter.shared.isLogin = false
+		HorizonHUD.showSuccess("退出成功")
+		self.navigationController?.popViewController()
+	}
     
     func dw_addSubviews(){
         
@@ -29,6 +37,22 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
             make.top.equalTo(self.titleLB.snp.bottom).offset(50)
             make.left.width.bottom.equalToSuperview()
         }
+		
+		self.logoutBtn = UIButton.init(type: .custom)
+		logoutBtn.setTitle("退出登录", for: .normal)
+		logoutBtn.setTitleColor(.white, for: .normal)
+		logoutBtn.backgroundColor = CommonColor.mainRed.color
+		logoutBtn.cornerRadius = 5.0
+		logoutBtn.titleLabel?.font = p_bfont(14);
+		logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
+		self.view.addSubview(self.logoutBtn)
+		self.logoutBtn.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalToSuperview().offset(-40)
+			make.width.equalToSuperview().offset(-40)
+			make.height.equalTo(50)
+		}
+		
         
         self.view.backgroundColor = CommonColor.background.color
 
@@ -57,7 +81,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     }()
     
     var datasource: Array<[String:String]> = [["title":"近期收听","subtitle":"","imageName":"lishijilu"],
-                                           ["title":"我的收藏","subtitle":"","imageName":"mark"],
+//                                           ["title":"我的收藏","subtitle":"","imageName":"mark"],
                                            ["title":"我的下载","subtitle":"","imageName":"download"],
                                            ["title":"我的订阅","subtitle":"","imageName":"handbag"],
                                            ["title":"设置","subtitle":"","imageName":"setting"],
@@ -84,22 +108,22 @@ extension UserCenterViewController {
             self.navigationController?.pushViewController(historyVc)
         }
         
+//        if indexPath.row == 1 {
+//            let favorVc = FavouriteListController()
+//            self.navigationController?.pushViewController(favorVc)
+//        }
+		
         if indexPath.row == 1 {
-            let favorVc = FavouriteListController()
-            self.navigationController?.pushViewController(favorVc)
-        }
-        
-        if indexPath.row == 2 {
             let downloadVc = DownloadListController()
             self.navigationController?.pushViewController(downloadVc)
         }
         
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
             let subscribVc = PodListViewController()
             self.navigationController?.pushViewController(subscribVc)
         }
         
-        if indexPath.row == 4 {
+        if indexPath.row == 3 {
             let setvc = SettingViewController()
             self.navigationController?.pushViewController(setvc)
         }

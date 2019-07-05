@@ -32,9 +32,7 @@ class RegisterViewController: BaseViewController, ViewModelDelegate {
         self.dw_addSubviews()
         self.loadingView.isHidden = true
         self.viewModel.delegate = self
-        
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(endEidted))
-        self.view.addGestureRecognizer(tap)
+        self.dw_addTouchEndEdit()
     }
 
     @IBAction func registerAction(_ sender: Any) {
@@ -66,11 +64,7 @@ class RegisterViewController: BaseViewController, ViewModelDelegate {
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController()
     }
-    
-    @objc func endEidted(){
-        self.view.endEditing(true)
-    }
-    
+	
     func showLoading() {
         self.isLoading = true
         self.loadingView.isHidden = false

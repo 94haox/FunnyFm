@@ -29,21 +29,27 @@ class MainViewModel: NSObject {
     
     func refresh() {
         self.getAllPods()
-        self.getHomeChapters()
     }
     
     func getAllPods() {
 		if UserCenter.shared.isLogin {
-			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList(), { (podlist) in
-				if let list = podlist {
-					self.podlist = list
-					self.delegate?.viewModelDidGetDataSuccess()
+			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList, { (cloudPodlist) in
+				if let list = cloudPodlist {
+					list.forEach({ (pod) in
+						DatabaseManager.addItunsPod(pod: pod)
+					})
 				}
+				self.podlist = DatabaseManager.allItunsPod()
+				self.getHomeChapters()
+				self.delegate?.viewModelDidGetDataSuccess()
 			}){ msg in
+				self.podlist = DatabaseManager.allItunsPod()
+				self.getHomeChapters()
 				self.delegate?.viewModelDidGetDataFailture(msg: msg)
 			}
 		}else{
 			self.podlist = DatabaseManager.allItunsPod()
+			self.getHomeChapters()
 			DispatchQueue.main.async {
 				self.delegate?.viewModelDidGetDataSuccess()
 			}

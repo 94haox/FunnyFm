@@ -9,7 +9,7 @@
 import UIKit
 
 class UserViewModel: BaseViewModel {
-    
+	
     func addFavour(_ episodeId: String){
         FmHttp<User>().requestForSingle(UserAPI.addFavour(episodeId), success: { (_) in
             self.delegate?.viewModelDidGetDataSuccess()
@@ -41,6 +41,14 @@ class UserViewModel: BaseViewModel {
             self.delegate?.viewModelDidGetDataFailture(msg: msg)
         }
     }
+	
+	func getUserAllFavors(){
+		FmHttp<Favor>().requestForArray(UserAPI.getFavourList, { (favorList) in
+			self.delegate?.viewModelDidGetDataSuccess()
+		}) { (msg) in
+			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+		}
+	}
 
     
 }

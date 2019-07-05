@@ -31,8 +31,8 @@ public enum UserAPI {
     case disFavour(String)
     case addSubscribe(String)
     case disSubscribe(String)
-    case getFavourList(String)
-    case getSubscribeList(String)
+    case getFavourList
+    case getSubscribeList
 }
 
 extension UserAPI : TargetType {
@@ -54,8 +54,8 @@ extension UserAPI : TargetType {
             params["user_id"] = UserCenter.shared.userId
             params["pod_id"] = podId
             break
-        case .getFavourList(let userId),.getSubscribeList(let userId):
-            params["user_id"] = userId
+        case .getFavourList,.getSubscribeList:
+            params["user_id"] = UserCenter.shared.userId
             break
         }
         return .requestParameters(parameters: params, encoding: JSONEncoding.default)
@@ -80,9 +80,9 @@ extension UserAPI : TargetType {
             return kAddSubscribe
         case .disSubscribe(_):
             return kDisSubscribe
-        case .getFavourList(_):
+        case .getFavourList:
             return kFavourList
-        case .getSubscribeList(_):
+        case .getSubscribeList:
             return kSubscribeList
         }
         

@@ -39,6 +39,7 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
         self.setupUI()
         self.dw_addSubviews()
         self.viewModel.delegate = self;
+		self.dw_addTouchEndEdit()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -88,10 +89,6 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
     
     @IBAction func registerAction(_ sender: Any) {
         self.navigationController?.pushViewController(RegisterViewController())
-    }
-    
-    @objc func endEidted(){
-        self.view.endEditing(true)
     }
     
     func showLoading() {
@@ -164,10 +161,7 @@ extension NeLoginViewController {
     }
     
     func setupUI() {
-        
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(endEidted))
-        self.view.addGestureRecognizer(tap)
-        
+                
         self.mailTF = FMTextField.init(frame: CGRect.zero)
         self.mailTF.cornerRadius = 15;
         self.mailTF.tintColor = CommonColor.mainRed.color

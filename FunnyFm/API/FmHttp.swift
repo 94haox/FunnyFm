@@ -45,8 +45,8 @@ public class FmHttp<T> where T: Mapable{
                 do{
                     let jsondata = try response.mapJSON()
                     let json = JSON(jsondata)
-                    let code = json["data"]["code"]
-                    if code.intValue != 0 {
+                    let code = json["code"].intValue
+                    if code != 0 {
                         failure(json["message"].string)
                         return
                     }

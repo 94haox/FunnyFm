@@ -228,10 +228,10 @@ extension PlayerDetailViewController {
 			self.likeAniView.play(fromProgress: 1, toProgress: 0) {[unowned self] (isEnd) in
 				self.likeBtn.isHidden = false
 			}
-//            self.viewModel.deleteFavour(self.chapter.episodeId)
+            self.viewModel.deleteFavour(self.episode.trackUrl)
 			return
 		}
-//        self.viewModel.addFavour(self.chapter.episodeId)
+        self.viewModel.addFavour(self.episode.trackUrl)
 		self.likeBtn.isHidden = true
 		self.likeAniView.play()
 

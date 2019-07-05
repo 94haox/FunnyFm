@@ -84,7 +84,10 @@ struct Episode : TableCodable{
 		case collectionId
         case download_filpath
     }
-    
+	
+	func isFavor(trackUrl:String) -> Bool{
+		return self.trackUrl == trackUrl
+	}
     
 }
 
