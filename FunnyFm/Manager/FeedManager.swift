@@ -46,7 +46,8 @@ class FeedManager: NSObject {
 		}
 	}
 	
-	public func parserRssSync(_ itunsPod:iTunsPod) -> [Episode] {
+	public func
+		parserRssSync(_ itunsPod:iTunsPod) -> [Episode] {
 		
 		let feedURL = URL(string: itunsPod.feedUrl)!
 		let parser = FeedParser(URL: feedURL)
@@ -56,6 +57,19 @@ class FeedManager: NSObject {
 				return []
 			}
 			var list = [Episode]()
+			var pod = itunsPod
+			
+			if result.rssFeed!.iTunes!.iTunesAuthor.isSome && pod.podAuthor.length() < 1{
+				pod.podAuthor = result.rssFeed!.iTunes!.iTunesAuthor!
+				DatabaseManager.addItunsPod(pod: pod)
+			}
+			
+			if result.rssFeed!.copyright.isSome && pod.copyRight.length() < 1{
+				pod.copyRight = result.rssFeed!.copyright!
+				DatabaseManager.addItunsPod(pod: pod)
+			}
+			
+			
 			result.rssFeed!.items!.forEach { (feedItem) in
 				guard feedItem.iTunes.isSome else{
 					return

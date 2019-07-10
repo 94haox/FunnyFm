@@ -11,6 +11,7 @@ import SnapKit
 import Kingfisher
 import NVActivityIndicatorView
 import OfficeUIFabric
+import CleanyModal
 
 class PodPreviewViewController: BaseViewController {
 	
@@ -63,11 +64,26 @@ class PodPreviewViewController: BaseViewController {
 		self.sourceLB.text = "来自：" + "iTunes";
 	}
 	
+	func setupNotification() {
+		let alertConfig = CleanyAlertConfig(
+			title: "Hei Bro.",
+			message: "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦")
+		let alert = AlertViewController.init(config: alertConfig)
+		
+		alert.addAction(title: "去设置", style: .default) { (action) in
+			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
+		}
+		alert.addAction(title: "不，我不需要", style: .cancel)
+		
+		present(alert, animated: true, completion: nil)
+
+	}
+	
 	@objc func addPodToLibary(){
 		self.shinkBtn()
 		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候")
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
-		NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
+		self.setupNotification()
 		var params = [String: String]()
 		params["track_name"] = self.itunsPod.trackName;
 		params["rss_url"] = self.itunsPod.feedUrl;
@@ -81,12 +97,6 @@ class PodPreviewViewController: BaseViewController {
 				self.dismiss(animated: true, completion: nil)
 			}
 		})
-//		if self.itunsPod.isSome {
-//			GlobalViewModel.shared.addItunesPod(podId: String(self.itunsPod.collectionId), feedUrl: self.itunsPod.feedUrl, sourceType: "iTuns")
-//		}else{
-//			GlobalViewModel.shared.addItunesPod(podId: String(self.pod.albumId), feedUrl: self.pod.sourceUrl, sourceType: self.pod.sourceType)
-//		}
-//		GlobalViewModel.shared.delegate = self;
 	}
 	
 	func shinkBtn() {

@@ -42,7 +42,10 @@ class FMPlayerManager: NSObject {
     
     /// 资源是否成功加载
     var isCanPlay: Bool = false
-    
+	
+	/// 播放倍速
+	var playRate: Float = 1
+	
     /// 播放器
     var player: AVPlayer?
     
@@ -56,9 +59,6 @@ class FMPlayerManager: NSObject {
     var totalTime: NSInteger = 0
     
     var playState: MAudioPlayState = .waiting
-    
-    /// 倍数播放
-    var ratevalue: Float = 0
 	
 	var lastTime: Double = 0
     
@@ -93,8 +93,7 @@ extension FMPlayerManager {
             self.player?.play()
             self.delegate?.playerDidPlay()
 			self.playerDelegate?.playerDidPlay()
-            let rate = UserDefaults.standard.float(forKey: "playrate")
-            self.player?.rate = rate
+            self.player?.rate = self.playRate
         }else{
             SwiftNotice.noticeOnStatusBar("暂时无法播放", autoClear: true, autoClearTime: 1)
         }

@@ -73,10 +73,6 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 //                self.likeBtn.isHidden = true;
 //            }
 //        }
-		if !UserDefaults.standard.bool(forKey: "isFristSwip") {
-			self.swipeAniView.play()
-			UserDefaults.standard.set(true, forKey: "isFristSwip")
-		}
 		
 		if DatabaseManager.qureyDownload(title: self.episode.title).isSome {
 			self.downBtn.isSelected = true
@@ -86,6 +82,13 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+		if !UserDefaults.standard.bool(forKey: "isFristSwip") {
+			self.swipeAniView.play()
+			UserDefaults.standard.set(true, forKey: "isFristSwip")
+		}else{
+			self.swipeAniView.pause()
+			self.swipeAniView.isHidden = true
+		}
     }
 
 }
@@ -278,9 +281,8 @@ extension PlayerDetailViewController {
         default:
             break
         }
-        
-        UserDefaults.standard.set(rate, forKey: "playrate")
-        UserDefaults.standard.synchronize()
+		
+		FMPlayerManager.shared.playRate = Float(rate)
         FMPlayerManager.shared.player?.rate = Float(rate)
         if !FMPlayerManager.shared.isPlay {
             FMPlayerManager.shared.player?.pause()

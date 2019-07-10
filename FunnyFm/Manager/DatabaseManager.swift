@@ -123,9 +123,14 @@ class DatabaseManager: NSObject {
 	static public func addItunsPod(pod: iTunsPod){
 		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
 		if exsitPod.isSome {
+			try! self.database.update(table: exsitPodTable, on: iTunsPod.Properties.all, with: pod, where: iTunsPod.Properties.collectionId == pod.collectionId)
 			return
 		}
 		try! self.database.insert(objects: pod, intoTable: exsitPodTable)
+	}
+		
+	static public func deleteItunsPod(pod: iTunsPod){
+		try! self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.collectionId == pod.collectionId, orderBy: nil, limit: nil, offset: nil)
 	}
 	
 	

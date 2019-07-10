@@ -9,9 +9,14 @@
 import UIKit
 
 
+@objc protocol MainViewModelDelegate: ViewModelDelegate {
+	func viewModelDidGetChapterlistSuccess()
+}
 
 
 class MainViewModel: NSObject {
+	
+	var isParserChapter = true
     
     lazy var podlist : [iTunsPod] = {
        return DatabaseManager.allItunsPod()
@@ -21,7 +26,7 @@ class MainViewModel: NSObject {
         return []
     }()
     
-    weak var delegate : ViewModelDelegate?
+    weak var delegate : MainViewModelDelegate?
     
     override init() {
         super.init()
@@ -40,19 +45,19 @@ class MainViewModel: NSObject {
 					})
 				}
 				self.podlist = DatabaseManager.allItunsPod()
-				self.getHomeChapters()
 				self.delegate?.viewModelDidGetDataSuccess()
+				self.getHomeChapters()
 			}){ msg in
 				self.podlist = DatabaseManager.allItunsPod()
-				self.getHomeChapters()
 				self.delegate?.viewModelDidGetDataFailture(msg: msg)
+				self.getHomeChapters()
 			}
 		}else{
 			self.podlist = DatabaseManager.allItunsPod()
-			self.getHomeChapters()
 			DispatchQueue.main.async {
 				self.delegate?.viewModelDidGetDataSuccess()
 			}
+			self.getHomeChapters()
 		}
 		
     }
@@ -60,10 +65,13 @@ class MainViewModel: NSObject {
     func getHomeChapters() {
 		DispatchQueue.global().async {
 			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-			DispatchQueue.main.async {
-				self.delegate?.viewModelDidGetDataSuccess()
+			if self.episodeList.count > 0 {
+				DispatchQueue.main.async {
+					self.delegate?.viewModelDidGetChapterlistSuccess()
+				}
 			}
 		}
+		
 
 		DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
 			let start = Date().timeIntervalSince1970
@@ -75,7 +83,8 @@ class MainViewModel: NSObject {
 			}
 			self.episodeList = self.sortEpisodeToGroup(episodeList)
 			DispatchQueue.main.async {
-				self.delegate?.viewModelDidGetDataSuccess()
+				self.isParserChapter = false
+				self.delegate?.viewModelDidGetChapterlistSuccess()
 			}
 			print("parse time------", Date().timeIntervalSince1970 - start)
 		}

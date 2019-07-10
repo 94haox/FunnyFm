@@ -113,6 +113,9 @@
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
 		AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D1B1722C633EA00E9E221 /* NotificationService.swift */; };
 		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */; };
+		ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */; };
+		ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */; };
 		ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA7052122B641000012FD0A /* NetEasyPod.swift */; };
 		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
 		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
@@ -344,6 +347,9 @@
 		AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6D1B1722C633EA00E9E221 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AB6D1B1922C633EA00E9E221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewController.swift; sourceTree = "<group>"; };
+		ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailHeader.swift; sourceTree = "<group>"; };
 		ABA7052122B641000012FD0A /* NetEasyPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetEasyPod.swift; sourceTree = "<group>"; };
 		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -575,6 +581,7 @@
 				AB14632021D385FC00D41B83 /* AnimationButton.swift */,
 				ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */,
 				AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */,
+				ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -646,6 +653,7 @@
 				AB25797E21945E6F004C5F5D /* MainViewController.swift */,
 				AB1E6DB721BA809D00B85135 /* PodListViewController.swift */,
 				AB1E6DB321BA74DA00B85135 /* EpisodeListViewController.swift */,
+				ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */,
 				AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */,
 				AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */,
 				AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */,
@@ -816,6 +824,7 @@
 				ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */,
 				ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */,
 				AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */,
+				ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1334,6 +1343,7 @@
 				ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
 				AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */,
+				ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */,
 				ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */,
 				AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */,
 				ABE7660521D7196700470D8F /* FileManagerExtensions.swift in Sources */,
@@ -1396,6 +1406,7 @@
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
 				AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */,
+				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
 				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,
@@ -1426,6 +1437,7 @@
 				AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
 				AB1E6DB421BA74DA00B85135 /* EpisodeListViewController.swift in Sources */,
+				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,
 				ABEE40D021E3246E00FCB16F /* UIView+MJExtension.m in Sources */,

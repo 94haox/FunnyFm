@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 import SPStorkController
 import Lottie
+import CleanyModal
+import NVActivityIndicatorView
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
     
@@ -34,6 +36,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	var loadAnimationView : AnimationView!
 	
 	var emptyAnimationView : AnimationView!
+	
+	var fetchLoadingView : NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,9 +90,10 @@ extension MainViewController{
     @objc func toSearch() {
 		let search = SearchViewController.init()
 		self.navigationController?.pushViewController(search);
-    }
+	}
     
     @objc func refreshData(){
+		self.fetchLoadingView.startAnimating()
         let feedBackGenertor = UIImpactFeedbackGenerator.init(style: .medium)
         feedBackGenertor.impactOccurred()
         self.vm.refresh()
@@ -97,32 +102,29 @@ extension MainViewController{
 
 
 // MARK: - ViewModelDelegate
-extension MainViewController : ViewModelDelegate {
+extension MainViewController : MainViewModelDelegate {
     
     func viewModelDidGetDataSuccess() {
-
-		self.tableview.isHidden = false
-		self.loadAnimationView.removeFromSuperview()
-        self.tableview.refreshControl?.endRefreshing()
         self.collectionView.reloadData()
-        self.tableview.reloadData()
-//        if self.vm.episodeList.count > 0  && !FMToolBar.shared.isPlaying{
-//			guard self.vm.episodeList.count > 0 else {
-//				FMToolBar.shared.isHidden = true
-//				return
-//			}
-//			FMToolBar.shared.isHidden = false
-//        }
-		
-		self.emptyView.isHidden = self.vm.podlist.count > 0
-		
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
+		self.fetchLoadingView.stopAnimating()
 		self.loadAnimationView.removeFromSuperview()
         self.tableview.refreshControl?.endRefreshing()
         SwiftNotice.noticeOnStatusBar("请求失败", autoClear: true, autoClearTime: 2)
     }
+	
+	func viewModelDidGetChapterlistSuccess() {
+		if !self.vm.isParserChapter {
+			self.fetchLoadingView.stopAnimating()
+		}
+		self.tableview.isHidden = false
+		self.loadAnimationView.removeFromSuperview()
+		self.tableview.refreshControl?.endRefreshing()
+		self.tableview.reloadData()
+		self.emptyView.isHidden = self.vm.podlist.count > 0
+	}
     
 }
 
@@ -289,6 +291,12 @@ extension MainViewController {
 			make.center.equalTo(self.view);
 			make.size.equalTo(CGSize.init(width: 100, height: 100))
 		}
+		
+		self.fetchLoadingView.snp.makeConstraints { (make) in
+			make.size.equalTo(CGSize.init(width:AdaptScale(30), height: AdaptScale(30)))
+			make.centerY.equalTo(self.titileLB);
+			make.left.equalTo(self.titileLB.snp.right).offset(AdaptScale(20))
+		}
     }
     
     func dw_addViews(){
@@ -349,6 +357,9 @@ extension MainViewController {
 		self.emptyView = UIView.init()
 		emptyView.backgroundColor = .white
 		emptyView.isHidden = true
+		
+		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);
+		self.view.addSubview(self.fetchLoadingView);
     }
     
 }

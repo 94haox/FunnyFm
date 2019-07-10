@@ -11,13 +11,16 @@ import SwiftyJSON
 import WCDBSwift
 
 struct iTunsPod : Mapable, TableCodable {
+	var podId: String
+	var podAuthor: String
 	var trackName:     String
 	var trackCount:     String
 	var collectionId:     String
 	var artworkUrl600:     String
 	var feedUrl:     	String
 	var releaseDate: 	String
-	var podId: String
+	var copyRight: 	String
+	
 	
 	init?(jsonData:JSON) {
 		if jsonData["rss_url"].stringValue.length() > 0 {
@@ -27,6 +30,8 @@ struct iTunsPod : Mapable, TableCodable {
 			artworkUrl600 = jsonData["artwork_url"].stringValue
 			releaseDate = jsonData["update_time"].stringValue
 			trackCount = "0"
+			podAuthor = ""
+			copyRight = ""
 			podId = jsonData["_id"].stringValue
 		}else{
 			feedUrl = jsonData["feedUrl"].stringValue
@@ -36,6 +41,8 @@ struct iTunsPod : Mapable, TableCodable {
 			trackCount = jsonData["trackCount"].stringValue
 			releaseDate = jsonData["releaseDate"].stringValue
 			podId = ""
+			podAuthor = ""
+			copyRight = ""
 		}
 	}
 	
@@ -49,5 +56,7 @@ struct iTunsPod : Mapable, TableCodable {
 		case trackCount
 		case releaseDate
 		case podId
+		case podAuthor
+		case copyRight
 	}
 }
