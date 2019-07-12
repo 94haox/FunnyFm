@@ -36,7 +36,7 @@ class PodDetailHeader: UIView {
 //		self.view.addSubview(self.podBackgroundView)
 		
 		self.podImageView = UIImageView.init()
-		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {[unowned self] result in
+		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {[weak self] result in
 //			switch result {
 //			case .success(let value):
 //				self.podBackgroundView.addShadow(ofColor: value.image.mostColor(), radius: 0, offset: CGSize.init(width: 5, height: 5), opacity: 0)

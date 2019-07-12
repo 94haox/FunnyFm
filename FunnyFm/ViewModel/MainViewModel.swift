@@ -72,16 +72,37 @@ class MainViewModel: NSObject {
 			}
 		}
 		
+		let group = DispatchGroup.init()
+		let queue = DispatchQueue.init(label: "parser")
+		let start = Date().timeIntervalSince1970
+		let podList = DatabaseManager.allItunsPod()
+		
+		
+		podList.forEach { (pod) in
+			print("fetch")
+			group.enter()
+//			FeedManager.shared.parserRss(pod, { (podlist) in
+//				self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+//				DispatchQueue.main.async {
+//					self.delegate?.viewModelDidGetChapterlistSuccess()
+//				}
+//				group.leave()
+//			})
+			queue.async(group: group, qos: DispatchQoS.userInteractive, flags: []) {
+				FeedManager.shared.parserRss(pod, { (podlist) in
+					
+					print("fetched")
+					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+					DispatchQueue.main.async {
+						self.delegate?.viewModelDidGetChapterlistSuccess()
+					}
+					group.leave()
+				})
 
-		DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-			let start = Date().timeIntervalSince1970
-			let podList = DatabaseManager.allItunsPod()
-			var episodeList = [Episode]()
-			podList.forEach { (pod) in
-				let list = FeedManager.shared.parserRssSync(pod)
-				episodeList.append(contentsOf: list)
 			}
-			self.episodeList = self.sortEpisodeToGroup(episodeList)
+		}
+		
+		group.notify(queue: queue) {
 			DispatchQueue.main.async {
 				self.isParserChapter = false
 				self.delegate?.viewModelDidGetChapterlistSuccess()
@@ -93,9 +114,8 @@ class MainViewModel: NSObject {
 	
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
-		let start = Date().timeIntervalSince1970
 		var dateList = [String]()
-		var timeList = [Double]()
+		var timeList = [Int]()
 		var sortEpisodeList = [[Episode]]()
 		episodeList.forEach { (episode) in
 			if !dateList.contains(episode.pubDate) {
@@ -115,7 +135,6 @@ class MainViewModel: NSObject {
 			sortEpisodeList.append(list)
 		}
 		
-		print("time------", Date().timeIntervalSince1970 - start)
 		return sortEpisodeList
 	}
     

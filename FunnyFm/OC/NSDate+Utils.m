@@ -478,6 +478,7 @@
 + (NSDate *)dateFromString:(NSString *)string withFormat:(NSString *)format {
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setDateFormat:format];
+	[inputFormatter setDateStyle:NSDateFormatterMediumStyle];
 	//为了避免时区问题
 //	inputFormatter.timeZone = [NSTimeZone systemTimeZone];
 	inputFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];

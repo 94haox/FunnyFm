@@ -137,7 +137,9 @@ class DatabaseManager: NSObject {
 	/// episode 缓存
 	static public func allEpisodes() -> [Episode] {
 		let episodeList : [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable).sorted(by: { (obj1, obj2) -> Bool in
-			return obj1.pubDateSecond > obj2.pubDateSecond
+			let second1 = obj1.pubDateSecond
+			let second2 = obj2.pubDateSecond
+			return second1 < second2
 		})
 		return episodeList
 	}

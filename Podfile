@@ -3,6 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '12.0'
 use_frameworks!
 inhibit_all_warnings!
+install! 'cocoapods', generate_multiple_pod_projects: true
 
 
 
@@ -12,10 +13,11 @@ def layout
     pod 'SHFullscreenPopGestureSwift'
     pod 'SPStorkController'
     pod 'lottie-ios'
-    pod 'CBFlashyTabBarController'
     pod 'CleanyModal', '~> 0.1.1'
 		pod 'NVActivityIndicatorView'
 		pod 'OfficeUIFabric', '~> 0.2.0'
+		pod 'gooey-cell'
+#		pod 'BubbleTabBar', '~> 0.8.3'
 end
 
 def lib
@@ -26,7 +28,7 @@ def lib
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'
-		pod 'AppCenter'
+		pod 'AppCenter' 
 		pod 'FeedKit', '~> 8.0'
 		pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end

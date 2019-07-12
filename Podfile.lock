@@ -1,23 +1,20 @@
 PODS:
   - Alamofire (4.8.2)
-  - AppCenter (2.0.1):
-    - AppCenter/Analytics (= 2.0.1)
-    - AppCenter/Crashes (= 2.0.1)
-  - AppCenter/Analytics (2.0.1):
+  - AppCenter (2.1.0):
+    - AppCenter/Analytics (= 2.1.0)
+    - AppCenter/Crashes (= 2.1.0)
+  - AppCenter/Analytics (2.1.0):
     - AppCenter/Core
-  - AppCenter/Core (2.0.1)
-  - AppCenter/Crashes (2.0.1):
+  - AppCenter/Core (2.1.0)
+  - AppCenter/Crashes (2.1.0):
     - AppCenter/Core
-  - AppCenter/Distribute (2.0.1):
-    - AppCenter/Core
-  - AppCenter/Push (2.0.1):
-    - AppCenter/Core
-  - CBFlashyTabBarController (0.8.3)
   - CleanyModal (0.1.2)
   - FeedKit (8.1.1)
+  - gooey-cell (0.1.0):
+    - pop (~> 1.0)
   - KeychainAccess (3.2.0)
-  - Kingfisher (5.5.0)
-  - lottie-ios (3.1.0)
+  - Kingfisher (5.6.0)
+  - lottie-ios (3.1.1)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -26,14 +23,14 @@ PODS:
   - NVActivityIndicatorView (4.7.0):
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
-  - OfficeUIFabric (0.2.6)
+  - OfficeUIFabric (0.2.11)
   - OneSignal (2.10.0)
   - pop (1.0.12)
   - Result (4.1.0)
   - RxSwift (5.0.0)
   - SHFullscreenPopGestureSwift (1.2.1)
   - SnapKit (4.0.1)
-  - SPStorkController (1.6.5)
+  - SPStorkController (1.6.6)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (5.0.0)
@@ -45,11 +42,9 @@ PODS:
 
 DEPENDENCIES:
   - AppCenter
-  - AppCenter/Distribute
-  - AppCenter/Push
-  - CBFlashyTabBarController
   - CleanyModal (~> 0.1.1)
   - FeedKit (~> 8.0)
+  - gooey-cell
   - KeychainAccess
   - Kingfisher
   - lottie-ios
@@ -70,9 +65,9 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AppCenter
-    - CBFlashyTabBarController
     - CleanyModal
     - FeedKit
+    - gooey-cell
     - KeychainAccess
     - Kingfisher
     - lottie-ios
@@ -94,29 +89,29 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AppCenter: 6a5ff2fd007b53431259fdd74f91eb3d0dfea3d1
-  CBFlashyTabBarController: bc6b11dd4cbc9b54785c8944156e2f4d4f03b088
+  AppCenter: 21decaa4488024e8355e650e44ccabb69ca60d47
   CleanyModal: abd96bb77747ba0e6434955cdc290c099eed3fc5
   FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
+  gooey-cell: ed8d8fa67b57dfca89e655faf8c30ac5fd71c46d
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
-  Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
-  lottie-ios: 9467723922dfff46f6d4e3019c32594a62440b7c
+  Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
+  lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
-  OfficeUIFabric: 26c141a42c6f5434a4ed01747c2bb64b6f92d0c6
+  OfficeUIFabric: 63cc5002ab0aa509bd7941ba2542618856150e7c
   OneSignal: 0f5ff711d9f25da54885e4ab06ef0abc221a46ef
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SPStorkController: f74a60dbcd3c35180c996688873f6eadac839642
+  SPStorkController: cebb6a1e3814b830f8e3e34ddbbc7178b869f278
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
 
-PODFILE CHECKSUM: 16303998f2ad667b4ba8f5344cf1a723fde846cd
+PODFILE CHECKSUM: 13f9dc4d620d9d769488b887d33c30103fc7077e
 
 COCOAPODS: 1.7.1
