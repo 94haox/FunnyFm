@@ -47,10 +47,11 @@ class PodListViewModel: BaseViewModel {
 		}
 	}
 	
-	func registerPod(params: Dictionary<String, String>){
+	func registerPod(params: Dictionary<String, String>, success:@escaping SuccessStringClosure, failure: @escaping FailClosure){
 		FmHttp<Pod>().requestForSingle(PodAPI.registerPod(params), success: { (_) in
-			
-		}) { (_) in
+			success("success")
+		}) { (msg) in
+			failure(msg)
 		}
 	}
     

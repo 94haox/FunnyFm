@@ -14,22 +14,22 @@ import Moya
 import SwiftyJSON
 import Result
 
+///成功
+typealias SuccessStringClosure = (_ result: String) -> Void
+typealias SuccessJSONClosure = (_ result:JSON) -> Void
+/// 失败
+typealias FailClosure = (_ errorMsg: String?) -> Void
+
 
 public protocol Mapable {
     init?(jsonData:JSON)
 }
 
 public class FmHttp<T> where T: Mapable{
-    
-    ///成功
-    typealias SuccessStringClosure = (_ result: String) -> Void
-    typealias SuccessModelClosure = (_ result: T?) -> Void
-    typealias SuccessArrModelClosure = (_ result: [T]?) -> Void
-    typealias SuccessJSONClosure = (_ result:JSON) -> Void
+	
+	typealias SuccessModelClosure = (_ result: T?) -> Void
+	typealias SuccessArrModelClosure = (_ result: [T]?) -> Void
 
-    
-    /// 失败
-    typealias FailClosure = (_ errorMsg: String?) -> Void
     
     var tasks : [URLSessionTask]!
     

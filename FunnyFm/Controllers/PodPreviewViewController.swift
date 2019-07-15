@@ -58,8 +58,7 @@ class PodPreviewViewController: BaseViewController {
 	func configWithPod(pod :iTunsPod){
 		self.itunsPod = pod;
 		self.podNameLB.text = pod.trackName
-//		self.authorLB.text = pod.author
-//		self.desLB.text = pod.des
+		self.authorLB.text = pod.podAuthor
 		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
 		self.sourceLB.text = "来自：" + "iTunes";
 	}
@@ -90,11 +89,16 @@ class PodPreviewViewController: BaseViewController {
 		params["collection_id"] = self.itunsPod.collectionId;
 		params["source_type"] = "iTunes";
 		params["artwork_url"] = self.itunsPod.artworkUrl600
-		PodListViewModel.init().registerPod(params: params)
+		PodListViewModel.init().registerPod(params: params, success: { (msg) in
+		}) { (msg) in
+		}
+		
 		FeedManager.shared.parserRss(self.itunsPod, {(_) in
 			DispatchQueue.main.async {
 				HorizonHUD.showSuccess("获取成功")
-				self.dismiss(animated: true, completion: nil)
+				if self.isFirstResponder {
+					self.dismiss(animated: true, completion: nil)
+				}
 			}
 		})
 	}

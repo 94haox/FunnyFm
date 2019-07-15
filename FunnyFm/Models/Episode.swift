@@ -22,21 +22,27 @@ struct Episode : TableCodable{
     var coverUrl:         		String
 	var podCoverUrl:         	String
     var pubDate:         		String
-	var pubDateSecond:         	Int
+	var pubDateSecond:         	Double
     var download_filpath:        String
 	
 	init(feedItem: RSSFeedItem) {
 		title = feedItem.title!
+		pubDate = feedItem.pubDate!.dateString()
+		pubDateSecond = Date().secondsSince(feedItem.pubDate!)
+		download_filpath = ""
+		trackUrl = feedItem.enclosure!.attributes!.url!
 		if feedItem.iTunes!.iTunesDuration.isSome {
 			duration = feedItem.iTunes!.iTunesDuration!
 		}else{
 			duration = 0;
 		}
-		intro = feedItem.description!
-		pubDate = feedItem.pubDate!.dateString()
-		pubDateSecond = feedItem.pubDate!.second
-		download_filpath = ""
-		trackUrl = feedItem.enclosure!.attributes!.url!
+		
+		if feedItem.description.isSome {
+			intro = feedItem.description!
+		}else{
+			intro = ""
+		}
+		
 		if feedItem.iTunes!.iTunesAuthor.isSome {
 			author = feedItem.iTunes!.iTunesAuthor!
 		}else{

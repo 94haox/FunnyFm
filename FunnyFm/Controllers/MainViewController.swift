@@ -46,6 +46,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.addConstrains()
 		self.addHeader();
 		self.loadAnimationView.play()
+		self.dw_addNofications()
 		self.vm.delegate = self
 		FMToolBar.shared.isHidden = true
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
@@ -98,6 +99,16 @@ extension MainViewController{
         feedBackGenertor.impactOccurred()
         self.vm.refresh()
     }
+	
+	func dw_addNofications(){
+		NotificationCenter.default.addObserver(forName: NSNotification.Name.init("homechapterParserSuccess"), object: nil, queue: OperationQueue.main) { (notify) in
+			self.fetchLoadingView.stopAnimating()
+		}
+		
+		NotificationCenter.default.addObserver(forName: NSNotification.Name.init("homechapterParserBegin"), object: nil, queue: OperationQueue.main) { (notify) in
+			self.fetchLoadingView.startAnimating()
+		}
+	}
 }
 
 
@@ -116,9 +127,6 @@ extension MainViewController : MainViewModelDelegate {
     }
 	
 	func viewModelDidGetChapterlistSuccess() {
-		if !self.vm.isParserChapter {
-			self.fetchLoadingView.stopAnimating()
-		}
 		self.tableview.isHidden = false
 		self.loadAnimationView.removeFromSuperview()
 		self.tableview.refreshControl?.endRefreshing()

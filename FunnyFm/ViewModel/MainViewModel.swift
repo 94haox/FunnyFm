@@ -16,8 +16,8 @@ import UIKit
 
 class MainViewModel: NSObject {
 	
-	var isParserChapter = true
-    
+	var isParsering = false
+	
     lazy var podlist : [iTunsPod] = {
        return DatabaseManager.allItunsPod()
     }()
@@ -72,22 +72,24 @@ class MainViewModel: NSObject {
 			}
 		}
 		
+		
 		let group = DispatchGroup.init()
 		let queue = DispatchQueue.init(label: "parser")
 		let start = Date().timeIntervalSince1970
 		let podList = DatabaseManager.allItunsPod()
 		
+		if self.isParsering{
+			return
+		}else if podList.count > 0{
+			self.isParsering = true
+		}else{
+			return;
+		}
 		
+		NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserBegin"), object: nil)
 		podList.forEach { (pod) in
 			print("fetch")
 			group.enter()
-//			FeedManager.shared.parserRss(pod, { (podlist) in
-//				self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-//				DispatchQueue.main.async {
-//					self.delegate?.viewModelDidGetChapterlistSuccess()
-//				}
-//				group.leave()
-//			})
 			queue.async(group: group, qos: DispatchQoS.userInteractive, flags: []) {
 				FeedManager.shared.parserRss(pod, { (podlist) in
 					
@@ -104,7 +106,8 @@ class MainViewModel: NSObject {
 		
 		group.notify(queue: queue) {
 			DispatchQueue.main.async {
-				self.isParserChapter = false
+				self.isParsering = false
+				NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
 				self.delegate?.viewModelDidGetChapterlistSuccess()
 			}
 			print("parse time------", Date().timeIntervalSince1970 - start)
@@ -114,25 +117,28 @@ class MainViewModel: NSObject {
 	
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
-		var dateList = [String]()
-		var timeList = [Int]()
+		var episodes = episodeList.suffix(100)
+		episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
 		var sortEpisodeList = [[Episode]]()
-		episodeList.forEach { (episode) in
-			if !dateList.contains(episode.pubDate) {
-				dateList.append(episode.pubDate)
-				timeList.append(episode.pubDateSecond)
-			}
-		}
 		
-		timeList.sort(by: {$0 > $1})
-		timeList.forEach { (pubDateSecond) in
-			var list = [Episode]()
-			episodeList.forEach { (episode) in
-				if episode.pubDateSecond == pubDateSecond {
-					list.append(episode)
-				}
+		var dic : [String: [Episode]] = [:]
+		var index = 0;
+		episodes.forEach { (episode) in
+			var list = dic[episode.pubDate]
+			if list.isSome {
+				list!.append(episode)
+			}else{
+				list = Array.init()
+				list!.append(episode)
+				index += 1
 			}
-			sortEpisodeList.append(list)
+			dic[episode.pubDate] = list!
+			if sortEpisodeList.count < index{
+				sortEpisodeList.append(list!)
+			}else{
+				sortEpisodeList.remove(at: index-1)
+				sortEpisodeList.append(list!)
+			}
 		}
 		
 		return sortEpisodeList
