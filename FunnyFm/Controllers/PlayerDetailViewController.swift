@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import pop
 import Lottie
+import MediaPlayer
 
 class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
@@ -222,21 +223,21 @@ extension PlayerDetailViewController {
 	
 	@objc func likeAction(){
         
-        if !UserCenter.shared.isLogin {
-			self.navigationController?.pushViewController(NeLoginViewController.init())
-            return
-        }
-        
-		if self.likeBtn.isHidden {
-			self.likeAniView.play(fromProgress: 1, toProgress: 0) {[unowned self] (isEnd) in
-				self.likeBtn.isHidden = false
-			}
-            self.viewModel.deleteFavour(self.episode.trackUrl)
-			return
-		}
-        self.viewModel.addFavour(self.episode.trackUrl)
-		self.likeBtn.isHidden = true
-		self.likeAniView.play()
+//        if !UserCenter.shared.isLogin {
+//			self.navigationController?.pushViewController(NeLoginViewController.init())
+//            return
+//        }
+//
+//		if self.likeBtn.isHidden {
+//			self.likeAniView.play(fromProgress: 1, toProgress: 0) {[unowned self] (isEnd) in
+//				self.likeBtn.isHidden = false
+//			}
+//            self.viewModel.deleteFavour(self.episode.trackUrl)
+//			return
+//		}
+//        self.viewModel.addFavour(self.episode.trackUrl)
+//		self.likeBtn.isHidden = true
+//		self.likeAniView.play()
 
 	}
     

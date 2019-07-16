@@ -129,8 +129,8 @@ class DatabaseManager: NSObject {
 		try! self.database.insert(objects: pod, intoTable: exsitPodTable)
 	}
 		
-	static public func deleteItunsPod(pod: iTunsPod){
-		try! self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.collectionId == pod.collectionId, orderBy: nil, limit: nil, offset: nil)
+	static public func deleteItunsPod(collectionId: String){
+		try! self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.collectionId == collectionId, orderBy: nil, limit: nil, offset: nil)
 	}
 	
 	
@@ -141,6 +141,18 @@ class DatabaseManager: NSObject {
 			let second2 = obj2.pubDateSecond
 			return second1 >= second2
 		})
+		return episodeList
+	}
+	
+	static public func allEpisodes(pod: iTunsPod) -> [Episode] {
+		let objects: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
+														where: Episode.Properties.collectionId == pod.collectionId)
+		let episodeList = objects.sorted(by: { (obj1, obj2) -> Bool in
+			let second1 = obj1.pubDateSecond
+			let second2 = obj2.pubDateSecond
+			return second1 <= second2
+		})
+
 		return episodeList
 	}
 	

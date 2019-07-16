@@ -51,10 +51,10 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		FMToolBar.shared.isHidden = true
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
 		self.addEmptyViews()
-		if !UserDefaults.standard.bool(forKey: "isFirst") {
+		if !UserDefaults.standard.bool(forKey: "isFirstMain") {
 			let emptyVC = EmptyMainViewController.init()
 			self.navigationController?.pushViewController(emptyVC, animated: false)
-			UserDefaults.standard.set(true, forKey: "isFirst")
+			UserDefaults.standard.set(true, forKey: "isFirstMain")
 		}
 		return
     }
@@ -140,9 +140,9 @@ extension MainViewController : MainViewModelDelegate {
 extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let pod = self.vm.podlist[indexPath.row]
-//        let vc = EpisodeListViewController.init(pod)
-//        self.navigationController?.pushViewController(vc)
+        let pod = self.vm.podlist[indexPath.row]
+        let vc = PodDetailViewController.init(pod: pod)
+        self.navigationController?.pushViewController(vc)
     }
     
     

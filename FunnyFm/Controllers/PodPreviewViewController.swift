@@ -64,6 +64,9 @@ class PodPreviewViewController: BaseViewController {
 	}
 	
 	func setupNotification() {
+		
+		UserDefaults.standard.set(true, forKey: "isShowNotifi")
+		
 		let alertConfig = CleanyAlertConfig(
 			title: "Hei Bro.",
 			message: "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦")
@@ -82,7 +85,9 @@ class PodPreviewViewController: BaseViewController {
 		self.shinkBtn()
 		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候")
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
-		self.setupNotification()
+		if !UserDefaults.standard.bool(forKey: "isShowNotifi") {
+			self.setupNotification()
+		}
 		var params = [String: String]()
 		params["track_name"] = self.itunsPod.trackName;
 		params["rss_url"] = self.itunsPod.feedUrl;

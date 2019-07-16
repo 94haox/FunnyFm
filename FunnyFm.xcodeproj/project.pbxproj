@@ -99,6 +99,9 @@
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
 		AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB4E145B22C63F8F0053BE00 /* sound.wav */; };
 		AB571D8D22B209E80021236C /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB571D8C22B209E80021236C /* FeedManager.swift */; };
+		AB57D5B822DDCD6F00979994 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */; };
+		AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */; };
+		AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */; };
 		AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2822CDDF9200BABEF2 /* firework_2.json */; };
 		AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2A22CDE16A00BABEF2 /* boom.json */; };
 		AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2C22CDE5C200BABEF2 /* home_empty.json */; };
@@ -331,6 +334,9 @@
 		AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtensionRelease.entitlements; sourceTree = "<group>"; };
 		AB4E145B22C63F8F0053BE00 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
+		AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewModel.swift; sourceTree = "<group>"; };
 		AB57FE2822CDDF9200BABEF2 /* firework_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework_2.json; sourceTree = "<group>"; };
 		AB57FE2A22CDE16A00BABEF2 /* boom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = boom.json; sourceTree = "<group>"; };
 		AB57FE2C22CDE5C200BABEF2 /* home_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home_empty.json; sourceTree = "<group>"; };
@@ -674,6 +680,8 @@
 				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
 				ABDC4D2922CCAAB700EF31C0 /* EmptyMainViewController.xib */,
 				ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */,
+				AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */,
+				AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -723,6 +731,7 @@
 				ABEE40E821E35DC300FCB16F /* LoginViewModel.swift */,
 				ABEF471B21EB038500212DCA /* UserViewModel.swift */,
 				ABA99AC02219060900840382 /* GlobalViewModel.swift */,
+				AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1188,6 +1197,7 @@
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
+				AB57D5B822DDCD6F00979994 /* WelcomeViewController.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
@@ -1286,6 +1296,7 @@
 			files = (
 				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
 				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
+				AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
@@ -1297,6 +1308,7 @@
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
+				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
 				ABA99AC12219060900840382 /* GlobalViewModel.swift in Sources */,

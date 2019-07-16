@@ -112,29 +112,6 @@ extension EpisodeListViewController{
         self.tableview.mj_header.endRefreshing()
         self.tableview.mj_footer.endRefreshing()
     }
-	
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        var offsetY = scrollView.contentOffset.y
-//
-//        if offsetY > 0{
-//            offsetY = 0
-//        }
-//
-//        if abs(offsetY) > 260{
-//            offsetY = -260
-//        }
-//        self.topView.snp.updateConstraints { (make) in
-//            make.bottom.equalTo(self.view.snp.top).offset(abs(offsetY))
-//        }
-//
-//        let alpha = offsetY == 0 ? 1 : 0
-//        if  CGFloat.init(alpha) != self.topBar.alpha {
-//            UIView.animate(withDuration: 0.1) {
-//                self.topBar.alpha = CGFloat.init(alpha)
-//            }
-//        }
-//
-//    }
 
     
 }

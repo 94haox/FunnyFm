@@ -168,4 +168,6 @@ extension UIColor {
 /// 操作需要登录
 let kNeedLoginAction = "NeedLoginAction"
 
+let kToMainAction = "ToMainAction"
+
 let kSetupNotification = "setupNotification"

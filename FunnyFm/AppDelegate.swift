@@ -30,8 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
         UIApplication.shared.applicationIconBadgeNumber = 0
-		let navi = UINavigationController.init(rootViewController: MainViewController.init())
-		navi.navigationBar.isHidden = true		
+		var navi = UINavigationController.init(rootViewController: MainViewController.init())
+		navi.navigationBar.isHidden = true
+		if !UserDefaults.standard.bool(forKey: "isFirst") {
+			navi = UINavigationController.init(rootViewController: WelcomeViewController.init())
+			UserDefaults.standard.set(true, forKey: "isFirst")
+		}
 		self.window?.rootViewController = navi
 		self.window?.makeKeyAndVisible()
         return true
@@ -51,6 +55,8 @@ extension AppDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(setUpNotification), name: NSNotification.Name.init(kSetupNotification), object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: NSNotification.Name.init(kNeedLoginAction), object: nil)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(toMainVC), name: NSNotification.Name.init(kToMainAction), object: nil)
 
 	}
 	
@@ -61,6 +67,12 @@ extension AppDelegate {
 	@objc func toLoginVC(){
 		let navi = self.window?.rootViewController as! UINavigationController
 		navi.pushViewController(NeLoginViewController.init())
+	}
+	
+	@objc func toMainVC(){
+		let navi = UINavigationController.init(rootViewController: MainViewController.init())
+		navi.navigationBar.isHidden = true
+		self.window?.rootViewController = navi
 	}
 	
 }

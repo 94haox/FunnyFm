@@ -52,8 +52,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-       self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: episode.coverUrl)!) )
-        
+        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: episode.coverUrl)!) )
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

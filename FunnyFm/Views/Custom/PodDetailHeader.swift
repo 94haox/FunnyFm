@@ -17,17 +17,28 @@ class PodDetailHeader: UIView {
 	
 	var podAuthorLB: UILabel!
 	
-	var updateLB: UILabel!
+	var countLB: UILabel!
 	
 	var pod: iTunsPod!
+	
+	var subBtn: UIButton!
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.addSubviews()
 	}
 	
+	func config(model:iTunsPod){
+		self.pod = model
+		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {[weak self] result in}
+		self.podNameLB.text = model.trackName
+		self.podAuthorLB.text = model.podAuthor
+	}
+	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+		
+		
 	}
 	
 	func addSubviews(){
@@ -36,14 +47,6 @@ class PodDetailHeader: UIView {
 //		self.view.addSubview(self.podBackgroundView)
 		
 		self.podImageView = UIImageView.init()
-		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {[weak self] result in
-//			switch result {
-//			case .success(let value):
-//				self.podBackgroundView.addShadow(ofColor: value.image.mostColor(), radius: 0, offset: CGSize.init(width: 5, height: 5), opacity: 0)
-//			case .failure(let error):
-//				print("Error: \(error)")
-//			}
-		}
 		self.podImageView.cornerRadius = 15;
 		self.addSubview(self.podImageView)
 		
@@ -55,9 +58,15 @@ class PodDetailHeader: UIView {
 		self.podAuthorLB.textColor = CommonColor.content.color
 		self.podAuthorLB.font = p_bfont(15)
 		
-		self.updateLB = UILabel.init(text: self.pod.releaseDate)
-		self.updateLB.textColor = CommonColor.content.color
-		self.updateLB.font = p_bfont(12)
+		self.countLB = UILabel.init(text: self.pod.releaseDate)
+		self.countLB.textColor = CommonColor.content.color
+		self.countLB.font = p_bfont(12)
+		
+		self.subBtn = UIButton.init(type: .custom)
+		self.subBtn.setTitle("已订阅", for: .normal)
+		self.subBtn.setTitleColor(.white, for: .normal)
+		self.subBtn.setTitle("订阅", for: .selected)
+		self.subBtn.setTitleColor(.white, for: .selected)
 		
 	}
 
