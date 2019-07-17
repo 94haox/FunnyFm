@@ -23,7 +23,7 @@ class PodDetailViewModel: NSObject {
 		self.episodeList = DatabaseManager.allEpisodes(pod: pod)
 		self.delegate?.podDetailParserSuccess()
 		FeedManager.shared.parserRss(pod) { (podlist) in
-			self.episodeList = DatabaseManager.allEpisodes()
+			self.episodeList = DatabaseManager.allEpisodes(pod: pod)
 			self.delegate?.podDetailParserSuccess()
 		}
 	}

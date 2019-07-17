@@ -171,3 +171,5 @@ let kNeedLoginAction = "NeedLoginAction"
 let kToMainAction = "ToMainAction"
 
 let kSetupNotification = "setupNotification"
+
+let kParserNotification = "ParserNotification"

@@ -11,6 +11,7 @@ import Kingfisher
 import pop
 import Lottie
 import MediaPlayer
+import AVKit
 
 class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
@@ -22,7 +23,9 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
     var subTitle: UILabel!
     
-    var likeBtn: UIButton!
+//    var likeBtn: UIButton!
+	
+	var airBtn: AVRoutePickerView!
 	
 	var likeAniView: AnimationView!
 	
@@ -90,7 +93,14 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 			self.swipeAniView.pause()
 			self.swipeAniView.isHidden = true
 		}
+		
+		FMToolBar.shared.isHidden = true
     }
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		FMToolBar.shared.isHidden = false
+	}
 
 }
 
@@ -378,12 +388,18 @@ extension PlayerDetailViewController {
 			make.edges.equalTo(self.coverBackView)
 		})
         
-        self.likeBtn.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
-            make.right.equalTo(self.view.snp.centerX).offset(-32)
-            make.size.equalTo(CGSize.init(width: 25, height: 25))
-        })
-        
+//        self.likeBtn.snp.makeConstraints({ (make) in
+//            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
+//            make.right.equalTo(self.view.snp.centerX).offset(-32)
+//            make.size.equalTo(CGSize.init(width: 25, height: 25))
+//        })
+		
+		self.airBtn.snp.makeConstraints({ (make) in
+			make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
+			make.right.equalTo(self.view.snp.centerX).offset(-32)
+			make.size.equalTo(CGSize.init(width: 25, height: 25))
+		})
+		
         self.rateBtn.snp.makeConstraints({ (make) in
             make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
             make.left.equalTo(self.view.snp.centerX).offset(32)
@@ -391,7 +407,7 @@ extension PlayerDetailViewController {
         })
         
         self.downBtn.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.likeBtn)
+            make.centerY.equalTo(self.airBtn)
             make.left.equalTo(self.rateBtn!.snp.right).offset(AdaptScale(70))
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
@@ -402,8 +418,8 @@ extension PlayerDetailViewController {
         }
         
         self.sleepBtn.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.likeBtn)
-            make.right.equalTo(self.likeBtn.snp.left).offset(-74)
+            make.centerY.equalTo(self.airBtn)
+            make.right.equalTo(self.airBtn.snp.left).offset(-74)
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         })
         
@@ -432,10 +448,10 @@ extension PlayerDetailViewController {
             make.size.equalTo(CGSize.init(width: 30, height: 30))
         })
 		
-		self.likeAniView.snp.makeConstraints { (make) in
-			make.center.equalTo(self.likeBtn)
-			make.size.equalTo(self.likeBtn).multipliedBy(2)
-		}
+//		self.likeAniView.snp.makeConstraints { (make) in
+//			make.center.equalTo(self.likeBtn)
+//			make.size.equalTo(self.likeBtn).multipliedBy(2)
+//		}
 		
 		self.swipeAniView.snp.makeConstraints { (make) in
 			make.center.equalTo(self.coverImageView)
@@ -488,18 +504,23 @@ extension PlayerDetailViewController {
 		self.coverImageView.cornerRadius = 15
 		self.coverBackView.addSubview(self.coverImageView)
 		
-		self.likeAniView = AnimationView(name: "like_button")
+//		self.likeAniView = AnimationView(name: "like_button")
+//
+//		let tap = UITapGestureRecognizer.init(target: self, action: #selector(likeAction))
+//		self.likeAniView.addGestureRecognizer(tap)
+//		self.view.addSubview(self.likeAniView)
+//
+//        self.likeBtn = UIButton.init(type: .custom)
+//        self.likeBtn.setImage(UIImage.init(named: "favor-nor"), for: .normal)
+//        self.likeBtn.setImage(UIImage.init(named: "favor-sel"), for: .selected)
+//		self.likeBtn.addTarget(self, action: #selector(likeAction), for: .touchUpInside)
+//        self.view.addSubview(self.likeBtn)
 		
-		let tap = UITapGestureRecognizer.init(target: self, action: #selector(likeAction))
-		self.likeAniView.addGestureRecognizer(tap)
-		self.view.addSubview(self.likeAniView)
+		self.airBtn = AVRoutePickerView.init(frame: CGRect.zero)
+		self.airBtn.activeTintColor = CommonColor.mainRed.color
+		self.airBtn.tintColor = CommonColor.title.color
+		self.view.addSubview(self.airBtn)
 		
-        self.likeBtn = UIButton.init(type: .custom)
-        self.likeBtn.setImage(UIImage.init(named: "favor-nor"), for: .normal)
-        self.likeBtn.setImage(UIImage.init(named: "favor-sel"), for: .selected)
-		self.likeBtn.addTarget(self, action: #selector(likeAction), for: .touchUpInside)
-        self.view.addSubview(self.likeBtn)
-        
         self.downProgressLayer = CAShapeLayer.init()
         let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 35, height: 35))
         self.downProgressLayer.path = bezier.cgPath

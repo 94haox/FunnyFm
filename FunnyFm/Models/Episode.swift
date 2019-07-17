@@ -26,54 +26,19 @@ struct Episode : TableCodable{
     var download_filpath:        String
 	
 	init(feedItem: RSSFeedItem) {
-		title = feedItem.title!
-		pubDate = feedItem.pubDate!.dateString()
+		title = feedItem.title ?? ""
+		pubDate = feedItem.pubDate?.dateString() ?? Date().dateString()
 		pubDateSecond = Date().secondsSince(feedItem.pubDate!)
+		intro = feedItem.description ?? "暂无"
+		author = feedItem.iTunes?.iTunesAuthor ?? ""
+		coverUrl = feedItem.iTunes?.iTunesImage?.attributes?.href ?? ""
+		trackUrl = feedItem.enclosure?.attributes?.url ?? ""
 		download_filpath = ""
-		trackUrl = feedItem.enclosure!.attributes!.url!
-		if feedItem.iTunes!.iTunesDuration.isSome {
-			duration = feedItem.iTunes!.iTunesDuration!
-		}else{
-			duration = 0;
-		}
-		
-		if feedItem.description.isSome {
-			intro = feedItem.description!
-		}else{
-			intro = ""
-		}
-		
-		if feedItem.iTunes!.iTunesAuthor.isSome {
-			author = feedItem.iTunes!.iTunesAuthor!
-		}else{
-			author = ""
-		}
-		
-		if let image = feedItem.iTunes?.iTunesImage {
-			coverUrl = image.attributes!.href!
-		}else{
-			coverUrl = ""
-		}
+		duration = feedItem.iTunes?.iTunesDuration ?? 0
 		podCoverUrl = ""
 		collectionId = ""
 	}
 	
-//    init?(jsonData:JSON) {
-//        albumId = jsonData["albumId"].intValue
-//        trackId = jsonData["trackId"].intValue
-//        title = jsonData["title"].stringValue
-//        intro = jsonData["intro"].stringValue
-//        trackUrl_high = jsonData["trackUrl_high"].stringValue
-//        cover_url_high = jsonData["cover_url_high"].stringValue
-//        duration = jsonData["duration"].intValue
-//        time_until_now = jsonData["time_until_now"].stringValue
-//        formatted_created_at = jsonData["formatted_created_at"].stringValue
-//        pod_cover_url = jsonData["pod_cover_url"].stringValue
-//        pod_name = jsonData["pod_name"].stringValue
-//        episodeId = jsonData["_id"].stringValue
-//        isFavour = jsonData["isFavour"].boolValue
-//        download_filpath = ""
-//    }
     
     enum CodingKeys : String ,CodingTableKey {
         typealias Root = Episode

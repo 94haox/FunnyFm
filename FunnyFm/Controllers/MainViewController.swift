@@ -56,15 +56,16 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 			self.navigationController?.pushViewController(emptyVC, animated: false)
 			UserDefaults.standard.set(true, forKey: "isFirstMain")
 		}
-		return
+		
+		self.vm.getAllPods()
+		
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		self.emptyAnimationView.play()
 		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
-		self.vm.getAllPods()
-		self.emptyAnimationView.play()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -107,6 +108,10 @@ extension MainViewController{
 		
 		NotificationCenter.default.addObserver(forName: NSNotification.Name.init("homechapterParserBegin"), object: nil, queue: OperationQueue.main) { (notify) in
 			self.fetchLoadingView.startAnimating()
+		}
+		
+		NotificationCenter.default.addObserver(forName: NSNotification.Name.init(kParserNotification), object: nil, queue: OperationQueue.main) { (notify) in
+			self.vm.refresh()
 		}
 	}
 }
@@ -355,12 +360,13 @@ extension MainViewController {
 		self.emptyAnimationView.loopMode = .loop;
 		
 		self.addBtn = UIButton.init(type: .custom)
-		addBtn.setTitle("添加播客", for: .normal)
+		addBtn.setTitle("发现播客", for: .normal)
 		addBtn.setTitleColor(.white, for: .normal)
 		addBtn.backgroundColor = CommonColor.mainRed.color
-		addBtn.cornerRadius = 5.0
+		addBtn.cornerRadius = 15.0
 		addBtn.titleLabel?.font = p_bfont(14);
 		addBtn.addTarget(self, action: #selector(toSearch), for: .touchUpInside)
+		addBtn.addShadow(ofColor: CommonColor.mainPink.color, radius: 16, offset: CGSize.init(width: 0, height: 9), opacity: 0.6)
 		
 		self.emptyView = UIView.init()
 		emptyView.backgroundColor = .white
@@ -404,7 +410,7 @@ extension MainViewController {
 		self.addBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(label.snp.bottom).offset(40)
-			make.width.equalToSuperview().offset(-40)
+			make.width.equalTo(180)
 			make.height.equalTo(50)
 		}
 		

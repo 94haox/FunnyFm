@@ -97,15 +97,7 @@ class PodPreviewViewController: BaseViewController {
 		PodListViewModel.init().registerPod(params: params, success: { (msg) in
 		}) { (msg) in
 		}
-		
-		FeedManager.shared.parserRss(self.itunsPod, {(_) in
-			DispatchQueue.main.async {
-				HorizonHUD.showSuccess("获取成功")
-				if self.isFirstResponder {
-					self.dismiss(animated: true, completion: nil)
-				}
-			}
-		})
+		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
 	}
 	
 	func shinkBtn() {

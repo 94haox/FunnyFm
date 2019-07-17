@@ -77,6 +77,12 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 
 extension PodDetailViewController: UITableViewDelegate {
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let episode = self.vm.episodeList[indexPath.row]
+		FMToolBar.shared.isHidden = false
+		FMToolBar.shared.configToolBarAtHome(episode)
+	}
+	
 }
 
 extension PodDetailViewController: UITableViewDataSource {
@@ -123,7 +129,7 @@ extension PodDetailViewController {
 		
 		self.podNameLB.snp.makeConstraints { (make) in
 			make.left.equalTo(self.podImageView.snp.right).offset(12)
-			make.right.equalToSuperview().offset(30)
+			make.right.equalToSuperview().offset(-30)
 			make.top.equalTo(self.podImageView)
 		}
 		
@@ -155,18 +161,18 @@ extension PodDetailViewController {
 	func addSubviews(){
 		self.topView = UIView.init()
 		self.topView.backgroundColor = .white
-		self.topView.cornerRadius = 15;
 		
 		self.podImageView = UIImageView.init()
 		self.podImageView.cornerRadius = 5;
 		
 		self.podNameLB = UILabel.init(text: self.pod.trackName)
 		self.podNameLB.textColor = CommonColor.title.color
-		self.podNameLB.font = p_bfont(18)
+		self.podNameLB.font = p_bfont(16)
+		self.podNameLB.numberOfLines = 1;
 		
 		self.podAuthorLB = UILabel.init(text: self.pod.podAuthor)
 		self.podAuthorLB.textColor = CommonColor.content.color
-		self.podAuthorLB.font = p_bfont(15)
+		self.podAuthorLB.font = p_bfont(12)
 		
 		self.countLB = UILabel.init(text: self.pod.releaseDate)
 		self.countLB.textColor = CommonColor.content.color

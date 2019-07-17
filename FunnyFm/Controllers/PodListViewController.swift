@@ -73,9 +73,9 @@ extension PodListViewController {
 extension PodListViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let pod = self.vm.podlist[indexPath.row]
-//        let vc = EpisodeListViewController.init(pod)
-//        self.navigationController?.pushViewController(vc)
+		let pod = self.vm.podlist[indexPath.row]
+		let vc = PodDetailViewController.init(pod: pod)
+		self.navigationController?.pushViewController(vc)
     }
     
 }

@@ -111,12 +111,11 @@ extension NeLoginViewController {
     
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
-//        UserCenter.shared.userId = self.viewModel.user!.userId
-//        UserCenter.shared.isLogin = true
         UserDefaults.standard.set(self.viewModel.user!.userId, forKey: "userId")
         UserDefaults.standard.set(true, forKey: "isLogin")
         UserDefaults.standard.synchronize()
         HorizonHUD.showSuccess("登录成功")
+		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
         self.navigationController?.popViewController()
     }
     

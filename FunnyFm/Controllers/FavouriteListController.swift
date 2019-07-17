@@ -118,7 +118,7 @@ extension FavouriteListController{
         let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
         self.tableview.register(nib, forCellReuseIdentifier: "tablecell")
         self.tableview.separatorStyle = .none
-        self.tableview.rowHeight = 131
+        self.tableview.rowHeight = 100
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false

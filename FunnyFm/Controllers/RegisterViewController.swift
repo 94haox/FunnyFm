@@ -87,6 +87,7 @@ extension RegisterViewController {
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
         HorizonHUD.showSuccess("登录成功")
+		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
         self.navigationController?.popToRootViewController(animated: true)
 //		let profileVC = profil
     }

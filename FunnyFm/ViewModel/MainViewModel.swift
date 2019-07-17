@@ -83,6 +83,7 @@ class MainViewModel: NSObject {
 		}else if podList.count > 0{
 			self.isParsering = true
 		}else{
+			self.delegate?.viewModelDidGetChapterlistSuccess()
 			return;
 		}
 		

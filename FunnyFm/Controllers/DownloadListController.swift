@@ -40,7 +40,7 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
         let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
         table.register(nib, forCellReuseIdentifier: "tablecell")
         table.separatorStyle = .none
-        table.rowHeight = 131
+        table.rowHeight = 100
         table.delegate = self
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
