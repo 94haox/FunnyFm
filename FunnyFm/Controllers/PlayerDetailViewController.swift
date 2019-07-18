@@ -85,7 +85,6 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
 		if !UserDefaults.standard.bool(forKey: "isFristSwip") {
 			self.swipeAniView.play()
 			UserDefaults.standard.set(true, forKey: "isFristSwip")

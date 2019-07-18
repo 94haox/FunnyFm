@@ -19,6 +19,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var updateLB: UILabel!
+	private var tapClosure: (() -> Void)?
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,8 +33,18 @@ class HomeAlbumTableViewCell: UITableViewCell {
             make.size.equalTo(CGSize.init(width: 50, height: 50))
         }
     }
+	
+	public func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {
+		self.tapClosure = callbackEnclosure
+	}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+	@IBAction func tapAction(_ sender: Any) {
+		if self.tapClosure.isSome {
+			self.tapClosure!()
+		}
+	}
+	
+	override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.playStateView.alpha = selected ? 1 : 0
         selected ? self.playStateView.play() : self.playStateView.stop()

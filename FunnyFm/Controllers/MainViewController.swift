@@ -12,6 +12,7 @@ import SPStorkController
 import Lottie
 import CleanyModal
 import NVActivityIndicatorView
+import CloudKit
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
     
@@ -58,7 +59,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		}
 		
 		self.vm.getAllPods()
-		
+		print(CKContainer.default().containerIdentifier as Any)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +93,12 @@ extension MainViewController{
     @objc func toSearch() {
 		let search = SearchViewController.init()
 		self.navigationController?.pushViewController(search);
+	}
+	
+	func toDetail(episode: Episode) {
+		let detailVC = EpisodeDetailViewController.init()
+		detailVC.episode = episode
+		self.navigationController?.pushViewController(detailVC);
 	}
     
     @objc func refreshData(){
@@ -181,6 +188,9 @@ extension MainViewController{
 		let episodeList = self.vm.episodeList[indexPath.section]
         let episode = episodeList[indexPath.row]
         cell.configHomeCell(episode)
+		cell.tranferNoParameterClosure { [weak self] in
+			self?.toDetail(episode: episode)
+		}
     }
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

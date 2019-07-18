@@ -129,7 +129,7 @@ extension FMToolBar{
     }
     
 	func config(_ chapter: Episode, url: String){
-        
+        self.isHidden = false
         if self.currentEpisode.isNone {
            self.currentEpisode = chapter
         }else{

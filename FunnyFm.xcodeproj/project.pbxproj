@@ -102,6 +102,7 @@
 		AB57D5B822DDCD6F00979994 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */; };
 		AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */; };
 		AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */; };
+		AB57D67322E05A6A00979994 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB57D67222E05A6A00979994 /* CloudKit.framework */; };
 		AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2822CDDF9200BABEF2 /* firework_2.json */; };
 		AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2A22CDE16A00BABEF2 /* boom.json */; };
 		AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2C22CDE5C200BABEF2 /* home_empty.json */; };
@@ -337,6 +338,7 @@
 		AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewModel.swift; sourceTree = "<group>"; };
+		AB57D67222E05A6A00979994 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AB57FE2822CDDF9200BABEF2 /* firework_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework_2.json; sourceTree = "<group>"; };
 		AB57FE2A22CDE16A00BABEF2 /* boom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = boom.json; sourceTree = "<group>"; };
 		AB57FE2C22CDE5C200BABEF2 /* home_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home_empty.json; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */,
+				AB57D67322E05A6A00979994 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +490,7 @@
 		35ADAC79336120144B49975D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB57D67222E05A6A00979994 /* CloudKit.framework */,
 				1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */,
 				022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
@@ -1094,6 +1098,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
