@@ -15,5 +15,84 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FunnyFm/ViewModel/PodListViewModel.swift"
+            timestampString = "585568165.518258"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "registerPod(params:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;FunnyFm.iTunsPod&gt;) -&gt; () in FunnyFm.PodListViewModel.registerPod(params: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, success: (Swift.String) -&gt; (), failure: (Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duke/FunnyFm/FunnyFm/ViewModel/PodListViewModel.swift"
+                  timestampString = "585568165.65109"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "576">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;&gt;) -&gt; () in closure #1 (Swift.Optional&lt;FunnyFm.iTunsPod&gt;) -&gt; () in FunnyFm.PodListViewModel.registerPod(params: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, success: (Swift.String) -&gt; (), failure: (Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duke/FunnyFm/FunnyFm/ViewModel/PodListViewModel.swift"
+                  timestampString = "585568165.652341"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;FunnyFm.iTunsPod&gt;) -&gt; () in FunnyFm.PodListViewModel.registerPod(params: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, success: (Swift.String) -&gt; (), failure: (Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duke/FunnyFm/FunnyFm/ViewModel/PodListViewModel.swift"
+                  timestampString = "585568165.653555"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FunnyFm/ViewModel/PodListViewModel.swift"
+            timestampString = "585568165.518308"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "registerPod(params:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

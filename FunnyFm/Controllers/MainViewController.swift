@@ -59,7 +59,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		}
 		
 		self.vm.getAllPods()
-		print(CKContainer.default().containerIdentifier as Any)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {

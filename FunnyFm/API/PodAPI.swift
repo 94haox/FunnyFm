@@ -11,7 +11,7 @@ import Moya
 
 
 
-let kGetPodListurl = "v1/pod/podlist"
+let kGetPodListurl = "v1/user/subscribeList"
 let kCheckPodSourceUrl = "v1/checkPodSource"
 let kCheckNeteasePodSourceUrl = "v1/netease/podInfo"
 let kAddPodSourceUrl = "v1/addPodSource"

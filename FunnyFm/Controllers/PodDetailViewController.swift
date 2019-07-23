@@ -35,6 +35,12 @@ class PodDetailViewController: BaseViewController {
 		self.vm.delegate = self
 	}
 	
+	deinit {
+		if self.subBtn.isSelected {
+			self.vm.deleteAllEpisode(collectionId: self.pod.collectionId, podId: self.pod.podId)
+		}
+	}
+	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
@@ -50,11 +56,20 @@ class PodDetailViewController: BaseViewController {
 	func config(){
 		self.title = "detail"
 		self.podNameLB.text = self.pod.trackName
-		self.podAuthorLB.text = self.pod.podAuthor
+		self.podAuthorLB.text = self.pod.podAuthor.length() > 0 ? self.pod.podAuthor : "未知"
 		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {result in}
 	}
+	
+	@objc func subscribtionAction() {
+		self.subBtn.isSelected = !self.subBtn.isSelected;
+		self.subBtn.backgroundColor = self.subBtn.isSelected ? .white : CommonColor.mainRed.color
+	}
+	
+	
 
 }
+
+
 
 extension PodDetailViewController: PodDetailViewModelDelegate{
 	
@@ -118,13 +133,13 @@ extension PodDetailViewController {
 		self.topView.snp.makeConstraints { (make) in
 			make.left.width.equalToSuperview()
 			make.top.equalTo(self.view.snp.topMargin)
-			make.height.equalTo(150)
+			make.height.equalTo(180)
 		}
 		
 		self.podImageView.snp.makeConstraints { (make) in
 			make.left.equalToSuperview().offset(30)
 			make.top.equalToSuperview().offset(18)
-			make.size.equalTo(CGSize.init(width: 55, height: 55))
+			make.size.equalTo(CGSize.init(width: 80, height: 80))
 		}
 		
 		self.podNameLB.snp.makeConstraints { (make) in
@@ -188,6 +203,7 @@ extension PodDetailViewController {
 		self.subBtn.borderWidth = 1;
 		self.subBtn.borderColor = CommonColor.mainRed.color
 		self.subBtn.cornerRadius = 5
+		self.subBtn.addTarget(self, action: #selector(subscribtionAction), for: .touchUpInside)
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)

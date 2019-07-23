@@ -169,6 +169,10 @@ class DatabaseManager: NSObject {
 		}
 		try! self.database.insert(objects: episode, intoTable: exsitEpisodeTable)
 	}
+	
+	static public func deleteEpisode(collectionId: String) {
+		try! database.delete(fromTable: exsitEpisodeTable,where: iTunsPod.Properties.collectionId == collectionId)
+	}
     
     
 

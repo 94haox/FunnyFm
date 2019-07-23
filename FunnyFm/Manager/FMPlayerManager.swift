@@ -64,6 +64,10 @@ class FMPlayerManager: NSObject {
     
     /// 当前资源文件
     var currentModel: Episode?
+	
+	var sleepTimer: Timer? = nil
+	
+	var isSleepTimerActive = false
     
     override init() {
         super.init()
@@ -271,6 +275,35 @@ extension FMPlayerManager {
 	}
     
 }
+
+extension FMPlayerManager {
+	
+	func startSleep(seconds: Int) {
+		
+		self.isSleepTimerActive = true
+		
+		var count = 0
+		sleepTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+			count = count + 1
+			if count == seconds {
+				if self.isPlay {
+					self.pause()
+				}
+				self.sleepTimer!.invalidate()
+				self.isSleepTimerActive = false
+			}
+		}
+		sleepTimer!.fire()
+	}
+	
+	func cancelSleep(){
+		sleepTimer!.invalidate()
+		self.isSleepTimerActive = false
+	}
+	
+}
+
+
 
 // MARK: back
 

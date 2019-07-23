@@ -92,7 +92,7 @@ class MainViewModel: NSObject {
 			print("fetch")
 			group.enter()
 			queue.async(group: group, qos: DispatchQoS.userInteractive, flags: []) {
-				FeedManager.shared.parserRss(pod, { (podlist) in
+				FeedManager.shared.parserRss(pod, { (episodeList) in
 					
 					print("fetched")
 					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
