@@ -83,6 +83,7 @@ extension FMToolBar {
 			self.isPlaying = false
         }
     }
+	
     
     func playerStatusDidChanged(isCanPlay: Bool) {
         self.loadingView.isHidden = isCanPlay

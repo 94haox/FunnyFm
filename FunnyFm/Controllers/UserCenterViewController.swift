@@ -102,7 +102,13 @@ extension UserCenterViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+		
+		if !UserCenter.shared.isLogin {
+			let login = NeLoginViewController()
+			self.navigationController?.pushViewController(login)
+			return
+		}
+		
         if indexPath.row == 0 {
             let historyVc = HistoryListViewController()
             self.navigationController?.pushViewController(historyVc)

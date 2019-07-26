@@ -22,6 +22,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.setUpImmutableData()
         self.setupUI()
         self.view.backgroundColor = .white
         self.dw_addsubviews()
@@ -39,21 +40,25 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     lazy var others : Array = {return []}()
     
     func setUpDataSource (){
+		self.settings.removeAll()
         if PrivacyManager.isOpenPusn() {
             self.settings.append(["title":"接收通知","imageName":"notify","rightImage":"icon_correct"])
         }else{
             self.settings.append(["title":"接收通知","imageName":"notify"])
         }
-        self.feedbacks.append(["title":"github issue","imageName":"github"])
-        self.others.append(["title":"给 FunnyFM 评分","imageName":"rate"])
-        self.others.append(["title":"将 FunnyFM 推荐给好友","imageName":"share"])
-        self.others.append(["title":"查看开发者其他的 App ","imageName":"github"])
-        self.others.append(["title":"关于 FunnyFM ","imageName":"about us"])
     }
+	
+	func setUpImmutableData(){
+		self.feedbacks.append(["title":"github issue","imageName":"github"])
+		self.others.append(["title":"给 FunnyFM 评分","imageName":"rate"])
+		self.others.append(["title":"将 FunnyFM 推荐给好友","imageName":"share"])
+		self.others.append(["title":"查看开发者其他的 App ","imageName":"github"])
+		self.others.append(["title":"关于 FunnyFM ","imageName":"about us"])
+	}
     
     func toShare(){
         let textToShare = "嘿，我发现了一个好用的播客 APP， 你也来试试吧"
-        let imageToShare = UIImage.init(named: "logo-white")
+        let imageToShare = UIImage.init(named: "AppIcon-blue")
         let urlToShare = NSURL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
         var items = [textToShare,imageToShare!] as [Any]
         if urlToShare != nil {

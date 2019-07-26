@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import OneSignal
 
 @objc protocol MainViewModelDelegate: ViewModelDelegate {
 	func viewModelDidGetChapterlistSuccess()
@@ -42,6 +42,7 @@ class MainViewModel: NSObject {
 				if let list = cloudPodlist {
 					list.forEach({ (pod) in
 						DatabaseManager.addItunsPod(pod: pod)
+						OneSignal.sendTag(pod.podId, value: "1")
 					})
 				}
 				self.podlist = DatabaseManager.allItunsPod()
@@ -144,6 +145,4 @@ class MainViewModel: NSObject {
 		
 		return sortEpisodeList
 	}
-    
-
 }

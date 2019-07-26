@@ -12,6 +12,7 @@ import OfficeUIFabric
 import AppCenter
 import AppCenterAnalytics
 import AppCenterCrashes
+import OneSignal
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -29,6 +30,8 @@ import AppCenterCrashes
         configureNavigationTabBar()
 		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
+		PushManager().configurePushSDK(launchOptions: launchOptions)
+		OneSignal.sendTag("5d36c15e458f4bcf6fb5603a", value: "1")
         UIApplication.shared.applicationIconBadgeNumber = 0
 		var navi = UINavigationController.init(rootViewController: MainViewController.init())
 		navi.navigationBar.isHidden = true

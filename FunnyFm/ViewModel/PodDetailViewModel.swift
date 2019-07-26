@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OneSignal
 
 @objc protocol PodDetailViewModelDelegate :ViewModelDelegate {
 	func podDetailParserSuccess()
@@ -36,6 +37,7 @@ class PodDetailViewModel: NSObject {
 	func deleteAllEpisode(collectionId: String, podId: String) {
 		DatabaseManager.deleteItunsPod(collectionId: collectionId)
 		DatabaseManager.deleteEpisode(collectionId: collectionId)
+		OneSignal.deleteTag(podId)
 		if podId.length() < 1 {
 			return;
 		}

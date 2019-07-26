@@ -22,6 +22,21 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+
+        self.titleLB.text = self.episode.title
+		self.dateLB.text = self.episode.pubDate
+		self.podLB.text = self.episode.author
+		self.duration.text = FunnyFm.formatIntervalToString(NSInteger(self.episode.duration))
+        self.containerView.snp.updateConstraints { (make) in
+            make.bottom.equalTo(self.desLB).offset(30)
+        }
+		
+		guard self.episode.intro.contains("<") else {
+			self.desLB.text = self.episode.intro;
+			return
+		}
+		
 		do{
 			let srtData = self.episode.intro.data(using: String.Encoding.unicode, allowLossyConversion: true)!
 			let attrStr = try NSMutableAttributedString(data: srtData, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
@@ -47,15 +62,6 @@ class EpisodeDetailViewController: UIViewController {
 		}catch _ as NSError {
 			self.desLB.text = self.episode.intro;
 		}
-		
-//		self.desLB.text = self.episode.intro;
-        self.titleLB.text = self.episode.title
-		self.dateLB.text = self.episode.pubDate
-		self.podLB.text = self.episode.author
-		self.duration.text = FunnyFm.formatIntervalToString(NSInteger(self.episode.duration))
-        self.containerView.snp.updateConstraints { (make) in
-            make.bottom.equalTo(self.desLB).offset(30)
-        }
 
     }
     

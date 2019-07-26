@@ -80,11 +80,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 extension MainViewController{
     
     @objc func toUserCenter() {
-		if !UserCenter.shared.isLogin {
-			let login = NeLoginViewController()
-			self.navigationController?.pushViewController(login)
-			return
-		}
         let usercenterVC = UserCenterViewController()
         self.navigationController?.pushViewController(usercenterVC)
     }
