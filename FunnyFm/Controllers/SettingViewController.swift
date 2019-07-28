@@ -58,7 +58,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     
     func toShare(){
         let textToShare = "嘿，我发现了一个好用的播客 APP， 你也来试试吧"
-        let imageToShare = UIImage.init(named: "AppIcon-blue")
+        let imageToShare = UIImage.init(named: "logo-white")
         let urlToShare = NSURL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
         var items = [textToShare,imageToShare!] as [Any]
         if urlToShare != nil {
@@ -71,6 +71,19 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     func toGrade() {
         SKStoreReviewController.requestReview()
     }
+	
+	func toAboutUs(){
+		let url = URL(string: "https://live.funnyfm.top/#/")
+		var responder = self as UIResponder?
+		let selectorOpenURL = sel_registerName("openURL:")
+		
+		while (responder != nil) {
+			if (responder?.responds(to: selectorOpenURL))! {
+				let _ = responder?.perform(selectorOpenURL, with: url)
+			}
+			responder = responder!.next
+		}
+	}
     
     func toAppStore() {
     
@@ -123,6 +136,10 @@ extension SettingViewController {
             if indexPath.row == 2{
                 self.toAppStore()
             }
+			
+			if indexPath.row == 3{
+				self.toAboutUs()
+			}
         }
 		
 		

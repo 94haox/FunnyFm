@@ -22,13 +22,14 @@ struct Episode : TableCodable{
     var coverUrl:         		String
 	var podCoverUrl:         	String
     var pubDate:         		String
-	var pubDateSecond:         	Double
+	var pubDateSecond:         	Int
     var download_filpath:        String
 	
 	init(feedItem: RSSFeedItem) {
 		title = feedItem.title ?? ""
 		pubDate = feedItem.pubDate?.dateString() ?? Date().dateString()
-		pubDateSecond = Date().secondsSince(feedItem.pubDate!)
+//		pubDateSecond = Date().secondsSince(feedItem.pubDate!)
+		pubDateSecond = NSDate.minuteOffsetBetweenStart(feedItem.pubDate!, end: Date.init(timeIntervalSince1970: 1))
 		intro = feedItem.description ?? "暂无"
 		author = feedItem.iTunes?.iTunesAuthor ?? ""
 		coverUrl = feedItem.iTunes?.iTunesImage?.attributes?.href ?? ""
