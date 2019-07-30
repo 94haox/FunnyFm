@@ -113,7 +113,7 @@ extension SettingViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 		if indexPath.section == 0{
-			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
+//			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
             UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
 			return
 		}

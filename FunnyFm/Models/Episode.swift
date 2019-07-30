@@ -28,7 +28,6 @@ struct Episode : TableCodable{
 	init(feedItem: RSSFeedItem) {
 		title = feedItem.title ?? ""
 		pubDate = feedItem.pubDate?.dateString() ?? Date().dateString()
-//		pubDateSecond = Date().secondsSince(feedItem.pubDate!)
 		pubDateSecond = NSDate.minuteOffsetBetweenStart(feedItem.pubDate!, end: Date.init(timeIntervalSince1970: 1))
 		intro = feedItem.description ?? "暂无"
 		author = feedItem.iTunes?.iTunesAuthor ?? ""

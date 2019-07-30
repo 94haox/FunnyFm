@@ -20,7 +20,7 @@ class FeedManager: NSObject {
 		
 		let feedURL = URL(string: itunsPod.feedUrl)!
 		let parser = FeedParser(URL: feedURL)
-		parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+		parser.parseAsync(queue: DispatchQueue.global(qos: .background)) { (result) in
 			let list = self.parserData(result: result, itunsPod: itunsPod)
 			success(list)
 		}

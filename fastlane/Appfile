@@ -1,8 +1,0 @@
-app_identifier("com.duke.www.FunnyFm") # The bundle identifier of your app
-apple_id("497160282@qq.com") # Your Apple email address
-
-itc_team_id("119263857") # App Store Connect Team ID
-team_id("F3PARDF2VE") # Developer Portal Team ID
-
-# For more information about the Appfile, see:
-#     https://docs.fastlane.tools/advanced/#appfile

@@ -13,6 +13,7 @@ import AppCenter
 import AppCenterAnalytics
 import AppCenterCrashes
 import OneSignal
+import CleanyModal
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -30,7 +31,12 @@ import OneSignal
         configureNavigationTabBar()
 		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
+		
+//		if PrivacyManager.isOpenPusn() {
+//			PushManager().configurePushSDK(launchOptions: launchOptions)
+//		}
 		PushManager().configurePushSDK(launchOptions: launchOptions)
+		
 		OneSignal.sendTag("5d36c15e458f4bcf6fb5603a", value: "1")
         UIApplication.shared.applicationIconBadgeNumber = 0
 		var navi = UINavigationController.init(rootViewController: MainViewController.init())
@@ -55,7 +61,7 @@ import OneSignal
 extension AppDelegate {
 	
 	func dw_addNotifies(){
-		NotificationCenter.default.addObserver(self, selector: #selector(setUpNotification), name: NSNotification.Name.init(kSetupNotification), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: NSNotification.Name.init(kSetupNotification), object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: NSNotification.Name.init(kNeedLoginAction), object: nil)
 		
@@ -63,7 +69,23 @@ extension AppDelegate {
 
 	}
 	
-	@objc func setUpNotification() {
+	@objc func setupNotification() {
+		
+		UserDefaults.standard.set(true, forKey: "isShowNotifi")
+		
+		let alertConfig = CleanyAlertConfig(
+			title: "Hei Bro.",
+			message: "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦")
+		let alert = AlertViewController.init(config: alertConfig)
+		
+		alert.addAction(title: "去设置", style: .default) { (action) in
+			self.setUpNotificationAction()
+		}
+		alert.addAction(title: "不，我不需要", style: .cancel)
+		self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+	}
+	
+	func setUpNotificationAction() {
 		PushManager().configurePushSDK(launchOptions: self.options)
 	}
 	

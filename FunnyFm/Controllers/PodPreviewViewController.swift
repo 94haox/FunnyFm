@@ -11,7 +11,6 @@ import SnapKit
 import Kingfisher
 import NVActivityIndicatorView
 import OfficeUIFabric
-import CleanyModal
 
 class PodPreviewViewController: BaseViewController {
 	
@@ -63,41 +62,25 @@ class PodPreviewViewController: BaseViewController {
 		self.sourceLB.text = "来自：" + "iTunes";
 	}
 	
-	func setupNotification() {
-		
-		UserDefaults.standard.set(true, forKey: "isShowNotifi")
-		
-		let alertConfig = CleanyAlertConfig(
-			title: "Hei Bro.",
-			message: "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦")
-		let alert = AlertViewController.init(config: alertConfig)
-		
-		alert.addAction(title: "去设置", style: .default) { (action) in
-			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
-		}
-		alert.addAction(title: "不，我不需要", style: .cancel)
-		
-		present(alert, animated: true, completion: nil)
-
-	}
-	
 	@objc func addPodToLibary(){
 		self.shinkBtn()
-		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候")
+		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看")
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
-		if !UserDefaults.standard.bool(forKey: "isShowNotifi") {
-			self.setupNotification()
-		}
 		var params = [String: String]()
 		params["track_name"] = self.itunsPod.trackName;
 		params["rss_url"] = self.itunsPod.feedUrl;
 		params["collection_id"] = self.itunsPod.collectionId;
 		params["source_type"] = "iTunes";
 		params["artwork_url"] = self.itunsPod.artworkUrl600
+		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
 		PodListViewModel.init().registerPod(params: params, success: { (msg) in
+			self.dismiss(animated: true, completion: {
+				if !PrivacyManager.isOpenPusn() {
+					NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
+				}
+			})
 		}) { (msg) in
 		}
-		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
 	}
 	
 	func shinkBtn() {
