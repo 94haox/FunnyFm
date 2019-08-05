@@ -30,8 +30,8 @@ class SubscribListController: BaseViewController , UITableViewDelegate, UITableV
     
     
     lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "我的订阅")
-        lb.font = p_bfont(32)
+        let lb = UILabel.init(text: "我的订阅".localized)
+        lb.font = p_bfont(titleFontSize)
         lb.textColor = CommonColor.subtitle.color
         return lb
     }()

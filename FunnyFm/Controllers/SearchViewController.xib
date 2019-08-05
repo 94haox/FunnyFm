@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="FunnyFm" customModuleProvider="target">
             <connections>
+                <outlet property="cateBtn" destination="hi9-sH-P5O" id="hXL-cW-j43"/>
                 <outlet property="searchTF" destination="eUc-8g-g1M" id="BCc-6f-III"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-8g-g1M" customClass="FMTextField">
-                    <rect key="frame" x="29" y="109" width="356" height="50"/>
+                    <rect key="frame" x="29" y="99" width="356" height="50"/>
                     <color key="backgroundColor" red="0.88627450980392153" green="0.8901960784313725" blue="0.9137254901960784" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="q3P-72-W2X"/>
@@ -36,14 +37,29 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7u-GF-5AE">
-                    <rect key="frame" x="32" y="54" width="65" height="39"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                    <rect key="frame" x="32" y="54" width="49" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                     <color key="textColor" red="0.792156862745098" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hi9-sH-P5O">
+                    <rect key="frame" x="360" y="56" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="4Ck-Wt-9QS"/>
+                        <constraint firstAttribute="width" constant="25" id="bOD-ej-qtv"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="grid"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="inCategoryAction:" destination="-1" eventType="touchUpInside" id="HeF-3W-2KX"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="hi9-sH-P5O" firstAttribute="centerY" secondItem="a7u-GF-5AE" secondAttribute="centerY" id="Ask-TC-dt1"/>
+                <constraint firstItem="hi9-sH-P5O" firstAttribute="trailing" secondItem="eUc-8g-g1M" secondAttribute="trailing" id="C1a-A4-NLy"/>
                 <constraint firstItem="eUc-8g-g1M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="29" id="LLU-zF-pq5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eUc-8g-g1M" secondAttribute="trailing" constant="29" id="m8E-6n-nsm"/>
                 <constraint firstItem="a7u-GF-5AE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="nn0-xD-P2w"/>
@@ -54,4 +70,7 @@
             <point key="canvasLocation" x="139" y="148"/>
         </view>
     </objects>
+    <resources>
+        <image name="grid" width="30" height="32"/>
+    </resources>
 </document>

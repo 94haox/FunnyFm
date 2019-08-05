@@ -12,10 +12,9 @@ import SPStorkController
 import Lottie
 import CleanyModal
 import NVActivityIndicatorView
-import CloudKit
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
-    
+	
     var vm = MainViewModel.init()
     
     var containerView: UIView!
@@ -301,7 +300,7 @@ extension MainViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.titileLB.snp.bottom).offset(32)
+            make.top.equalTo(self.titileLB.snp.bottom).offset(30.adapt())
         }
 		
 		self.loadAnimationView.snp.makeConstraints { (make) in
@@ -349,8 +348,8 @@ extension MainViewController {
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
 		
-		self.titileLB = UILabel.init(text: "最近更新")
-		self.titileLB.font = p_bfont(32)
+		self.titileLB = UILabel.init(text: "最近更新".localized)
+		self.titileLB.font = p_bfont(titleFontSize)
 		self.titileLB.textColor = CommonColor.subtitle.color
         
         self.profileBtn = UIButton.init(type: .custom)
@@ -364,7 +363,7 @@ extension MainViewController {
 		self.emptyAnimationView.loopMode = .loop;
 		
 		self.addBtn = UIButton.init(type: .custom)
-		addBtn.setTitle("发现播客", for: .normal)
+		addBtn.setTitle("发现播客".localized, for: .normal)
 		addBtn.setTitleColor(.white, for: .normal)
 		addBtn.backgroundColor = CommonColor.mainRed.color
 		addBtn.cornerRadius = 15.0

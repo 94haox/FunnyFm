@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  FunnyFm
+
+  Created by Duke on 2019/8/5.
+  Copyright © 2019 Duke. All rights reserved.
+*/
+
+
+"Arts"="艺术";
+"Business"="商业";
+"Comedy"="喜剧";
+"Education"="教育";
+"Games & Hobbies"="游戏和爱好";
+"Government & Organisations"="政府和组织";
+"Health"="健康";
+"Kids & Family"="儿童与家庭";
+"Music"="音乐";
+"News & Politics"="新闻与政治";
+"Religion & Spirituality"="宗教与灵性";
+"Science & Medicine"="科学与医学";
+"Society & Culture"="社会与文化";
+"Sports & Recreation"="运动休闲";
+"Technology"="技术";
+"TV & Film"="电视和电影";
+"最近更新"="最近更新";
+"搜索"="搜尋";
+"搜索播客"="搜尋";
+"我的订阅"="我的訂閱";
+"近期收听"="最近收聽";
+"我的下载"="我的下載內容";
+"设置"="设定";
+"订阅"="訂閱";
+"已订阅"="已訂閱";
+"登录"="登入";
+"注册"="註冊";
+"密码（6位）"="密碼 (6位)";
+"邮箱"="Email";
+"账号"="帳戶";
+"还没有账户"="還沒有帳戶?";
+"欢迎回来"="歡迎回来";
+"如需体验完整功能，敬请登录"="如需體驗完整功能，敬請登錄";
+"有趣的播客由您自己发掘"="有趣的播客由您自己發掘";
+"退出登录"="退出登錄";
+"退出成功"="退出登錄成功";
+

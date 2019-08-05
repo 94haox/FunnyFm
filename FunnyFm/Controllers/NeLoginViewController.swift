@@ -165,7 +165,7 @@ extension NeLoginViewController {
         self.mailTF.cornerRadius = 15;
         self.mailTF.tintColor = CommonColor.mainRed.color
         self.mailTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.mailTF.attributedPlaceholder = FunnyFm.attributePlaceholder("邮箱")
+        self.mailTF.attributedPlaceholder = FunnyFm.attributePlaceholder("邮箱".localized)
         self.mailTF.returnKeyType = .done
         self.mailTF.font = h_bfont(fontsize4)
         self.mailTF.textColor = CommonColor.title.color
@@ -181,7 +181,7 @@ extension NeLoginViewController {
         self.passTF.cornerRadius = 15;
         self.passTF.tintColor = CommonColor.mainRed.color
         self.passTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.passTF.attributedPlaceholder = FunnyFm.attributePlaceholder("密码（6位）")
+        self.passTF.attributedPlaceholder = FunnyFm.attributePlaceholder("密码（6位）".localized)
         self.passTF.returnKeyType = .done
         self.passTF.font = h_bfont(fontsize4)
         self.passTF.textColor = CommonColor.title.color

@@ -194,9 +194,9 @@ extension PodDetailViewController {
 		self.countLB.font = p_bfont(12)
 		
 		self.subBtn = UIButton.init(type: .custom)
-		self.subBtn.setTitle("已订阅", for: .normal)
+		self.subBtn.setTitle("已订阅".localized, for: .normal)
 		self.subBtn.setTitleColor(.white, for: .normal)
-		self.subBtn.setTitle("订阅", for: .selected)
+		self.subBtn.setTitle("订阅".localized, for: .selected)
 		self.subBtn.setTitleColor(CommonColor.mainRed.color, for: .selected)
 		self.subBtn.backgroundColor = CommonColor.mainRed.color
 		self.subBtn.titleLabel?.font = p_bfont(12)

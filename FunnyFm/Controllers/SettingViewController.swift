@@ -249,7 +249,7 @@ extension SettingViewController {
         self.tableview.tableFooterView = UIView()
         self.tableview.showsVerticalScrollIndicator = false
         
-        self.titleLB = UILabel.init(text: "设置")
+        self.titleLB = UILabel.init(text: "设置".localized)
         self.titleLB.font = p_bfont(18)
         self.titleLB.textColor = CommonColor.title.color
         

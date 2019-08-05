@@ -11,9 +11,13 @@ import OfficeUIFabric
 import SPStorkController
 import Lottie
 
+
 class SearchViewController: UIViewController {
 
 	@IBOutlet weak var searchTF: UITextField!
+	var isCategory = true
+	@IBOutlet weak var cateBtn: UIButton!
+	
 	
 	var tableview : UITableView!
 	
@@ -26,20 +30,28 @@ class SearchViewController: UIViewController {
 		self.dw_addSubviews()
 		self.searchTF.delegate = self;
 		self.vm.delegate = self;
-//		self.dw_addTouchEndEdit()
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 	}
 	
+	@IBAction func inCategoryAction(_ sender: Any) {
+		isCategory = true
+		self.cateBtn.isHidden = isCategory
+		self.vm.itunsPodlist.removeAll()
+		self.tableview.reloadData()
+	}
+	
 	func dw_addSubviews(){
+		self.cateBtn.setImage(UIImage(named: "grid")?.maskWithColor(color: CommonColor.subtitle.color), for: .normal)
+		self.cateBtn.isHidden = true
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: ItunsPodTableViewCell.self), bundle: nil)
 		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+		self.tableview.register(TopicTableViewCell.self, forCellReuseIdentifier: "celld")
 		self.tableview.backgroundColor = .clear;
 		self.tableview.separatorStyle = .none
-		self.tableview.rowHeight = 100
 		self.tableview.delegate = self
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false
@@ -49,7 +61,7 @@ class SearchViewController: UIViewController {
 			make.left.bottom.width.equalTo(self.view);
 			make.top.equalTo(self.searchTF.snp.bottom).offset(16);
 		}
-		self.searchTF.attributedPlaceholder = FunnyFm.attributePlaceholder("搜索播客")
+		self.searchTF.attributedPlaceholder = FunnyFm.attributePlaceholder("搜索播客".localized)
 		self.searchTF.font = p_bfont(14)
 		self.searchTF.textColor = CommonColor.title.color
 	}
@@ -60,6 +72,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController : ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
 		MSHUD.shared.hide()
+		self.cateBtn.isHidden = false
 		self.tableview.reloadData()
 		DispatchQueue.main.asyncAfter(deadline: .init(uptimeNanoseconds: UInt64(0.2))) {
 			self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
@@ -68,6 +81,7 @@ extension SearchViewController : ViewModelDelegate {
 	
 	func viewModelDidGetDataFailture(msg: String?) {
 		MSHUD.shared.hide()
+		self.cateBtn.isHidden = false
 		SwiftNotice.showText(msg!)
 		self.tableview.reloadData();
 	}
@@ -75,7 +89,15 @@ extension SearchViewController : ViewModelDelegate {
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 	
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if isCategory {
+			self.vm.searchTopic(keyword: self.vm.topicIDs[indexPath.row])
+			isCategory = false
+			MSHUD.shared.show(from: self)
+			tableview.reloadData()
+			return;
+		}
 		let pod = self.vm.itunsPodlist[indexPath.row]
 		let preview = PodPreviewViewController()
 		preview.modalPresentationStyle = .overCurrentContext
@@ -89,10 +111,25 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if isCategory {
+			return self.vm.topics.count
+		}
 		return self.vm.itunsPodlist.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if isCategory {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "celld", for: indexPath) as! TopicTableViewCell
+			cell.trackNameLabel.text = self.vm.topics[indexPath.row]
+			cell.iconImageView.image = UIImage(named: self.vm.topicIcons[indexPath.row])?.maskWithColor(color: CommonColor.subtitle.color)
+//			cell.iconImageView.layer.masksToBounds = true
+			
+			cell.backgroundColor = .white
+			let bgColorView = UIView()
+			bgColorView.backgroundColor = UIColor(red: 243/255.0, green: 242/255.0, blue: 246/255.0, alpha: 1.0)
+			cell.selectedBackgroundView = bgColorView
+			return cell
+		}
 		let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
 		return cell
 	}
@@ -101,6 +138,13 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 		guard let cell = cell as? ItunsPodTableViewCell else { return }
 		let pod = self.vm.itunsPodlist[indexPath.row]
 		cell.config(pod)
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if isCategory {
+			return UITableView.automaticDimension
+		}
+		return 100
 	}
 }
 
@@ -132,6 +176,7 @@ extension SearchViewController : UITextFieldDelegate {
 		if textField.text!.length() < 1 {
 			return true
 		}
+		isCategory = false
 		self.vm.searchPod(keyword: textField.text!)
 		MSHUD.shared.show(in: self.view)
 		return true

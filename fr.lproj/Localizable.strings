@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  FunnyFm
+
+  Created by Duke on 2019/8/5.
+  Copyright © 2019 Duke. All rights reserved.
+*/
+
+
+"Arts" = "Les Arts";
+"Business" = "Entreprise";
+"Comedy" = "Comédie";
+"Education" = "Éducation";
+"Games & Hobbies" = "Jeux et Loisirs";
+"Government & Organisations" = "Gouvernement et Organisations";
+"Health" = "Santé";
+"Kids & Family" = "Enfants et Famille";
+"Music" = "La Musique";
+"News & Politics" = "Nouvelles et Politique";
+"Religion & Spirituality" = "Religion et Spiritualité";
+"Science & Medicine" = "Science et Médecine";
+"Society & Culture" = "Société et Culture";
+"Sports & Recreation" = "Sports et Loisirs";
+"Technology" = "La Technologie";
+"TV & Film" = "Télévision et Film";
+"最近更新" = "Récentes";
+"搜索" = "Rechercher";
+"搜索播客" = "Rechercher";
+"我的订阅" = "Mes abonnements";
+"近期收听" = "Scores";
+"我的下载" = "Mes vidéos";
+"设置" = "Paramètres";
+"订阅" = "S'abonner";
+"已订阅" = "Abonné";
+"登录" = "Se connecter";
+"注册" = "S'inscrire";
+"密码（6位）" = "Mots de passe";
+"账号" = "Compte";
+"邮箱" = "Email";
+"还没有账户" = "Pas encore de compte ?";
+"欢迎回来" = "BIENVENUE";
+"如需体验完整功能，敬请登录" = "Pour une fonctionnalité complète, veuillez vous connecter.";
+"有趣的播客由您自己发掘" = "Des podcasts intéressants sont explorés par vous-même";
+"退出登录" = "Déconnexion";
+"退出成功" = "Signé avec succès";
+

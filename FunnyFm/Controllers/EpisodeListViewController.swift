@@ -157,7 +157,7 @@ extension EpisodeListViewController{
 extension EpisodeListViewController {
     
     func addHeader(){
-        let header = UILabel.init(text: "   最近更新")
+        let header = UILabel.init(text: "   最近更新".localized)
         header.textColor = CommonColor.content.color
         header.font = p_bfont(fontsize4)
         header.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 30)

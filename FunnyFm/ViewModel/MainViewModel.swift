@@ -25,6 +25,13 @@ class MainViewModel: NSObject {
     lazy var episodeList : [[Episode]] = {
         return []
     }()
+	
+	lazy var radioList: [Dictionary] = {
+		return [["name":"BlackBeats.FM","url":"http://stream.blackbeats.fm/"],
+			["name":"Classical Minnesota","url":"http://cms.stream.publicradio.org/cms.mp3"],
+			["name":"Blues.FM","url":"http://sc2b-sjc.1.fm:8030/"]
+		]
+	}()
     
     weak var delegate : MainViewModelDelegate?
     

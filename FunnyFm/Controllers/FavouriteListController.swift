@@ -92,7 +92,7 @@ extension FavouriteListController{
         self.view.addSubview(self.syncAniView)
         
         self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(30)
+            make.top.equalTo(self.view.snp.topMargin)
             make.left.equalToSuperview().offset(16)
         }
         
@@ -110,8 +110,8 @@ extension FavouriteListController{
     }
     
     func setupUI() {
-        self.titleLB = UILabel.init(text: "我的收藏")
-        self.titleLB.font = p_bfont(32)
+        self.titleLB = UILabel.init(text: "我的收藏".localized)
+        self.titleLB.font = p_bfont(titleFontSize)
         self.titleLB.textColor = CommonColor.subtitle.color
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)

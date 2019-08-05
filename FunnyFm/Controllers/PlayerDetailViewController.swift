@@ -352,7 +352,7 @@ extension PlayerDetailViewController {
         
         self.titleLB.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(AdaptScale(60))
+            make.top.equalTo(self.view.snp_topMargin).offset(16.adapt())
             make.width.equalTo(200)
         })
         
@@ -364,25 +364,25 @@ extension PlayerDetailViewController {
         self.backBtn.snp.makeConstraints({ (make) in
             make.centerY.equalTo(self.titleLB)
             make.left.equalToSuperview().offset(24)
-            make.size.equalTo(CGSize.init(width: 30, height: 30))
+            make.size.equalTo(CGSize.init(width: AdaptScale(30), height: AdaptScale(30)))
         })
         
         self.infoScrollView.snp.makeConstraints { (make) in
             make.centerX.width.equalToSuperview()
             make.centerY.equalTo(self.coverBackView)
-            make.height.equalTo(self.coverBackView).offset(30)
+            make.height.equalTo(self.coverBackView).offset(AdaptScale(30))
         }
         
         self.infoImageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize.init(width: 50, height: 50))
+            make.size.equalTo(CGSize.init(width: AdaptScale(50), height: AdaptScale(50)))
             make.right.equalTo(self.infoScrollView.snp.left)
         }
         
         self.coverBackView.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(57))
-            make.size.equalTo(CGSize.init(width: AdaptScale(244), height: AdaptScale(244)))
+            make.size.equalTo(CGSize.init(width: AdaptScale(200), height: AdaptScale(200)))
         })
 		
 		self.coverImageView.snp.makeConstraints({ (make) in
@@ -396,26 +396,26 @@ extension PlayerDetailViewController {
 //        })
 		
 		self.airBtn.snp.makeConstraints({ (make) in
-			make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
+			make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(57)+AdaptScale(244))
 			make.right.equalTo(self.view.snp.centerX).offset(-32)
-			make.size.equalTo(CGSize.init(width: 25, height: 25))
+			make.size.equalTo(CGSize.init(width: AdaptScale(25), height: AdaptScale(25)))
 		})
 		
         self.rateBtn.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
+			make.centerY.equalTo(self.airBtn)
             make.left.equalTo(self.view.snp.centerX).offset(32)
-            make.size.equalTo(CGSize.init(width: 35, height: 25))
+            make.size.equalTo(CGSize.init(width: AdaptScale(30), height: AdaptScale(25)))
         })
         
         self.downBtn.snp.makeConstraints({ (make) in
             make.centerY.equalTo(self.airBtn)
             make.left.equalTo(self.rateBtn!.snp.right).offset(AdaptScale(70))
-            make.size.equalTo(CGSize.init(width: 25, height: 25))
+            make.size.equalTo(CGSize.init(width: AdaptScale(25), height: AdaptScale(25)))
         })
         
         self.downBackView.snp.makeConstraints { (make) in
             make.center.equalTo(self.downBtn)
-            make.size.equalTo(CGSize.init(width: 35, height: 35))
+            make.size.equalTo(CGSize.init(width: AdaptScale(35), height: AdaptScale(35)))
         }
         
         self.sleepBtn.snp.makeConstraints({ (make) in
@@ -427,26 +427,26 @@ extension PlayerDetailViewController {
         self.progressLine.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-48)
-            make.height.equalTo(20)
-            make.top.equalTo(self.downBtn.snp.bottom).offset(72)
+            make.height.equalTo(AdaptScale(20))
+            make.top.equalTo(self.downBtn.snp.bottom).offset(72.adapt())
         })
         
         self.playBtn.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.progressLine.snp.bottom).offset(72)
-            make.size.equalTo(CGSize.init(width: 60, height: 60))
+            make.bottom.equalTo(self.view.snp_bottomMargin).offset(-50.adapt())
+            make.size.equalTo(CGSize.init(width: AdaptScale(60), height: AdaptScale(60)))
         })
         
         self.rewindBtn.snp.makeConstraints({ (make) in
             make.centerY.equalTo(self.playBtn)
             make.right.equalTo(self.playBtn.snp.left).offset(-50)
-            make.size.equalTo(CGSize.init(width: 30, height: 30))
+            make.size.equalTo(CGSize.init(width: AdaptScale(30), height: AdaptScale(30)))
         })
         
         self.forwardBtn.snp.makeConstraints({ (make) in
             make.centerY.equalTo(self.playBtn)
-            make.left.equalTo(self.playBtn.snp.right).offset(50)
-            make.size.equalTo(CGSize.init(width: 30, height: 30))
+            make.left.equalTo(self.playBtn.snp.right).offset(50.adapt())
+            make.size.equalTo(CGSize.init(width: 30.adapt(), height: 30.adapt()))
         })
 		
 //		self.likeAniView.snp.makeConstraints { (make) in
@@ -489,7 +489,7 @@ extension PlayerDetailViewController {
         self.infoScrollView.addSubview(self.infoImageView);
         
         self.coverBackView = UIView.init()
-        self.coverBackView.cornerRadius = 15
+        self.coverBackView.cornerRadius = 15.adapt()
         self.infoScrollView.addSubview(self.coverBackView)
         
 		self.coverImageView = UIImageView.init()
@@ -502,7 +502,7 @@ extension PlayerDetailViewController {
                 print("Error: \(error)")
             }
         }
-		self.coverImageView.cornerRadius = 15
+		self.coverImageView.cornerRadius = 15.adapt()
 		self.coverBackView.addSubview(self.coverImageView)
 		
 //		self.likeAniView = AnimationView(name: "like_button")
@@ -558,7 +558,7 @@ extension PlayerDetailViewController {
         self.view.addSubview(self.rateBtn)
         
         self.progressLine = ChapterProgressView()
-        self.progressLine.cycleW = 18
+        self.progressLine.cycleW = 18.adapt()
         self.progressLine.fontSize = fontsize0
         self.view.addSubview(self.progressLine)
         
@@ -568,7 +568,7 @@ extension PlayerDetailViewController {
         self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
         self.playBtn.isSelected = FMPlayerManager.shared.isPlay
         self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
-        self.playBtn.cornerRadius = 30
+        self.playBtn.cornerRadius = 30.adapt()
         self.playBtn.addShadow(ofColor: CommonColor.mainRed.color, opacity: 0.8)
         self.view.addSubview(self.playBtn)
         

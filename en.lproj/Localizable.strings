@@ -1,0 +1,45 @@
+/* 
+  Localizable.strings
+  FunnyFm
+
+  Created by Duke on 2019/8/5.
+  Copyright © 2019 Duke. All rights reserved.
+*/
+
+"Arts"="Arts";
+"Business"="Business";
+"Comedy"="Comedy";
+"Education"="Education";
+"Games & Hobbies"="Games & Hobbies";
+"Government & Organisations"="Government & Organisations";
+"Health"="Health";
+"Kids & Family"="Kids & Family";
+"Music"="Music";
+"News & Politics"="News & Politics";
+"Religion & Spirituality"="Religion & Spirituality";
+"Science & Medicine"="Science & Medicine";
+"Society & Culture"="Society & Culture";
+"Sports & Recreation"="Sports & Recreation";
+"Technology"="Technology";
+"TV & Film"="TV & Film";
+"最近更新"="Recent updates";
+"搜索"="Search";
+"我的订阅"="My Subscriptions";
+"近期收听"="Records";
+"我的下载"="Downloads";
+"设置"="Setting";
+"订阅"="Subscribe";
+"已订阅"="Subscribed";
+"登录"="Login";
+"注册"="Register";
+"密码（6位）"="password (6-digit number)";
+"账号"="account";
+"邮箱"="E-mail";
+"还没有账户"="Still no account?";
+"欢迎回来"="Welcome";
+"如需体验完整功能，敬请登录"="Enjoy full functions, please login";
+"有趣的播客由您自己发掘"="Funny Podcast for youself";
+"退出登录"="Logout";
+"退出成功"="Signed out successfully";
+"搜索播客"="Search";
+"发现播客"="Discover Podcasts";

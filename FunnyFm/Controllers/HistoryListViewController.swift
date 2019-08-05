@@ -15,12 +15,12 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
         self.view.backgroundColor = .white
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
-        
-        
+		
         self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(30)
+            make.top.equalTo(self.view.snp.topMargin)
             make.left.equalToSuperview().offset(16)
         }
+		
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -30,8 +30,8 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
     
     
     lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "收听记录")
-        lb.font = p_bfont(32)
+        let lb = UILabel.init(text: "近期收听".localized)
+        lb.font = p_bfont(titleFontSize)
         lb.textColor = CommonColor.subtitle.color
         return lb
     }()
@@ -44,6 +44,7 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
         table.rowHeight = 100
         table.delegate = self
         table.dataSource = self
+		table.emptyDataSetSource = self
         table.showsVerticalScrollIndicator = false
         return table
     }()

@@ -17,7 +17,7 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
         self.view.addSubview(self.titleLB)
         
         self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(30)
+            make.top.equalTo(self.view.snp.topMargin)
             make.left.equalToSuperview().offset(16)
         }
         self.tableview.snp.makeConstraints { (make) in
@@ -29,8 +29,8 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
     
     
     lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "我的下载")
-        lb.font = p_bfont(32)
+        let lb = UILabel.init(text: "我的下载".localized)
+        lb.font = p_bfont(titleFontSize)
         lb.textColor = CommonColor.subtitle.color
         return lb
     }()

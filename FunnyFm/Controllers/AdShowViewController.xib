@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdShowViewController" customModule="FunnyFm" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbg-uS-4vm">
+                    <rect key="frame" x="30" y="399.5" width="354" height="50"/>
+                    <color key="backgroundColor" red="0.94901960780000005" green="0.12941176469999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="GkZ-wC-sh8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="展示广告"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="showFullScreenAd:" destination="-1" eventType="touchUpInside" id="5Ji-tu-u7P"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广告是作者在此APP上的唯一收入来源，也是支撑云同步服务的唯一资金来源，谢谢您的支持" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocl-Ug-CaO">
+                    <rect key="frame" x="20" y="262" width="374" height="37.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgW-gb-50C">
+                    <rect key="frame" x="192" y="472" width="30" height="30"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" title="返回">
+                        <color key="titleColor" red="0.94901960780000005" green="0.12941176469999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="ZeA-U2-Aip"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nbg-uS-4vm" secondAttribute="trailing" constant="30" id="05G-uN-7AU"/>
+                <constraint firstItem="DgW-gb-50C" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="LEA-jU-qZ2"/>
+                <constraint firstItem="nbg-uS-4vm" firstAttribute="top" secondItem="Ocl-Ug-CaO" secondAttribute="bottom" constant="100" id="Ob8-zb-mNf"/>
+                <constraint firstItem="Ocl-Ug-CaO" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ppa-8t-VUE"/>
+                <constraint firstItem="Ocl-Ug-CaO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="218" id="R37-ms-KhM"/>
+                <constraint firstItem="nbg-uS-4vm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="RKQ-1M-jPO"/>
+                <constraint firstItem="DgW-gb-50C" firstAttribute="top" secondItem="nbg-uS-4vm" secondAttribute="bottom" constant="22.5" id="TtZ-hl-Gwc"/>
+                <constraint firstItem="Ocl-Ug-CaO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="hxH-8e-mLZ"/>
+                <constraint firstAttribute="trailing" secondItem="Ocl-Ug-CaO" secondAttribute="trailing" constant="20" id="mVi-Ze-56k"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

@@ -25,4 +25,57 @@ extension String {
         }
         return returnStr.replacingOccurrences(of: "\\r\\n", with: "\n")
     }
+	
+	var localized: String {
+		return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+	}
 }
+
+extension UIImage {
+	
+	public func maskWithColor(color: UIColor) -> UIImage {
+		
+		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+		let context = UIGraphicsGetCurrentContext()!
+		
+		let rect = CGRect(origin: CGPoint.zero, size: size)
+		
+		color.setFill()
+		self.draw(in: rect)
+		
+		context.setBlendMode(.sourceIn)
+		context.fill(rect)
+		
+		let resultImage = UIGraphicsGetImageFromCurrentImageContext()!
+		UIGraphicsEndImageContext()
+		return resultImage
+	}
+	
+}
+
+
+extension Float {
+	func adapt() -> CGFloat{
+		return AdaptScale(CGFloat(self))
+	}
+}
+
+extension CGFloat {
+	func adapt() -> CGFloat{
+		return AdaptScale(self)
+	}
+}
+
+extension Double {
+	func adapt() -> CGFloat{
+		return AdaptScale(CGFloat(self))
+	}
+}
+
+extension Int {
+	func adapt() -> CGFloat{
+		return AdaptScale(CGFloat(self))
+	}
+}
+
+

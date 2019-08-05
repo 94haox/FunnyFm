@@ -18,6 +18,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         self.view.backgroundColor = .white
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+		self.view.backgroundColor = CommonColor.background.color
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.titleLB)
         self.titleLB.snp.makeConstraints { (make) in
@@ -32,15 +33,15 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
     }
     
     lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "我的订阅")
-        lb.font = p_bfont(32)
+        let lb = UILabel.init(text: "我的订阅".localized)
+        lb.font = p_bfont(titleFontSize)
         lb.textColor = CommonColor.subtitle.color
         return lb
     }()
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: (kScreenWidth-32*3)/2.0, height: (kScreenWidth-32*3)/2.0*1.3)
+        layout.itemSize = CGSize(width: (kScreenWidth-32*3)/2, height: (kScreenWidth-32*3)/2.0)
         layout.minimumInteritemSpacing = 18
         layout.minimumLineSpacing = 31;
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 32, bottom: 0, right: 32)
@@ -49,7 +50,8 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         collectionview.showsHorizontalScrollIndicator = false
         let nib = UINib(nibName: String(describing: PodListCollectionViewCell.self), bundle: nil)
         collectionview.register(nib, forCellWithReuseIdentifier: "cell")
-        collectionview.backgroundColor = .white
+        collectionview.backgroundColor = CommonColor.background.color
+		collectionview.emptyDataSetSource = self;
         return collectionview
     }()
 
@@ -100,4 +102,16 @@ extension PodListViewController{
         let pod = self.vm.podlist[index]
         cell.configCell(pod)
     }
+}
+
+extension PodListViewController : DZNEmptyDataSetSource {
+	
+	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+		return UIImage.init(named: "download-empty")
+	}
+	
+	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+		return NSAttributedString.init(string: "快去发掘有趣的播客吧~", attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
+	}
+	
 }

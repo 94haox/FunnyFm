@@ -14,6 +14,7 @@ import AppCenterAnalytics
 import AppCenterCrashes
 import OneSignal
 import CleanyModal
+import GoogleMobileAds
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -24,6 +25,8 @@ import CleanyModal
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		MSAppCenter.start("f9778dd8-1385-462e-a4e1-fa37182cb200", withServices:[MSAnalytics.self,MSCrashes.self])
+		GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+													withAdUnitID: "ca-app-pub-9733320345962237/3682634149")
 		self.dw_addNotifies()
 		self.window = UIWindow.init()
         self.options = launchOptions
