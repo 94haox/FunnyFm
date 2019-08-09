@@ -59,7 +59,7 @@ class PodPreviewViewController: BaseViewController {
 		self.podNameLB.text = pod.trackName
 		self.authorLB.text = pod.podAuthor
 		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
-		self.sourceLB.text = "来自：" + "iTunes";
+//		self.sourceLB.text = "来自：" + "iTunes";
 	}
 	
 	@objc func addPodToLibary(){

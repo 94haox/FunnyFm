@@ -8,6 +8,8 @@
 
 import UIKit
 import Lottie
+import FirebaseUI
+import GoogleSignIn
 
 class NeLoginViewController: BaseViewController, ViewModelDelegate {
 
@@ -18,6 +20,10 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
     @IBOutlet weak var nextImageView: UIImageView!
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
+	
+	@IBOutlet weak var ggLoginBtn: UIButton!
+	
+	var authUI : FUIAuth!
 	
 	var emptyAnimationView : AnimationView = {
 		let view = AnimationView.init(name: "login_anim")
@@ -40,6 +46,12 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
         self.dw_addSubviews()
         self.viewModel.delegate = self;
 		self.dw_addTouchEndEdit()
+		let providers: [FUIAuthProvider] = [
+			FUIGoogleAuth(),
+		]
+		self.authUI = FUIAuth.defaultAuthUI()
+		self.authUI.delegate = self;
+		self.authUI.providers = providers
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +69,8 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
     }
     
     @IBAction func wxLoginAction(_ sender: Any) {
-        
+		let authViewController = authUI.authViewController()
+ 		self.present(authViewController, animated: true, completion: nil)
     }
     
     @IBAction func loginAction(_ sender: Any) {
@@ -107,6 +120,13 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
 
 }
 
+extension NeLoginViewController : FUIAuthDelegate{
+	
+	func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+		
+	}
+}
+
 extension NeLoginViewController {
     
     func viewModelDidGetDataSuccess() {
@@ -133,20 +153,20 @@ extension NeLoginViewController {
         
         self.mailTF.snp.makeConstraints { (make) in
             make.left.equalTo(self.tipLB)
-            make.top.equalTo(self.tipLB.snp.bottom).offset(AdaptScale(100))
+            make.top.equalTo(self.tipLB.snp.bottom).offset(90.adapt())
             make.width.equalToSuperview().multipliedBy(0.7)
-            make.height.equalTo(50)
+            make.height.equalTo(50.adapt())
         }
         
         self.passTF.snp.makeConstraints { (make) in
             make.left.equalTo(self.tipLB)
             make.top.equalTo(self.mailTF.snp.bottom).offset(16)
             make.width.equalToSuperview().multipliedBy(0.7)
-            make.height.equalTo(50)
+            make.height.equalTo(50.adapt())
         }
         
         self.loginBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(self.passTF.snp.bottom).offset(AdaptScale(40))
+            make.top.equalTo(self.passTF.snp.bottom).offset(40.adapt())
         }
 		
 		self.view.addSubview(self.emptyAnimationView)

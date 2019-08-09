@@ -115,7 +115,13 @@ extension FMPlayerManager {
 			return;
 		}
 		
-		DatabaseManager.updateProgress(progress: Double(self.currentTime), episodeId: self.currentModel!.title)
+		var progress = Double(self.currentTime)
+		
+		if progress > 5 {
+			progress = progress - 5
+		}
+		
+		DatabaseManager.updateProgress(progress: progress, episodeId: self.currentModel!.title)
 	}
     
     func seekToProgress(_ progress: CGFloat) {
@@ -297,8 +303,10 @@ extension FMPlayerManager {
 	}
 	
 	func cancelSleep(){
-		sleepTimer!.invalidate()
-		self.isSleepTimerActive = false
+		if let _ = sleepTimer {
+			sleepTimer!.invalidate()
+			self.isSleepTimerActive = false
+		}
 	}
 	
 }

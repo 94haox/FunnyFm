@@ -19,10 +19,14 @@ class PodListViewModel: BaseViewModel {
 		return []
 	}()
 	
-	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Games & Hobbies".localized, "Government & Organisations".localized, "Health".localized, "Kids & Family".localized, "Music".localized, "News & Politics".localized, "Religion & Spirituality".localized, "Science & Medicine".localized, "Society & Culture".localized, "Sports & Recreation".localized, "Technology".localized, "TV & Film".localized]
-	var topicIDs = ["1301", "1321", "1303", "1304", "1323", "1325", "1307", "1305", "1310", "1311", "1314", "1315", "1324", "1316", "1318", "1309"]
-	var topicIcons = ["art", "business", "comedy", "edu", "game", "govern", "health", "kids", "music-cate", "news", "pray", "science", "society", "ball", "tech", "tv"]
-    
+//	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Games & Hobbies".localized, "Government & Organisations".localized, "Health".localized, "Kids & Family".localized, "Music".localized, "News & Politics".localized, "Religion & Spirituality".localized, "Science & Medicine".localized, "Society & Culture".localized, "Sports & Recreation".localized, "Technology".localized, "TV & Film".localized]
+//	var topicIDs = ["1301", "1321", "1303", "1304", "1323", "1325", "1307", "1305", "1310", "1311", "1314", "1315", "1324", "1316", "1318", "1309"]
+//	var topicIcons = ["art", "business", "comedy", "edu", "game", "govern", "health", "kids", "music-cate", "news", "pray", "science", "society", "ball", "tech", "tv"]
+	
+	var topics = ["作者推荐".localized]
+	var topicIDs = ["1301"]
+	var topicIcons = ["art"]
+	
     override init() {
         super.init()
     }
@@ -30,15 +34,6 @@ class PodListViewModel: BaseViewModel {
     func getAllPods() {
 		self.podlist = DatabaseManager.allItunsPod()
 		self.delegate?.viewModelDidGetDataSuccess()
-		
-//        FmHttp<Pod>().requestForArray(PodAPI.getPodList(), { (podlist) in
-//            if let list = podlist {
-//                self.podlist = list
-//                self.delegate?.viewModelDidGetDataSuccess()
-//            }
-//        }){ msg in
-//            self.delegate?.viewModelDidGetDataFailture(msg: msg)
-//        }
     }
 	
 	func searchPod(keyword:String){
@@ -53,14 +48,31 @@ class PodListViewModel: BaseViewModel {
 	}
 	
 	func searchTopic(keyword:String){
-		FmHttp<iTunsPod>().requestForItuns(PodAPI.searchTopic(keyword), { (podlist) in
-			if let list = podlist {
-				self.itunsPodlist = list
-				self.delegate?.viewModelDidGetDataSuccess()
+		
+		let filepath = Bundle.main.path(forResource: "recommend", ofType: "json")
+		let url = URL(fileURLWithPath: filepath!)
+		do {
+			let data = try Data.init(contentsOf: url)
+			let json : NSArray = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+			
+			self.itunsPodlist.removeAll()
+			for dict in json {
+				self.itunsPodlist.append(iTunsPod.init(dic: dict as! NSDictionary))
 			}
-		}){ msg in
-			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+			self.delegate?.viewModelDidGetDataSuccess()
+		} catch let error {
+			print("读取本地数据出现错误!",error)
 		}
+
+
+//		FmHttp<iTunsPod>().requestForItuns(PodAPI.searchTopic(keyword), { (podlist) in
+//			if let list = podlist {
+//				self.itunsPodlist = list
+//				self.delegate?.viewModelDidGetDataSuccess()
+//			}
+//		}){ msg in
+//			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+//		}
 	}
 
 	

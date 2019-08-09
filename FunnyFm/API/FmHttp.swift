@@ -50,6 +50,7 @@ public class FmHttp<T> where T: Mapable{
                         failure(json["message"].string)
                         return
                     }
+					print(json)
                     let jsonlist = json["data"]["items"].array!
                     var models = [T]()
                     jsonlist.forEach({ (item) in

@@ -15,6 +15,8 @@ import AppCenterCrashes
 import OneSignal
 import CleanyModal
 import GoogleMobileAds
+import Firebase
+import FirebaseUI
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -24,9 +26,8 @@ import GoogleMobileAds
     var options: [UIApplication.LaunchOptionsKey: Any]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		FirebaseApp.configure()
 		MSAppCenter.start("f9778dd8-1385-462e-a4e1-fa37182cb200", withServices:[MSAnalytics.self,MSCrashes.self])
-		GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-													withAdUnitID: "ca-app-pub-9733320345962237/3682634149")
 		self.dw_addNotifies()
 		self.window = UIWindow.init()
         self.options = launchOptions
@@ -35,12 +36,8 @@ import GoogleMobileAds
 		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
 		
-//		if PrivacyManager.isOpenPusn() {
-//			PushManager().configurePushSDK(launchOptions: launchOptions)
-//		}
 		PushManager().configurePushSDK(launchOptions: launchOptions)
 		
-		OneSignal.sendTag("5d36c15e458f4bcf6fb5603a", value: "1")
         UIApplication.shared.applicationIconBadgeNumber = 0
 		var navi = UINavigationController.init(rootViewController: MainViewController.init())
 		navi.navigationBar.isHidden = true
@@ -89,6 +86,10 @@ extension AppDelegate {
 	}
 	
 	func setUpNotificationAction() {
+		if !PrivacyManager.isOpenPusn() {
+			UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+			return;
+		}
 		PushManager().configurePushSDK(launchOptions: self.options)
 	}
 	
@@ -132,11 +133,16 @@ extension AppDelegate {
 	
 	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool{
 		print(url.absoluteString)
+		
+		let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+		if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+			return true
+		}
+		
 		if url.absoluteString.hasPrefix("funnyfm://itunsUrl=https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast") {
 			if let key = url.absoluteString.components(separatedBy: "?").last{
 				if let id = key.components(separatedBy: "#").first{
 					let podid = id.subString(from: 3)
-					print("podId------",podid)
 					GlobalViewModel.shared.delegate = self;
 					GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
 				}
@@ -146,7 +152,6 @@ extension AppDelegate {
 		if let key = url.absoluteString.components(separatedBy: "?").first{
 			if let id = key.components(separatedBy: "/").last{
 				let podid = id.subString(from: 2)
-				print("podId------",podid)
 				GlobalViewModel.shared.delegate = self;
 				GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
 				

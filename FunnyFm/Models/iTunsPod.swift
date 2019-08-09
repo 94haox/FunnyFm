@@ -46,6 +46,31 @@ struct iTunsPod : Mapable, TableCodable {
 		}
 	}
 	
+	init(dic:NSDictionary) {
+		let rss_url = dic["rss_url"] as! String
+		if rss_url.length() > 0 {
+			feedUrl = dic["rss_url"] as! String
+			trackName = dic["track_name"] as! String
+			collectionId = dic["collection_id"] as! String
+			artworkUrl600 = dic["artwork_url"] as! String
+			releaseDate = dic["update_time"] as! String
+			trackCount = "0"
+			podAuthor = ""
+			copyRight = ""
+			podId = dic["_id"] as! String
+		}else{
+			feedUrl = dic["feedUrl"] as! String
+			trackName = dic["trackName"] as! String
+			collectionId = dic["collectionId"] as! String
+			artworkUrl600 = dic["artworkUrl600"] as! String
+			trackCount = dic["trackCount"] as! String
+			releaseDate = dic["releaseDate"] as! String
+			podId = ""
+			podAuthor = ""
+			copyRight = ""
+		}
+	}
+	
 	enum CodingKeys : String, CodingKey,CodingTableKey {
 		typealias Root = iTunsPod
 		static let objectRelationalMapping = TableBinding(CodingKeys.self)

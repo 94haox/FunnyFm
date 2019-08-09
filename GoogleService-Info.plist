@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>491413064388-cnaplmj5h8bah503k27a71ciiok1acbs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.491413064388-cnaplmj5h8bah503k27a71ciiok1acbs</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAXtxYhideK71T9kr-TTjofH9I6GLS7qUg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>491413064388</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.duke.www.FunnyFm</string>
+	<key>PROJECT_ID</key>
+	<string>funnyfm-b5704</string>
+	<key>STORAGE_BUCKET</key>
+	<string>funnyfm-b5704.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:491413064388:ios:13e678b84fd05bd8</string>
+	<key>DATABASE_URL</key>
+	<string>https://funnyfm-b5704.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-9733320345962237~4240203191</string>
+</dict>
+</plist>

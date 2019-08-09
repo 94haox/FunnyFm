@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="FunnyFm" customModuleProvider="target">
             <connections>
+                <outlet property="ggLoginBtn" destination="1Mz-Lt-WCM" id="X59-ki-IdZ"/>
                 <outlet property="loadingView" destination="pjC-kg-UGr" id="K23-sz-GTi"/>
                 <outlet property="loginBtn" destination="MxH-Qs-caB" id="tFb-oe-fdY"/>
                 <outlet property="nextImageView" destination="Kzo-Oa-9b1" id="WqE-tp-kg6"/>
@@ -103,7 +104,7 @@
                         <constraint firstAttribute="width" constant="30" id="AjT-YR-z59"/>
                         <constraint firstAttribute="height" constant="30" id="Azh-LZ-mbs"/>
                     </constraints>
-                    <state key="normal" image="wechat"/>
+                    <state key="normal" image="google"/>
                     <connections>
                         <action selector="wxLoginAction:" destination="-1" eventType="touchUpInside" id="mCU-rY-yQ8"/>
                     </connections>
@@ -144,7 +145,7 @@
     </objects>
     <resources>
         <image name="back-white" width="100" height="100"/>
-        <image name="wechat" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="google" width="500" height="500"/>
         <image name="white-next" width="100" height="100"/>
     </resources>
 </document>

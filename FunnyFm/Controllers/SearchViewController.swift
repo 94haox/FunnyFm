@@ -92,9 +92,9 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if isCategory {
+			MSHUD.shared.show(from: self)
 			self.vm.searchTopic(keyword: self.vm.topicIDs[indexPath.row])
 			isCategory = false
-			MSHUD.shared.show(from: self)
 			tableview.reloadData()
 			return;
 		}

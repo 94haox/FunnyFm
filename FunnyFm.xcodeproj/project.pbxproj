@@ -122,6 +122,7 @@
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB7B1A9A22F8413400790787 /* AdShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1A9822F8413400790787 /* AdShowViewController.xib */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
+		AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1AE822F9237700790787 /* GoogleService-Info.plist */; };
 		ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */; };
 		ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */; };
 		ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */; };
@@ -130,6 +131,7 @@
 		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
 		ABA99AC12219060900840382 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA99AC02219060900840382 /* GlobalViewModel.swift */; };
 		ABAFF27221E22E440009A3A2 /* like_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABAFF27121E22E440009A3A2 /* like_button.json */; };
+		ABB57AB122FD0820000593F2 /* recommend.json in Resources */ = {isa = PBXBuildFile; fileRef = ABB57AB022FD0820000593F2 /* recommend.json */; };
 		ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */; };
 		ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */; };
 		ABDC4D2822CC9AF900EF31C0 /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC4D2722CC9AF900EF31C0 /* PushManager.swift */; };
@@ -379,6 +381,7 @@
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB7B1A9822F8413400790787 /* AdShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdShowViewController.xib; sourceTree = "<group>"; };
 		AB7B1A9922F8413400790787 /* AdShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdShowViewController.swift; sourceTree = "<group>"; };
+		AB7B1AE822F9237700790787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewController.swift; sourceTree = "<group>"; };
 		ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailHeader.swift; sourceTree = "<group>"; };
@@ -387,6 +390,7 @@
 		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		ABA99AC02219060900840382 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		ABAFF27121E22E440009A3A2 /* like_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_button.json; sourceTree = "<group>"; };
+		ABB57AB022FD0820000593F2 /* recommend.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recommend.json; sourceTree = "<group>"; };
 		ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFillViewController.xib; sourceTree = "<group>"; };
 		ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFillViewController.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -622,6 +626,7 @@
 		AB25797021945E6F004C5F5D = {
 			isa = PBXGroup;
 			children = (
+				AB7B1AE822F9237700790787 /* GoogleService-Info.plist */,
 				AB74FB7822F7F33E00A00706 /* Localizable.strings */,
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
 				AB091D10229FCF8800723602 /* FunnyFM */,
@@ -657,6 +662,7 @@
 				AB41AADB21952A7C00260851 /* Models */,
 				AB41AAD7219529DB00260851 /* Utils */,
 				AB1E6DA221BA01C500B85135 /* OC */,
+				ABB57AAF22FD07F8000593F2 /* Source */,
 				AB1E6D4A21B9243000B85135 /* Extension */,
 				AB25798321945E70004C5F5D /* Assets.xcassets */,
 				AB4E145B22C63F8F0053BE00 /* sound.wav */,
@@ -901,6 +907,14 @@
 			path = Lotties;
 			sourceTree = "<group>";
 		};
+		ABB57AAF22FD07F8000593F2 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				ABB57AB022FD0820000593F2 /* recommend.json */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		ABE765F421D7196700470D8F /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,6 +1086,7 @@
 				AB25797721945E6F004C5F5D /* Resources */,
 				FE0B038FAAFA1EB55467A8B2 /* [CP] Embed Pods Frameworks */,
 				ABE7661E21D7650E00470D8F /* Embed App Extensions */,
+				16EF1320CCF93212ACE508BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1204,9 +1219,11 @@
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
 				AB57D5B822DDCD6F00979994 /* WelcomeViewController.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
+				ABB57AB122FD0820000593F2 /* recommend.json in Resources */,
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				AB7B1A9A22F8413400790787 /* AdShowViewController.xib in Resources */,
+				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
@@ -1247,6 +1264,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16EF1320CCF93212ACE508BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4C1BB038A9C73B4AC704AFA7 /* [CP] Check Pods Manifest.lock */ = {

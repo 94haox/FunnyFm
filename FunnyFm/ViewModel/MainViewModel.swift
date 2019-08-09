@@ -8,6 +8,7 @@
 
 import UIKit
 import OneSignal
+import FirebasePerformance
 
 @objc protocol MainViewModelDelegate: ViewModelDelegate {
 	func viewModelDidGetChapterlistSuccess()
@@ -83,7 +84,6 @@ class MainViewModel: NSObject {
 		
 		let group = DispatchGroup.init()
 		let queue = DispatchQueue.init(label: "parser")
-		let start = Date().timeIntervalSince1970
 		let podList = DatabaseManager.allItunsPod()
 		
 		if self.isParsering{
@@ -95,6 +95,8 @@ class MainViewModel: NSObject {
 			return;
 		}
 		
+		let trace = Performance.startTrace(name: "parserRss")
+		trace?.incrementMetric("parser", by: 1)
 		NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserBegin"), object: nil)
 		podList.forEach { (pod) in
 			print("fetch")
@@ -119,13 +121,17 @@ class MainViewModel: NSObject {
 				NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
 				self.delegate?.viewModelDidGetChapterlistSuccess()
 			}
-			print("parse time------", Date().timeIntervalSince1970 - start)
+			trace?.stop()
 		}
 		
     }
 	
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
+		
+		let trace = Performance.startTrace(name: "sortEpisodeList")
+		trace?.incrementMetric("sort", by: 1)
+		
 		var episodes = episodeList.suffix(100)
 		episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
 		var sortEpisodeList = [[Episode]]()
@@ -150,6 +156,7 @@ class MainViewModel: NSObject {
 			}
 		}
 		
+		trace?.stop()
 		return sortEpisodeList
 	}
 }

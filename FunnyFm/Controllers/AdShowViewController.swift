@@ -80,6 +80,10 @@ class AdShowViewController: UIViewController {
 		bannerView.load(GADRequest())
 	}
 	@IBAction func showFullScreenAd(_ sender: Any) {
+		if !interstitial.isReady {
+			SwiftNotice.showText("广告加载中...".localized);
+			return
+		}
 		interstitial.present(fromRootViewController: self)
 	}
 	@IBAction func backAction(_ sender: Any) {

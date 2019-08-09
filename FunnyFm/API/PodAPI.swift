@@ -15,7 +15,7 @@ let kGetPodListurl = "v1/user/subscribeList"
 let kCheckPodSourceUrl = "v1/checkPodSource"
 let kCheckNeteasePodSourceUrl = "v1/netease/podInfo"
 let kAddPodSourceUrl = "v1/addPodSource"
-let kSearchPodUrl = "/search"
+let kSearchPodUrl = "v1/pod/searchPod"
 let kRegisterPodUrl = "v1/pod/registerPod"
 
 
@@ -53,16 +53,16 @@ extension PodAPI : TargetType {
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchPod(let keyWord):
 			params["term"] = keyWord
-			params["limit"] = "100"
+			params["limit"] = "10"
 			params["media"] = "podcast"
-			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchTopic(let keyWord):
 			params["term"] = "podcast"
 			params["genreId"] = keyWord
-			params["limit"] = "100"
-			params["media"] = "podcast"
+			params["limit"] = "50"
+//			params["media"] = "podcast"
 			params["country"] = Locale.current.regionCode
-			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .registerPod(let param):
 			params = param
 			if UserCenter.shared.isLogin {
@@ -80,8 +80,6 @@ extension PodAPI : TargetType {
     
     public var baseURL: URL {
 		switch self {
-		case .searchPod(_), .searchTopic(_):
-			return URL.init(string: "https://itunes.apple.com")!
 		default:
 			return URL.init(string: FunnyFm.baseurl)!
 		}
@@ -107,8 +105,6 @@ extension PodAPI : TargetType {
     
     public var method: Moya.Method {
         switch self {
-		case .searchPod(_), .searchTopic(_):
-            return .get
         default:
             return .post
         }
