@@ -196,6 +196,14 @@
 		ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF4988E2303B6D100441DAF /* SearchViewController.xib */; };
 		ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498972303B71A00441DAF /* NeLoginViewController.xib */; };
 		ABF4989E2303B88A00441DAF /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498A02303B88A00441DAF /* RegisterViewController.xib */; };
+		ABF499612303E73C00441DAF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF4995F2303E73C00441DAF /* Interface.storyboard */; };
+		ABF499632303E73E00441DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF499622303E73E00441DAF /* Assets.xcassets */; };
+		ABF4996A2303E73E00441DAF /* FunnyFMForWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ABF499692303E73E00441DAF /* FunnyFMForWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ABF4996F2303E73E00441DAF /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF4996E2303E73E00441DAF /* InterfaceController.swift */; };
+		ABF499712303E73E00441DAF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF499702303E73E00441DAF /* ExtensionDelegate.swift */; };
+		ABF499732303E73E00441DAF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF499722303E73E00441DAF /* NotificationController.swift */; };
+		ABF499752303E73E00441DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF499742303E73E00441DAF /* Assets.xcassets */; };
+		ABF4997A2303E73E00441DAF /* FunnyFMForWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ABF4995D2303E73C00441DAF /* FunnyFMForWatch.app */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
 		ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118321BF43E50083A81B /* NormalHeaderView.swift */; };
@@ -221,6 +229,20 @@
 			remoteGlobalIDString = AB6D1B1422C633E900E9E221;
 			remoteInfo = OneSignalNotificationServiceExtension;
 		};
+		ABF4996B2303E73E00441DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABF499682303E73E00441DAF;
+			remoteInfo = "FunnyFMForWatch Extension";
+		};
+		ABF499782303E73E00441DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABF4995C2303E73C00441DAF;
+			remoteInfo = FunnyFMForWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -234,6 +256,28 @@
 				AB091D19229FCF8800723602 /* FunnyFM.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABF499802303E73E00441DAF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				ABF4996A2303E73E00441DAF /* FunnyFMForWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABF499822303E73E00441DAF /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				ABF4997A2303E73E00441DAF /* FunnyFMForWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -498,6 +542,17 @@
 		ABF498A22303B88C00441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
 		ABF498A42303B88D00441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
 		ABF498A62303B88E00441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
+		ABF4995D2303E73C00441DAF /* FunnyFMForWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyFMForWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF499602303E73C00441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		ABF499622303E73E00441DAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABF499642303E73E00441DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABF499692303E73E00441DAF /* FunnyFMForWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FunnyFMForWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF4996E2303E73E00441DAF /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		ABF499702303E73E00441DAF /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		ABF499722303E73E00441DAF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		ABF499742303E73E00441DAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABF499762303E73E00441DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABF499772303E73E00441DAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		ABF5117E21BE8A7C0083A81B /* FMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMTextField.h; path = FunnyFm/OC/FMTextField.h; sourceTree = SOURCE_ROOT; };
 		ABF5117F21BE8A7C0083A81B /* FMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMTextField.m; path = FunnyFm/OC/FMTextField.m; sourceTree = SOURCE_ROOT; };
@@ -530,6 +585,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2AAA04DB06DFC0F128AF81A /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABF499662303E73E00441DAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +715,8 @@
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
 				AB091D10229FCF8800723602 /* FunnyFM */,
 				AB6D1B1622C633EA00E9E221 /* OneSignalNotificationServiceExtension */,
+				ABF4995E2303E73C00441DAF /* FunnyFMForWatch */,
+				ABF4996D2303E73E00441DAF /* FunnyFMForWatch Extension */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -665,6 +729,8 @@
 				AB25797921945E6F004C5F5D /* FunnyFm.app */,
 				AB091D0F229FCF8800723602 /* FunnyFM.appex */,
 				AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */,
+				ABF4995D2303E73C00441DAF /* FunnyFMForWatch.app */,
+				ABF499692303E73E00441DAF /* FunnyFMForWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1067,6 +1133,29 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		ABF4995E2303E73C00441DAF /* FunnyFMForWatch */ = {
+			isa = PBXGroup;
+			children = (
+				ABF4995F2303E73C00441DAF /* Interface.storyboard */,
+				ABF499622303E73E00441DAF /* Assets.xcassets */,
+				ABF499642303E73E00441DAF /* Info.plist */,
+			);
+			path = FunnyFMForWatch;
+			sourceTree = "<group>";
+		};
+		ABF4996D2303E73E00441DAF /* FunnyFMForWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ABF4996E2303E73E00441DAF /* InterfaceController.swift */,
+				ABF499702303E73E00441DAF /* ExtensionDelegate.swift */,
+				ABF499722303E73E00441DAF /* NotificationController.swift */,
+				ABF499742303E73E00441DAF /* Assets.xcassets */,
+				ABF499762303E73E00441DAF /* Info.plist */,
+				ABF499772303E73E00441DAF /* PushNotificationPayload.apns */,
+			);
+			path = "FunnyFMForWatch Extension";
+			sourceTree = "<group>";
+		};
 		F9DE604A996C7DC4220A9259 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1109,12 +1198,14 @@
 				FE0B038FAAFA1EB55467A8B2 /* [CP] Embed Pods Frameworks */,
 				ABE7661E21D7650E00470D8F /* Embed App Extensions */,
 				16EF1320CCF93212ACE508BC /* [CP] Copy Pods Resources */,
+				ABF499822303E73E00441DAF /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				AB091D18229FCF8800723602 /* PBXTargetDependency */,
 				AB6D1B1B22C633EA00E9E221 /* PBXTargetDependency */,
+				ABF499792303E73E00441DAF /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
@@ -1138,6 +1229,40 @@
 			productName = OneSignalNotificationServiceExtension;
 			productReference = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		ABF4995C2303E73C00441DAF /* FunnyFMForWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABF499812303E73E00441DAF /* Build configuration list for PBXNativeTarget "FunnyFMForWatch" */;
+			buildPhases = (
+				ABF4995B2303E73C00441DAF /* Resources */,
+				ABF499802303E73E00441DAF /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABF4996C2303E73E00441DAF /* PBXTargetDependency */,
+			);
+			name = FunnyFMForWatch;
+			productName = FunnyFMForWatch;
+			productReference = ABF4995D2303E73C00441DAF /* FunnyFMForWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		ABF499682303E73E00441DAF /* FunnyFMForWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABF4997F2303E73E00441DAF /* Build configuration list for PBXNativeTarget "FunnyFMForWatch Extension" */;
+			buildPhases = (
+				ABF499652303E73E00441DAF /* Sources */,
+				ABF499662303E73E00441DAF /* Frameworks */,
+				ABF499672303E73E00441DAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FunnyFMForWatch Extension";
+			productName = "FunnyFMForWatch Extension";
+			productReference = ABF499692303E73E00441DAF /* FunnyFMForWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1178,6 +1303,12 @@
 							};
 						};
 					};
+					ABF4995C2303E73C00441DAF = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					ABF499682303E73E00441DAF = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = AB25797421945E6F004C5F5D /* Build configuration list for PBXProject "FunnyFm" */;
@@ -1200,6 +1331,8 @@
 				AB25797821945E6F004C5F5D /* FunnyFm */,
 				AB091D0E229FCF8800723602 /* FunnyFM */,
 				AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */,
+				ABF4995C2303E73C00441DAF /* FunnyFMForWatch */,
+				ABF499682303E73E00441DAF /* FunnyFMForWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1260,6 +1393,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABF4995B2303E73C00441DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABF499632303E73E00441DAF /* Assets.xcassets in Resources */,
+				ABF499612303E73C00441DAF /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABF499672303E73E00441DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABF499752303E73E00441DAF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1520,6 +1670,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ABF499652303E73E00441DAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABF499732303E73E00441DAF /* NotificationController.swift in Sources */,
+				ABF499712303E73E00441DAF /* ExtensionDelegate.swift in Sources */,
+				ABF4996F2303E73E00441DAF /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1532,6 +1692,16 @@
 			isa = PBXTargetDependency;
 			target = AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */;
 			targetProxy = AB6D1B1A22C633EA00E9E221 /* PBXContainerItemProxy */;
+		};
+		ABF4996C2303E73E00441DAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABF499682303E73E00441DAF /* FunnyFMForWatch Extension */;
+			targetProxy = ABF4996B2303E73E00441DAF /* PBXContainerItemProxy */;
+		};
+		ABF499792303E73E00441DAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABF4995C2303E73C00441DAF /* FunnyFMForWatch */;
+			targetProxy = ABF499782303E73E00441DAF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1642,6 +1812,14 @@
 				ABF498A62303B88E00441DAF /* fr */,
 			);
 			name = RegisterViewController.xib;
+			sourceTree = "<group>";
+		};
+		ABF4995F2303E73C00441DAF /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF499602303E73C00441DAF /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1908,6 +2086,90 @@
 			};
 			name = Release;
 		};
+		ABF4997B2303E73E00441DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				IBSC_MODULE = FunnyFMForWatch_Extension;
+				INFOPLIST_FILE = FunnyFMForWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		ABF4997C2303E73E00441DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				IBSC_MODULE = FunnyFMForWatch_Extension;
+				INFOPLIST_FILE = FunnyFMForWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
+		ABF4997D2303E73E00441DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = "FunnyFMForWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		ABF4997E2303E73E00441DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = "FunnyFMForWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1943,6 +2205,24 @@
 			buildConfigurations = (
 				AB6D1B1D22C633EA00E9E221 /* Debug */,
 				AB6D1B1E22C633EA00E9E221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABF4997F2303E73E00441DAF /* Build configuration list for PBXNativeTarget "FunnyFMForWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABF4997D2303E73E00441DAF /* Debug */,
+				ABF4997E2303E73E00441DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABF499812303E73E00441DAF /* Build configuration list for PBXNativeTarget "FunnyFMForWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABF4997B2303E73E00441DAF /* Debug */,
+				ABF4997C2303E73E00441DAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
