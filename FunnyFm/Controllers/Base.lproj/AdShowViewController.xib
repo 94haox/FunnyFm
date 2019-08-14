@@ -36,7 +36,7 @@
                         <action selector="showFullScreenAd:" destination="-1" eventType="touchUpInside" id="5Ji-tu-u7P"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广告是作者在此APP上的唯一收入来源，也是支撑云同步服务的唯一资金来源，谢谢您的支持" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocl-Ug-CaO">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广告是作者在此APP上的一项收入来源，也是支撑云同步服务的资金来源，谢谢您的支持" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocl-Ug-CaO">
                     <rect key="frame" x="20" y="262" width="374" height="37.5"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <nil key="textColor"/>

@@ -98,8 +98,7 @@ extension AdShowViewController : GADInterstitialDelegate{
 	}
 	
 	func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-		let request = GADRequest()
-		ad.load(request)
+		
 	}
 }
 

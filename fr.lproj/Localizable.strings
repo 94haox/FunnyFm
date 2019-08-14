@@ -44,4 +44,26 @@
 "退出登录" = "Déconnexion";
 "退出成功" = "Signé avec succès";
 "作者推荐" = "Recommandation de l'auteur";
+"广告加载中..."="Annonces en cours de chargement...";
+"暂时无法播放"="La musique ne peut être lue pour le moment";
+"请求失败"="Échec de la requête";
+"快来添加你的第一个播客吧"="Venez ajouter votre premier podcast";
+"快去发掘有趣的播客吧~"="Découvrez des podcasts intéressants";
+"您还未收听哦~"="Vous n'avez pas encore écouté~";
+"订阅为空哦~"="L'abonnement est vide~";
+"您还没下载过哦~"="Vous ne l'avez pas encore téléchargé ~";
+"接收通知"="Recevoir une notification";
+"通知"="notification";
+"反馈"="commentaires";
+"关于"="À propos de";
+"给 FunnyFM 评分"="Noter FunnyFM";
+"将 FunnyFM 推荐给好友"="FunnyFM recommandé";
+"查看开发者其他的 App"="Afficher les applications d'autres développeurs";
+"关于 FunnyFM"="À propos de FunnyFM";
+"嘿，我发现了一个好用的播客 APP， 你也来试试吧"="Hey, j'ai trouvé une bonne application de podcast, essayons-la";
+"请输入邮箱地址"="Veuillez entrer votre adresse email";
+"为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦"="Pour vous informer de la mise à jour du podcast à temps, FunnyFM doit obtenir l'autorisation Push du téléphone mobile.";
+"去设置"="Ouvert";
+"不，我不需要"="Non, je n'ai pas besoin";
+
 

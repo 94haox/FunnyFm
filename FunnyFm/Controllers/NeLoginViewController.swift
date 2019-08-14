@@ -81,18 +81,18 @@ class NeLoginViewController: BaseViewController, ViewModelDelegate {
         }
         
         if let mail = self.mailTF.text, mail.count < 1 {
-            SwiftNotice.showText("请输入邮箱地址")
+            SwiftNotice.showText("请输入邮箱地址".localized)
             return
         }else if let mail = self.mailTF.text, !VaildManager.isMail(mail) {
-            SwiftNotice.showText("请输入正确邮箱地址")
+            SwiftNotice.showText("请输入正确邮箱地址".localized)
             return
         }
         
         if let pwd = self.passTF.text, pwd.count < 1 {
-            SwiftNotice.showText("请输入密码")
+            SwiftNotice.showText("请输入密码".localized)
             return
         }else if let pwd = self.passTF.text, pwd.count != 6{
-            SwiftNotice.showText("请输入正确密码（六位）")
+            SwiftNotice.showText("请输入正确密码（六位）".localized)
             return
         }
         UserDefaults.standard.set(self.mailTF.text!, forKey: "lastLoginAccount")
@@ -134,7 +134,7 @@ extension NeLoginViewController {
         UserDefaults.standard.set(self.viewModel.user!.userId, forKey: "userId")
         UserDefaults.standard.set(true, forKey: "isLogin")
         UserDefaults.standard.synchronize()
-        HorizonHUD.showSuccess("登录成功")
+        HorizonHUD.showSuccess("登录成功".localized)
 		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
         self.navigationController?.popViewController()
     }

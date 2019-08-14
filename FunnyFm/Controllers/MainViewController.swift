@@ -128,7 +128,7 @@ extension MainViewController : MainViewModelDelegate {
 		self.fetchLoadingView.stopAnimating()
 		self.loadAnimationView.removeFromSuperview()
         self.tableview.refreshControl?.endRefreshing()
-        SwiftNotice.noticeOnStatusBar("请求失败", autoClear: true, autoClearTime: 2)
+        SwiftNotice.noticeOnStatusBar("请求失败".localized, autoClear: true, autoClearTime: 2)
     }
 	
 	func viewModelDidGetChapterlistSuccess() {
@@ -400,7 +400,7 @@ extension MainViewController {
 			make.size.equalTo(CGSize.init(width: kScreenWidth, height: AdaptScale(150)))
 		}
 		
-		let label = UILabel.init(text: "快来添加你的第一个播客吧")
+		let label = UILabel.init(text: "快来添加你的第一个播客吧".localized)
 		label.textColor = .lightGray
 		label.font = pfont(14);
 		self.emptyView.addSubview(label)

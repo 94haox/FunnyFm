@@ -76,7 +76,6 @@
 		AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */; };
 		AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */; };
 		AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */; };
-		AB32CF5222B38400007C9E41 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB32CF5022B38400007C9E41 /* SearchViewController.xib */; };
 		AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5122B38400007C9E41 /* SearchViewController.swift */; };
 		AB32CF5522B38FA0007C9E41 /* iTunsPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */; };
 		AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */; };
@@ -100,7 +99,6 @@
 		AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB4E145B22C63F8F0053BE00 /* sound.wav */; };
 		AB53ED5322F16E3A0015D957 /* PullButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53ED5222F16E3A0015D957 /* PullButton.swift */; };
 		AB571D8D22B209E80021236C /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB571D8C22B209E80021236C /* FeedManager.swift */; };
-		AB57D5B822DDCD6F00979994 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */; };
 		AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */; };
 		AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */; };
 		AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE2822CDDF9200BABEF2 /* firework_2.json */; };
@@ -120,7 +118,6 @@
 		AB6DF90922F029B400DF2A0B /* Third.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6DF90822F029B400DF2A0B /* Third.swift */; };
 		AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */; };
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
-		AB7B1A9A22F8413400790787 /* AdShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1A9822F8413400790787 /* AdShowViewController.xib */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
 		AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1AE822F9237700790787 /* GoogleService-Info.plist */; };
 		ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */; };
@@ -128,14 +125,12 @@
 		ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */; };
 		ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA7052122B641000012FD0A /* NetEasyPod.swift */; };
 		ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */; };
-		ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */; };
 		ABA99AC12219060900840382 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA99AC02219060900840382 /* GlobalViewModel.swift */; };
 		ABAFF27221E22E440009A3A2 /* like_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABAFF27121E22E440009A3A2 /* like_button.json */; };
 		ABB57AB122FD0820000593F2 /* recommend.json in Resources */ = {isa = PBXBuildFile; fileRef = ABB57AB022FD0820000593F2 /* recommend.json */; };
 		ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */; };
 		ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */; };
 		ABDC4D2822CC9AF900EF31C0 /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC4D2722CC9AF900EF31C0 /* PushManager.swift */; };
-		ABDC4D2B22CCAAB700EF31C0 /* EmptyMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2922CCAAB700EF31C0 /* EmptyMainViewController.xib */; };
 		ABDC4D2C22CCAAB700EF31C0 /* EmptyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */; };
 		ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2D22CCD79900EF31C0 /* point_loading.json */; };
 		ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2F22CCD7AB00EF31C0 /* firework.json */; };
@@ -195,13 +190,18 @@
 		ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */ = {isa = PBXBuildFile; fileRef = ABEF471521EAF9DE00212DCA /* cloud_sync.json */; };
 		ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */ = {isa = PBXBuildFile; fileRef = ABEF471921EAFD7F00212DCA /* play_state.json */; };
 		ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471B21EB038500212DCA /* UserViewModel.swift */; };
+		ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498692303B33300441DAF /* AdShowViewController.xib */; };
+		ABF498742303B45600441DAF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498762303B45600441DAF /* WelcomeViewController.xib */; };
+		ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498832303B61100441DAF /* EmptyMainViewController.xib */; };
+		ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF4988E2303B6D100441DAF /* SearchViewController.xib */; };
+		ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498972303B71A00441DAF /* NeLoginViewController.xib */; };
+		ABF4989E2303B88A00441DAF /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498A02303B88A00441DAF /* RegisterViewController.xib */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
 		ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */; };
 		ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118321BF43E50083A81B /* NormalHeaderView.swift */; };
 		ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */; };
 		ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */; };
 		ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */; };
-		ABF6DD2321E1A66E0080BE46 /* NeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */; };
 		ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */; };
 		C2AAA04DB06DFC0F128AF81A /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
@@ -317,7 +317,6 @@
 		AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB31E9C621C1FC7E005E80FC /* UserCenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterCollectionViewCell.xib; sourceTree = "<group>"; };
-		AB32CF5022B38400007C9E41 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		AB32CF5122B38400007C9E41 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunsPod.swift; sourceTree = "<group>"; };
 		AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItunsPodTableViewCell.xib; sourceTree = "<group>"; };
@@ -343,7 +342,6 @@
 		AB4E145B22C63F8F0053BE00 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		AB53ED5222F16E3A0015D957 /* PullButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullButton.swift; sourceTree = "<group>"; };
 		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
-		AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewModel.swift; sourceTree = "<group>"; };
 		AB57FE2822CDDF9200BABEF2 /* firework_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework_2.json; sourceTree = "<group>"; };
@@ -379,7 +377,6 @@
 		AB74FB8222F7F36800A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB8322F7F36800A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AB7B1A9822F8413400790787 /* AdShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdShowViewController.xib; sourceTree = "<group>"; };
 		AB7B1A9922F8413400790787 /* AdShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdShowViewController.swift; sourceTree = "<group>"; };
 		AB7B1AE822F9237700790787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -387,7 +384,6 @@
 		ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailHeader.swift; sourceTree = "<group>"; };
 		ABA7052122B641000012FD0A /* NetEasyPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetEasyPod.swift; sourceTree = "<group>"; };
 		ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		ABA99AC02219060900840382 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		ABAFF27121E22E440009A3A2 /* like_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_button.json; sourceTree = "<group>"; };
 		ABB57AB022FD0820000593F2 /* recommend.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recommend.json; sourceTree = "<group>"; };
@@ -395,7 +391,6 @@
 		ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFillViewController.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
 		ABDC4D2722CC9AF900EF31C0 /* PushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
-		ABDC4D2922CCAAB700EF31C0 /* EmptyMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyMainViewController.xib; sourceTree = "<group>"; };
 		ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMainViewController.swift; sourceTree = "<group>"; };
 		ABDC4D2D22CCD79900EF31C0 /* point_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = point_loading.json; sourceTree = "<group>"; };
 		ABDC4D2F22CCD7AB00EF31C0 /* firework.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework.json; sourceTree = "<group>"; };
@@ -475,6 +470,34 @@
 		ABEF471521EAF9DE00212DCA /* cloud_sync.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloud_sync.json; sourceTree = "<group>"; };
 		ABEF471921EAFD7F00212DCA /* play_state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = play_state.json; sourceTree = "<group>"; };
 		ABEF471B21EB038500212DCA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		ABF498682303B33300441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdShowViewController.xib; sourceTree = "<group>"; };
+		ABF4986B2303B33500441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AdShowViewController.strings; sourceTree = "<group>"; };
+		ABF4986D2303B33600441DAF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdShowViewController.strings"; sourceTree = "<group>"; };
+		ABF4986F2303B33800441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AdShowViewController.strings; sourceTree = "<group>"; };
+		ABF498712303B33900441DAF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AdShowViewController.strings"; sourceTree = "<group>"; };
+		ABF498732303B33A00441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AdShowViewController.strings; sourceTree = "<group>"; };
+		ABF498752303B45600441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WelcomeViewController.xib; sourceTree = "<group>"; };
+		ABF498782303B46100441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WelcomeViewController.strings; sourceTree = "<group>"; };
+		ABF4987C2303B46700441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WelcomeViewController.strings; sourceTree = "<group>"; };
+		ABF4987E2303B46800441DAF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/WelcomeViewController.strings"; sourceTree = "<group>"; };
+		ABF498802303B46800441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WelcomeViewController.strings; sourceTree = "<group>"; };
+		ABF498822303B61100441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyMainViewController.xib; sourceTree = "<group>"; };
+		ABF498852303B61400441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmptyMainViewController.strings; sourceTree = "<group>"; };
+		ABF498872303B61500441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/EmptyMainViewController.strings; sourceTree = "<group>"; };
+		ABF498892303B61700441DAF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/EmptyMainViewController.strings"; sourceTree = "<group>"; };
+		ABF4988B2303B61800441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/EmptyMainViewController.strings; sourceTree = "<group>"; };
+		ABF4988D2303B6D100441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchViewController.xib; sourceTree = "<group>"; };
+		ABF498902303B6D600441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SearchViewController.strings; sourceTree = "<group>"; };
+		ABF498922303B6D700441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchViewController.strings; sourceTree = "<group>"; };
+		ABF498942303B6D800441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SearchViewController.strings; sourceTree = "<group>"; };
+		ABF498962303B71A00441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NeLoginViewController.xib; sourceTree = "<group>"; };
+		ABF498992303B71D00441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NeLoginViewController.strings; sourceTree = "<group>"; };
+		ABF4989B2303B71E00441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/NeLoginViewController.strings; sourceTree = "<group>"; };
+		ABF4989D2303B71F00441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/NeLoginViewController.strings; sourceTree = "<group>"; };
+		ABF4989F2303B88A00441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RegisterViewController.xib; sourceTree = "<group>"; };
+		ABF498A22303B88C00441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
+		ABF498A42303B88D00441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
+		ABF498A62303B88E00441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
 		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		ABF5117E21BE8A7C0083A81B /* FMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMTextField.h; path = FunnyFm/OC/FMTextField.h; sourceTree = SOURCE_ROOT; };
 		ABF5117F21BE8A7C0083A81B /* FMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMTextField.m; path = FunnyFm/OC/FMTextField.m; sourceTree = SOURCE_ROOT; };
@@ -483,7 +506,6 @@
 		ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodListCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListViewModel.swift; sourceTree = "<group>"; };
-		ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NeLoginViewController.xib; sourceTree = "<group>"; };
 		ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -704,19 +726,19 @@
 				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
 				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
-				ABA8BDC421DF1E0200366C6F /* RegisterViewController.xib */,
+				ABF498A02303B88A00441DAF /* RegisterViewController.xib */,
 				ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */,
-				ABF6DD2121E1A66E0080BE46 /* NeLoginViewController.xib */,
+				ABF498972303B71A00441DAF /* NeLoginViewController.xib */,
 				ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */,
 				ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */,
 				AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */,
-				AB32CF5022B38400007C9E41 /* SearchViewController.xib */,
+				ABF4988E2303B6D100441DAF /* SearchViewController.xib */,
 				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
-				ABDC4D2922CCAAB700EF31C0 /* EmptyMainViewController.xib */,
+				ABF498832303B61100441DAF /* EmptyMainViewController.xib */,
 				ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */,
-				AB57D5B622DDCD6F00979994 /* WelcomeViewController.xib */,
+				ABF498762303B45600441DAF /* WelcomeViewController.xib */,
 				AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */,
-				AB7B1A9822F8413400790787 /* AdShowViewController.xib */,
+				ABF498692303B33300441DAF /* AdShowViewController.xib */,
 				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
 			);
 			path = Controllers;
@@ -1195,9 +1217,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABA8BDC621DF1E0200366C6F /* RegisterViewController.xib in Resources */,
+				ABF4989E2303B88A00441DAF /* RegisterViewController.xib in Resources */,
 				ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */,
-				ABF6DD2321E1A66E0080BE46 /* NeLoginViewController.xib in Resources */,
+				ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */,
 				ABEE40CD21E3246E00FCB16F /* MJRefresh.bundle in Resources */,
 				AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */,
 				AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */,
@@ -1209,7 +1231,7 @@
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
 				AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */,
-				ABDC4D2B22CCAAB700EF31C0 /* EmptyMainViewController.xib in Resources */,
+				ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
@@ -1217,18 +1239,18 @@
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
-				AB57D5B822DDCD6F00979994 /* WelcomeViewController.xib in Resources */,
+				ABF498742303B45600441DAF /* WelcomeViewController.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
 				ABB57AB122FD0820000593F2 /* recommend.json in Resources */,
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
-				AB7B1A9A22F8413400790787 /* AdShowViewController.xib in Resources */,
+				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */,
-				AB32CF5222B38400007C9E41 /* SearchViewController.xib in Resources */,
+				ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 				ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */,
 			);
@@ -1550,6 +1572,76 @@
 				AB74FB8422F7F36900A00706 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		ABF498692303B33300441DAF /* AdShowViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF498682303B33300441DAF /* Base */,
+				ABF4986B2303B33500441DAF /* en */,
+				ABF4986D2303B33600441DAF /* zh-Hans */,
+				ABF4986F2303B33800441DAF /* ja */,
+				ABF498712303B33900441DAF /* zh-Hant */,
+				ABF498732303B33A00441DAF /* fr */,
+			);
+			name = AdShowViewController.xib;
+			sourceTree = "<group>";
+		};
+		ABF498762303B45600441DAF /* WelcomeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF498752303B45600441DAF /* Base */,
+				ABF498782303B46100441DAF /* en */,
+				ABF4987C2303B46700441DAF /* ja */,
+				ABF4987E2303B46800441DAF /* zh-Hant */,
+				ABF498802303B46800441DAF /* fr */,
+			);
+			name = WelcomeViewController.xib;
+			sourceTree = "<group>";
+		};
+		ABF498832303B61100441DAF /* EmptyMainViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF498822303B61100441DAF /* Base */,
+				ABF498852303B61400441DAF /* en */,
+				ABF498872303B61500441DAF /* ja */,
+				ABF498892303B61700441DAF /* zh-Hant */,
+				ABF4988B2303B61800441DAF /* fr */,
+			);
+			name = EmptyMainViewController.xib;
+			sourceTree = "<group>";
+		};
+		ABF4988E2303B6D100441DAF /* SearchViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF4988D2303B6D100441DAF /* Base */,
+				ABF498902303B6D600441DAF /* en */,
+				ABF498922303B6D700441DAF /* ja */,
+				ABF498942303B6D800441DAF /* fr */,
+			);
+			name = SearchViewController.xib;
+			sourceTree = "<group>";
+		};
+		ABF498972303B71A00441DAF /* NeLoginViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF498962303B71A00441DAF /* Base */,
+				ABF498992303B71D00441DAF /* en */,
+				ABF4989B2303B71E00441DAF /* ja */,
+				ABF4989D2303B71F00441DAF /* fr */,
+			);
+			name = NeLoginViewController.xib;
+			sourceTree = "<group>";
+		};
+		ABF498A02303B88A00441DAF /* RegisterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF4989F2303B88A00441DAF /* Base */,
+				ABF498A22303B88C00441DAF /* en */,
+				ABF498A42303B88D00441DAF /* ja */,
+				ABF498A62303B88E00441DAF /* fr */,
+			);
+			name = RegisterViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

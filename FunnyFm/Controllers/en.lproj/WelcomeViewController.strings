@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "立即使用"; ObjectID = "Lhs-KY-gi3"; */
+"Lhs-KY-gi3.normalTitle" = "Start";
+
+/* Class = "UILabel"; text = "隐私第一"; ObjectID = "OQL-Js-yr8"; */
+"OQL-Js-yr8.text" = "Privacy first";
+
+/* Class = "UILabel"; text = "我们尊重您的隐私，不会上传或者与任何第三方分享您的私密数据"; ObjectID = "OmZ-5H-Dz3"; */
+"OmZ-5H-Dz3.text" = "We respect your privacy and will not upload or share your private data with any third party.";
+
+/* Class = "UILabel"; text = "欢迎使用"; ObjectID = "PkT-qw-bdE"; */
+"PkT-qw-bdE.text" = "Welcome";
+
+/* Class = "UILabel"; text = "FunnyFM"; ObjectID = "X4e-Rq-ApN"; */
+"X4e-Rq-ApN.text" = "FunnyFM";
+
+/* Class = "UILabel"; text = "功能简单，体积小巧，操作简洁"; ObjectID = "YGc-uq-mAR"; */
+"YGc-uq-mAR.text" = "Simple function, small size and simple operation";
+
+/* Class = "UILabel"; text = "只要拥有账号，云端同步不是问题"; ObjectID = "tBW-s2-ndt"; */
+"tBW-s2-ndt.text" = "Cloud synchronization is not a problem as long as you have an account";
+
+/* Class = "UILabel"; text = "多端同步"; ObjectID = "u3e-Ve-Eru"; */
+"u3e-Ve-Eru.text" = "Multi-end synchronization";
+
+/* Class = "UILabel"; text = "轻量的播客工具"; ObjectID = "yKe-5V-iKL"; */
+"yKe-5V-iKL.text" = "Lightweight podcast tool";

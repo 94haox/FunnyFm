@@ -75,13 +75,13 @@ extension AppDelegate {
 		
 		let alertConfig = CleanyAlertConfig(
 			title: "Hei Bro.",
-			message: "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦")
+			message: "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦".localized)
 		let alert = AlertViewController.init(config: alertConfig)
 		
-		alert.addAction(title: "去设置", style: .default) { (action) in
+		alert.addAction(title: "去设置".localized, style: .default) { (action) in
 			self.setUpNotificationAction()
 		}
-		alert.addAction(title: "不，我不需要", style: .cancel)
+		alert.addAction(title: "不，我不需要".localized, style: .cancel)
 		self.window?.rootViewController?.present(alert, animated: true, completion: nil)
 	}
 	

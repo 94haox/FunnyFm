@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "返回"; ObjectID = "DgW-gb-50C"; */
+"DgW-gb-50C.normalTitle" = "Back";
+
+/* Class = "UILabel"; text = "广告是作者在此APP上的一项收入来源，也是支撑云同步服务的资金来源，谢谢您的支持"; ObjectID = "Ocl-Ug-CaO"; */
+"Ocl-Ug-CaO.text" = "Advertising is a source of revenue for the author on this app, and is also a source of funding for cloud synchronization services. Thank you for your support.";
+
+/* Class = "UIButton"; normalTitle = "展示广告"; ObjectID = "nbg-uS-4vm"; */
+"nbg-uS-4vm.normalTitle" = "Show Ad";

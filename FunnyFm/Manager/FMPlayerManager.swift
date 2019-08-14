@@ -99,7 +99,7 @@ extension FMPlayerManager {
 			self.playerDelegate?.playerDidPlay()
             self.player?.rate = self.playRate
         }else{
-            SwiftNotice.noticeOnStatusBar("暂时无法播放", autoClear: true, autoClearTime: 1)
+            SwiftNotice.noticeOnStatusBar("暂时无法播放".localized, autoClear: true, autoClearTime: 1)
         }
     }
     

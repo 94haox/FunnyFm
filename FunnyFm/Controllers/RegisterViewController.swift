@@ -43,18 +43,18 @@ class RegisterViewController: BaseViewController, ViewModelDelegate {
         }
         
         if let mail = self.mailTF.text, mail.count < 1 {
-            SwiftNotice.showText("请输入邮箱地址")
+            SwiftNotice.showText("请输入邮箱地址".localized)
             return
         }else if let mail = self.mailTF.text, !VaildManager.isMail(mail) {
-            SwiftNotice.showText("请输入正确邮箱地址")
+            SwiftNotice.showText("请输入正确邮箱地址".localized)
             return
         }
         
         if let pwd = self.passTF.text, pwd.count < 1 {
-            SwiftNotice.showText("请输入密码")
+            SwiftNotice.showText("请输入密码".localized)
             return
         }else if let pwd = self.passTF.text, pwd.count != 6{
-            SwiftNotice.showText("请输入正确密码（六位）")
+            SwiftNotice.showText("请输入正确密码（六位）".localized)
             return
         }
         self.showLoading()
@@ -86,7 +86,7 @@ extension RegisterViewController {
     
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
-        HorizonHUD.showSuccess("登录成功")
+        HorizonHUD.showSuccess("登录成功".localized)
 		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
         self.navigationController?.popToRootViewController(animated: true)
 //		let profileVC = profil
@@ -130,7 +130,7 @@ extension RegisterViewController {
         self.mailTF.cornerRadius = 15;
         self.mailTF.tintColor = CommonColor.mainRed.color
         self.mailTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.mailTF.attributedPlaceholder = FunnyFm.attributePlaceholder("邮箱")
+        self.mailTF.attributedPlaceholder = FunnyFm.attributePlaceholder("邮箱".localized)
         self.mailTF.returnKeyType = .done
         self.mailTF.font = h_bfont(fontsize4)
         self.mailTF.textColor = CommonColor.title.color
@@ -141,7 +141,7 @@ extension RegisterViewController {
         self.passTF.cornerRadius = 15;
         self.passTF.tintColor = CommonColor.mainRed.color
         self.passTF.backgroundColor = CommonColor.cellbackgroud.color
-        self.passTF.attributedPlaceholder = FunnyFm.attributePlaceholder("密码（6位）")
+        self.passTF.attributedPlaceholder = FunnyFm.attributePlaceholder("密码（6位）".localized)
         self.passTF.returnKeyType = .done
         self.passTF.font = h_bfont(fontsize4)
         self.passTF.textColor = CommonColor.title.color

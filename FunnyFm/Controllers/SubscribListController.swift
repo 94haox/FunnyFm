@@ -103,7 +103,7 @@ extension SubscribListController : DZNEmptyDataSetSource {
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString.init(string: "订阅为空哦~", attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
+        return NSAttributedString.init(string: "订阅为空哦~".localized, attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
     }
     
 }

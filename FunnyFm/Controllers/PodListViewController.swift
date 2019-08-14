@@ -111,7 +111,7 @@ extension PodListViewController : DZNEmptyDataSetSource {
 	}
 	
 	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-		return NSAttributedString.init(string: "快去发掘有趣的播客吧~", attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
+		return NSAttributedString.init(string: "快去发掘有趣的播客吧~".localized, attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
 	}
 	
 }

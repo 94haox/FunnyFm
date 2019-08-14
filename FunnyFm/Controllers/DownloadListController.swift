@@ -91,7 +91,7 @@ extension DownloadListController : DZNEmptyDataSetSource {
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString.init(string: "您还没下载过哦~", attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
+        return NSAttributedString.init(string: "您还没下载过哦~".localized, attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
     }
     
 }

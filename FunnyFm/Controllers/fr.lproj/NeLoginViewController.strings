@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "如需体验完整功能，敬请登录"; ObjectID = "3eE-Fx-2Yq"; */
+"3eE-Fx-2Yq.text" = "Pour une fonctionnalité complète, veuillez vous connecter.";
+
+/* Class = "UILabel"; text = "还没有账户？"; ObjectID = "7va-3G-yYg"; */
+"7va-3G-yYg.text" = "Vous n'avez pas encore de compte?";
+
+/* Class = "UILabel"; text = "欢迎回来"; ObjectID = "AXu-Wd-KwD"; */
+"AXu-Wd-KwD.text" = "Bon retour";
+
+/* Class = "UILabel"; text = "登录"; ObjectID = "Qce-aD-ORU"; */
+"Qce-aD-ORU.text" = "Connexion";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mb8-Ca-5XA"; */
+"mb8-Ca-5XA.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "zFR-So-9c3"; */
+"zFR-So-9c3.normalTitle" = "Inscription";
