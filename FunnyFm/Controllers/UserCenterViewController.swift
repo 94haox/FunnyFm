@@ -103,7 +103,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
-										   ["title":"Ad".localized,"subtitle":"看个广告激励作者","imageName":"Ad"],
+										   ["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]
 }
 
