@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6UB-eX-Vqf">
-                    <rect key="frame" x="20" y="740.5" width="374" height="50"/>
+                    <rect key="frame" x="20" y="700.5" width="374" height="50"/>
                     <color key="backgroundColor" red="0.94901960780000005" green="0.12941176469999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="CJa-ay-AoH"/>
@@ -38,7 +38,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A52-bi-VoF">
-                    <rect key="frame" x="20" y="817" width="374" height="50"/>
+                    <rect key="frame" x="20" y="777" width="374" height="50"/>
                     <color key="backgroundColor" red="0.94901960780000005" green="0.12941176469999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="BLQ-cc-apb"/>
@@ -55,7 +55,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUa-7f-T6c">
-                    <rect key="frame" x="201" y="795.5" width="12.5" height="16.5"/>
+                    <rect key="frame" x="201" y="755.5" width="12.5" height="16.5"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你可以选择" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yih-g5-0Hp">
-                    <rect key="frame" x="172" y="708" width="70" height="16.5"/>
+                    <rect key="frame" x="172" y="668" width="70" height="16.5"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -96,7 +96,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="QcG-c8-7f9" firstAttribute="top" secondItem="nYF-mj-lBy" secondAttribute="bottom" constant="27.5" id="00h-DM-GjY"/>
-                <constraint firstItem="A52-bi-VoF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="5" id="CGa-NW-xWY"/>
+                <constraint firstItem="A52-bi-VoF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-35" id="CGa-NW-xWY"/>
                 <constraint firstItem="SUa-7f-T6c" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="OEd-kM-zRy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QcG-c8-7f9" secondAttribute="trailing" constant="80" id="PXJ-KB-NCh"/>
                 <constraint firstItem="SUa-7f-T6c" firstAttribute="top" secondItem="6UB-eX-Vqf" secondAttribute="bottom" constant="5" id="Red-Ox-vh7"/>

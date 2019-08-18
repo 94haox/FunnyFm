@@ -166,6 +166,9 @@ extension FMPlayerManager {
 	}
 	
     @objc func recivEndNotification(_ notify: Notification){
+		if self.playerItem.isNone || self.delegate.isNone {
+			return;
+		}
         self.seekToProgress(0)
         self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
 		self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)

@@ -354,6 +354,14 @@
 		AB57FE3722CEE2AC00BABEF2 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		AB57FE3A22CEE63400BABEF2 /* normal_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = normal_empty.json; sourceTree = "<group>"; };
 		AB57FE3C22CF346900BABEF2 /* Favor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favor.swift; sourceTree = "<group>"; };
+		AB62530A2306570000301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WelcomeViewController.strings"; sourceTree = "<group>"; };
+		AB62530C2306570500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/EmptyMainViewController.strings"; sourceTree = "<group>"; };
+		AB62530E2306570A00301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
+		AB6253102306570B00301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
+		AB6253122306570F00301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/NeLoginViewController.strings"; sourceTree = "<group>"; };
+		AB6253142306571000301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/NeLoginViewController.strings"; sourceTree = "<group>"; };
+		AB6253162306571400301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
+		AB6253182306571500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
@@ -1595,6 +1603,7 @@
 				ABF4987C2303B46700441DAF /* ja */,
 				ABF4987E2303B46800441DAF /* zh-Hant */,
 				ABF498802303B46800441DAF /* fr */,
+				AB62530A2306570000301113 /* zh-Hans */,
 			);
 			name = WelcomeViewController.xib;
 			sourceTree = "<group>";
@@ -1607,6 +1616,7 @@
 				ABF498872303B61500441DAF /* ja */,
 				ABF498892303B61700441DAF /* zh-Hant */,
 				ABF4988B2303B61800441DAF /* fr */,
+				AB62530C2306570500301113 /* zh-Hans */,
 			);
 			name = EmptyMainViewController.xib;
 			sourceTree = "<group>";
@@ -1618,6 +1628,8 @@
 				ABF498902303B6D600441DAF /* en */,
 				ABF498922303B6D700441DAF /* ja */,
 				ABF498942303B6D800441DAF /* fr */,
+				AB62530E2306570A00301113 /* zh-Hans */,
+				AB6253102306570B00301113 /* zh-Hant */,
 			);
 			name = SearchViewController.xib;
 			sourceTree = "<group>";
@@ -1629,6 +1641,8 @@
 				ABF498992303B71D00441DAF /* en */,
 				ABF4989B2303B71E00441DAF /* ja */,
 				ABF4989D2303B71F00441DAF /* fr */,
+				AB6253122306570F00301113 /* zh-Hans */,
+				AB6253142306571000301113 /* zh-Hant */,
 			);
 			name = NeLoginViewController.xib;
 			sourceTree = "<group>";
@@ -1640,6 +1654,8 @@
 				ABF498A22303B88C00441DAF /* en */,
 				ABF498A42303B88D00441DAF /* ja */,
 				ABF498A62303B88E00441DAF /* fr */,
+				AB6253162306571400301113 /* zh-Hant */,
+				AB6253182306571500301113 /* zh-Hans */,
 			);
 			name = RegisterViewController.xib;
 			sourceTree = "<group>";
@@ -1821,7 +1837,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1850,7 +1866,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

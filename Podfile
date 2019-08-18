@@ -38,9 +38,7 @@ end
 
 # 广告
 def ads
-	
 	pod 'Google-Mobile-Ads-SDK'
-	
 end
 
 # 性能和崩溃分析
