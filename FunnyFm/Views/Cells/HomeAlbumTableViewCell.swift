@@ -15,7 +15,8 @@ class HomeAlbumTableViewCell: UITableViewCell {
 
     
     var playStateView: AnimationView!
-    @IBOutlet weak var timeLB: UILabel!
+	@IBOutlet weak var moreBtn: UIButton!
+	@IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var updateLB: UILabel!
@@ -65,6 +66,11 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
         self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: episode.coverUrl)!) )
     }
+	
+	func configDownloadCell(_ episode:Episode){
+		self.moreBtn.isHidden = true;
+		self.configCell(episode)
+	}
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

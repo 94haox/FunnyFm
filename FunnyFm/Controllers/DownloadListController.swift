@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CleanyModal
 
 class DownloadListController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -15,7 +16,7 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
         self.view.backgroundColor = .white
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
-        
+//        tableview.setEditing(true, animated: true)
         self.titleLB.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.snp.topMargin)
             make.left.equalToSuperview().offset(16)
@@ -26,7 +27,26 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
             make.top.equalTo(self.titleLB.snp.bottom)
         }
     }
-    
+	
+	
+	func showDeleteAction(indexPath: IndexPath){
+		let alertConfig = CleanyAlertConfig(
+			title: "Tips",
+			message: "删除已缓存单集？".localized
+		)
+		
+		
+		let alert = AlertViewController.init(config: alertConfig)
+		
+		alert.addAction(title: "删除".localized, style: .default) { (action) in
+			let episode = self.episodeList[indexPath.row]
+			DatabaseManager.deleteDownload(chapterId: episode.collectionId);
+			self.episodeList = DatabaseManager.allDownload()
+			self.tableview.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+		}
+		alert.addAction(title: "取消".localized, style: .cancel)
+		self.present(alert, animated: true, completion: nil)
+	}
     
     lazy var titleLB: UILabel = {
         let lb = UILabel.init(text: "我的下载".localized)
@@ -79,8 +99,22 @@ extension DownloadListController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
         let episode = self.episodeList[indexPath.row]
-        cell.configCell(episode)
+        cell.configDownloadCell(episode)
     }
+	
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
+	
+	func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+		return .delete
+	}
+	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			self.showDeleteAction(indexPath: indexPath)
+		}
+	}
     
 }
 

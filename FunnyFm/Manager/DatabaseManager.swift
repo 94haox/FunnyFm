@@ -90,6 +90,11 @@ class DatabaseManager: NSObject {
         try! database.delete(fromTable: historyTable,
                              where: ChapterProgress.Properties.episodeId == chapterId)
     }
+	
+	static public func deleteDownload(chapterId: String){
+		try! database.delete(fromTable: downloadTable,
+							 where: Episode.Properties.collectionId == chapterId)
+	}
     
 
     static public func allDownload() -> [Episode]{
