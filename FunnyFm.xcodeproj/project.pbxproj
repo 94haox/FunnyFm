@@ -14,6 +14,7 @@
 		AB091D1D229FCFB800723602 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
 		AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09A53D21DDBACB00CB621C /* DownloadManager.swift */; };
 		AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */; };
+		AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C64C4230B8E1800C4DF30 /* PathKit.swift */; };
 		AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */; };
 		AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */; };
 		AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */; };
@@ -251,6 +252,7 @@
 		AB091D16229FCF8800723602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB09A53D21DDBACB00CB621C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		AB0C64C4230B8E1800C4DF30 /* PathKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathKit.swift; sourceTree = "<group>"; };
 		AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLoadButton.swift; sourceTree = "<group>"; };
@@ -805,6 +807,7 @@
 		AB41AAF9219564F000260851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AB0C64C4230B8E1800C4DF30 /* PathKit.swift */,
 				AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */,
 				AB41AAFA219564F000260851 /* ScreenShot */,
 				AB41AAFC219564F000260851 /* Constraints Helpers */,
@@ -1435,6 +1438,7 @@
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
+				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
 				ABEE40D921E3246E00FCB16F /* MJRefreshGifHeader.m in Sources */,
 				ABEE40D321E3246E00FCB16F /* MJRefreshBackNormalFooter.m in Sources */,

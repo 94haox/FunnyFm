@@ -94,6 +94,8 @@ class DatabaseManager: NSObject {
 	static public func deleteDownload(chapterId: String){
 		try! database.delete(fromTable: downloadTable,
 							 where: Episode.Properties.collectionId == chapterId)
+		
+		
 	}
     
 

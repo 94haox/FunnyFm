@@ -16,7 +16,8 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
         self.view.backgroundColor = .white
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
-//        tableview.setEditing(true, animated: true)
+		self.view.addSubview(self.deleteBtn)
+
         self.titleLB.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.snp.topMargin)
             make.left.equalToSuperview().offset(16)
@@ -26,7 +27,47 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
             make.bottom.equalToSuperview()
             make.top.equalTo(self.titleLB.snp.bottom)
         }
+		
+		self.deleteBtn.snp.makeConstraints { (make) in
+			make.bottom.equalTo(self.view.snp.bottomMargin).offset(-15)
+			make.size.equalTo(CGSize.init(width: 180, height: 50))
+			make.centerX.equalToSuperview()
+		}
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.deleteBtn.isHidden = self.episodeList.count < 1
+	}
+	
+	@objc func deleteAll(){
+		let alertConfig = CleanyAlertConfig(
+			title: "Tips",
+			message: "删除所有已缓存单集？".localized
+		)
+		
+		
+		let alert = AlertViewController.init(config: alertConfig)
+		
+		alert.addAction(title: "删除".localized, style: .default) { (action) in
+			
+			self.episodeList.forEach({ (episode) in
+				let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+				let mp3Path = documentURL.appendingPathComponent("mp3").appendingPathComponent(episode.download_filpath)
+				do {
+					try FileManager.default.removeItem(at: mp3Path)
+				}catch{
+				}
+				DatabaseManager.deleteDownload(chapterId: episode.collectionId);
+			})
+
+			self.episodeList.removeAll()
+			self.tableview.reloadData()
+			self.deleteBtn.isHidden = true
+		}
+		alert.addAction(title: "取消".localized, style: .cancel)
+		self.present(alert, animated: true, completion: nil)
+	}
 	
 	
 	func showDeleteAction(indexPath: IndexPath){
@@ -40,6 +81,14 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
 		
 		alert.addAction(title: "删除".localized, style: .default) { (action) in
 			let episode = self.episodeList[indexPath.row]
+			let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+			let mp3Path = documentURL.appendingPathComponent("mp3").appendingPathComponent(episode.download_filpath)
+
+			do {
+				try FileManager.default.removeItem(at: mp3Path)
+			}catch{
+			}
+			
 			DatabaseManager.deleteDownload(chapterId: episode.collectionId);
 			self.episodeList = DatabaseManager.allDownload()
 			self.tableview.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
@@ -65,6 +114,7 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
         table.emptyDataSetSource = self
+		table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 65, right: 0);
         return table
     }()
     
@@ -72,6 +122,18 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
     lazy var episodeList : [Episode] = {
         return DatabaseManager.allDownload()
     }()
+	
+	lazy var deleteBtn: UIButton = {
+		let btn = UIButton.init(type: UIButton.ButtonType.custom)
+		btn.addTarget(self, action: #selector(deleteAll), for: UIControl.Event.touchUpInside)
+		btn.backgroundColor = CommonColor.mainRed.color
+		btn.setTitle("删除全部", for: UIControl.State.normal)
+		btn.titleLabel?.font = p_bfont(fontsize6)
+		btn.cornerRadius = 15
+		btn.addShadow(ofColor: CommonColor.mainPink.color, radius: 5, offset: CGSize.init(width: 2, height: 5), opacity: 0.5)
+		return btn
+	}()
+	
     
 }
 
