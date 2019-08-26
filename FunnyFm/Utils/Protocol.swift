@@ -13,3 +13,8 @@ import Foundation
     func viewModelDidGetDataSuccess()
     func viewModelDidGetDataFailture(msg:String?)
 }
+
+
+@objc protocol ChapterProgressDelegate {
+	func progressDidChange(progress:CGFloat)
+}

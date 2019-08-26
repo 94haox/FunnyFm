@@ -18,6 +18,8 @@ class ChapterProgressView: UIView {
     let feedBackGenertor = UIImpactFeedbackGenerator.init(style: .light)
     
     var beginPoint: CGPoint?
+	
+	weak var delegate : ChapterProgressDelegate?
     
     var fontSize: CGFloat = 6 {
         didSet{
@@ -153,8 +155,8 @@ extension ChapterProgressView {
             self.isDrag = true
             if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
                 anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
-                anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.5, y: 1.5))
-                anim.springBounciness = 30
+                anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.2, y: 1.2))
+                anim.springBounciness = 20
                 self.nowCycle.layer.pop_add(anim, forKey: "size")
             }
         }
@@ -173,6 +175,8 @@ extension ChapterProgressView {
                 self.currentProgress.snp.updateConstraints { (make) in
                     make.width.equalTo(x)
                 }
+				self.layoutIfNeeded()
+				self.delegate?.progressDidChange(progress: self.currentProgress.frame.width/self.totalProgress.frame.width)
             }
         }
     }

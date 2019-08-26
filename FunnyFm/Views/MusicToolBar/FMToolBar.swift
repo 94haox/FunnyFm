@@ -37,7 +37,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     var loadingView: UIActivityIndicatorView!
     
     var progressLine: ChapterProgressView!
-    
+	
+	var progressBg: UIView!
     
     
     override init(frame: CGRect) {
@@ -114,6 +115,11 @@ extension FMToolBar {
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
         self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
+		
+		self.progressBg.snp.remakeConstraints { (make) in
+			make.left.centerY.height.equalToSuperview()
+			make.width.equalTo(self.containerView).multipliedBy(progess)
+		}
     }
 }
 
@@ -281,6 +287,7 @@ extension FMToolBar {
         self.cornerRadius = 15.0
         self.addShadow(ofColor: UIColor.lightGray, radius: 10, offset: CGSize.init(width: 2, height: 10), opacity: 0.5)
         self.addSubview(self.containerView)
+		self.containerView.addSubview(self.progressBg);
         self.addSubview(self.logoImageView)
         self.containerView.addSubview(self.titleLB)
         self.containerView.addSubview(self.authorLB)
@@ -326,13 +333,18 @@ extension FMToolBar {
             make.height.equalTo(20)
             make.bottom.equalToSuperview()
         }
+		
+		self.progressBg.snp.makeConstraints { (make) in
+			make.left.centerY.height.equalToSuperview()
+			make.width.equalTo(self.containerView).multipliedBy(0)
+		}
+		
         
     }
-    
-    
+	
     func setUpUI() {
         self.containerView = UIView()
-		
+		self.containerView.layer.masksToBounds = true
 		self.playBtn = UIButton.init(type: .custom)
         self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
         self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
@@ -361,6 +373,10 @@ extension FMToolBar {
         
         self.progressLine = ChapterProgressView.init(frame: CGRect.zero)
         self.progressLine.isHidden = true
+		
+		self.progressBg = UIView.init()
+		self.progressBg.backgroundColor = CommonColor.mainRed.color;
+		self.progressBg.cornerRadius = 15
         
     }
 }

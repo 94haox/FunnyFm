@@ -124,6 +124,7 @@ extension PlayerDetailViewController {
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
         self.progressLine!.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
+		
     }
     
 }
@@ -200,6 +201,13 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
     }
 }
 
+extension PlayerDetailViewController : ChapterProgressDelegate {
+	
+	func progressDidChange(progress: CGFloat) {
+		
+	}
+	
+}
 
 // MARK: actions
 extension PlayerDetailViewController {
@@ -342,8 +350,6 @@ extension PlayerDetailViewController {
 	}
 	
 }
-
-
 
 // MARK:  UI
 extension PlayerDetailViewController {
@@ -560,6 +566,7 @@ extension PlayerDetailViewController {
         self.progressLine = ChapterProgressView()
         self.progressLine.cycleW = 18.adapt()
         self.progressLine.fontSize = fontsize0
+		self.progressLine.delegate = self;
         self.view.addSubview(self.progressLine)
         
         self.playBtn = AnimationButton.init(type: .custom)

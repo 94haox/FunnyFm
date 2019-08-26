@@ -136,6 +136,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Nuke (8.0.1)
   - NVActivityIndicatorView (4.7.0):
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
@@ -175,6 +176,7 @@ DEPENDENCIES:
   - LookinServer
   - lottie-ios (= 3.1.1)
   - Moya
+  - Nuke (~> 8.0.1)
   - NVActivityIndicatorView
   - OfficeUIFabric (= 0.2.11)
   - OneSignal (< 3.0, >= 2.6.2)
@@ -219,6 +221,7 @@ SPEC REPOS:
     - lottie-ios
     - Moya
     - nanopb
+    - Nuke
     - NVActivityIndicatorView
     - OfficeUIFabric
     - OneSignal
@@ -266,6 +269,7 @@ SPEC CHECKSUMS:
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   OfficeUIFabric: 63cc5002ab0aa509bd7941ba2542618856150e7c
   OneSignal: 0f5ff711d9f25da54885e4ab06ef0abc221a46ef
@@ -283,6 +287,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
 
-PODFILE CHECKSUM: 21ba31795799959b4abb3be0bdde43b1c71bc31f
+PODFILE CHECKSUM: e36937cda1f4ef91541e6a004bcf6ce0e3c124b1
 
 COCOAPODS: 1.7.5

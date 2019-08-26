@@ -21,7 +21,6 @@ protocol FMPlayerManagerDelegate {
 	func playerDidPlay()
 	func playerDidPause()
     func managerDidChangeProgress(progess:Double, currentTime: Double, totalTime: Double)
-    
 }
 
 class FMPlayerManager: NSObject {
