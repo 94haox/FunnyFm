@@ -53,14 +53,13 @@ extension PodAPI : TargetType {
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchPod(let keyWord):
 			params["term"] = keyWord
-			params["limit"] = "10"
+			params["limit"] = "20"
 			params["media"] = "podcast"
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchTopic(let keyWord):
 			params["term"] = "podcast"
 			params["genreId"] = keyWord
 			params["limit"] = "50"
-//			params["media"] = "podcast"
 			params["country"] = Locale.current.regionCode
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .registerPod(let param):

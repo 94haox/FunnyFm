@@ -55,7 +55,7 @@ class FMPlayerManager: NSObject {
     var currentTime: NSInteger = 0
     
     /// 总时长
-    var totalTime: NSInteger = 0
+    var totalTime: Double = 0
     
     var playState: MAudioPlayState = .waiting
 	
@@ -216,7 +216,7 @@ extension FMPlayerManager{
 					self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
                 }
                 self.currentTime = NSInteger(time.seconds)
-                self.totalTime = NSInteger((self.playerItem?.duration.seconds)!)
+                self.totalTime = (self.playerItem?.duration.seconds)!
                 self.delegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
 				self.playerDelegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
 				self.updateProgress()

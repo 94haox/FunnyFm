@@ -191,6 +191,7 @@ extension ChapterProgressView {
             FMPlayerManager.shared.seekToProgress(progress)
         }
         self.isDrag = false
+		self.delegate?.progressDidEndDrag()
     }
     
     

@@ -60,7 +60,10 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     var viewModel: UserViewModel = UserViewModel()
 	
 	var startPoint: CGPoint!
+	
     var timer: Timer?
+	
+	var hud: ProgressHUD!
 	
 	var isImpact = false
 	
@@ -129,6 +132,7 @@ extension PlayerDetailViewController {
     
 }
 
+// MARK: - DownloadManagerDelegate
 extension PlayerDetailViewController: DownloadManagerDelegate {
 	
 	func downloadProgress(progress: Double) {
@@ -165,6 +169,7 @@ extension PlayerDetailViewController: DownloadManagerDelegate {
 	
 }
 
+// MARK: - UIScrollViewDelegate
 extension PlayerDetailViewController : UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -201,10 +206,20 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
     }
 }
 
+// MARK: - ChapterProgressDelegate
 extension PlayerDetailViewController : ChapterProgressDelegate {
 	
 	func progressDidChange(progress: CGFloat) {
+		if !FMPlayerManager.shared.isCanPlay {
+			return
+		}
 		
+		let time = FunnyFm.formatIntervalToMM(NSInteger(FMPlayerManager.shared.totalTime * Double(progress)))
+		self.hud.show(title: time)
+	}
+	
+	func progressDidEndDrag() {
+		self.hud.hide()
 	}
 	
 }
@@ -332,6 +347,7 @@ extension PlayerDetailViewController {
     
 }
 
+// MARK: - Touch
 extension PlayerDetailViewController {
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -465,6 +481,12 @@ extension PlayerDetailViewController {
 			make.width.equalToSuperview()
 			make.height.equalTo(self.coverImageView)
 		}
+		
+		self.hud.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview();
+			make.bottom.equalTo(self.progressLine.snp.top).offset(-20.adapt())
+			make.size.equalTo(CGSize.init(width: 60, height: 30.adapt()))
+		}
         
     }
     
@@ -592,6 +614,9 @@ extension PlayerDetailViewController {
         self.swipeAniView = AnimationView.init(name: "swip_guid")
 		self.swipeAniView.loopMode = .loop
 		self.infoScrollView.addSubview(self.swipeAniView)
+		
+		self.hud = ProgressHUD.init(frame: CGRect.zero)
+		self.view.addSubview(self.hud)
 
     }
 

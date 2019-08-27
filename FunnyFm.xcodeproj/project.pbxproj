@@ -114,6 +114,7 @@
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
+		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D1B1722C633EA00E9E221 /* NotificationService.swift */; };
 		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB6DF90922F029B400DF2A0B /* Third.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6DF90822F029B400DF2A0B /* Third.swift */; };
@@ -367,6 +368,7 @@
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
+		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6D1B1722C633EA00E9E221 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AB6D1B1922C633EA00E9E221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 				AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */,
 				ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */,
 				AB53ED5222F16E3A0015D957 /* PullButton.swift */,
+				AB6990B32315248E003AC187 /* ProgressHUD.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1430,6 +1433,7 @@
 				ABEE40E721E35C3800FCB16F /* UserAPI.swift in Sources */,
 				ABEE40DB21E3246E00FCB16F /* MJRefreshHeader.m in Sources */,
 				ABEE40CE21E3246E00FCB16F /* UIScrollView+MJExtension.m in Sources */,
+				AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */,
 				ABEE40DE21E3246E00FCB16F /* MJRefreshComponent.m in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
 				ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */,

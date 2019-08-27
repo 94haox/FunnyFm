@@ -96,7 +96,7 @@ extension FMToolBar {
 //            }
 			self.playBtn.isSelected = true
 			FMPlayerManager.shared.play()
-            self.progressLine.changeProgress(progress: 0, current: "00:00:00", total: FunnyFm.formatIntervalToMM(FMPlayerManager.shared.totalTime))
+			self.progressLine.changeProgress(progress: 0, current: "00:00:00", total: FunnyFm.formatIntervalToMM(NSInteger(FMPlayerManager.shared.totalTime)))
 		}
     }
 	

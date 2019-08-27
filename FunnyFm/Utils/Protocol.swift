@@ -17,4 +17,5 @@ import Foundation
 
 @objc protocol ChapterProgressDelegate {
 	func progressDidChange(progress:CGFloat)
+	func progressDidEndDrag()
 }
