@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class ItunsPodTableViewCell: UITableViewCell {
 
@@ -24,8 +23,7 @@ class ItunsPodTableViewCell: UITableViewCell {
 	func config(_ pod:iTunsPod) {
 		self.titleLB.text = pod.trackName;
 		self.authorLB.text = "最近更新：" + pod.releaseDate.subString(to: 10);
-		let resource = ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!)
-		self.postImageView.kf.setImage(with: resource)
+		self.postImageView.loadImage(url: pod.artworkUrl600)
 	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {

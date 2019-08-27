@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 
 class PodDetailTopBar: UIView {
@@ -23,8 +22,8 @@ class PodDetailTopBar: UIView {
 	}
 	
 	func config(_ pod: Pod){
-		let resource = ImageResource.init(downloadURL: URL.init(string: pod.img)!)
-		self.logoImageView.kf.setImage(with: resource)
+		
+		self.logoImageView.loadImage(url: pod.img)
 		self.podCountLB.text = String(pod.count)
 		self.timeLB.text = pod.update_time
 		self.podNameLB.text = pod.name

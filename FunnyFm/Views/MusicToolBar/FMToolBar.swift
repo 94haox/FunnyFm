@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 import MediaPlayer
 import RxSwift
 import pop
@@ -151,13 +150,8 @@ extension FMToolBar{
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.author
         self.setUpChapter(chapter)
-		self.logoImageView.kf.setImage(with: URL.init(string: (self.currentEpisode?.coverUrl)!)!) {[unowned self] result in
-			switch result {
-			case .success(_):
-				self.configShadowColor()
-			case .failure(let error):
-				print("Error: \(error)")
-			}
+		self.logoImageView.loadImage(url: (self.currentEpisode?.coverUrl)!, placeholder: nil) {[unowned self] (image) in
+			self.configShadowColor()
 		}
     }
     

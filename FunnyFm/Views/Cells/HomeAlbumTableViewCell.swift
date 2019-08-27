@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 import pop
 import Lottie
 
@@ -56,15 +55,14 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = episode.title
         self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-		let resource = ImageResource.init(downloadURL: URL.init(string: episode.podCoverUrl)!)
-        self.logoImageView.kf.setImage(with: resource)
+        self.logoImageView.loadImage(url: episode.podCoverUrl)
     }
     
     func configCell(_ episode:Episode){
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: episode.coverUrl)!) )
+        self.logoImageView.loadImage(url: episode.podCoverUrl)
     }
 	
 	func configDownloadCell(_ episode:Episode){

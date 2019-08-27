@@ -231,7 +231,7 @@ public extension UIView {
 public extension UIView {
 
     /// SwifterSwift: Recursively find the first responder.
-    public func firstResponder() -> UIView? {
+	func firstResponder() -> UIView? {
         var views = [UIView](arrayLiteral: self)
         var i = 0
         repeat {
@@ -250,7 +250,7 @@ public extension UIView {
     /// - Parameters:
     ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
     ///   - radius: radius for selected corners.
-    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+	func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let maskPath = UIBezierPath(
             roundedRect: bounds,
             byRoundingCorners: corners,
@@ -268,7 +268,7 @@ public extension UIView {
     ///   - radius: shadow radius (default is 3).
     ///   - offset: shadow offset (default is .zero).
     ///   - opacity: shadow opacity (default is 0.5).
-    public func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+	func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -279,7 +279,7 @@ public extension UIView {
     /// SwifterSwift: Add array of subviews to view.
     ///
     /// - Parameter subviews: array of subviews to add to self.
-    public func addSubviews(_ subviews: [UIView]) {
+	func addSubviews(_ subviews: [UIView]) {
         subviews.forEach { addSubview($0) }
     }
 
@@ -288,7 +288,7 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    public func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+	func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
         }
@@ -302,7 +302,7 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    public func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+	func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
         }
@@ -317,17 +317,17 @@ public extension UIView {
     ///   - name: nib name.
     ///   - bundle: bundle of nib (default is nil).
     /// - Returns: optional UIView (if applicable).
-    public class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
+	class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
         return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
 
     /// SwifterSwift: Remove all subviews in view.
-    public func removeSubviews() {
+	func removeSubviews() {
         subviews.forEach({ $0.removeFromSuperview() })
     }
 
     /// SwifterSwift: Remove all gesture recognizers from view.
-    public func removeGestureRecognizers() {
+	func removeGestureRecognizers() {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
 

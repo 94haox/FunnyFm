@@ -196,13 +196,8 @@ extension EpisodeListViewController {
 		self.view.addSubview(self.podBackgroundView)
 		
 		self.podImageView = UIImageView.init()
-		self.podImageView.kf.setImage(with: URL.init(string: self.pod.img)!) {[unowned self] result in
-			switch result {
-			case .success(let value):
-				self.podBackgroundView.addShadow(ofColor: value.image.mostColor(), radius: 0, offset: CGSize.init(width: 5, height: 5), opacity: 0)
-			case .failure(let error):
-				print("Error: \(error)")
-			}
+		self.podImageView.loadImage(url: self.pod.img, placeholder: nil) { [unowned self] (image) in
+			self.podBackgroundView.addShadow(ofColor: image.mostColor(), radius: 0, offset: CGSize.init(width: 5, height: 5), opacity: 0)
 		}
 		self.podImageView.cornerRadius = 15;
 		self.view.addSubview(self.podImageView)

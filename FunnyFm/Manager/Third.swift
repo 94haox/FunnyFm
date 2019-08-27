@@ -8,7 +8,7 @@
 
 import Foundation
 import CleanyModal
-import Kingfisher
+
 import Lottie
 import OfficeUIFabric
 import OneSignal

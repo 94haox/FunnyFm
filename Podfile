@@ -24,7 +24,6 @@ def lib
     pod 'KeychainAccess'
     pod 'WCDB.swift'
     pod 'RxSwift'
-    pod 'Kingfisher'
 		pod 'Nuke', '~> 8.0.1'
     pod 'SwiftyJSON'
     pod 'Moya'

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 import pop
 import Lottie
 import MediaPlayer
@@ -522,14 +521,10 @@ extension PlayerDetailViewController {
         
 		self.coverImageView = UIImageView.init()
         self.coverImageView.isUserInteractionEnabled = true
-        self.coverImageView.kf.setImage(with: URL.init(string: (self.episode?.coverUrl)!)!) {[unowned self] result in
-            switch result { 
-            case .success(let value):
-                self.coverBackView.addShadow(ofColor: value.image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+		self.coverImageView.loadImage(url: (self.episode?.coverUrl)!, placeholder: nil) { [unowned self] (image) in
+			self.coverBackView.addShadow(ofColor: image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
+		}
+		
 		self.coverImageView.cornerRadius = 15.adapt()
 		self.coverBackView.addSubview(self.coverImageView)
 		

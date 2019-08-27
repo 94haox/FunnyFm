@@ -8,7 +8,7 @@
 
 import UIKit
 import MediaPlayer
-import Kingfisher
+import Nuke
 
 enum MAudioPlayState {
     case playing
@@ -344,7 +344,8 @@ extension FMPlayerManager {
 	}
 	
 	@objc func setBackground() {
-        let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.coverUrl)!)
+		let request = ImageRequest(url: URL.init(string: (self.currentModel?.coverUrl)!)!)
+		let image = ImageCache.shared[request]
 		var info = Dictionary<String, Any>()
 		info[MPMediaItemPropertyTitle] = self.currentModel?.title//歌名
 		info[MPMediaItemPropertyArtist] = self.currentModel?.author//作者

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class PodListCollectionViewCell: UICollectionViewCell {
 
@@ -29,7 +28,7 @@ class PodListCollectionViewCell: UICollectionViewCell {
     }
     
     func configCell(_ pod: iTunsPod){
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
+        self.logoImageView.loadImage(url: pod.artworkUrl600)
         self.titleLB.text = pod.trackName
         self.updateTimeLB.text = self.fromStringToDate(string: pod.releaseDate).dateString()
     }

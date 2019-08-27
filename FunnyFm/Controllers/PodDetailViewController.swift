@@ -57,7 +57,7 @@ class PodDetailViewController: BaseViewController {
 		self.title = "detail"
 		self.podNameLB.text = self.pod.trackName
 		self.podAuthorLB.text = self.pod.podAuthor.length() > 0 ? self.pod.podAuthor : "未知"
-		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {result in}
+		self.podImageView.loadImage(url: self.pod.artworkUrl600, placeholder: nil)
 	}
 	
 	@objc func subscribtionAction() {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 /// Pod详情顶部
 class PodCastCoverView: UIView {
@@ -22,9 +21,7 @@ class PodCastCoverView: UIView {
 	}
 	
 	func config(_ pod: Pod){
-		let resource = ImageResource.init(downloadURL: URL.init(string: pod.img)!)
-		self.logoImageView.kf.setImage(with: resource)
-		self.bigCoverImageView.kf.setImage(with: resource)
+		self.bigCoverImageView.loadImage(url: pod.img)
 		self.podCountLB.text = String(pod.count)
 		self.timeLB.text = pod.update_time
 		self.podNameLB.text = pod.name

@@ -68,3 +68,46 @@ public extension UIImageView {
 
 }
 #endif
+
+
+
+#if canImport(Nuke)
+import Nuke
+
+public extension UIImageView {
+	
+	func loadImage(url: String){
+		self.loadImage(url: url, placeholder: nil)
+	}
+	
+	func loadImage(url: String, placeholder: String?){
+		self.loadImage(url: url, placeholder: placeholder, complete: nil)
+	}
+	
+	func loadImage(url: String, placeholder: String?, complete:((UIImage)->Void)?){
+		var holder = placeholder
+		if placeholder.isNone{
+			holder = "placeholder"
+		}
+		let options = ImageLoadingOptions(
+			placeholder: UIImage(named: holder!),
+			transition: .fadeIn(duration: 0.33),
+			failureImage: UIImage(named: holder!)
+		)
+		
+		Nuke.loadImage(with: URL.init(string: url)!, options: options, into: self, progress: nil, completion: { result in
+			switch result {
+			case .success(let value):
+				if complete.isSome{
+					complete!(value.image)
+				}
+			case .failure(let error):
+				print("Error: \(error)")
+			}
+		})
+		
+	}
+	
+}
+
+#endif

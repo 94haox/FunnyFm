@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 import NVActivityIndicatorView
 import OfficeUIFabric
 
@@ -50,7 +49,7 @@ class PodPreviewViewController: BaseViewController {
 		self.podNameLB.text = pod.name
 		self.authorLB.text = pod.author
 		self.desLB.text = pod.des
-		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.img)!))
+		self.podImageView.loadImage(url: pod.img)
 		self.sourceLB.text = "来自：" + pod.sourceType;
 	}
 	
@@ -58,7 +57,7 @@ class PodPreviewViewController: BaseViewController {
 		self.itunsPod = pod;
 		self.podNameLB.text = pod.trackName
 		self.authorLB.text = pod.podAuthor
-		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
+		self.podImageView.loadImage(url:pod.artworkUrl600)
 //		self.sourceLB.text = "来自：" + "iTunes";
 	}
 	
