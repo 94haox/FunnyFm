@@ -279,6 +279,16 @@ extension MainViewController {
         self.view.addSubview(self.titileLB)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
+		self.view.sendSubviewToBack(self.tableview)
+		
+		let topBgView = UIView.init()
+		topBgView.backgroundColor = .white
+		self.view.addSubview(topBgView)
+		self.view.insertSubview(topBgView, belowSubview: self.profileBtn)
+		topBgView.snp.makeConstraints { (make) in
+			make.left.width.top.equalToSuperview()
+			make.bottom.equalTo(self.titileLB)
+		}
         
         self.profileBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 35, height: 35))
@@ -300,7 +310,7 @@ extension MainViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.titileLB.snp.bottom).offset(30.adapt())
+            make.top.equalTo(self.view.snp.topMargin)
         }
 		
 		self.loadAnimationView.snp.makeConstraints { (make) in
@@ -340,7 +350,7 @@ extension MainViewController {
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
-        self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+        self.tableview.contentInset = UIEdgeInsets.init(top: 30.adapt(), left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
         

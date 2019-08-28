@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 import OneSignal
 
-class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
+class SettingViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
 
     var titleLB: UILabel!
     

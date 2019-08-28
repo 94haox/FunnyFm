@@ -13,6 +13,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
     var vm = PodListViewModel.init()
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.titleLB.text = "我的订阅".localized
         self.vm.delegate = self
         self.vm.getAllPods()
         self.view.backgroundColor = .white
@@ -20,24 +21,13 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         self.collectionView.dataSource = self
 		self.view.backgroundColor = CommonColor.background.color
         self.view.addSubview(self.collectionView)
-        self.view.addSubview(self.titleLB)
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.left.equalToSuperview().offset(32)
-        }
+		
         self.collectionView.snp.makeConstraints { (make) in
             make.top.equalTo(self.titleLB.snp.bottom).offset(32)
             make.left.width.bottom.equalToSuperview()
         }
         // Do any additional setup after loading the view.
     }
-    
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "我的订阅".localized)
-        lb.font = p_bfont(titleFontSize)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()

@@ -11,9 +11,9 @@ import UIKit
 class EpisodeDetailViewController: UIViewController {
 
     
-    @IBOutlet weak var dateLB: UILabel!
+	@IBOutlet weak var copyRightLB: UILabel!
+	@IBOutlet weak var dateLB: UILabel!
     @IBOutlet weak var duration: UILabel!
-    @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var containerView: UIView!
 	@IBOutlet weak var desTextView: UITextView!
 	
@@ -24,12 +24,16 @@ class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+		self.copyRightLB.text = pod?.copyRight
 		self.desTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
 		self.desTextView.showsVerticalScrollIndicator = false
         self.titleLB.text = self.episode.title
 		self.dateLB.text = self.episode.pubDate
 		self.podLB.text = self.episode.author
 		self.duration.text = FunnyFm.formatIntervalToString(NSInteger(self.episode.duration))
+		
+		
 		
 		guard self.episode.intro.contains("<") else {
 			self.desTextView.text = self.episode.intro;

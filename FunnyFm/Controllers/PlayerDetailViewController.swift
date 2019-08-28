@@ -11,8 +11,9 @@ import pop
 import Lottie
 import MediaPlayer
 import AVKit
+import EFIconFont
 
-class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
+class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     
     var episode: Episode!
     
@@ -102,6 +103,11 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 		super.viewWillDisappear(animated)
 		FMToolBar.shared.isHidden = false
 	}
+	
+	lazy var tapGes: UITapGestureRecognizer = {
+		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toPodDetail))
+		return tap
+	}()
 
 }
 
@@ -127,8 +133,7 @@ extension PlayerDetailViewController {
     }
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
-        self.progressLine!.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
-		
+        self.progressLine!.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)-NSInteger(currentTime)))
     }
     
 }
@@ -328,6 +333,14 @@ extension PlayerDetailViewController {
     @objc func back(){
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
+	
+	@objc func toPodDetail(){
+		let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+		let detailVC =  PodDetailViewController.init(pod: pod!)
+		let navi = UIApplication.shared.keyWindow!.rootViewController as! UINavigationController
+		navi.pushViewController(detailVC)
+		self.navigationController?.dismiss(animated: true, completion: nil)
+	}
     
     func sleep(with time: String) {
         switch time {
@@ -341,11 +354,6 @@ extension PlayerDetailViewController {
             break
         }
     }
-    
-    func timerAction(){
-        
-    }
-    
 }
 
 // MARK: - Touch
@@ -502,10 +510,14 @@ extension PlayerDetailViewController {
         self.titleLB.font = p_bfont(fontsize6)
         self.view.addSubview(self.titleLB)
         
-        self.subTitle = UILabel.init(text: self.episode.author)
-        self.subTitle.textColor = CommonColor.content.color
-        self.subTitle.font = pfont(fontsize0)
+		self.subTitle = UILabel.init(text: self.episode.author)
+		self.subTitle.isUserInteractionEnabled = true
+		let author = NSMutableAttributedString.init(string: self.episode.author)
+		author.addAttributes([NSAttributedString.Key.foregroundColor : CommonColor.content.color, NSAttributedString.Key.font : pfont(fontsize2)], range: NSRange.init(location: 0, length: self.episode.author.length()))
+		self.subTitle.attributedText = author + NSMutableAttributedString.init(string: " ") + NSMutableAttributedString.init(attributedString: EFIconFont.antDesign.rightCircle.attributedString(size: fontsize2, foregroundColor: CommonColor.content.color, backgroundColor: nil)!)
         self.view.addSubview(self.subTitle)
+		self.subTitle.addGestureRecognizer(self.tapGes)
+		
         
         self.infoScrollView = UIScrollView.init(frame: CGRect.zero)
         self.infoScrollView.showsHorizontalScrollIndicator = false;

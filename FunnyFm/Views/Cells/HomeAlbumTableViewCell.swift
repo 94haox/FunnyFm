@@ -12,8 +12,7 @@ import Lottie
 
 class HomeAlbumTableViewCell: UITableViewCell {
 
-    
-    var playStateView: AnimationView!
+	@IBOutlet weak var shadowBgView: UIView!
 	@IBOutlet weak var moreBtn: UIButton!
 	@IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
@@ -24,14 +23,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        self.playStateView = AnimationView.init(name: "play_state")
-        self.playStateView.loopMode = .loop
-        self.contentView.addSubview(self.playStateView)
-        self.playStateView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.logoImageView.snp.bottom)
-            make.centerX.equalTo(self.logoImageView)
-            make.size.equalTo(CGSize.init(width: 50, height: 50))
-        }
+		self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 2, height: 2), opacity: 1)
     }
 	
 	public func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {
@@ -45,9 +37,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        self.playStateView.alpha = selected ? 1 : 0
-        selected ? self.playStateView.play() : self.playStateView.stop()
+        super.setSelected(selected, animated: animated) 
     }
     
     

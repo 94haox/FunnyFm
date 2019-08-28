@@ -45,12 +45,12 @@ class FeedManager: NSObject {
 			
 			if result.rssFeed!.iTunes!.iTunesAuthor.isSome && pod.podAuthor.length() < 1{
 				pod.podAuthor = result.rssFeed!.iTunes!.iTunesAuthor!
-				DatabaseManager.addItunsPod(pod: pod)
+				DatabaseManager.updateItunsPod(pod: pod)
 			}
 			
 			if result.rssFeed!.copyright.isSome && pod.copyRight.length() < 1{
 				pod.copyRight = result.rssFeed!.copyright!
-				DatabaseManager.addItunsPod(pod: pod)
+				DatabaseManager.updateItunsPod(pod: pod)
 			}
 			
 			

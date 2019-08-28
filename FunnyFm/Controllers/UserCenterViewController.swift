@@ -15,6 +15,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.titleLB.text = "Hi"
         self.dw_addSubviews()
     }
 	
@@ -41,14 +42,9 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	}
     
     func dw_addSubviews(){
-        
-        self.view.addSubview(self.titleLB)
+		
         self.view.addSubview(self.collectionView)
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.left.equalToSuperview().offset(30)
-        }
-        
+		
         self.collectionView.snp.makeConstraints { (make) in
             make.top.equalTo(self.titleLB.snp.bottom).offset(30.adapt())
             make.left.width.bottom.equalToSuperview()
@@ -74,13 +70,6 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         self.view.backgroundColor = CommonColor.background.color
 
     }
-    
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "Hi")
-        lb.font = h_bfont(titleFontSize)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()

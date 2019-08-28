@@ -50,7 +50,7 @@ class ChapterProgressView: UIView {
     }
     
     func changeProgress(progress:Double, current:String, total:String){
-        self.allDot.text = total
+        self.allDot.text = "- " + total
         self.nowDot.text = current
         if self.isDrag {
             return
@@ -112,7 +112,7 @@ class ChapterProgressView: UIView {
     }()
     
     lazy var nowDot : UILabel = {
-        let lb = UILabel.init(text: "00:00:00")
+        let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
         lb.font = hfont(self.fontSize)
@@ -120,7 +120,7 @@ class ChapterProgressView: UIView {
     }()
     
     lazy var allDot : UILabel = {
-        let lb = UILabel.init(text: "00:00:00")
+        let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
         lb.font = hfont(self.fontSize)

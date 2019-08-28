@@ -30,7 +30,7 @@ extension String {
     
     //MARK:- 字符串长度
     func length() -> Int {
-        return self.characters.count
+        return self.count
     }
     
     func indexOf(_ target: Character) -> Int? {

@@ -12,29 +12,16 @@ class SubscribListController: BaseViewController , UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.titleLB.text = "我的订阅".localized
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
-        
-        
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(30)
-            make.left.equalToSuperview().offset(16)
-        }
+	
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
             make.top.equalTo(self.titleLB.snp.bottom)
         }
     }
-    
-    
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "我的订阅".localized)
-        lb.font = p_bfont(titleFontSize)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
     
     lazy var tableview : UITableView = {
         let table = UITableView.init(frame: CGRect.zero, style: .plain)

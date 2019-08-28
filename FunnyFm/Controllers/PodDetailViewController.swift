@@ -55,8 +55,8 @@ class PodDetailViewController: BaseViewController {
 
 	func config(){
 		self.title = "detail"
-		self.podNameLB.text = self.pod.trackName
-		self.podAuthorLB.text = self.pod.podAuthor.length() > 0 ? self.pod.podAuthor : "未知"
+		self.podNameLB.text = self.pod.trackName.trimmingCharacters(in: CharacterSet.whitespaces)
+		self.podAuthorLB.text = self.pod.podAuthor.length() > 0 ? self.pod.podAuthor.trimmingCharacters(in: CharacterSet.whitespaces) : "未知"
 		self.podImageView.loadImage(url: self.pod.artworkUrl600, placeholder: nil)
 	}
 	
@@ -65,8 +65,12 @@ class PodDetailViewController: BaseViewController {
 		self.subBtn.backgroundColor = self.subBtn.isSelected ? .white : CommonColor.mainRed.color
 	}
 	
+	func toDetail(episode: Episode) {
+		let detailVC = EpisodeDetailViewController.init()
+		detailVC.episode = episode
+		self.navigationController?.pushViewController(detailVC);
+	}
 	
-
 }
 
 
@@ -115,6 +119,9 @@ extension PodDetailViewController: UITableViewDataSource {
 		guard let cell = cell as? HomeAlbumTableViewCell else { return }
 		let episode = self.vm.episodeList[indexPath.row]
 		cell.configCell(episode)
+		cell.tranferNoParameterClosure { [weak self] in
+			self?.toDetail(episode: episode)
+		}
 	}
 }
 
@@ -133,13 +140,13 @@ extension PodDetailViewController {
 		self.topView.snp.makeConstraints { (make) in
 			make.left.width.equalToSuperview()
 			make.top.equalTo(self.view.snp.topMargin)
-			make.height.equalTo(180)
+			make.bottom.equalTo(self.subBtn).offset(14)
 		}
 		
 		self.podImageView.snp.makeConstraints { (make) in
-			make.left.equalToSuperview().offset(30)
+			make.left.equalToSuperview().offset(18)
 			make.top.equalToSuperview().offset(18)
-			make.size.equalTo(CGSize.init(width: 80, height: 80))
+			make.size.equalTo(CGSize.init(width: 100, height: 100))
 		}
 		
 		self.podNameLB.snp.makeConstraints { (make) in
@@ -154,15 +161,15 @@ extension PodDetailViewController {
 		}
 		
 		self.countLB.snp.makeConstraints { (make) in
-			make.left.equalTo(self.podAuthorLB.snp.right).offset(8);
-			make.top.equalTo(self.podAuthorLB)
+			make.left.equalTo(self.podNameLB);
+			make.top.equalTo(self.podAuthorLB.snp.bottom).offset(12)
 		}
 		
 		self.subBtn.snp.makeConstraints { (make) in
 			make.left.equalTo(self.podImageView);
-			make.right.equalToSuperview().offset(-30)
-			make.height.equalTo(40)
-			make.top.equalTo(self.podImageView.snp.bottom).offset(25)
+			make.right.equalToSuperview().offset(-18)
+			make.height.equalTo(45)
+			make.top.equalTo(self.countLB.snp.bottom).offset(50)
 		}
 		
 		
@@ -182,8 +189,8 @@ extension PodDetailViewController {
 		
 		self.podNameLB = UILabel.init(text: self.pod.trackName)
 		self.podNameLB.textColor = CommonColor.title.color
-		self.podNameLB.font = p_bfont(16)
-		self.podNameLB.numberOfLines = 1;
+		self.podNameLB.font = p_bfont(18)
+		self.podNameLB.numberOfLines = 0;
 		
 		self.podAuthorLB = UILabel.init(text: self.pod.podAuthor)
 		self.podAuthorLB.textColor = CommonColor.content.color

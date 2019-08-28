@@ -117,7 +117,8 @@ class DatabaseManager: NSObject {
 	
 	/// pod 缓存
 	static public func allItunsPod() -> [iTunsPod] {
-		let itunsPodList : [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable)
+		var itunsPodList : [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable)
+		itunsPodList = itunsPodList.reversed()
 		return itunsPodList
 	}
 	
@@ -128,6 +129,14 @@ class DatabaseManager: NSObject {
 	}
 	
 	static public func addItunsPod(pod: iTunsPod){
+		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
+		if exsitPod.isSome {
+			return
+		}
+		try! self.database.insert(objects: pod, intoTable: exsitPodTable)
+	}
+	
+	static public func updateItunsPod(pod: iTunsPod){
 		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
 		if exsitPod.isSome {
 			try! self.database.update(table: exsitPodTable, on: iTunsPod.Properties.all, with: pod, where: iTunsPod.Properties.collectionId == pod.collectionId)

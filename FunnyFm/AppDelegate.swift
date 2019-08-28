@@ -9,9 +9,6 @@
 import UIKit
 import SPStorkController
 import OfficeUIFabric
-import AppCenter
-import AppCenterAnalytics
-import AppCenterCrashes
 import OneSignal
 import CleanyModal
 import GoogleMobileAds
@@ -27,7 +24,6 @@ import FirebaseUI
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		FirebaseApp.configure()
-		MSAppCenter.start("f9778dd8-1385-462e-a4e1-fa37182cb200", withServices:[MSAnalytics.self,MSCrashes.self])
 		self.dw_addNotifies()
 		self.window = UIWindow.init()
         self.options = launchOptions

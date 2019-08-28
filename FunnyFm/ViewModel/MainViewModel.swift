@@ -157,6 +157,7 @@ class MainViewModel: NSObject {
 		}
 		
 		trace?.stop()
+		self.podlist = DatabaseManager.allItunsPod()
 		return sortEpisodeList
 	}
 }

@@ -25,10 +25,10 @@ def lib
     pod 'WCDB.swift'
     pod 'RxSwift'
 		pod 'Nuke', '~> 8.0.1'
+		pod 'EFIconFont', :subspecs => ['AntDesign']
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'
-		pod 'AppCenter' 
 		pod 'FeedKit', '~> 8.0'
 		pod 'OneSignal', '>= 2.6.2', '< 3.0'
 		pod 'FirebaseUI/Auth'

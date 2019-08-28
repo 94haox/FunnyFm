@@ -91,6 +91,12 @@ extension EpisodeListViewController {
     @objc func loadMore(){
         self.vm.next()
     }
+	
+	func toDetail(episode: Episode) {
+		let detailVC = EpisodeDetailViewController.init()
+		detailVC.episode = episode
+		self.navigationController?.pushViewController(detailVC);
+	}
     
 }
 
@@ -139,6 +145,10 @@ extension EpisodeListViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as! HomeAlbumTableViewCell
         let chapter = self.vm.chapterList[indexPath.row]
         cell.configCell(chapter)
+		cell.tranferNoParameterClosure { [weak self] in
+			self?.toDetail(episode: chapter)
+		}
+
         return cell
     }
     

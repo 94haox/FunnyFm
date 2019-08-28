@@ -34,7 +34,7 @@ class FunnyFm: NSObject {
         let min = second%3600/60
         let sec = second%3600%60
         
-        var hourStr = "00:"
+        var hourStr = ""
         if  hour > 0 {
             hourStr = "0" + String(hour) + ":"
         }

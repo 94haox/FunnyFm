@@ -13,15 +13,10 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.titleLB.text =  "我的下载".localized
         self.view.backgroundColor = .white
         self.view.addSubview(self.tableview)
-        self.view.addSubview(self.titleLB)
 		self.view.addSubview(self.deleteBtn)
-
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.left.equalToSuperview().offset(16)
-        }
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -96,13 +91,6 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
 		alert.addAction(title: "取消".localized, style: .cancel)
 		self.present(alert, animated: true, completion: nil)
 	}
-    
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "我的下载".localized)
-        lb.font = p_bfont(titleFontSize)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
     
     lazy var tableview : UITableView = {
         let table = UITableView.init(frame: CGRect.zero, style: .plain)
