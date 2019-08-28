@@ -114,11 +114,10 @@ extension FMToolBar {
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
         self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
-		
-		self.progressBg.snp.remakeConstraints { (make) in
-			make.left.centerY.height.equalToSuperview()
-			make.width.equalTo(self.containerView).multipliedBy(progess)
-		}
+//		self.progressBg.snp.remakeConstraints { (make) in
+//			make.left.centerY.height.equalToSuperview()
+//			make.width.equalTo(self.containerView).multipliedBy(progess)
+//		}
     }
 }
 
@@ -281,14 +280,14 @@ extension FMToolBar {
         self.cornerRadius = 15.0
         self.addShadow(ofColor: UIColor.lightGray, radius: 10, offset: CGSize.init(width: 2, height: 10), opacity: 0.5)
         self.addSubview(self.containerView)
-		self.containerView.addSubview(self.progressBg);
+//		self.containerView.addSubview(self.progressBg);
         self.addSubview(self.logoImageView)
         self.containerView.addSubview(self.titleLB)
         self.containerView.addSubview(self.authorLB)
         self.addSubview(self.playBtn)
         self.addSubview(self.loadingView)
         self.containerView.addSubview(self.progressLine)
-        
+		
         self.containerView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -328,10 +327,10 @@ extension FMToolBar {
             make.bottom.equalToSuperview()
         }
 		
-		self.progressBg.snp.makeConstraints { (make) in
-			make.left.centerY.height.equalToSuperview()
-			make.width.equalTo(self.containerView).multipliedBy(0)
-		}
+//		self.progressBg.snp.makeConstraints { (make) in
+//			make.left.centerY.height.equalToSuperview()
+//			make.width.equalTo(self.containerView).multipliedBy(0)
+//		}
 		
         
     }
@@ -368,9 +367,9 @@ extension FMToolBar {
         self.progressLine = ChapterProgressView.init(frame: CGRect.zero)
         self.progressLine.isHidden = true
 		
-		self.progressBg = UIView.init()
-		self.progressBg.backgroundColor = CommonColor.mainRed.color;
-		self.progressBg.cornerRadius = 15
-        
+//		self.progressBg = UIView.init()
+//		self.progressBg.backgroundColor = CommonColor.mainRed.color;
+//		self.progressBg.cornerRadius = 15
+		
     }
 }

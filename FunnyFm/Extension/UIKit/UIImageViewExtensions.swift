@@ -87,7 +87,7 @@ public extension UIImageView {
 	func loadImage(url: String, placeholder: String?, complete:((UIImage)->Void)?){
 		var holder = placeholder
 		if placeholder.isNone{
-			holder = "placeholder"
+			holder = "logo-white"
 		}
 		let options = ImageLoadingOptions(
 			placeholder: UIImage(named: holder!),

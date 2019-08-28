@@ -25,6 +25,7 @@ class EpisodeDetailViewController: UIViewController {
         super.viewDidLoad()
 		
 		self.desTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
+		self.desTextView.showsVerticalScrollIndicator = false
         self.titleLB.text = self.episode.title
 		self.dateLB.text = self.episode.pubDate
 		self.podLB.text = self.episode.author

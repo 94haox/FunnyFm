@@ -118,10 +118,12 @@ extension PlayerDetailViewController {
     
     func playerDidPlay() {
         self.playBtn!.isSelected = true
+		FMToolBar.shared.playBtn.isSelected = true
     }
     
     func playerDidPause() {
         self.playBtn!.isSelected = false
+		FMToolBar.shared.playBtn.isSelected = false
     }
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
