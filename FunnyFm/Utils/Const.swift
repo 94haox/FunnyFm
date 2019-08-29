@@ -16,6 +16,11 @@ func AdaptScale(_ w: CGFloat) -> CGFloat {
     return ( w * scale)
 }
 
+func AdaptScaleH(_ h: CGFloat) -> CGFloat {
+	let scale = kScreenHeight / 667.0
+	return ( h * scale)
+}
+
 let kScreenHeight = UIScreen.main.bounds.size.height
 let kScreenWidth = UIScreen.main.bounds.size.width
 let kHMargin = AdaptScale(14)

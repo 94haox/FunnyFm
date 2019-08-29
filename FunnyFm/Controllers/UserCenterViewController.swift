@@ -46,7 +46,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         self.view.addSubview(self.collectionView)
 		
         self.collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLB.snp.bottom).offset(30.adapt())
+            make.top.equalTo(self.titleLB.snp.bottom)
             make.left.width.bottom.equalToSuperview()
         }
 		
@@ -73,9 +73,9 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: AdaptScale(146), height: AdaptScale(168))
+        layout.itemSize = CGSize(width: AdaptScale(146), height: AdaptScale(170))
         layout.minimumLineSpacing = 16
-        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 30, bottom: 120, right: 30)
+        layout.sectionInset = UIEdgeInsets.init(top: 30.adapt(), left: 30, bottom: 120, right: 30)
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         let nib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
         let headernib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
@@ -88,7 +88,6 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     }()
     
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
-//                                           ["title":"我的收藏","subtitle":"","imageName":"mark"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],

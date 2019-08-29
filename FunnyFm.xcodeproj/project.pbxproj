@@ -116,6 +116,7 @@
 		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
 		AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D7662316680200F76F8E /* PlayListViewController.swift */; };
 		AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D76823167A6200F76F8E /* PlaylistViewController.swift */; };
+		AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */; };
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D1B1722C633EA00E9E221 /* NotificationService.swift */; };
 		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -137,6 +138,9 @@
 		ABDC4D2C22CCAAB700EF31C0 /* EmptyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */; };
 		ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2D22CCD79900EF31C0 /* point_loading.json */; };
 		ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */ = {isa = PBXBuildFile; fileRef = ABDC4D2F22CCD7AB00EF31C0 /* firework.json */; };
+		ABDEF0C4231775E3001FFFC5 /* PlayDetailToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDEF0C3231775E3001FFFC5 /* PlayDetailToolBar.swift */; };
+		ABDEF22F2317B551001FFFC5 /* AdMobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABDEF22D2317B551001FFFC5 /* AdMobTableViewCell.xib */; };
+		ABDEF2302317B551001FFFC5 /* AdMobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDEF22E2317B551001FFFC5 /* AdMobTableViewCell.swift */; };
 		ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */; };
 		ABE57E2C21EA088A00F90EED /* done_button.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE57E2B21EA088A00F90EED /* done_button.json */; };
 		ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */; };
@@ -255,7 +259,7 @@
 		AB09A53D21DDBACB00CB621C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AB0C64C4230B8E1800C4DF30 /* PathKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathKit.swift; sourceTree = "<group>"; };
-		AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLoadButton.swift; sourceTree = "<group>"; };
 		AB14632021D385FC00D41B83 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
 		AB63D7662316680200F76F8E /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		AB63D76823167A6200F76F8E /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
+		AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoViewController.swift; sourceTree = "<group>"; };
 		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6D1B1722C633EA00E9E221 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -408,6 +413,20 @@
 		ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMainViewController.swift; sourceTree = "<group>"; };
 		ABDC4D2D22CCD79900EF31C0 /* point_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = point_loading.json; sourceTree = "<group>"; };
 		ABDC4D2F22CCD7AB00EF31C0 /* firework.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework.json; sourceTree = "<group>"; };
+		ABDEF0C3231775E3001FFFC5 /* PlayDetailToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayDetailToolBar.swift; sourceTree = "<group>"; };
+		ABDEF22D2317B551001FFFC5 /* AdMobTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdMobTableViewCell.xib; sourceTree = "<group>"; };
+		ABDEF22E2317B551001FFFC5 /* AdMobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobTableViewCell.swift; sourceTree = "<group>"; };
+		ABDEFA262317D186001FFFC5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		ABDEFA282317D18E001FFFC5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ABDEFA2A2317D199001FFFC5 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		ABDEFA2C2317D1A8001FFFC5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		ABDEFA2E2317D1B1001FFFC5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		ABDEFA302317D1BA001FFFC5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		ABDEFA322317D1C2001FFFC5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		ABDEFA342317D1CE001FFFC5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ABDEFA362317D1D7001FFFC5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ABDEFA382317D1E4001FFFC5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		ABDEFA3A2317D1E9001FFFC5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonHUD.swift; sourceTree = "<group>"; };
 		ABE57E2B21EA088A00F90EED /* done_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done_button.json; sourceTree = "<group>"; };
 		ABE765EC21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEpisodeTableViewCell.swift; sourceTree = "<group>"; };
@@ -553,6 +572,17 @@
 		35ADAC79336120144B49975D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABDEFA3A2317D1E9001FFFC5 /* AdSupport.framework */,
+				ABDEFA382317D1E4001FFFC5 /* CoreLocation.framework */,
+				ABDEFA362317D1D7001FFFC5 /* QuartzCore.framework */,
+				ABDEFA342317D1CE001FFFC5 /* SystemConfiguration.framework */,
+				ABDEFA322317D1C2001FFFC5 /* CoreTelephony.framework */,
+				ABDEFA302317D1BA001FFFC5 /* libz.tbd */,
+				ABDEFA2E2317D1B1001FFFC5 /* Security.framework */,
+				ABDEFA2C2317D1A8001FFFC5 /* StoreKit.framework */,
+				ABDEFA2A2317D199001FFFC5 /* libxml2.tbd */,
+				ABDEFA282317D18E001FFFC5 /* AVFoundation.framework */,
+				ABDEFA262317D186001FFFC5 /* WebKit.framework */,
 				1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */,
 				022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
@@ -656,6 +686,7 @@
 				ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */,
 				AB53ED5222F16E3A0015D957 /* PullButton.swift */,
 				AB6990B32315248E003AC187 /* ProgressHUD.swift */,
+				ABDEF0C3231775E3001FFFC5 /* PlayDetailToolBar.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -733,6 +764,7 @@
 				ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */,
 				AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */,
 				AB63D7662316680200F76F8E /* PlayListViewController.swift */,
+				AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */,
 				AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */,
 				AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */,
 				ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */,
@@ -891,6 +923,8 @@
 				ABE765ED21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib */,
 				AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */,
 				AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */,
+				ABDEF22D2317B551001FFFC5 /* AdMobTableViewCell.xib */,
+				ABDEF22E2317B551001FFFC5 /* AdMobTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1255,6 +1289,7 @@
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
+				ABDEF22F2317B551001FFFC5 /* AdMobTableViewCell.xib in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
 				ABF498742303B45600441DAF /* WelcomeViewController.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
@@ -1413,6 +1448,7 @@
 				ABEE40EB21E35EF800FCB16F /* VaildManager.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
 				AB1E6D8D21B9252500B85135 /* UIDatePickerExtensions.swift in Sources */,
+				ABDEF0C4231775E3001FFFC5 /* PlayDetailToolBar.swift in Sources */,
 				ABEE40E221E32C1700FCB16F /* StringExtension.swift in Sources */,
 				ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
@@ -1465,6 +1501,7 @@
 				ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */,
 				AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */,
 				ABEE40CC21E3246E00FCB16F /* MJRefreshConst.m in Sources */,
+				AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */,
 				ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */,
 				ABEE40CB21E3246E00FCB16F /* UIScrollView+MJRefresh.m in Sources */,
 				AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */,
@@ -1484,6 +1521,7 @@
 				AB1E6D7D21B9252500B85135 /* UINavigationBarExtensions.swift in Sources */,
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
+				ABDEF2302317B551001FFFC5 /* AdMobTableViewCell.swift in Sources */,
 				AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
@@ -1854,6 +1892,157 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FunnyFm/OC/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"WeChatSDK\"",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CleanyModal\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Crashlytics\"",
+					"-framework",
+					"\"EFIconFont\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"FeedKit\"",
+					"-framework",
+					"\"FirebaseABTesting\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"FirebasePerformance\"",
+					"-framework",
+					"\"FirebaseRemoteConfig\"",
+					"-framework",
+					"\"FirebaseUI\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleToolboxForMac\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"KeychainAccess\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"LookinServer\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"NVActivityIndicatorView\"",
+					"-framework",
+					"\"Nuke\"",
+					"-framework",
+					"\"OfficeUIFabric\"",
+					"-framework",
+					"\"OneSignal\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"PullToReach\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"SHFullscreenPopGestureSwift\"",
+					"-framework",
+					"\"SPStorkController\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UserNotifications\"",
+					"-framework",
+					"\"WCDBSwift\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"pop\"",
+					"-framework",
+					"\"sqlcipher\"",
+					"-framework",
+					"\"sqliterk\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1882,6 +2071,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";

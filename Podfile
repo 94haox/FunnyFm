@@ -15,7 +15,6 @@ def layout
     pod 'CleanyModal', '~> 0.1.1'
 		pod 'NVActivityIndicatorView'
 		pod 'OfficeUIFabric', '0.2.11'
-		pod 'gooey-cell'
 		pod 'PullToReach'
 		pod 'LookinServer', :configurations => ['Debug']
 end
@@ -25,7 +24,7 @@ def lib
     pod 'WCDB.swift'
     pod 'RxSwift'
 		pod 'Nuke', '~> 8.0.1'
-		pod 'EFIconFont', :subspecs => ['AntDesign']
+		pod 'EFIconFont', :subspecs => ['Complete']
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'

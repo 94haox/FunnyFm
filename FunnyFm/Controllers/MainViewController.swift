@@ -12,6 +12,7 @@ import SPStorkController
 import Lottie
 import CleanyModal
 import NVActivityIndicatorView
+import GoogleMobileAds
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
 	
@@ -56,7 +57,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 			self.navigationController?.pushViewController(emptyVC, animated: false)
 			UserDefaults.standard.set(true, forKey: "isFirstMain")
 		}
-		
 		self.vm.getAllPods()
     }
 	
@@ -65,6 +65,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.emptyAnimationView.play()
 		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
+		self.vm.getAd(vc: self)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -138,6 +139,26 @@ extension MainViewController : MainViewModelDelegate {
 		self.tableview.reloadData()
 		self.emptyView.isHidden = self.vm.podlist.count > 0
 	}
+	
+	func viewModelDidGetAdlistSuccess() {
+		if self.vm.nativeAds.count < 1{
+			return
+		}
+		var index = 0
+		for nativeAd in self.vm.nativeAds {
+			if index > self.vm.episodeList.count {
+				if index > self.vm.episodeList.count - 1 {
+					break
+				}
+				var episodelist = self.vm.episodeList[index]
+				episodelist.append(nativeAd)
+				index += 1
+			} else {
+				break
+			}
+		}
+		self.tableview.reloadData()
+	}
     
 }
 
@@ -152,9 +173,14 @@ extension MainViewController{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let episodeList = self.vm.episodeList[indexPath.section]
+		let episodeList = self.vm.episodeList[indexPath.section]
+		let item = episodeList[indexPath.row]
+		guard item is Episode else {
+			return;
+		}
+
 		FMToolBar.shared.isHidden = false
-        FMToolBar.shared.configToolBarAtHome(episodeList[indexPath.row])
+		FMToolBar.shared.configToolBarAtHome(item as! Episode)
     }
 }
 
@@ -172,17 +198,34 @@ extension MainViewController{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
-        return cell
+		let episodeList = self.vm.episodeList[indexPath.section]
+		let item = episodeList[indexPath.row]
+		if item is Episode {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
+			return cell
+		}else{
+			let cell = tableView.dequeueReusableCell(withIdentifier: "adcell", for: indexPath)
+			return cell
+		}
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? HomeAlbumTableViewCell else { return }
+		
 		let episodeList = self.vm.episodeList[indexPath.section]
-        let episode = episodeList[indexPath.row]
-        cell.configHomeCell(episode)
-		cell.tranferNoParameterClosure { [weak self] in
-			self?.toDetail(episode: episode)
+        let item = episodeList[indexPath.row]
+		if item is Episode{
+			guard let cell = cell as? HomeAlbumTableViewCell else { return }
+			let episode = item as! Episode
+			cell.configHomeCell(episode)
+			cell.tranferNoParameterClosure { [weak self] in
+				self?.toDetail(episode: episode)
+			}
+		}
+		
+		if item is GADUnifiedNativeAd {
+			guard let cell = cell as? AdMobTableViewCell else { return }
+			let ad = item as! GADUnifiedNativeAd
+			cell.config(nativeAd: ad)
 		}
     }
 	
@@ -190,7 +233,8 @@ extension MainViewController{
 		let episodeList = self.vm.episodeList[section]
 		let view = UIView.init()
 		view.backgroundColor = .white
-		let titleLB = UILabel.init(text: episodeList.first!.pubDate)
+		let episode = episodeList.first! as! Episode
+		let titleLB = UILabel.init(text: episode.pubDate)
 		titleLB.textColor = CommonColor.content.color
 		titleLB.font = p_bfont(12)
 		view.addSubview(titleLB)
@@ -342,8 +386,10 @@ extension MainViewController {
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
+		let adNib = UINib.init(nibName: String.init(describing: AdMobTableViewCell.self), bundle: nil)
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+		self.tableview.register(adNib, forCellReuseIdentifier: "adcell")
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
         self.tableview.rowHeight = 100

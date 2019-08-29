@@ -69,24 +69,24 @@ class ChapterProgressView: UIView {
         self.addSubview(self.nowCycle)
         
         self.nowDot.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(2)
+            make.top.equalTo(self.nowCycle.snp.bottom).offset(4)
+            make.left.equalTo(self.totalProgress)
         }
         
         self.allDot.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-2)
+            make.top.equalTo(self.nowCycle.snp.bottom).offset(4)
+            make.right.equalTo(self.totalProgress)
         }
         
         self.totalProgress.snp.makeConstraints { (make) in
-            make.left.equalTo(self.nowDot.snp.right).offset(10)
-            make.right.equalTo(self.allDot.snp.left).offset(-10)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
             make.height.equalTo(self.progressHeigth)
             make.centerY.equalToSuperview()
         }
         
         self.currentProgress.snp.makeConstraints { (make) in
-            make.left.equalTo(self.nowDot.snp.right).offset(10)
+            make.left.equalToSuperview().offset(10)
             make.height.equalTo(self.progressHeigth)
             make.centerY.equalToSuperview()
             make.width.equalTo(0)
@@ -115,7 +115,7 @@ class ChapterProgressView: UIView {
         let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
-        lb.font = hfont(self.fontSize)
+        lb.font = h_bfont(self.fontSize)
         return lb
     }()
     
@@ -123,7 +123,7 @@ class ChapterProgressView: UIView {
         let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
-        lb.font = hfont(self.fontSize)
+        lb.font = h_bfont(self.fontSize)
         return lb
     }()
     

@@ -9,9 +9,12 @@
 import UIKit
 import OneSignal
 import FirebasePerformance
+import GoogleMobileAds
+
 
 @objc protocol MainViewModelDelegate: ViewModelDelegate {
 	func viewModelDidGetChapterlistSuccess()
+	func viewModelDidGetAdlistSuccess()
 }
 
 
@@ -23,9 +26,11 @@ class MainViewModel: NSObject {
        return DatabaseManager.allItunsPod()
     }()
     
-    lazy var episodeList : [[Episode]] = {
+    lazy var episodeList : [[Any]] = {
         return []
     }()
+	
+	var nativeAds = [GADUnifiedNativeAd]()
 	
 	lazy var radioList: [Dictionary] = {
 		return [["name":"BlackBeats.FM","url":"http://stream.blackbeats.fm/"],
@@ -38,13 +43,52 @@ class MainViewModel: NSObject {
     
     override init() {
         super.init()
+		
     }
+	
+	func getAd(vc: UIViewController){
+		let options = GADMultipleAdsAdLoaderOptions()
+		options.numberOfAds = 5
+		let adLoader = GADAdLoader(adUnitID: "ca-app-pub-9733320345962237/5831665620",
+							   rootViewController: vc,
+							   adTypes: [.unifiedNative],
+							   options: [options])
+		adLoader.delegate = self
+		adLoader.load(GADRequest())
+	}
     
     func refresh() {
         self.getAllPods()
     }
     
-    func getAllPods() {
+
+	
+	
+}
+
+extension MainViewModel: GADUnifiedNativeAdLoaderDelegate{
+	
+	func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
+		print("\(adLoader) failed with error: \(error.localizedDescription)")
+	}
+	
+	func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
+		print("Received native ad: \(nativeAd)")
+		
+		// Add the native ad to the list of native ads.
+		nativeAds.append(nativeAd)
+	}
+	
+	func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
+		self.delegate?.viewModelDidGetAdlistSuccess()
+	}
+	
+}
+
+
+extension MainViewModel {
+	
+	func getAllPods() {
 		if UserCenter.shared.isLogin {
 			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList, { (cloudPodlist) in
 				if let list = cloudPodlist {
@@ -69,9 +113,9 @@ class MainViewModel: NSObject {
 			self.getHomeChapters()
 		}
 		
-    }
-    
-    func getHomeChapters() {
+	}
+	
+	func getHomeChapters() {
 		DispatchQueue.global().async {
 			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if self.episodeList.count > 0 {
@@ -111,7 +155,7 @@ class MainViewModel: NSObject {
 					}
 					group.leave()
 				})
-
+				
 			}
 		}
 		
@@ -124,8 +168,7 @@ class MainViewModel: NSObject {
 			trace?.stop()
 		}
 		
-    }
-	
+	}
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
 		
@@ -157,7 +200,7 @@ class MainViewModel: NSObject {
 		}
 		
 		trace?.stop()
-		self.podlist = DatabaseManager.allItunsPod()
 		return sortEpisodeList
 	}
+
 }
