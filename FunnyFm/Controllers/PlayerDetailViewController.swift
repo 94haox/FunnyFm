@@ -249,6 +249,31 @@ extension PlayerDetailViewController {
     }
 }
 
+extension PlayerDetailViewController: PlayDetailToolBarDelegate {
+	func didTapSleepBtn() {
+		let alertController = UIAlertController.init(title: "定时关闭", message: nil, preferredStyle: .actionSheet)
+		let squaterAction = UIAlertAction.init(title: "15分钟后", style: .default) { (action) in
+			FMPlayerManager.shared.startSleep(seconds: 15*60)
+		}
+		let halfAction = UIAlertAction.init(title: "30分钟后", style: .default){ (action) in
+			FMPlayerManager.shared.startSleep(seconds: 30 * 60)
+		}
+		let hourAction = UIAlertAction.init(title: "1小时后", style: .default){ (action) in
+			FMPlayerManager.shared.startSleep(seconds: 60 * 60)
+		}
+		let endAction = UIAlertAction.init(title: "播放结束后", style: .default){ (action) in}
+		let cancelAction = UIAlertAction.init(title: "取消", style: .cancel) { (action) in
+			FMPlayerManager.shared.cancelSleep()
+		}
+		alertController.addAction(squaterAction)
+		alertController.addAction(halfAction)
+		alertController.addAction(hourAction)
+		alertController.addAction(endAction)
+		alertController.addAction(cancelAction)
+		self.navigationController?.present(alertController, animated: true, completion: nil)
+	}
+}
+
 // MARK: - Touch
 extension PlayerDetailViewController {
 	
@@ -410,6 +435,7 @@ extension PlayerDetailViewController {
 		
 		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
 		self.playToolbar.layer.cornerRadius = 24.adapt()
+		self.playToolbar.delegate = self
 		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.init(width: 0, height: 0), opacity: 0.6)
 		self.view.addSubview(self.playToolbar)
         

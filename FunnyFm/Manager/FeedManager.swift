@@ -9,14 +9,37 @@
 import UIKit
 import FeedKit
 
+typealias SuccessParserClosure = ([Episode]) -> Void
 
 class FeedManager: NSObject {
+	
 	static let shared = FeedManager()
 	
-	typealias SuccessParserClosure = ([Episode]) -> Void
+}
+
+
+// MARK: - 增删改查
+extension FeedManager {
 	
-	public func parserRss(_ itunsPod:iTunsPod,
-						_ success: @escaping SuccessParserClosure) {
+	func deleteAllEpisode(collectionId: String, podId: String) {
+		DatabaseManager.deleteItunsPod(collectionId: collectionId)
+		DatabaseManager.deleteEpisode(collectionId: collectionId)
+		PushManager.shared.removeTags(tags: [podId])
+		
+		if podId.length() < 1 || !UserCenter.shared.isLogin{
+			return;
+		}
+		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), success: { (_) in
+		}) { (msg) in
+		}
+	}
+}
+
+// MARK: - 数据解析
+extension FeedManager {
+	
+	func parserRss(_ itunsPod:iTunsPod,
+				   _ success: @escaping SuccessParserClosure) {
 		
 		let feedURL = URL(string: itunsPod.feedUrl)!
 		let parser = FeedParser(URL: feedURL)
@@ -26,7 +49,7 @@ class FeedManager: NSObject {
 		}
 	}
 	
-	public func
+	func
 		parserRssSync(_ itunsPod:iTunsPod) -> [Episode] {
 		let feedURL = URL(string: itunsPod.feedUrl)!
 		let parser = FeedParser(URL: feedURL)
@@ -73,7 +96,7 @@ class FeedManager: NSObject {
 			return list
 		}
 		return []
-
+		
 	}
 	
 }

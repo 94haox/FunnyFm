@@ -37,8 +37,9 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     
     var progressLine: ChapterProgressView!
 	
-	var progressBg: UIView!
-    
+	var progressLayer: CAShapeLayer!
+	
+	var progressBackView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,10 +90,6 @@ extension FMToolBar {
         self.loadingView.isHidden = isCanPlay
         self.playBtn.isHidden = !isCanPlay
 		if isCanPlay{
-//            if (self.isPlaying || !FMPlayerManager.shared.isFirst){
-//                self.playBtn.isSelected = true
-//                FMPlayerManager.shared.play()
-//            }
 			self.playBtn.isSelected = true
 			FMPlayerManager.shared.play()
 			self.progressLine.changeProgress(progress: 0, current: "00:00:00", total: FunnyFm.formatIntervalToMM(NSInteger(FMPlayerManager.shared.totalTime)))
@@ -101,7 +98,6 @@ extension FMToolBar {
 	
 	func playerDidPlay() {
 		self.isPlaying = true
-//        self.progressLine.isHidden = false
         if self.isShrink {
             PopManager.addRotationAnimation(self.logoImageView!.layer)
         }
@@ -114,10 +110,13 @@ extension FMToolBar {
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
         self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
-//		self.progressBg.snp.remakeConstraints { (make) in
-//			make.left.centerY.height.equalToSuperview()
-//			make.width.equalTo(self.containerView).multipliedBy(progess)
-//		}
+		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
+			anim.fromValue = self.progressLayer.strokeEnd
+			anim.toValue = progess
+			anim.duration = 0.2
+			anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+			self.progressLayer.pop_add(anim, forKey: "image_rotaion")
+		}
     }
 }
 
@@ -181,6 +180,7 @@ extension FMToolBar {
     
     func shrink(){
         self.containerView.isHidden = true
+		self.progressBackView.isHidden = true
         let animationTime = 0.3
         if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
             anim.fromValue = NSNumber.init(value: 15)
@@ -224,6 +224,7 @@ extension FMToolBar {
     }
     
     func explain() {
+		self.progressBackView.isHidden = false
         PopManager.removeRotationAnimation(self.logoImageView!.layer)
         let animationTime = 0.3
         if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
@@ -327,10 +328,9 @@ extension FMToolBar {
             make.bottom.equalToSuperview()
         }
 		
-//		self.progressBg.snp.makeConstraints { (make) in
-//			make.left.centerY.height.equalToSuperview()
-//			make.width.equalTo(self.containerView).multipliedBy(0)
-//		}
+		self.progressBackView.snp.makeConstraints { (make) in
+			make.edges.equalTo(self.logoImageView)
+		}
 		
         
     }
@@ -367,9 +367,21 @@ extension FMToolBar {
         self.progressLine = ChapterProgressView.init(frame: CGRect.zero)
         self.progressLine.isHidden = true
 		
-//		self.progressBg = UIView.init()
-//		self.progressBg.backgroundColor = CommonColor.mainRed.color;
-//		self.progressBg.cornerRadius = 15
+		self.progressLayer = CAShapeLayer.init()
+//		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 32, height: 32))
+		let bezier = UIBezierPath.init(roundedRect: CGRect.init(x: 0, y: 0, width: 45, height: 45), cornerRadius: 5)
+		self.progressLayer.path = bezier.cgPath
+		self.progressLayer.fillColor = UIColor.white.cgColor;
+		self.progressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
+		self.progressLayer.strokeStart = 0
+		self.progressLayer.strokeEnd = 0
+		self.progressLayer.cornerRadius = 5
+		self.progressLayer.lineWidth = 3
+		self.progressLayer.lineCap = .square
+		
+		self.progressBackView = UIView.init()
+		self.progressBackView.layer.addSublayer(self.progressLayer)
+		self.addSubview(self.progressBackView)
 		
     }
 }

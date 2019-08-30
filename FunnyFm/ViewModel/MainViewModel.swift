@@ -92,11 +92,15 @@ extension MainViewModel {
 		if UserCenter.shared.isLogin {
 			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList, { (cloudPodlist) in
 				if let list = cloudPodlist {
+					var taglist = [AnyHashable: Any]()
 					list.forEach({ (pod) in
+						taglist[pod.podId] = "1"
 						DatabaseManager.addItunsPod(pod: pod)
-						OneSignal.sendTag(pod.podId, value: "1")
 					})
+					
+					PushManager.shared.addTag(taglist: taglist)
 				}
+				
 				self.podlist = DatabaseManager.allItunsPod()
 				self.delegate?.viewModelDidGetDataSuccess()
 				self.getHomeChapters()
@@ -106,6 +110,7 @@ extension MainViewModel {
 				self.getHomeChapters()
 			}
 		}else{
+			PushManager.shared.removeAllTages()
 			self.podlist = DatabaseManager.allItunsPod()
 			DispatchQueue.main.async {
 				self.delegate?.viewModelDidGetDataSuccess()

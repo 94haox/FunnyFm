@@ -102,7 +102,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 		let preview = PodPreviewViewController()
 		preview.modalPresentationStyle = .overCurrentContext
 		let transitionDelegate = SPStorkTransitioningDelegate()
-		transitionDelegate.customHeight = 350;
+		transitionDelegate.customHeight = 300;
 		preview.transitioningDelegate = transitionDelegate
 		preview.modalPresentationStyle = .custom
 		preview.modalPresentationCapturesStatusBarAppearance = true

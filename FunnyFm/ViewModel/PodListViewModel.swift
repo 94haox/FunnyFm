@@ -78,7 +78,6 @@ class PodListViewModel: BaseViewModel {
 	
 	func registerPod(params: Dictionary<String, String>, success:@escaping SuccessStringClosure, failure: @escaping FailClosure){
 		FmHttp<iTunsPod>().requestForSingle(PodAPI.registerPod(params), success: { (pod) in
-			OneSignal.sendTag(pod!.podId, value: "1", onSuccess: { (tags) in}, onFailure: { (_) in})
 			success("success")
 		}) { (msg) in
 			failure(msg)

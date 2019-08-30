@@ -34,16 +34,4 @@ class PodDetailViewModel: NSObject {
 		self.delegate?.podDetailCancelSubscribeSuccess()
 	}
 	
-	func deleteAllEpisode(collectionId: String, podId: String) {
-		DatabaseManager.deleteItunsPod(collectionId: collectionId)
-		DatabaseManager.deleteEpisode(collectionId: collectionId)
-		OneSignal.deleteTag(podId)
-		if podId.length() < 1 {
-			return;
-		}
-		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), success: { (_) in
-		}) { (msg) in
-		}
-	}
-	
 }

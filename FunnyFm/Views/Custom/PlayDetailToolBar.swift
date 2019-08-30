@@ -12,8 +12,15 @@ import Lottie
 import MediaPlayer
 import AVKit
 
-class PlayDetailToolBar: UIView {
 
+@objc protocol PlayDetailToolBarDelegate {
+	func didTapSleepBtn()
+}
+
+class PlayDetailToolBar: UIView {
+	
+	weak var delegate: PlayDetailToolBarDelegate?
+	
 	var episode: Episode!
 	
 	var airBtn: AVRoutePickerView!
@@ -55,6 +62,8 @@ class PlayDetailToolBar: UIView {
 extension PlayDetailToolBar {
 	
 	@objc func downloadAction(){
+		let generator = UIImpactFeedbackGenerator.init(style: .light)
+		generator.impactOccurred()
 		if self.downBtn.isSelected {
 			SwiftNotice.showText("已下载")
 			return;
@@ -64,31 +73,14 @@ extension PlayDetailToolBar {
 	}
 	
 	@objc func setSleepTime(){
-		
-		let alertController = UIAlertController.init(title: "定时关闭", message: nil, preferredStyle: .actionSheet)
-		let squaterAction = UIAlertAction.init(title: "15分钟后", style: .default) { (action) in
-			FMPlayerManager.shared.startSleep(seconds: 15*60)
-		}
-		let halfAction = UIAlertAction.init(title: "30分钟后", style: .default){ (action) in
-			FMPlayerManager.shared.startSleep(seconds: 30 * 60)
-		}
-		let hourAction = UIAlertAction.init(title: "1小时后", style: .default){ (action) in
-			FMPlayerManager.shared.startSleep(seconds: 60 * 60)
-		}
-		let endAction = UIAlertAction.init(title: "播放结束后", style: .default){ (action) in}
-		let cancelAction = UIAlertAction.init(title: "取消", style: .cancel) { (action) in
-			FMPlayerManager.shared.cancelSleep()
-		}
-		alertController.addAction(squaterAction)
-		alertController.addAction(halfAction)
-		alertController.addAction(hourAction)
-		alertController.addAction(endAction)
-		alertController.addAction(cancelAction)
-		UIApplication.shared.keyWindow!.rootViewController!.present(alertController, animated: true, completion: nil)
-		
+		let generator = UIImpactFeedbackGenerator.init(style: .light)
+		generator.impactOccurred()
+		self.delegate?.didTapSleepBtn()
 	}
 	
 	@objc func changeRateAction(btn: UIButton){
+		let generator = UIImpactFeedbackGenerator.init(style: .light)
+		generator.impactOccurred()
 		var rate = 1.0;
 		switch btn.titleLabel?.text {
 		case "1x":

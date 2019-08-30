@@ -55,7 +55,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.logoImageView.loadImage(url: episode.podCoverUrl)
     }
 	
-	func configDownloadCell(_ episode:Episode){
+	func configNoDetailCell(_ episode:Episode){
 		self.moreBtn.isHidden = true;
 		self.configCell(episode)
 	}

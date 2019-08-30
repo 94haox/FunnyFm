@@ -149,7 +149,7 @@ extension DownloadListController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
         let episode = self.episodeList[indexPath.row]
-        cell.configDownloadCell(episode)
+        cell.configNoDetailCell(episode)
     }
 	
 	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

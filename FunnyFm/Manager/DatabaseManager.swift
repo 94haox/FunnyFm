@@ -174,7 +174,7 @@ class DatabaseManager: NSObject {
 	
 	static public func getEpisode(title:String) -> Episode?{
 		let episodeList = self.allEpisodes()
-		let episodes = episodeList.filter { $0.title == title }
+		let episodes = episodeList.filter { $0.title == title || title.contains($0.title) || $0.title.contains(title) }
 		return episodes.first
 	}
 	
