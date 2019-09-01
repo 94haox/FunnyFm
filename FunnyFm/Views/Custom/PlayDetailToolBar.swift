@@ -62,8 +62,7 @@ class PlayDetailToolBar: UIView {
 extension PlayDetailToolBar {
 	
 	@objc func downloadAction(){
-		let generator = UIImpactFeedbackGenerator.init(style: .light)
-		generator.impactOccurred()
+		ImpactManager.impact()
 		if self.downBtn.isSelected {
 			SwiftNotice.showText("已下载")
 			return;
@@ -73,14 +72,12 @@ extension PlayDetailToolBar {
 	}
 	
 	@objc func setSleepTime(){
-		let generator = UIImpactFeedbackGenerator.init(style: .light)
-		generator.impactOccurred()
+		ImpactManager.impact()
 		self.delegate?.didTapSleepBtn()
 	}
 	
 	@objc func changeRateAction(btn: UIButton){
-		let generator = UIImpactFeedbackGenerator.init(style: .light)
-		generator.impactOccurred()
+		ImpactManager.impact()
 		var rate = 1.0;
 		switch btn.titleLabel?.text {
 		case "1x":

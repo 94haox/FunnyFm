@@ -13,6 +13,8 @@ import OneSignal
 class SettingViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
 
     var titleLB: UILabel!
+	
+	var versionLB: UILabel!
     
     var tableview : UITableView!
     
@@ -169,6 +171,7 @@ extension SettingViewController {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView.init()
+		view.backgroundColor = UIColor.white
 		let lb = UILabel.init(text: "通知".localized)
 		lb.textColor = CommonColor.subtitle.color
 		lb.font = pfont(fontsize2)
@@ -212,6 +215,7 @@ extension SettingViewController {
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
         self.view.addSubview(self.backBtn)
+		self.view.addSubview(self.versionLB)
         
         self.naviBar.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
@@ -235,6 +239,11 @@ extension SettingViewController {
             make.bottom.equalToSuperview()
             make.top.equalTo(self.naviBar.snp.bottom)
         }
+		
+		self.versionLB.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.snp.bottomMargin).offset(-15)
+		}
     }
     
     func setupUI(){
@@ -259,6 +268,13 @@ extension SettingViewController {
         
         self.naviBar = UIView.init()
         self.naviBar.backgroundColor = .white
+		
+		let infoDic = Bundle.main.infoDictionary
+		let appVersion = infoDic?["CFBundleShortVersionString"]
+		let appBuildVersion = infoDic?["CFBundleVersion"]
+		self.versionLB = UILabel.init(text: "Version: " + (appVersion as! String) + "(\((appBuildVersion as! String)))")
+		self.versionLB.font = p_bfont(12)
+		self.versionLB.textColor = CommonColor.content.color
         
     }
 }

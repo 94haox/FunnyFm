@@ -28,9 +28,9 @@ class ChapterProgressView: UIView {
         }
     }
     
-    var progressHeigth: CGFloat = 4
+    var progressHeigth: CGFloat = 15
     
-    var cycleW: CGFloat = 10 {
+    var cycleW: CGFloat = 20 {
         didSet{
             self.nowCycle.cornerRadius = cycleW/2.0
             self.nowCycle.addShadow(ofColor: CommonColor.mainRed.color)
@@ -67,6 +67,7 @@ class ChapterProgressView: UIView {
         self.addSubview(self.allDot)
         self.addSubview(self.nowDot)
         self.addSubview(self.nowCycle)
+		self.currentProgress.addShadow(ofColor: CommonColor.mainRed.color, radius: 5, offset: CGSize.init(width: 2, height: 4), opacity: 0.6)
         
         self.nowDot.snp.makeConstraints { (make) in
             make.top.equalTo(self.nowCycle.snp.bottom).offset(4)
@@ -104,10 +105,8 @@ class ChapterProgressView: UIView {
     lazy var nowCycle : UIView = {
         let view = UIView.init()
         view.backgroundColor = CommonColor.mainRed.color
-        view.borderWidth = 1
+        view.borderWidth = 2
         view.borderColor = .white
-        view.cornerRadius = self.cycleW/2
-        view.addShadow(ofColor: CommonColor.mainRed.color)
         return view
     }()
     
@@ -130,14 +129,14 @@ class ChapterProgressView: UIView {
     lazy var totalProgress: UIView = {
         let view = UIView.init()
         view.backgroundColor = RGB(236, 238, 240)
-        view.cornerRadius = self.progressHeigth/2.0
+        view.cornerRadius = 3
         return view
     }()
     
     lazy var currentProgress: UIView = {
         let view = UIView.init()
         view.backgroundColor = CommonColor.mainRed.color
-        view.cornerRadius = self.progressHeigth/2.0
+        view.cornerRadius = 3
         return view;
     }()
     

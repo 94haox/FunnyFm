@@ -60,6 +60,11 @@ class MainViewModel: NSObject {
     func refresh() {
         self.getAllPods()
     }
+	
+	func refreshWithNoNetwork(){
+		self.podlist = DatabaseManager.allItunsPod()
+		self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+	}
     
 
 	

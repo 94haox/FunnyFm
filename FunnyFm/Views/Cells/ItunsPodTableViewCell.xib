@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -74,6 +75,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="authorLB" destination="uCd-6Y-dcf" id="nNO-ad-LBJ"/>
+                <outlet property="bgView" destination="Y2c-js-DKf" id="dNw-pw-ikY"/>
                 <outlet property="postImageView" destination="8ve-Zj-Z1a" id="8Tk-pa-dk7"/>
                 <outlet property="titleLB" destination="NxN-QN-df1" id="QJo-py-kFi"/>
             </connections>

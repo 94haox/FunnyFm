@@ -13,11 +13,13 @@ class ItunsPodTableViewCell: UITableViewCell {
 	@IBOutlet weak var authorLB: UILabel!
 	@IBOutlet weak var titleLB: UILabel!
 	@IBOutlet weak var postImageView: UIImageView!
+	@IBOutlet weak var bgView: UIView!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
 		self.backgroundColor = .clear
 		self.selectionStyle = .none;
+		self.bgView.backgroundColor = CommonColor.cellbackgroud.color
     }
 	
 	func config(_ pod:iTunsPod) {

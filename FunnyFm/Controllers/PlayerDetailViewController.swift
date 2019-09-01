@@ -195,10 +195,12 @@ extension PlayerDetailViewController {
     }
     
     @objc func rewindAction(){
+		ImpactManager.impact()
         FMPlayerManager.shared.seekAdditionSecond(-15)
     }
     
     @objc func forwardAction(){
+		ImpactManager.impact()
         FMPlayerManager.shared.seekAdditionSecond(15)
     }
 	
@@ -440,7 +442,7 @@ extension PlayerDetailViewController {
 		self.view.addSubview(self.playToolbar)
         
         self.progressLine = ChapterProgressView()
-        self.progressLine.cycleW = 18.adapt()
+        self.progressLine.cycleW = 24.adapt()
         self.progressLine.fontSize = fontsize0
 		self.progressLine.delegate = self;
         self.view.addSubview(self.progressLine)
