@@ -86,10 +86,12 @@ extension RegisterViewController {
     
     func viewModelDidGetDataSuccess() {
         self.hideLoading()
-        HorizonHUD.showSuccess("登录成功".localized)
+		UserDefaults.standard.set(self.viewModel.user!.userId, forKey: "userId")
+		UserDefaults.standard.set(true, forKey: "isLogin")
+		UserDefaults.standard.synchronize()
+		HorizonHUD.showSuccess("登录成功".localized)
 		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
-        self.navigationController?.popToRootViewController(animated: true)
-//		let profileVC = profil
+		self.navigationController?.popViewController()
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
