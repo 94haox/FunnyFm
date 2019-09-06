@@ -37,7 +37,7 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
     
     
     lazy var historyList : [Episode] = {
-        return DatabaseManager.allHistory()
+        return DatabaseManager.allHistory().reversed()
     }()
 
 }

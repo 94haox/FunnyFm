@@ -92,7 +92,6 @@ class SettingViewController: UIViewController, UITableViewDataSource,UITableView
         let url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
         var responder = self as UIResponder?
         let selectorOpenURL = sel_registerName("openURL:")
-        
         while (responder != nil) {
             if (responder?.responds(to: selectorOpenURL))! {
                 let _ = responder?.perform(selectorOpenURL, with: url)

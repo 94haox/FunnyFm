@@ -99,6 +99,10 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 			return;
 		}
 		let pod = self.vm.itunsPodlist[indexPath.row]
+		if pod.feedUrl.length() < 1 {
+			SwiftNotice.showText("Error - Rss not found")
+			return;
+		}
 		let preview = PodPreviewViewController()
 		preview.modalPresentationStyle = .overCurrentContext
 		let transitionDelegate = SPStorkTransitioningDelegate()

@@ -44,12 +44,12 @@ class PodPreviewViewController: BaseViewController {
 		}
 	}
 	
-	func configWithPod(pod :Pod){
+	func config(pod :Pod){
 		self.pod = pod;
-		self.podNameLB.text = pod.name.trim()
-		self.authorLB.text = pod.author
-		self.desLB.text = pod.des
-		self.podImageView.loadImage(url: pod.img)
+		self.podNameLB.text = pod.title
+//		self.authorLB.text = pod.author
+		self.desLB.text = pod.description
+		self.podImageView.loadImage(url: pod.image)
 	}
 	
 	func configWithPod(pod :iTunsPod){

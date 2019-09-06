@@ -115,7 +115,7 @@ extension AppDelegate : ViewModelDelegate {
 		preview.modalPresentationStyle = .custom
 		preview.modalPresentationCapturesStatusBarAppearance = true
 		vc.present(preview, animated: true, completion: nil)
-		preview.configWithPod(pod: GlobalViewModel.shared.importPod!)
+		preview.config(pod: GlobalViewModel.shared.importPod!)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {

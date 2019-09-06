@@ -62,7 +62,6 @@
 		AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */; };
 		AB1E6DB021BA5B4500B85135 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
 		AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB121BA6DA000B85135 /* SwiftNotice.swift */; };
-		AB1E6DB421BA74DA00B85135 /* EpisodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB321BA74DA00B85135 /* EpisodeListViewController.swift */; };
 		AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB521BA771C00B85135 /* ChapterListViewModel.swift */; };
 		AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB721BA809D00B85135 /* PodListViewController.swift */; };
 		AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */; };
@@ -112,8 +111,6 @@
 		AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE3A22CEE63400BABEF2 /* normal_empty.json */; };
 		AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57FE3C22CF346900BABEF2 /* Favor.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
-		AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */; };
-		AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */; };
 		AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D7662316680200F76F8E /* PlayListViewController.swift */; };
 		AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D76823167A6200F76F8E /* PlaylistViewController.swift */; };
 		AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */; };
@@ -308,7 +305,6 @@
 		AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPlayerManager.swift; sourceTree = "<group>"; };
 		AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtension.swift; sourceTree = "<group>"; };
 		AB1E6DB121BA6DA000B85135 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
-		AB1E6DB321BA74DA00B85135 /* EpisodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewController.swift; sourceTree = "<group>"; };
 		AB1E6DB521BA771C00B85135 /* ChapterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewModel.swift; sourceTree = "<group>"; };
 		AB1E6DB721BA809D00B85135 /* PodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListViewController.swift; sourceTree = "<group>"; };
 		AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
@@ -372,8 +368,6 @@
 		AB6253162306571400301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
 		AB6253182306571500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailTopBar.swift; sourceTree = "<group>"; };
-		AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodCastCoverView.swift; sourceTree = "<group>"; };
 		AB63D7662316680200F76F8E /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		AB63D76823167A6200F76F8E /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoViewController.swift; sourceTree = "<group>"; };
@@ -678,8 +672,6 @@
 			isa = PBXGroup;
 			children = (
 				AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */,
-				AB62C47021BBBC6D008D6BA6 /* PodDetailTopBar.swift */,
-				AB62C47621BBCE1B008D6BA6 /* PodCastCoverView.swift */,
 				ABF5118321BF43E50083A81B /* NormalHeaderView.swift */,
 				ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */,
 				AB14632021D385FC00D41B83 /* AnimationButton.swift */,
@@ -762,7 +754,6 @@
 			children = (
 				AB25797E21945E6F004C5F5D /* MainViewController.swift */,
 				AB1E6DB721BA809D00B85135 /* PodListViewController.swift */,
-				AB1E6DB321BA74DA00B85135 /* EpisodeListViewController.swift */,
 				ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */,
 				AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */,
 				AB63D7662316680200F76F8E /* PlayListViewController.swift */,
@@ -799,10 +790,10 @@
 			isa = PBXGroup;
 			children = (
 				AB41AADF21952D2200260851 /* Pod.swift */,
+				AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */,
 				AB41AAE121952EAA00260851 /* Episode.swift */,
 				ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */,
 				ABEF471121E8B6E400212DCA /* User.swift */,
-				AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */,
 				ABA7052122B641000012FD0A /* NetEasyPod.swift */,
 				AB57FE3C22CF346900BABEF2 /* Favor.swift */,
 			);
@@ -1526,7 +1517,6 @@
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
 				ABDEF2302317B551001FFFC5 /* AdMobTableViewCell.swift in Sources */,
-				AB62C47121BBBC6D008D6BA6 /* PodDetailTopBar.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
@@ -1555,10 +1545,8 @@
 				ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */,
 				ABEE40D421E3246E00FCB16F /* MJRefreshAutoStateFooter.m in Sources */,
 				ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */,
-				AB62C47721BBCE1B008D6BA6 /* PodCastCoverView.swift in Sources */,
 				AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
-				AB1E6DB421BA74DA00B85135 /* EpisodeListViewController.swift in Sources */,
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,

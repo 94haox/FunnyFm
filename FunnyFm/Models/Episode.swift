@@ -12,7 +12,7 @@ import WCDBSwift
 import FeedKit
 
 
-struct Episode : TableCodable{
+struct Episode : TableCodable,Mapable{
 	var collectionId:		  	String
     var title:                String
     var intro:                String
@@ -35,6 +35,21 @@ struct Episode : TableCodable{
 		trackUrl = feedItem.enclosure?.attributes?.url ?? ""
 		download_filpath = ""
 		duration = feedItem.iTunes?.iTunesDuration ?? 0
+		podCoverUrl = ""
+		collectionId = ""
+	}
+	
+	init?(jsonData:JSON) {
+		let time = jsonData["created"].intValue / 1000
+		title = jsonData["title"].stringValue
+		pubDate = Date.init(timeIntervalSince1970: TimeInterval(time)).dateString()
+		pubDateSecond = NSDate.minuteOffsetBetweenStart(Date.init(timeIntervalSince1970: TimeInterval(time)), end: Date.init(timeIntervalSince1970: 1))
+		intro = jsonData["description"].stringValue
+		author = jsonData["itunes_author"].stringValue
+		coverUrl = jsonData["image"].stringValue
+		trackUrl = jsonData["url"].stringValue
+		download_filpath = ""
+		duration =  0
 		podCoverUrl = ""
 		collectionId = ""
 	}

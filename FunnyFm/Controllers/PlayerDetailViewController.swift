@@ -59,7 +59,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
         super.viewDidLoad()
         self.dw_addSubviews()
         self.dw_addConstraints()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = CommonColor.background.color
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
 		
@@ -429,7 +429,7 @@ extension PlayerDetailViewController {
 		self.coverImageView = UIImageView.init()
         self.coverImageView.isUserInteractionEnabled = true
 		self.coverImageView.loadImage(url: (self.episode?.coverUrl)!, placeholder: nil) { [unowned self] (image) in
-			self.coverBackView.addShadow(ofColor: image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
+			self.coverBackView.addShadow(ofColor: image.mostColor(), radius: 20, offset: CGSize.zero, opacity: 0.8)
 		}
 		
 		self.coverImageView.cornerRadius = 15.adapt()
@@ -438,11 +438,11 @@ extension PlayerDetailViewController {
 		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
 		self.playToolbar.layer.cornerRadius = 24.adapt()
 		self.playToolbar.delegate = self
-		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.init(width: 0, height: 0), opacity: 0.6)
+		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.zero, opacity: 0.6)
 		self.view.addSubview(self.playToolbar)
         
         self.progressLine = ChapterProgressView()
-        self.progressLine.cycleW = 24.adapt()
+        self.progressLine.cycleW = 20.adapt()
         self.progressLine.fontSize = fontsize0
 		self.progressLine.delegate = self;
         self.view.addSubview(self.progressLine)
@@ -454,7 +454,7 @@ extension PlayerDetailViewController {
         self.playBtn.isSelected = FMPlayerManager.shared.isPlay
         self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
         self.playBtn.cornerRadius = 30.adapt()
-        self.playBtn.addShadow(ofColor: CommonColor.mainRed.color, opacity: 0.8)
+        self.playBtn.addShadow(ofColor: CommonColor.mainRed.color, radius: 20.adapt(), offset: CGSize.zero, opacity: 0.8)
         self.view.addSubview(self.playBtn)
         
         self.rewindBtn = UIButton.init(type: .custom)

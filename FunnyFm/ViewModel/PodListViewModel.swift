@@ -37,7 +37,7 @@ class PodListViewModel: BaseViewModel {
     }
 	
 	func searchPod(keyword:String){
-		FmHttp<iTunsPod>().requestForItuns(PodAPI.searchPod(keyword), { (podlist) in
+		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchPod(keyword), { (podlist) in
 			if let list = podlist {
 				self.itunsPodlist = list
 				self.delegate?.viewModelDidGetDataSuccess()
@@ -65,7 +65,7 @@ class PodListViewModel: BaseViewModel {
 //		}
 
 
-		FmHttp<iTunsPod>().requestForItuns(PodAPI.searchTopic(keyword), { (podlist) in
+		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword), { (podlist) in
 			if let list = podlist {
 				self.itunsPodlist = list
 				self.delegate?.viewModelDidGetDataSuccess()

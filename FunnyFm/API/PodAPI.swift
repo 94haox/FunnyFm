@@ -17,6 +17,7 @@ let kCheckNeteasePodSourceUrl = "v1/netease/podInfo"
 let kAddPodSourceUrl = "v1/addPodSource"
 let kSearchPodUrl = "v1/pod/searchPod"
 let kRegisterPodUrl = "v1/pod/registerPod"
+let kParserRssUrl = "v1/pod/parser"
 
 
 
@@ -29,6 +30,7 @@ public enum PodAPI {
 	case addPodSource(String, String, String)
 	case searchPod(String)
 	case searchTopic(String)
+	case parserRss(Dictionary<String, String>)
 	case registerPod(Dictionary<String, String>)
 }
 
@@ -71,8 +73,9 @@ extension PodAPI : TargetType {
 		case .getPodList:
 			params["user_id"] = UserCenter.shared.userId
 			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
-		default:
-			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+		case .parserRss(let param):
+			params = param
+			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		}
     }
     
@@ -99,6 +102,8 @@ extension PodAPI : TargetType {
 			return kSearchPodUrl;
 		case .registerPod(_):
 			return kRegisterPodUrl
+		case .parserRss(_):
+			return kParserRssUrl
 		}
     }
     

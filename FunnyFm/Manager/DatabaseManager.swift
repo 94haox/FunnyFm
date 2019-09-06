@@ -157,7 +157,16 @@ class DatabaseManager: NSObject {
 			let second2 = obj2.pubDateSecond
 			return second1 >= second2
 		})
-		return episodeList
+		
+		var listDic = [String:Episode]()
+		var list = [Episode]()
+		episodeList.forEach { (episode) in
+			if listDic[episode.title] == nil {
+				listDic[episode.title] = episode
+				list.append(episode)
+			}
+		}
+		return list
 	}
 	
 	static public func allEpisodes(pod: iTunsPod) -> [Episode] {
@@ -168,26 +177,35 @@ class DatabaseManager: NSObject {
 			let second2 = obj2.pubDateSecond
 			return second1 <= second2
 		})
-
-		return episodeList
+		
+		var listDic = [String:Episode]()
+		var list = [Episode]()
+		episodeList.forEach { (episode) in
+			if listDic[episode.title] == nil {
+				listDic[episode.title] = episode
+				list.append(episode)
+			}
+		}
+		return list
 	}
 	
 	static public func getEpisode(title:String) -> Episode?{
 		let episodeList = self.allEpisodes()
-		let episodes = episodeList.filter { $0.title == title || title.contains($0.title) || $0.title.contains(title) }
+		let episodes = episodeList.filter { $0.title == title}
 		return episodes.first
 	}
 	
 	static public func addEpisode(episode: Episode){
-		let exsitEpisode = self.getEpisode(title: episode.title)
-		if exsitEpisode.isSome {
+		let exsitEpisode: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
+													where: Episode.Properties.title == episode.title)
+		if exsitEpisode.count > 0 {
 			return
 		}
 		try! self.database.insert(objects: episode, intoTable: exsitEpisodeTable)
 	}
 	
 	static public func deleteEpisode(collectionId: String) {
-		try! database.delete(fromTable: exsitEpisodeTable,where: iTunsPod.Properties.collectionId == collectionId)
+		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.collectionId == collectionId)
 	}
     
     

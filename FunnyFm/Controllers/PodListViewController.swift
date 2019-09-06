@@ -23,7 +23,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         self.view.addSubview(self.collectionView)
 		
         self.collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLB.snp.bottom).offset(32)
+            make.top.equalTo(self.titleLB.snp.bottom)
             make.left.width.bottom.equalToSuperview()
         }
         // Do any additional setup after loading the view.
@@ -34,7 +34,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         layout.itemSize = CGSize(width: (kScreenWidth-32*3)/2, height: (kScreenWidth-32*3)/2.0)
         layout.minimumInteritemSpacing = 18
         layout.minimumLineSpacing = 31;
-        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 32, bottom: 0, right: 32)
+        layout.sectionInset = UIEdgeInsets.init(top: 30, left: 32, bottom: 0, right: 32)
         
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         collectionview.showsHorizontalScrollIndicator = false

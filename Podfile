@@ -32,6 +32,7 @@ def lib
 		pod 'OneSignal', '>= 2.6.2', '< 3.0'
 		pod 'FirebaseUI/Auth'
 		pod 'FirebaseUI/Google'
+		pod 'YBTaskScheduler'
 end
 
 

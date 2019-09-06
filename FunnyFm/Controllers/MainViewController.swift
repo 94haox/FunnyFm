@@ -13,10 +13,14 @@ import Lottie
 import CleanyModal
 import NVActivityIndicatorView
 import GoogleMobileAds
+import YBTaskScheduler
+
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
 	
     var vm = MainViewModel.init()
+	
+	var scheduler = YBTaskScheduler.init(strategy: YBTaskSchedulerStrategy.FIFO)
     
     var containerView: UIView!
     
@@ -57,7 +61,9 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 			self.navigationController?.pushViewController(emptyVC, animated: false)
 			UserDefaults.standard.set(true, forKey: "isFirstMain")
 		}
-		self.vm.getAllPods()
+		self.scheduler.taskQueue = DispatchQueue.main
+		FeedManager.shared.delegate = self;
+		FeedManager.shared.getAllPods()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +72,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
 		self.vm.getAd(vc: self)
+		FeedManager.shared.delegate = self;
+		
 //		self.vm.refreshWithNoNetwork()
 //		self.tableview.reloadData()
 //		self.collectionView.reloadData()
@@ -122,7 +130,7 @@ extension MainViewController{
 
 
 // MARK: - ViewModelDelegate
-extension MainViewController : MainViewModelDelegate {
+extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
     
     func viewModelDidGetDataSuccess() {
         self.collectionView.reloadData()
@@ -136,11 +144,15 @@ extension MainViewController : MainViewModelDelegate {
     }
 	
 	func viewModelDidGetChapterlistSuccess() {
-		self.tableview.isHidden = false
-		self.loadAnimationView.removeFromSuperview()
-		self.tableview.refreshControl?.endRefreshing()
-		self.tableview.reloadData()
-		self.emptyView.isHidden = self.vm.podlist.count > 0
+		self.scheduler.addTask {
+			self.tableview.isHidden = false
+			self.loadAnimationView.removeFromSuperview()
+			self.tableview.refreshControl?.endRefreshing()
+			self.tableview.reloadData()
+			self.collectionView.reloadData()
+			self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+		}
+		
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
@@ -149,11 +161,11 @@ extension MainViewController : MainViewModelDelegate {
 		}
 		var index = 0
 		for nativeAd in self.vm.nativeAds {
-			if index > self.vm.episodeList.count {
-				if index > self.vm.episodeList.count - 1 {
+			if index > FeedManager.shared.episodeList.count {
+				if index > FeedManager.shared.episodeList.count - 1 {
 					break
 				}
-				var episodelist = self.vm.episodeList[index]
+				var episodelist = FeedManager.shared.episodeList[index]
 				episodelist.append(nativeAd)
 				index += 1
 			} else {
@@ -169,14 +181,14 @@ extension MainViewController : MainViewModelDelegate {
 extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pod = self.vm.podlist[indexPath.row]
+        let pod = FeedManager.shared.podlist[indexPath.row]
         let vc = PodDetailViewController.init(pod: pod)
         self.navigationController?.pushViewController(vc)
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let episodeList = self.vm.episodeList[indexPath.section]
+		let episodeList = FeedManager.shared.episodeList[indexPath.section]
 		let item = episodeList[indexPath.row]
 		guard item is Episode else {
 			return;
@@ -192,16 +204,16 @@ extension MainViewController{
 extension MainViewController{
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return self.vm.episodeList.count
+		return FeedManager.shared.episodeList.count
 	}
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let episodeList = self.vm.episodeList[section]
+		let episodeList = FeedManager.shared.episodeList[section]
         return episodeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let episodeList = self.vm.episodeList[indexPath.section]
+		let episodeList = FeedManager.shared.episodeList[indexPath.section]
 		let item = episodeList[indexPath.row]
 		if item is Episode {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
@@ -214,7 +226,7 @@ extension MainViewController{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
-		let episodeList = self.vm.episodeList[indexPath.section]
+		let episodeList = FeedManager.shared.episodeList[indexPath.section]
         let item = episodeList[indexPath.row]
 		if item is Episode{
 			guard let cell = cell as? HomeAlbumTableViewCell else { return }
@@ -233,7 +245,7 @@ extension MainViewController{
     }
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let episodeList = self.vm.episodeList[section]
+		let episodeList = FeedManager.shared.episodeList[section]
 		let view = UIView.init()
 		view.backgroundColor = .white
 		let episode = episodeList.first! as! Episode
@@ -268,7 +280,7 @@ extension MainViewController{
 extension MainViewController{
     
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return self.vm.podlist.count
+        return FeedManager.shared.podlist.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -291,7 +303,7 @@ extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? HomePodCollectionViewCell else { return }
-        let pod = self.vm.podlist[indexPath.row]
+        let pod = FeedManager.shared.podlist[indexPath.row]
 		if pod.collectionId.length() < 1 {
 			return
 		}
@@ -327,6 +339,7 @@ extension MainViewController {
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
 		self.view.sendSubviewToBack(self.tableview)
+		self.view.addSubview(self.fetchLoadingView);
 		
 		let topBgView = UIView.init()
 		topBgView.backgroundColor = .white
@@ -435,7 +448,6 @@ extension MainViewController {
 		emptyView.isHidden = true
 		
 		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);
-		self.view.addSubview(self.fetchLoadingView);
     }
     
 }

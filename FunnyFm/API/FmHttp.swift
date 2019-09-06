@@ -97,7 +97,7 @@ public class FmHttp<T> where T: Mapable{
     }
 	
 	
-	func requestForItuns<R:TargetType>(_ type:R,
+	func requestForItunes<R:TargetType>(_ type:R,
 									   _ success: @escaping SuccessArrModelClosure,
 									   _ failure: @escaping FailClosure)
 	{

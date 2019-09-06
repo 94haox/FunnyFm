@@ -105,7 +105,7 @@ class ChapterProgressView: UIView {
     lazy var nowCycle : UIView = {
         let view = UIView.init()
         view.backgroundColor = CommonColor.mainRed.color
-        view.borderWidth = 2
+        view.borderWidth = 5
         view.borderColor = .white
         return view
     }()
