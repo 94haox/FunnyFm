@@ -48,8 +48,12 @@ struct Episode : TableCodable,Mapable{
 		author = jsonData["itunes_author"].stringValue
 		coverUrl = jsonData["image"].stringValue
 		trackUrl = jsonData["url"].stringValue
+		if jsonData["itunes_duration"].stringValue.contains(":") {
+			duration = FunnyFm.convertDuration(to: jsonData["itunes_duration"].stringValue)
+		}else{
+			duration =  jsonData["itunes_duration"].doubleValue
+		}
 		download_filpath = ""
-		duration =  0
 		podCoverUrl = ""
 		collectionId = ""
 	}
