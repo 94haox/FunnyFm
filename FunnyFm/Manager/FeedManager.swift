@@ -109,11 +109,19 @@ extension FeedManager {
 					podCount -= 1
 					DispatchQueue.main.async {
 						if podCount == 0 {
+							self.isParsering = false
 							NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
 						}
 						self.delegate?.viewModelDidGetChapterlistSuccess()
 					}
 				}, { (error) in
+					podCount -= 1
+					if podCount == 0 {
+						self.isParsering = false
+						DispatchQueue.main.async {
+							NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
+						}
+					}
 				})
 			}
 		}
@@ -122,7 +130,7 @@ extension FeedManager {
 	
 	func parserForSingle(feedUrl: String, collectionId:String){
 		var last_title = ""
-		let pod = DatabaseManager.getItunsPod(collectionId: collectionId)
+		var pod = DatabaseManager.getItunsPod(collectionId: collectionId)
 
 		if pod.isSome {
 			let episodeList = DatabaseManager.allEpisodes(pod: pod!)
@@ -131,6 +139,7 @@ extension FeedManager {
 			}
 		}
 		FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":feedUrl,"last_episode_title":last_title]), success: { (item) in
+			pod?.podDes = item!.description
 			self.addOrUpdate(itunesPod: pod!, episodelist: item!.items)
 			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			print("fetched")
@@ -140,6 +149,12 @@ extension FeedManager {
 		}, { (error) in
 		})
 	}
+	
+	
+}
+
+// MARK: - 排序
+extension FeedManager {
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
 		
@@ -170,7 +185,6 @@ extension FeedManager {
 	}
 	
 }
-
 
 // MARK: - 增删改查
 extension FeedManager {

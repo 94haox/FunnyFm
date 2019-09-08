@@ -70,13 +70,9 @@ class PodPreviewViewController: BaseViewController {
 		params["collection_id"] = self.itunsPod.collectionId;
 		params["source_type"] = "iTunes";
 		params["artwork_url"] = self.itunsPod.artworkUrl600
-		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
-		PodListViewModel.init().registerPod(params: params, success: { (msg) in
-			self.dismiss(animated: true, completion: {
-				if !PrivacyManager.isOpenPusn() {
-					NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
-				}
-			})
+		PodListViewModel.init().registerPod(params: params, success: { [weak self] (msg) in
+			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: "")
+			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
 		}
 	}

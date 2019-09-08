@@ -20,18 +20,29 @@ class PodDetailViewModel: NSObject {
 
 	var episodeList : [Episode]!
 	
+	var pod: iTunsPod?
+	
 	func parserNewChapter(pod: iTunsPod){
+		self.pod = pod
 		self.episodeList = DatabaseManager.allEpisodes(pod: pod)
 		self.delegate?.podDetailParserSuccess()
-		FeedManager.shared.parserRss(pod) { (podlist) in
-			self.episodeList = DatabaseManager.allEpisodes(pod: pod)
-			self.delegate?.podDetailParserSuccess()
-		}
+		FeedManager.shared.delegate = self
+		FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId)
+		
 	}
 	
 	func cancelSubscribe(collectionId: String) {
 		DatabaseManager.deleteItunsPod(collectionId: collectionId)
 		self.delegate?.podDetailCancelSubscribeSuccess()
+	}
+	
+}
+
+extension PodDetailViewModel : FeedManagerDelegate {
+	
+	func viewModelDidGetChapterlistSuccess() {
+		self.episodeList = DatabaseManager.allEpisodes(pod: self.pod!)
+		self.delegate?.podDetailParserSuccess()
 	}
 	
 }
