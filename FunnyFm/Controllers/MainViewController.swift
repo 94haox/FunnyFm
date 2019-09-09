@@ -131,6 +131,12 @@ extension MainViewController{
 
 // MARK: - ViewModelDelegate
 extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
+	func viewModelDidGetChapterlistSuccess() {
+	}
+	
+	func feedManagerDidParserPodcasrSuccess() {
+	}
+	
     
     func viewModelDidGetDataSuccess() {
         self.collectionView.reloadData()
@@ -143,7 +149,7 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
         SwiftNotice.noticeOnStatusBar("请求失败".localized, autoClear: true, autoClearTime: 2)
     }
 	
-	func viewModelDidGetChapterlistSuccess() {
+	func feedManagerDidGetEpisodelistSuccess() {
 		self.scheduler.addTask {
 			self.tableview.isHidden = false
 			self.loadAnimationView.removeFromSuperview()

@@ -71,7 +71,7 @@ class PodPreviewViewController: BaseViewController {
 		params["source_type"] = "iTunes";
 		params["artwork_url"] = self.itunsPod.artworkUrl600
 		PodListViewModel.init().registerPod(params: params, success: { [weak self] (msg) in
-			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: "")
+			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: self!.itunsPod.collectionId)
 			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
 		}

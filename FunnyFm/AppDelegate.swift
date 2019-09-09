@@ -35,7 +35,7 @@ import FirebaseUI
 		PushManager().configurePushSDK(launchOptions: launchOptions)
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
-		var navi = UINavigationController.init(rootViewController: MainViewController.init())
+		var navi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
 		navi.navigationBar.isHidden = true
 		if !UserDefaults.standard.bool(forKey: "isFirst") {
 			navi = UINavigationController.init(rootViewController: WelcomeViewController.init())

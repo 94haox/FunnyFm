@@ -117,6 +117,10 @@
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D1B1722C633EA00E9E221 /* NotificationService.swift */; };
 		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */; };
+		AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */; };
+		AB6F089223266EBC00ED8B47 /* LoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F089023266EBC00ED8B47 /* LoginTypeViewController.xib */; };
+		AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */; };
 		AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */; };
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
@@ -375,6 +379,10 @@
 		AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6D1B1722C633EA00E9E221 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AB6D1B1922C633EA00E9E221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
+		AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		AB6F089023266EBC00ED8B47 /* LoginTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTypeViewController.xib; sourceTree = "<group>"; };
+		AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeViewController.swift; sourceTree = "<group>"; };
 		AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		AB74FB7222F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB7322F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -767,6 +775,8 @@
 				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
 				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
+				AB6F089023266EBC00ED8B47 /* LoginTypeViewController.xib */,
+				AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */,
 				ABF498A02303B88A00441DAF /* RegisterViewController.xib */,
 				ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */,
 				ABF498972303B71A00441DAF /* NeLoginViewController.xib */,
@@ -779,6 +789,8 @@
 				ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */,
 				ABF498762303B45600441DAF /* WelcomeViewController.xib */,
 				AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */,
+				AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */,
+				AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */,
 				ABF498692303B33300441DAF /* AdShowViewController.xib */,
 				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
 				AB63D76823167A6200F76F8E /* PlaylistViewController.swift */,
@@ -1267,6 +1279,7 @@
 				ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */,
 				ABEE40CD21E3246E00FCB16F /* MJRefresh.bundle in Resources */,
 				AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */,
+				AB6F089223266EBC00ED8B47 /* LoginTypeViewController.xib in Resources */,
 				AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */,
 				AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */,
 				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
@@ -1279,6 +1292,7 @@
 				ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
+				AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
@@ -1453,6 +1467,7 @@
 				ABE7660521D7196700470D8F /* FileManagerExtensions.swift in Sources */,
 				ABE7660321D7196700470D8F /* DataExtensions.swift in Sources */,
 				AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */,
+				AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */,
 				AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
@@ -1521,6 +1536,7 @@
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
 				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,
+				AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */,
 				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,
 				AB1E6D7221B9252500B85135 /* UIScrollViewExtensions.swift in Sources */,
 				ABE7ACAA21C20D7300FC6B8E /* BaseCollectionViewCell.swift in Sources */,

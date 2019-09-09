@@ -123,9 +123,12 @@ class DatabaseManager: NSObject {
 	}
 	
 	static public func getItunsPod(collectionId:String) -> iTunsPod?{
-		let podList = self.allItunsPod()
-		let pod = podList.filter { $0.collectionId == collectionId }
-		return pod.first
+		if collectionId.length() < 1 {
+			return nil
+		}
+		let podList: [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable,
+											   where: iTunsPod.Properties.collectionId == collectionId)
+		return podList.first
 	}
 	
 	static public func addItunsPod(pod: iTunsPod){
