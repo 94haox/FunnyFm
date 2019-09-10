@@ -49,9 +49,9 @@ class EmptyMainViewController: UIViewController {
 	}
 	
 	@IBAction func toLoginVC(_ sender: Any) {
-		let login = NeLoginViewController()
-		self.navigationController?.pushViewController(login)
-		self.navigationController?.viewControllers .remove(at: 1)
+		let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+		self.navigationController?.present(loginNavi, animated: true, completion: nil)
+		self.navigationController?.viewControllers.remove(at: 1)
 	}
 
 }

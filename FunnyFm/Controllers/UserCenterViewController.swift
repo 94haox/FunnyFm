@@ -22,6 +22,9 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		if UserCenter.shared.isLogin {
+			if UserCenter.shared.name.length() > 0 {
+				self.titleLB.text = "Hi  \(UserCenter.shared.name)"
+			}
 			logoutBtn.setTitle("退出登录".localized, for: .normal)
 		}else{
 			logoutBtn.setTitle("登录".localized, for: .normal)
@@ -31,8 +34,8 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	@objc func toLogoutAction(){
 		
 		if !UserCenter.shared.isLogin {
-			let login = NeLoginViewController()
-			self.navigationController?.pushViewController(login)
+			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+			self.navigationController?.present(loginNavi, animated: true, completion: nil)
 			return
 		}
 		
@@ -129,8 +132,8 @@ extension UserCenterViewController {
 		}
 		
 		if !UserCenter.shared.isLogin {
-			let login = NeLoginViewController()
-			self.navigationController?.pushViewController(login)
+			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+			self.navigationController?.present(loginNavi, animated: true, completion: nil)
 			return
 		}
 		

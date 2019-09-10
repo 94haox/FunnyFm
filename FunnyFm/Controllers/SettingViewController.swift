@@ -51,7 +51,7 @@ class SettingViewController: UIViewController, UITableViewDataSource,UITableView
     }
 	
 	func setUpImmutableData(){
-		self.feedbacks.append(["title":"github issue","imageName":"github"])
+		self.feedbacks.append(["title":"Feedback","imageName":"github"])
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
 		self.others.append(["title":"将 FunnyFM 推荐给好友".localized,"imageName":"share"])
 		self.others.append(["title":"查看开发者其他的 App".localized,"imageName":"github"])
@@ -121,7 +121,7 @@ extension SettingViewController {
         
         if indexPath.section == 1{
             if indexPath.row == 0 {
-                UIApplication.shared.open(URL.init(string: "https://github.com/94haox/FunnyFM-issue/issues")!, options: [:], completionHandler:     nil)
+                UIApplication.shared.open(URL.init(string: "https://funnyfm.nolt.io")!, options: [:], completionHandler:     nil)
             }
         }
         

@@ -91,7 +91,7 @@ extension RegisterViewController {
 		UserDefaults.standard.synchronize()
 		HorizonHUD.showSuccess("登录成功".localized)
 		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
-		self.navigationController?.popViewController()
+		self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     func viewModelDidGetDataFailture(msg: String?) {

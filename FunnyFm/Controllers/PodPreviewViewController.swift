@@ -62,7 +62,7 @@ class PodPreviewViewController: BaseViewController {
 	
 	@objc func addPodToLibary(){
 		self.shinkBtn()
-		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看")
+		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看".localized)
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
 		var params = [String: String]()
 		params["track_name"] = self.itunsPod.trackName;
@@ -98,11 +98,12 @@ class PodPreviewViewController: BaseViewController {
 
 extension PodPreviewViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
-		SwiftNotice.showText("添加成功，正在抓取所有节目单，请稍候刷新")
+		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看".localized)
 		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
+		
 	}
 	
 }

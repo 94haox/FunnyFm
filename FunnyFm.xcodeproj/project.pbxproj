@@ -119,8 +119,8 @@
 		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */; };
 		AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */; };
-		AB6F089223266EBC00ED8B47 /* LoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F089023266EBC00ED8B47 /* LoginTypeViewController.xib */; };
 		AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */; };
+		AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */; };
 		AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */; };
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
@@ -381,8 +381,12 @@
 		AB6D1B1922C633EA00E9E221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
 		AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
-		AB6F089023266EBC00ED8B47 /* LoginTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTypeViewController.xib; sourceTree = "<group>"; };
 		AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeViewController.swift; sourceTree = "<group>"; };
+		AB6F0B012327814E00ED8B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginTypeViewController.xib; sourceTree = "<group>"; };
+		AB6F0B042327815400ED8B47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginTypeViewController.strings; sourceTree = "<group>"; };
+		AB6F0B062327815500ED8B47 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LoginTypeViewController.strings; sourceTree = "<group>"; };
+		AB6F0B082327815600ED8B47 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LoginTypeViewController.strings; sourceTree = "<group>"; };
+		AB6F0B0A2327823500ED8B47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoginTypeViewController.strings"; sourceTree = "<group>"; };
 		AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		AB74FB7222F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB7322F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -774,9 +778,9 @@
 				ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */,
 				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
-				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
-				AB6F089023266EBC00ED8B47 /* LoginTypeViewController.xib */,
+				AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */,
 				AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */,
+				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
 				ABF498A02303B88A00441DAF /* RegisterViewController.xib */,
 				ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */,
 				ABF498972303B71A00441DAF /* NeLoginViewController.xib */,
@@ -1279,7 +1283,7 @@
 				ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */,
 				ABEE40CD21E3246E00FCB16F /* MJRefresh.bundle in Resources */,
 				AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */,
-				AB6F089223266EBC00ED8B47 /* LoginTypeViewController.xib in Resources */,
+				AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */,
 				AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */,
 				AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */,
 				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
@@ -1626,6 +1630,18 @@
 				AB74FB8222F7F36800A00706 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB6F0B012327814E00ED8B47 /* Base */,
+				AB6F0B042327815400ED8B47 /* en */,
+				AB6F0B062327815500ED8B47 /* ja */,
+				AB6F0B082327815600ED8B47 /* fr */,
+				AB6F0B0A2327823500ED8B47 /* zh-Hans */,
+			);
+			name = LoginTypeViewController.xib;
 			sourceTree = "<group>";
 		};
 		AB74FB7822F7F33E00A00706 /* Localizable.strings */ = {

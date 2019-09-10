@@ -11,7 +11,7 @@ import UIKit
 class UserCenter: NSObject {
     
     static let shared = UserCenter()
-    
+	
     var userId: String {
         set {
             UserDefaults.standard.set(newValue, forKey: "userId")
@@ -25,7 +25,37 @@ class UserCenter: NSObject {
             return ""
         }
     }
-    
+	
+	var name: String {
+		set {
+			UserDefaults.standard.set(newValue, forKey: "name")
+			UserDefaults.standard.synchronize()
+		}
+		get {
+			let name = UserDefaults.standard.string(forKey: "name")
+			if name.isSome {
+				return name!
+			}
+			return ""
+		}
+	}
+	
+	var avatar: String {
+		set {
+			UserDefaults.standard.set(newValue, forKey: "avatar")
+			UserDefaults.standard.synchronize()
+		}
+		get {
+			let avatar = UserDefaults.standard.string(forKey: "avatar")
+			if avatar.isSome {
+				return avatar!
+			}
+			return ""
+		}
+	}
+	
+	
+	
     var isLogin : Bool {
         set {
             UserDefaults.standard.set(newValue, forKey: "isLogin")

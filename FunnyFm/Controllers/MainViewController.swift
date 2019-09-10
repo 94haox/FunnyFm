@@ -32,11 +32,13 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     
     var searchBtn : UIButton!
     
-    var profileBtn : UIButton!
+	var topBgView: UIView!
 	
 	var addBtn : UIButton!
 	
 	var emptyView: UIView!
+	
+	var avatarView: UIImageView!
 	
 	var loadAnimationView : AnimationView!
 	
@@ -73,10 +75,11 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		FMToolBar.shared.explain()
 		self.vm.getAd(vc: self)
 		FeedManager.shared.delegate = self;
-		
-//		self.vm.refreshWithNoNetwork()
-//		self.tableview.reloadData()
-//		self.collectionView.reloadData()
+		if UserCenter.shared.avatar.length() > 0 && UserCenter.shared.isLogin{
+			self.avatarView.loadImage(url: UserCenter.shared.avatar, placeholder:"profile")
+		}else{
+			self.avatarView.image = UIImage.init(named: "profile")
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -132,6 +135,7 @@ extension MainViewController{
 // MARK: - ViewModelDelegate
 extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	func viewModelDidGetChapterlistSuccess() {
+		
 	}
 	
 	func feedManagerDidParserPodcasrSuccess() {
@@ -339,7 +343,9 @@ extension MainViewController {
     
     
     fileprivate func addConstrains() {
-        self.view.addSubview(self.profileBtn)
+		self.view.addSubview(self.topBgView)
+		self.view.addSubview(self.avatarView)
+//        self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.titileLB)
         self.view.addSubview(self.tableview)
@@ -347,20 +353,18 @@ extension MainViewController {
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
 		
-		let topBgView = UIView.init()
-		topBgView.backgroundColor = .white
-		self.view.addSubview(topBgView)
-		self.view.insertSubview(topBgView, belowSubview: self.profileBtn)
-		topBgView.snp.makeConstraints { (make) in
+		
+		
+		self.topBgView.snp.makeConstraints { (make) in
 			make.left.width.top.equalToSuperview()
-			make.bottom.equalTo(self.titileLB)
+			make.bottom.equalTo(self.titileLB).offset(5.adapt())
 		}
-        
-        self.profileBtn.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize.init(width: 35, height: 35))
-            make.right.equalTo(self.searchBtn.snp.left).offset(-5)
-            make.centerY.equalTo(self.titileLB)
-        }
+		
+		self.avatarView.snp.makeConstraints { (make) in
+			make.size.equalTo(CGSize.init(width: 35, height: 35))
+			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
+			make.centerY.equalTo(self.titileLB)
+		}
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))
@@ -418,10 +422,13 @@ extension MainViewController {
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
-        self.tableview.contentInset = UIEdgeInsets.init(top: 30.adapt(), left: 0, bottom: 120, right: 0)
+        self.tableview.contentInset = UIEdgeInsets.init(top: 35.adapt(), left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
-        
+		
+		self.topBgView = UIView.init()
+		self.topBgView.backgroundColor = .white
+		
         self.searchBtn = UIButton.init(type: .custom)
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
@@ -429,10 +436,12 @@ extension MainViewController {
 		self.titileLB = UILabel.init(text: "最近更新".localized)
 		self.titileLB.font = p_bfont(titleFontSize)
 		self.titileLB.textColor = CommonColor.subtitle.color
-        
-        self.profileBtn = UIButton.init(type: .custom)
-        self.profileBtn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)
-        self.profileBtn.addTarget(self, action: #selector(toUserCenter), for:.touchUpInside)
+		
+		self.avatarView = UIImageView.init()
+		self.avatarView.cornerRadius = 35.0/2
+		self.avatarView.isUserInteractionEnabled = true
+		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toUserCenter))
+		self.avatarView.addGestureRecognizer(tap)
 		
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
@@ -467,7 +476,7 @@ extension MainViewController {
 		self.view.addSubview(self.emptyView)
 		self.emptyView.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview()
-			make.top.equalTo(self.tableview)
+			make.top.equalTo(self.topBgView.snp.bottom)
 		}
 		
 		self.emptyView.addSubview(self.emptyAnimationView)

@@ -17,7 +17,7 @@ let kGetChapterListurl = "v1/chapterlist"
 let chapterProvider = MoyaProvider<ChapterAPI>()
 
 public enum ChapterAPI {
-    case getHomeChapterList()
+    case getHomeChapterList
     case getChapterList(Int,Int)
 }
 
@@ -46,7 +46,7 @@ extension ChapterAPI : TargetType {
     
     public var path: String {
         switch self {
-        case .getHomeChapterList():
+        case .getHomeChapterList:
             return kGetHomeChapterListurl
         case .getChapterList(_):
             return kGetChapterListurl
@@ -56,7 +56,7 @@ extension ChapterAPI : TargetType {
     
     public var method: Moya.Method {
         switch self {
-        case .getHomeChapterList():
+        case .getHomeChapterList:
             return .get
         case .getChapterList(_):
             return .get

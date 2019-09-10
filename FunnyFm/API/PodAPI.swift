@@ -47,36 +47,31 @@ extension PodAPI : TargetType {
 				params["podId"] = podId
 				params["source"] = source
 			}
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .addPodSource(let podId, let feedUrl, let sourceType):
 			params["podId"] = podId
 			params["feedUrl"] = feedUrl
 			params["sourceType"] = sourceType
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchPod(let keyWord):
 			params["term"] = keyWord
 			params["limit"] = "20"
 			params["media"] = "podcast"
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchTopic(let keyWord):
 			params["term"] = "podcast"
 			params["genreId"] = keyWord
 			params["limit"] = "50"
 			params["country"] = Locale.current.regionCode
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .registerPod(let param):
 			params = param
 			if UserCenter.shared.isLogin {
 				params["user_id"] = UserCenter.shared.userId
 			}
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .getPodList:
 			params["user_id"] = UserCenter.shared.userId
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .parserRss(let param):
 			params = param
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		}
+		
+		return .requestParameters(parameters: params, encoding: JSONEncoding.default)
     }
     
     

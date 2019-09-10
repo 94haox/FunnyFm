@@ -11,9 +11,16 @@ import UIKit
 class LoginViewModel: BaseViewModel {
     var user: User?
     func login(mail: String, and pwd: String) {
-        FmHttp<User>().requestForSingle(UserAPI.login(mail, pwd), success: { (person) in
+		var params:[String : Any] = [:]
+		params["mail"] = mail
+		params["password"] = pwd
+		params["type"] = "email"
+        FmHttp<User>().requestForSingle(UserAPI.login(params), success: { (person) in
             if person.isSome {
                 self.user = person
+				UserCenter.shared.userId = person!.userId
+				UserCenter.shared.name = person!.name
+				UserCenter.shared.avatar = person!.avatar
                 self.delegate?.viewModelDidGetDataSuccess()
             }
         }, { (message) in
@@ -22,14 +29,37 @@ class LoginViewModel: BaseViewModel {
     }
     
     func register(mail: String, and pwd: String) {
-        FmHttp<User>().requestForSingle(UserAPI.register(mail, pwd), success: { (person) in
+		var params:[String : Any] = [:]
+		params["mail"] = mail
+		params["password"] = pwd
+		params["type"] = "email"
+        FmHttp<User>().requestForSingle(UserAPI.register(params), success: { (person) in
             if person.isSome {
                 self.user = person
+				UserCenter.shared.userId = person!.userId
+				UserCenter.shared.name = person!.name
+				UserCenter.shared.avatar = person!.avatar
                 self.delegate?.viewModelDidGetDataSuccess()
             }
         }, { (message) in
             self.delegate?.viewModelDidGetDataFailture(msg: message)
         })
     }
+	
+	func login(googleData:[String: Any]) {
+		FmHttp<User>().requestForSingle(UserAPI.login(googleData), success: { (person) in
+			if person.isSome {
+				self.user = person
+				UserCenter.shared.isLogin = true
+				UserCenter.shared.userId = person!.userId
+				UserCenter.shared.name = person!.name
+				UserCenter.shared.avatar = person!.avatar
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
+		}, { (message) in
+			self.delegate?.viewModelDidGetDataFailture(msg: message)
+		})
+	}
+	
     
 }

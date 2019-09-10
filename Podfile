@@ -15,7 +15,7 @@ def layout
     pod 'CleanyModal', '~> 0.1.1'
 		pod 'NVActivityIndicatorView'
 		pod 'OfficeUIFabric', '0.2.11'
-		pod 'PullToReach'
+		pod 'Hero'
 		pod 'LookinServer', :configurations => ['Debug']
 end
 
@@ -23,6 +23,7 @@ def lib
     pod 'KeychainAccess'
     pod 'WCDB.swift'
     pod 'RxSwift'
+		pod 'PullToReach'
 		pod 'Nuke', '~> 8.0.1'
 		pod 'EFIconFont', :subspecs => ['Complete']
     pod 'SwiftyJSON'
