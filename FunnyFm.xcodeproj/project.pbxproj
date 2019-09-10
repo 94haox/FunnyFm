@@ -121,6 +121,7 @@
 		AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */; };
 		AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */; };
 		AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */; };
+		AB6F0CCC23279BEB00ED8B47 /* DWSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */; };
 		AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */; };
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
@@ -387,6 +388,7 @@
 		AB6F0B062327815500ED8B47 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LoginTypeViewController.strings; sourceTree = "<group>"; };
 		AB6F0B082327815600ED8B47 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LoginTypeViewController.strings; sourceTree = "<group>"; };
 		AB6F0B0A2327823500ED8B47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoginTypeViewController.strings"; sourceTree = "<group>"; };
+		AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWSwitch.swift; sourceTree = "<group>"; };
 		AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		AB74FB7222F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB7322F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				AB53ED5222F16E3A0015D957 /* PullButton.swift */,
 				AB6990B32315248E003AC187 /* ProgressHUD.swift */,
 				ABDEF0C3231775E3001FFFC5 /* PlayDetailToolBar.swift */,
+				AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1506,6 +1509,7 @@
 				AB1E93092211B39900A8F07B /* PodPreviewViewController.swift in Sources */,
 				AB1E6D7421B9252500B85135 /* UILayoutPriorityExtensions.swift in Sources */,
 				ABEF471421EAF7EE00212DCA /* UserCenter.swift in Sources */,
+				AB6F0CCC23279BEB00ED8B47 /* DWSwitch.swift in Sources */,
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
 				ABEE40D221E3246E00FCB16F /* MJRefreshBackStateFooter.m in Sources */,
 				ABE7660421D7196700470D8F /* URLRequestExtensions.swift in Sources */,

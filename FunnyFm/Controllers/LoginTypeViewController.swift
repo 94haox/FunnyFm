@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import OfficeUIFabric
 
 class LoginTypeViewController: UIViewController {
 	
@@ -37,28 +38,19 @@ class LoginTypeViewController: UIViewController {
 		self.navigationController?.dismiss(animated: true, completion: nil)
 	}
 	
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension LoginTypeViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
-//		self.hideLoading()
+		MSHUD.shared.hide()
 		HorizonHUD.showSuccess("登录成功".localized)
 		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
 		self.navigationController?.dismiss(animated: true, completion: nil)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-//		self.hideLoading()
+		MSHUD.shared.hide()
 		SwiftNotice.showText(msg!)
 	}
 }
@@ -71,6 +63,7 @@ extension LoginTypeViewController :GIDSignInDelegate {
 			SwiftNotice.showText(error.localizedDescription)
 			return;
 		}
+		MSHUD.shared.show(in: self.view)
 		var params:[String : Any] = [:]
 		params["type"] = "google"
 		params["google_userid"] = user.userID
@@ -79,6 +72,7 @@ extension LoginTypeViewController :GIDSignInDelegate {
 		if user.profile.hasImage {
 			params["avatar"] = user.profile.imageURL(withDimension: 240)?.absoluteString
 		}
+		
 		self.viewModel.login(googleData: params)
 	}
 	

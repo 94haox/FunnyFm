@@ -11,21 +11,11 @@ import OneSignal
 
 class PodListViewModel: BaseViewModel {
 
-    lazy var podlist : [iTunsPod] = {
-        return []
-    }()
+    var podlist : [iTunsPod] = []
 	
-	lazy var itunsPodlist : [iTunsPod] = {
-		return []
-	}()
+	var itunsPodlist : [iTunsPod] = []
 	
-	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Games & Hobbies".localized, "Government & Organisations".localized, "Health".localized, "Kids & Family".localized, "Music".localized, "News & Politics".localized, "Religion & Spirituality".localized, "Science & Medicine".localized, "Society & Culture".localized, "Sports & Recreation".localized, "Technology".localized, "TV & Film".localized]
-	var topicIDs = ["1301", "1321", "1303", "1304", "1323", "1325", "1307", "1305", "1310", "1311", "1314", "1315", "1324", "1316", "1318", "1309"]
-	var topicIcons = ["art", "business", "comedy", "edu", "game", "govern", "health", "kids", "music-cate", "news", "pray", "science", "society", "ball", "tech", "tv"]
-	
-//	var topics = ["作者推荐".localized]
-//	var topicIDs = ["1301"]
-//	var topicIcons = ["art"]
+	var syncList: [iTunsPod] = []
 	
     override init() {
         super.init()
@@ -35,6 +25,19 @@ class PodListViewModel: BaseViewModel {
 		self.podlist = DatabaseManager.allItunsPod()
 		self.delegate?.viewModelDidGetDataSuccess()
     }
+	
+	func getAllSubscribe(){
+		if !UserCenter.shared.isLogin {
+			return
+		}
+		FmHttp<iTunsPod>().requestForArray(UserAPI.getSubscribeList,{ podlist in
+			if podlist.isSome {
+				self.syncList = podlist!
+			}
+		}){ msg in
+			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+		}
+	}
 	
 	func searchPod(keyword:String){
 		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchPod(keyword), { (podlist) in
@@ -83,5 +86,10 @@ class PodListViewModel: BaseViewModel {
 			failure(msg)
 		}
 	}
+	
+	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Games & Hobbies".localized, "Government & Organisations".localized, "Health".localized, "Kids & Family".localized, "Music".localized, "News & Politics".localized, "Religion & Spirituality".localized, "Science & Medicine".localized, "Society & Culture".localized, "Sports & Recreation".localized, "Technology".localized, "TV & Film".localized]
+	var topicIDs = ["1301", "1321", "1303", "1304", "1323", "1325", "1307", "1305", "1310", "1311", "1314", "1315", "1324", "1316", "1318", "1309"]
+	var topicIcons = ["art", "business", "comedy", "edu", "game", "govern", "health", "kids", "music-cate", "news", "pray", "science", "society", "ball", "tech", "tv"]
+
     
 }

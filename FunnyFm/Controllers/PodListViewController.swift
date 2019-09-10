@@ -16,6 +16,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
 		self.titleLB.text = "我的订阅".localized
         self.vm.delegate = self
         self.vm.getAllPods()
+		self.vm.getAllSubscribe()
         self.view.backgroundColor = .white
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -26,7 +27,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
             make.top.equalTo(self.titleLB.snp.bottom)
             make.left.width.bottom.equalToSuperview()
         }
-        // Do any additional setup after loading the view.
+		
     }
     
     lazy var collectionView : UICollectionView = {
