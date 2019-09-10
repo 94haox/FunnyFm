@@ -12,19 +12,11 @@ import UIKit
 class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
 	var logoutBtn: UIButton!
-	var openSwitch: DWSwitch!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.titleLB.text = "Hi"
         self.dw_addSubviews()
-		self.openSwitch = DWSwitch.init(frame: CGRect.zero)
-		self.view.addSubview(openSwitch)
-		self.openSwitch.snp.makeConstraints { (make) in
-			make.right.equalToSuperview().offset(-10)
-			make.top.equalTo(self.view.snp.topMargin).offset(10)
-			make.size.equalTo(CGSize.init(width: 50, height: 30))
-		}
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -39,10 +31,6 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 		}
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		self.openSwitch.dw_configPathLayer()
-	}
 	
 	@objc func toLogoutAction(){
 		

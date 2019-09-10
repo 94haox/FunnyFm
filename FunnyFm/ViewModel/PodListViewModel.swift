@@ -20,19 +20,36 @@ class PodListViewModel: BaseViewModel {
     override init() {
         super.init()
     }
-    
-    func getAllPods() {
-		self.podlist = DatabaseManager.allItunsPod()
-		self.delegate?.viewModelDidGetDataSuccess()
-    }
+	
 	
 	func getAllSubscribe(){
 		if !UserCenter.shared.isLogin {
+			self.podlist = DatabaseManager.allItunsPod()
+			self.delegate?.viewModelDidGetDataSuccess()
 			return
 		}
 		FmHttp<iTunsPod>().requestForArray(UserAPI.getSubscribeList,{ podlist in
 			if podlist.isSome {
+				self.podlist = DatabaseManager.allItunsPod()
 				self.syncList = podlist!
+				var idList = [String]()
+				self.podlist.forEach({ (pod) in
+					idList.append(pod.podId)
+				})
+				
+				podlist!.forEach({ (pod) in
+					if idList.contains(pod.podId) {
+						let index = idList.index(of: pod.podId)
+						if index.isSome {
+							self.podlist.remove(at: index!)
+							idList.remove(at: index!)
+						}
+					}
+				})
+			}
+			
+			DispatchQueue.main.async {
+				self.delegate?.viewModelDidGetDataSuccess()
 			}
 		}){ msg in
 			self.delegate?.viewModelDidGetDataFailture(msg: msg)
@@ -81,6 +98,14 @@ class PodListViewModel: BaseViewModel {
 	
 	func registerPod(params: Dictionary<String, String>, success:@escaping SuccessStringClosure, failure: @escaping FailClosure){
 		FmHttp<iTunsPod>().requestForSingle(PodAPI.registerPod(params), success: { (pod) in
+			if pod.isSome {
+				var dbpod = DatabaseManager.getItunsPod(collectionId: pod!.collectionId)
+				if dbpod.isSome {
+					dbpod!.podId = pod!.podId
+					DatabaseManager.updateItunsPod(pod: dbpod!)
+				}
+			}
+			
 			success("success")
 		}) { (msg) in
 			failure(msg)

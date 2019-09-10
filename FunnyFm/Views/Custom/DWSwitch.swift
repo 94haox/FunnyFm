@@ -148,9 +148,10 @@ extension DWSwitch {
 		UIView.animate(withDuration: 0.2) {
 			self.layoutIfNeeded()
 		}
+		super.touchesBegan(touches, with: event)
 	}
-	
-	
+
+
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 		if self.isOn {
 			self.toLeft()
@@ -158,5 +159,6 @@ extension DWSwitch {
 			self.toRight()
 		}
 		self.isOn = !self.isOn
+		super.touchesEnded(touches, with: event)
 	}
 }
