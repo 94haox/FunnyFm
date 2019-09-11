@@ -29,7 +29,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 		self.dw_addSubviews()
 		self.searchTF.delegate = self;
-		self.vm.delegate = self;
+		self.vm.delegate = self
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -69,7 +69,11 @@ class SearchViewController: UIViewController {
 }
 
 
-extension SearchViewController : ViewModelDelegate {
+extension SearchViewController : PodListViewModelDelegate {
+	func didSyncSuccess(index: Int) {
+
+	}
+	
 	func viewModelDidGetDataSuccess() {
 		MSHUD.shared.hide()
 		self.cateBtn.isHidden = false

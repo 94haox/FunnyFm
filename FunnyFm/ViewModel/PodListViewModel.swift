@@ -9,7 +9,13 @@
 import UIKit
 import OneSignal
 
-class PodListViewModel: BaseViewModel {
+@objc protocol PodListViewModelDelegate: ViewModelDelegate {
+	func didSyncSuccess(index:Int)
+}
+
+class PodListViewModel: NSObject {
+	
+	weak var delegate: PodListViewModelDelegate?
 
     var podlist : [iTunsPod] = []
 	
@@ -17,10 +23,34 @@ class PodListViewModel: BaseViewModel {
 	
 	var syncList: [iTunsPod] = []
 	
-    override init() {
-        super.init()
-    }
+	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Games & Hobbies".localized, "Government & Organisations".localized, "Health".localized, "Kids & Family".localized, "Music".localized, "News & Politics".localized, "Religion & Spirituality".localized, "Science & Medicine".localized, "Society & Culture".localized, "Sports & Recreation".localized, "Technology".localized, "TV & Film".localized]
+	var topicIDs = ["1301", "1321", "1303", "1304", "1323", "1325", "1307", "1305", "1310", "1311", "1314", "1315", "1324", "1316", "1318", "1309"]
+	var topicIcons = ["art", "business", "comedy", "edu", "game", "govern", "health", "kids", "music-cate", "news", "pray", "science", "society", "ball", "tech", "tv"]
+
+    
+}
+
+// MARK: - Subscribe
+extension PodListViewModel {
 	
+	func syncSubscribelist(podidList: [String]){
+		var podCount = 0
+		podidList.forEach { (podId) in
+			DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
+				FmHttp<User>().requestForSingle(UserAPI.addSubscribe(podId), success: { (_) in
+					podCount += 1
+					DispatchQueue.main.async {
+						self.delegate?.didSyncSuccess(index: podCount)
+					}
+				}, { (msg) in
+					podCount += 1
+					DispatchQueue.main.async {
+						self.delegate?.didSyncSuccess(index: podCount)
+					}
+				})
+			}
+		}
+	}
 	
 	func getAllSubscribe(){
 		if !UserCenter.shared.isLogin {
@@ -56,46 +86,6 @@ class PodListViewModel: BaseViewModel {
 		}
 	}
 	
-	func searchPod(keyword:String){
-		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchPod(keyword), { (podlist) in
-			if let list = podlist {
-				self.itunsPodlist = list
-				self.delegate?.viewModelDidGetDataSuccess()
-			}
-		}){ msg in
-			self.delegate?.viewModelDidGetDataFailture(msg: msg)
-		}
-	}
-	
-	func searchTopic(keyword:String){
-		
-//		let filepath = Bundle.main.path(forResource: "recommend", ofType: "json")
-//		let url = URL(fileURLWithPath: filepath!)
-//		do {
-//			let data = try Data.init(contentsOf: url)
-//			let json : NSArray = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
-//
-//			self.itunsPodlist.removeAll()
-//			for dict in json {
-//				self.itunsPodlist.append(iTunsPod.init(dic: dict as! NSDictionary))
-//			}
-//			self.delegate?.viewModelDidGetDataSuccess()
-//		} catch let error {
-//			print("读取本地数据出现错误!",error)
-//		}
-
-
-		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword), { (podlist) in
-			if let list = podlist {
-				self.itunsPodlist = list
-				self.delegate?.viewModelDidGetDataSuccess()
-			}
-		}){ msg in
-			self.delegate?.viewModelDidGetDataFailture(msg: msg)
-		}
-	}
-
-	
 	func registerPod(params: Dictionary<String, String>, success:@escaping SuccessStringClosure, failure: @escaping FailClosure){
 		FmHttp<iTunsPod>().requestForSingle(PodAPI.registerPod(params), success: { (pod) in
 			if pod.isSome {
@@ -112,9 +102,32 @@ class PodListViewModel: BaseViewModel {
 		}
 	}
 	
-	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Games & Hobbies".localized, "Government & Organisations".localized, "Health".localized, "Kids & Family".localized, "Music".localized, "News & Politics".localized, "Religion & Spirituality".localized, "Science & Medicine".localized, "Society & Culture".localized, "Sports & Recreation".localized, "Technology".localized, "TV & Film".localized]
-	var topicIDs = ["1301", "1321", "1303", "1304", "1323", "1325", "1307", "1305", "1310", "1311", "1314", "1315", "1324", "1316", "1318", "1309"]
-	var topicIcons = ["art", "business", "comedy", "edu", "game", "govern", "health", "kids", "music-cate", "news", "pray", "science", "society", "ball", "tech", "tv"]
+}
 
-    
+
+// MARK: - search
+extension PodListViewModel {
+	
+	func searchPod(keyword:String){
+		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchPod(keyword), { (podlist) in
+			if let list = podlist {
+				self.itunsPodlist = list
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
+		}){ msg in
+			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+		}
+	}
+	
+	func searchTopic(keyword:String){
+		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword), { (podlist) in
+			if let list = podlist {
+				self.itunsPodlist = list
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
+		}){ msg in
+			self.delegate?.viewModelDidGetDataFailture(msg: msg)
+		}
+	}
+	
 }

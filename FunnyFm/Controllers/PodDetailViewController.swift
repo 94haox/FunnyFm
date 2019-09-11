@@ -61,6 +61,7 @@ class PodDetailViewController: BaseViewController {
 	}
 	
 	@objc func subscribtionAction() {
+		ImpactManager.impact()
 		self.subBtn.isSelected = !self.subBtn.isSelected;
 		self.subBtn.backgroundColor = self.subBtn.isSelected ? .white : CommonColor.mainRed.color
 	}

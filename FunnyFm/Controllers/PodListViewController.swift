@@ -7,45 +7,46 @@
 //
 
 import UIKit
+import OfficeUIFabric
+import RxSwift
+import RxCocoa
 
-class PodListViewController: BaseViewController , UICollectionViewDelegate, UICollectionViewDataSource, ViewModelDelegate{
+class PodListViewController: BaseViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
     var vm = PodListViewModel.init()
 	
-	var openSwitch: DWSwitch!
+	var syncBtn = UIButton.init(type: .custom)
+	
+	var sectionSegment: DWSegment = DWSegment()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.titleLB.text = "我的订阅".localized
-        self.vm.delegate = self
-        self.view.backgroundColor = .white
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-		self.view.backgroundColor = CommonColor.background.color
-        self.view.addSubview(self.collectionView)
-		self.openSwitch = DWSwitch.init(frame: CGRect.zero)
-		self.view.addSubview(openSwitch)
-		self.openSwitch.snp.makeConstraints { (make) in
-			make.bottom.equalTo(self.view.snp.bottomMargin).offset(10)
-			make.size.equalTo(CGSize.init(width: 150, height: 40))
-			make.centerX.equalToSuperview()
-		}
-        self.collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLB.snp.bottom)
-            make.left.width.bottom.equalToSuperview()
-        }
-		
-		self.openSwitch.addTarget(self, action: #selector(changeSegment), for: .touchUpInside)
-		self.vm.getAllSubscribe()
+		self.setupUI()
+		self.vm.delegate = self
+		NotificationCenter.default.rx.notification(Notification.Name.init(rawValue: "kSyncSuccess")).subscribe(onNext: { (notification) in
+			self.vm.getAllSubscribe()
+		}).dispose()
     }
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		self.openSwitch.dw_configPathLayer()
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		MSHUD.shared.show(in: self.view)
+		self.vm.getAllSubscribe()
 	}
 	
 	@objc func changeSegment(){
+		self.syncBtn.isHidden = !sectionSegment.isOn
 		self.collectionView .reloadData()
+	}
+	
+	@objc func toSyncSubscribe(){
+		if self.vm.podlist.count < 1 {
+			return
+		}
+		let syncVC = CloudSyncViewController.init()
+		syncVC.syncList = self.vm.podlist
+		self.presentAsStork(syncVC, height: 350)
 	}
     
     lazy var collectionView : UICollectionView = {
@@ -53,7 +54,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         layout.itemSize = CGSize(width: (kScreenWidth-32*3)/2, height: (kScreenWidth-32*3)/2.0)
         layout.minimumInteritemSpacing = 18
         layout.minimumLineSpacing = 31;
-        layout.sectionInset = UIEdgeInsets.init(top: 30, left: 32, bottom: 0, right: 32)
+		
         
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         collectionview.showsHorizontalScrollIndicator = false
@@ -61,19 +62,26 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         collectionview.register(nib, forCellWithReuseIdentifier: "cell")
         collectionview.backgroundColor = CommonColor.background.color
 		collectionview.emptyDataSetSource = self;
+		collectionview.showsVerticalScrollIndicator = false
         return collectionview
     }()
 
 }
 
 
-extension PodListViewController {
+extension PodListViewController: PodListViewModelDelegate{
+	func didSyncSuccess(index: Int) {
+		
+	}
+	
 	
     func viewModelDidGetDataSuccess() {
         collectionView.reloadData()
+		MSHUD.shared.hide()
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
+		MSHUD.shared.hide()
         SwiftNotice.noticeOnStatusBar("请求失败", autoClear: true, autoClearTime: 2)
     }
     
@@ -85,7 +93,7 @@ extension PodListViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		var pod = self.vm.syncList[indexPath.row]
-		if self.openSwitch.isOn {
+		if self.sectionSegment.isOn {
 			pod = self.vm.podlist[indexPath.row]
 		}
 		let vc = PodDetailViewController.init(pod: pod)
@@ -100,10 +108,10 @@ extension PodListViewController{
 extension PodListViewController{
     
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-		if self.openSwitch.isOn {
-			return self.vm.podlist.count
-		}else{
+		if !self.sectionSegment.isOn && UserCenter.shared.isLogin{
 			return self.vm.syncList.count
+		}else{
+			return self.vm.podlist.count
 		}
     }
     
@@ -113,15 +121,25 @@ extension PodListViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-		var pod = self.vm.syncList[indexPath.row]
-		if self.openSwitch.isOn {
+		var pod: iTunsPod
+		if !self.sectionSegment.isOn && UserCenter.shared.isLogin{
+			pod = self.vm.syncList[indexPath.row]
+		}else{
 			pod = self.vm.podlist[indexPath.row]
 		}
         guard let cell = cell as? PodListCollectionViewCell else { return }
-//        let index = indexPath.row % self.vm.podlist.count
-//        let pod = self.vm.podlist[index]
         cell.configCell(pod)
     }
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		if UserCenter.shared.isLogin {
+			return UIEdgeInsets.init(top: 85, left: 32, bottom: 0, right: 32)
+		}else{
+			return UIEdgeInsets.init(top: 30, left: 32, bottom: 0, right: 32)
+		}
+	}
+	
+	
 }
 
 extension PodListViewController : DZNEmptyDataSetSource {
@@ -134,4 +152,51 @@ extension PodListViewController : DZNEmptyDataSetSource {
 		return NSAttributedString.init(string: "快去发掘有趣的播客吧~".localized, attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
 	}
 	
+}
+
+
+// MARK: - UI
+extension PodListViewController {
+	
+	func setupUI() {
+		
+		self.collectionView.delegate = self
+		self.collectionView.dataSource = self
+		self.view.backgroundColor = CommonColor.background.color
+		self.view.addSubview(self.collectionView)
+		
+		self.collectionView.snp.makeConstraints { (make) in
+			make.top.equalTo(self.titleLB.snp.bottom)
+			make.left.width.bottom.equalToSuperview()
+		}
+		
+		
+		
+		if UserCenter.shared.isLogin {
+		
+			self.sectionSegment.addShadow(ofColor: CommonColor.content.color, radius: 5, offset: CGSize.init(width: 5, height: 5), opacity: 0.8)
+			self.sectionSegment.config(titles: ["已同步".localized,"未同步".localized])
+			
+			self.syncBtn.setImage(UIImage.init(named: "cloud-sync"), for: .normal)
+			self.syncBtn.isHidden = true
+			
+			self.sectionSegment.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
+			self.syncBtn.addTarget(self, action: #selector(toSyncSubscribe), for: .touchUpInside)
+			
+			self.view.addSubview(sectionSegment)
+			self.view.addSubview(self.syncBtn)
+			
+			self.syncBtn.snp.makeConstraints { (make) in
+				make.right.equalToSuperview().offset(-16.adapt())
+				make.centerY.equalTo(self.titleLB)
+				make.size.equalTo(CGSize.init(width: 30, height: 30))
+			}
+			
+			self.sectionSegment.snp.makeConstraints { (make) in
+				make.top.equalTo(self.titleLB.snp.bottom).offset(10)
+				make.size.equalTo(CGSize.init(width: 160, height: 40))
+				make.centerX.equalToSuperview()
+			}
+		}
+	}
 }

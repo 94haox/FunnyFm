@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OfficeUIFabric
 
 class BaseViewController: UIViewController {
     
@@ -19,6 +20,11 @@ class BaseViewController: UIViewController {
 			make.left.equalToSuperview().offset(16)
 		}
     }
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		MSHUD.shared.hide()
+	}
 	
 	
 	lazy var titleLB: UILabel = {

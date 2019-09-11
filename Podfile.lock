@@ -184,6 +184,11 @@ PODS:
   - Protobuf (3.9.0)
   - PullToReach (0.1.2)
   - Result (4.1.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
   - RxSwift (5.0.0)
   - SHFullscreenPopGestureSwift (1.2.1)
   - SnapKit (4.0.1)
@@ -220,6 +225,7 @@ DEPENDENCIES:
   - OneSignal (< 3.0, >= 2.6.2)
   - pop (~> 1.0)
   - PullToReach
+  - RxCocoa
   - RxSwift
   - SHFullscreenPopGestureSwift
   - SnapKit (~> 4.0.0)
@@ -272,6 +278,8 @@ SPEC REPOS:
     - Protobuf
     - PullToReach
     - Result
+    - RxCocoa
+    - RxRelay
     - RxSwift
     - SHFullscreenPopGestureSwift
     - SnapKit
@@ -325,6 +333,8 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   PullToReach: 0e747e10403d2827277f8728151ad7998d4576eb
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
@@ -336,6 +346,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
   YBTaskScheduler: cf08ebc7132a70212252bdacb8ff803a23b611ab
 
-PODFILE CHECKSUM: cab0a5bee760aafa4130d051250a53f88b762100
+PODFILE CHECKSUM: a892287b893e03ab4cf80b1d201c500348ea9c72
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.5

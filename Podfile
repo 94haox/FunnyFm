@@ -23,6 +23,7 @@ def lib
     pod 'KeychainAccess'
     pod 'WCDB.swift'
     pod 'RxSwift'
+		pod 'RxCocoa'
 		pod 'PullToReach'
 		pod 'Nuke', '~> 8.0.1'
 		pod 'EFIconFont', :subspecs => ['Complete']

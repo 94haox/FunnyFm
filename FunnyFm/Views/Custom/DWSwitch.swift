@@ -13,11 +13,11 @@ import RxSwift
 
 class DWSwitch: UIControl {
 	
+	var selectLayer: CAShapeLayer!
+	
 	private var graySquare: UIView = UIView.init()
 	
 	private var contaniner: UIView = UIView.init()
-	
-	var selectLayer: CAShapeLayer!
 	
 	var hPadding: Int = 5
 	
@@ -26,6 +26,10 @@ class DWSwitch: UIControl {
 	var isOn: Bool = false
 	
 	var selectColor: UIColor = CommonColor.mainRed.color
+	
+	convenience init() {
+		self.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 40))
+	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -49,8 +53,6 @@ class DWSwitch: UIControl {
 			make.left.equalTo(self.contaniner).offset(hPadding)
 		})
 		self.layoutIfNeeded()
-//		self.dw_configPathLayer()
-		
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -140,6 +142,7 @@ extension DWSwitch {
 extension DWSwitch {
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		ImpactManager.impact()
 		self.contaniner.snp.remakeConstraints { (make) in
 			make.width.equalToSuperview().multipliedBy(0.9)
 			make.height.equalToSuperview().multipliedBy(0.9)
@@ -160,5 +163,6 @@ extension DWSwitch {
 		}
 		self.isOn = !self.isOn
 		super.touchesEnded(touches, with: event)
+		sendActions(for: UIControl.Event.valueChanged)
 	}
 }

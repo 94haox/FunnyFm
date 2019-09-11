@@ -71,6 +71,13 @@
 		AB25798421945E70004C5F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798521945E70004C5F5D /* LaunchScreen.storyboard */; };
 		AB28ECAD224E241500C7FE43 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AB28ECAC224E241400C7FE43 /* refresh.json */; };
+		AB2A3722232888FA0097DAF7 /* DWSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A3721232888FA0097DAF7 /* DWSegment.swift */; };
+		AB2A37252328A7C10097DAF7 /* CloudSyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */; };
+		AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */; };
+		AB2A372A2328ADDE0097DAF7 /* Loady+NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A37282328ADDE0097DAF7 /* Loady+NVActivityIndicatorView.swift */; };
+		AB2A372B2328ADDE0097DAF7 /* Loady.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A37292328ADDE0097DAF7 /* Loady.swift */; };
+		AB2A372E2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB2A372C2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib */; };
+		AB2A372F2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A372D2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift */; };
 		AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */; };
 		AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */; };
 		AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D266A21DF827000BF3391 /* UIScrollView+EmptyDataSet.m */; };
@@ -321,6 +328,13 @@
 		AB25798621945E70004C5F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB25798821945E70004C5F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB28ECAC224E241400C7FE43 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
+		AB2A3721232888FA0097DAF7 /* DWSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWSegment.swift; sourceTree = "<group>"; };
+		AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudSyncViewController.xib; sourceTree = "<group>"; };
+		AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncViewController.swift; sourceTree = "<group>"; };
+		AB2A37282328ADDE0097DAF7 /* Loady+NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Loady+NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
+		AB2A37292328ADDE0097DAF7 /* Loady.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loady.swift; sourceTree = "<group>"; };
+		AB2A372C2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudSyncCollectionViewCell.xib; sourceTree = "<group>"; };
+		AB2A372D2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyManager.swift; sourceTree = "<group>"; };
 		AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualActivityViewController.swift; sourceTree = "<group>"; };
 		AB2D266921DF826F00BF3391 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
@@ -696,6 +710,7 @@
 				AB6990B32315248E003AC187 /* ProgressHUD.swift */,
 				ABDEF0C3231775E3001FFFC5 /* PlayDetailToolBar.swift */,
 				AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */,
+				AB2A3721232888FA0097DAF7 /* DWSegment.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -751,6 +766,15 @@
 			path = FunnyFm;
 			sourceTree = "<group>";
 		};
+		AB2A37272328ADDE0097DAF7 /* LoadingButton */ = {
+			isa = PBXGroup;
+			children = (
+				AB2A37282328ADDE0097DAF7 /* Loady+NVActivityIndicatorView.swift */,
+				AB2A37292328ADDE0097DAF7 /* Loady.swift */,
+			);
+			path = LoadingButton;
+			sourceTree = "<group>";
+		};
 		AB41AAD7219529DB00260851 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +825,8 @@
 				ABF498692303B33300441DAF /* AdShowViewController.xib */,
 				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
 				AB63D76823167A6200F76F8E /* PlaylistViewController.swift */,
+				AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */,
+				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -858,6 +884,7 @@
 		AB41AAF9219564F000260851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AB2A37272328ADDE0097DAF7 /* LoadingButton */,
 				AB0C64C4230B8E1800C4DF30 /* PathKit.swift */,
 				AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */,
 				AB41AAFA219564F000260851 /* ScreenShot */,
@@ -937,6 +964,8 @@
 				AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */,
 				ABDEF22D2317B551001FFFC5 /* AdMobTableViewCell.xib */,
 				ABDEF22E2317B551001FFFC5 /* AdMobTableViewCell.swift */,
+				AB2A372C2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib */,
+				AB2A372D2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1295,6 +1324,7 @@
 				AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
+				AB2A372E2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib in Resources */,
 				AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */,
 				ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
@@ -1304,6 +1334,7 @@
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
+				AB2A37252328A7C10097DAF7 /* CloudSyncViewController.xib in Resources */,
 				ABDEF22F2317B551001FFFC5 /* AdMobTableViewCell.xib in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
 				ABF498742303B45600441DAF /* WelcomeViewController.xib in Resources */,
@@ -1424,6 +1455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
+				AB2A372F2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift in Sources */,
 				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
 				AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
@@ -1438,6 +1470,7 @@
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
+				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
 				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
@@ -1489,6 +1522,7 @@
 				ABEE40DB21E3246E00FCB16F /* MJRefreshHeader.m in Sources */,
 				ABEE40CE21E3246E00FCB16F /* UIScrollView+MJExtension.m in Sources */,
 				AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */,
+				AB2A3722232888FA0097DAF7 /* DWSegment.swift in Sources */,
 				ABEE40DE21E3246E00FCB16F /* MJRefreshComponent.m in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
 				ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */,
@@ -1523,10 +1557,12 @@
 				ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */,
 				ABEE40CB21E3246E00FCB16F /* UIScrollView+MJRefresh.m in Sources */,
 				AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */,
+				AB2A372A2328ADDE0097DAF7 /* Loady+NVActivityIndicatorView.swift in Sources */,
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,
 				AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */,
 				AB1E6D8321B9252500B85135 /* UIViewExtensions.swift in Sources */,
 				ABE7ACB221C20E4800FC6B8E /* DownloadListController.swift in Sources */,
+				AB2A372B2328ADDE0097DAF7 /* Loady.swift in Sources */,
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
 				AB1E6D7A21B9252500B85135 /* UIStoryboardExtensions.swift in Sources */,

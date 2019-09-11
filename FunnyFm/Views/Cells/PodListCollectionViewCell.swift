@@ -30,8 +30,8 @@ class PodListCollectionViewCell: UICollectionViewCell {
     func configCell(_ pod: iTunsPod){
         self.logoImageView.loadImage(url: pod.artworkUrl600)
         self.titleLB.text = pod.trackName
-//        self.updateTimeLB.text = self.fromStringToDate(string: pod.releaseDate).dateString()
-		self.updateTimeLB.text = "\(pod.trackCount)  Episodes"
+        self.updateTimeLB.text = self.fromStringToDate(string: pod.releaseDate).dateString()
+//		self.updateTimeLB.text = "\(pod.trackCount)  Episodes"
     }
 	
 	func fromStringToDate(string :String) ->Date{

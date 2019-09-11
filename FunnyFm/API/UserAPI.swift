@@ -42,9 +42,6 @@ extension UserAPI : TargetType {
         var params:[String : Any] = [:]
         switch self {
         case .login(let param),.register(let param):
-//            params["mail"] = mail
-//            params["password"] = password
-//            params["type"] = "email"
 			params = param;
             break;
         case .addFavour(let episodeId), .disFavour(let episodeId):
