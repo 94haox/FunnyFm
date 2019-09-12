@@ -144,7 +144,9 @@ extension FMToolBar{
             DatabaseManager.add(history: chapter)
             self.currentEpisode = chapter
         }
-        
+		if(self.progressLayer.isSome) {
+			self.progressLayer.pop_removeAllAnimations()
+		}
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.author
         self.setUpChapter(chapter)

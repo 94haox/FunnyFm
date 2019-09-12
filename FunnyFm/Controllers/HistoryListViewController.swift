@@ -46,8 +46,8 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
 extension HistoryListViewController{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let history = self.historyList[indexPath.row]
-//        FMToolBar.shared.configToolBar(history)
+        let history = self.historyList[indexPath.row]
+        FMToolBar.shared.configToolBar(history)
 //		 FMToolBar.shared.toPlayDetailView()
     }
     
