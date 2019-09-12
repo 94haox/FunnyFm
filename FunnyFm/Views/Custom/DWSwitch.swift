@@ -69,6 +69,7 @@ class DWSwitch: UIControl {
 extension DWSwitch {
 	
 	func toLeft(){
+		self.isOn = false
 		self.contaniner.snp.remakeConstraints { (make) in
 			make.width.equalToSuperview()
 			make.height.equalToSuperview()
@@ -90,7 +91,7 @@ extension DWSwitch {
 	}
 	
 	func toRight(){
-		
+		self.isOn = true
 		self.contaniner.snp.remakeConstraints { (make) in
 			make.width.equalToSuperview()
 			make.height.equalToSuperview()
@@ -161,7 +162,6 @@ extension DWSwitch {
 		}else{
 			self.toRight()
 		}
-		self.isOn = !self.isOn
 		super.touchesEnded(touches, with: event)
 		sendActions(for: UIControl.Event.valueChanged)
 	}

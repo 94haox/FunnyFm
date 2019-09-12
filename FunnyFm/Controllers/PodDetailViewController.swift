@@ -48,8 +48,10 @@ class PodDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.addSubviews()
+		self.addHeader()
 		self.dw_addConstraints()
         self.vm.parserNewChapter(pod: self.pod)
+		FeedManager.shared.delegate = self
 		self.config()
     }
 
@@ -72,6 +74,10 @@ class PodDetailViewController: BaseViewController {
 		self.navigationController?.pushViewController(detailVC);
 	}
 	
+	@objc func refreshData (){
+		FeedManager.shared.parserForSingle(feedUrl: self.pod.feedUrl, collectionId: self.pod.collectionId)
+	}
+	
 }
 
 
@@ -92,6 +98,20 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 	func podDetailCancelSubscribeSuccess() {
 	
 	}
+}
+
+extension PodDetailViewController: FeedManagerDelegate {
+	
+	func feedManagerDidGetEpisodelistSuccess() {
+		self.tableview.refreshControl?.endRefreshing()
+		self.tableview.reloadData()
+	}
+	
+	
+	func feedManagerDidParserPodcasrSuccess() {
+		
+	}
+	
 }
 
 
@@ -128,6 +148,12 @@ extension PodDetailViewController: UITableViewDataSource {
 
 
 extension PodDetailViewController {
+	
+	func addHeader(){
+		let refreshControl = UIRefreshControl.init()
+		refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+		self.tableview.refreshControl = refreshControl;
+	}
 	
 	func dw_addConstraints(){
 		self.view.addSubview(self.tableview)

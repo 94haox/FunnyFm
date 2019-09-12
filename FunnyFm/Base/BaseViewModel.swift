@@ -10,6 +10,6 @@ import UIKit
 
 class BaseViewModel: NSObject {
     
-    weak var delegate : ViewModelDelegate?
+    var delegate : ViewModelDelegate?
 
 }

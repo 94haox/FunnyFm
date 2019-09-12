@@ -24,16 +24,12 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
 		self.titleLB.text = "我的订阅".localized
 		self.setupUI()
 		self.vm.delegate = self
+		MSHUD.shared.show(in: self.view)
+		self.vm.getAllSubscribe()
 		NotificationCenter.default.rx.notification(Notification.Name.init(rawValue: "kSyncSuccess")).subscribe(onNext: { (notification) in
 			self.vm.getAllSubscribe()
 		}).dispose()
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		MSHUD.shared.show(in: self.view)
-		self.vm.getAllSubscribe()
-	}
 	
 	@objc func changeSegment(){
 		self.syncBtn.isHidden = !sectionSegment.isOn

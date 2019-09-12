@@ -94,6 +94,10 @@ extension CloudSyncViewController {
 		self.vm.syncSubscribelist(podidList: podidList)
 	}
 	
+	@objc func changeAutoSync(){
+		PreferenceCenter.shared.isAutoSync = self.syncSwitch.isOn
+	}
+	
 }
 
 // MARK: - UICollectionViewDelegate
@@ -142,6 +146,7 @@ extension CloudSyncViewController {
 		self.syncLB.font = pfont(15)
 		self.syncLB.textColor = CommonColor.content.color
 		self.syncSwitch.addShadow(ofColor: CommonColor.content.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.6)
+		self.syncSwitch.addTarget(self, action: #selector(changeAutoSync), for: .valueChanged)
 		self.view.addSubview(self.collectionView)
 		self.view.addSubview(self.syncBtn)
 		self.view.addSubview(self.syncLB)
@@ -169,6 +174,10 @@ extension CloudSyncViewController {
 			make.centerX.equalToSuperview()
 			make.height.equalTo(50)
 			make.width.equalToSuperview().multipliedBy(0.6)
+		}
+		
+		if PreferenceCenter.shared.isAutoSync {
+			self.syncSwitch.toRight()
 		}
 
 	}
