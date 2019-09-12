@@ -73,3 +73,9 @@
 "自动同步订阅"="AutoSync";
 "同步成功"="Sync successfully";
 "同步中"= "Syncing...";
+"15分钟后"="After 15 minutes";
+"30分钟后"="After 30 minutes";
+"一个小时后"="After 1 hour";
+"定时关闭"="Sleep in";
+"播放结束后"="When episode done";
+"取消"="Cancel";

@@ -62,6 +62,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
         self.view.backgroundColor = CommonColor.background.color
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
+		self.progressLine.allDot.text = "-" + FunnyFm.formatIntervalToMM(NSInteger(self.episode.duration))
 		
 //        if self.chapter.isFavour {
 //            self.likeAniView.play(fromProgress: 0.9, toProgress: 1) { (complete) in
@@ -239,11 +240,11 @@ extension PlayerDetailViewController {
     
     func sleep(with time: String) {
         switch time {
-        case "15分钟后":
+        case "15分钟后".localized:
             break
-        case "30分钟后":
+        case "30分钟后".localized:
             break
-        case "一个小时后":
+        case "一个小时后".localized:
             break
         default:
             break
@@ -253,18 +254,18 @@ extension PlayerDetailViewController {
 
 extension PlayerDetailViewController: PlayDetailToolBarDelegate {
 	func didTapSleepBtn() {
-		let alertController = UIAlertController.init(title: "定时关闭", message: nil, preferredStyle: .actionSheet)
-		let squaterAction = UIAlertAction.init(title: "15分钟后", style: .default) { (action) in
+		let alertController = UIAlertController.init(title: "定时关闭".localized, message: nil, preferredStyle: .actionSheet)
+		let squaterAction = UIAlertAction.init(title: "15分钟后".localized, style: .default) { (action) in
 			FMPlayerManager.shared.startSleep(seconds: 15*60)
 		}
-		let halfAction = UIAlertAction.init(title: "30分钟后", style: .default){ (action) in
+		let halfAction = UIAlertAction.init(title: "30分钟后".localized, style: .default){ (action) in
 			FMPlayerManager.shared.startSleep(seconds: 30 * 60)
 		}
-		let hourAction = UIAlertAction.init(title: "1小时后", style: .default){ (action) in
+		let hourAction = UIAlertAction.init(title: "1小时后".localized, style: .default){ (action) in
 			FMPlayerManager.shared.startSleep(seconds: 60 * 60)
 		}
-		let endAction = UIAlertAction.init(title: "播放结束后", style: .default){ (action) in}
-		let cancelAction = UIAlertAction.init(title: "取消", style: .cancel) { (action) in
+		let endAction = UIAlertAction.init(title: "播放结束后".localized, style: .default){ (action) in}
+		let cancelAction = UIAlertAction.init(title: "取消".localized, style: .cancel) { (action) in
 			FMPlayerManager.shared.cancelSleep()
 		}
 		alertController.addAction(squaterAction)

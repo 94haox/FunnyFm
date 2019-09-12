@@ -23,20 +23,16 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
-		self.copyRightLB.text = pod?.copyRight
+		self.desTextView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 50, right: 0)
 		self.desTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
 		self.desTextView.showsVerticalScrollIndicator = false
-        self.titleLB.text = self.episode.title
-		self.dateLB.text = self.episode.pubDate
-		self.podLB.text = self.episode.author
-		self.duration.text = FunnyFm.formatIntervalToString(NSInteger(self.episode.duration))
 		
-		
+		let title = NSAttributedString.init(string: self.episode.title+"\n\n", attributes: [NSAttributedString.Key.font : p_bfont(20), NSAttributedString.Key.foregroundColor: CommonColor.title.color])
+		let author = NSAttributedString.init(string: self.episode.author+"\n\n", attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.subtitle.color])
 		
 		guard self.episode.intro.contains("<") else {
-			self.desTextView.text = self.episode.intro;
+			let content = NSAttributedString.init(string: self.episode.intro+"\n", attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
+			self.desTextView.attributedText = title + author + content
 			return
 		}
 		
@@ -61,20 +57,17 @@ class EpisodeDetailViewController: UIViewController {
 					}
 				})
 			}
-			self.desTextView.attributedText = attrStr;
+			self.desTextView.attributedText = title + author + attrStr;
 		}catch _ as NSError {
-			self.desTextView.text = self.episode.intro;
+			let content = NSAttributedString.init(string: self.episode.intro+"\n", attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
+			self.desTextView.attributedText = title + author + content
 		}
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(true, animated: false)
+		FMToolBar.shared.shrink()
     }
-    
-    @IBAction func backAction(_ sender: Any) {
-        self.navigationController?.popViewController()
-    }
-    
+	
 }

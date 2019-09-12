@@ -106,7 +106,8 @@ extension MainViewController{
 	func toDetail(episode: Episode) {
 		let detailVC = EpisodeDetailViewController.init()
 		detailVC.episode = episode
-		self.navigationController?.pushViewController(detailVC);
+//		self.navigationController?.presentAsStork(detailVC, height: 300)
+		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: 400, delegate: self)
 	}
     
     @objc func refreshData(){
@@ -466,6 +467,7 @@ extension MainViewController {
     }
     
 }
+
 
 
 

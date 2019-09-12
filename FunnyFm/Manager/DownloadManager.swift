@@ -20,6 +20,7 @@ protocol DownloadManagerDelegate {
 class DownloadManager: NSObject {
     
     static let shared = DownloadManager()
+	var downloadQueue = [String:Any]()
     var downloadRequest:DownloadRequest!
     var cancelledData:Data?
 	var delegate: DownloadManagerDelegate?
@@ -37,6 +38,13 @@ class DownloadManager: NSObject {
     }
     
     func beginDownload(_ episode: Episode){
+		if self.downloadRequest.isSome {
+			if self.downloadRequest!.request.isSome {
+				if self.downloadRequest.request!.url!.absoluteString == episode.trackUrl {
+					return;
+				}
+			}
+		}
         if let cancelledData = self.cancelledData {
             //续传
             self.downloadRequest = Alamofire.download(resumingWith: cancelledData, to: self.destination)
