@@ -88,6 +88,7 @@
 		AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */; };
 		AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */; };
 		AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */; };
+		AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3D4819232A47CD00078DA4 /* DownloadTask.swift */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
 		AB41AAE021952D2200260851 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
@@ -348,6 +349,7 @@
 		AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunsPodTableViewCell.swift; sourceTree = "<group>"; };
 		AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		AB32CF5B22B39A32007C9E41 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		AB3D4819232A47CD00078DA4 /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		AB41AADF21952D2200260851 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				AB41AADA21952A6400260851 /* Controllers */,
 				AB41AADC21952A8A00260851 /* Views */,
 				AB41AADB21952A7C00260851 /* Models */,
+				AB3D4818232A479B00078DA4 /* Dowload */,
 				AB41AAD7219529DB00260851 /* Utils */,
 				AB1E6DA221BA01C500B85135 /* OC */,
 				ABB57AAF22FD07F8000593F2 /* Source */,
@@ -775,6 +778,14 @@
 				AB2A37292328ADDE0097DAF7 /* Loady.swift */,
 			);
 			path = LoadingButton;
+			sourceTree = "<group>";
+		};
+		AB3D4818232A479B00078DA4 /* Dowload */ = {
+			isa = PBXGroup;
+			children = (
+				AB3D4819232A47CD00078DA4 /* DownloadTask.swift */,
+			);
+			path = Dowload;
 			sourceTree = "<group>";
 		};
 		AB41AAD7219529DB00260851 /* Utils */ = {
@@ -1512,6 +1523,7 @@
 				ABE7660321D7196700470D8F /* DataExtensions.swift in Sources */,
 				AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */,
 				AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */,
+				AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */,
 				AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,

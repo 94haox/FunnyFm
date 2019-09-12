@@ -10,9 +10,9 @@ import UIKit
 import Alamofire
 
 protocol DownloadManagerDelegate {
-	func downloadProgress(progress:Double);
-	func didDownloadSuccess(fileUrl: String?);
-    func didDownloadFailure();
+	func downloadProgress(progress:Double, sourceUrl: String);
+	func didDownloadSuccess(fileUrl: String?, sourceUrl: String);
+	func didDownloadFailure(sourceUrl: String);
 }
 
 
@@ -20,53 +20,37 @@ protocol DownloadManagerDelegate {
 class DownloadManager: NSObject {
     
     static let shared = DownloadManager()
-	var downloadQueue = [String:Any]()
-    var downloadRequest:DownloadRequest!
-    var cancelledData:Data?
+	
 	var delegate: DownloadManagerDelegate?
 	
-    
-    let destination:DownloadRequest.DownloadFileDestination = { url, response in
-        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let mp3Path = documentURL.appendingPathComponent("mp3")
-        let fileURL = mp3Path.appendingPathComponent(response.suggestedFilename!)
-        return (fileURL,[.removePreviousFile,.createIntermediateDirectories])
-    }
-    
-    func downloadProgress(progress:Progress){
-		self.delegate?.downloadProgress(progress: Double(progress.fractionCompleted))
-    }
-    
-    func beginDownload(_ episode: Episode){
-		if self.downloadRequest.isSome {
-			if self.downloadRequest!.request.isSome {
-				if self.downloadRequest.request!.url!.absoluteString == episode.trackUrl {
-					return;
-				}
-			}
+	var downloadQueue = [String:Any]()
+	
+	func beginDownload(_ episode: Episode){
+		if let _ = downloadQueue[episode.trackUrl] {
+			return
 		}
-        if let cancelledData = self.cancelledData {
-            //续传
-            self.downloadRequest = Alamofire.download(resumingWith: cancelledData, to: self.destination)
-            self.downloadRequest.downloadProgress(closure: downloadProgress)
-            self.downloadRequest.responseData(completionHandler: downloadResponse)
-        }else{
-            //开始下载
-            self.downloadRequest = Alamofire.download(episode.trackUrl, to: self.destination)
-            self.downloadRequest.downloadProgress(closure: downloadProgress)
-            self.downloadRequest.responseData(completionHandler: downloadResponse)
-        }
-    }
-    
-    
-    func downloadResponse(response:DownloadResponse<Data>){
-        switch response.result {
-        case .success(_):
-			self.delegate?.didDownloadSuccess(fileUrl: response.destinationURL?.path)
-        case .failure(error:):
-            self.cancelledData = response.resumeData //意外中止的话把已下载的数据存起来
-			self.delegate?.didDownloadFailure()
-            break
-        }
-    }
+		let task = DownloadTask.init(url: episode.trackUrl)
+		task.beginDownload()
+		task.delegate = self
+		self.downloadQueue[episode.trackUrl] = task
+	}
+}
+
+
+extension DownloadManager : DownloadTaskDelegate {
+	
+	func downloadProgress(progress: Double, sourceUrl: String) {
+		self.delegate?.downloadProgress(progress: progress, sourceUrl: sourceUrl)
+	}
+	
+	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
+		self.downloadQueue.removeValue(forKey: sourceUrl)
+		self.delegate?.didDownloadSuccess(fileUrl: fileUrl, sourceUrl: sourceUrl)
+	}
+	
+	func didDownloadFailure(sourceUrl: String) {
+		self.downloadQueue.removeValue(forKey: sourceUrl)
+		self.delegate?.didDownloadFailure(sourceUrl: sourceUrl)
+	}
+	
 }

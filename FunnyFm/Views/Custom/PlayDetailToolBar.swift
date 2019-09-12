@@ -69,6 +69,13 @@ extension PlayDetailToolBar {
 		}
 		DownloadManager.shared.delegate = self;
 		DownloadManager.shared.beginDownload(self.episode)
+		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
+			anim.fromValue = self.downProgressLayer.strokeEnd
+			anim.toValue = 0.1
+			anim.duration = 0.2
+			anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+			self.downProgressLayer.pop_add(anim, forKey: "image_rotaion")
+		}
 	}
 	
 	@objc func setSleepTime(){
@@ -106,8 +113,10 @@ extension PlayDetailToolBar {
 
 // MARK: - DownloadManagerDelegate
 extension PlayDetailToolBar: DownloadManagerDelegate {
-	
-	func downloadProgress(progress: Double) {
+	func downloadProgress(progress: Double, sourceUrl: String) {
+		guard sourceUrl == self.episode.trackUrl else {
+			return
+		}
 		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
 			anim.fromValue = self.downProgressLayer.strokeEnd
 			anim.toValue = progress
@@ -117,7 +126,11 @@ extension PlayDetailToolBar: DownloadManagerDelegate {
 		}
 	}
 	
-	func didDownloadSuccess(fileUrl: String?) {
+	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
+		guard sourceUrl == self.episode.trackUrl else {
+			return
+		}
+		
 		if fileUrl.isNone{
 			SwiftNotice.showText("下载失败")
 			return
@@ -135,9 +148,14 @@ extension PlayDetailToolBar: DownloadManagerDelegate {
 		DatabaseManager.add(download: self.episode!)
 	}
 	
-	func didDownloadFailure() {
+	func didDownloadFailure(sourceUrl: String) {
+		guard sourceUrl == self.episode.trackUrl else {
+			return
+		}
+		self.downProgressLayer.removeAllAnimations()
 		SwiftNotice.showText("下载失败")
 	}
+	
 	
 }
 
