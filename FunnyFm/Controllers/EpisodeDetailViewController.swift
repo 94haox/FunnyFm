@@ -11,11 +11,12 @@ import UIKit
 class EpisodeDetailViewController: UIViewController {
 
     
-    @IBOutlet weak var dateLB: UILabel!
+	@IBOutlet weak var copyRightLB: UILabel!
+	@IBOutlet weak var dateLB: UILabel!
     @IBOutlet weak var duration: UILabel!
-    @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var desLB: UILabel!
+	@IBOutlet weak var desTextView: UITextView!
+	
     @IBOutlet weak var podLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
     var episode: Episode!
@@ -23,17 +24,19 @@ class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-
+		let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+		self.copyRightLB.text = pod?.copyRight
+		self.desTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
+		self.desTextView.showsVerticalScrollIndicator = false
         self.titleLB.text = self.episode.title
 		self.dateLB.text = self.episode.pubDate
 		self.podLB.text = self.episode.author
 		self.duration.text = FunnyFm.formatIntervalToString(NSInteger(self.episode.duration))
-        self.containerView.snp.updateConstraints { (make) in
-            make.bottom.equalTo(self.desLB).offset(30)
-        }
+		
+		
 		
 		guard self.episode.intro.contains("<") else {
-			self.desLB.text = self.episode.intro;
+			self.desTextView.text = self.episode.intro;
 			return
 		}
 		
@@ -58,9 +61,9 @@ class EpisodeDetailViewController: UIViewController {
 					}
 				})
 			}
-			self.desLB.attributedText = attrStr;
+			self.desTextView.attributedText = attrStr;
 		}catch _ as NSError {
-			self.desLB.text = self.episode.intro;
+			self.desTextView.text = self.episode.intro;
 		}
 
     }

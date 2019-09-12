@@ -8,7 +8,7 @@
 
 import UIKit
 import MediaPlayer
-import Kingfisher
+import Nuke
 
 enum MAudioPlayState {
     case playing
@@ -21,7 +21,6 @@ protocol FMPlayerManagerDelegate {
 	func playerDidPlay()
 	func playerDidPause()
     func managerDidChangeProgress(progess:Double, currentTime: Double, totalTime: Double)
-    
 }
 
 class FMPlayerManager: NSObject {
@@ -56,7 +55,7 @@ class FMPlayerManager: NSObject {
     var currentTime: NSInteger = 0
     
     /// 总时长
-    var totalTime: NSInteger = 0
+    var totalTime: Double = 0
     
     var playState: MAudioPlayState = .waiting
 	
@@ -166,6 +165,9 @@ extension FMPlayerManager {
 	}
 	
     @objc func recivEndNotification(_ notify: Notification){
+		if self.playerItem.isNone || self.delegate.isNone {
+			return;
+		}
         self.seekToProgress(0)
         self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
 		self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
@@ -214,7 +216,7 @@ extension FMPlayerManager{
 					self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
                 }
                 self.currentTime = NSInteger(time.seconds)
-                self.totalTime = NSInteger((self.playerItem?.duration.seconds)!)
+                self.totalTime = (self.playerItem?.duration.seconds)!
                 self.delegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
 				self.playerDelegate?.managerDidChangeProgress(progess:time.seconds/(self.playerItem?.duration.seconds)!,currentTime: time.seconds, totalTime: (self.playerItem?.duration.seconds)!)
 				self.updateProgress()
@@ -342,7 +344,8 @@ extension FMPlayerManager {
 	}
 	
 	@objc func setBackground() {
-        let image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: (self.currentModel?.coverUrl)!)
+		let request = ImageRequest(url: URL.init(string: (self.currentModel?.coverUrl)!)!)
+		let image = ImageCache.shared[request]
 		var info = Dictionary<String, Any>()
 		info[MPMediaItemPropertyTitle] = self.currentModel?.title//歌名
 		info[MPMediaItemPropertyArtist] = self.currentModel?.author//作者

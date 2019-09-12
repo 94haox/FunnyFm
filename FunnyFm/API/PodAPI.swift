@@ -17,6 +17,7 @@ let kCheckNeteasePodSourceUrl = "v1/netease/podInfo"
 let kAddPodSourceUrl = "v1/addPodSource"
 let kSearchPodUrl = "v1/pod/searchPod"
 let kRegisterPodUrl = "v1/pod/registerPod"
+let kParserRssUrl = "v1/pod/parser"
 
 
 
@@ -29,6 +30,7 @@ public enum PodAPI {
 	case addPodSource(String, String, String)
 	case searchPod(String)
 	case searchTopic(String)
+	case parserRss(Dictionary<String, String>)
 	case registerPod(Dictionary<String, String>)
 }
 
@@ -45,36 +47,31 @@ extension PodAPI : TargetType {
 				params["podId"] = podId
 				params["source"] = source
 			}
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .addPodSource(let podId, let feedUrl, let sourceType):
 			params["podId"] = podId
 			params["feedUrl"] = feedUrl
 			params["sourceType"] = sourceType
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchPod(let keyWord):
 			params["term"] = keyWord
-			params["limit"] = "10"
+			params["limit"] = "20"
 			params["media"] = "podcast"
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .searchTopic(let keyWord):
 			params["term"] = "podcast"
 			params["genreId"] = keyWord
 			params["limit"] = "50"
-//			params["media"] = "podcast"
 			params["country"] = Locale.current.regionCode
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .registerPod(let param):
 			params = param
 			if UserCenter.shared.isLogin {
 				params["user_id"] = UserCenter.shared.userId
 			}
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
 		case .getPodList:
 			params["user_id"] = UserCenter.shared.userId
-			return .requestParameters(parameters: params, encoding: JSONEncoding.default)
-		default:
-			return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+		case .parserRss(let param):
+			params = param
 		}
+		
+		return .requestParameters(parameters: params, encoding: JSONEncoding.default)
     }
     
     
@@ -100,6 +97,8 @@ extension PodAPI : TargetType {
 			return kSearchPodUrl;
 		case .registerPod(_):
 			return kRegisterPodUrl
+		case .parserRss(_):
+			return kParserRssUrl
 		}
     }
     

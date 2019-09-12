@@ -11,54 +11,43 @@ import UIKit
 import SwiftyJSON
 
 struct Pod : Mapable{
-    var name:       String
-	var author:     String
-    var weburl:     String
-    var des:        String
-    var img:        String
-    var sourceType: String
-    var update_time:String
-    var albumId:    Int
-	var itunesId:		Int
-    var count:      Int
-    var isSubscribed: Bool
-	var last_episode_title:String
-	var sourceUrl   :String
+    var title:       String
+	var author: String
+	var description:     String
+    var url:     String
+    var image:        String
+	var items: Array<Episode>
+	var copyright: String
+	var updateTime: String
     
     init?(jsonData:JSON) {
-        name = jsonData["name"].stringValue
-        weburl = jsonData["weburl"].stringValue
-        des = jsonData["des"].stringValue
-        img = jsonData["img"].stringValue
-        sourceType = jsonData["source_type"].stringValue
-		if sourceType.length() < 1 {
-			sourceType = jsonData["sourceType"].stringValue
-		}
-        albumId = jsonData["albumId"].intValue
-        count = jsonData["count"].intValue
-        update_time = jsonData["update_time"].stringValue
-        last_episode_title = jsonData["last_chapter_title"].stringValue
-        isSubscribed = jsonData["isSubscribed"].boolValue
+		let time = jsonData["update_time"].intValue / 1000
+        title = jsonData["title"].stringValue
 		author = jsonData["author"].stringValue
-		sourceUrl = jsonData["source_url"].stringValue
-		itunesId = jsonData["itunesId"].intValue
+        url = jsonData["url"].stringValue
+        description = jsonData["description"].stringValue
+		image = jsonData["image"].stringValue
+		items = [Episode]()
+		copyright = jsonData["copyright"].stringValue
+		updateTime = Date.init(timeIntervalSince1970: TimeInterval(time)).dateString()
+		jsonData["items"].arrayValue.forEach { (itemJson) in
+			let episode = Episode.init(jsonData: itemJson)
+			if episode.isSome {
+				items.append(episode!)
+			}
+		}
     }
 
     
     enum CodingKeys : String, CodingKey {
-        case name
-        case weburl
-        case des
-        case img
-        case sourceType
-        case author
-        case albumId
-        case count
-        case update_time
-        case last_episode_title
-        case isSubscribed
-		case sourceUrl
-		case itunesId
+		case title
+		case description
+		case url
+		case image
+		case items
+		case copyright
+		case updateTime
+		case author
     }
     
     

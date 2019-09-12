@@ -12,10 +12,15 @@ import SPStorkController
 import Lottie
 import CleanyModal
 import NVActivityIndicatorView
+import GoogleMobileAds
+import YBTaskScheduler
+
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
 	
     var vm = MainViewModel.init()
+	
+	var scheduler = YBTaskScheduler.init(strategy: YBTaskSchedulerStrategy.FIFO)
     
     var containerView: UIView!
     
@@ -27,11 +32,13 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     
     var searchBtn : UIButton!
     
-    var profileBtn : UIButton!
+	var topBgView: UIView!
 	
 	var addBtn : UIButton!
 	
 	var emptyView: UIView!
+	
+	var avatarView: UIImageView!
 	
 	var loadAnimationView : AnimationView!
 	
@@ -56,8 +63,9 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 			self.navigationController?.pushViewController(emptyVC, animated: false)
 			UserDefaults.standard.set(true, forKey: "isFirstMain")
 		}
-		
-		self.vm.getAllPods()
+		self.scheduler.taskQueue = DispatchQueue.main
+		FeedManager.shared.delegate = self;
+		FeedManager.shared.getAllPods()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +73,13 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.emptyAnimationView.play()
 		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
+		self.vm.getAd(vc: self)
+		FeedManager.shared.delegate = self;
+		if UserCenter.shared.avatar.length() > 0 && UserCenter.shared.isLogin{
+			self.avatarView.loadImage(url: UserCenter.shared.avatar, placeholder:"profile")
+		}else{
+			self.avatarView.image = UIImage.init(named: "profile")
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -118,7 +133,14 @@ extension MainViewController{
 
 
 // MARK: - ViewModelDelegate
-extension MainViewController : MainViewModelDelegate {
+extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
+	func viewModelDidGetChapterlistSuccess() {
+		
+	}
+	
+	func feedManagerDidParserPodcasrSuccess() {
+	}
+	
     
     func viewModelDidGetDataSuccess() {
         self.collectionView.reloadData()
@@ -131,12 +153,36 @@ extension MainViewController : MainViewModelDelegate {
         SwiftNotice.noticeOnStatusBar("请求失败".localized, autoClear: true, autoClearTime: 2)
     }
 	
-	func viewModelDidGetChapterlistSuccess() {
-		self.tableview.isHidden = false
-		self.loadAnimationView.removeFromSuperview()
-		self.tableview.refreshControl?.endRefreshing()
+	func feedManagerDidGetEpisodelistSuccess() {
+		self.scheduler.addTask {
+			self.tableview.isHidden = false
+			self.loadAnimationView.removeFromSuperview()
+			self.tableview.refreshControl?.endRefreshing()
+			self.tableview.reloadData()
+			self.collectionView.reloadData()
+			self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+		}
+		
+	}
+	
+	func viewModelDidGetAdlistSuccess() {
+		if self.vm.nativeAds.count < 1{
+			return
+		}
+		var index = 0
+		for nativeAd in self.vm.nativeAds {
+			if index > FeedManager.shared.episodeList.count {
+				if index > FeedManager.shared.episodeList.count - 1 {
+					break
+				}
+				var episodelist = FeedManager.shared.episodeList[index]
+				episodelist.append(nativeAd)
+				index += 1
+			} else {
+				break
+			}
+		}
 		self.tableview.reloadData()
-		self.emptyView.isHidden = self.vm.podlist.count > 0
 	}
     
 }
@@ -145,16 +191,21 @@ extension MainViewController : MainViewModelDelegate {
 extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pod = self.vm.podlist[indexPath.row]
+        let pod = FeedManager.shared.podlist[indexPath.row]
         let vc = PodDetailViewController.init(pod: pod)
         self.navigationController?.pushViewController(vc)
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let episodeList = self.vm.episodeList[indexPath.section]
+		let episodeList = FeedManager.shared.episodeList[indexPath.section]
+		let item = episodeList[indexPath.row]
+		guard item is Episode else {
+			return;
+		}
+
 		FMToolBar.shared.isHidden = false
-        FMToolBar.shared.configToolBarAtHome(episodeList[indexPath.row])
+		FMToolBar.shared.configToolBarAtHome(item as! Episode)
     }
 }
 
@@ -163,34 +214,52 @@ extension MainViewController{
 extension MainViewController{
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return self.vm.episodeList.count
+		return FeedManager.shared.episodeList.count
 	}
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let episodeList = self.vm.episodeList[section]
+		let episodeList = FeedManager.shared.episodeList[section]
         return episodeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
-        return cell
+		let episodeList = FeedManager.shared.episodeList[indexPath.section]
+		let item = episodeList[indexPath.row]
+		if item is Episode {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
+			return cell
+		}else{
+			let cell = tableView.dequeueReusableCell(withIdentifier: "adcell", for: indexPath)
+			return cell
+		}
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? HomeAlbumTableViewCell else { return }
-		let episodeList = self.vm.episodeList[indexPath.section]
-        let episode = episodeList[indexPath.row]
-        cell.configHomeCell(episode)
-		cell.tranferNoParameterClosure { [weak self] in
-			self?.toDetail(episode: episode)
+		
+		let episodeList = FeedManager.shared.episodeList[indexPath.section]
+        let item = episodeList[indexPath.row]
+		if item is Episode{
+			guard let cell = cell as? HomeAlbumTableViewCell else { return }
+			let episode = item as! Episode
+			cell.configHomeCell(episode)
+			cell.tranferNoParameterClosure { [weak self] in
+				self?.toDetail(episode: episode)
+			}
+		}
+		
+		if item is GADUnifiedNativeAd {
+			guard let cell = cell as? AdMobTableViewCell else { return }
+			let ad = item as! GADUnifiedNativeAd
+			cell.config(nativeAd: ad)
 		}
     }
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let episodeList = self.vm.episodeList[section]
+		let episodeList = FeedManager.shared.episodeList[section]
 		let view = UIView.init()
 		view.backgroundColor = .white
-		let titleLB = UILabel.init(text: episodeList.first!.pubDate)
+		let episode = episodeList.first! as! Episode
+		let titleLB = UILabel.init(text: episode.pubDate)
 		titleLB.textColor = CommonColor.content.color
 		titleLB.font = p_bfont(12)
 		view.addSubview(titleLB)
@@ -221,7 +290,7 @@ extension MainViewController{
 extension MainViewController{
     
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return self.vm.podlist.count
+        return FeedManager.shared.podlist.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -244,7 +313,7 @@ extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? HomePodCollectionViewCell else { return }
-        let pod = self.vm.podlist[indexPath.row]
+        let pod = FeedManager.shared.podlist[indexPath.row]
 		if pod.collectionId.length() < 1 {
 			return
 		}
@@ -274,17 +343,28 @@ extension MainViewController {
     
     
     fileprivate func addConstrains() {
-        self.view.addSubview(self.profileBtn)
+		self.view.addSubview(self.topBgView)
+		self.view.addSubview(self.avatarView)
+//        self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.titileLB)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
-        
-        self.profileBtn.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize.init(width: 35, height: 35))
-            make.right.equalTo(self.searchBtn.snp.left).offset(-5)
-            make.centerY.equalTo(self.titileLB)
-        }
+		self.view.sendSubviewToBack(self.tableview)
+		self.view.addSubview(self.fetchLoadingView);
+		
+		
+		
+		self.topBgView.snp.makeConstraints { (make) in
+			make.left.width.top.equalToSuperview()
+			make.bottom.equalTo(self.titileLB).offset(5.adapt())
+		}
+		
+		self.avatarView.snp.makeConstraints { (make) in
+			make.size.equalTo(CGSize.init(width: 35, height: 35))
+			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
+			make.centerY.equalTo(self.titileLB)
+		}
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))
@@ -300,7 +380,7 @@ extension MainViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.titileLB.snp.bottom).offset(30.adapt())
+            make.top.equalTo(self.view.snp.topMargin)
         }
 		
 		self.loadAnimationView.snp.makeConstraints { (make) in
@@ -332,18 +412,23 @@ extension MainViewController {
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
+		let adNib = UINib.init(nibName: String.init(describing: AdMobTableViewCell.self), bundle: nil)
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+		self.tableview.register(adNib, forCellReuseIdentifier: "adcell")
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
         self.tableview.rowHeight = 100
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
-        self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+        self.tableview.contentInset = UIEdgeInsets.init(top: 35.adapt(), left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
-        
+		
+		self.topBgView = UIView.init()
+		self.topBgView.backgroundColor = .white
+		
         self.searchBtn = UIButton.init(type: .custom)
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
@@ -351,10 +436,12 @@ extension MainViewController {
 		self.titileLB = UILabel.init(text: "最近更新".localized)
 		self.titileLB.font = p_bfont(titleFontSize)
 		self.titileLB.textColor = CommonColor.subtitle.color
-        
-        self.profileBtn = UIButton.init(type: .custom)
-        self.profileBtn.setBackgroundImage(UIImage.init(named: "profile"), for: .normal)
-        self.profileBtn.addTarget(self, action: #selector(toUserCenter), for:.touchUpInside)
+		
+		self.avatarView = UIImageView.init()
+		self.avatarView.cornerRadius = 35.0/2
+		self.avatarView.isUserInteractionEnabled = true
+		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toUserCenter))
+		self.avatarView.addGestureRecognizer(tap)
 		
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
@@ -376,7 +463,6 @@ extension MainViewController {
 		emptyView.isHidden = true
 		
 		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);
-		self.view.addSubview(self.fetchLoadingView);
     }
     
 }
@@ -390,7 +476,7 @@ extension MainViewController {
 		self.view.addSubview(self.emptyView)
 		self.emptyView.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview()
-			make.top.equalTo(self.tableview)
+			make.top.equalTo(self.topBgView.snp.bottom)
 		}
 		
 		self.emptyView.addSubview(self.emptyAnimationView)

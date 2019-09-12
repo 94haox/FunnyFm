@@ -18,7 +18,7 @@ public extension FileManager {
     ///   - options: JSONSerialization reading options.
     /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
-    public func jsonFromFile(
+    func jsonFromFile(
         atPath path: String,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
 
@@ -36,7 +36,7 @@ public extension FileManager {
     ///   - readingOptions: JSONSerialization reading options.
     /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
-    public func jsonFromFile(
+    func jsonFromFile(
         withFilename filename: String,
         at bundleClass: AnyClass? = nil,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {

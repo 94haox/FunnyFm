@@ -90,6 +90,13 @@ class DatabaseManager: NSObject {
         try! database.delete(fromTable: historyTable,
                              where: ChapterProgress.Properties.episodeId == chapterId)
     }
+	
+	static public func deleteDownload(chapterId: String){
+		try! database.delete(fromTable: downloadTable,
+							 where: Episode.Properties.collectionId == chapterId)
+		
+		
+	}
     
 
     static public func allDownload() -> [Episode]{
@@ -110,17 +117,29 @@ class DatabaseManager: NSObject {
 	
 	/// pod 缓存
 	static public func allItunsPod() -> [iTunsPod] {
-		let itunsPodList : [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable)
+		var itunsPodList : [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable)
+		itunsPodList = itunsPodList.reversed()
 		return itunsPodList
 	}
 	
 	static public func getItunsPod(collectionId:String) -> iTunsPod?{
-		let podList = self.allItunsPod()
-		let pod = podList.filter { $0.collectionId == collectionId }
-		return pod.first
+		if collectionId.length() < 1 {
+			return nil
+		}
+		let podList: [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable,
+											   where: iTunsPod.Properties.collectionId == collectionId)
+		return podList.first
 	}
 	
 	static public func addItunsPod(pod: iTunsPod){
+		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
+		if exsitPod.isSome {
+			return
+		}
+		try! self.database.insert(objects: pod, intoTable: exsitPodTable)
+	}
+	
+	static public func updateItunsPod(pod: iTunsPod){
 		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
 		if exsitPod.isSome {
 			try! self.database.update(table: exsitPodTable, on: iTunsPod.Properties.all, with: pod, where: iTunsPod.Properties.collectionId == pod.collectionId)
@@ -141,7 +160,16 @@ class DatabaseManager: NSObject {
 			let second2 = obj2.pubDateSecond
 			return second1 >= second2
 		})
-		return episodeList
+		
+		var listDic = [String:Episode]()
+		var list = [Episode]()
+		episodeList.forEach { (episode) in
+			if listDic[episode.title] == nil {
+				listDic[episode.title] = episode
+				list.append(episode)
+			}
+		}
+		return list
 	}
 	
 	static public func allEpisodes(pod: iTunsPod) -> [Episode] {
@@ -152,26 +180,35 @@ class DatabaseManager: NSObject {
 			let second2 = obj2.pubDateSecond
 			return second1 <= second2
 		})
-
-		return episodeList
+		
+		var listDic = [String:Episode]()
+		var list = [Episode]()
+		episodeList.forEach { (episode) in
+			if listDic[episode.title] == nil {
+				listDic[episode.title] = episode
+				list.append(episode)
+			}
+		}
+		return list
 	}
 	
 	static public func getEpisode(title:String) -> Episode?{
 		let episodeList = self.allEpisodes()
-		let episodes = episodeList.filter { $0.title == title }
+		let episodes = episodeList.filter { $0.title == title}
 		return episodes.first
 	}
 	
 	static public func addEpisode(episode: Episode){
-		let exsitEpisode = self.getEpisode(title: episode.title)
-		if exsitEpisode.isSome {
+		let exsitEpisode: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
+													where: Episode.Properties.title == episode.title)
+		if exsitEpisode.count > 0 {
 			return
 		}
 		try! self.database.insert(objects: episode, intoTable: exsitEpisodeTable)
 	}
 	
 	static public func deleteEpisode(collectionId: String) {
-		try! database.delete(fromTable: exsitEpisodeTable,where: iTunsPod.Properties.collectionId == collectionId)
+		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.collectionId == collectionId)
 	}
     
     

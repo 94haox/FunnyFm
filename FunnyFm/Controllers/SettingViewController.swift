@@ -10,9 +10,11 @@ import UIKit
 import StoreKit
 import OneSignal
 
-class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
+class SettingViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
 
     var titleLB: UILabel!
+	
+	var versionLB: UILabel!
     
     var tableview : UITableView!
     
@@ -49,7 +51,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func setUpImmutableData(){
-		self.feedbacks.append(["title":"github issue","imageName":"github"])
+		self.feedbacks.append(["title":"Feedback","imageName":"github"])
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
 		self.others.append(["title":"将 FunnyFM 推荐给好友".localized,"imageName":"share"])
 		self.others.append(["title":"查看开发者其他的 App".localized,"imageName":"github"])
@@ -90,7 +92,6 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         let url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
         var responder = self as UIResponder?
         let selectorOpenURL = sel_registerName("openURL:")
-        
         while (responder != nil) {
             if (responder?.responds(to: selectorOpenURL))! {
                 let _ = responder?.perform(selectorOpenURL, with: url)
@@ -120,7 +121,7 @@ extension SettingViewController {
         
         if indexPath.section == 1{
             if indexPath.row == 0 {
-                UIApplication.shared.open(URL.init(string: "https://github.com/94haox/FunnyFM-issue/issues")!, options: [:], completionHandler:     nil)
+                UIApplication.shared.open(URL.init(string: "https://funnyfm.nolt.io")!, options: [:], completionHandler:     nil)
             }
         }
         
@@ -169,6 +170,7 @@ extension SettingViewController {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView.init()
+		view.backgroundColor = UIColor.white
 		let lb = UILabel.init(text: "通知".localized)
 		lb.textColor = CommonColor.subtitle.color
 		lb.font = pfont(fontsize2)
@@ -212,6 +214,7 @@ extension SettingViewController {
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
         self.view.addSubview(self.backBtn)
+		self.view.addSubview(self.versionLB)
         
         self.naviBar.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
@@ -235,6 +238,11 @@ extension SettingViewController {
             make.bottom.equalToSuperview()
             make.top.equalTo(self.naviBar.snp.bottom)
         }
+		
+		self.versionLB.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self.view.snp.bottomMargin).offset(-15)
+		}
     }
     
     func setupUI(){
@@ -259,6 +267,13 @@ extension SettingViewController {
         
         self.naviBar = UIView.init()
         self.naviBar.backgroundColor = .white
+		
+		let infoDic = Bundle.main.infoDictionary
+		let appVersion = infoDic?["CFBundleShortVersionString"]
+		let appBuildVersion = infoDic?["CFBundleVersion"]
+		self.versionLB = UILabel.init(text: "Version: " + (appVersion as! String) + "(\((appBuildVersion as! String)))")
+		self.versionLB.font = p_bfont(12)
+		self.versionLB.textColor = CommonColor.content.color
         
     }
 }

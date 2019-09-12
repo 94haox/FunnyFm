@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 import NVActivityIndicatorView
 import OfficeUIFabric
 
@@ -45,26 +44,25 @@ class PodPreviewViewController: BaseViewController {
 		}
 	}
 	
-	func configWithPod(pod :Pod){
+	func config(pod :Pod){
 		self.pod = pod;
-		self.podNameLB.text = pod.name
-		self.authorLB.text = pod.author
-		self.desLB.text = pod.des
-		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.img)!))
-		self.sourceLB.text = "来自：" + pod.sourceType;
+		self.podNameLB.text = pod.title
+//		self.authorLB.text = pod.author
+		self.desLB.text = pod.description
+		self.podImageView.loadImage(url: pod.image)
 	}
 	
 	func configWithPod(pod :iTunsPod){
 		self.itunsPod = pod;
-		self.podNameLB.text = pod.trackName
-		self.authorLB.text = pod.podAuthor
-		self.podImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
+		self.podNameLB.text = pod.trackName.trim()
+		self.authorLB.text = " Episode:  " + pod.trackCount
+		self.podImageView.loadImage(url:pod.artworkUrl600)
 //		self.sourceLB.text = "来自：" + "iTunes";
 	}
 	
 	@objc func addPodToLibary(){
 		self.shinkBtn()
-		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看")
+		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看".localized)
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
 		var params = [String: String]()
 		params["track_name"] = self.itunsPod.trackName;
@@ -72,13 +70,9 @@ class PodPreviewViewController: BaseViewController {
 		params["collection_id"] = self.itunsPod.collectionId;
 		params["source_type"] = "iTunes";
 		params["artwork_url"] = self.itunsPod.artworkUrl600
-		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
-		PodListViewModel.init().registerPod(params: params, success: { (msg) in
-			self.dismiss(animated: true, completion: {
-				if !PrivacyManager.isOpenPusn() {
-					NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
-				}
-			})
+		PodListViewModel.init().registerPod(params: params, success: { [weak self] (msg) in
+			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: self!.itunsPod.collectionId)
+			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
 		}
 	}
@@ -104,11 +98,12 @@ class PodPreviewViewController: BaseViewController {
 
 extension PodPreviewViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
-		SwiftNotice.showText("添加成功，正在抓取所有节目单，请稍候刷新")
+		SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看".localized)
 		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
+		
 	}
 	
 }
@@ -120,7 +115,7 @@ extension PodPreviewViewController {
 		self.podImageView.snp.makeConstraints { (make) in
 			make.top.equalTo(self.view).offset(44);
 			make.left.equalTo(self.view).offset(15);
-			make.size.equalTo(CGSize.init(width: 150, height: 150));
+			make.size.equalTo(CGSize.init(width: 100, height: 100));
 		}
 		
 		self.podNameLB.snp.makeConstraints { (make) in
@@ -130,7 +125,7 @@ extension PodPreviewViewController {
 		}
 		
 		self.authorLB.snp.makeConstraints { (make) in
-			make.width.left.equalTo(self.podNameLB);
+			make.left.equalTo(self.podNameLB);
 			make.top.equalTo(self.podNameLB.snp.bottom).offset(12)
 		}
 		
@@ -207,9 +202,9 @@ extension PodPreviewViewController {
 		self.view.addSubview(self.subTempView)
 		
 		self.subscribeBtn = UIButton.init(type: .custom)
-		self.subscribeBtn.setTitle("添加至订阅库", for: .normal)
+		self.subscribeBtn.setTitle("Subscribe", for: .normal)
 		self.subscribeBtn.setTitleColor(.white, for: .normal)
-		self.subscribeBtn.titleLabel?.font = h_bfont(18);
+		self.subscribeBtn.titleLabel?.font = h_bfont(16);
 		self.subscribeBtn.cornerRadius = 15;
 		self.subscribeBtn.layer.masksToBounds = true;
 		self.subscribeBtn.backgroundColor = CommonColor.mainRed.color

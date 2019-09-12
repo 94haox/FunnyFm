@@ -12,29 +12,15 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+		self.titleLB.text = "近期收听".localized
         self.view.addSubview(self.tableview)
-        self.view.addSubview(self.titleLB)
-		
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.left.equalToSuperview().offset(16)
-        }
-		
+		self.tableview.reloadData()
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
             make.top.equalTo(self.titleLB.snp.bottom)
         }
     }
-    
-    
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "近期收听".localized)
-        lb.font = p_bfont(titleFontSize)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
     
     lazy var tableview : UITableView = {
         let table = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -51,7 +37,7 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
     
     
     lazy var historyList : [Episode] = {
-        return DatabaseManager.allHistory()
+        return DatabaseManager.allHistory().reversed()
     }()
 
 }
@@ -60,9 +46,9 @@ class HistoryListViewController: BaseViewController, UITableViewDelegate, UITabl
 extension HistoryListViewController{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let history = self.historyList[indexPath.row]
+//        let history = self.historyList[indexPath.row]
 //        FMToolBar.shared.configToolBar(history)
-//		FMToolBar.shared.toPlayDetailView()
+//		 FMToolBar.shared.toPlayDetailView()
     }
     
 }
@@ -81,7 +67,7 @@ extension HistoryListViewController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeAlbumTableViewCell else { return }
         let history = self.historyList[indexPath.row]
-        cell.configCell(history)
+        cell.configNoDetailCell(history)
     }
     
 }

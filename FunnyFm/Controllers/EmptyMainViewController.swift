@@ -11,7 +11,10 @@ import Lottie
 
 class EmptyMainViewController: UIViewController {
 
+	@IBOutlet weak var welcomeTopConst: NSLayoutConstraint!
+	@IBOutlet weak var musicTopConst: NSLayoutConstraint!
 	@IBOutlet weak var welcomeLB: UILabel!
+	@IBOutlet weak var welImgView: UIImageView!
 	
 	var firework : AnimationView = {
 		let view = AnimationView.init(name: "boom")
@@ -20,6 +23,11 @@ class EmptyMainViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		welcomeTopConst.constant = 50.adapt()
+		musicTopConst.constant = 100.adapt()
+		welImgView.snp_makeConstraints { (make) in
+			make.height.equalTo(260.adapt())
+		}
 		self.view.addSubview(self.firework)
 		self.firework.snp.makeConstraints { (make) in
 			make.center.equalTo(self.welcomeLB)
@@ -41,9 +49,9 @@ class EmptyMainViewController: UIViewController {
 	}
 	
 	@IBAction func toLoginVC(_ sender: Any) {
-		let login = NeLoginViewController()
-		self.navigationController?.pushViewController(login)
-		self.navigationController?.viewControllers .remove(at: 1)
+		let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+		self.navigationController?.present(loginNavi, animated: true, completion: nil)
+		self.navigationController?.viewControllers.remove(at: 1)
 	}
 
 }

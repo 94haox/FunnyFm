@@ -19,6 +19,11 @@ class UserCenterCollectionViewCell: UICollectionViewCell {
         self.titleLB.textColor = CommonColor.title.color
         self.subtitleLB.textColor = CommonColor.content.color
         self.cornerRadius = 15.0
+//		let path = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: UIRectCorner(rawValue: UIRectCorner.topRight.rawValue|UIRectCorner.bottomLeft.rawValue), cornerRadii: CGSize.init(width: 15, height: 15))
+//		let masklayer = CAShapeLayer.init()
+//		masklayer.frame = self.bounds
+//		masklayer.path = path.cgPath
+//		self.layer.mask = masklayer
     }
     
     func configCell(_ dic: [String:String]){

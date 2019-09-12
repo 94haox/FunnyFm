@@ -60,9 +60,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-So-9c3">
-                    <rect key="frame" x="24" y="525" width="50" height="30"/>
+                    <rect key="frame" x="24" y="525" width="70" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="X0l-Kb-fFk"/>
+                        <constraint firstAttribute="width" constant="70" id="X0l-Kb-fFk"/>
                         <constraint firstAttribute="height" constant="25" id="b1M-Q5-QXE"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>

@@ -18,6 +18,8 @@ class ChapterProgressView: UIView {
     let feedBackGenertor = UIImpactFeedbackGenerator.init(style: .light)
     
     var beginPoint: CGPoint?
+	
+	weak var delegate : ChapterProgressDelegate?
     
     var fontSize: CGFloat = 6 {
         didSet{
@@ -26,9 +28,9 @@ class ChapterProgressView: UIView {
         }
     }
     
-    var progressHeigth: CGFloat = 4
+    var progressHeigth: CGFloat = 15
     
-    var cycleW: CGFloat = 10 {
+    var cycleW: CGFloat = 20 {
         didSet{
             self.nowCycle.cornerRadius = cycleW/2.0
             self.nowCycle.addShadow(ofColor: CommonColor.mainRed.color)
@@ -48,7 +50,7 @@ class ChapterProgressView: UIView {
     }
     
     func changeProgress(progress:Double, current:String, total:String){
-        self.allDot.text = total
+        self.allDot.text = "- " + total
         self.nowDot.text = current
         if self.isDrag {
             return
@@ -65,26 +67,27 @@ class ChapterProgressView: UIView {
         self.addSubview(self.allDot)
         self.addSubview(self.nowDot)
         self.addSubview(self.nowCycle)
+		self.currentProgress.addShadow(ofColor: CommonColor.mainRed.color, radius: 5, offset: CGSize.init(width: 2, height: 4), opacity: 0.6)
         
         self.nowDot.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(2)
+            make.top.equalTo(self.nowCycle.snp.bottom).offset(4)
+            make.left.equalTo(self.totalProgress)
         }
         
         self.allDot.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-2)
+            make.top.equalTo(self.nowCycle.snp.bottom).offset(4)
+            make.right.equalTo(self.totalProgress)
         }
         
         self.totalProgress.snp.makeConstraints { (make) in
-            make.left.equalTo(self.nowDot.snp.right).offset(10)
-            make.right.equalTo(self.allDot.snp.left).offset(-10)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
             make.height.equalTo(self.progressHeigth)
             make.centerY.equalToSuperview()
         }
         
         self.currentProgress.snp.makeConstraints { (make) in
-            make.left.equalTo(self.nowDot.snp.right).offset(10)
+            make.left.equalToSuperview().offset(10)
             make.height.equalTo(self.progressHeigth)
             make.centerY.equalToSuperview()
             make.width.equalTo(0)
@@ -102,40 +105,38 @@ class ChapterProgressView: UIView {
     lazy var nowCycle : UIView = {
         let view = UIView.init()
         view.backgroundColor = CommonColor.mainRed.color
-        view.borderWidth = 1
+        view.borderWidth = 5
         view.borderColor = .white
-        view.cornerRadius = self.cycleW/2
-        view.addShadow(ofColor: CommonColor.mainRed.color)
         return view
     }()
     
     lazy var nowDot : UILabel = {
-        let lb = UILabel.init(text: "00:00:00")
+        let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
-        lb.font = hfont(self.fontSize)
+        lb.font = h_bfont(self.fontSize)
         return lb
     }()
     
     lazy var allDot : UILabel = {
-        let lb = UILabel.init(text: "00:00:00")
+        let lb = UILabel.init(text: "00:00")
         lb.textColor = CommonColor.content.color
         lb.textAlignment = .center
-        lb.font = hfont(self.fontSize)
+        lb.font = h_bfont(self.fontSize)
         return lb
     }()
     
     lazy var totalProgress: UIView = {
         let view = UIView.init()
         view.backgroundColor = RGB(236, 238, 240)
-        view.cornerRadius = self.progressHeigth/2.0
+        view.cornerRadius = 3
         return view
     }()
     
     lazy var currentProgress: UIView = {
         let view = UIView.init()
         view.backgroundColor = CommonColor.mainRed.color
-        view.cornerRadius = self.progressHeigth/2.0
+        view.cornerRadius = 3
         return view;
     }()
     
@@ -153,8 +154,8 @@ extension ChapterProgressView {
             self.isDrag = true
             if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
                 anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
-                anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.5, y: 1.5))
-                anim.springBounciness = 30
+                anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.2, y: 1.2))
+                anim.springBounciness = 20
                 self.nowCycle.layer.pop_add(anim, forKey: "size")
             }
         }
@@ -173,6 +174,8 @@ extension ChapterProgressView {
                 self.currentProgress.snp.updateConstraints { (make) in
                     make.width.equalTo(x)
                 }
+				self.layoutIfNeeded()
+				self.delegate?.progressDidChange(progress: self.currentProgress.frame.width/self.totalProgress.frame.width)
             }
         }
     }
@@ -187,6 +190,7 @@ extension ChapterProgressView {
             FMPlayerManager.shared.seekToProgress(progress)
         }
         self.isDrag = false
+		self.delegate?.progressDidEndDrag()
     }
     
     

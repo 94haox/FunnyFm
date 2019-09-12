@@ -22,7 +22,7 @@ class TopicTableViewCell: UITableViewCell {
         
         trackNameLabel.numberOfLines = 0
         trackNameLabel.textColor = CommonColor.title.color
-        trackNameLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        trackNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
         
         contentView.addSubview(iconImageView)
         contentView.addSubview(trackNameLabel)

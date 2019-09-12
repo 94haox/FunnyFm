@@ -12,6 +12,8 @@ import OneSignal
 
 class PushManager: NSObject {
 	
+	static let shared = PushManager.init()
+	
 	func configurePushSDK(launchOptions: [UIApplication.LaunchOptionsKey: Any]?){
 		
 		let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false,kOSSettingsKeyInAppLaunchURL: true]
@@ -41,8 +43,33 @@ class PushManager: NSObject {
 			print("User accepted notifications: \(accepted)")
 		})
 		
-		
-		
+	}
+	
+	func removeAllTages(){
+		OneSignal.getTags { (tags) in
+			var tagKeys = [Any]()
+			guard let _ = tags else{
+				return
+			}
+			
+			tags!.forEach({ (keyPair) in
+				tagKeys.append(keyPair.key)
+			})
+			
+			OneSignal.deleteTags(tagKeys)
+		}
+	}
+	
+	func removeTags(tags: [String]){
+		OneSignal.deleteTags(tags)
+	}
+	
+	func addTag(taglist: [AnyHashable: Any]) {
+		OneSignal.sendTags(taglist, onSuccess: nil, onFailure: { (error) in
+			if let cError = error {
+				print("onesignaltag",cError.localizedDescription)
+			}
+		})
 	}
 	
 	

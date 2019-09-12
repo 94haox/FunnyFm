@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class HomeEpisodeTableViewCell: BaseTableViewCell {
 
@@ -41,8 +40,7 @@ class HomeEpisodeTableViewCell: BaseTableViewCell {
         self.desLB.text = chapter.intro
         self.titleLB.text = chapter.title
         self.timeLB.text = chapter.pubDate
-        let resource = ImageResource.init(downloadURL: URL.init(string: chapter.coverUrl)!)
-        self.logoImageView.kf.setImage(with: resource)
+        self.logoImageView.loadImage(url: chapter.coverUrl)
     }
     
 }

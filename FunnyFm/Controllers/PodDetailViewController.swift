@@ -37,7 +37,7 @@ class PodDetailViewController: BaseViewController {
 	
 	deinit {
 		if self.subBtn.isSelected {
-			self.vm.deleteAllEpisode(collectionId: self.pod.collectionId, podId: self.pod.podId)
+			FeedManager.shared.deleteAllEpisode(collectionId: self.pod.collectionId, podId: self.pod.podId)
 		}
 	}
 	
@@ -48,25 +48,36 @@ class PodDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.addSubviews()
+		self.addHeader()
 		self.dw_addConstraints()
         self.vm.parserNewChapter(pod: self.pod)
+		FeedManager.shared.delegate = self
 		self.config()
     }
 
 	func config(){
 		self.title = "detail"
-		self.podNameLB.text = self.pod.trackName
-		self.podAuthorLB.text = self.pod.podAuthor.length() > 0 ? self.pod.podAuthor : "未知"
-		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {result in}
+		self.podNameLB.text = self.pod.trackName.trimmingCharacters(in: CharacterSet.whitespaces)
+		self.podAuthorLB.text = self.pod.podAuthor.length() > 0 ? self.pod.podAuthor.trimmingCharacters(in: CharacterSet.whitespaces) : "未知"
+		self.podImageView.loadImage(url: self.pod.artworkUrl600, placeholder: nil)
 	}
 	
 	@objc func subscribtionAction() {
+		ImpactManager.impact()
 		self.subBtn.isSelected = !self.subBtn.isSelected;
 		self.subBtn.backgroundColor = self.subBtn.isSelected ? .white : CommonColor.mainRed.color
 	}
 	
+	func toDetail(episode: Episode) {
+		let detailVC = EpisodeDetailViewController.init()
+		detailVC.episode = episode
+		self.navigationController?.pushViewController(detailVC);
+	}
 	
-
+	@objc func refreshData (){
+		FeedManager.shared.parserForSingle(feedUrl: self.pod.feedUrl, collectionId: self.pod.collectionId)
+	}
+	
 }
 
 
@@ -87,6 +98,20 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 	func podDetailCancelSubscribeSuccess() {
 	
 	}
+}
+
+extension PodDetailViewController: FeedManagerDelegate {
+	
+	func feedManagerDidGetEpisodelistSuccess() {
+		self.tableview.refreshControl?.endRefreshing()
+		self.tableview.reloadData()
+	}
+	
+	
+	func feedManagerDidParserPodcasrSuccess() {
+		
+	}
+	
 }
 
 
@@ -115,11 +140,20 @@ extension PodDetailViewController: UITableViewDataSource {
 		guard let cell = cell as? HomeAlbumTableViewCell else { return }
 		let episode = self.vm.episodeList[indexPath.row]
 		cell.configCell(episode)
+		cell.tranferNoParameterClosure { [weak self] in
+			self?.toDetail(episode: episode)
+		}
 	}
 }
 
 
 extension PodDetailViewController {
+	
+	func addHeader(){
+		let refreshControl = UIRefreshControl.init()
+		refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+		self.tableview.refreshControl = refreshControl;
+	}
 	
 	func dw_addConstraints(){
 		self.view.addSubview(self.tableview)
@@ -133,13 +167,13 @@ extension PodDetailViewController {
 		self.topView.snp.makeConstraints { (make) in
 			make.left.width.equalToSuperview()
 			make.top.equalTo(self.view.snp.topMargin)
-			make.height.equalTo(180)
+			make.bottom.equalTo(self.subBtn).offset(14)
 		}
 		
 		self.podImageView.snp.makeConstraints { (make) in
-			make.left.equalToSuperview().offset(30)
+			make.left.equalToSuperview().offset(18)
 			make.top.equalToSuperview().offset(18)
-			make.size.equalTo(CGSize.init(width: 80, height: 80))
+			make.size.equalTo(CGSize.init(width: 100, height: 100))
 		}
 		
 		self.podNameLB.snp.makeConstraints { (make) in
@@ -154,15 +188,15 @@ extension PodDetailViewController {
 		}
 		
 		self.countLB.snp.makeConstraints { (make) in
-			make.left.equalTo(self.podAuthorLB.snp.right).offset(8);
-			make.top.equalTo(self.podAuthorLB)
+			make.left.equalTo(self.podNameLB);
+			make.top.equalTo(self.podAuthorLB.snp.bottom).offset(12)
 		}
 		
 		self.subBtn.snp.makeConstraints { (make) in
 			make.left.equalTo(self.podImageView);
-			make.right.equalToSuperview().offset(-30)
-			make.height.equalTo(40)
-			make.top.equalTo(self.podImageView.snp.bottom).offset(25)
+			make.right.equalToSuperview().offset(-18)
+			make.height.equalTo(45)
+			make.top.equalTo(self.countLB.snp.bottom).offset(50)
 		}
 		
 		
@@ -182,8 +216,8 @@ extension PodDetailViewController {
 		
 		self.podNameLB = UILabel.init(text: self.pod.trackName)
 		self.podNameLB.textColor = CommonColor.title.color
-		self.podNameLB.font = p_bfont(16)
-		self.podNameLB.numberOfLines = 1;
+		self.podNameLB.font = p_bfont(18)
+		self.podNameLB.numberOfLines = 0;
 		
 		self.podAuthorLB = UILabel.init(text: self.pod.podAuthor)
 		self.podAuthorLB.textColor = CommonColor.content.color

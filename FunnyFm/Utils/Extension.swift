@@ -58,11 +58,19 @@ extension Float {
 	func adapt() -> CGFloat{
 		return AdaptScale(CGFloat(self))
 	}
+	
+	func adaptH() -> CGFloat {
+		return AdaptScaleH(CGFloat(self))
+	}
 }
 
 extension CGFloat {
 	func adapt() -> CGFloat{
 		return AdaptScale(self)
+	}
+	
+	func adaptH() -> CGFloat {
+		return AdaptScaleH(self)
 	}
 }
 
@@ -70,11 +78,19 @@ extension Double {
 	func adapt() -> CGFloat{
 		return AdaptScale(CGFloat(self))
 	}
+	
+	func adaptH() -> CGFloat {
+		return AdaptScaleH(CGFloat(self))
+	}
 }
 
 extension Int {
 	func adapt() -> CGFloat{
 		return AdaptScale(CGFloat(self))
+	}
+	
+	func adaptH() -> CGFloat {
+		return AdaptScaleH(CGFloat(self))
 	}
 }
 

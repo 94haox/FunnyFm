@@ -20,13 +20,15 @@ class PodDetailViewModel: NSObject {
 
 	var episodeList : [Episode]!
 	
+	var pod: iTunsPod?
+	
 	func parserNewChapter(pod: iTunsPod){
+		self.pod = pod
 		self.episodeList = DatabaseManager.allEpisodes(pod: pod)
 		self.delegate?.podDetailParserSuccess()
-		FeedManager.shared.parserRss(pod) { (podlist) in
-			self.episodeList = DatabaseManager.allEpisodes(pod: pod)
-			self.delegate?.podDetailParserSuccess()
-		}
+		FeedManager.shared.delegate = self
+		FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId)
+		
 	}
 	
 	func cancelSubscribe(collectionId: String) {
@@ -34,16 +36,17 @@ class PodDetailViewModel: NSObject {
 		self.delegate?.podDetailCancelSubscribeSuccess()
 	}
 	
-	func deleteAllEpisode(collectionId: String, podId: String) {
-		DatabaseManager.deleteItunsPod(collectionId: collectionId)
-		DatabaseManager.deleteEpisode(collectionId: collectionId)
-		OneSignal.deleteTag(podId)
-		if podId.length() < 1 {
-			return;
-		}
-		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), success: { (_) in
-		}) { (msg) in
-		}
+}
+
+extension PodDetailViewModel : FeedManagerDelegate {
+	
+	func feedManagerDidGetEpisodelistSuccess() {
+		self.episodeList = DatabaseManager.allEpisodes(pod: self.pod!)
+		self.delegate?.podDetailParserSuccess()
+	}
+	
+	func feedManagerDidParserPodcasrSuccess(){
+		
 	}
 	
 }

@@ -29,7 +29,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 		self.dw_addSubviews()
 		self.searchTF.delegate = self;
-		self.vm.delegate = self;
+		self.vm.delegate = self
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -69,7 +69,11 @@ class SearchViewController: UIViewController {
 }
 
 
-extension SearchViewController : ViewModelDelegate {
+extension SearchViewController : PodListViewModelDelegate {
+	func didSyncSuccess(index: Int) {
+
+	}
+	
 	func viewModelDidGetDataSuccess() {
 		MSHUD.shared.hide()
 		self.cateBtn.isHidden = false
@@ -99,10 +103,14 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 			return;
 		}
 		let pod = self.vm.itunsPodlist[indexPath.row]
+		if pod.feedUrl.length() < 1 {
+			SwiftNotice.showText("Error - Rss not found")
+			return;
+		}
 		let preview = PodPreviewViewController()
 		preview.modalPresentationStyle = .overCurrentContext
 		let transitionDelegate = SPStorkTransitioningDelegate()
-		transitionDelegate.customHeight = 350;
+		transitionDelegate.customHeight = 300;
 		preview.transitioningDelegate = transitionDelegate
 		preview.modalPresentationStyle = .custom
 		preview.modalPresentationCapturesStatusBarAppearance = true

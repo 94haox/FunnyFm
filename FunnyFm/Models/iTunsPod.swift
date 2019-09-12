@@ -12,6 +12,7 @@ import WCDBSwift
 
 struct iTunsPod : Mapable, TableCodable {
 	var podId: String
+	var podDes: String
 	var podAuthor: String
 	var trackName:     String
 	var trackCount:     String
@@ -32,6 +33,7 @@ struct iTunsPod : Mapable, TableCodable {
 			trackCount = "0"
 			podAuthor = ""
 			copyRight = ""
+			podDes = ""
 			podId = jsonData["_id"].stringValue
 		}else{
 			feedUrl = jsonData["feedUrl"].stringValue
@@ -43,7 +45,21 @@ struct iTunsPod : Mapable, TableCodable {
 			podId = ""
 			podAuthor = ""
 			copyRight = ""
+			podDes = ""
 		}
+	}
+	
+	init(pod: Pod) {
+		feedUrl = pod.url
+		trackName = pod.title
+		collectionId = ""
+		artworkUrl600 = pod.image
+		trackCount = String(pod.items.count)
+		releaseDate = pod.updateTime
+		podId = ""
+		podAuthor = pod.author
+		copyRight = pod.copyright
+		podDes = pod.description
 	}
 	
 	init(dic:NSDictionary) {
@@ -57,6 +73,7 @@ struct iTunsPod : Mapable, TableCodable {
 			trackCount = "0"
 			podAuthor = ""
 			copyRight = ""
+			podDes = ""
 			podId = dic["_id"] as! String
 		}else{
 			feedUrl = dic["feedUrl"] as! String
@@ -68,12 +85,14 @@ struct iTunsPod : Mapable, TableCodable {
 			podId = ""
 			podAuthor = ""
 			copyRight = ""
+			podDes = ""
 		}
 	}
 	
 	enum CodingKeys : String, CodingKey,CodingTableKey {
 		typealias Root = iTunsPod
 		static let objectRelationalMapping = TableBinding(CodingKeys.self)
+		case podDes
 		case trackName
 		case feedUrl
 		case collectionId

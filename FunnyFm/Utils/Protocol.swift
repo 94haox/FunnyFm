@@ -10,6 +10,12 @@ import Foundation
 
 // MARK: 代理
 @objc protocol ViewModelDelegate {
-    func viewModelDidGetDataSuccess()
-    func viewModelDidGetDataFailture(msg:String?)
+     func viewModelDidGetDataSuccess()
+     func viewModelDidGetDataFailture(msg:String?)
+}
+
+
+@objc protocol ChapterProgressDelegate {
+	 func progressDidChange(progress:CGFloat)
+	 func progressDidEndDrag()
 }

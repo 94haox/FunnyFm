@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class PodDetailHeader: UIView {
 
@@ -30,7 +29,7 @@ class PodDetailHeader: UIView {
 	
 	func config(model:iTunsPod){
 		self.pod = model
-		self.podImageView.kf.setImage(with: URL.init(string: self.pod.artworkUrl600)!) {[weak self] result in}
+		self.podImageView.loadImage(url: self.pod.artworkUrl600)
 		self.podNameLB.text = model.trackName
 		self.podAuthorLB.text = model.podAuthor
 	}

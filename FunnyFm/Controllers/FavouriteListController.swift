@@ -10,8 +10,7 @@ import UIKit
 import Lottie
 
 class FavouriteListController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var titleLB: UILabel!
+	
     
     var tableview: UITableView!
     
@@ -88,13 +87,7 @@ extension FavouriteListController{
     
     func addSubViews(){
         self.view.addSubview(self.tableview)
-        self.view.addSubview(self.titleLB)
         self.view.addSubview(self.syncAniView)
-        
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.left.equalToSuperview().offset(16)
-        }
         
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
@@ -110,9 +103,7 @@ extension FavouriteListController{
     }
     
     func setupUI() {
-        self.titleLB = UILabel.init(text: "我的收藏".localized)
-        self.titleLB.font = p_bfont(titleFontSize)
-        self.titleLB.textColor = CommonColor.subtitle.color
+        self.titleLB.text = "我的收藏".localized
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)

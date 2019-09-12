@@ -7,15 +7,14 @@
 //
 
 import UIKit
-import Kingfisher
 import pop
 import Lottie
 
 class HomeAlbumTableViewCell: UITableViewCell {
 
-    
-    var playStateView: AnimationView!
-    @IBOutlet weak var timeLB: UILabel!
+	@IBOutlet weak var shadowBgView: UIView!
+	@IBOutlet weak var moreBtn: UIButton!
+	@IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var updateLB: UILabel!
@@ -24,14 +23,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        self.playStateView = AnimationView.init(name: "play_state")
-        self.playStateView.loopMode = .loop
-        self.contentView.addSubview(self.playStateView)
-        self.playStateView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.logoImageView.snp.bottom)
-            make.centerX.equalTo(self.logoImageView)
-            make.size.equalTo(CGSize.init(width: 50, height: 50))
-        }
+		self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 2, height: 2), opacity: 1)
     }
 	
 	public func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {
@@ -45,9 +37,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        self.playStateView.alpha = selected ? 1 : 0
-        selected ? self.playStateView.play() : self.playStateView.stop()
+        super.setSelected(selected, animated: animated) 
     }
     
     
@@ -55,16 +45,20 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = episode.title
         self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-		let resource = ImageResource.init(downloadURL: URL.init(string: episode.podCoverUrl)!)
-        self.logoImageView.kf.setImage(with: resource)
+        self.logoImageView.loadImage(url: episode.podCoverUrl)
     }
     
     func configCell(_ episode:Episode){
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: episode.coverUrl)!) )
+        self.logoImageView.loadImage(url: episode.podCoverUrl)
     }
+	
+	func configNoDetailCell(_ episode:Episode){
+		self.moreBtn.isHidden = true;
+		self.configCell(episode)
+	}
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

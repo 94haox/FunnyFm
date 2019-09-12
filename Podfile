@@ -15,8 +15,7 @@ def layout
     pod 'CleanyModal', '~> 0.1.1'
 		pod 'NVActivityIndicatorView'
 		pod 'OfficeUIFabric', '0.2.11'
-		pod 'gooey-cell'
-		pod 'PullToReach'
+		pod 'Hero'
 		pod 'LookinServer', :configurations => ['Debug']
 end
 
@@ -24,23 +23,24 @@ def lib
     pod 'KeychainAccess'
     pod 'WCDB.swift'
     pod 'RxSwift'
-    pod 'Kingfisher'
+		pod 'RxCocoa'
+		pod 'PullToReach'
+		pod 'Nuke', '~> 8.0.1'
+		pod 'EFIconFont', :subspecs => ['Complete']
     pod 'SwiftyJSON'
     pod 'Moya'
     pod 'WechatOpenSDK'
-		pod 'AppCenter' 
 		pod 'FeedKit', '~> 8.0'
 		pod 'OneSignal', '>= 2.6.2', '< 3.0'
 		pod 'FirebaseUI/Auth'
 		pod 'FirebaseUI/Google'
+		pod 'YBTaskScheduler'
 end
 
 
 # 广告
 def ads
-	
 	pod 'Google-Mobile-Ads-SDK'
-	
 end
 
 # 性能和崩溃分析

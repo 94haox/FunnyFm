@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import Kingfisher
 import pop
 import Lottie
 import MediaPlayer
 import AVKit
+import EFIconFont
 
-class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
+class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     
     var episode: Episode!
     
@@ -25,21 +25,13 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
 //    var likeBtn: UIButton!
 	
-	var airBtn: AVRoutePickerView!
-	
-	var likeAniView: AnimationView!
-	
 	var swipeAniView: AnimationView!
 	
-    var rateBtn: UIButton!
-    
-    var downBtn: UIButton!
+	var playToolbar : PlayDetailToolBar!
     
     var rewindBtn: UIButton!
     
     var forwardBtn: UIButton!
-    
-    var sleepBtn: UIButton!
     
     var infoImageView: UIImageView!
     
@@ -53,14 +45,13 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
     
     var playBtn : AnimationButton!
     
-    var downProgressLayer: CAShapeLayer!
-    
-    var downBackView: UIView!
-    
     var viewModel: UserViewModel = UserViewModel()
 	
 	var startPoint: CGPoint!
+	
     var timer: Timer?
+	
+	var hud: ProgressHUD!
 	
 	var isImpact = false
 	
@@ -68,7 +59,7 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
         super.viewDidLoad()
         self.dw_addSubviews()
         self.dw_addConstraints()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = CommonColor.background.color
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
 		
@@ -79,7 +70,7 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 //        }
 		
 		if DatabaseManager.qureyDownload(title: self.episode.title).isSome {
-			self.downBtn.isSelected = true
+			self.playToolbar.downBtn.isSelected = true
 		}
     }
     
@@ -100,6 +91,11 @@ class PlayerDetailViewController: BaseViewController,FMPlayerManagerDelegate {
 		super.viewWillDisappear(animated)
 		FMToolBar.shared.isHidden = false
 	}
+	
+	lazy var tapGes: UITapGestureRecognizer = {
+		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toPodDetail))
+		return tap
+	}()
 
 }
 
@@ -116,54 +112,22 @@ extension PlayerDetailViewController {
     
     func playerDidPlay() {
         self.playBtn!.isSelected = true
+		FMToolBar.shared.playBtn.isSelected = true
     }
     
     func playerDidPause() {
         self.playBtn!.isSelected = false
+		FMToolBar.shared.playBtn.isSelected = false
     }
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
-        self.progressLine!.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
+        self.progressLine!.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)-NSInteger(currentTime)))
     }
     
 }
 
-extension PlayerDetailViewController: DownloadManagerDelegate {
-	
-	func downloadProgress(progress: Double) {
-		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
-			anim.fromValue = self.downProgressLayer.strokeEnd
-			anim.toValue = progress
-			anim.duration = 0.2
-			anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-			self.downProgressLayer.pop_add(anim, forKey: "image_rotaion")
-		}
-	}
-	
-	func didDownloadSuccess(fileUrl: String?) {
-		if fileUrl.isNone{
-			SwiftNotice.showText("下载失败")
-			return
-		}
-		self.downBtn.isSelected = true
-		self.downProgressLayer.isHidden = true
-		SwiftNotice.showText("下载成功，您可以在个人中心-我的下载查看")
-		if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
-			anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
-			anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.5, y: 1.5))
-			anim.springBounciness = 20
-			self.downBtn!.layer.pop_add(anim, forKey: "size")
-		}
-		self.episode!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
-		DatabaseManager.add(download: self.episode!)
-	}
-	
-	func didDownloadFailure() {
-		SwiftNotice.showText("下载失败")
-	}
-	
-}
 
+// MARK: - UIScrollViewDelegate
 extension PlayerDetailViewController : UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -200,6 +164,23 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
     }
 }
 
+// MARK: - ChapterProgressDelegate
+extension PlayerDetailViewController : ChapterProgressDelegate {
+	
+	func progressDidChange(progress: CGFloat) {
+		if !FMPlayerManager.shared.isCanPlay {
+			return
+		}
+		
+		let time = FunnyFm.formatIntervalToMM(NSInteger(FMPlayerManager.shared.totalTime * Double(progress)))
+		self.hud.show(title: time)
+	}
+	
+	func progressDidEndDrag() {
+		self.hud.hide()
+	}
+	
+}
 
 // MARK: actions
 extension PlayerDetailViewController {
@@ -214,21 +195,15 @@ extension PlayerDetailViewController {
     }
     
     @objc func rewindAction(){
+		ImpactManager.impact()
         FMPlayerManager.shared.seekAdditionSecond(-15)
     }
     
     @objc func forwardAction(){
+		ImpactManager.impact()
         FMPlayerManager.shared.seekAdditionSecond(15)
     }
-    
-    @objc func downloadAction(){
-		if self.downBtn.isSelected {
-			SwiftNotice.showText("已下载")
-			return;
-		}
-		DownloadManager.shared.delegate = self;
-		DownloadManager.shared.beginDownload(self.episode)
-    }
+	
 	
 	@objc func likeAction(){
         
@@ -249,61 +224,18 @@ extension PlayerDetailViewController {
 //		self.likeAniView.play()
 
 	}
-    
-    @objc func setSleepTime(){
-		
-        let alertController = UIAlertController.init(title: "定时关闭", message: nil, preferredStyle: .actionSheet)
-        let squaterAction = UIAlertAction.init(title: "15分钟后", style: .default) { (action) in
-            FMPlayerManager.shared.startSleep(seconds: 15*60)
-        }
-        let halfAction = UIAlertAction.init(title: "30分钟后", style: .default){ (action) in
-            FMPlayerManager.shared.startSleep(seconds: 30 * 60)
-        }
-        let hourAction = UIAlertAction.init(title: "1小时后", style: .default){ (action) in
-            FMPlayerManager.shared.startSleep(seconds: 60 * 60)
-        }
-        let endAction = UIAlertAction.init(title: "播放结束后", style: .default){ (action) in}
-		let cancelAction = UIAlertAction.init(title: "取消", style: .cancel) { (action) in
-			FMPlayerManager.shared.cancelSleep()
-		}
-        alertController.addAction(squaterAction)
-        alertController.addAction(halfAction)
-        alertController.addAction(hourAction)
-        alertController.addAction(endAction)
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
-		
-    }
-    
-    @objc func changeRateAction(btn: UIButton){
-        var rate = 1.0;
-        switch btn.titleLabel?.text {
-        case "1x":
-            btn.setTitle("1.5x", for: .normal)
-            rate = 1.5
-            break
-        case "2x":
-            btn.setTitle("1x", for: .normal)
-            rate = 1
-            break
-        case "1.5x":
-            btn.setTitle("2x", for: .normal)
-            rate = 2
-            break
-        default:
-            break
-        }
-		
-		FMPlayerManager.shared.playRate = Float(rate)
-        FMPlayerManager.shared.player?.rate = Float(rate)
-        if !FMPlayerManager.shared.isPlay {
-            FMPlayerManager.shared.player?.pause()
-        }
-    }
-    
+	
     @objc func back(){
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
+	
+	@objc func toPodDetail(){
+		let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+		let detailVC =  PodDetailViewController.init(pod: pod!)
+		let navi = UIApplication.shared.keyWindow!.rootViewController as! UINavigationController
+		navi.pushViewController(detailVC)
+		self.navigationController?.dismiss(animated: true, completion: nil)
+	}
     
     func sleep(with time: String) {
         switch time {
@@ -317,13 +249,34 @@ extension PlayerDetailViewController {
             break
         }
     }
-    
-    func timerAction(){
-        
-    }
-    
 }
 
+extension PlayerDetailViewController: PlayDetailToolBarDelegate {
+	func didTapSleepBtn() {
+		let alertController = UIAlertController.init(title: "定时关闭", message: nil, preferredStyle: .actionSheet)
+		let squaterAction = UIAlertAction.init(title: "15分钟后", style: .default) { (action) in
+			FMPlayerManager.shared.startSleep(seconds: 15*60)
+		}
+		let halfAction = UIAlertAction.init(title: "30分钟后", style: .default){ (action) in
+			FMPlayerManager.shared.startSleep(seconds: 30 * 60)
+		}
+		let hourAction = UIAlertAction.init(title: "1小时后", style: .default){ (action) in
+			FMPlayerManager.shared.startSleep(seconds: 60 * 60)
+		}
+		let endAction = UIAlertAction.init(title: "播放结束后", style: .default){ (action) in}
+		let cancelAction = UIAlertAction.init(title: "取消", style: .cancel) { (action) in
+			FMPlayerManager.shared.cancelSleep()
+		}
+		alertController.addAction(squaterAction)
+		alertController.addAction(halfAction)
+		alertController.addAction(hourAction)
+		alertController.addAction(endAction)
+		alertController.addAction(cancelAction)
+		self.navigationController?.present(alertController, animated: true, completion: nil)
+	}
+}
+
+// MARK: - Touch
 extension PlayerDetailViewController {
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -342,8 +295,6 @@ extension PlayerDetailViewController {
 	}
 	
 }
-
-
 
 // MARK:  UI
 extension PlayerDetailViewController {
@@ -370,7 +321,7 @@ extension PlayerDetailViewController {
         self.infoScrollView.snp.makeConstraints { (make) in
             make.centerX.width.equalToSuperview()
             make.centerY.equalTo(self.coverBackView)
-            make.height.equalTo(self.coverBackView).offset(AdaptScale(30))
+            make.height.equalTo(self.coverBackView).offset(30.adaptH())
         }
         
         self.infoImageView.snp.makeConstraints { (make) in
@@ -381,59 +332,25 @@ extension PlayerDetailViewController {
         
         self.coverBackView.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(57))
-            make.size.equalTo(CGSize.init(width: AdaptScale(200), height: AdaptScale(200)))
+            make.top.equalTo(self.subTitle.snp.bottom).offset(40.adaptH())
+            make.size.equalTo(CGSize.init(width: 240.adaptH(), height: 240.adaptH()))
         })
 		
 		self.coverImageView.snp.makeConstraints({ (make) in
 			make.edges.equalTo(self.coverBackView)
 		})
-        
-//        self.likeBtn.snp.makeConstraints({ (make) in
-//            make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(77+57)+AdaptScale(244))
-//            make.right.equalTo(self.view.snp.centerX).offset(-32)
-//            make.size.equalTo(CGSize.init(width: 25, height: 25))
-//        })
 		
-		self.airBtn.snp.makeConstraints({ (make) in
-			make.top.equalTo(self.subTitle.snp.bottom).offset(AdaptScale(57)+AdaptScale(244))
-			make.right.equalTo(self.view.snp.centerX).offset(-32)
-			make.size.equalTo(CGSize.init(width: AdaptScale(25), height: AdaptScale(25)))
-		})
 		
-        self.rateBtn.snp.makeConstraints({ (make) in
-			make.centerY.equalTo(self.airBtn)
-            make.left.equalTo(self.view.snp.centerX).offset(32)
-            make.size.equalTo(CGSize.init(width: AdaptScale(30), height: AdaptScale(25)))
-        })
-        
-        self.downBtn.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.airBtn)
-            make.left.equalTo(self.rateBtn!.snp.right).offset(AdaptScale(70))
-            make.size.equalTo(CGSize.init(width: AdaptScale(25), height: AdaptScale(25)))
-        })
-        
-        self.downBackView.snp.makeConstraints { (make) in
-            make.center.equalTo(self.downBtn)
-            make.size.equalTo(CGSize.init(width: AdaptScale(35), height: AdaptScale(35)))
-        }
-        
-        self.sleepBtn.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.airBtn)
-            make.right.equalTo(self.airBtn.snp.left).offset(-74)
-            make.size.equalTo(CGSize.init(width: 25, height: 25))
-        })
-        
         self.progressLine.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().offset(-48)
+            make.width.equalToSuperview().offset(-48.adapt())
             make.height.equalTo(AdaptScale(20))
-            make.top.equalTo(self.downBtn.snp.bottom).offset(72.adapt())
+            make.top.equalTo(self.infoScrollView.snp.bottom).offset(27.adaptH())
         })
         
         self.playBtn.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(self.view.snp_bottomMargin).offset(-50.adapt())
+            make.top.equalTo(self.progressLine.snp.bottom).offset(50.adaptH())
             make.size.equalTo(CGSize.init(width: AdaptScale(60), height: AdaptScale(60)))
         })
         
@@ -449,6 +366,13 @@ extension PlayerDetailViewController {
             make.size.equalTo(CGSize.init(width: 30.adapt(), height: 30.adapt()))
         })
 		
+		self.playToolbar.snp_makeConstraints { (make) in
+			make.top.equalTo(self.playBtn.snp.bottom).offset(50.adaptH())
+			make.centerX.equalToSuperview()
+			make.width.equalToSuperview().offset(-40.adapt())
+			make.height.equalTo(48.adapt())
+		}
+		
 //		self.likeAniView.snp.makeConstraints { (make) in
 //			make.center.equalTo(self.likeBtn)
 //			make.size.equalTo(self.likeBtn).multipliedBy(2)
@@ -458,6 +382,12 @@ extension PlayerDetailViewController {
 			make.center.equalTo(self.coverImageView)
 			make.width.equalToSuperview()
 			make.height.equalTo(self.coverImageView)
+		}
+		
+		self.hud.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview();
+			make.bottom.equalTo(self.progressLine.snp.top).offset(-20.adaptH())
+			make.size.equalTo(CGSize.init(width: 60, height: 30.adapt()))
 		}
         
     }
@@ -473,10 +403,14 @@ extension PlayerDetailViewController {
         self.titleLB.font = p_bfont(fontsize6)
         self.view.addSubview(self.titleLB)
         
-        self.subTitle = UILabel.init(text: self.episode.author)
-        self.subTitle.textColor = CommonColor.content.color
-        self.subTitle.font = pfont(fontsize0)
+		self.subTitle = UILabel.init(text: self.episode.author)
+		self.subTitle.isUserInteractionEnabled = true
+		let author = NSMutableAttributedString.init(string: self.episode.author)
+		author.addAttributes([NSAttributedString.Key.foregroundColor : CommonColor.content.color, NSAttributedString.Key.font : pfont(fontsize2)], range: NSRange.init(location: 0, length: self.episode.author.length()))
+		self.subTitle.attributedText = author + NSMutableAttributedString.init(string: " ") + NSMutableAttributedString.init(attributedString: EFIconFont.antDesign.rightCircle.attributedString(size: fontsize2, foregroundColor: CommonColor.content.color, backgroundColor: nil)!)
         self.view.addSubview(self.subTitle)
+		self.subTitle.addGestureRecognizer(self.tapGes)
+		
         
         self.infoScrollView = UIScrollView.init(frame: CGRect.zero)
         self.infoScrollView.showsHorizontalScrollIndicator = false;
@@ -494,72 +428,23 @@ extension PlayerDetailViewController {
         
 		self.coverImageView = UIImageView.init()
         self.coverImageView.isUserInteractionEnabled = true
-        self.coverImageView.kf.setImage(with: URL.init(string: (self.episode?.coverUrl)!)!) {[unowned self] result in
-            switch result { 
-            case .success(let value):
-                self.coverBackView.addShadow(ofColor: value.image.mostColor(), radius: 20, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+		self.coverImageView.loadImage(url: (self.episode?.coverUrl)!, placeholder: nil) { [unowned self] (image) in
+			self.coverBackView.addShadow(ofColor: image.mostColor(), radius: 20, offset: CGSize.zero, opacity: 0.8)
+		}
+		
 		self.coverImageView.cornerRadius = 15.adapt()
 		self.coverBackView.addSubview(self.coverImageView)
 		
-//		self.likeAniView = AnimationView(name: "like_button")
-//
-//		let tap = UITapGestureRecognizer.init(target: self, action: #selector(likeAction))
-//		self.likeAniView.addGestureRecognizer(tap)
-//		self.view.addSubview(self.likeAniView)
-//
-//        self.likeBtn = UIButton.init(type: .custom)
-//        self.likeBtn.setImage(UIImage.init(named: "favor-nor"), for: .normal)
-//        self.likeBtn.setImage(UIImage.init(named: "favor-sel"), for: .selected)
-//		self.likeBtn.addTarget(self, action: #selector(likeAction), for: .touchUpInside)
-//        self.view.addSubview(self.likeBtn)
-		
-		self.airBtn = AVRoutePickerView.init(frame: CGRect.zero)
-		self.airBtn.activeTintColor = CommonColor.mainRed.color
-		self.airBtn.tintColor = CommonColor.title.color
-		self.view.addSubview(self.airBtn)
-		
-        self.downProgressLayer = CAShapeLayer.init()
-        let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 35, height: 35))
-        self.downProgressLayer.path = bezier.cgPath
-        self.downProgressLayer.fillColor = UIColor.white.cgColor;
-        self.downProgressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
-        self.downProgressLayer.strokeStart = 0
-        self.downProgressLayer.strokeEnd = 0
-        self.downProgressLayer.cornerRadius = 3
-        self.downProgressLayer.lineWidth = 3
-        self.downProgressLayer.lineCap = .round
-        
-        self.downBackView = UIView.init()
-        self.downBackView.layer.addSublayer(self.downProgressLayer)
-        self.view.addSubview(self.downBackView)
-        
-        self.downBtn = UIButton.init(type: .custom)
-        self.downBtn.setImage(UIImage.init(named: "download-black"), for: .normal)
-		self.downBtn.setImage(UIImage.init(named: "download-red"), for: .selected)
-        self.downBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
-        self.view.addSubview(self.downBtn)
-        
-        
-        self.sleepBtn = UIButton.init(type: .custom)
-        self.sleepBtn.imageView?.contentMode = .scaleAspectFit
-        self.sleepBtn.setImage(UIImage.init(named: "timer-sleep"), for: .normal)
-        self.sleepBtn.addTarget(self, action: #selector(setSleepTime), for: .touchUpInside)
-        self.view.addSubview(self.sleepBtn)
-        
-        self.rateBtn = UIButton.init(type: .custom)
-        self.rateBtn.setTitle("1x", for: .normal)
-        self.rateBtn.titleLabel?.font = h_bfont(fontsize6)
-        self.rateBtn.setTitleColor(CommonColor.title.color, for: .normal)
-        self.rateBtn.addTarget(self, action: #selector(changeRateAction(btn:)), for: .touchUpInside)
-        self.view.addSubview(self.rateBtn)
+		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
+		self.playToolbar.layer.cornerRadius = 24.adapt()
+		self.playToolbar.delegate = self
+		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.zero, opacity: 0.6)
+		self.view.addSubview(self.playToolbar)
         
         self.progressLine = ChapterProgressView()
-        self.progressLine.cycleW = 18.adapt()
+        self.progressLine.cycleW = 20.adapt()
         self.progressLine.fontSize = fontsize0
+		self.progressLine.delegate = self;
         self.view.addSubview(self.progressLine)
         
         self.playBtn = AnimationButton.init(type: .custom)
@@ -569,7 +454,7 @@ extension PlayerDetailViewController {
         self.playBtn.isSelected = FMPlayerManager.shared.isPlay
         self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
         self.playBtn.cornerRadius = 30.adapt()
-        self.playBtn.addShadow(ofColor: CommonColor.mainRed.color, opacity: 0.8)
+        self.playBtn.addShadow(ofColor: CommonColor.mainRed.color, radius: 20.adapt(), offset: CGSize.zero, opacity: 0.8)
         self.view.addSubview(self.playBtn)
         
         self.rewindBtn = UIButton.init(type: .custom)
@@ -585,6 +470,9 @@ extension PlayerDetailViewController {
         self.swipeAniView = AnimationView.init(name: "swip_guid")
 		self.swipeAniView.loopMode = .loop
 		self.infoScrollView.addSubview(self.swipeAniView)
+		
+		self.hud = ProgressHUD.init(frame: CGRect.zero)
+		self.view.addSubview(self.hud)
 
     }
 

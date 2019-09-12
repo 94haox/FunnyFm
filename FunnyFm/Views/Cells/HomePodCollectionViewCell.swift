@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class HomePodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
@@ -18,7 +17,7 @@ class HomePodCollectionViewCell: UICollectionViewCell {
     }
     
     func configCell(_ pod: iTunsPod) {
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
+        self.logoImageView.loadImage(url: pod.artworkUrl600)
     }
 
 }

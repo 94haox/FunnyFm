@@ -15,23 +15,28 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.titleLB.text = "Hi"
         self.dw_addSubviews()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		if UserCenter.shared.isLogin {
+			if UserCenter.shared.name.length() > 0 {
+				self.titleLB.text = "Hi  \(UserCenter.shared.name)"
+			}
 			logoutBtn.setTitle("退出登录".localized, for: .normal)
 		}else{
 			logoutBtn.setTitle("登录".localized, for: .normal)
 		}
 	}
 	
+	
 	@objc func toLogoutAction(){
 		
 		if !UserCenter.shared.isLogin {
-			let login = NeLoginViewController()
-			self.navigationController?.pushViewController(login)
+			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+			self.navigationController?.present(loginNavi, animated: true, completion: nil)
 			return
 		}
 		
@@ -41,16 +46,11 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	}
     
     func dw_addSubviews(){
-        
-        self.view.addSubview(self.titleLB)
+		
         self.view.addSubview(self.collectionView)
-        self.titleLB.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.left.equalToSuperview().offset(30)
-        }
-        
+		
         self.collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLB.snp.bottom).offset(30.adapt())
+            make.top.equalTo(self.titleLB.snp.bottom)
             make.left.width.bottom.equalToSuperview()
         }
 		
@@ -75,18 +75,11 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 
     }
     
-    lazy var titleLB: UILabel = {
-        let lb = UILabel.init(text: "Hi")
-        lb.font = h_bfont(titleFontSize)
-        lb.textColor = CommonColor.subtitle.color
-        return lb
-    }()
-    
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: AdaptScale(146), height: AdaptScale(168))
+        layout.itemSize = CGSize(width: AdaptScale(146), height: AdaptScale(170))
         layout.minimumLineSpacing = 16
-        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 30, bottom: 120, right: 30)
+        layout.sectionInset = UIEdgeInsets.init(top: 30.adapt(), left: 30, bottom: 120, right: 30)
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         let nib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
         let headernib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
@@ -99,11 +92,10 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     }()
     
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
-//                                           ["title":"我的收藏","subtitle":"","imageName":"mark"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
-										   ["title":"Ad".localized,"subtitle":"看个广告激励作者","imageName":"Ad"],
+										   ["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]
 }
 
@@ -141,8 +133,8 @@ extension UserCenterViewController {
 		}
 		
 		if !UserCenter.shared.isLogin {
-			let login = NeLoginViewController()
-			self.navigationController?.pushViewController(login)
+			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+			self.navigationController?.present(loginNavi, animated: true, completion: nil)
 			return
 		}
 		

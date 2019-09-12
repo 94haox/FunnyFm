@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class PodListCollectionViewCell: UICollectionViewCell {
 
@@ -25,13 +24,14 @@ class PodListCollectionViewCell: UICollectionViewCell {
 		self.imageBg.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.titleLB.textColor = CommonColor.title.color
         self.updateTimeLB.textColor = CommonColor.subtitle.color
-        // Initialization code
+		self.updateTimeLB.font = p_bfont(10)
     }
     
     func configCell(_ pod: iTunsPod){
-        self.logoImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: pod.artworkUrl600)!))
+        self.logoImageView.loadImage(url: pod.artworkUrl600)
         self.titleLB.text = pod.trackName
         self.updateTimeLB.text = self.fromStringToDate(string: pod.releaseDate).dateString()
+//		self.updateTimeLB.text = "\(pod.trackCount)  Episodes"
     }
 	
 	func fromStringToDate(string :String) ->Date{

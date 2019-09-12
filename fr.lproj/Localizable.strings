@@ -65,5 +65,11 @@
 "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦"="Pour vous informer de la mise à jour du podcast à temps, FunnyFM doit obtenir l'autorisation Push du téléphone mobile.";
 "去设置"="Ouvert";
 "不，我不需要"="Non, je n'ai pas besoin";
-
-
+"看个广告激励作者"="Annonce graphique";
+"添加成功，正在获取所有节目单，请稍候查看"="Ajouté avec succès, obtenant tous les épisodes simples, veuillez patienter";
+"已同步"="Synced";
+"未同步"="Non synced";
+"同步订阅"="Sync to cloud";
+"自动同步订阅"="AutoSync";
+"同步成功"="Synchronisation réussie";
+"同步中"= "Synchronisation des contacts…";

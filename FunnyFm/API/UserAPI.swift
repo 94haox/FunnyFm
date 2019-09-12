@@ -25,8 +25,8 @@ let kFavourList = "v1/user/favourList"
 let UserProvider = MoyaProvider<UserAPI>()
 
 public enum UserAPI {
-    case login(String,String)
-    case register(String,String)
+	case login([String: Any])
+    case register([String: Any])
     case addFavour(String)
     case disFavour(String)
     case addSubscribe(String)
@@ -41,10 +41,8 @@ extension UserAPI : TargetType {
     public var task: Task {
         var params:[String : Any] = [:]
         switch self {
-        case .login(let mail,let password),.register(let mail, let password):
-            params["mail"] = mail
-            params["password"] = password
-            params["type"] = "email"
+        case .login(let param),.register(let param):
+			params = param;
             break;
         case .addFavour(let episodeId), .disFavour(let episodeId):
             params["user_id"] = UserCenter.shared.userId
