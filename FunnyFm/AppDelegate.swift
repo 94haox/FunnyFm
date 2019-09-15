@@ -35,6 +35,21 @@ import FirebaseUI
 		PushManager().configurePushSDK(launchOptions: launchOptions)
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
+		let mainVC = MainViewController()
+		mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage.init(named: "handbag")!, tag: 0)
+		
+		let downloadVC = DownloadListController()
+		downloadVC.tabBarItem = UITabBarItem(title: "Downloads", image: UIImage.init(named: "download")!, tag: 0)
+		downloadVC.tabBarItem.selectedImage = UIImage.init(named: "download")!
+		
+		
+		UIApplication.shared.applicationIconBadgeNumber = 0
+		let userVC = UserCenterViewController()
+		userVC.tabBarItem = UITabBarItem(title: "Center", image: UIImage.init(named: "profile"), tag: 0)
+		
+		let tabBarController = BubbleTabBarController()
+		tabBarController.viewControllers = [mainVC,downloadVC, userVC]
+		tabBarController.tabBar.tintColor = CommonColor.mainRed.color
 		var navi = UINavigationController.init(rootViewController: MainViewController.init())
 		navi.navigationBar.isHidden = true
 		if !UserDefaults.standard.bool(forKey: "isFirst") {

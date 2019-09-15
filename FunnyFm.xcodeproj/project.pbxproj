@@ -134,6 +134,10 @@
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
 		AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1AE822F9237700790787 /* GoogleService-Info.plist */; };
+		AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C54232A993300FF3757 /* DownloadListViewController.swift */; };
+		AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */; };
+		AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */; };
+		AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */; };
 		ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA077A7231BB926006B2779 /* ImpactManager.swift */; };
 		ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */; };
 		ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */; };
@@ -424,6 +428,10 @@
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB7B1A9922F8413400790787 /* AdShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdShowViewController.swift; sourceTree = "<group>"; };
 		AB7B1AE822F9237700790787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB872C54232A993300FF3757 /* DownloadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
+		AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBarController.swift; sourceTree = "<group>"; };
+		AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
+		AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTabBarButton.swift; sourceTree = "<group>"; };
 		ABA077A7231BB926006B2779 /* ImpactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactManager.swift; sourceTree = "<group>"; };
 		ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewController.swift; sourceTree = "<group>"; };
@@ -840,6 +848,7 @@
 				AB63D76823167A6200F76F8E /* PlaylistViewController.swift */,
 				AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */,
 				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
+				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -897,6 +906,7 @@
 		AB41AAF9219564F000260851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AB872C56232BC4F600FF3757 /* BubbleTabbarController */,
 				AB2A37272328ADDE0097DAF7 /* LoadingButton */,
 				AB0C64C4230B8E1800C4DF30 /* PathKit.swift */,
 				AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */,
@@ -1012,6 +1022,16 @@
 				AB6D1B1922C633EA00E9E221 /* Info.plist */,
 			);
 			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		AB872C56232BC4F600FF3757 /* BubbleTabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */,
+				AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */,
+				AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */,
+			);
+			path = BubbleTabbarController;
 			sourceTree = "<group>";
 		};
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
@@ -1481,6 +1501,7 @@
 				AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */,
 				ABEE40E021E3292400FCB16F /* SchemManager.swift in Sources */,
 				ABE7ACBA21C21C1A00FC6B8E /* BaseTableViewCell.swift in Sources */,
+				AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */,
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
@@ -1502,6 +1523,7 @@
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
+				AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
@@ -1585,6 +1607,7 @@
 				AB41AAE221952EAA00260851 /* Episode.swift in Sources */,
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
 				AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */,
+				AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */,
 				ABEE40D521E3246E00FCB16F /* MJRefreshAutoGifFooter.m in Sources */,
 				ABEE40D721E3246E00FCB16F /* MJRefreshNormalHeader.m in Sources */,
 				AB571D8D22B209E80021236C /* FeedManager.swift in Sources */,
@@ -1632,6 +1655,7 @@
 				ABE7660621D7196700470D8F /* URLExtensions.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,
+				AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */,
 				ABEE40D121E3246E00FCB16F /* MJRefreshBackGifFooter.m in Sources */,
 				ABEF471221E8B6E400212DCA /* User.swift in Sources */,
 				ABDC4D2C22CCAAB700EF31C0 /* EmptyMainViewController.swift in Sources */,
