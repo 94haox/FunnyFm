@@ -366,12 +366,12 @@ extension MainViewController {
 		
 		self.topBgView.snp.makeConstraints { (make) in
 			make.left.width.top.equalToSuperview()
-			make.bottom.equalTo(self.titileLB).offset(5.adapt())
+			make.bottom.equalTo(self.avatarView).offset(5.adapt())
 		}
 		
 		self.avatarView.snp.makeConstraints { (make) in
 			make.size.equalTo(CGSize.init(width: 35, height: 35))
-			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
+			make.left.equalTo(self.view).offset(16)
 			make.centerY.equalTo(self.titileLB)
 		}
         
@@ -382,7 +382,7 @@ extension MainViewController {
         }
         
         self.titileLB.snp.makeConstraints { (make) in
-            make.left.equalTo(self.view).offset(16)
+            make.left.equalTo(self.avatarView.snp.right).offset(12)
             make.top.equalTo(self.view.snp.topMargin)
         }
                 
@@ -443,7 +443,7 @@ extension MainViewController {
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
 		
 		self.titileLB = UILabel.init(text: "最近更新".localized)
-		self.titileLB.font = p_bfont(titleFontSize)
+		self.titileLB.font = p_bfont(subTitleFontSize)
 		self.titileLB.textColor = CommonColor.subtitle.color
 		
 		self.avatarView = UIImageView.init()

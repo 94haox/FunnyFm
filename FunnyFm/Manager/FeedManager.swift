@@ -104,7 +104,9 @@ extension FeedManager {
 				}
 				
 				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), success: { (item) in
-					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
+					if item!.items.count > 0 {
+						self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
+					}
 					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 					print("\(podCount)---------------fetched")
 					podCount -= 1

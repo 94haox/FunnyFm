@@ -10,20 +10,18 @@ import UIKit
 import StoreKit
 import OneSignal
 
-class SettingViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 
-    var titleLB: UILabel!
 	
 	var versionLB: UILabel!
     
     var tableview : UITableView!
-    
-    var backBtn : UIButton!
-    
+
     var naviBar: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.titleLB.text = "设置".localized
 		self.setUpImmutableData()
         self.setupUI()
         self.view.backgroundColor = .white
@@ -212,27 +210,15 @@ extension SettingViewController {
     func dw_addsubviews(){
         self.view.addSubview(self.naviBar)
         self.view.addSubview(self.tableview)
-        self.view.addSubview(self.titleLB)
-        self.view.addSubview(self.backBtn)
 		self.view.addSubview(self.versionLB)
+		self.view.sendSubviewToBack(self.naviBar)
         
         self.naviBar.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.top.equalTo(self.view.snp_topMargin)
             make.height.equalTo(44)
         }
-        
-        self.titleLB.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.naviBar)
-            make.centerX.equalToSuperview()
-        }
-        
-        self.backBtn.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.naviBar)
-            make.left.equalToSuperview().offset(16)
-            make.size.equalTo(CGSize.init(width: 30, height: 30))
-        }
-        
+		
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -256,14 +242,6 @@ extension SettingViewController {
         self.tableview.dataSource = self
         self.tableview.tableFooterView = UIView()
         self.tableview.showsVerticalScrollIndicator = false
-        
-        self.titleLB = UILabel.init(text: "设置".localized)
-        self.titleLB.font = p_bfont(18)
-        self.titleLB.textColor = CommonColor.title.color
-        
-        self.backBtn = UIButton.init(type: .custom)
-        self.backBtn.setImage(UIImage.init(named: "back_black"), for: .normal)
-        self.backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         
         self.naviBar = UIView.init()
         self.naviBar.backgroundColor = .white
