@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
 	
 	lazy var titleLB: UILabel = {
 		let lb = UILabel.init()
-		lb.font = p_bfont(titleFontSize)
+		lb.font = p_bfont(subtitleFontSize)
 		lb.textColor = CommonColor.subtitle.color
 		return lb
 	}()

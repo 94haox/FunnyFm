@@ -88,6 +88,7 @@
 		AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */; };
 		AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */; };
 		AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */; };
+		AB34C4FC2331DFDA007FC0EC /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
 		AB41AAE021952D2200260851 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
@@ -348,6 +349,7 @@
 		AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunsPodTableViewCell.swift; sourceTree = "<group>"; };
 		AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		AB32CF5B22B39A32007C9E41 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		AB41AADF21952D2200260851 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
@@ -1045,6 +1047,7 @@
 				ABE765FD21D7196700470D8F /* NSAttributedStringExtensions.swift */,
 				ABE765FE21D7196700470D8F /* CalendarExtensions.swift */,
 				ABEE40E121E32C1700FCB16F /* StringExtension.swift */,
+				AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1523,6 +1526,7 @@
 				ABEE40DA21E3246E00FCB16F /* MJRefreshFooter.m in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				ABEE40E721E35C3800FCB16F /* UserAPI.swift in Sources */,
+				AB34C4FC2331DFDA007FC0EC /* ArrayExtension.swift in Sources */,
 				ABEE40DB21E3246E00FCB16F /* MJRefreshHeader.m in Sources */,
 				ABEE40CE21E3246E00FCB16F /* UIScrollView+MJExtension.m in Sources */,
 				AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */,

@@ -202,7 +202,7 @@ extension PodPreviewViewController {
 		self.view.addSubview(self.subTempView)
 		
 		self.subscribeBtn = UIButton.init(type: .custom)
-		self.subscribeBtn.setTitle("Subscribe", for: .normal)
+		self.subscribeBtn.setTitle("订阅".localized, for: .normal)
 		self.subscribeBtn.setTitleColor(.white, for: .normal)
 		self.subscribeBtn.titleLabel?.font = h_bfont(16);
 		self.subscribeBtn.cornerRadius = 15;

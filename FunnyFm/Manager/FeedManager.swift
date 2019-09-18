@@ -96,17 +96,20 @@ extension FeedManager {
 		NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserBegin"), object: nil)
 		DispatchQueue.global().async {
 			var podCount = podList.count
+			
+			let semphore = DispatchSemaphore.init(value: 2)
+			
 			podList.forEach { (pod) in
+				semphore.wait()
 				var last_title = ""
 				let episodeList = DatabaseManager.allEpisodes(pod: pod)
 				if let episode = episodeList.first {
 					last_title = episode.title
 				}
-				
 				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), success: { (item) in
+					semphore.signal()
 					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
 					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-					print("\(podCount)---------------fetched")
 					podCount -= 1
 					DispatchQueue.main.async {
 						if podCount == 0 {
@@ -116,6 +119,7 @@ extension FeedManager {
 						self.delegate?.feedManagerDidGetEpisodelistSuccess()
 					}
 				}, { (error) in
+					semphore.signal()
 					podCount -= 1
 					if podCount == 0 {
 						self.isParsering = false
@@ -124,6 +128,8 @@ extension FeedManager {
 						}
 					}
 				})
+
+				
 			}
 		}
 	}
@@ -188,6 +194,9 @@ extension FeedManager {
 	
 	func addOrUpdate(itunesPod:iTunsPod, episodelist: Array<Episode>) {
 		var pod = itunesPod
+		if episodelist.count < 1 {
+			return
+		}
 		if pod.podAuthor != episodelist.first!.author {
 			pod.podAuthor = episodelist.first!.author
 			DatabaseManager.updateItunsPod(pod: pod)

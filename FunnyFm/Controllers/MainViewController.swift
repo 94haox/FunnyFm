@@ -27,8 +27,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     var collectionView : UICollectionView!
     
     var tableview : UITableView!
-	
-	var titileLB: UILabel!
     
     var searchBtn : UIButton!
     
@@ -238,6 +236,7 @@ extension MainViewController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
 		let episodeList = FeedManager.shared.episodeList[indexPath.section]
+		
         let item = episodeList[indexPath.row]
 		if item is Episode{
 			guard let cell = cell as? HomeAlbumTableViewCell else { return }
@@ -348,9 +347,9 @@ extension MainViewController {
 		self.view.addSubview(self.avatarView)
 //        self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
-        self.view.addSubview(self.titileLB)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
+		self.view.sendSubviewToBack(self.topBgView)
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
 		
@@ -358,25 +357,21 @@ extension MainViewController {
 		
 		self.topBgView.snp.makeConstraints { (make) in
 			make.left.width.top.equalToSuperview()
-			make.bottom.equalTo(self.titileLB).offset(5.adapt())
+			make.bottom.equalTo(self.avatarView).offset(5.adapt())
 		}
 		
 		self.avatarView.snp.makeConstraints { (make) in
 			make.size.equalTo(CGSize.init(width: 35, height: 35))
 			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
-			make.centerY.equalTo(self.titileLB)
+			make.centerY.equalTo(self.titleLB)
 		}
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))
             make.right.equalToSuperview().offset(-16)
-            make.centerY.equalTo(self.titileLB)
+            make.centerY.equalTo(self.titleLB)
         }
-        
-        self.titileLB.snp.makeConstraints { (make) in
-            make.left.equalTo(self.view).offset(16)
-            make.top.equalTo(self.view.snp.topMargin)
-        }
+
                 
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
@@ -391,8 +386,8 @@ extension MainViewController {
 		
 		self.fetchLoadingView.snp.makeConstraints { (make) in
 			make.size.equalTo(CGSize.init(width:AdaptScale(30), height: AdaptScale(30)))
-			make.centerY.equalTo(self.titileLB);
-			make.left.equalTo(self.titileLB.snp.right).offset(AdaptScale(20))
+			make.centerY.equalTo(self.titleLB);
+			make.left.equalTo(self.titleLB.snp.right).offset(AdaptScale(20))
 		}
     }
     
@@ -434,9 +429,7 @@ extension MainViewController {
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
 		
-		self.titileLB = UILabel.init(text: "最近更新".localized)
-		self.titileLB.font = p_bfont(titleFontSize)
-		self.titileLB.textColor = CommonColor.subtitle.color
+		self.titleLB.text = "最近更新".localized
 		
 		self.avatarView = UIImageView.init()
 		self.avatarView.cornerRadius = 35.0/2
