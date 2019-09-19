@@ -127,7 +127,7 @@ extension UserCenterViewController {
 		}
 		
 		if indexPath.row == 1 {
-			let downloadVc = DownloadListController()
+			let downloadVc = DownloadListViewController()
 			self.navigationController?.pushViewController(downloadVc)
 			return
 		}

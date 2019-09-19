@@ -281,6 +281,9 @@ extension FMToolBar {
     func addConstraints() {
         self.backgroundColor = .white
         self.cornerRadius = 15.0
+		
+		
+		
         self.addShadow(ofColor: UIColor.lightGray, radius: 10, offset: CGSize.init(width: 2, height: 10), opacity: 0.5)
         self.addSubview(self.containerView)
 //		self.containerView.addSubview(self.progressBg);
@@ -340,6 +343,8 @@ extension FMToolBar {
     func setUpUI() {
         self.containerView = UIView()
 		self.containerView.layer.masksToBounds = true
+		
+		
 		self.playBtn = UIButton.init(type: .custom)
         self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
         self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
