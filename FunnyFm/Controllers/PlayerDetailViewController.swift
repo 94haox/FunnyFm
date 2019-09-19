@@ -399,7 +399,7 @@ extension PlayerDetailViewController {
         self.backBtn.setImage(UIImage.init(named: "dismiss"), for: .normal)
         self.view.addSubview(self.backBtn)
         
-        self.titleLB = UILabel.init(text: self.episode.title)
+        self.titleLB = UILabel.init(text: self.episode.title.trim())
         self.titleLB.textColor = CommonColor.title.color
         self.titleLB.font = p_bfont(fontsize6)
         self.view.addSubview(self.titleLB)

@@ -245,6 +245,14 @@ extension MainViewController{
 			cell.tranferNoParameterClosure { [weak self] in
 				self?.toDetail(episode: episode)
 			}
+			
+			cell.tapLogoGesAction { [weak self] in
+				let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+				if pod.isSome {
+					let vc = PodDetailViewController.init(pod: pod!)
+					self?.navigationController?.pushViewController(vc)
+				}
+			}
 		}
 		
 		if item is GADUnifiedNativeAd {

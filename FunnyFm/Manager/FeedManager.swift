@@ -107,7 +107,6 @@ extension FeedManager {
 					last_title = episode.title
 				}
 				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), success: { (item) in
-					semphore.signal()
 					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
 					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 					podCount -= 1

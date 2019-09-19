@@ -19,15 +19,22 @@ class HomeAlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var updateLB: UILabel!
 	private var tapClosure: (() -> Void)?
+	private var tapLogoClosure: (() -> Void)?
 	
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
 		self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 2, height: 2), opacity: 1)
+		let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapLogoAction(_:)))
+		self.logoImageView.addGestureRecognizer(tap)
     }
 	
-	public func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {
+	func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {
 		self.tapClosure = callbackEnclosure
+	}
+	
+	func tapLogoGesAction(callbackEnclosure:@escaping (() -> Void)) {
+		self.tapLogoClosure = callbackEnclosure
 	}
 
 	@IBAction func tapAction(_ sender: Any) {
@@ -36,6 +43,11 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		}
 	}
 	
+	@objc func tapLogoAction(_ sender: Any) {
+		if self.tapLogoClosure.isSome {
+			self.tapLogoClosure!()
+		}
+	}
 	override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated) 
     }

@@ -65,7 +65,7 @@ class RegisterViewController: BaseViewController, ViewModelDelegate {
         self.navigationController?.popViewController()
     }
 	
-    func showLoading() {
+    func showLoading() { 
         self.isLoading = true
         self.loadingView.isHidden = false
         self.nextImageVIew.isHidden = true
