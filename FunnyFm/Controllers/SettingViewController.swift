@@ -121,7 +121,7 @@ extension SettingViewController {
         
         if indexPath.section == 1{
             if indexPath.row == 0 {
-                UIApplication.shared.open(URL.init(string: "https://funnyfm.nolt.io")!, options: [:], completionHandler:     nil)
+                UIApplication.shared.open(URL.init(string: "https://github.com/94haox/FunnyFM-issue/issues")!, options: [:], completionHandler:     nil)
             }
         }
         

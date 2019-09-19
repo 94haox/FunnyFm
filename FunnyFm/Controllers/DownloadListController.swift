@@ -16,11 +16,12 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
 		self.titleLB.text =  "我的下载".localized
         self.view.backgroundColor = .white
         self.view.addSubview(self.tableview)
+		self.view.insertSubview(self.tableview, at: 0)
 		self.view.addSubview(self.deleteBtn)
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.titleLB.snp.bottom)
+            make.top.equalTo(self.topBgView.snp.bottom)
         }
 		
 		self.deleteBtn.snp.makeConstraints { (make) in
@@ -166,6 +167,18 @@ extension DownloadListController{
 		}
 	}
     
+}
+
+extension DownloadListController: UIScrollViewDelegate {
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		
+		if scrollView.contentOffset.y > 0 {
+			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
+		}else{
+			self.topBgView.addShadow(ofColor: .clear, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
+		}
+	}
 }
 
 extension DownloadListController : DZNEmptyDataSetSource {

@@ -29,8 +29,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     var tableview : UITableView!
     
     var searchBtn : UIButton!
-    
-	var topBgView: UIView!
 	
 	var addBtn : UIButton!
 	
@@ -61,7 +59,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 			self.navigationController?.pushViewController(emptyVC, animated: false)
 			UserDefaults.standard.set(true, forKey: "isFirstMain")
 		}
-		self.scheduler.taskQueue = DispatchQueue.main
 		FeedManager.shared.delegate = self;
 		FeedManager.shared.getAllPods()
     }
@@ -154,12 +151,15 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	
 	func feedManagerDidGetEpisodelistSuccess() {
 		self.scheduler.addTask {
-			self.tableview.isHidden = false
-			self.loadAnimationView.removeFromSuperview()
-			self.tableview.refreshControl?.endRefreshing()
-			self.tableview.reloadData()
-			self.collectionView.reloadData()
-			self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+			DispatchQueue.main.async {
+				self.tableview.isHidden = false
+				self.loadAnimationView.removeFromSuperview()
+				self.tableview.refreshControl?.endRefreshing()
+				self.tableview.reloadData()
+				self.collectionView.reloadData()
+				self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+
+			}
 		}
 		
 	}
@@ -353,13 +353,6 @@ extension MainViewController {
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
 		
-		
-		
-		self.topBgView.snp.makeConstraints { (make) in
-			make.left.width.top.equalToSuperview()
-			make.bottom.equalTo(self.avatarView).offset(5.adapt())
-		}
-		
 		self.avatarView.snp.makeConstraints { (make) in
 			make.size.equalTo(CGSize.init(width: 35, height: 35))
 			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
@@ -421,10 +414,7 @@ extension MainViewController {
         self.tableview.contentInset = UIEdgeInsets.init(top: 35.adapt(), left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
-		
-		self.topBgView = UIView.init()
-		self.topBgView.backgroundColor = .white
-		
+				
         self.searchBtn = UIButton.init(type: .custom)
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)

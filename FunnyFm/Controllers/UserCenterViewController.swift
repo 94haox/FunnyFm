@@ -72,7 +72,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 		
         
         self.view.backgroundColor = CommonColor.background.color
-
+		self.topBgView.backgroundColor = CommonColor.background.color;
     }
     
     lazy var collectionView : UICollectionView = {

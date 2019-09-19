@@ -15,7 +15,6 @@ class SubscribListController: BaseViewController , UITableViewDelegate, UITableV
         self.titleLB.text = "我的订阅".localized
         self.view.addSubview(self.tableview)
         self.view.addSubview(self.titleLB)
-	
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()

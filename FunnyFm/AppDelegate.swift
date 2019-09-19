@@ -90,15 +90,19 @@ extension AppDelegate {
 	}
 	
 	@objc func toLoginVC(){
-		let navi = self.window?.rootViewController as! UINavigationController
-		let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-		navi.present(loginNavi, animated: true, completion: nil)
+		DispatchQueue.main.async {
+			let navi = self.window?.rootViewController as! UINavigationController
+			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+			navi.present(loginNavi, animated: true, completion: nil)
+		}
 	}
 	
 	@objc func toMainVC(){
-		let navi = UINavigationController.init(rootViewController: MainViewController.init())
-		navi.navigationBar.isHidden = true
-		self.window?.rootViewController = navi
+		DispatchQueue.main.async {
+			let navi = UINavigationController.init(rootViewController: MainViewController.init())
+			navi.navigationBar.isHidden = true
+			self.window?.rootViewController = navi
+		}
 	}
 	
 }
