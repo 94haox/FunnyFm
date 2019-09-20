@@ -23,16 +23,19 @@ class DownloadTask : NSObject{
 	var delegate: DownloadTaskDelegate?
 	var episode: Episode?
 	var sourceUrl: String = ""
+	var addDate: String = ""
 	
 	init(url:String) {
 		super.init()
 		self.sourceUrl = url
+		self.addDate = Date.init().dateString()
 	}
 	
 	init(episode: Episode) {
 		super.init()
 		self.episode = episode
 		self.sourceUrl = self.episode!.trackUrl
+		self.addDate = Date.init().dateString()
 	}
 	
 	let destination:DownloadRequest.DownloadFileDestination = { url, response in
@@ -67,6 +70,10 @@ class DownloadTask : NSObject{
 		}
 		
 		
+	}
+	
+	func stopDownload(){
+		self.downloadRequest.cancel()
 	}
 	
 	

@@ -99,10 +99,9 @@ extension MainViewController{
 	}
 	
 	func toDetail(episode: Episode) {
-		let detailVC = EpisodeDetailViewController.init()
+		let detailVC = EpisodeInfoViewController.init()
 		detailVC.episode = episode
-//		self.navigationController?.presentAsStork(detailVC, height: 300)
-		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: 400, delegate: self)
+		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.5, delegate: self)
 	}
     
     @objc func refreshData(){

@@ -157,10 +157,10 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 	
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.x < -60 {
-            let episodeDetailVC = EpisodeDetailViewController()
+            let episodeDetailVC = EpisodeInfoViewController()
             episodeDetailVC.episode = self.episode
 			self.swipeAniView.removeSubviews()
-            self.navigationController?.pushViewController(episodeDetailVC)
+            self.navigationController?.dw_presentAsStork(controller: episodeDetailVC, heigth: kScreenHeight * 0.85, delegate: self)
         }
     }
 }

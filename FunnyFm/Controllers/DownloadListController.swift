@@ -54,7 +54,7 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
 					try FileManager.default.removeItem(at: mp3Path)
 				}catch{
 				}
-				DatabaseManager.deleteDownload(chapterId: episode.collectionId);
+				DatabaseManager.deleteDownload(title: episode.title);
 			})
 
 			self.episodeList.removeAll()
@@ -85,7 +85,7 @@ class DownloadListController: BaseViewController, UITableViewDelegate, UITableVi
 			}catch{
 			}
 			
-			DatabaseManager.deleteDownload(chapterId: episode.collectionId);
+			DatabaseManager.deleteDownload(title: episode.title);
 			self.episodeList = DatabaseManager.allDownload()
 			self.tableview.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
 		}

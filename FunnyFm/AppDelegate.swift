@@ -72,11 +72,11 @@ import FirebaseUI
 extension AppDelegate {
 	
 	func dw_addNotifies(){
-		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: NSNotification.Name.init(kSetupNotification), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: Notification.setupNotification, object: nil)
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: NSNotification.Name.init(kNeedLoginAction), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: Notification.needLoginNotification, object: nil)
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(toMainVC), name: NSNotification.Name.init(kToMainAction), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(toMainVC), name: Notification.toMainNotification, object: nil)
 
 	}
 	

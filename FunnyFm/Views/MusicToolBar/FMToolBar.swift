@@ -57,7 +57,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 		let nav = UIApplication.shared.keyWindow?.rootViewController
 		let presentNavi = UINavigationController.init(rootViewController: vc)
 		presentNavi.navigationBar.isHidden = true
-		nav?.present(presentNavi, animated: true, completion: nil)
+//		nav?.present(presentNavi, animated: true, completion: nil)
+		nav?.presentAsStork(presentNavi)
 	}
     
     
@@ -343,7 +344,6 @@ extension FMToolBar {
     func setUpUI() {
         self.containerView = UIView()
 		self.containerView.layer.masksToBounds = true
-		
 		
 		self.playBtn = UIButton.init(type: .custom)
         self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)

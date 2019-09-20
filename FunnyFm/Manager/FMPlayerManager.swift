@@ -71,7 +71,7 @@ class FMPlayerManager: NSObject {
     override init() {
         super.init()
 		
-        NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
 		self.addRemoteCommand()
     }
     

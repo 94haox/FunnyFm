@@ -93,7 +93,7 @@ extension FeedManager {
 			return;
 		}
 		
-		NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserBegin"), object: nil)
+		NotificationCenter.default.post(name: Notification.Name.init("homechapterParserBegin"), object: nil)
 		DispatchQueue.global().async {
 			var podCount = podList.count
 			

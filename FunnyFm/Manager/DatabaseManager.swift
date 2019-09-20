@@ -91,9 +91,9 @@ class DatabaseManager: NSObject {
                              where: ChapterProgress.Properties.episodeId == chapterId)
     }
 	
-	static public func deleteDownload(chapterId: String){
+	static public func deleteDownload(title: String){
 		try! database.delete(fromTable: downloadTable,
-							 where: Episode.Properties.collectionId == chapterId)
+							 where: Episode.Properties.title == title)
 		
 		
 	}

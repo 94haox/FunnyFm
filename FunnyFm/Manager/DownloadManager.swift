@@ -13,6 +13,14 @@ protocol DownloadManagerDelegate {
 	func downloadProgress(progress:Double, sourceUrl: String);
 	func didDownloadSuccess(fileUrl: String?, sourceUrl: String);
 	func didDownloadFailure(sourceUrl: String);
+	func didDownloadCancel(sourceUrl: String);
+}
+
+extension DownloadManagerDelegate {
+	func downloadProgress(progress:Double, sourceUrl: String){}
+	func didDownloadSuccess(fileUrl: String?, sourceUrl: String){}
+	func didDownloadFailure(sourceUrl: String){}
+	func didDownloadCancel(sourceUrl: String){}
 }
 
 
@@ -37,6 +45,17 @@ class DownloadManager: NSObject {
 		self.downloadQueue.append(task)
 		self.downloadKeys.append(episode.trackUrl)
 	}
+	
+	func stopDownload(_ task: DownloadTask) {
+		task.stopDownload()
+		let index = self.downloadKeys.index(of: task.episode!.trackUrl)
+		if index.isSome {
+			self.downloadQueue.remove(at: index!)
+			self.downloadKeys.remove(at: index!)
+		}
+		self.delegate?.didDownloadCancel(sourceUrl: task.episode!.trackUrl)
+	}
+	
 }
 
 
@@ -44,7 +63,7 @@ extension DownloadManager : DownloadTaskDelegate {
 	
 	func downloadProgress(progress: Double, sourceUrl: String) {
 		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: NSNotification.Name.init("downloadprogress"), object: ["progress":progress,"sourceUrl":sourceUrl])
+			NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl":sourceUrl])
 		}
 		self.delegate?.downloadProgress(progress: progress, sourceUrl: sourceUrl)
 
@@ -53,13 +72,20 @@ extension DownloadManager : DownloadTaskDelegate {
 	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
 		let index = self.downloadKeys.index(of: sourceUrl)
 		if index.isSome {
+			let task = self.downloadQueue[index!]
+			task.episode!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
+			task.episode!.downloadSize = "\(Double(fileUrl!.getFileSize()) / 1000.0)M"
+			DatabaseManager.add(download: task.episode!)
 			self.downloadQueue.remove(at: index!)
 			self.downloadKeys.remove(at: index!)
 		}
 		self.delegate?.didDownloadSuccess(fileUrl: fileUrl, sourceUrl: sourceUrl)
 		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: NSNotification.Name.init("download_success_\(sourceUrl)"), object: nil)
+			NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": sourceUrl])
 		}
+
+		
+		
 	}
 	
 	func didDownloadFailure(sourceUrl: String) {
@@ -71,7 +97,7 @@ extension DownloadManager : DownloadTaskDelegate {
 
 		self.delegate?.didDownloadFailure(sourceUrl: sourceUrl)
 		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: NSNotification.Name.init("download_failure_\(sourceUrl)"), object: nil)
+			NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": sourceUrl])
 		}
 	}
 	

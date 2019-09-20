@@ -24,6 +24,7 @@ struct Episode : TableCodable,Mapable{
     var pubDate:         		String
 	var pubDateSecond:         	Int
     var download_filpath:        String
+	var downloadSize: String
 	
 	init(feedItem: RSSFeedItem) {
 		title = feedItem.title ?? ""
@@ -37,6 +38,7 @@ struct Episode : TableCodable,Mapable{
 		duration = feedItem.iTunes?.iTunesDuration ?? 0
 		podCoverUrl = ""
 		collectionId = ""
+		downloadSize = ""
 	}
 	
 	init?(jsonData:JSON) {
@@ -56,6 +58,7 @@ struct Episode : TableCodable,Mapable{
 		download_filpath = ""
 		podCoverUrl = ""
 		collectionId = ""
+		downloadSize = ""
 	}
 	
     
@@ -73,6 +76,7 @@ struct Episode : TableCodable,Mapable{
 		case author
 		case collectionId
         case download_filpath
+		case downloadSize
     }
 	
 	func isFavor(trackUrl:String) -> Bool{

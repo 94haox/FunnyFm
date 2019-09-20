@@ -144,8 +144,6 @@ extension PlayDetailToolBar: DownloadManagerDelegate {
 			anim.springBounciness = 20
 			self.downBtn!.layer.pop_add(anim, forKey: "size")
 		}
-		self.episode!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
-		DatabaseManager.add(download: self.episode!)
 	}
 	
 	func didDownloadFailure(sourceUrl: String) {
