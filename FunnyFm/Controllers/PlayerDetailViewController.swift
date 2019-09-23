@@ -253,7 +253,7 @@ extension PlayerDetailViewController: PlayDetailToolBarDelegate {
 		let halfAction = UIAlertAction.init(title: "30分钟后".localized, style: .default){ (action) in
 			FMPlayerManager.shared.startSleep(seconds: 30 * 60)
 		}
-		let hourAction = UIAlertAction.init(title: "1小时后".localized, style: .default){ (action) in
+		let hourAction = UIAlertAction.init(title: "一个小时后".localized, style: .default){ (action) in
 			FMPlayerManager.shared.startSleep(seconds: 60 * 60)
 		}
 		let endAction = UIAlertAction.init(title: "播放结束后".localized, style: .default){ (action) in}

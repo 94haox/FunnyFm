@@ -29,7 +29,7 @@ class DownloadTableViewCell: UITableViewCell {
 		self.contentView.backgroundColor = .white
 		self.selectionStyle = .none
 		progressBg.backgroundColor = UIColor.init(hex: "f2faff")
-		progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: self.contentView.height)
+		progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: 85)
 		self.contentView.addSubview(progressBg)
 		self.contentView.sendSubviewToBack(progressBg)
 		self.actionBtn.addShadow(ofColor: CommonColor.cellbackgroud.color, radius: 5, offset: CGSize.zero, opacity: 1)
@@ -47,6 +47,7 @@ class DownloadTableViewCell: UITableViewCell {
 	}
 	
 	func config(episode: Episode) {
+		self.task = nil
 		self.dw_removeNotifications()
 		self.actionBtn.isSelected = false
 		self.titleLB.text = episode.title
@@ -56,7 +57,7 @@ class DownloadTableViewCell: UITableViewCell {
 			self.addTimeLB.text = episode.downloadSize
 		}
 		self.logoImageView.loadImage(url: episode.coverUrl)
-		self.progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: self.contentView.height)
+		self.progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: 85)
 		self.progressBg.isHidden = true
 	}
 	

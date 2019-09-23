@@ -10,7 +10,7 @@ import UIKit
 
 class DownloadListViewController: BaseViewController {
 	
-	var isDownloaded: Bool = false
+	var isDownloaded: Bool = true
 	
 	var sectionSegment: DWSegment = DWSegment()
 	
@@ -19,7 +19,7 @@ class DownloadListViewController: BaseViewController {
 		self.titleLB.text = "我的下载".localized
 		self.view.addSubview(self.tableview)
 		self.view.addSubview(self.sectionSegment)
-		sectionSegment.config(titles: ["正在下载".localized,"已下载".localized])
+		sectionSegment.config(titles: ["已下载".localized,"正在下载".localized])
 		self.view.insertSubview(self.tableview, at: 0)
 		sectionSegment.addTarget(self, action: #selector(changeSection), for: .valueChanged)
 		self.tableview.reloadData()
