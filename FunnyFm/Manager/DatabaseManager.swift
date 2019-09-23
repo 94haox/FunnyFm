@@ -97,6 +97,8 @@ class DatabaseManager: NSObject {
 		
 		
 	}
+	
+	
     
 
     static public func allDownload() -> [Episode]{

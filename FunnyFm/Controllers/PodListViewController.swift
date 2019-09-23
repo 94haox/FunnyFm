@@ -191,7 +191,7 @@ extension PodListViewController {
 			
 			self.sectionSegment.snp.makeConstraints { (make) in
 				make.top.equalTo(self.topBgView.snp.bottom).offset(10)
-				make.size.equalTo(CGSize.init(width: 160, height: 40))
+				make.size.equalTo(CGSize.init(width: 180, height: 40))
 				make.centerX.equalToSuperview()
 			}
 		}

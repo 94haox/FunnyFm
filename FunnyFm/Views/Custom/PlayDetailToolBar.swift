@@ -37,6 +37,10 @@ class PlayDetailToolBar: UIView {
 	
 	var downBackView: UIView!
 	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.dw_addSubviews()
@@ -48,6 +52,7 @@ class PlayDetailToolBar: UIView {
 		self.episode = episode
 		self.dw_addSubviews()
 		self.dw_addConstraints()
+		self.dw_addNotifcations()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -64,11 +69,12 @@ extension PlayDetailToolBar {
 	@objc func downloadAction(){
 		ImpactManager.impact()
 		if self.downBtn.isSelected {
-			SwiftNotice.showText("已下载")
+			SwiftNotice.showText("已下载".localized)
 			return;
 		}
-		DownloadManager.shared.delegate = self;
-		DownloadManager.shared.beginDownload(self.episode)
+		if !DownloadManager.shared.beginDownload(self.episode) {
+			return
+		}
 		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
 			anim.fromValue = self.downProgressLayer.strokeEnd
 			anim.toValue = 0.1
@@ -106,35 +112,37 @@ extension PlayDetailToolBar {
 		FMPlayerManager.shared.playRate = Float(rate)
 		FMPlayerManager.shared.player?.rate = Float(rate)
 		if !FMPlayerManager.shared.isPlay {
-			FMPlayerManager.shared.player?.pause()
+			FMToolBar.shared.toobarPause()
 		}
 	}
-}
-
-// MARK: - DownloadManagerDelegate
-extension PlayDetailToolBar: DownloadManagerDelegate {
-	func downloadProgress(progress: Double, sourceUrl: String) {
-		guard sourceUrl == self.episode.trackUrl else {
+	
+	func dw_addNotifcations(){
+		NotificationCenter.default.addObserver(self, selector: #selector(updateProgress(noti:)), name: Notification.downloadProgressNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadFailure(noti:)), name: Notification.downloadFailureNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadSuccess(noti:)), name: Notification.downloadSuccessNotification, object: nil)
+	}
+	
+	@objc func updateProgress(noti: Notification){
+		if !isCurrentTask(noti: noti){
 			return
 		}
+		let param = noti.object as! [String: Any]
+		
 		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
 			anim.fromValue = self.downProgressLayer.strokeEnd
-			anim.toValue = progress
+			anim.toValue = CGFloat((param["progress"]! as! Double))
 			anim.duration = 0.2
 			anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
 			self.downProgressLayer.pop_add(anim, forKey: "image_rotaion")
 		}
+
 	}
 	
-	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
-		guard sourceUrl == self.episode.trackUrl else {
+	@objc func didDownloadSuccess(noti: Notification) {
+		if !isCurrentTask(noti: noti) {
 			return
 		}
-		
-		if fileUrl.isNone{
-			SwiftNotice.showText("下载失败")
-			return
-		}
+
 		self.downBtn.isSelected = true
 		self.downProgressLayer.isHidden = true
 		SwiftNotice.showText("下载成功，您可以在个人中心-我的下载查看")
@@ -146,15 +154,29 @@ extension PlayDetailToolBar: DownloadManagerDelegate {
 		}
 	}
 	
-	func didDownloadFailure(sourceUrl: String) {
-		guard sourceUrl == self.episode.trackUrl else {
+	
+	
+	@objc func didDownloadFailure(noti: Notification) {
+		if !isCurrentTask(noti: noti) {
 			return
 		}
+		
 		self.downProgressLayer.removeAllAnimations()
-		SwiftNotice.showText("下载失败")
 	}
 	
-	
+	func isCurrentTask(noti: Notification) -> Bool{
+		if noti.object.isNone {
+			return false
+		}
+		let param = noti.object as! [String: Any]
+		let url = param["sourceUrl"] as! String
+		
+		if url != self.episode!.trackUrl {
+			return false
+		}
+		
+		return true
+	}
 }
 
 
@@ -218,8 +240,7 @@ extension PlayDetailToolBar {
 		self.downBtn.setImage(UIImage.init(named: "download-black"), for: .normal)
 		self.downBtn.setImage(UIImage.init(named: "download-red"), for: .selected)
 		self.downBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
-		self.addSubview(self.downBtn)
-		
+		self.addSubview(self.downBtn)		
 		
 		self.sleepBtn = UIButton.init(type: .custom)
 		self.sleepBtn.imageView?.contentMode = .scaleAspectFit

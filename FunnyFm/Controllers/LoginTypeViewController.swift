@@ -22,6 +22,7 @@ class LoginTypeViewController: UIViewController {
 		GIDSignIn.sharedInstance()?.uiDelegate = self
 		GIDSignIn.sharedInstance()?.clientID = "491413064388-cnaplmj5h8bah503k27a71ciiok1acbs.apps.googleusercontent.com"
 		ggLoginBtn.style = .wide
+		
     }
 	
 	override func viewWillAppear(_ animated: Bool) {

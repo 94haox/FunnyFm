@@ -64,15 +64,6 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 		FMPlayerManager.shared.playerDelegate = self
 		self.progressLine.allDot.text = "-" + FunnyFm.formatIntervalToMM(NSInteger(self.episode.duration))
 		
-//        if self.chapter.isFavour {
-//            self.likeAniView.play(fromProgress: 0.9, toProgress: 1) { (complete) in
-//                self.likeBtn.isHidden = true;
-//            }
-//        }
-		
-		if DatabaseManager.qureyDownload(title: self.episode.title).isSome {
-			self.playToolbar.downBtn.isSelected = true
-		}
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +75,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 			self.swipeAniView.pause()
 			self.swipeAniView.isHidden = true
 		}
-		
+		self.playToolbar.downBtn.isSelected = DatabaseManager.qureyDownload(title: self.episode.title).isSome
 		FMToolBar.shared.isHidden = true
     }
 	
@@ -92,6 +83,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 		super.viewWillDisappear(animated)
 		FMToolBar.shared.isHidden = false
 	}
+	
 	
 	lazy var tapGes: UITapGestureRecognizer = {
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toPodDetail))
@@ -304,7 +296,7 @@ extension PlayerDetailViewController {
         
         self.titleLB.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.view.snp_topMargin).offset(16.adapt())
+            make.top.equalTo(self.view.snp_topMargin).offset(32.adapt())
             make.width.equalTo(200)
         })
         

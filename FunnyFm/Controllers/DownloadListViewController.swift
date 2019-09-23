@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CleanyModal
 
 class DownloadListViewController: BaseViewController {
 	
@@ -20,13 +19,13 @@ class DownloadListViewController: BaseViewController {
 		self.titleLB.text = "我的下载".localized
 		self.view.addSubview(self.tableview)
 		self.view.addSubview(self.sectionSegment)
-		sectionSegment.config(titles: ["正在下载","已下载"])
+		sectionSegment.config(titles: ["正在下载".localized,"已下载".localized])
 		self.view.insertSubview(self.tableview, at: 0)
 		sectionSegment.addTarget(self, action: #selector(changeSection), for: .valueChanged)
 		self.tableview.reloadData()
 		self.sectionSegment.snp.makeConstraints { (make) in
 			make.top.equalTo(self.titleLB.snp.bottom).offset(10)
-			make.size.equalTo(CGSize.init(width: 160, height: 40))
+			make.size.equalTo(CGSize.init(width: 200, height: 40))
 			make.centerX.equalToSuperview()
 		}
 		self.tableview.snp.makeConstraints { (make) in
@@ -51,9 +50,7 @@ class DownloadListViewController: BaseViewController {
 	lazy var tableview : UITableView = {
 		let table = UITableView.init(frame: CGRect.zero, style: .plain)
 		let nib = UINib(nibName: String(describing: DownloadTableViewCell.self), bundle: nil)
-		let downloadedNib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
 		table.register(nib, forCellReuseIdentifier: "tablecell")
-		table.register(downloadedNib, forCellReuseIdentifier: "downloaded")
 		table.separatorColor = CommonColor.cellbackgroud.color
 		table.separatorInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 0)
 		table.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 0, right: 0)
@@ -63,12 +60,11 @@ class DownloadListViewController: BaseViewController {
 		table.emptyDataSetSource = self
 		table.showsVerticalScrollIndicator = false
 		table.tableFooterView = UIView()
+		table.backgroundColor = .white
 		return table
 	}()
 	
-	var episodeList : [Episode] = {
-		return DatabaseManager.allDownload()
-	}()
+	var episodeList : [Episode] = DatabaseManager.allDownload()
 	
 	lazy var deleteBtn: UIButton = {
 		let btn = UIButton.init(type: UIButton.ButtonType.custom)
@@ -89,6 +85,11 @@ class DownloadListViewController: BaseViewController {
 extension DownloadListViewController: DownloadManagerDelegate {
 	
 	func didDownloadCancel(sourceUrl: String) {
+		self.tableview.reloadData()
+	}
+	
+	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
+		self.episodeList = DatabaseManager.allDownload()
 		self.tableview.reloadData()
 	}
 	
@@ -117,6 +118,7 @@ extension DownloadListViewController {
 		
 		
 		let alert = AlertViewController.init(config: alertConfig)
+		
 		
 		alert.addAction(title: "删除".localized, style: .default) { (action) in
 			
@@ -182,14 +184,18 @@ extension DownloadListViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as! DownloadTableViewCell
+		
 		if isDownloaded {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "downloaded", for: indexPath) as! HomeAlbumTableViewCell
 			let episode = self.episodeList[indexPath.row]
-			cell.configNoDetailCell(episode)
+			cell.config(episode: episode)
+			cell.deleteClosure = { [weak self] () -> Void in
+				self?.showDeleteAction(indexPath: indexPath)
+			}
 			return cell
 		}
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as! DownloadTableViewCell
+		
 		let taskList = DownloadManager.shared.downloadQueue
 		let task = taskList[indexPath.row]
 		cell.config(task: task)

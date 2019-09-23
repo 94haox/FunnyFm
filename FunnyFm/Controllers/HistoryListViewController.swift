@@ -33,6 +33,7 @@ class HistoryListViewController: BaseViewController {
         table.dataSource = self
 		table.emptyDataSetSource = self
         table.showsVerticalScrollIndicator = false
+		table.backgroundColor = .white
         return table
     }()
     

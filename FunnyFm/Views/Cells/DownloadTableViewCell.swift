@@ -18,28 +18,57 @@ class DownloadTableViewCell: UITableViewCell {
 	@IBOutlet weak var logoImageView: UIImageView!
 	var task: DownloadTask?
 	let progressBg = UIView()
+	var deleteClosure : (()->Void)?
 	
 	deinit {
-		NotificationCenter.default.removeObserver(self)
+		self.dw_removeNotifications()
 	}
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
+		self.contentView.backgroundColor = .white
 		self.selectionStyle = .none
 		progressBg.backgroundColor = UIColor.init(hex: "f2faff")
 		progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: self.contentView.height)
 		self.contentView.addSubview(progressBg)
 		self.contentView.sendSubviewToBack(progressBg)
-		NotificationCenter.default.addObserver(self, selector: #selector(updateProgress(noti:)), name: Notification.downloadProgressNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadFailure(noti:)), name: Notification.downloadFailureNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadSuccess(noti:)), name: Notification.downloadSuccessNotification, object: nil)
+		self.actionBtn.addShadow(ofColor: CommonColor.cellbackgroud.color, radius: 5, offset: CGSize.zero, opacity: 1)
+
     }
 	
 	func config(task: DownloadTask){
+		self.dw_addNotifcations()
+		self.actionBtn.isSelected = true
 		self.titleLB.text = task.episode!.title
 		self.addTimeLB.text = task.addDate
 		self.logoImageView.loadImage(url: task.episode!.coverUrl)
 		self.task = task
+		self.progressBg.isHidden = false
+	}
+	
+	func config(episode: Episode) {
+		self.dw_removeNotifications()
+		self.actionBtn.isSelected = false
+		self.titleLB.text = episode.title
+		if episode.downloadSize.length() < 1 {
+			self.addTimeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
+		}else{
+			self.addTimeLB.text = episode.downloadSize
+		}
+		self.logoImageView.loadImage(url: episode.coverUrl)
+		self.progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: self.contentView.height)
+		self.progressBg.isHidden = true
+	}
+	
+	
+	func dw_addNotifcations(){
+		NotificationCenter.default.addObserver(self, selector: #selector(updateProgress(noti:)), name: Notification.downloadProgressNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadFailure(noti:)), name: Notification.downloadFailureNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadSuccess(noti:)), name: Notification.downloadSuccessNotification, object: nil)
+	}
+	
+	func dw_removeNotifications(){
+		NotificationCenter.default.removeObserver(self)
 	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -53,6 +82,10 @@ class DownloadTableViewCell: UITableViewCell {
 				return
 			}
 			DownloadManager.shared.stopDownload(self.task!)
+		}else{
+			if self.task.isNone {
+				self.deleteClosure?()
+			}
 		}
 		
 	}
@@ -62,7 +95,7 @@ class DownloadTableViewCell: UITableViewCell {
 extension DownloadTableViewCell{
 	
 	@objc func updateProgress(noti: Notification){
-		if !isCurrentTask(noti: noti) {
+		if !isCurrentTask(noti: noti){
 			return
 		}
 		let param = noti.object as! [String: Any]

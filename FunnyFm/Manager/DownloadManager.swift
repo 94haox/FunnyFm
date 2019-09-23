@@ -35,15 +35,24 @@ class DownloadManager: NSObject {
 	
 	var downloadKeys = [String]()
 	
-	func beginDownload(_ episode: Episode){
+	func beginDownload(_ episode: Episode) -> Bool{
 		if downloadKeys.contains(episode.trackUrl) {
-			return
+			return false
 		}
 		let task = DownloadTask.init(episode: episode)
 		task.beginDownload()
 		task.delegate = self
 		self.downloadQueue.append(task)
 		self.downloadKeys.append(episode.trackUrl)
+		return true
+	}
+	
+	func stopDownload(episode: Episode) {
+		let index = self.downloadKeys.index(of: episode.trackUrl)
+		if index.isSome {
+			let task = self.downloadQueue[index!]
+			self.stopDownload(task)
+		}
 	}
 	
 	func stopDownload(_ task: DownloadTask) {
@@ -74,11 +83,17 @@ extension DownloadManager : DownloadTaskDelegate {
 		if index.isSome {
 			let task = self.downloadQueue[index!]
 			task.episode!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
-			task.episode!.downloadSize = "\(Double(fileUrl!.getFileSize()) / 1000.0)M"
+			task.episode!.downloadSize = "\(ceil(Double(fileUrl!.getFileSize()) / 1000.0/1000))M"
 			DatabaseManager.add(download: task.episode!)
 			self.downloadQueue.remove(at: index!)
 			self.downloadKeys.remove(at: index!)
 		}
+		
+		if fileUrl.isNone{
+			self.didDownloadFailure(sourceUrl: sourceUrl)
+			return;
+		}
+		
 		self.delegate?.didDownloadSuccess(fileUrl: fileUrl, sourceUrl: sourceUrl)
 		DispatchQueue.main.async {
 			NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": sourceUrl])
@@ -91,13 +106,19 @@ extension DownloadManager : DownloadTaskDelegate {
 	func didDownloadFailure(sourceUrl: String) {
 		let index = self.downloadKeys.index(of: sourceUrl)
 		if index.isSome {
+			let task = self.downloadQueue[index!]
 			self.downloadQueue.remove(at: index!)
 			self.downloadKeys.remove(at: index!)
+			DispatchQueue.main.async {
+				let tip = String.init(format: "%@%@",  task.episode!.title, "下载失败".localized)
+				SwiftNotice.noticeOnStatusBar(tip, autoClear: true, autoClearTime: 1)
+			}
 		}
 
 		self.delegate?.didDownloadFailure(sourceUrl: sourceUrl)
 		DispatchQueue.main.async {
 			NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": sourceUrl])
+			
 		}
 	}
 	

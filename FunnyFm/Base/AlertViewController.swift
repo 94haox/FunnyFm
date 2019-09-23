@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import CleanyModal
 
 class AlertViewController: CleanyAlertViewController {
 	
 	override init(config: CleanyAlertConfig) {
 		config.styleSettings[.tintColor] = CommonColor.mainRed.color
 		config.styleSettings[.destructiveColor] = CommonColor.mainRed.color
-		
 		super.init(config: config)
 	}
 	required init?(coder aDecoder: NSCoder) {
@@ -23,7 +21,8 @@ class AlertViewController: CleanyAlertViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		self.contentStackView.backgroundColor = .white
+		
         // Do any additional setup after loading the view.
     }
     

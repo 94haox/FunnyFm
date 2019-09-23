@@ -138,6 +138,13 @@
 		AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */; };
 		AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */; };
 		AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */; };
+		AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8DA73C2338F38000407FCB /* CleanyAlertViewController.xib */; };
+		AB8DA7442338F38000407FCB /* CleanyAlertActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8DA73D2338F38000407FCB /* CleanyAlertActionTableViewCell.xib */; };
+		AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA73E2338F38000407FCB /* CleanyAlertActionTableViewCell.swift */; };
+		AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA73F2338F38000407FCB /* CleanyAlertViewController.swift */; };
+		AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */; };
+		AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */; };
+		AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7422338F38000407FCB /* CleanyConfig.swift */; };
 		AB97EE8F2333246600127C37 /* StaticMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE8E2333246600127C37 /* StaticMethods.m */; };
 		AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB97EE902333330000127C37 /* HistoryTableViewCell.xib */; };
 		AB97EE932333330000127C37 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE912333330000127C37 /* HistoryTableViewCell.swift */; };
@@ -437,6 +444,13 @@
 		AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBarController.swift; sourceTree = "<group>"; };
 		AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
 		AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTabBarButton.swift; sourceTree = "<group>"; };
+		AB8DA73C2338F38000407FCB /* CleanyAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CleanyAlertViewController.xib; sourceTree = "<group>"; };
+		AB8DA73D2338F38000407FCB /* CleanyAlertActionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CleanyAlertActionTableViewCell.xib; sourceTree = "<group>"; };
+		AB8DA73E2338F38000407FCB /* CleanyAlertActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyAlertActionTableViewCell.swift; sourceTree = "<group>"; };
+		AB8DA73F2338F38000407FCB /* CleanyAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyAlertViewController.swift; sourceTree = "<group>"; };
+		AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalViewController.swift; sourceTree = "<group>"; };
+		AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalTransitionDelegates.swift; sourceTree = "<group>"; };
+		AB8DA7422338F38000407FCB /* CleanyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyConfig.swift; sourceTree = "<group>"; };
 		AB97EE8D2333246600127C37 /* StaticMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticMethods.h; sourceTree = "<group>"; };
 		AB97EE8E2333246600127C37 /* StaticMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticMethods.m; sourceTree = "<group>"; };
 		AB97EE902333330000127C37 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -918,6 +932,7 @@
 		AB41AAF9219564F000260851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AB8DA73B2338F37200407FCB /* CleanyModal */,
 				AB872C56232BC4F600FF3757 /* BubbleTabbarController */,
 				AB2A37272328ADDE0097DAF7 /* LoadingButton */,
 				AB0C64C4230B8E1800C4DF30 /* PathKit.swift */,
@@ -1048,6 +1063,20 @@
 				AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */,
 			);
 			path = BubbleTabbarController;
+			sourceTree = "<group>";
+		};
+		AB8DA73B2338F37200407FCB /* CleanyModal */ = {
+			isa = PBXGroup;
+			children = (
+				AB8DA73E2338F38000407FCB /* CleanyAlertActionTableViewCell.swift */,
+				AB8DA73D2338F38000407FCB /* CleanyAlertActionTableViewCell.xib */,
+				AB8DA73F2338F38000407FCB /* CleanyAlertViewController.swift */,
+				AB8DA73C2338F38000407FCB /* CleanyAlertViewController.xib */,
+				AB8DA7422338F38000407FCB /* CleanyConfig.swift */,
+				AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */,
+				AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */,
+			);
+			path = CleanyModal;
 			sourceTree = "<group>";
 		};
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
@@ -1369,6 +1398,7 @@
 				AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */,
 				AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */,
 				AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */,
+				AB8DA7442338F38000407FCB /* CleanyAlertActionTableViewCell.xib in Resources */,
 				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
@@ -1400,6 +1430,7 @@
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */,
+				AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 				AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */,
 				ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */,
@@ -1524,6 +1555,7 @@
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
+				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
 				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
@@ -1540,6 +1572,7 @@
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
 				AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */,
+				AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
@@ -1547,6 +1580,7 @@
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
+				AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */,
 				AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ABE7660921D7196700470D8F /* NSAttributedStringExtensions.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
@@ -1588,8 +1622,10 @@
 				AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */,
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
+				AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */,
 				ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
+				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
@@ -1844,6 +1880,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -1852,6 +1889,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1865,6 +1903,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -1873,6 +1912,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2010,7 +2050,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2022,6 +2062,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2038,8 +2079,6 @@
 					"\"AudioToolbox\"",
 					"-framework",
 					"\"CFNetwork\"",
-					"-framework",
-					"\"CleanyModal\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -2190,7 +2229,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2202,6 +2241,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2217,6 +2257,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -2225,6 +2266,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2239,6 +2281,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -2247,6 +2290,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

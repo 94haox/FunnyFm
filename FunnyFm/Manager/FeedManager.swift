@@ -8,7 +8,7 @@
 
 import UIKit
 import FeedKit
-import FirebasePerformance
+//import FirebasePerformance
 import YBTaskScheduler
 
 typealias SuccessParserClosure = ([Episode]) -> Void
@@ -107,6 +107,8 @@ extension FeedManager {
 					last_title = episode.title
 				}
 				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), success: { (item) in
+					
+					semphore.signal()
 					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
 					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 					podCount -= 1
@@ -117,6 +119,7 @@ extension FeedManager {
 						}
 						self.delegate?.feedManagerDidGetEpisodelistSuccess()
 					}
+					print("fetch_success_\(podCount)")
 				}, { (error) in
 					semphore.signal()
 					podCount -= 1
@@ -126,6 +129,7 @@ extension FeedManager {
 							NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
 						}
 					}
+					print("fetch_failure_\(podCount)")
 				})
 
 				

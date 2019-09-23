@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import SPStorkController
 import Lottie
-import CleanyModal
 import NVActivityIndicatorView
 import GoogleMobileAds
 import YBTaskScheduler

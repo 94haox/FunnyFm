@@ -18,7 +18,7 @@ class SettingTableViewCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        // Initialization code
+        self.contentView.backgroundColor = .white
     }
     
     func config(dic : Dictionary<String, String>){

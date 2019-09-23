@@ -10,7 +10,6 @@ import UIKit
 import SPStorkController
 import OfficeUIFabric
 import OneSignal
-import CleanyModal
 import GoogleMobileAds
 import Firebase
 import FirebaseUI
@@ -63,7 +62,7 @@ import FirebaseUI
 	
     func applicationWillTerminate(_ application: UIApplication) {
         NotificationCenter.default.removeObserver(self)
-        FMPlayerManager.shared.pause()
+		FMToolBar.shared.toobarPause()
     }
 	
 }

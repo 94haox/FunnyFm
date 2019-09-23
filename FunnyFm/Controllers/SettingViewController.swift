@@ -242,6 +242,7 @@ extension SettingViewController {
         self.tableview.dataSource = self
         self.tableview.tableFooterView = UIView()
         self.tableview.showsVerticalScrollIndicator = false
+		self.tableview.backgroundColor = .white
         
         self.naviBar = UIView.init()
         self.naviBar.backgroundColor = .white

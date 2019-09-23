@@ -11,6 +11,7 @@ import UIKit
 import SPStorkController
 
 extension UIViewController {
+	
 	func dw_addTouchEndEdit(){
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(endEidted))
 		self.view.addGestureRecognizer(tap)

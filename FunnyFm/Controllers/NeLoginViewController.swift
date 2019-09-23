@@ -11,7 +11,7 @@ import Lottie
 import FirebaseUI
 import GoogleSignIn
 
-class NeLoginViewController: BaseViewController, ViewModelDelegate {
+class NeLoginViewController: UIViewController, ViewModelDelegate {
 
     @IBOutlet weak var tipLB: UILabel!
     

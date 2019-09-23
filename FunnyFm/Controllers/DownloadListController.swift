@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CleanyModal
 
 class DownloadListController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 

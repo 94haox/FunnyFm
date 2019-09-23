@@ -36,7 +36,9 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 		
 		if !UserCenter.shared.isLogin {
 			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-			self.navigationController?.present(loginNavi, animated: true, completion: nil)
+			loginNavi.navigationBar.isHidden = true
+//			self.navigationController?.present(loginNavi, animated: true, completion: nil)
+			self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
 			return
 		}
 		
