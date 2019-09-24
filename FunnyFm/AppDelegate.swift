@@ -10,7 +10,6 @@ import UIKit
 import SPStorkController
 import OfficeUIFabric
 import OneSignal
-import CleanyModal
 import GoogleMobileAds
 import Firebase
 import FirebaseUI
@@ -35,6 +34,21 @@ import FirebaseUI
 		PushManager().configurePushSDK(launchOptions: launchOptions)
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
+		let mainVC = MainViewController()
+		mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage.init(named: "handbag")!, tag: 0)
+		
+		let downloadVC = DownloadListController()
+		downloadVC.tabBarItem = UITabBarItem(title: "Downloads", image: UIImage.init(named: "download")!, tag: 0)
+		downloadVC.tabBarItem.selectedImage = UIImage.init(named: "download")!
+		
+		
+		UIApplication.shared.applicationIconBadgeNumber = 0
+		let userVC = UserCenterViewController()
+		userVC.tabBarItem = UITabBarItem(title: "Center", image: UIImage.init(named: "profile"), tag: 0)
+		
+		let tabBarController = BubbleTabBarController()
+		tabBarController.viewControllers = [mainVC,downloadVC, userVC]
+		tabBarController.tabBar.tintColor = CommonColor.mainRed.color
 		var navi = UINavigationController.init(rootViewController: MainViewController.init())
 		navi.navigationBar.isHidden = true
 		if !UserDefaults.standard.bool(forKey: "isFirst") {
@@ -48,7 +62,7 @@ import FirebaseUI
 	
     func applicationWillTerminate(_ application: UIApplication) {
         NotificationCenter.default.removeObserver(self)
-        FMPlayerManager.shared.pause()
+		FMToolBar.shared.toobarPause()
     }
 	
 }
@@ -57,11 +71,11 @@ import FirebaseUI
 extension AppDelegate {
 	
 	func dw_addNotifies(){
-		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: NSNotification.Name.init(kSetupNotification), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: Notification.setupNotification, object: nil)
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: NSNotification.Name.init(kNeedLoginAction), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: Notification.needLoginNotification, object: nil)
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(toMainVC), name: NSNotification.Name.init(kToMainAction), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(toMainVC), name: Notification.toMainNotification, object: nil)
 
 	}
 	
@@ -90,15 +104,19 @@ extension AppDelegate {
 	}
 	
 	@objc func toLoginVC(){
-		let navi = self.window?.rootViewController as! UINavigationController
-		let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-		navi.present(loginNavi, animated: true, completion: nil)
+		DispatchQueue.main.async {
+			let navi = self.window?.rootViewController as! UINavigationController
+			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
+			navi.present(loginNavi, animated: true, completion: nil)
+		}
 	}
 	
 	@objc func toMainVC(){
-		let navi = UINavigationController.init(rootViewController: MainViewController.init())
-		navi.navigationBar.isHidden = true
-		self.window?.rootViewController = navi
+		DispatchQueue.main.async {
+			let navi = UINavigationController.init(rootViewController: MainViewController.init())
+			navi.navigationBar.isHidden = true
+			self.window?.rootViewController = navi
+		}
 	}
 	
 }

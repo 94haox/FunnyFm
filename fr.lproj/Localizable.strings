@@ -58,7 +58,7 @@
 "关于"="À propos de";
 "给 FunnyFM 评分"="Noter FunnyFM";
 "将 FunnyFM 推荐给好友"="FunnyFM recommandé";
-"查看开发者其他的 App"="Afficher les applications d'autres développeurs";
+"查看开发者其他的 App"="Afficher les applications";
 "关于 FunnyFM"="À propos de FunnyFM";
 "嘿，我发现了一个好用的播客 APP， 你也来试试吧"="Hey, j'ai trouvé une bonne application de podcast, essayons-la";
 "请输入邮箱地址"="Veuillez entrer votre adresse email";
@@ -73,3 +73,19 @@
 "自动同步订阅"="AutoSync";
 "同步成功"="Synchronisation réussie";
 "同步中"= "Synchronisation des contacts…";
+"15分钟后"="15 min plus tard";
+"30分钟后"="30 min plus tard";
+"一个小时后"="15 min plus tard";
+"定时关闭"="Dans une heure";
+"播放结束后"="Une fois terminée";
+"取消"="Annuler";
+"删除全部"="Tout supprimer";
+"播放"="Joué par";
+"暂停"="Pause";
+"下载失败"="Échec du téléchargement";
+"正在下载"="Téléchargement";
+"已下载"="Téléchargé";
+"登录成功"= "Identification réussie";
+"删除已缓存单集？"="Supprimer un seul ensemble mis en cache？";
+"删除"="Supprimer";
+

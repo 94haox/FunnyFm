@@ -159,6 +159,7 @@ extension PodListViewController {
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
 		self.view.backgroundColor = CommonColor.background.color
+		self.topBgView.backgroundColor = CommonColor.background.color
 		self.view.addSubview(self.collectionView)
 		
 		self.collectionView.snp.makeConstraints { (make) in
@@ -189,8 +190,8 @@ extension PodListViewController {
 			}
 			
 			self.sectionSegment.snp.makeConstraints { (make) in
-				make.top.equalTo(self.titleLB.snp.bottom).offset(10)
-				make.size.equalTo(CGSize.init(width: 160, height: 40))
+				make.top.equalTo(self.topBgView.snp.bottom).offset(10)
+				make.size.equalTo(CGSize.init(width: 180, height: 40))
 				make.centerX.equalToSuperview()
 			}
 		}

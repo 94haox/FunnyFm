@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: BaseViewController, ViewModelDelegate {
+class RegisterViewController: UIViewController, ViewModelDelegate {
 
     @IBOutlet var tipLB: UIView!
     
@@ -34,6 +34,11 @@ class RegisterViewController: BaseViewController, ViewModelDelegate {
         self.viewModel.delegate = self
         self.dw_addTouchEndEdit()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.navigationController?.navigationBar.isHidden = true
+	}
 
     @IBAction func registerAction(_ sender: Any) {
         self.endEidted()
@@ -65,7 +70,7 @@ class RegisterViewController: BaseViewController, ViewModelDelegate {
         self.navigationController?.popViewController()
     }
 	
-    func showLoading() {
+    func showLoading() { 
         self.isLoading = true
         self.loadingView.isHidden = false
         self.nextImageVIew.isHidden = true

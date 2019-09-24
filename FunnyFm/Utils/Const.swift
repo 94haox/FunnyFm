@@ -92,7 +92,9 @@ let fontsize3 : CGFloat = 13.0
 let fontsize4 : CGFloat = 14.0
 let fontsize5 : CGFloat = 15.0
 let fontsize6 : CGFloat = 16.0
+let subtitleFontSize: CGFloat = 20.0
 let titleFontSize: CGFloat = 24.0
+
 
 func sFont(_ fontsize:CGFloat) -> UIFont {
     return UIFont.systemFont(ofSize: fontsize)

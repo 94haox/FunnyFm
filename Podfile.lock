@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.8.2)
-  - CleanyModal (0.1.2)
   - Crashlytics (3.13.3):
     - Fabric (~> 1.10.2)
   - EFIconFont/AntDesign (0.5.2):
@@ -204,7 +203,6 @@ PODS:
   - YBTaskScheduler (1.0.1)
 
 DEPENDENCIES:
-  - CleanyModal (~> 0.1.1)
   - Crashlytics (= 3.13.3)
   - EFIconFont/Complete
   - Fabric (= 1.10.2)
@@ -238,7 +236,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - CleanyModal
     - Crashlytics
     - EFIconFont
     - Fabric
@@ -293,7 +290,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  CleanyModal: abd96bb77747ba0e6434955cdc290c099eed3fc5
   Crashlytics: 2aa08cd61fb1d62718c4e653169461d1d7377de2
   EFIconFont: 627115da4e97a7af5a9aa9ef751e455a9aae17f8
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
@@ -346,6 +342,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
   YBTaskScheduler: cf08ebc7132a70212252bdacb8ff803a23b611ab
 
-PODFILE CHECKSUM: a892287b893e03ab4cf80b1d201c500348ea9c72
+PODFILE CHECKSUM: 3df4afb4072090bbc273023a45accfdf63d3e868
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.7.1

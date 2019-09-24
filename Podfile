@@ -12,7 +12,6 @@ def layout
     pod 'SHFullscreenPopGestureSwift'
     pod 'SPStorkController'
     pod 'lottie-ios', '3.1.1'
-    pod 'CleanyModal', '~> 0.1.1'
 		pod 'NVActivityIndicatorView'
 		pod 'OfficeUIFabric', '0.2.11'
 		pod 'Hero'

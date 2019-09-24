@@ -15,8 +15,6 @@
 		AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09A53D21DDBACB00CB621C /* DownloadManager.swift */; };
 		AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */; };
 		AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C64C4230B8E1800C4DF30 /* PathKit.swift */; };
-		AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */; };
-		AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */; };
 		AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */; };
 		AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14632021D385FC00D41B83 /* AnimationButton.swift */; };
 		AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */; };
@@ -88,6 +86,8 @@
 		AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB32CF5622B39376007C9E41 /* ItunsPodTableViewCell.xib */; };
 		AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */; };
 		AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */; };
+		AB34C4FC2331DFDA007FC0EC /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */; };
+		AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3D4819232A47CD00078DA4 /* DownloadTask.swift */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
 		AB41AAE021952D2200260851 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
@@ -104,7 +104,6 @@
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
 		AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB4E145B22C63F8F0053BE00 /* sound.wav */; };
-		AB53ED5322F16E3A0015D957 /* PullButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53ED5222F16E3A0015D957 /* PullButton.swift */; };
 		AB571D8D22B209E80021236C /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB571D8C22B209E80021236C /* FeedManager.swift */; };
 		AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */; };
 		AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */; };
@@ -122,6 +121,8 @@
 		AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D76823167A6200F76F8E /* PlaylistViewController.swift */; };
 		AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */; };
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
+		AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */; };
+		AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */; };
 		AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D1B1722C633EA00E9E221 /* NotificationService.swift */; };
 		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */; };
@@ -133,6 +134,22 @@
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
 		AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1AE822F9237700790787 /* GoogleService-Info.plist */; };
+		AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C54232A993300FF3757 /* DownloadListViewController.swift */; };
+		AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */; };
+		AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */; };
+		AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */; };
+		AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8DA73C2338F38000407FCB /* CleanyAlertViewController.xib */; };
+		AB8DA7442338F38000407FCB /* CleanyAlertActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8DA73D2338F38000407FCB /* CleanyAlertActionTableViewCell.xib */; };
+		AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA73E2338F38000407FCB /* CleanyAlertActionTableViewCell.swift */; };
+		AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA73F2338F38000407FCB /* CleanyAlertViewController.swift */; };
+		AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */; };
+		AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */; };
+		AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7422338F38000407FCB /* CleanyConfig.swift */; };
+		AB97EE8F2333246600127C37 /* StaticMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE8E2333246600127C37 /* StaticMethods.m */; };
+		AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB97EE902333330000127C37 /* HistoryTableViewCell.xib */; };
+		AB97EE932333330000127C37 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE912333330000127C37 /* HistoryTableViewCell.swift */; };
+		AB97EE95233376B000127C37 /* HistoryProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE94233376B000127C37 /* HistoryProgressBar.swift */; };
+		AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */; };
 		ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA077A7231BB926006B2779 /* ImpactManager.swift */; };
 		ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */; };
 		ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */; };
@@ -314,8 +331,6 @@
 		AB09A53D21DDBACB00CB621C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AB0C64C4230B8E1800C4DF30 /* PathKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathKit.swift; sourceTree = "<group>"; };
-		AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
-		AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLoadButton.swift; sourceTree = "<group>"; };
 		AB14632021D385FC00D41B83 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -392,6 +407,8 @@
 		AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunsPodTableViewCell.swift; sourceTree = "<group>"; };
 		AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		AB32CF5B22B39A32007C9E41 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		AB3D4819232A47CD00078DA4 /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		AB41AADF21952D2200260851 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
@@ -409,7 +426,6 @@
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtensionRelease.entitlements; sourceTree = "<group>"; };
 		AB4E145B22C63F8F0053BE00 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
-		AB53ED5222F16E3A0015D957 /* PullButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullButton.swift; sourceTree = "<group>"; };
 		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewModel.swift; sourceTree = "<group>"; };
@@ -436,6 +452,8 @@
 		AB63D76823167A6200F76F8E /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoViewController.swift; sourceTree = "<group>"; };
 		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTableViewCell.xib; sourceTree = "<group>"; };
+		AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
 		AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6D1B1722C633EA00E9E221 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AB6D1B1922C633EA00E9E221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -466,6 +484,23 @@
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB7B1A9922F8413400790787 /* AdShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdShowViewController.swift; sourceTree = "<group>"; };
 		AB7B1AE822F9237700790787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB872C54232A993300FF3757 /* DownloadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
+		AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBarController.swift; sourceTree = "<group>"; };
+		AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
+		AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTabBarButton.swift; sourceTree = "<group>"; };
+		AB8DA73C2338F38000407FCB /* CleanyAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CleanyAlertViewController.xib; sourceTree = "<group>"; };
+		AB8DA73D2338F38000407FCB /* CleanyAlertActionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CleanyAlertActionTableViewCell.xib; sourceTree = "<group>"; };
+		AB8DA73E2338F38000407FCB /* CleanyAlertActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyAlertActionTableViewCell.swift; sourceTree = "<group>"; };
+		AB8DA73F2338F38000407FCB /* CleanyAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyAlertViewController.swift; sourceTree = "<group>"; };
+		AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalViewController.swift; sourceTree = "<group>"; };
+		AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalTransitionDelegates.swift; sourceTree = "<group>"; };
+		AB8DA7422338F38000407FCB /* CleanyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyConfig.swift; sourceTree = "<group>"; };
+		AB97EE8D2333246600127C37 /* StaticMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticMethods.h; sourceTree = "<group>"; };
+		AB97EE8E2333246600127C37 /* StaticMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticMethods.m; sourceTree = "<group>"; };
+		AB97EE902333330000127C37 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		AB97EE912333330000127C37 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		AB97EE94233376B000127C37 /* HistoryProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryProgressBar.swift; sourceTree = "<group>"; };
+		AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		ABA077A7231BB926006B2779 /* ImpactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactManager.swift; sourceTree = "<group>"; };
 		ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDetailViewController.swift; sourceTree = "<group>"; };
@@ -756,6 +791,8 @@
 				AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */,
 				AB1E6DA421BA01E700B85135 /* UIImage+someMethods.h */,
 				AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */,
+				AB97EE8D2333246600127C37 /* StaticMethods.h */,
+				AB97EE8E2333246600127C37 /* StaticMethods.m */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -770,11 +807,11 @@
 				ABE57E2921EA06BF00F90EED /* HorizonHUD.swift */,
 				AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */,
 				ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */,
-				AB53ED5222F16E3A0015D957 /* PullButton.swift */,
 				AB6990B32315248E003AC187 /* ProgressHUD.swift */,
 				ABDEF0C3231775E3001FFFC5 /* PlayDetailToolBar.swift */,
 				AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */,
 				AB2A3721232888FA0097DAF7 /* DWSegment.swift */,
+				AB97EE94233376B000127C37 /* HistoryProgressBar.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -820,6 +857,7 @@
 				AB41AADA21952A6400260851 /* Controllers */,
 				AB41AADC21952A8A00260851 /* Views */,
 				AB41AADB21952A7C00260851 /* Models */,
+				AB3D4818232A479B00078DA4 /* Dowload */,
 				AB41AAD7219529DB00260851 /* Utils */,
 				AB1E6DA221BA01C500B85135 /* OC */,
 				ABB57AAF22FD07F8000593F2 /* Source */,
@@ -841,6 +879,14 @@
 				AB2A37292328ADDE0097DAF7 /* Loady.swift */,
 			);
 			path = LoadingButton;
+			sourceTree = "<group>";
+		};
+		AB3D4818232A479B00078DA4 /* Dowload */ = {
+			isa = PBXGroup;
+			children = (
+				AB3D4819232A47CD00078DA4 /* DownloadTask.swift */,
+			);
+			path = Dowload;
 			sourceTree = "<group>";
 		};
 		AB41AAD7219529DB00260851 /* Utils */ = {
@@ -865,8 +911,6 @@
 				AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */,
 				AB63D7662316680200F76F8E /* PlayListViewController.swift */,
 				AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */,
-				AB0CD39F21EDA1A300DD8EB4 /* EpisodeDetailViewController.swift */,
-				AB0CD3A021EDA1A300DD8EB4 /* EpisodeDetailViewController.xib */,
 				ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */,
 				ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */,
 				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
@@ -895,6 +939,8 @@
 				AB63D76823167A6200F76F8E /* PlaylistViewController.swift */,
 				AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */,
 				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
+				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
+				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -952,6 +998,8 @@
 		AB41AAF9219564F000260851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AB8DA73B2338F37200407FCB /* CleanyModal */,
+				AB872C56232BC4F600FF3757 /* BubbleTabbarController */,
 				AB2A37272328ADDE0097DAF7 /* LoadingButton */,
 				AB0C64C4230B8E1800C4DF30 /* PathKit.swift */,
 				AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */,
@@ -1034,6 +1082,10 @@
 				ABDEF22E2317B551001FFFC5 /* AdMobTableViewCell.swift */,
 				AB2A372C2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib */,
 				AB2A372D2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift */,
+				AB97EE902333330000127C37 /* HistoryTableViewCell.xib */,
+				AB97EE912333330000127C37 /* HistoryTableViewCell.swift */,
+				AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */,
+				AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1067,6 +1119,30 @@
 				AB6D1B1922C633EA00E9E221 /* Info.plist */,
 			);
 			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		AB872C56232BC4F600FF3757 /* BubbleTabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */,
+				AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */,
+				AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */,
+			);
+			path = BubbleTabbarController;
+			sourceTree = "<group>";
+		};
+		AB8DA73B2338F37200407FCB /* CleanyModal */ = {
+			isa = PBXGroup;
+			children = (
+				AB8DA73E2338F38000407FCB /* CleanyAlertActionTableViewCell.swift */,
+				AB8DA73D2338F38000407FCB /* CleanyAlertActionTableViewCell.xib */,
+				AB8DA73F2338F38000407FCB /* CleanyAlertViewController.swift */,
+				AB8DA73C2338F38000407FCB /* CleanyAlertViewController.xib */,
+				AB8DA7422338F38000407FCB /* CleanyConfig.swift */,
+				AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */,
+				AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */,
+			);
+			path = CleanyModal;
 			sourceTree = "<group>";
 		};
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
@@ -1111,6 +1187,7 @@
 				ABE765FD21D7196700470D8F /* NSAttributedStringExtensions.swift */,
 				ABE765FE21D7196700470D8F /* CalendarExtensions.swift */,
 				ABEE40E121E32C1700FCB16F /* StringExtension.swift */,
+				AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1454,6 +1531,7 @@
 				AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */,
 				AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */,
 				AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */,
+				AB8DA7442338F38000407FCB /* CleanyAlertActionTableViewCell.xib in Resources */,
 				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
@@ -1463,6 +1541,7 @@
 				AB2A372E2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib in Resources */,
 				AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */,
 				ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */,
+				AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
 				AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */,
@@ -1483,9 +1562,10 @@
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
-				AB0CD3A221EDA1A300DD8EB4 /* EpisodeDetailViewController.xib in Resources */,
 				ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */,
+				AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
+				AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */,
 				ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1612,18 +1692,20 @@
 				AB2A372F2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift in Sources */,
 				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
 				AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */,
+				AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
-				AB53ED5322F16E3A0015D957 /* PullButton.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
 				AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */,
 				AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */,
 				ABEE40E021E3292400FCB16F /* SchemManager.swift in Sources */,
 				ABE7ACBA21C21C1A00FC6B8E /* BaseTableViewCell.swift in Sources */,
+				AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */,
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
+				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
 				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
@@ -1635,15 +1717,20 @@
 				ABE7660A21D7196700470D8F /* CalendarExtensions.swift in Sources */,
 				ABE765F121D6414C00470D8F /* PopManager.swift in Sources */,
 				ABE7ACAC21C20DAC00FC6B8E /* HistoryListViewController.swift in Sources */,
+				AB97EE932333330000127C37 /* HistoryTableViewCell.swift in Sources */,
 				ABE7ACB021C20E3300FC6B8E /* SettingViewController.swift in Sources */,
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
+				AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */,
+				AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
+				AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
+				AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */,
 				AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ABE7660921D7196700470D8F /* NSAttributedStringExtensions.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
@@ -1654,14 +1741,15 @@
 				ABEE40E221E32C1700FCB16F /* StringExtension.swift in Sources */,
 				ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
-				AB0CD3A121EDA1A300DD8EB4 /* EpisodeDetailViewController.swift in Sources */,
 				ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */,
 				ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */,
 				AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */,
 				ABE7660521D7196700470D8F /* FileManagerExtensions.swift in Sources */,
 				ABE7660321D7196700470D8F /* DataExtensions.swift in Sources */,
 				AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */,
+				AB97EE8F2333246600127C37 /* StaticMethods.m in Sources */,
 				AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */,
+				AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */,
 				AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
@@ -1673,6 +1761,7 @@
 				ABEE40DA21E3246E00FCB16F /* MJRefreshFooter.m in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				ABEE40E721E35C3800FCB16F /* UserAPI.swift in Sources */,
+				AB34C4FC2331DFDA007FC0EC /* ArrayExtension.swift in Sources */,
 				ABEE40DB21E3246E00FCB16F /* MJRefreshHeader.m in Sources */,
 				ABEE40CE21E3246E00FCB16F /* UIScrollView+MJExtension.m in Sources */,
 				AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */,
@@ -1683,8 +1772,10 @@
 				AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */,
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
+				AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */,
 				ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
+				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
@@ -1723,6 +1814,7 @@
 				AB41AAE221952EAA00260851 /* Episode.swift in Sources */,
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
 				AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */,
+				AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */,
 				ABEE40D521E3246E00FCB16F /* MJRefreshAutoGifFooter.m in Sources */,
 				ABEE40D721E3246E00FCB16F /* MJRefreshNormalHeader.m in Sources */,
 				AB571D8D22B209E80021236C /* FeedManager.swift in Sources */,
@@ -1733,6 +1825,7 @@
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
+				AB97EE95233376B000127C37 /* HistoryProgressBar.swift in Sources */,
 				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,
 				AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */,
 				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,
@@ -1770,6 +1863,7 @@
 				ABE7660621D7196700470D8F /* URLExtensions.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,
+				AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */,
 				ABEE40D121E3246E00FCB16F /* MJRefreshBackGifFooter.m in Sources */,
 				ABEF471221E8B6E400212DCA /* User.swift in Sources */,
 				ABDC4D2C22CCAAB700EF31C0 /* EmptyMainViewController.swift in Sources */,
@@ -1964,14 +2058,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1985,14 +2081,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2053,7 +2151,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2109,7 +2207,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2130,10 +2228,10 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2142,6 +2240,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2158,8 +2257,6 @@
 					"\"AudioToolbox\"",
 					"-framework",
 					"\"CFNetwork\"",
-					"-framework",
-					"\"CleanyModal\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -2310,10 +2407,10 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2322,6 +2419,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2337,14 +2435,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2359,14 +2459,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

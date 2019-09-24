@@ -94,4 +94,13 @@ extension Int {
 	}
 }
 
+extension Notification {
+	static let setupNotification = Notification.Name.init(kSetupNotification)
+	static let needLoginNotification = Notification.Name.init(kNeedLoginAction)
+	static let toMainNotification = Notification.Name.init(kToMainAction)
+	static let downloadProgressNotification = Notification.Name.init("downloadprogress")
+	static let downloadSuccessNotification = Notification.Name.init("download_success")
+	static let downloadFailureNotification = Notification.Name.init("download_failure")
+}
+
 

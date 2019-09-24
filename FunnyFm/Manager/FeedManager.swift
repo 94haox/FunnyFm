@@ -8,7 +8,7 @@
 
 import UIKit
 import FeedKit
-import FirebasePerformance
+//import FirebasePerformance
 import YBTaskScheduler
 
 typealias SuccessParserClosure = ([Episode]) -> Void
@@ -93,20 +93,24 @@ extension FeedManager {
 			return;
 		}
 		
-		NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserBegin"), object: nil)
+		NotificationCenter.default.post(name: Notification.Name.init("homechapterParserBegin"), object: nil)
 		DispatchQueue.global().async {
 			var podCount = podList.count
+			
+			let semphore = DispatchSemaphore.init(value: 2)
+			
 			podList.forEach { (pod) in
+				semphore.wait()
 				var last_title = ""
 				let episodeList = DatabaseManager.allEpisodes(pod: pod)
 				if let episode = episodeList.first {
 					last_title = episode.title
 				}
-				
 				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), success: { (item) in
+					
+					semphore.signal()
 					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
 					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-					print("\(podCount)---------------fetched")
 					podCount -= 1
 					DispatchQueue.main.async {
 						if podCount == 0 {
@@ -115,7 +119,9 @@ extension FeedManager {
 						}
 						self.delegate?.feedManagerDidGetEpisodelistSuccess()
 					}
+					print("fetch_success_\(podCount)")
 				}, { (error) in
+					semphore.signal()
 					podCount -= 1
 					if podCount == 0 {
 						self.isParsering = false
@@ -123,7 +129,10 @@ extension FeedManager {
 							NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
 						}
 					}
+					print("fetch_failure_\(podCount)")
 				})
+
+				
 			}
 		}
 	}
@@ -188,6 +197,9 @@ extension FeedManager {
 	
 	func addOrUpdate(itunesPod:iTunsPod, episodelist: Array<Episode>) {
 		var pod = itunesPod
+		if episodelist.count < 1 {
+			return
+		}
 		if pod.podAuthor != episodelist.first!.author {
 			pod.podAuthor = episodelist.first!.author
 			DatabaseManager.updateItunsPod(pod: pod)

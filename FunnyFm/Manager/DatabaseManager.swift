@@ -91,12 +91,14 @@ class DatabaseManager: NSObject {
                              where: ChapterProgress.Properties.episodeId == chapterId)
     }
 	
-	static public func deleteDownload(chapterId: String){
+	static public func deleteDownload(title: String){
 		try! database.delete(fromTable: downloadTable,
-							 where: Episode.Properties.collectionId == chapterId)
+							 where: Episode.Properties.title == title)
 		
 		
 	}
+	
+	
     
 
     static public func allDownload() -> [Episode]{
@@ -163,10 +165,19 @@ class DatabaseManager: NSObject {
 		
 		var listDic = [String:Episode]()
 		var list = [Episode]()
+		let podlist = self.allItunsPod()
+		var collectionidList = [String]()
+		
+		podlist.forEach { (pod) in
+			collectionidList.append(pod.collectionId)
+		}
+		
 		episodeList.forEach { (episode) in
-			if listDic[episode.title] == nil {
+			if listDic[episode.title] == nil  && collectionidList.contains(episode.collectionId) {
 				listDic[episode.title] = episode
 				list.append(episode)
+			}else{
+				self.deleteEpisode(trackUrl: episode.trackUrl)
 			}
 		}
 		return list
@@ -199,6 +210,7 @@ class DatabaseManager: NSObject {
 	}
 	
 	static public func addEpisode(episode: Episode){
+		
 		let exsitEpisode: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
 													where: Episode.Properties.title == episode.title)
 		if exsitEpisode.count > 0 {
@@ -209,6 +221,10 @@ class DatabaseManager: NSObject {
 	
 	static public func deleteEpisode(collectionId: String) {
 		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.collectionId == collectionId)
+	}
+	
+	static public func deleteEpisode(trackUrl: String) {
+		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.trackUrl == trackUrl)
 	}
     
     

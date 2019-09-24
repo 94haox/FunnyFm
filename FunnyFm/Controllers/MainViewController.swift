@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import SPStorkController
 import Lottie
-import CleanyModal
 import NVActivityIndicatorView
 import GoogleMobileAds
 import YBTaskScheduler
@@ -27,12 +26,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     var collectionView : UICollectionView!
     
     var tableview : UITableView!
-	
-	var titileLB: UILabel!
     
     var searchBtn : UIButton!
-    
-	var topBgView: UIView!
 	
 	var addBtn : UIButton!
 	
@@ -63,7 +58,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 			self.navigationController?.pushViewController(emptyVC, animated: false)
 			UserDefaults.standard.set(true, forKey: "isFirstMain")
 		}
-		self.scheduler.taskQueue = DispatchQueue.main
 		FeedManager.shared.delegate = self;
 		FeedManager.shared.getAllPods()
     }
@@ -104,9 +98,9 @@ extension MainViewController{
 	}
 	
 	func toDetail(episode: Episode) {
-		let detailVC = EpisodeDetailViewController.init()
+		let detailVC = EpisodeInfoViewController.init()
 		detailVC.episode = episode
-		self.navigationController?.pushViewController(detailVC);
+		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.5, delegate: self)
 	}
     
     @objc func refreshData(){
@@ -155,12 +149,15 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	
 	func feedManagerDidGetEpisodelistSuccess() {
 		self.scheduler.addTask {
-			self.tableview.isHidden = false
-			self.loadAnimationView.removeFromSuperview()
-			self.tableview.refreshControl?.endRefreshing()
-			self.tableview.reloadData()
-			self.collectionView.reloadData()
-			self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+			DispatchQueue.main.async {
+				self.tableview.isHidden = false
+				self.loadAnimationView.removeFromSuperview()
+				self.tableview.refreshControl?.endRefreshing()
+				self.tableview.reloadData()
+				self.collectionView.reloadData()
+				self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+
+			}
 		}
 		
 	}
@@ -237,6 +234,7 @@ extension MainViewController{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
 		let episodeList = FeedManager.shared.episodeList[indexPath.section]
+		
         let item = episodeList[indexPath.row]
 		if item is Episode{
 			guard let cell = cell as? HomeAlbumTableViewCell else { return }
@@ -244,6 +242,14 @@ extension MainViewController{
 			cell.configHomeCell(episode)
 			cell.tranferNoParameterClosure { [weak self] in
 				self?.toDetail(episode: episode)
+			}
+			
+			cell.tapLogoGesAction { [weak self] in
+				let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+				if pod.isSome {
+					let vc = PodDetailViewController.init(pod: pod!)
+					self?.navigationController?.pushViewController(vc)
+				}
 			}
 		}
 		
@@ -347,35 +353,24 @@ extension MainViewController {
 		self.view.addSubview(self.avatarView)
 //        self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
-        self.view.addSubview(self.titileLB)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
+		self.view.sendSubviewToBack(self.topBgView)
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
-		
-		
-		
-		self.topBgView.snp.makeConstraints { (make) in
-			make.left.width.top.equalToSuperview()
-			make.bottom.equalTo(self.titileLB).offset(5.adapt())
-		}
 		
 		self.avatarView.snp.makeConstraints { (make) in
 			make.size.equalTo(CGSize.init(width: 35, height: 35))
 			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
-			make.centerY.equalTo(self.titileLB)
+			make.centerY.equalTo(self.titleLB)
 		}
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))
             make.right.equalToSuperview().offset(-16)
-            make.centerY.equalTo(self.titileLB)
+            make.centerY.equalTo(self.titleLB)
         }
-        
-        self.titileLB.snp.makeConstraints { (make) in
-            make.left.equalTo(self.view).offset(16)
-            make.top.equalTo(self.view.snp.topMargin)
-        }
+
                 
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
@@ -390,8 +385,8 @@ extension MainViewController {
 		
 		self.fetchLoadingView.snp.makeConstraints { (make) in
 			make.size.equalTo(CGSize.init(width:AdaptScale(30), height: AdaptScale(30)))
-			make.centerY.equalTo(self.titileLB);
-			make.left.equalTo(self.titileLB.snp.right).offset(AdaptScale(20))
+			make.centerY.equalTo(self.titleLB);
+			make.left.equalTo(self.titleLB.snp.right).offset(AdaptScale(20))
 		}
     }
     
@@ -425,17 +420,12 @@ extension MainViewController {
         self.tableview.contentInset = UIEdgeInsets.init(top: 35.adapt(), left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
-		
-		self.topBgView = UIView.init()
-		self.topBgView.backgroundColor = .white
-		
+				
         self.searchBtn = UIButton.init(type: .custom)
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
 		
-		self.titileLB = UILabel.init(text: "最近更新".localized)
-		self.titileLB.font = p_bfont(titleFontSize)
-		self.titileLB.textColor = CommonColor.subtitle.color
+		self.titleLB.text = "最近更新".localized
 		
 		self.avatarView = UIImageView.init()
 		self.avatarView.cornerRadius = 35.0/2
@@ -466,6 +456,7 @@ extension MainViewController {
     }
     
 }
+
 
 
 

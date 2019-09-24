@@ -57,7 +57,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 		let nav = UIApplication.shared.keyWindow?.rootViewController
 		let presentNavi = UINavigationController.init(rootViewController: vc)
 		presentNavi.navigationBar.isHidden = true
-		nav?.present(presentNavi, animated: true, completion: nil)
+//		nav?.present(presentNavi, animated: true, completion: nil)
+		nav?.dw_presentAsStork(controller: presentNavi, heigth: kScreenHeight, delegate: nav)
 	}
     
     
@@ -69,7 +70,21 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     }
 }
 
-
+// MARK: action
+extension FMToolBar {
+	
+	func toobarPause(){
+		FMPlayerManager.shared.delegate = self
+		FMPlayerManager.shared.pause()
+	}
+	
+	func toolbarPlay(){
+		FMPlayerManager.shared.delegate = self
+		FMPlayerManager.shared.play()
+	}
+	
+	
+}
 
 
 // MARK: FMPlayerManagerDelegate
@@ -104,7 +119,8 @@ extension FMToolBar {
 	}
 	
 	func playerDidPause() {
-//		self.isPlaying = false
+		self.isPlaying = false
+		self.playBtn.isSelected = false
         PopManager.removeRotationAnimation(self.logoImageView!.layer)
 	}
     
@@ -144,7 +160,9 @@ extension FMToolBar{
             DatabaseManager.add(history: chapter)
             self.currentEpisode = chapter
         }
-        
+		if(self.progressLayer.isSome) {
+			self.progressLayer.pop_removeAllAnimations()
+		}
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.author
         self.setUpChapter(chapter)
@@ -163,6 +181,9 @@ extension FMToolBar{
         self.playBtn.isSelected = false
         FMPlayerManager.shared.config(chapter)
         FMPlayerManager.shared.delegate = self
+		if self.isShrink {
+			return
+		}
         let anim = CABasicAnimation.init(keyPath: "transform.rotation.x")
         anim.toValue = NSNumber.init(value: Double.pi*3)
         anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
@@ -279,9 +300,9 @@ extension FMToolBar {
     func addConstraints() {
         self.backgroundColor = .white
         self.cornerRadius = 15.0
+		
         self.addShadow(ofColor: UIColor.lightGray, radius: 10, offset: CGSize.init(width: 2, height: 10), opacity: 0.5)
         self.addSubview(self.containerView)
-//		self.containerView.addSubview(self.progressBg);
         self.addSubview(self.logoImageView)
         self.containerView.addSubview(self.titleLB)
         self.containerView.addSubview(self.authorLB)
@@ -336,8 +357,10 @@ extension FMToolBar {
     }
 	
     func setUpUI() {
+		
         self.containerView = UIView()
 		self.containerView.layer.masksToBounds = true
+		
 		self.playBtn = UIButton.init(type: .custom)
         self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
         self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)

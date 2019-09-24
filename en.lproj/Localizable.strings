@@ -30,7 +30,8 @@
 "设置"="Setting";
 "订阅"="Subscribe";
 "已订阅"="Subscribed";
-"登录"="Login";
+"登录"="Sign In";
+"登录成功"= "Sign In Successful";
 "注册"="Register";
 "密码（6位）"="password (6-digit number)";
 "账号"="account";
@@ -58,7 +59,7 @@
 "关于"="about";
 "给 FunnyFM 评分"="Rate FunnyFM";
 "将 FunnyFM 推荐给好友"="Recommended FunnyFM";
-"查看开发者其他的 App"="View other developer's apps";
+"查看开发者其他的 App"="View other apps";
 "关于 FunnyFM"="About FunnyFM";
 "嘿，我发现了一个好用的播客 APP， 你也来试试吧"="Hey, I found a good podcast app, let's try it.";
 "请输入邮箱地址"="Please input the email";
@@ -73,3 +74,17 @@
 "自动同步订阅"="AutoSync";
 "同步成功"="Sync successfully";
 "同步中"= "Syncing...";
+"15分钟后"="After 15 minutes";
+"30分钟后"="After 30 minutes";
+"一个小时后"="After 1 hour";
+"定时关闭"="Sleep in";
+"播放结束后"="When episode done";
+"取消"="Cancel";
+"删除全部"="Delete all";
+"播放"="Play";
+"暂停"="Pause";
+"下载失败"="Download failure";
+"正在下载"="Downloading";
+"已下载"="Downloaded";
+"删除已缓存单集？"="Delete this Episode?";
+"删除"="Delete";
