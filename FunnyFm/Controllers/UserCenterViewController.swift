@@ -35,9 +35,15 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	@objc func toLogoutAction(){
 		
 		if !UserCenter.shared.isLogin {
+			if #available(iOS 13.0, *) {
+				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+				loginNavi.navigationBar.isHidden = true
+				self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
+				return
+			}
+			
 			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
 			loginNavi.navigationBar.isHidden = true
-//			self.navigationController?.present(loginNavi, animated: true, completion: nil)
 			self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
 			return
 		}
@@ -135,6 +141,12 @@ extension UserCenterViewController {
 		}
 		
 		if !UserCenter.shared.isLogin {
+			if #available(iOS 13.0, *) {
+				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+				loginNavi.navigationBar.isHidden = true
+				self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
+				return
+			}
 			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
 			self.navigationController?.present(loginNavi, animated: true, completion: nil)
 			return

@@ -56,7 +56,7 @@ extension CloudSyncViewController: PodListViewModelDelegate {
 		if progress >= 100 {
 			ImpactManager.impact(UIImpactFeedbackGenerator.FeedbackStyle.heavy)
 			self.syncBtn.setTitle("同步成功".localized, for: .normal)
-			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "kSyncSuccess"), object: nil)
+			NotificationCenter.default.post(name: Notification.Name.init(rawValue: "kSyncSuccess"), object: nil)
 			DispatchQueue.main.asyncAfter(deadline: .now()+2) {
 				self.dismiss(animated: true, completion: nil)
 			}

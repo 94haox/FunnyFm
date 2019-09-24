@@ -32,7 +32,7 @@ class PushManager: NSObject {
 		}
 		
 		OneSignal.initWithLaunchOptions(launchOptions,
-										appId: "30cd881e-c916-44d2-8293-b2f7e2c7deae",
+										appId: onesignalKey,
 										handleNotificationReceived: notificationReceivedBlock,
 										handleNotificationAction: notificationOpenedBlock,
 										settings: onesignalInitSettings)
@@ -65,11 +65,13 @@ class PushManager: NSObject {
 	}
 	
 	func addTag(taglist: [AnyHashable: Any]) {
-		OneSignal.sendTags(taglist, onSuccess: nil, onFailure: { (error) in
+		OneSignal.sendTags(taglist, onSuccess: { (taglist) in
+			
+		}) { (error) in
 			if let cError = error {
 				print("onesignaltag",cError.localizedDescription)
 			}
-		})
+		}
 	}
 	
 	

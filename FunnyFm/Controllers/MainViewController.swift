@@ -53,11 +53,13 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		FMToolBar.shared.isHidden = true
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
 		self.addEmptyViews()
-		if !UserDefaults.standard.bool(forKey: "isFirstMain") {
+		
+		if !UserDefaults.standard.bool(forKey: "kisFirstMain") {
 			let emptyVC = EmptyMainViewController.init()
 			self.navigationController?.pushViewController(emptyVC, animated: false)
-			UserDefaults.standard.set(true, forKey: "isFirstMain")
+			UserDefaults.standard.set(true, forKey: "kisFirstMain")
 		}
+		
 		FeedManager.shared.delegate = self;
 		FeedManager.shared.getAllPods()
     }

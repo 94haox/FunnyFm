@@ -145,6 +145,9 @@
 		AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */; };
 		AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */; };
 		AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7422338F38000407FCB /* CleanyConfig.swift */; };
+		AB8DAB892339B28300407FCB /* JPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DAB882339B28300407FCB /* JPushManager.swift */; };
+		AB8DAB90233A08DF00407FCB /* AppleLoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */; };
+		AB8DAB91233A08DF00407FCB /* AppleLoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */; };
 		AB97EE8F2333246600127C37 /* StaticMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE8E2333246600127C37 /* StaticMethods.m */; };
 		AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB97EE902333330000127C37 /* HistoryTableViewCell.xib */; };
 		AB97EE932333330000127C37 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE912333330000127C37 /* HistoryTableViewCell.swift */; };
@@ -451,6 +454,10 @@
 		AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalViewController.swift; sourceTree = "<group>"; };
 		AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalTransitionDelegates.swift; sourceTree = "<group>"; };
 		AB8DA7422338F38000407FCB /* CleanyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyConfig.swift; sourceTree = "<group>"; };
+		AB8DAB882339B28300407FCB /* JPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPushManager.swift; sourceTree = "<group>"; };
+		AB8DAB8A2339B9AB00407FCB /* OneSignalNotificationServiceExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneSignalNotificationServiceExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleLoginTypeViewController.xib; sourceTree = "<group>"; };
+		AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTypeViewController.swift; sourceTree = "<group>"; };
 		AB97EE8D2333246600127C37 /* StaticMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticMethods.h; sourceTree = "<group>"; };
 		AB97EE8E2333246600127C37 /* StaticMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticMethods.m; sourceTree = "<group>"; };
 		AB97EE902333330000127C37 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -853,6 +860,8 @@
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
 				AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */,
 				AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */,
+				AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */,
+				AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */,
 				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
 				ABF498A02303B88A00441DAF /* RegisterViewController.xib */,
 				ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */,
@@ -1051,6 +1060,7 @@
 				AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */,
 				AB6D1B1722C633EA00E9E221 /* NotificationService.swift */,
 				AB6D1B1922C633EA00E9E221 /* Info.plist */,
+				AB8DAB8A2339B9AB00407FCB /* OneSignalNotificationServiceExtension-Bridging-Header.h */,
 			);
 			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
@@ -1141,6 +1151,7 @@
 				ABA077A7231BB926006B2779 /* ImpactManager.swift */,
 				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 				ABE9F4142329D45B000BED40 /* PreferenceCenter.swift */,
+				AB8DAB882339B28300407FCB /* JPushManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1345,6 +1356,7 @@
 					};
 					AB6D1B1422C633E900E9E221 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1100;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -1423,6 +1435,7 @@
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
 				ABB57AB122FD0820000593F2 /* recommend.json in Resources */,
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
+				AB8DAB90233A08DF00407FCB /* AppleLoginTypeViewController.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
@@ -1557,6 +1570,7 @@
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
+				AB8DAB892339B28300407FCB /* JPushManager.swift in Sources */,
 				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
@@ -1629,6 +1643,7 @@
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
+				AB8DAB91233A08DF00407FCB /* AppleLoginTypeViewController.swift in Sources */,
 				ABEE40D921E3246E00FCB16F /* MJRefreshGifHeader.m in Sources */,
 				ABEE40D321E3246E00FCB16F /* MJRefreshBackNormalFooter.m in Sources */,
 				ABE7ACBD21C22B9400FC6B8E /* DatabaseManager.swift in Sources */,
@@ -1880,7 +1895,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1903,7 +1918,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2050,7 +2065,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2229,7 +2244,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2255,9 +2270,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2270,6 +2286,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2279,9 +2297,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2294,6 +2313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

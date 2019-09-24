@@ -96,6 +96,12 @@ public extension UIImageView {
 			failureImage: UIImage(named: holder!)
 		)
 		
+		let imgURL = URL.init(string: url)
+		
+		if imgURL.isNone {
+			return
+		}
+		
 		Nuke.loadImage(with: URL.init(string: url)!, options: options, into: self, progress: nil, completion: { result in
 			switch result {
 			case .success(let value):

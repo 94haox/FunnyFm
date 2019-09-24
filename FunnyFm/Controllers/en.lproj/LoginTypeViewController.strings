@@ -6,7 +6,7 @@
 "RqG-8G-ehr.normalTitle" = "Sign in with email";
 
 /* Class = "UILabel"; text = "or"; ObjectID = "Vxa-fF-btW"; */
-"Vxa-fF-btW.text" = "or";
+"Vxa-fF-btW.text" = "--- or ---";
 
 /* Class = "UILabel"; text = "FunnyFm"; ObjectID = "bSA-0Z-uax"; */
 "bSA-0Z-uax.text" = "FunnyFm";

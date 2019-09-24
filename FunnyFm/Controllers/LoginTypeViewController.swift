@@ -20,7 +20,7 @@ class LoginTypeViewController: UIViewController {
 		self.viewModel.delegate = self;
 		GIDSignIn.sharedInstance().delegate = self
 		GIDSignIn.sharedInstance()?.uiDelegate = self
-		GIDSignIn.sharedInstance()?.clientID = "491413064388-cnaplmj5h8bah503k27a71ciiok1acbs.apps.googleusercontent.com"
+		GIDSignIn.sharedInstance()?.clientID = googleSigninKey
 		ggLoginBtn.style = .wide
 		
     }

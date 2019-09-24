@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OneSignal
 
 class LoginViewModel: BaseViewModel {
     var user: User?
@@ -48,6 +49,21 @@ class LoginViewModel: BaseViewModel {
 	
 	func login(googleData:[String: Any]) {
 		FmHttp<User>().requestForSingle(UserAPI.login(googleData), success: { (person) in
+			if person.isSome {
+				self.user = person
+				UserCenter.shared.isLogin = true
+				UserCenter.shared.userId = person!.userId
+				UserCenter.shared.name = person!.name
+				UserCenter.shared.avatar = person!.avatar
+				self.delegate?.viewModelDidGetDataSuccess()
+			}
+		}, { (message) in
+			self.delegate?.viewModelDidGetDataFailture(msg: message)
+		})
+	}
+	
+	func login(appleData:[String: Any]) {
+		FmHttp<User>().requestForSingle(UserAPI.login(appleData), success: { (person) in
 			if person.isSome {
 				self.user = person
 				UserCenter.shared.isLogin = true

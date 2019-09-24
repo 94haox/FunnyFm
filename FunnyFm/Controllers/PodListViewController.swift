@@ -19,16 +19,17 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
 	
 	var sectionSegment: DWSegment = DWSegment()
 	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.titleLB.text = "我的订阅".localized
 		self.setupUI()
 		self.vm.delegate = self
 		MSHUD.shared.show(in: self.view)
-		self.vm.getAllSubscribe()
-		NotificationCenter.default.rx.notification(Notification.Name.init(rawValue: "kSyncSuccess")).subscribe(onNext: { (notification) in
-			self.vm.getAllSubscribe()
-		}).dispose()
+		NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name.init(rawValue: "kSyncSuccess"), object: nil)
     }
 	
 	@objc func changeSegment(){
@@ -43,6 +44,15 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
 		let syncVC = CloudSyncViewController.init()
 		syncVC.syncList = self.vm.podlist
 		self.presentAsStork(syncVC, height: 350)
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.vm.getAllSubscribe()
+	}
+	
+	@objc func refresh(){
+		self.vm.getAllSubscribe()
 	}
     
     lazy var collectionView : UICollectionView = {

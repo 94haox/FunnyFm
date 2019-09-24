@@ -32,6 +32,7 @@ import FirebaseUI
         DatabaseManager.setupDefaultDatabase()
 		
 		PushManager().configurePushSDK(launchOptions: launchOptions)
+
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
 		let mainVC = MainViewController()
@@ -106,6 +107,12 @@ extension AppDelegate {
 	@objc func toLoginVC(){
 		DispatchQueue.main.async {
 			let navi = self.window?.rootViewController as! UINavigationController
+			if #available(iOS 13.0, *) {
+				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+				loginNavi.navigationBar.isHidden = true
+				navi.present(loginNavi, animated: true, completion: nil)
+				return
+			}
 			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
 			navi.present(loginNavi, animated: true, completion: nil)
 		}

@@ -19,6 +19,7 @@ def layout
 end
 
 def lib
+		pod 'JPush'
     pod 'KeychainAccess'
     pod 'WCDB.swift'
     pod 'RxSwift'
