@@ -1,22 +1,19 @@
 //
-//  PlayListViewController.swift
+//  EpisodeSettingViewController.swift
 //  FunnyFm
 //
-//  Created by Duke on 2019/8/28.
+//  Created by Duke on 2019/9/25.
 //  Copyright © 2019 Duke. All rights reserved.
 //
 
 import UIKit
 
-class PlayListViewController: BaseViewController {
+class EpisodeSettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.titleLB.text = "播放列表"
+
         
     }
-    
-
-
 
 }

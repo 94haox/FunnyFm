@@ -100,10 +100,11 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     }()
     
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
+											  ["title":"播放列表".localized,"subtitle":"","imageName":"play-list-fill"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
-										   ["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
+										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]
 }
 
@@ -135,6 +136,12 @@ extension UserCenterViewController {
 		}
 		
 		if indexPath.row == 1 {
+			let playlistVC = PlayListViewController()
+			self.navigationController?.pushViewController(playlistVC)
+			return
+		}
+		
+		if indexPath.row == 2 {
 			let downloadVc = DownloadListViewController()
 			self.navigationController?.pushViewController(downloadVc)
 			return
@@ -156,12 +163,6 @@ extension UserCenterViewController {
             let historyVc = HistoryListViewController()
             self.navigationController?.pushViewController(historyVc)
         }
-        
-//        if indexPath.row == 1 {
-//            let favorVc = FavouriteListController()
-//            self.navigationController?.pushViewController(favorVc)
-//        }
-		
         
         if indexPath.row == 2 {
             let subscribVc = PodListViewController()

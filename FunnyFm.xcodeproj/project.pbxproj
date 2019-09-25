@@ -103,6 +103,9 @@
 		AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB01219564F000260851 /* ConfigurationHelper.swift */; };
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
+		AB4578C4233B44CC001DF1D1 /* EpisodeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */; };
+		AB4578C6233B4905001DF1D1 /* PlayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C5233B4905001DF1D1 /* PlayListManager.swift */; };
+		AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C7233B5112001DF1D1 /* PlayItem.swift */; };
 		AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB4E145B22C63F8F0053BE00 /* sound.wav */; };
 		AB571D8D22B209E80021236C /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB571D8C22B209E80021236C /* FeedManager.swift */; };
 		AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */; };
@@ -383,6 +386,9 @@
 		AB41AB01219564F000260851 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		AB41AB04219564F000260851 /* CornerAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerAnimatable.swift; sourceTree = "<group>"; };
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSettingViewController.swift; sourceTree = "<group>"; };
+		AB4578C5233B4905001DF1D1 /* PlayListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListManager.swift; sourceTree = "<group>"; };
+		AB4578C7233B5112001DF1D1 /* PlayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayItem.swift; sourceTree = "<group>"; };
 		AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtensionRelease.entitlements; sourceTree = "<group>"; };
 		AB4E145B22C63F8F0053BE00 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
@@ -884,6 +890,7 @@
 				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
 				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
 				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
+				AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -898,6 +905,7 @@
 				ABEF471121E8B6E400212DCA /* User.swift */,
 				ABA7052122B641000012FD0A /* NetEasyPod.swift */,
 				AB57FE3C22CF346900BABEF2 /* Favor.swift */,
+				AB4578C7233B5112001DF1D1 /* PlayItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1152,6 +1160,7 @@
 				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 				ABE9F4142329D45B000BED40 /* PreferenceCenter.swift */,
 				AB8DAB882339B28300407FCB /* JPushManager.swift */,
+				AB4578C5233B4905001DF1D1 /* PlayListManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1591,6 +1600,7 @@
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
 				AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */,
+				AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
@@ -1675,6 +1685,7 @@
 				AB2A372B2328ADDE0097DAF7 /* Loady.swift in Sources */,
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
+				AB4578C6233B4905001DF1D1 /* PlayListManager.swift in Sources */,
 				AB1E6D7A21B9252500B85135 /* UIStoryboardExtensions.swift in Sources */,
 				AB41AAE221952EAA00260851 /* Episode.swift in Sources */,
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
@@ -1691,6 +1702,7 @@
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
 				AB97EE95233376B000127C37 /* HistoryProgressBar.swift in Sources */,
+				AB4578C4233B44CC001DF1D1 /* EpisodeSettingViewController.swift in Sources */,
 				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,
 				AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */,
 				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,

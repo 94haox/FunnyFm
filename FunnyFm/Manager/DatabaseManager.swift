@@ -14,6 +14,7 @@ let historyTable = "listenHistory"
 let progressTable = "episode_progress"
 let exsitEpisodeTable = "exsit_episode"
 let exsitPodTable = "exsit_iTunsPod"
+let playItemTable = "play_list_table"
 
 class DatabaseManager: NSObject {
     
@@ -26,8 +27,66 @@ class DatabaseManager: NSObject {
         try! database.create(table: historyTable, of: Episode.self)
         try! database.create(table: progressTable, of: ChapterProgress.self)
         try! database.create(table: downloadTable, of: Episode.self)
+		try! database.create(table: playItemTable, of: PlayItem.self)
     }
+	
     
+	
+}
+
+// MARK: 播放列表操作记录
+extension DatabaseManager {
+	
+	static public func add(item:PlayItem){
+		let olditem = self.query(trackUrl: item.trackUrl)
+		if olditem.isSome {
+			self.update(item: item)
+			return
+		}
+		try! database.insert(objects: item, intoTable: playItemTable)
+		
+	}
+	
+	
+	static public func query(trackUrl: String) -> PlayItem?{
+		let items: [PlayItem]? = try! database.getObjects(fromTable: playItemTable,
+		where: PlayItem.Properties.trackUrl == trackUrl)
+		if items.isSome {
+			if items!.first.isSome {
+				return items!.first!
+			}
+		}
+		return nil
+	}
+	
+	static public func update(item:PlayItem){
+		let olditem: PlayItem? = self.query(trackUrl: item.trackUrl)
+		if olditem.isSome {
+			try! self.database.update(table: playItemTable, on: PlayItem.Properties.all, with: item, where: PlayItem.Properties.trackUrl == item.trackUrl)
+		}
+	}
+	
+	static public func deletePlayItem(trackUrl:String){
+		try! database.delete(fromTable: playItemTable,
+							 where: PlayItem.Properties.trackUrl == trackUrl)
+	}
+	
+	static public func allPlayItem() -> [PlayItem] {
+		let items : [PlayItem] = try! database.getObjects(fromTable: playItemTable)
+		
+		let sortedItems = items.sorted(by: { (item1, item2) -> Bool in
+			return item1.playIndex < item2.playIndex
+		})
+		
+		return sortedItems
+	}
+}
+
+
+
+// MARK: 历史记录操作
+extension DatabaseManager {
+	
     /// 添加历史记录
     ///
     /// - Parameter history: 历史记录
@@ -37,6 +96,47 @@ class DatabaseManager: NSObject {
             return
         }
         try! self.database.insert(objects: history, intoTable: historyTable)
+    }
+	
+    static public func allHistory() -> [Episode]{
+        let historyList : [Episode] = try! database.getObjects(fromTable: historyTable)
+        return historyList
+    }
+	
+    /// 删除历史记录
+    static public func delete(title: String){
+        try! database.delete(fromTable: historyTable,
+                            where: Episode.Properties.title == title)
+    }
+	
+    /// 查询历史记录
+    static public func qurey(title: String) -> Episode?{
+        let historyList = self.allHistory()
+        let history = historyList.filter { $0.title == title }
+        return history.first
+    }
+	
+}
+
+// MARK: 下载记录操作
+extension DatabaseManager {
+	
+    static public func allDownload() -> [Episode]{
+        let episodeList : [Episode] = try! database.getObjects(fromTable: downloadTable)
+        return episodeList
+    }
+	
+	static public func deleteDownload(title: String){
+		try! database.delete(fromTable: downloadTable,
+							 where: Episode.Properties.title == title)
+			
+	}
+	
+    /// 查询下载记录
+    static public func qureyDownload(title: String) -> Episode?{
+        let episodeList = self.allDownload()
+        let episode = episodeList.filter { $0.title == title }
+        return episode.first
     }
 	
     /// 添加下载记录
@@ -50,73 +150,10 @@ class DatabaseManager: NSObject {
 		try! self.database.insert(objects: download, intoTable: downloadTable)
 	}
 	
-    
-    /// 添加进度记录
-    ///
-    
-    /// 查询历史记录
-    static public func qurey(title: String) -> Episode?{
-        let historyList = self.allHistory()
-        let history = historyList.filter { $0.title == title }
-        return history.first
-    }
-    
-    /// 查询下载记录
-    static public func qureyDownload(title: String) -> Episode?{
-        let episodeList = self.allDownload()
-        let episode = episodeList.filter { $0.title == title }
-        return episode.first
-    }
-    
-    /// 查询进度记录
-    static public func qureyProgress(episodeId: String) -> Double{
-		return UserDefaults.standard.double(forKey: "Progress_" + episodeId)
-    }
-    
-    /// 删除历史记录
-    static public func delete(title: String){
-        try! database.delete(fromTable: historyTable,
-                            where: Episode.Properties.title == title)
-    }
-	
-    /// 更新进度记录
-	static public func updateProgress(progress: Double, episodeId:String){
-		UserDefaults.standard.set(progress, forKey: "Progress_" + episodeId)
-		UserDefaults.standard.synchronize()
-    }
-    
-    /// 删除进度记录
-    static public func deleteProgress(chapterId: String){
-        try! database.delete(fromTable: historyTable,
-                             where: ChapterProgress.Properties.episodeId == chapterId)
-    }
-	
-	static public func deleteDownload(title: String){
-		try! database.delete(fromTable: downloadTable,
-							 where: Episode.Properties.title == title)
-		
-		
-	}
-	
-	
-    
+}
 
-    static public func allDownload() -> [Episode]{
-        let episodeList : [Episode] = try! database.getObjects(fromTable: downloadTable)
-        return episodeList
-    }
-    
-    static public func allHistory() -> [Episode]{
-        let historyList : [Episode] = try! database.getObjects(fromTable: historyTable)
-        return historyList
-    }
-    
-    static public func allProgress() -> [ChapterProgress]{
-        let ChapterProgressList : [ChapterProgress] = try! database.getObjects(fromTable: progressTable)
-        return ChapterProgressList
-    }
-	
-	
+// MARK: Podcast 操作
+extension DatabaseManager {
 	/// pod 缓存
 	static public func allItunsPod() -> [iTunsPod] {
 		var itunsPodList : [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable)
@@ -153,9 +190,12 @@ class DatabaseManager: NSObject {
 	static public func deleteItunsPod(collectionId: String){
 		try! self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.collectionId == collectionId, orderBy: nil, limit: nil, offset: nil)
 	}
+}
+
+// MARK: Episode 操作
+extension DatabaseManager {
 	
-	
-	/// episode 缓存
+	/// 所有 episode 缓存
 	static public func allEpisodes() -> [Episode] {
 		let episodeList : [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable).sorted(by: { (obj1, obj2) -> Bool in
 			let second1 = obj1.pubDateSecond
@@ -183,6 +223,7 @@ class DatabaseManager: NSObject {
 		return list
 	}
 	
+	/// 指定 Pod 下的所有 Episode
 	static public func allEpisodes(pod: iTunsPod) -> [Episode] {
 		let objects: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
 														where: Episode.Properties.collectionId == pod.collectionId)
@@ -203,11 +244,21 @@ class DatabaseManager: NSObject {
 		return list
 	}
 	
+	
+	/// 通过 title 获取指定单集
 	static public func getEpisode(title:String) -> Episode?{
 		let episodeList = self.allEpisodes()
 		let episodes = episodeList.filter { $0.title == title}
 		return episodes.first
 	}
+	
+	static public func getEpisode(trackUrl:String) -> Episode?{
+		let episodeList = self.allEpisodes()
+		let episodes = episodeList.filter { $0.trackUrl == trackUrl}
+		return episodes.first
+	}
+	
+	/// 添加 Episode
 	
 	static public func addEpisode(episode: Episode){
 		
@@ -219,14 +270,44 @@ class DatabaseManager: NSObject {
 		try! self.database.insert(objects: episode, intoTable: exsitEpisodeTable)
 	}
 	
+	
+	/// 通过 collectionId 删除所有Episode
 	static public func deleteEpisode(collectionId: String) {
 		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.collectionId == collectionId)
 	}
 	
+	/// 通过音频文件 url 删除单集
 	static public func deleteEpisode(trackUrl: String) {
 		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.trackUrl == trackUrl)
 	}
-    
-    
 
+	
+}
+
+// MARK: 进度记录操作
+extension DatabaseManager {
+	
+    /// 查询进度记录
+    static public func qureyProgress(episodeId: String) -> Double{
+		return UserDefaults.standard.double(forKey: "Progress_" + episodeId)
+    }
+
+	
+    /// 更新进度记录
+	static public func updateProgress(progress: Double, episodeId:String){
+		UserDefaults.standard.set(progress, forKey: "Progress_" + episodeId)
+		UserDefaults.standard.synchronize()
+    }
+    
+    /// 删除进度记录
+    static public func deleteProgress(chapterId: String){
+        try! database.delete(fromTable: historyTable,
+                             where: ChapterProgress.Properties.episodeId == chapterId)
+    }
+    
+    static public func allProgress() -> [ChapterProgress]{
+        let ChapterProgressList : [ChapterProgress] = try! database.getObjects(fromTable: progressTable)
+        return ChapterProgressList
+    }
+	
 }

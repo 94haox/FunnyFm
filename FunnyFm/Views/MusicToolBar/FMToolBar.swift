@@ -200,15 +200,7 @@ extension FMToolBar {
     
     
     func shrink(){
-        self.containerView.isHidden = true
-		self.progressBackView.isHidden = true
         let animationTime = 0.3
-        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
-            anim.fromValue = NSNumber.init(value: 15)
-            anim.toValue = NSNumber.init(value: Double(self.logoImageView.frame.size.width/2.0))
-            anim.duration = animationTime
-            self.layer.pop_add(anim, forKey: "self_radius")
-        }
         
         if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
             anim.fromValue = NSNumber.init(value: 5)
@@ -224,22 +216,23 @@ extension FMToolBar {
             anim.duration = animationTime
             self.playBtn.layer.pop_add(anim, forKey: "scale")
         }
+		
+		self.logoImageView.snp.remakeConstraints { (make) in
+			make.left.equalToSuperview().offset(16)
+			make.top.equalToSuperview().offset(5)
+			make.size.equalTo(CGSize.init(width: 45, height: 45))
+		}
+		
+		self.playBtn.snp.remakeConstraints { (make) in
+			make.centerY.equalTo(self.logoImageView);
+			make.right.equalToSuperview().offset(-10)
+			make.size.equalTo(CGSize.init(width: 30, height: 30))
+		}
         
         UIView.animate(withDuration: animationTime, animations: {
-            self.frame = CGRect.init(x: kScreenWidth-50-18, y: kScreenHeight-110+15, width: 50, height: 50)
-            self.logoImageView.snp.remakeConstraints { (make) in
-                make.center.equalToSuperview()
-                make.size.equalTo(CGSize.init(width: 45, height: 45))
-            }
-            
-            self.playBtn.snp.remakeConstraints { (make) in
-                make.center.equalToSuperview()
-                make.size.equalTo(CGSize.init(width: 30, height: 30))
-            }
+			self.frame = CGRect.init(x: 0, y: kScreenHeight-50, width: kScreenWidth, height: 80)
+			self.layoutIfNeeded()
         }) { (isComplete) in
-            if self.isPlaying {
-                PopManager.addRotationAnimation(self.logoImageView!.layer)
-            }
             self.isShrink = true
         }
     }
@@ -248,16 +241,10 @@ extension FMToolBar {
 		self.progressBackView.isHidden = false
         PopManager.removeRotationAnimation(self.logoImageView!.layer)
         let animationTime = 0.3
-        if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
-            anim.toValue = NSNumber.init(value: 15)
-            anim.fromValue = NSNumber.init(value: Double(self.frame.size.width/2.0))
-            anim.duration = animationTime
-            self.layer.pop_add(anim, forKey: "reset_self_radius")
-        }
         
         if let anim = POPBasicAnimation(propertyNamed: kPOPLayerCornerRadius){
+			anim.fromValue = NSNumber.init(value: Double(self.logoImageView.frame.size.width/2.0))
             anim.toValue = NSNumber.init(value: 5)
-            anim.fromValue = NSNumber.init(value: Double(self.logoImageView.frame.size.width/2.0))
             anim.duration = animationTime
             self.logoImageView.layer.masksToBounds = true
             self.logoImageView.layer.pop_add(anim, forKey: "reset_radius")
@@ -271,20 +258,21 @@ extension FMToolBar {
             self.playBtn.layer.pop_add(anim, forKey: "reset_scale")
         }
         
-    
+		self.logoImageView.snp.remakeConstraints { (make) in
+			make.centerY.equalToSuperview()
+			make.left.equalToSuperview().offset(16)
+			make.size.equalTo(CGSize.init(width: 45, height: 45))
+		}
+		
+		self.playBtn.snp.remakeConstraints { (make) in
+			make.centerY.equalToSuperview()
+			make.size.equalTo(CGSize.init(width: 30, height: 30))
+			make.right.equalToSuperview().offset(-10)
+		}
+		
         UIView.animate(withDuration: animationTime, animations: {
             self.frame = CGRect.init(x: 18, y: kScreenHeight-100-10, width: kScreenWidth-36, height: 80)
-            self.logoImageView.snp.remakeConstraints { (make) in
-                make.centerY.equalToSuperview()
-                make.left.equalToSuperview().offset(16)
-                make.size.equalTo(CGSize.init(width: 45, height: 45))
-            }
-            
-            self.playBtn.snp.remakeConstraints { (make) in
-                make.centerY.equalToSuperview()
-                make.size.equalTo(CGSize.init(width: 30, height: 30))
-                make.right.equalToSuperview().offset(-10)
-            }
+			self.layoutIfNeeded()
         }) { (isComplete) in
             self.containerView.isHidden = false
             self.isShrink = false
@@ -350,7 +338,7 @@ extension FMToolBar {
         }
 		
 		self.progressBackView.snp.makeConstraints { (make) in
-			make.edges.equalTo(self.logoImageView)
+			make.edges.equalTo(self.playBtn)
 		}
 		
         
@@ -391,8 +379,8 @@ extension FMToolBar {
         self.progressLine.isHidden = true
 		
 		self.progressLayer = CAShapeLayer.init()
-//		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 32, height: 32))
-		let bezier = UIBezierPath.init(roundedRect: CGRect.init(x: 0, y: 0, width: 45, height: 45), cornerRadius: 5)
+		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 32, height: 32))
+//		let bezier = UIBezierPath.init(roundedRect: CGRect.init(x: 0, y: 0, width: 45, height: 45), cornerRadius: 5)
 		self.progressLayer.path = bezier.cgPath
 		self.progressLayer.fillColor = UIColor.white.cgColor;
 		self.progressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
