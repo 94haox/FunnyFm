@@ -44,7 +44,7 @@ class HistoryProgressBar: UIView {
 	}
 	
 	func setupUI() {
-		self.backgroundColor = CommonColor.subtitle.color
+		self.backgroundColor = CommonColor.cellbackgroud.color
 		self.cornerRadius = 2
 		self.progressView.backgroundColor = self.progressColor
 		self.addSubview(progressView)

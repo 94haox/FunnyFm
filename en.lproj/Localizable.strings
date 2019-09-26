@@ -89,4 +89,7 @@
 "删除已缓存单集？"="Delete this Episode?";
 "删除"="Delete";
 "邮箱登录"="Sign in with email";
-"已在播放列表中"=""
+"已在播放列表中"="Already in the playlist";
+"播放列表"="PlayList";
+"尚未播放"="Never played";
+"正在播放"="Now Playing";

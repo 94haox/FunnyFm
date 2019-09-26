@@ -203,7 +203,6 @@ PODS:
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
   - WechatOpenSDK (1.8.4)
-  - YBTaskScheduler (1.0.1)
 
 DEPENDENCIES:
   - Crashlytics (= 3.13.3)
@@ -235,7 +234,6 @@ DEPENDENCIES:
   - SwiftyJSON
   - WCDB.swift
   - WechatOpenSDK
-  - YBTaskScheduler
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -292,7 +290,6 @@ SPEC REPOS:
     - WCDB.swift
     - WCDBOptimizedSQLCipher
     - WechatOpenSDK
-    - YBTaskScheduler
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -348,8 +345,7 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
-  YBTaskScheduler: cf08ebc7132a70212252bdacb8ff803a23b611ab
 
-PODFILE CHECKSUM: f5156e9f0ae2ba1a48a9becfa8ac9f4d60b2a5f5
+PODFILE CHECKSUM: 7d92237552a5b72ba532c3133f76ded9fd0d6cb9
 
 COCOAPODS: 1.7.5

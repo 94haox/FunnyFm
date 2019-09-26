@@ -12,7 +12,7 @@ import SPStorkController
 import Lottie
 import NVActivityIndicatorView
 import GoogleMobileAds
-import YBTaskScheduler
+//import YBTaskScheduler
 
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
@@ -51,6 +51,10 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.dw_addNofications()
 		self.vm.delegate = self
 		FMToolBar.shared.isHidden = true
+		PlayListManager.shared.updatePlayQueue()
+		if PlayListManager.shared.playQueue.first.isSome {
+			FMToolBar.shared.configToolBarAtHome(PlayListManager.shared.playQueue.first!)
+		}
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
 		self.addEmptyViews()
 		

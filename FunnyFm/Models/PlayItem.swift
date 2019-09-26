@@ -23,6 +23,6 @@ struct PlayItem: TableCodable {
 		typealias Root = PlayItem
 		static let objectRelationalMapping = TableBinding(CodingKeys.self)
 		case trackUrl
-		case index
+		case playIndex
 	}
 }

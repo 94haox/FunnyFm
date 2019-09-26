@@ -57,17 +57,17 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 		let nav = UIApplication.shared.keyWindow?.rootViewController
 		let presentNavi = UINavigationController.init(rootViewController: vc)
 		presentNavi.navigationBar.isHidden = true
-//		nav?.present(presentNavi, animated: true, completion: nil)
 		nav?.dw_presentAsStork(controller: presentNavi, heigth: kScreenHeight, delegate: nav)
 	}
     
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !FMPlayerManager.shared.isCanPlay || self.isShrink {
+	
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		super.touchesEnded(touches, with: event)
+		if !FMPlayerManager.shared.isCanPlay{
             return
         }
         self.toPlayDetailView()
-    }
+	}
 }
 
 // MARK: action
@@ -149,12 +149,13 @@ extension FMToolBar{
     }
     
 	func config(_ chapter: Episode, url: String){
+		PlayListManager.shared.queueInsert(episode: chapter)
         self.isHidden = false
         if self.currentEpisode.isNone {
            self.currentEpisode = chapter
         }else{
             if self.currentEpisode?.title == chapter.title  && self.isPlaying{
-                SwiftNotice.noticeOnStatusBar("正在播放", autoClear: true, autoClearTime: 2)
+				SwiftNotice.noticeOnStatusBar("正在播放".localized, autoClear: true, autoClearTime: 2)
                 return
             }
             DatabaseManager.add(history: chapter)

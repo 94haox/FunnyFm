@@ -12,7 +12,9 @@ class PlayListManager: NSObject {
 	
 	static let shared = PlayListManager()
 	
-	var playQueue: [Episode] = {
+	var playQueue: [Episode] = [Episode]()
+	
+	func updatePlayQueue(){
 		let playlist = DatabaseManager.allPlayItem()
 		var list = [Episode]()
 		playlist.forEach { (item) in
@@ -21,14 +23,14 @@ class PlayListManager: NSObject {
 				list.append(episode!)
 			}
 		}
-		return list
-	}()
+		self.playQueue = list
+	}
 	
 	/// 加入播放列表
 	func queueIn(episode: Episode) {
 		if isAlreadyIn(episode: episode) {
 			DispatchQueue.main.async {
-				SwiftNotice.noticeOnStatusBar("已在播放列表中", autoClear: false, autoClearTime: 1)
+				SwiftNotice.noticeOnStatusBar("已在播放列表中", autoClear: true, autoClearTime: 1)
 			}
 			return;
 		}
@@ -49,18 +51,26 @@ class PlayListManager: NSObject {
 		DatabaseManager.deletePlayItem(trackUrl: episode.trackUrl)
 	}
 	
-	/// 将单集播放顺序提升到第二位
-	func promote(episode: Episode) {
+	/// 将单集播放顺序提升到 index 位
+	func promote(episode: Episode, index: Int) {
 		if !isAlreadyIn(episode: episode) {
-			return
+			queueIn(episode: episode)
 		}
 		
 		queueOut(episode: episode)
-		playQueue.insert(episode, at: 1)
+		playQueue.insert(episode, at: index)
 		for (index, item) in playQueue.enumerated() {
 			let playItem = PlayItem.init(episode: item, index: index)
 			DatabaseManager.add(item: playItem)
 		}
+	}
+	
+	func queueInsert(episode: Episode){
+		self.promote(episode: episode, index: 0)
+	}
+	
+	func queueInsertAffter(episode: Episode){
+		self.promote(episode: episode, index: 1)
 	}
 	
 	

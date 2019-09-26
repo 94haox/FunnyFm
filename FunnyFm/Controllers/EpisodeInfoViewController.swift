@@ -131,7 +131,7 @@ extension EpisodeInfoViewController {
 		self.episodeImageView.loadImage(url: episode.coverUrl)
 		self.titleLB.text = episode.title
 		self.authorLB.text = episode.author
-		
+		self.episode.intro = episode.title + "\n\n" + self.episode.intro
 		guard self.episode.intro.contains("<") else {
 			self.episode.intro = self.episode.intro.replacingOccurrences(of: "。", with: "。\n")
 			let content = NSAttributedString.init(string: self.episode.intro, attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
@@ -158,6 +158,9 @@ extension EpisodeInfoViewController {
 							replaceFont = pfont(14)
 						}
 						attrStr?.addAttributes([NSAttributedString.Key.font : replaceFont], range: range)
+					}
+					if key == .foregroundColor {
+						attrStr?.addAttributes([NSAttributedString.Key.foregroundColor: CommonColor.content.color], range: range)
 					}
 					
 					if key == .link {
@@ -270,7 +273,7 @@ extension EpisodeInfoViewController {
 		self.titleLB = UILabel.init(text: self.episode.title)
 		self.titleLB.textColor = CommonColor.title.color
 		self.titleLB.font = p_bfont(14)
-		self.titleLB.numberOfLines = 0;
+		self.titleLB.numberOfLines = 2;
 		
 		self.authorLB = UILabel.init(text: self.episode.author)
 		self.authorLB.textColor = CommonColor.content.color

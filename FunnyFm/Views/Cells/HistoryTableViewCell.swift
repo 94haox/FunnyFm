@@ -31,9 +31,17 @@ class HistoryTableViewCell: UITableViewCell {
 		let total = episode.duration
 		let progress = DatabaseManager.qureyProgress(episodeId: episode.title)
 		let differ = total - progress
-		self.lastTimeLB.text = FunnyFm.formatIntervalToString(NSInteger(differ)) + " left"
+		if progress == 0 {
+			self.progressBar.isHidden = true
+			self.lastTimeLB.text = "尚未播放".localized
+		}else{
+			self.progressBar.isHidden = false
+			self.lastTimeLB.text = FunnyFm.formatIntervalToString(NSInteger(differ)) + " left"
+		}
 		self.progressBar.update(with: progress/total)
 	}
+	
+	
 	
 	
     override func setSelected(_ selected: Bool, animated: Bool) {

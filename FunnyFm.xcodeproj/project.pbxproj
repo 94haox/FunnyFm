@@ -119,6 +119,11 @@
 		AB57FE3822CEE2AC00BABEF2 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57FE3722CEE2AC00BABEF2 /* ViewControllerExtension.swift */; };
 		AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = AB57FE3A22CEE63400BABEF2 /* normal_empty.json */; };
 		AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57FE3C22CF346900BABEF2 /* Favor.swift */; };
+		AB5828B1233C92080072F03B /* YBTSStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB5828A9233C92080072F03B /* YBTSStack.mm */; };
+		AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5828AB233C92080072F03B /* YBTaskScheduler.m */; };
+		AB5828B3233C92080072F03B /* YBTSQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB5828AD233C92080072F03B /* YBTSQueue.mm */; };
+		AB5828B4233C92080072F03B /* YBTSPriorityQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB5828B0233C92080072F03B /* YBTSPriorityQueue.mm */; };
+		AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D7662316680200F76F8E /* PlayListViewController.swift */; };
 		AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D76823167A6200F76F8E /* PlaylistViewController.swift */; };
@@ -404,6 +409,18 @@
 		AB57FE3722CEE2AC00BABEF2 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		AB57FE3A22CEE63400BABEF2 /* normal_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = normal_empty.json; sourceTree = "<group>"; };
 		AB57FE3C22CF346900BABEF2 /* Favor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favor.swift; sourceTree = "<group>"; };
+		AB5828A6233C92080072F03B /* YBTSStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTSStack.h; sourceTree = "<group>"; };
+		AB5828A7233C92080072F03B /* YBTaskSchedulerStrategyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTaskSchedulerStrategyProtocol.h; sourceTree = "<group>"; };
+		AB5828A8233C92080072F03B /* YBTSPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTSPriorityQueue.h; sourceTree = "<group>"; };
+		AB5828A9233C92080072F03B /* YBTSStack.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YBTSStack.mm; sourceTree = "<group>"; };
+		AB5828AA233C92080072F03B /* YBTaskSchedulerTypedef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTaskSchedulerTypedef.h; sourceTree = "<group>"; };
+		AB5828AB233C92080072F03B /* YBTaskScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBTaskScheduler.m; sourceTree = "<group>"; };
+		AB5828AC233C92080072F03B /* YBTSQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTSQueue.h; sourceTree = "<group>"; };
+		AB5828AD233C92080072F03B /* YBTSQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YBTSQueue.mm; sourceTree = "<group>"; };
+		AB5828AE233C92080072F03B /* YBTaskScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTaskScheduler.h; sourceTree = "<group>"; };
+		AB5828AF233C92080072F03B /* YBTaskScheduler+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YBTaskScheduler+Internal.h"; sourceTree = "<group>"; };
+		AB5828B0233C92080072F03B /* YBTSPriorityQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YBTSPriorityQueue.mm; sourceTree = "<group>"; };
+		AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayItemEditViewController.swift; sourceTree = "<group>"; };
 		AB62530A2306570000301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WelcomeViewController.strings"; sourceTree = "<group>"; };
 		AB62530C2306570500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/EmptyMainViewController.strings"; sourceTree = "<group>"; };
 		AB62530E2306570A00301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
@@ -891,6 +908,7 @@
 				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
 				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
 				AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */,
+				AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -949,6 +967,7 @@
 		AB41AAF9219564F000260851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AB5828A5233C92080072F03B /* YBTaskScheduler */,
 				AB8DA73B2338F37200407FCB /* CleanyModal */,
 				AB872C56232BC4F600FF3757 /* BubbleTabbarController */,
 				AB2A37272328ADDE0097DAF7 /* LoadingButton */,
@@ -1047,6 +1066,24 @@
 				AB1E6DA621BA031B00B85135 /* FMToolBar.swift */,
 			);
 			path = MusicToolBar;
+			sourceTree = "<group>";
+		};
+		AB5828A5233C92080072F03B /* YBTaskScheduler */ = {
+			isa = PBXGroup;
+			children = (
+				AB5828AA233C92080072F03B /* YBTaskSchedulerTypedef.h */,
+				AB5828A7233C92080072F03B /* YBTaskSchedulerStrategyProtocol.h */,
+				AB5828A6233C92080072F03B /* YBTSStack.h */,
+				AB5828A9233C92080072F03B /* YBTSStack.mm */,
+				AB5828AC233C92080072F03B /* YBTSQueue.h */,
+				AB5828AD233C92080072F03B /* YBTSQueue.mm */,
+				AB5828AE233C92080072F03B /* YBTaskScheduler.h */,
+				AB5828AB233C92080072F03B /* YBTaskScheduler.m */,
+				AB5828AF233C92080072F03B /* YBTaskScheduler+Internal.h */,
+				AB5828A8233C92080072F03B /* YBTSPriorityQueue.h */,
+				AB5828B0233C92080072F03B /* YBTSPriorityQueue.mm */,
+			);
+			path = YBTaskScheduler;
 			sourceTree = "<group>";
 		};
 		AB62C46A21BB92F0008D6BA6 /* Base */ = {
@@ -1585,6 +1622,7 @@
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,
 				ABA99AC12219060900840382 /* GlobalViewModel.swift in Sources */,
 				AB1E6D8C21B9252500B85135 /* UIFontExtensions.swift in Sources */,
+				AB5828B1233C92080072F03B /* YBTSStack.mm in Sources */,
 				AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */,
 				AB1E6D7921B9252500B85135 /* UIBarButtonItemExtensions.swift in Sources */,
 				ABE7660A21D7196700470D8F /* CalendarExtensions.swift in Sources */,
@@ -1653,6 +1691,7 @@
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
+				AB5828B3233C92080072F03B /* YBTSQueue.mm in Sources */,
 				AB8DAB91233A08DF00407FCB /* AppleLoginTypeViewController.swift in Sources */,
 				ABEE40D921E3246E00FCB16F /* MJRefreshGifHeader.m in Sources */,
 				ABEE40D321E3246E00FCB16F /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1699,6 +1738,7 @@
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
 				ABDEF2302317B551001FFFC5 /* AdMobTableViewCell.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
+				AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
 				AB97EE95233376B000127C37 /* HistoryProgressBar.swift in Sources */,
@@ -1713,6 +1753,8 @@
 				ABEE40D821E3246E00FCB16F /* MJRefreshStateHeader.m in Sources */,
 				AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
+				AB5828B4233C92080072F03B /* YBTSPriorityQueue.mm in Sources */,
+				AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */,
 				ABE7660821D7196700470D8F /* DateExtensions.swift in Sources */,
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
 				ABE7660721D7196700470D8F /* LocaleExtensions.swift in Sources */,
