@@ -27,7 +27,13 @@ class PushManager: NSObject {
 		let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
 			let payload: OSNotificationPayload = result!.notification.payload
 			if payload.additionalData != nil {
+				if payload.additionalData["type"] as! String == "podcast" {
+					NotificationCenter.default.post(name: Notification.podcastUpdateNewEpisode, object: nil, userInfo: payload.additionalData)
+				}
 				
+				if payload.additionalData["type"] as! String == "appUpdate" {
+					NotificationCenter.default.post(name: Notification.appHasNewVersionReleased, object: nil, userInfo: nil)
+				}
 			}
 		}
 		
@@ -42,6 +48,10 @@ class PushManager: NSObject {
 		OneSignal.promptForPushNotifications(userResponse: { accepted in
 			print("User accepted notifications: \(accepted)")
 		})
+		
+		let infoDic = Bundle.main.infoDictionary
+		let appVersion = infoDic?["CFBundleShortVersionString"] as! String
+		self.addTag(taglist: ["appVersion":appVersion])
 		
 	}
 	

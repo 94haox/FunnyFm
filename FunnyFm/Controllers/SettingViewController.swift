@@ -32,6 +32,14 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		super.viewWillAppear(animated)
 		self.setUpDataSource()
 		self.tableview.reloadData()
+		FMToolBar.shared.isHidden = true
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		if FMToolBar.shared.currentEpisode.isSome {
+			FMToolBar.shared.isHidden = false
+		}
 	}
     
     lazy var datasource : Array = {return []}()

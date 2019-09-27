@@ -30,6 +30,18 @@ class AdShowViewController: UIViewController {
 		addTopBannerViewToView(top_bannerView)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		FMToolBar.shared.isHidden = true
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		if FMToolBar.shared.currentEpisode.isSome {
+			FMToolBar.shared.isHidden = false
+		}
+	}
+	
 	
 	func addBannerViewToView(_ bannerView: GADBannerView) {
 		bannerView.translatesAutoresizingMaskIntoConstraints = false

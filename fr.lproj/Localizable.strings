@@ -93,4 +93,9 @@
 "播放列表"="PlayList";
 "尚未播放"="Jamais joué";
 "正在播放"="Jouer";
+"待播:"="Patienter:";
+"尚无待播单集~"="Aucun épisode en attente d'être joué";
+"待播"="Ajouter";
+"插播"="Insérer";
+"从待播中移出"="Sortir de";
 

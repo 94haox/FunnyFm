@@ -170,6 +170,12 @@ extension DatabaseManager {
 		return podList.first
 	}
 	
+	static public func getPodcast(podId: String) -> iTunsPod?{
+		let podList: [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable,
+											   where: iTunsPod.Properties.podId == podId)
+		return podList.first
+	}
+	
 	static public func addItunsPod(pod: iTunsPod){
 		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
 		if exsitPod.isSome {

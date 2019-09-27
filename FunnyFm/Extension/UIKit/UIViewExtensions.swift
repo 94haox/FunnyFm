@@ -404,6 +404,13 @@ extension UIView {
             completion?(true)
         }
     }
+	
+	func bounce(){
+		ImpactManager.impact()
+		self.scale(by: CGPoint.init(x: 0.8, y: 0.8), animated: true, duration: 0.1) { [weak self] (complete) in
+			self?.scale(by: CGPoint.init(x: 1.25, y: 1.25), animated: true, duration: 0.1, completion: nil)
+		}
+	}
 
     /// SwifterSwift: Shake view.
     ///
@@ -413,6 +420,7 @@ extension UIView {
     ///   - animationType: shake animation type (default is .easeOut).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
     func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
+		ImpactManager.impact()
         CATransaction.begin()
         let animation: CAKeyframeAnimation
         switch direction {

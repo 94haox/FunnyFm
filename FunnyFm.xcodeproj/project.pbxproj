@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */; };
+		AB08F099233DEE0000B93D31 /* UIButton+SomeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */; };
 		AB091D12229FCF8800723602 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB091D11229FCF8800723602 /* ShareViewController.swift */; };
 		AB091D15229FCF8800723602 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB091D13229FCF8800723602 /* MainInterface.storyboard */; };
 		AB091D19229FCF8800723602 /* FunnyFM.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB091D0F229FCF8800723602 /* FunnyFM.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -197,7 +198,6 @@
 		ABE7ACAC21C20DAC00FC6B8E /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */; };
 		ABE7ACAE21C20E1400FC6B8E /* SubscribListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */; };
 		ABE7ACB021C20E3300FC6B8E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */; };
-		ABE7ACB221C20E4800FC6B8E /* DownloadListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */; };
 		ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */; };
 		ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACB521C2177400FC6B8E /* SettingTableViewCell.swift */; };
 		ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE7ACB621C2177400FC6B8E /* SettingTableViewCell.xib */; };
@@ -291,6 +291,8 @@
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		AB08F097233DEE0000B93D31 /* UIButton+SomeMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SomeMethods.h"; sourceTree = "<group>"; };
+		AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SomeMethods.m"; sourceTree = "<group>"; };
 		AB091D0F229FCF8800723602 /* FunnyFM.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFM.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB091D11229FCF8800723602 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AB091D14229FCF8800723602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -535,7 +537,6 @@
 		ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
 		ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribListController.swift; sourceTree = "<group>"; };
 		ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListController.swift; sourceTree = "<group>"; };
 		ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListController.swift; sourceTree = "<group>"; };
 		ABE7ACB521C2177400FC6B8E /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		ABE7ACB621C2177400FC6B8E /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -761,6 +762,8 @@
 				AB1E6DA321BA01E700B85135 /* UIImage+someMethods.m */,
 				AB97EE8D2333246600127C37 /* StaticMethods.h */,
 				AB97EE8E2333246600127C37 /* StaticMethods.m */,
+				AB08F097233DEE0000B93D31 /* UIButton+SomeMethods.h */,
+				AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -878,7 +881,6 @@
 				ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */,
 				ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */,
 				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
-				ABE7ACB121C20E4800FC6B8E /* DownloadListController.swift */,
 				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
 				AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */,
@@ -1720,7 +1722,6 @@
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,
 				AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */,
 				AB1E6D8321B9252500B85135 /* UIViewExtensions.swift in Sources */,
-				ABE7ACB221C20E4800FC6B8E /* DownloadListController.swift in Sources */,
 				AB2A372B2328ADDE0097DAF7 /* Loady.swift in Sources */,
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
@@ -1741,6 +1742,7 @@
 				AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
+				AB08F099233DEE0000B93D31 /* UIButton+SomeMethods.m in Sources */,
 				AB97EE95233376B000127C37 /* HistoryProgressBar.swift in Sources */,
 				AB4578C4233B44CC001DF1D1 /* EpisodeSettingViewController.swift in Sources */,
 				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,

@@ -71,7 +71,7 @@ class PodDetailViewController: BaseViewController {
 	func toDetail(episode: Episode) {
 		let detailVC = EpisodeInfoViewController.init()
 		detailVC.episode = episode
-		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.5, delegate: self)
+		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.6, delegate: self)
 	}
 	
 	@objc func refreshData (){

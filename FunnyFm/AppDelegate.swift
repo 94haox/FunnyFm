@@ -38,7 +38,7 @@ import FirebaseUI
 		let mainVC = MainViewController()
 		mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage.init(named: "handbag")!, tag: 0)
 		
-		let downloadVC = DownloadListController()
+		let downloadVC = DownloadListViewController()
 		downloadVC.tabBarItem = UITabBarItem(title: "Downloads", image: UIImage.init(named: "download")!, tag: 0)
 		downloadVC.tabBarItem.selectedImage = UIImage.init(named: "download")!
 		
@@ -72,36 +72,16 @@ import FirebaseUI
 extension AppDelegate {
 	
 	func dw_addNotifies(){
-		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: Notification.setupNotification, object: nil)
+//		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: Notification.setupNotification, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: Notification.needLoginNotification, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(toMainVC), name: Notification.toMainNotification, object: nil)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(episodeUpdate(noti:)), name: Notification.podcastUpdateNewEpisode, object: nil)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(appUpdate), name: Notification.appHasNewVersionReleased, object: nil)
 
-	}
-	
-	@objc func setupNotification() {
-		
-		UserDefaults.standard.set(true, forKey: "isShowNotifi")
-		
-		let alertConfig = CleanyAlertConfig(
-			title: "Hei Bro.",
-			message: "为了及时将播客的更新通知到你，FunnyFM 需要获取手机的推送权限哦".localized)
-		let alert = AlertViewController.init(config: alertConfig)
-		
-		alert.addAction(title: "去设置".localized, style: .default) { (action) in
-			self.setUpNotificationAction()
-		}
-		alert.addAction(title: "不，我不需要".localized, style: .cancel)
-		self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-	}
-	
-	func setUpNotificationAction() {
-		if !PrivacyManager.isOpenPusn() {
-			UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-			return;
-		}
-		PushManager().configurePushSDK(launchOptions: self.options)
 	}
 	
 	@objc func toLoginVC(){
@@ -124,6 +104,24 @@ extension AppDelegate {
 			navi.navigationBar.isHidden = true
 			self.window?.rootViewController = navi
 		}
+	}
+	
+	@objc func episodeUpdate(noti: Notification){
+		if noti.userInfo.isSome {
+			let podId = noti.userInfo!["podId"] as! String
+			let pod = DatabaseManager.getPodcast(podId: podId)
+			if pod.isNone {
+				return
+			}
+			let vc = PodDetailViewController.init(pod: pod!)
+			let navi = self.window?.rootViewController as! UINavigationController
+			navi.pushViewController(vc)
+		}
+	}
+	
+	@objc func appUpdate(){
+		let url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")!
+		UIApplication.shared.openURL(url)
 	}
 	
 }

@@ -123,13 +123,13 @@ extension UserCenterViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
-		if indexPath.row == 3 {
+		if indexPath.row == 4 {
 			let setvc = SettingViewController()
 			self.navigationController?.pushViewController(setvc)
 			return
 		}
 		
-		if indexPath.row == 4 {
+		if indexPath.row == 5 {
 			let adVC = AdShowViewController()
 			self.navigationController?.pushViewController(adVC)
 			return
@@ -164,7 +164,7 @@ extension UserCenterViewController {
             self.navigationController?.pushViewController(historyVc)
         }
         
-        if indexPath.row == 2 {
+        if indexPath.row == 3 {
             let subscribVc = PodListViewController()
             self.navigationController?.pushViewController(subscribVc)
         }

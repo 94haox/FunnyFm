@@ -226,8 +226,9 @@ extension PlayerDetailViewController {
 		let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
 		let detailVC =  PodDetailViewController.init(pod: pod!)
 		let navi = UIApplication.shared.keyWindow!.rootViewController as! UINavigationController
-		navi.pushViewController(detailVC)
-		self.navigationController?.dismiss(animated: true, completion: nil)
+		self.navigationController?.dismiss(animated: true, completion: {
+			navi.pushViewController(detailVC, animated: true)
+		})
 	}
     
     func sleep(with time: String) {

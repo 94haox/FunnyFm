@@ -18,9 +18,15 @@ class EpisodeInfoViewController: UIViewController {
 	
 	var titleLB: UILabel!
 	
+	var tipLB: UILabel = UILabel.init(text: "播放列表".localized)
+	
 	var authorLB: UILabel!
 	
 	var playBtn: UIButton = UIButton.init(type: .custom)
+	
+	var insertBtn: UIButton = UIButton.init(type: .custom)
+	
+	var addBtn: UIButton = UIButton.init(type: .custom)
 	
 	var downloadBtn: UIButton = UIButton.init(type: .custom)
 	
@@ -30,12 +36,17 @@ class EpisodeInfoViewController: UIViewController {
 	
 	var progressBar: HistoryProgressBar!
 	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.dw_addSubviews()
 		self.dw_addConstrants()
 		self.config(content: episode)
 		DownloadManager.shared.delegate = self
+		PlayListManager.shared.updatePlayQueue()
+		if PlayListManager.shared.isAlreadyIn(episode: self.episode) {
+			self.addBtn.isSelected = true
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +60,7 @@ class EpisodeInfoViewController: UIViewController {
 extension EpisodeInfoViewController {
 	
 	@objc func playAction(){
-		ImpactManager.impact()
+		self.playBtn.bounce()
 		if self.playBtn.isSelected {
 			FMToolBar.shared.toobarPause()
 		}else{
@@ -74,6 +85,25 @@ extension EpisodeInfoViewController {
 			}
 		}
 		self.downloadBtn.isSelected = !self.downloadBtn.isSelected;
+	}
+	
+	@objc func addAction(){
+		
+		if self.addBtn.isSelected {
+			PlayListManager.shared.queueOut(episode: self.episode)
+			self.addBtn.bounce()
+		}else{
+			self.addBtn.bounce()
+			PlayListManager.shared.queueIn(episode: self.episode)
+		}
+		
+		self.addBtn.isSelected = !self.addBtn.isSelected
+		
+	}
+	
+	@objc func insertAction(){
+		self.insertBtn.bounce()
+		PlayListManager.shared.queueInsert(episode: self.episode)
 	}
 	
 }
@@ -139,7 +169,7 @@ extension EpisodeInfoViewController {
 			self.desTextView.snp.remakeConstraints { (make) in
 				make.leading.equalTo(self.containerView).offset(16);
 				make.trailing.equalTo(self.containerView).offset(-16);
-				make.top.equalTo(self.playBtn.snp.bottom).offset(24)
+				make.top.equalTo(self.addBtn.snp.bottom).offset(24)
 				make.height.equalTo(self.desTextView.contentSize.height)
 			}
 			self.view.layoutIfNeeded()
@@ -147,6 +177,7 @@ extension EpisodeInfoViewController {
 		}
 		
 		do{
+			self.episode.intro = episode.title + "\n\n" + self.episode.intro
 			let srtData = self.episode.intro.data(using: String.Encoding.unicode, allowLossyConversion: true)!
 			let attrStr = try NSMutableAttributedString(data: srtData, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
 			attrStr.enumerateAttributes(in: NSRange.init(location: 0, length: attrStr.length), options: NSAttributedString.EnumerationOptions.reverse) {[weak attrStr] (attr, range, lef) in
@@ -172,13 +203,13 @@ extension EpisodeInfoViewController {
 			}
 			self.desTextView.attributedText = attrStr;
 		}catch _ as NSError {
-			let content = NSAttributedString.init(string: self.episode.intro+"\n", attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
+			let content = NSAttributedString.init(string: self.episode.intro+"\n\n", attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
 			self.desTextView.attributedText = content
 		}
 		self.desTextView.snp.remakeConstraints { (make) in
 			make.leading.equalTo(self.containerView).offset(16);
 			make.trailing.equalTo(self.containerView).offset(-16);
-			make.top.equalTo(self.playBtn.snp.bottom).offset(24)
+			make.top.equalTo(self.addBtn.snp.bottom).offset(24)
 			make.height.equalTo(self.desTextView.contentSize.height)
 		}
 		self.view.layoutIfNeeded()
@@ -195,7 +226,10 @@ extension EpisodeInfoViewController {
 		self.containerView.addSubview(self.titleLB)
 		self.containerView.addSubview(self.authorLB)
 		self.containerView.addSubview(self.playBtn)
+		self.containerView.addSubview(self.tipLB)
 		self.containerView.addSubview(self.downloadBtn)
+		self.containerView.addSubview(self.insertBtn)
+		self.containerView.addSubview(self.addBtn)
 		self.containerView.addSubview(self.desTextView)
 		self.containerView.addSubview(self.progressBar);
 		
@@ -241,6 +275,25 @@ extension EpisodeInfoViewController {
 			make.width.equalTo(50)
 		}
 		
+		self.tipLB.snp.makeConstraints { (make) in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(self.playBtn.snp.bottom).offset(18)
+		}
+		
+		self.insertBtn.snp.makeConstraints { (make) in
+			make.left.equalTo(self.playBtn)
+			make.width.equalToSuperview().multipliedBy(0.5).offset(-26)
+			make.height.equalTo(self.playBtn)
+			make.top.equalTo(self.tipLB.snp.bottom).offset(8)
+		}
+		
+		self.addBtn.snp.makeConstraints { (make) in
+			make.height.equalTo(self.playBtn)
+			make.width.equalToSuperview().multipliedBy(0.5).offset(-26)
+			make.right.equalTo(self.downloadBtn)
+			make.centerY.equalTo(self.insertBtn)
+		}
+		
 		self.progressBar.snp.makeConstraints { (make) in
 			make.width.equalTo(self.downloadBtn)
 			make.bottom.equalTo(self.downloadBtn.snp.top).offset(-4)
@@ -249,7 +302,7 @@ extension EpisodeInfoViewController {
 		}
 		
 		self.desTextView.snp.makeConstraints { (make) in
-			make.top.equalTo(self.playBtn.snp.bottom).offset(24)
+			make.top.equalTo(self.addBtn.snp.bottom).offset(24)
 			make.leading.equalTo(self.containerView).offset(16);
 			make.trailing.equalTo(self.containerView).offset(-16);
 		}
@@ -258,6 +311,8 @@ extension EpisodeInfoViewController {
 			make.bottom.equalTo(self.desTextView).offset(50)
 		}
 		self.view.layoutIfNeeded()
+		self.addBtn.centerTextAndImage(spacing: 30)
+		self.insertBtn.centerTextAndImage(spacing: 30)
 	}
 	
 	func dw_addSubviews(){
@@ -286,10 +341,34 @@ extension EpisodeInfoViewController {
 		self.playBtn.titleLabel?.font = pfont(fontsize4)
 		self.playBtn.addTarget(self, action: #selector(playAction), for: .touchUpInside)
 		
+		self.tipLB.textColor = CommonColor.mainRed.color
+		self.tipLB.font = p_bfont(10)
+		
+		self.insertBtn.setTitleForAllStates("插播".localized)
+		self.insertBtn.setTitleColorForAllStates(CommonColor.mainRed.color)
+		self.insertBtn.setImageForAllStates(UIImage.init(named: "insert")!)
+		self.insertBtn.titleLabel?.font = pfont(fontsize4)
+		self.insertBtn.addTarget(self, action: #selector(insertAction), for: .touchUpInside)
+		self.insertBtn.backgroundColor = .white
+		self.insertBtn.cornerRadius = 8
+		self.insertBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
+		
+
+		self.addBtn.setTitle("从待播中移出".localized, for: .selected)
+		self.addBtn.setTitle("待播".localized, for: .normal)
+		self.addBtn.setTitleColorForAllStates(CommonColor.mainRed.color)
+		self.addBtn.setImageForAllStates(UIImage.init(named: "insert")!)
+		self.addBtn.titleLabel?.font = pfont(fontsize4)
+		self.addBtn.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+		self.addBtn.backgroundColor = .white
+		self.addBtn.cornerRadius = 8
+		self.addBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
+		
+		
 		self.downloadBtn.backgroundColor = .white
+		self.downloadBtn.cornerRadius = 8
 		self.downloadBtn.setImage(UIImage.init(named: "download_icon"), for: .normal)
 		self.downloadBtn.setImage(UIImage.init(named: "cancel"), for: .selected)
-		self.downloadBtn.cornerRadius = 8
 		self.downloadBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		self.downloadBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
 		

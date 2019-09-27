@@ -30,7 +30,7 @@ class PlayListManager: NSObject {
 	func queueIn(episode: Episode) {
 		if isAlreadyIn(episode: episode) {
 			DispatchQueue.main.async {
-				SwiftNotice.noticeOnStatusBar("已在播放列表中", autoClear: true, autoClearTime: 1)
+				SwiftNotice.noticeOnStatusBar("已在播放列表中".localized, autoClear: true, autoClearTime: 1)
 			}
 			return;
 		}
@@ -45,7 +45,6 @@ class PlayListManager: NSObject {
 		for (index, item) in playQueue.enumerated() {
 			if item.title.trim() == episode.title {
 				playQueue.remove(at: index)
-				return
 			}
 		}
 		DatabaseManager.deletePlayItem(trackUrl: episode.trackUrl)

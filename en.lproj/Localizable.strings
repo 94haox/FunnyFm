@@ -93,3 +93,9 @@
 "播放列表"="PlayList";
 "尚未播放"="Never played";
 "正在播放"="Now Playing";
+"待播:"="Wait:";
+"尚无待播单集~"="No episodes waiting to be played";
+"待播"="Add";
+"插播"="Insert";
+"从待播中移出"="Remove";
+

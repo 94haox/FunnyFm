@@ -57,5 +57,20 @@ class PopManager: NSObject {
 		}
 		
 	}
+	
+	/// 添加缩小动画
+	static func addScaleMinAnimation(_ layer: CALayer) {
+		
+		if let anim = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY){
+			anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
+			anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 0.8, y: 0.8))
+			anim.duration = 0.1
+			layer.pop_add(anim, forKey: "view_scale_min")
+			anim.completionBlock = { (animation, complete) in
+				
+			}
+		}
+		
+	}
 
 }

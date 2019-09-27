@@ -22,7 +22,6 @@ class DownloadListViewController: BaseViewController {
 		sectionSegment.config(titles: ["已下载".localized,"正在下载".localized])
 		self.view.insertSubview(self.tableview, at: 0)
 		sectionSegment.addTarget(self, action: #selector(changeSection), for: .valueChanged)
-		self.tableview.reloadData()
 		self.sectionSegment.snp.makeConstraints { (make) in
 			make.top.equalTo(self.titleLB.snp.bottom).offset(10)
 			make.size.equalTo(CGSize.init(width: 200, height: 40))
@@ -40,6 +39,8 @@ class DownloadListViewController: BaseViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.deleteBtn.isHidden = self.episodeList.count < 1
+		self.episodeList = DatabaseManager.allDownload()
+		self.tableview.reloadData()
 	}
 	
 	@objc func changeSection(){
@@ -101,7 +102,10 @@ extension DownloadListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if isDownloaded {
 			let dowload = self.episodeList[indexPath.row]
-			FMToolBar.shared.configToolBar(dowload)
+			let detailVC = EpisodeInfoViewController.init()
+			detailVC.episode = dowload
+			self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.6, delegate: self)
+//			FMToolBar.shared.configToolBar(dowload)
 		}
 	}
 	

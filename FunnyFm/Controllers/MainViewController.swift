@@ -53,7 +53,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		FMToolBar.shared.isHidden = true
 		PlayListManager.shared.updatePlayQueue()
 		if PlayListManager.shared.playQueue.first.isSome {
-			FMToolBar.shared.configToolBarAtHome(PlayListManager.shared.playQueue.first!)
+			FMToolBar.shared.configAtStart(episode: PlayListManager.shared.playQueue.first!)
 		}
 		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
 		self.addEmptyViews()
@@ -106,7 +106,7 @@ extension MainViewController{
 	func toDetail(episode: Episode) {
 		let detailVC = EpisodeInfoViewController.init()
 		detailVC.episode = episode
-		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.5, delegate: self)
+		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.6, delegate: self)
 	}
     
     @objc func refreshData(){
@@ -496,7 +496,8 @@ extension MainViewController {
 		self.addBtn.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.top.equalTo(label.snp.bottom).offset(40)
-			make.width.equalTo(180)
+//			make.width.equalTo(180)
+			make.width.equalToSuperview().offset(-100)
 			make.height.equalTo(50)
 		}
 		

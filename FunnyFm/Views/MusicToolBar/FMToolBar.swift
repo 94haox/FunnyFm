@@ -19,6 +19,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 	
 	var isPlaying: Bool = false
 	
+	var isStart: Bool = false
+	
     var isShrink: Bool = false
     
     var currentEpisode: Episode?
@@ -34,8 +36,6 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     var logoImageView : UIImageView!
     
     var loadingView: UIActivityIndicatorView!
-    
-    var progressLine: ChapterProgressView!
 	
 	var progressLayer: CAShapeLayer!
 	
@@ -93,6 +93,12 @@ extension FMToolBar {
     @objc func didTapPlayBtnAction(btn:UIButton){
         btn.isSelected = !self.playBtn.isSelected
         if btn.isSelected {
+			if FMPlayerManager.shared.currentModel.isNone {
+				if self.currentEpisode.isSome {
+					FMPlayerManager.shared.config(self.currentEpisode!)
+					return
+				}
+			}
             FMPlayerManager.shared.play()
         }else{
             FMPlayerManager.shared.pause()
@@ -104,28 +110,22 @@ extension FMToolBar {
     func playerStatusDidChanged(isCanPlay: Bool) {
         self.loadingView.isHidden = isCanPlay
         self.playBtn.isHidden = !isCanPlay
-		if isCanPlay{
+		if isCanPlay && !self.isStart{
 			self.playBtn.isSelected = true
 			FMPlayerManager.shared.play()
-			self.progressLine.changeProgress(progress: 0, current: "00:00:00", total: FunnyFm.formatIntervalToMM(NSInteger(FMPlayerManager.shared.totalTime)))
 		}
     }
 	
 	func playerDidPlay() {
 		self.isPlaying = true
-        if self.isShrink {
-            PopManager.addRotationAnimation(self.logoImageView!.layer)
-        }
 	}
 	
 	func playerDidPause() {
 		self.isPlaying = false
 		self.playBtn.isSelected = false
-        PopManager.removeRotationAnimation(self.logoImageView!.layer)
 	}
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
-        self.progressLine.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)))
 		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
 			anim.fromValue = self.progressLayer.strokeEnd
 			anim.toValue = progess
@@ -142,13 +142,16 @@ extension FMToolBar{
     
     func configToolBarAtHome(_ chapter : Episode) {
         self.config(chapter, url: chapter.coverUrl)
+		self.setUpChapter(chapter)
     }
     
     func configToolBar(_ episode : Episode) {
         self.config(episode,url: episode.coverUrl)
+		self.setUpChapter(episode)
     }
     
 	func config(_ chapter: Episode, url: String){
+		self.isStart = false
 		PlayListManager.shared.queueInsert(episode: chapter)
         self.isHidden = false
         if self.currentEpisode.isNone {
@@ -166,11 +169,17 @@ extension FMToolBar{
 		}
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.author
-        self.setUpChapter(chapter)
 		self.logoImageView.loadImage(url: (self.currentEpisode?.coverUrl)!, placeholder: nil) {[unowned self] (image) in
 			self.configShadowColor()
 		}
+
     }
+	
+	func configAtStart(episode: Episode){
+		self.config(episode, url: episode.coverUrl)
+		self.isStart = true
+		self.setUpChapter(episode)
+	}
     
     func configShadowColor() {
         let color = self.logoImageView.image!.mostColor()
@@ -182,15 +191,6 @@ extension FMToolBar{
         self.playBtn.isSelected = false
         FMPlayerManager.shared.config(chapter)
         FMPlayerManager.shared.delegate = self
-		if self.isShrink {
-			return
-		}
-        let anim = CABasicAnimation.init(keyPath: "transform.rotation.x")
-        anim.toValue = NSNumber.init(value: Double.pi*3)
-        anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        anim.duration = 0.2
-        anim.isCumulative = true
-        self.layer.add(anim, forKey: "rotationX")
     }
     
 }
@@ -297,7 +297,6 @@ extension FMToolBar {
         self.containerView.addSubview(self.authorLB)
         self.addSubview(self.playBtn)
         self.addSubview(self.loadingView)
-        self.containerView.addSubview(self.progressLine)
 		
         self.containerView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -329,13 +328,6 @@ extension FMToolBar {
             make.centerY.equalToSuperview()
             make.size.equalTo(CGSize.init(width: 30, height: 30))
             make.right.equalToSuperview().offset(-10)
-        }
-        
-        self.progressLine.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().offset(-10)
-            make.height.equalTo(20)
-            make.bottom.equalToSuperview()
         }
 		
 		self.progressBackView.snp.makeConstraints { (make) in
@@ -375,9 +367,6 @@ extension FMToolBar {
         self.loadingView = UIActivityIndicatorView.init(style: .gray)
         self.loadingView.isHidden = true
         self.loadingView.startAnimating()
-        
-        self.progressLine = ChapterProgressView.init(frame: CGRect.zero)
-        self.progressLine.isHidden = true
 		
 		self.progressLayer = CAShapeLayer.init()
 		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 32, height: 32))
