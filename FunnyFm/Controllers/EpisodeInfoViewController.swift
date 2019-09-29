@@ -89,6 +89,14 @@ extension EpisodeInfoViewController {
 	
 	@objc func addAction(){
 		
+		if  FMPlayerManager.shared.currentModel.isSome  {
+			if FMPlayerManager.shared.currentModel!.trackUrl == self.episode.trackUrl {
+				self.addBtn.shake()
+				SwiftNotice.noticeOnStatusBar("正在播放".localized, autoClear: true, autoClearTime: 1)
+				return
+			}
+		}
+				
 		if self.addBtn.isSelected {
 			PlayListManager.shared.queueOut(episode: self.episode)
 			self.addBtn.bounce()
@@ -102,6 +110,14 @@ extension EpisodeInfoViewController {
 	}
 	
 	@objc func insertAction(){
+		if  FMPlayerManager.shared.currentModel.isSome  {
+			if FMPlayerManager.shared.currentModel!.trackUrl == self.episode.trackUrl {
+				self.insertBtn.shake()
+				SwiftNotice.noticeOnStatusBar("正在播放".localized, autoClear: true, autoClearTime: 1)
+				return
+			}
+		}
+
 		self.insertBtn.bounce()
 		PlayListManager.shared.queueInsert(episode: self.episode)
 	}

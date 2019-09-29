@@ -37,9 +37,7 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     
     var loadingView: UIActivityIndicatorView!
 	
-	var progressLayer: CAShapeLayer!
-	
-	var progressBackView: UIView!
+	let progressBg = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -126,13 +124,11 @@ extension FMToolBar {
 	}
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
-		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
-			anim.fromValue = self.progressLayer.strokeEnd
-			anim.toValue = progess
-			anim.duration = 0.2
-			anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-			self.progressLayer.pop_add(anim, forKey: "image_rotaion")
-		}
+		var frame = self.progressBg.frame
+		frame.size.width = self.containerView.width * CGFloat(progess)
+		UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIView.KeyframeAnimationOptions.calculationModeDiscrete, animations: {
+			self.progressBg.frame = frame
+		}, completion: nil)
     }
 }
 
@@ -164,9 +160,7 @@ extension FMToolBar{
             DatabaseManager.add(history: chapter)
             self.currentEpisode = chapter
         }
-		if(self.progressLayer.isSome) {
-			self.progressLayer.pop_removeAllAnimations()
-		}
+		self.progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: self.height)
         self.titleLB.text = chapter.title
         self.authorLB.text = chapter.author
 		self.logoImageView.loadImage(url: (self.currentEpisode?.coverUrl)!, placeholder: nil) {[unowned self] (image) in
@@ -239,7 +233,7 @@ extension FMToolBar {
     }
     
     func explain() {
-		self.progressBackView.isHidden = false
+//		self.progressBackView.isHidden = false
         PopManager.removeRotationAnimation(self.logoImageView!.layer)
         let animationTime = 0.3
         
@@ -289,7 +283,6 @@ extension FMToolBar {
     func addConstraints() {
         self.backgroundColor = .white
         self.cornerRadius = 15.0
-		
         self.addShadow(ofColor: UIColor.lightGray, radius: 10, offset: CGSize.init(width: 2, height: 10), opacity: 0.5)
         self.addSubview(self.containerView)
         self.addSubview(self.logoImageView)
@@ -330,9 +323,9 @@ extension FMToolBar {
             make.right.equalToSuperview().offset(-10)
         }
 		
-		self.progressBackView.snp.makeConstraints { (make) in
-			make.edges.equalTo(self.playBtn)
-		}
+//		self.progressBackView.snp.makeConstraints { (make) in
+//			make.edges.equalTo(self.playBtn)
+//		}
 		
         
     }
@@ -340,6 +333,7 @@ extension FMToolBar {
     func setUpUI() {
 		
         self.containerView = UIView()
+		self.containerView.cornerRadius = 15.0
 		self.containerView.layer.masksToBounds = true
 		
 		self.playBtn = UIButton.init(type: .custom)
@@ -368,21 +362,26 @@ extension FMToolBar {
         self.loadingView.isHidden = true
         self.loadingView.startAnimating()
 		
-		self.progressLayer = CAShapeLayer.init()
-		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 32, height: 32))
-//		let bezier = UIBezierPath.init(roundedRect: CGRect.init(x: 0, y: 0, width: 45, height: 45), cornerRadius: 5)
-		self.progressLayer.path = bezier.cgPath
-		self.progressLayer.fillColor = UIColor.white.cgColor;
-		self.progressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
-		self.progressLayer.strokeStart = 0
-		self.progressLayer.strokeEnd = 0
-		self.progressLayer.cornerRadius = 5
-		self.progressLayer.lineWidth = 3
-		self.progressLayer.lineCap = .square
+		progressBg.backgroundColor = UIColor.init(hex: "f2faff")
+		progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: 85)
+		self.containerView.addSubview(progressBg)
+		self.containerView.sendSubviewToBack(progressBg)
 		
-		self.progressBackView = UIView.init()
-		self.progressBackView.layer.addSublayer(self.progressLayer)
-		self.addSubview(self.progressBackView)
+//		self.progressLayer = CAShapeLayer.init()
+//		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 32, height: 32))
+////		let bezier = UIBezierPath.init(roundedRect: CGRect.init(x: 0, y: 0, width: 45, height: 45), cornerRadius: 5)
+//		self.progressLayer.path = bezier.cgPath
+//		self.progressLayer.fillColor = UIColor.white.cgColor;
+//		self.progressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
+//		self.progressLayer.strokeStart = 0
+//		self.progressLayer.strokeEnd = 0
+//		self.progressLayer.cornerRadius = 5
+//		self.progressLayer.lineWidth = 3
+//		self.progressLayer.lineCap = .square
+//
+//		self.progressBackView = UIView.init()
+//		self.progressBackView.layer.addSublayer(self.progressLayer)
+//		self.addSubview(self.progressBackView)
 		
     }
 }

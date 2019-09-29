@@ -11,13 +11,13 @@ import Foundation
 
 extension Array {
 	
-	func safeObj<T:CodingKey>(index: Int) -> T{
+	func safeObj(index: Int) -> Any?{
 		
-		if index > self.count - 1 {
-			return self.last! as! T
+		if self.count > index {
+			return self[index] as Any
 		}
 		
-		return self[index] as! T
+		return nil
 	}
 	
 	

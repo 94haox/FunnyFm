@@ -194,15 +194,30 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pod = FeedManager.shared.podlist[indexPath.row]
-        let vc = PodDetailViewController.init(pod: pod)
+		let pod = FeedManager.shared.podlist.safeObj(index: indexPath.row)
+		if pod.isNone {
+			collectionView.reloadData()
+			return
+		}
+        let vc = PodDetailViewController.init(pod: pod as! iTunsPod)
+
         self.navigationController?.pushViewController(vc)
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let episodeList = FeedManager.shared.episodeList[indexPath.section]
-		let item = episodeList[indexPath.row]
+		let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section)
+		if episodeList.isNone {
+			tableView.reloadData()
+			return
+		}
+		let list = episodeList as! [Episode]
+		let item = list.safeObj(index: indexPath.row)
+		if  item.isNone {
+			tableView.reloadData()
+			return
+		}
+
 		guard item is Episode else {
 			return;
 		}
