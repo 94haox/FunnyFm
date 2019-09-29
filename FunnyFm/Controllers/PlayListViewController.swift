@@ -19,13 +19,12 @@ class PlayListViewController: BaseViewController {
 		self.titleLB.text = "播放列表".localized
 		self.view.backgroundColor = CommonColor.background.color
 		self.setupUI()
-		self.tableview.reloadData()
     }
     
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		PlayListManager.shared.updatePlayQueue()
 		DispatchQueue.main.async {
-			PlayListManager.shared.updatePlayQueue()
 			if (PlayListManager.shared.playQueue.count - 1) > 0{
 				self.countLB.isHidden = false
 				self.tipLB.isHidden = false
@@ -34,8 +33,8 @@ class PlayListViewController: BaseViewController {
 				self.countLB.isHidden = true
 				self.tipLB.isHidden = true
 			}
-//			let indexSet = IndexSet.init(integer: 0)
-//			self.tableview.reloadSections(indexSet, with: UITableView.RowAnimation.fade)
+			let indexSet = IndexSet.init(integer: 0)
+			self.tableview.reloadSections(indexSet, with: UITableView.RowAnimation.fade)
 		}
 	}
 
@@ -121,9 +120,9 @@ extension PlayListViewController: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
 		if scrollView.contentOffset.y > 0 {
-			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
+			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 5, offset: CGSize.init(width: 0, height: 5), opacity: 0.8)
 		}else{
-			self.topBgView.addShadow(ofColor: .clear, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
+			self.topBgView.addShadow(ofColor: .clear, radius: 0, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
 		}
 	}
 }
@@ -138,4 +137,16 @@ extension PlayListViewController : DZNEmptyDataSetSource {
 		return NSAttributedString.init(string: "尚无待播单集~".localized, attributes: [NSAttributedString.Key.font: pfont(fontsize2)])
 	}
 	
+}
+
+extension PlayListViewController {
+	override func didDismissStorkByTap() {
+		super.didDismissStorkByTap()
+		self.viewDidAppear(true)
+	}
+	
+	override func didDismissStorkBySwipe() {
+		super.didDismissStorkBySwipe()
+		self.viewDidAppear(true)
+	}
 }

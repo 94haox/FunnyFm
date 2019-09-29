@@ -33,7 +33,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	
 	var emptyView: UIView!
 	
-	var avatarView: UIImageView!
+//	var avatarView: UIImageView!
 	
 	var loadAnimationView : AnimationView!
 	
@@ -50,12 +50,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.loadAnimationView.play()
 		self.dw_addNofications()
 		self.vm.delegate = self
-		FMToolBar.shared.isHidden = true
-		PlayListManager.shared.updatePlayQueue()
-		if PlayListManager.shared.playQueue.first.isSome {
-			FMToolBar.shared.configAtStart(episode: PlayListManager.shared.playQueue.first!)
-		}
-		UIApplication.shared.windows.first!.addSubview(FMToolBar.shared)
 		self.addEmptyViews()
 		
 		if !UserDefaults.standard.bool(forKey: "kisFirstMain") {
@@ -71,20 +65,13 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.emptyAnimationView.play()
-		UIApplication.shared.windows.first!.bringSubviewToFront(FMToolBar.shared)
-		FMToolBar.shared.explain()
 		self.vm.getAd(vc: self)
 		FeedManager.shared.delegate = self;
-		if UserCenter.shared.avatar.length() > 0 && UserCenter.shared.isLogin{
-			self.avatarView.loadImage(url: UserCenter.shared.avatar, placeholder:"profile")
-		}else{
-			self.avatarView.image = UIImage.init(named: "profile")
-		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		super.viewDidDisappear(animated)
-		FMToolBar.shared.shrink()
+		super.viewWillDisappear(animated)
+
 	}
 	
 }
@@ -371,7 +358,7 @@ extension MainViewController {
     
     fileprivate func addConstrains() {
 		self.view.addSubview(self.topBgView)
-		self.view.addSubview(self.avatarView)
+//		self.view.addSubview(self.avatarView)
 //        self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.tableview)
@@ -380,11 +367,11 @@ extension MainViewController {
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
 		
-		self.avatarView.snp.makeConstraints { (make) in
-			make.size.equalTo(CGSize.init(width: 35, height: 35))
-			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
-			make.centerY.equalTo(self.titleLB)
-		}
+//		self.avatarView.snp.makeConstraints { (make) in
+//			make.size.equalTo(CGSize.init(width: 35, height: 35))
+//			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
+//			make.centerY.equalTo(self.titleLB)
+//		}
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))
@@ -448,11 +435,11 @@ extension MainViewController {
 		
 		self.titleLB.text = "最近更新".localized
 		
-		self.avatarView = UIImageView.init()
-		self.avatarView.cornerRadius = 35.0/2
-		self.avatarView.isUserInteractionEnabled = true
-		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toUserCenter))
-		self.avatarView.addGestureRecognizer(tap)
+//		self.avatarView = UIImageView.init()
+//		self.avatarView.cornerRadius = 35.0/2
+//		self.avatarView.isUserInteractionEnabled = true
+//		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toUserCenter))
+//		self.avatarView.addGestureRecognizer(tap)
 		
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;

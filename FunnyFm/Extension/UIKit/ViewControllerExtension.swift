@@ -38,10 +38,20 @@ extension UIViewController {
 extension UIViewController : SPStorkControllerDelegate {
 
 	public func didDismissStorkByTap() {
+		if self.navigationController?.topViewController is BaseTabBarViewController {
+			FMToolBar.shared.explain()
+			return
+		}
+		FMToolBar.shared.shrink()
 		self.viewWillAppear(true)
 	}
 	
 	public func didDismissStorkBySwipe() {
+		if self.navigationController?.topViewController is BaseTabBarViewController {
+			FMToolBar.shared.explain()
+			return
+		}
+		FMToolBar.shared.shrink()
 		self.viewWillAppear(true)
 	}
 	

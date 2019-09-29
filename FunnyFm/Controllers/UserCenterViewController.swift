@@ -62,20 +62,22 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
             make.left.width.bottom.equalToSuperview()
         }
 		
-		
-		
 		self.logoutBtn = UIButton.init(type: .custom)
 		logoutBtn.setTitleColor(.white, for: .normal)
 		logoutBtn.backgroundColor = CommonColor.mainRed.color
 		logoutBtn.cornerRadius = 5.0
-		logoutBtn.titleLabel?.font = p_bfont(14);
+		logoutBtn.titleLabel?.font = p_bfont(12);
 		logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
 		self.view.addSubview(self.logoutBtn)
 		self.logoutBtn.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.bottom.equalToSuperview().offset(-AdaptScale(40))
-			make.width.equalToSuperview().offset(-40)
-			make.height.equalTo(AdaptScale(50))
+//			make.centerX.equalToSuperview()
+//			make.bottom.equalToSuperview().offset(-AdaptScale(40))
+//			make.width.equalToSuperview().offset(-40)
+//			make.height.equalTo(AdaptScale(50))
+			make.baseline.equalTo(self.titleLB)
+			make.right.equalTo(-18)
+			make.width.equalTo(100.adapt())
+			make.height.equalTo(30.adapt())
 		}
 		
         

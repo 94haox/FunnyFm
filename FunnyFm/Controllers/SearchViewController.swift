@@ -56,6 +56,7 @@ class SearchViewController: UIViewController {
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.keyboardDismissMode = .onDrag
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
 		self.view.addSubview(self.tableview)
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.bottom.width.equalTo(self.view);

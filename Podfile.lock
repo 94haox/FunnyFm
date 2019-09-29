@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - AnimatedTabBar (0.1.7)
   - Crashlytics (3.13.3):
     - Fabric (~> 1.10.2)
   - EFIconFont/AntDesign (0.5.2):
@@ -205,6 +206,7 @@ PODS:
   - WechatOpenSDK (1.8.4)
 
 DEPENDENCIES:
+  - AnimatedTabBar
   - Crashlytics (= 3.13.3)
   - EFIconFont/Complete
   - Fabric (= 1.10.2)
@@ -238,6 +240,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AnimatedTabBar
     - Crashlytics
     - EFIconFont
     - Fabric
@@ -293,6 +296,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AnimatedTabBar: ce6bc2c2993bd74b4b51c7977631e3321f417095
   Crashlytics: 2aa08cd61fb1d62718c4e653169461d1d7377de2
   EFIconFont: 627115da4e97a7af5a9aa9ef751e455a9aae17f8
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
@@ -346,6 +350,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
 
-PODFILE CHECKSUM: 7d92237552a5b72ba532c3133f76ded9fd0d6cb9
+PODFILE CHECKSUM: 4a76eeaa8f8d835cad4abe1df3d5685905720b3a
 
 COCOAPODS: 1.7.5

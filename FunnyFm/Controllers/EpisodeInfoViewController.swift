@@ -54,6 +54,7 @@ class EpisodeInfoViewController: UIViewController {
 		FMToolBar.shared.shrink()
 	}
 	
+	
 }
 
 // MARK: Actions
@@ -362,7 +363,7 @@ extension EpisodeInfoViewController {
 		
 		self.insertBtn.setTitleForAllStates("插播".localized)
 		self.insertBtn.setTitleColorForAllStates(CommonColor.mainRed.color)
-		self.insertBtn.setImageForAllStates(UIImage.init(named: "insert")!)
+		self.insertBtn.setImageForAllStates(UIImage.init(named: "playlist_insert")!)
 		self.insertBtn.titleLabel?.font = pfont(fontsize4)
 		self.insertBtn.addTarget(self, action: #selector(insertAction), for: .touchUpInside)
 		self.insertBtn.backgroundColor = .white
@@ -373,7 +374,7 @@ extension EpisodeInfoViewController {
 		self.addBtn.setTitle("从待播中移出".localized, for: .selected)
 		self.addBtn.setTitle("待播".localized, for: .normal)
 		self.addBtn.setTitleColorForAllStates(CommonColor.mainRed.color)
-		self.addBtn.setImageForAllStates(UIImage.init(named: "insert")!)
+		self.addBtn.setImageForAllStates(UIImage.init(named: "playlist_nor")!)
 		self.addBtn.titleLabel?.font = pfont(fontsize4)
 		self.addBtn.addTarget(self, action: #selector(addAction), for: .touchUpInside)
 		self.addBtn.backgroundColor = .white

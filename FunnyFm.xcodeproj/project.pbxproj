@@ -14,6 +14,7 @@
 		AB091D19229FCF8800723602 /* FunnyFM.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB091D0F229FCF8800723602 /* FunnyFM.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB091D1D229FCFB800723602 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
 		AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09A53D21DDBACB00CB621C /* DownloadManager.swift */; };
+		AB09DE1B2340AD5F002A9384 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09DE1A2340AD5F002A9384 /* BaseTabBarViewController.swift */; };
 		AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */; };
 		AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C64C4230B8E1800C4DF30 /* PathKit.swift */; };
 		AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */; };
@@ -127,7 +128,6 @@
 		AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D7662316680200F76F8E /* PlayListViewController.swift */; };
-		AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D76823167A6200F76F8E /* PlaylistViewController.swift */; };
 		AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */; };
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */; };
@@ -298,6 +298,7 @@
 		AB091D14229FCF8800723602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		AB091D16229FCF8800723602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB09A53D21DDBACB00CB621C /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		AB09DE1A2340AD5F002A9384 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
 		AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AB0C64C4230B8E1800C4DF30 /* PathKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathKit.swift; sourceTree = "<group>"; };
 		AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLoadButton.swift; sourceTree = "<group>"; };
@@ -433,7 +434,6 @@
 		AB6253182306571500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB63D7662316680200F76F8E /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
-		AB63D76823167A6200F76F8E /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoViewController.swift; sourceTree = "<group>"; };
 		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTableViewCell.xib; sourceTree = "<group>"; };
@@ -904,7 +904,6 @@
 				AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */,
 				ABF498692303B33300441DAF /* AdShowViewController.xib */,
 				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
-				AB63D76823167A6200F76F8E /* PlaylistViewController.swift */,
 				AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */,
 				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
 				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
@@ -1096,6 +1095,7 @@
 				ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */,
 				AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */,
 				ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */,
+				AB09DE1A2340AD5F002A9384 /* BaseTabBarViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1701,6 +1701,7 @@
 				AB1E6DB021BA5B4500B85135 /* OptionalExtension.swift in Sources */,
 				ABEE40E921E35DC300FCB16F /* LoginViewModel.swift in Sources */,
 				AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */,
+				AB09DE1B2340AD5F002A9384 /* BaseTabBarViewController.swift in Sources */,
 				AB1E93092211B39900A8F07B /* PodPreviewViewController.swift in Sources */,
 				AB1E6D7421B9252500B85135 /* UILayoutPriorityExtensions.swift in Sources */,
 				ABEF471421EAF7EE00212DCA /* UserCenter.swift in Sources */,
@@ -1729,7 +1730,6 @@
 				AB1E6D7A21B9252500B85135 /* UIStoryboardExtensions.swift in Sources */,
 				AB41AAE221952EAA00260851 /* Episode.swift in Sources */,
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
-				AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */,
 				AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */,
 				ABEE40D521E3246E00FCB16F /* MJRefreshAutoGifFooter.m in Sources */,
 				ABEE40D721E3246E00FCB16F /* MJRefreshNormalHeader.m in Sources */,

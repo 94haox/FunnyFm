@@ -13,10 +13,18 @@ import OneSignal
 import GoogleMobileAds
 import Firebase
 import FirebaseUI
+import AnimatedTabBar
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
 
+	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
+					   title: "New", controller: MainViewController()),
+	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
+					   title: "Playlist", controller: PlayListViewController()),
+	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),
+					   title: "User", controller: UserCenterViewController())]
+	
     var window: UIWindow?
     
     var options: [UIApplication.LaunchOptionsKey: Any]?
@@ -26,7 +34,6 @@ import FirebaseUI
 		self.dw_addNotifies()
 		self.window = UIWindow.init()
         self.options = launchOptions
-		FMPlayerManager.shared.delegate = FMToolBar.shared
         configureNavigationTabBar()
 		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
@@ -35,22 +42,16 @@ import FirebaseUI
 
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
-		let mainVC = MainViewController()
-		mainVC.tabBarItem = UITabBarItem(title: "Main", image: UIImage.init(named: "handbag")!, tag: 0)
-		
-		let downloadVC = DownloadListViewController()
-		downloadVC.tabBarItem = UITabBarItem(title: "Downloads", image: UIImage.init(named: "download")!, tag: 0)
-		downloadVC.tabBarItem.selectedImage = UIImage.init(named: "download")!
-		
-		
-		UIApplication.shared.applicationIconBadgeNumber = 0
-		let userVC = UserCenterViewController()
-		userVC.tabBarItem = UITabBarItem(title: "Center", image: UIImage.init(named: "profile"), tag: 0)
-		
-		let tabBarController = BubbleTabBarController()
-		tabBarController.viewControllers = [mainVC,downloadVC, userVC]
-		tabBarController.tabBar.tintColor = CommonColor.mainRed.color
-		var navi = UINavigationController.init(rootViewController: MainViewController.init())
+
+//		var navi = UINavigationController.init(rootViewController: MainViewController.init())
+//		navi.navigationBar.isHidden = true
+		let controller = BaseTabBarViewController()
+        controller.delegate = self
+		AnimatedTabBarAppearance.shared.animationDuration = 0.5
+		AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
+		AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
+
+		var navi = UINavigationController.init(rootViewController:controller)
 		navi.navigationBar.isHidden = true
 		if !UserDefaults.standard.bool(forKey: "isFirst") {
 			navi = UINavigationController.init(rootViewController: WelcomeViewController.init())
@@ -205,6 +206,22 @@ extension AppDelegate {
 			}
 		}
 	}
+}
+
+
+extension AppDelegate : AnimatedTabBarDelegate {
+	
+    func initialIndex(_ tabBar: AnimatedTabBar) -> Int? {
+        return 0
+    }
+    
+    var numberOfItems: Int {
+        return items.count
+    }
+    
+    func tabBar(_ tabBar: AnimatedTabBar, itemFor index: Int) -> AnimatedTabBarItem {
+        return items[index]
+    }
 }
 
 

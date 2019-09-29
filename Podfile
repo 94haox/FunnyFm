@@ -16,6 +16,7 @@ def layout
 		pod 'OfficeUIFabric', '0.2.11'
 		pod 'Hero'
 		pod 'LookinServer', :configurations => ['Debug']
+		pod 'AnimatedTabBar'
 end
 
 def lib
