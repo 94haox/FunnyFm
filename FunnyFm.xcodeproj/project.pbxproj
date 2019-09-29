@@ -127,6 +127,7 @@
 		AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
 		AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D7662316680200F76F8E /* PlayListViewController.swift */; };
+		AB63D76923167A6200F76F8E /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D76823167A6200F76F8E /* PlaylistViewController.swift */; };
 		AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */; };
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */; };
@@ -871,11 +872,43 @@
 		AB41AADA21952A6400260851 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AB5FB54F23405A0200576387 /* Recommend */,
-				AB5FB54E234059F000576387 /* Guide */,
-				AB5FB54D2340599500576387 /* Account */,
-				AB5FB54C2340597C00576387 /* UserCenter */,
-				AB5FB549234058F300576387 /* Main */,
+				AB25797E21945E6F004C5F5D /* MainViewController.swift */,
+				AB1E6DB721BA809D00B85135 /* PodListViewController.swift */,
+				ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */,
+				AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */,
+				AB63D7662316680200F76F8E /* PlayListViewController.swift */,
+				AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */,
+				ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */,
+				ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */,
+				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
+				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
+				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
+				AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */,
+				AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */,
+				AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */,
+				AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */,
+				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
+				ABF498A02303B88A00441DAF /* RegisterViewController.xib */,
+				ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */,
+				ABF498972303B71A00441DAF /* NeLoginViewController.xib */,
+				ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */,
+				ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */,
+				AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */,
+				ABF4988E2303B6D100441DAF /* SearchViewController.xib */,
+				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
+				ABF498832303B61100441DAF /* EmptyMainViewController.xib */,
+				ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */,
+				ABF498762303B45600441DAF /* WelcomeViewController.xib */,
+				AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */,
+				AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */,
+				AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */,
+				ABF498692303B33300441DAF /* AdShowViewController.xib */,
+				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
+				AB63D76823167A6200F76F8E /* PlaylistViewController.swift */,
+				AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */,
+				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
+				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
+				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
 				AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */,
 				AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */,
 			);
@@ -1053,76 +1086,6 @@
 				AB5828B0233C92080072F03B /* YBTSPriorityQueue.mm */,
 			);
 			path = YBTaskScheduler;
-			sourceTree = "<group>";
-		};
-		AB5FB549234058F300576387 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */,
-				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
-				AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */,
-				AB25797E21945E6F004C5F5D /* MainViewController.swift */,
-				AB1E6DB721BA809D00B85135 /* PodListViewController.swift */,
-				ABA6642D22D6145500AFAEE6 /* PodDetailViewController.swift */,
-				AB1E6DB921BA877D00B85135 /* PlayerDetailViewController.swift */,
-				AB63D7662316680200F76F8E /* PlayListViewController.swift */,
-				AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */,
-			);
-			name = Main;
-			sourceTree = "<group>";
-		};
-		AB5FB54C2340597C00576387 /* UserCenter */ = {
-			isa = PBXGroup;
-			children = (
-				ABF498692303B33300441DAF /* AdShowViewController.xib */,
-				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
-				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
-				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
-				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
-				ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */,
-				ABE7ACAB21C20DAC00FC6B8E /* HistoryListViewController.swift */,
-				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
-				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
-			);
-			name = UserCenter;
-			sourceTree = "<group>";
-		};
-		AB5FB54D2340599500576387 /* Account */ = {
-			isa = PBXGroup;
-			children = (
-				AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */,
-				AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */,
-				AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */,
-				AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */,
-				ABA8BDC321DF1E0200366C6F /* RegisterViewController.swift */,
-				ABF498A02303B88A00441DAF /* RegisterViewController.xib */,
-				ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */,
-				ABF498972303B71A00441DAF /* NeLoginViewController.xib */,
-				ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */,
-				ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */,
-			);
-			name = Account;
-			sourceTree = "<group>";
-		};
-		AB5FB54E234059F000576387 /* Guide */ = {
-			isa = PBXGroup;
-			children = (
-				ABF498832303B61100441DAF /* EmptyMainViewController.xib */,
-				ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */,
-				ABF498762303B45600441DAF /* WelcomeViewController.xib */,
-				AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */,
-				AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */,
-				AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */,
-			);
-			name = Guide;
-			sourceTree = "<group>";
-		};
-		AB5FB54F23405A0200576387 /* Recommend */ = {
-			isa = PBXGroup;
-			children = (
-				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
-			);
-			name = Recommend;
 			sourceTree = "<group>";
 		};
 		AB62C46A21BB92F0008D6BA6 /* Base */ = {
