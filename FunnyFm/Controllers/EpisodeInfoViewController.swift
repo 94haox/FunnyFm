@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SPStorkController
 
 class EpisodeInfoViewController: UIViewController {
 
@@ -131,7 +132,7 @@ extension EpisodeInfoViewController {
 		self.episodeImageView.loadImage(url: episode.coverUrl)
 		self.titleLB.text = episode.title
 		self.authorLB.text = episode.author
-		
+		self.episode.intro = episode.title + "\n\n" + self.episode.intro
 		guard self.episode.intro.contains("<") else {
 			self.episode.intro = self.episode.intro.replacingOccurrences(of: "。", with: "。\n")
 			let content = NSAttributedString.init(string: self.episode.intro, attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
@@ -159,6 +160,9 @@ extension EpisodeInfoViewController {
 						}
 						attrStr?.addAttributes([NSAttributedString.Key.font : replaceFont], range: range)
 					}
+					if key == .foregroundColor {
+						attrStr?.addAttributes([NSAttributedString.Key.foregroundColor: CommonColor.content.color], range: range)
+					}
 					
 					if key == .link {
 						attrStr?.addAttributes([.foregroundColor : CommonColor.mainRed.color], range: range)
@@ -181,6 +185,19 @@ extension EpisodeInfoViewController {
 		self.view.layoutIfNeeded()
 	}
 	
+}
+
+extension EpisodeInfoViewController: UIScrollViewDelegate {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		if scrollView.contentOffset.y < -60 {
+			self.dismiss(animated: true) { [weak self] in
+				if self?.transitioningDelegate is SPStorkTransitioningDelegate {
+					let storkDelegate = self?.transitioningDelegate as! SPStorkTransitioningDelegate
+					storkDelegate.storkDelegate?.didDismissStorkBySwipe?()
+				}
+			}
+		}
+	}
 }
 
 extension EpisodeInfoViewController {
@@ -265,12 +282,13 @@ extension EpisodeInfoViewController {
 		self.desTextView.backgroundColor = UIColor.white
 		
 		self.scrollView.backgroundColor = .white
+		self.scrollView.delegate = self
 		self.episodeImageView.cornerRadius = 5;
 		
 		self.titleLB = UILabel.init(text: self.episode.title)
 		self.titleLB.textColor = CommonColor.title.color
 		self.titleLB.font = p_bfont(14)
-		self.titleLB.numberOfLines = 0;
+		self.titleLB.numberOfLines = 2;
 		
 		self.authorLB = UILabel.init(text: self.episode.author)
 		self.authorLB.textColor = CommonColor.content.color
