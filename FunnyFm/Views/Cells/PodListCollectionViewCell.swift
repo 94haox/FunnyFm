@@ -37,8 +37,18 @@ class PodListCollectionViewCell: UICollectionViewCell {
 	func fromStringToDate(string :String) ->Date{
 		let dformatter = DateFormatter()
 		dformatter.dateFormat = "yyyy-MM-dd"
-		let date = dformatter.date(from: string.subString(to: 10))
-		return date!
+		if string.length() > 10 {
+			let date = dformatter.date(from: string.subString(to: 10))
+			if date.isSome {
+				return date!
+			}
+		}
+		
+		let date = dformatter.date(from: string)
+		if date.isSome {
+			return date!
+		}
+		return Date()
 	}
 
 
