@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SPStorkController
 
 class EpisodeInfoViewController: UIViewController {
 
@@ -234,6 +235,19 @@ extension EpisodeInfoViewController {
 	
 }
 
+extension EpisodeInfoViewController: UIScrollViewDelegate {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		if scrollView.contentOffset.y < -60 {
+			self.dismiss(animated: true) { [weak self] in
+				if self?.transitioningDelegate is SPStorkTransitioningDelegate {
+					let storkDelegate = self?.transitioningDelegate as! SPStorkTransitioningDelegate
+					storkDelegate.storkDelegate?.didDismissStorkBySwipe?()
+				}
+			}
+		}
+	}
+}
+
 extension EpisodeInfoViewController {
 	
 	func dw_addConstrants(){
@@ -340,6 +354,7 @@ extension EpisodeInfoViewController {
 		self.desTextView.backgroundColor = UIColor.white
 		
 		self.scrollView.backgroundColor = .white
+		self.scrollView.delegate = self
 		self.episodeImageView.cornerRadius = 5;
 		
 		self.titleLB = UILabel.init(text: self.episode.title)

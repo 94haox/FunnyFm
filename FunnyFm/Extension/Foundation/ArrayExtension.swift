@@ -14,7 +14,7 @@ extension Array {
 	func safeObj(index: Int) -> Any?{
 		
 		if self.count > index {
-			return self[index] as Any
+			return self[index]
 		}
 		
 		return nil

@@ -32,15 +32,33 @@ class FunnyFm: NSObject {
 		let timeComponets = Interval.components(separatedBy: ":")
 		var totalTime = 0
 		if timeComponets.count > 2 {
-			let hour = Int(timeComponets[0])! * 3600
-			let min = Int(timeComponets[1])! * 60
-			let sec = Int(timeComponets[2])!
+			var hour = 0
+			if Int(timeComponets[0]).isSome {
+				hour = Int(timeComponets[0])! * 3600
+			}
+			
+			var min = 0
+			if Int(timeComponets[1]).isSome {
+				min = Int(timeComponets[1])! * 60
+			}
+			
+			var sec = 0
+			if Int(timeComponets[2]).isSome {
+				sec = Int(timeComponets[2])!
+			}
 			totalTime = hour + min + sec
 		}
 		
 		if timeComponets.count < 3 {
-			let min = Int(timeComponets[0])! * 60
-			let sec = Int(timeComponets[1])!
+			var min = 0
+			if Int(timeComponets[0]).isSome {
+				min = Int(timeComponets[0])! * 60
+			}
+			
+			var sec = 0
+			if Int(timeComponets[1]).isSome {
+				sec = Int(timeComponets[1])!
+			}
 			totalTime = min + sec
 		}
 		

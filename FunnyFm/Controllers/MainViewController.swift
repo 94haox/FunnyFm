@@ -156,23 +156,23 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
-		if self.vm.nativeAds.count < 1{
-			return
-		}
-		var index = 0
-		for nativeAd in self.vm.nativeAds {
-			if index > FeedManager.shared.episodeList.count {
-				if index > FeedManager.shared.episodeList.count - 1 {
-					break
-				}
-				var episodelist = FeedManager.shared.episodeList[index]
-				episodelist.append(nativeAd)
-				index += 1
-			} else {
-				break
-			}
-		}
-		self.tableview.reloadData()
+//		if self.vm.nativeAds.count < 1{
+//			return
+//		}
+//		var index = 0
+//		for nativeAd in self.vm.nativeAds {
+//			if index > FeedManager.shared.episodeList.count {
+//				if index > FeedManager.shared.episodeList.count - 1 {
+//					break
+//				}
+//				var episodelist = FeedManager.shared.episodeList[index]
+//				episodelist.append(nativeAd)
+//				index += 1
+//			} else {
+//				break
+//			}
+//		}
+//		self.tableview.reloadData()
 	}
     
 }
@@ -187,7 +187,6 @@ extension MainViewController{
 			return
 		}
         let vc = PodDetailViewController.init(pod: pod as! iTunsPod)
-
         self.navigationController?.pushViewController(vc)
     }
     
@@ -228,22 +227,22 @@ extension MainViewController{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let episodeList = FeedManager.shared.episodeList[indexPath.section]
-		let item = episodeList[indexPath.row]
-		if item is Episode {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
-			return cell
-		}else{
-			let cell = tableView.dequeueReusableCell(withIdentifier: "adcell", for: indexPath)
-			return cell
-		}
+		let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
+		return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
-		let episodeList = FeedManager.shared.episodeList[indexPath.section]
+		let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section)
+		if episodeList.isNone {
+			return
+		}
+		let list = episodeList as! [Episode]
+		let item = list.safeObj(index: indexPath.row)
+		if item.isNone {
+			return
+		}
 		
-        let item = episodeList[indexPath.row]
 		if item is Episode{
 			guard let cell = cell as? HomeAlbumTableViewCell else { return }
 			let episode = item as! Episode
@@ -327,7 +326,11 @@ extension MainViewController{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? HomePodCollectionViewCell else { return }
-        let pod = FeedManager.shared.podlist[indexPath.row]
+		let item = FeedManager.shared.podlist.safeObj(index: indexPath.row)
+		if item.isNone {
+			return
+		}
+		let pod = item as! iTunsPod
 		if pod.collectionId.length() < 1 {
 			return
 		}
