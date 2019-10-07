@@ -140,9 +140,9 @@ extension FMToolBar {
 extension FMToolBar{
     
     
-    func configToolBarAtHome(_ chapter : Episode) {
-        self.config(chapter, url: chapter.coverUrl)
-		self.setUpChapter(chapter)
+    func configToolBarAtHome(_ episode : Episode) {
+        self.config(episode, url: episode.coverUrl)
+		self.setUpChapter(episode)
     }
     
     func configToolBar(_ episode : Episode) {

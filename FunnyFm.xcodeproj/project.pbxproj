@@ -154,7 +154,6 @@
 		AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */; };
 		AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */; };
 		AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DA7422338F38000407FCB /* CleanyConfig.swift */; };
-		AB8DAB892339B28300407FCB /* JPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DAB882339B28300407FCB /* JPushManager.swift */; };
 		AB8DAB90233A08DF00407FCB /* AppleLoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */; };
 		AB8DAB91233A08DF00407FCB /* AppleLoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */; };
 		AB97EE8F2333246600127C37 /* StaticMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE8E2333246600127C37 /* StaticMethods.m */; };
@@ -479,7 +478,6 @@
 		AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalViewController.swift; sourceTree = "<group>"; };
 		AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalTransitionDelegates.swift; sourceTree = "<group>"; };
 		AB8DA7422338F38000407FCB /* CleanyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyConfig.swift; sourceTree = "<group>"; };
-		AB8DAB882339B28300407FCB /* JPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPushManager.swift; sourceTree = "<group>"; };
 		AB8DAB8A2339B9AB00407FCB /* OneSignalNotificationServiceExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneSignalNotificationServiceExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleLoginTypeViewController.xib; sourceTree = "<group>"; };
 		AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTypeViewController.swift; sourceTree = "<group>"; };
@@ -1198,7 +1196,6 @@
 				ABA077A7231BB926006B2779 /* ImpactManager.swift */,
 				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 				ABE9F4142329D45B000BED40 /* PreferenceCenter.swift */,
-				AB8DAB882339B28300407FCB /* JPushManager.swift */,
 				AB4578C5233B4905001DF1D1 /* PlayListManager.swift */,
 			);
 			path = Manager;
@@ -1618,7 +1615,6 @@
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
-				AB8DAB892339B28300407FCB /* JPushManager.swift in Sources */,
 				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,

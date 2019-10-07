@@ -172,6 +172,13 @@ extension FMPlayerManager {
         self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
 		self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
         self.pause()
+		if self.currentModel.isSome {
+			PlayListManager.shared.queueOut(episode: self.currentModel!)
+			if PlayListManager.shared.playQueue.count > 0 {
+				let episode = PlayListManager.shared.playQueue.first!
+				FMToolBar.shared.configToolBarAtHome(episode)
+			}
+		}
     }
     
 }
