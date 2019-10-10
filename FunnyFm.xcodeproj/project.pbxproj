@@ -70,6 +70,8 @@
 		AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25797E21945E6F004C5F5D /* MainViewController.swift */; };
 		AB25798421945E70004C5F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB25798521945E70004C5F5D /* LaunchScreen.storyboard */; };
+		AB287BD8234F496B00ED5448 /* VIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB287BD7234F496B00ED5448 /* VIPViewController.swift */; };
+		AB287BDA234F4E1500ED5448 /* VipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB287BD9234F4E1500ED5448 /* VipManager.swift */; };
 		AB28ECAD224E241500C7FE43 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = AB28ECAC224E241400C7FE43 /* refresh.json */; };
 		AB2A3722232888FA0097DAF7 /* DWSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A3721232888FA0097DAF7 /* DWSegment.swift */; };
 		AB2A37252328A7C10097DAF7 /* CloudSyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */; };
@@ -356,6 +358,8 @@
 		AB25798321945E70004C5F5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB25798621945E70004C5F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB25798821945E70004C5F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB287BD7234F496B00ED5448 /* VIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPViewController.swift; sourceTree = "<group>"; };
+		AB287BD9234F4E1500ED5448 /* VipManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VipManager.swift; sourceTree = "<group>"; };
 		AB28ECAC224E241400C7FE43 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
 		AB2A3721232888FA0097DAF7 /* DWSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWSegment.swift; sourceTree = "<group>"; };
 		AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudSyncViewController.xib; sourceTree = "<group>"; };
@@ -908,6 +912,7 @@
 				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
 				AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */,
 				AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */,
+				AB287BD7234F496B00ED5448 /* VIPViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1197,6 +1202,7 @@
 				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 				ABE9F4142329D45B000BED40 /* PreferenceCenter.swift */,
 				AB4578C5233B4905001DF1D1 /* PlayListManager.swift */,
+				AB287BD9234F4E1500ED5448 /* VipManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1631,6 +1637,7 @@
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
 				AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */,
+				AB287BD8234F496B00ED5448 /* VIPViewController.swift in Sources */,
 				AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
@@ -1639,6 +1646,7 @@
 				AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
+				AB287BDA234F4E1500ED5448 /* VipManager.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
 				AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */,
 				AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */,
@@ -2206,8 +2214,6 @@
 					"\"KeychainAccess\"",
 					"-framework",
 					"\"LocalAuthentication\"",
-					"-framework",
-					"\"LookinServer\"",
 					"-framework",
 					"\"Lottie\"",
 					"-framework",

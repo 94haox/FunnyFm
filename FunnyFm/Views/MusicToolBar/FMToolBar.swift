@@ -41,12 +41,16 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     
     var loadingView: UIActivityIndicatorView!
 	
+	var tapGes: UITapGestureRecognizer!
+	
 	let progressBg = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setUpUI()
         self.addConstraints()
+		self.tapGes = UITapGestureRecognizer.init(target:self, action: #selector(toPlayDetailVC))
+		self.containerView.addGestureRecognizer(self.tapGes)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,9 +66,7 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 		nav?.dw_presentAsStork(controller: presentNavi, heigth: kScreenHeight, delegate: nav)
 	}
     
-	
-	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-		super.touchesEnded(touches, with: event)
+	@objc func toPlayDetailVC(){
 		if !FMPlayerManager.shared.isCanPlay{
             return
         }

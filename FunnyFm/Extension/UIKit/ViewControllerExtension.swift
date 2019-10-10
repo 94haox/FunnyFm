@@ -38,20 +38,22 @@ extension UIViewController {
 extension UIViewController : SPStorkControllerDelegate {
 
 	public func didDismissStorkByTap() {
-		if self.navigationController?.topViewController is BaseTabBarViewController {
+		let navi = UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController
+		if navi.viewControllers.count < 2  {
 			FMToolBar.shared.explain()
-			return
+		}else{
+			FMToolBar.shared.shrink()
 		}
-		FMToolBar.shared.shrink()
 		self.viewWillAppear(true)
 	}
 	
 	public func didDismissStorkBySwipe() {
-		if self.navigationController?.topViewController is BaseTabBarViewController {
+		let navi = UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController
+		if navi.viewControllers.count < 2  {
 			FMToolBar.shared.explain()
-			return
+		}else{
+			FMToolBar.shared.shrink()
 		}
-		FMToolBar.shared.shrink()
 		self.viewWillAppear(true)
 	}
 	

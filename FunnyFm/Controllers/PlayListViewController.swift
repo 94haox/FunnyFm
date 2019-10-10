@@ -13,6 +13,13 @@ import RxSwift
 class PlayListViewController: BaseViewController {
 	var tipLB: UILabel = UILabel.init(text: "待播:".localized)
 	var countLB: UILabel = UILabel.init(text: "0")
+	var playlist: [Episode] = {
+		var list = PlayListManager.shared.playQueue
+		if list.count > 0 {
+			list.remove(at: 0)
+		}
+		return list
+	}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +31,7 @@ class PlayListViewController: BaseViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		PlayListManager.shared.updatePlayQueue()
+		self.refreshData()
 		DispatchQueue.main.async {
 			if (PlayListManager.shared.playQueue.count - 1) > 0{
 				self.countLB.isHidden = false
@@ -35,6 +43,18 @@ class PlayListViewController: BaseViewController {
 			}
 			let indexSet = IndexSet.init(integer: 0)
 			self.tableview.reloadSections(indexSet, with: UITableView.RowAnimation.fade)
+			self.tableview.reloadData()
+		}
+	}
+	
+	func refreshData(){
+		var list = PlayListManager.shared.playQueue
+		if list.count > 0 {
+			list.remove(at: 0)
+		}
+		self.playlist = list
+		if list.count == 0 {
+			self.tableview.emptyDataSetSource = self
 		}
 	}
 
@@ -46,7 +66,6 @@ class PlayListViewController: BaseViewController {
 		   table.rowHeight = 85
 		   table.delegate = self
 		   table.dataSource = self
-		   table.emptyDataSetSource = self
 		   table.showsVerticalScrollIndicator = false
 		   table.backgroundColor = .white
 		   table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
@@ -58,7 +77,7 @@ class PlayListViewController: BaseViewController {
 extension PlayListViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let episode = PlayListManager.shared.playQueue[indexPath.row + 1]
+		let episode = self.playlist[indexPath.row]
 		let detailVC = EpisodeInfoViewController.init()
 		detailVC.episode = episode
 		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.6, delegate: self)
@@ -68,7 +87,7 @@ extension PlayListViewController: UITableViewDelegate {
 extension PlayListViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return PlayListManager.shared.playQueue.count - 1
+		return self.playlist.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +97,7 @@ extension PlayListViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		let itemCell = cell as! HistoryTableViewCell
-		let episode = PlayListManager.shared.playQueue[indexPath.row + 1]
+		let episode = self.playlist[indexPath.row]
 		itemCell.config(episode: episode)
 	}
 }

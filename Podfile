@@ -15,7 +15,7 @@ def layout
 		pod 'NVActivityIndicatorView'
 		pod 'OfficeUIFabric', '0.2.11'
 		pod 'Hero'
-		pod 'LookinServer', :configurations => ['Debug']
+#		pod 'LookinServer', :configurations => ['Debug']
 		pod 'AnimatedTabBar'
 end
 

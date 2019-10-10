@@ -162,7 +162,6 @@ PODS:
   - GTMSessionFetcher/Core (1.2.2)
   - Hero (1.4.0)
   - KeychainAccess (3.2.0)
-  - LookinServer (0.9.4)
   - lottie-ios (3.1.1)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -215,7 +214,6 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Hero
   - KeychainAccess
-  - LookinServer
   - lottie-ios (= 3.1.1)
   - Moya
   - Nuke (~> 8.0.1)
@@ -264,7 +262,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Hero
     - KeychainAccess
-    - LookinServer
     - lottie-ios
     - Moya
     - nanopb
@@ -318,7 +315,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
-  LookinServer: 54eb99921647bda4068ff8776d842285e2bf0adb
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -342,6 +338,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
 
-PODFILE CHECKSUM: e5f5019c9362ee9315b7634ad5e01fbdb4c320b4
+PODFILE CHECKSUM: 4aba5242b0ec875f2a2545a1b7ddc7ad47babbfc
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.5

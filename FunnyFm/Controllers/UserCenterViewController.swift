@@ -21,14 +21,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		if UserCenter.shared.isLogin {
-			if UserCenter.shared.name.length() > 0 {
-				self.titleLB.text = "Hi  \(UserCenter.shared.name)"
-			}
-			logoutBtn.setTitle("退出登录".localized, for: .normal)
-		}else{
-			logoutBtn.setTitle("登录".localized, for: .normal)
-		}
+		self.updateAccountStatus()
 	}
 	
 	
@@ -50,7 +43,19 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 		
 		UserCenter.shared.isLogin = false
 		HorizonHUD.showSuccess("退出成功".localized)
-		self.navigationController?.popViewController()
+		self.updateAccountStatus()
+	}
+	
+	
+	func updateAccountStatus(){
+		if UserCenter.shared.isLogin {
+			if UserCenter.shared.name.length() > 0 {
+				self.titleLB.text = "Hi  \(UserCenter.shared.name)"
+			}
+			logoutBtn.setTitle("退出登录".localized, for: .normal)
+		}else{
+			logoutBtn.setTitle("登录".localized, for: .normal)
+		}
 	}
     
     func dw_addSubviews(){
@@ -70,10 +75,6 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 		logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
 		self.view.addSubview(self.logoutBtn)
 		self.logoutBtn.snp.makeConstraints { (make) in
-//			make.centerX.equalToSuperview()
-//			make.bottom.equalToSuperview().offset(-AdaptScale(40))
-//			make.width.equalToSuperview().offset(-40)
-//			make.height.equalTo(AdaptScale(50))
 			make.baseline.equalTo(self.titleLB)
 			make.right.equalTo(-18)
 			make.width.equalTo(100.adapt())
@@ -106,6 +107,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
+										   ["title":"Pro","subtitle":"订购 Pro".localized,"imageName":"VIP"],
 										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]
 }
@@ -131,7 +133,7 @@ extension UserCenterViewController {
 			return
 		}
 		
-		if indexPath.row == 5 {
+		if indexPath.row == 6 {
 			let adVC = AdShowViewController()
 			self.navigationController?.pushViewController(adVC)
 			return

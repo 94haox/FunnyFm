@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EFIconFont
 
 class PodDetailViewController: BaseViewController {
 	
@@ -23,6 +24,8 @@ class PodDetailViewController: BaseViewController {
 	var pod: iTunsPod!
 	
 	var subBtn: UIButton!
+	
+	var shareBtn: UIButton!
 	
 	var tableview : UITableView!
 	
@@ -76,6 +79,22 @@ class PodDetailViewController: BaseViewController {
 	
 	@objc func refreshData (){
 		FeedManager.shared.parserForSingle(feedUrl: self.pod.feedUrl, collectionId: self.pod.collectionId)
+	}
+	
+	@objc func sharePodcast(){
+		if self.pod.podId.length() < 1 {
+			return
+		}
+		let url = podcastShareUrl.appending(self.pod.podId)
+		let textToShare = self.pod.trackName
+		let imageToShare = self.podImageView.image!
+		let urlToShare = NSURL.init(string: url)
+        var items = ["funnyfm",textToShare,imageToShare] as [Any]
+        if urlToShare != nil {
+            items.append(urlToShare!)
+        }
+        let activityVC = VisualActivityViewController(activityItems: items, applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
 	}
 	
 }
@@ -163,6 +182,7 @@ extension PodDetailViewController {
 		self.topView.addSubview(self.podAuthorLB)
 		self.topView.addSubview(self.countLB)
 		self.topView.addSubview(self.subBtn)
+		self.topView.addSubview(self.shareBtn)
 		
 		self.topView.snp.makeConstraints { (make) in
 			make.left.width.equalToSuperview()
@@ -178,8 +198,14 @@ extension PodDetailViewController {
 		
 		self.podNameLB.snp.makeConstraints { (make) in
 			make.left.equalTo(self.podImageView.snp.right).offset(12)
-			make.right.equalToSuperview().offset(-30)
+			make.right.equalTo(self.shareBtn.snp.left).offset(-8)
 			make.top.equalTo(self.podImageView)
+		}
+		
+		self.shareBtn.snp.makeConstraints { (make) in
+			make.right.equalToSuperview().offset(-16.adapt())
+			make.baseline.equalTo(self.podNameLB)
+			make.size.equalTo(CGSize.init(width: 25, height: 25))
 		}
 		
 		self.podAuthorLB.snp.makeConstraints { (make) in
@@ -238,6 +264,14 @@ extension PodDetailViewController {
 		self.subBtn.borderColor = CommonColor.mainRed.color
 		self.subBtn.cornerRadius = 5
 		self.subBtn.addTarget(self, action: #selector(subscribtionAction), for: .touchUpInside)
+		
+		self.shareBtn = UIButton.init(type: .custom)
+		self.shareBtn.setImageForAllStates(UIImage.init(named: "share-red")!)
+		self.shareBtn.addTarget(self, action: #selector(sharePodcast), for: .touchUpInside)
+//		self.shareBtn.backgroundColor = .white
+		self.shareBtn.cornerRadius = 5
+		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
+		
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)

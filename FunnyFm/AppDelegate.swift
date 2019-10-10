@@ -159,52 +159,27 @@ extension AppDelegate {
 		if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
 			return true
 		}
-		
-		if url.absoluteString.hasPrefix("funnyfm://itunsUrl=https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast") {
-			if let key = url.absoluteString.components(separatedBy: "?").last{
-				if let id = key.components(separatedBy: "#").first{
-					let podid = id.subString(from: 3)
-					GlobalViewModel.shared.delegate = self;
-					GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
+		let urlString = url.absoluteString
+		if urlString.hasPrefix("funnyfm://podcast") {
+			let params = urlString.components(separatedBy: "=")
+			if params.count > 0{
+				let podId = params.last!
+				let pod = DatabaseManager.getPodcast(podId: podId)
+				if pod.isNone {
+					return false
 				}
-				return true
-			}
-		}
-		if let key = url.absoluteString.components(separatedBy: "?").first{
-			if let id = key.components(separatedBy: "/").last{
-				let podid = id.subString(from: 2)
-				GlobalViewModel.shared.delegate = self;
-				GlobalViewModel.shared.getPrePodFromItuns(podId: podid, source: "iTunes")
-				
+				let vc = PodDetailViewController.init(pod: pod!)
+				let navi = self.window?.rootViewController as! UINavigationController
+				navi.pushViewController(vc)
 			}
 			return true
 		}
 		
-		SwiftNotice.showText("暂不支持此分享源")
 		return false
 	}
 	
 	
 	func applicationDidBecomeActive(_ application: UIApplication) {
-		if let shareUrl = UIPasteboard.general.string {
-			if shareUrl.contains("music.163.com/radio"){
-				if let prefix = shareUrl.components(separatedBy: "?").first {
-					if let id = prefix.components(separatedBy: "/").last{
-						if (UserDefaults.standard.object(forKey: "netease_rid") != nil){
-							let rid = UserDefaults.standard.object(forKey: "netease_rid") as! String
-							if rid == id {
-								return;
-							}
-						}
-						UserDefaults.standard.set(id, forKey: "netease_rid")
-						UserDefaults.standard.synchronize()
-						MSHUD.shared.show(in: self.window!)
-						GlobalViewModel.shared.delegate = self;
-						GlobalViewModel.shared.getPrePodFromItuns(podId: id, source: "netease")
-					}
-				}
-			}
-		}
 	}
 }
 

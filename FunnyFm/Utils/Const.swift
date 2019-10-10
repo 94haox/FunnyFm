@@ -193,3 +193,7 @@ let videoAd = "ca-app-pub-9733320345962237/3682634149"
 let onesignalKey = "30cd881e-c916-44d2-8293-b2f7e2c7deae"
 
 let googleSigninKey = "491413064388-cnaplmj5h8bah503k27a71ciiok1acbs.apps.googleusercontent.com"
+
+let podcastShareUrl = "https://live.funnyfm.top/#/podcast/"
+
+let episodeShareUrl = "https://live.funnyfm.top/#/episode/"
