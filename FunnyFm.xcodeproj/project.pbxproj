@@ -107,6 +107,13 @@
 		AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB01219564F000260851 /* ConfigurationHelper.swift */; };
 		AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB04219564F000260851 /* CornerAnimatable.swift */; };
 		AB41AB0B2195752B00260851 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AB0A2195752B00260851 /* Extension.swift */; };
+		AB441A2E23501F1D00411359 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A2D23501F1D00411359 /* MessageViewController.swift */; };
+		AB441A3023501FD700411359 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A2F23501FD700411359 /* MessageDetailViewController.swift */; };
+		AB441A322350208700411359 /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A312350208700411359 /* GeneralAPI.swift */; };
+		AB441A342350216500411359 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A332350216500411359 /* Message.swift */; };
+		AB441A362350222A00411359 /* GeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A352350222A00411359 /* GeneralViewModel.swift */; };
+		AB441A3923502B3B00411359 /* MessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB441A3723502B3B00411359 /* MessageCollectionViewCell.xib */; };
+		AB441A3A23502B3B00411359 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A3823502B3B00411359 /* MessageCollectionViewCell.swift */; };
 		AB4578C4233B44CC001DF1D1 /* EpisodeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */; };
 		AB4578C6233B4905001DF1D1 /* PlayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C5233B4905001DF1D1 /* PlayListManager.swift */; };
 		AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C7233B5112001DF1D1 /* PlayItem.swift */; };
@@ -397,6 +404,13 @@
 		AB41AB01219564F000260851 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		AB41AB04219564F000260851 /* CornerAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerAnimatable.swift; sourceTree = "<group>"; };
 		AB41AB0A2195752B00260851 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AB441A2D23501F1D00411359 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		AB441A2F23501FD700411359 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		AB441A312350208700411359 /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
+		AB441A332350216500411359 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		AB441A352350222A00411359 /* GeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewModel.swift; sourceTree = "<group>"; };
+		AB441A3723502B3B00411359 /* MessageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCollectionViewCell.xib; sourceTree = "<group>"; };
+		AB441A3823502B3B00411359 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSettingViewController.swift; sourceTree = "<group>"; };
 		AB4578C5233B4905001DF1D1 /* PlayListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListManager.swift; sourceTree = "<group>"; };
 		AB4578C7233B5112001DF1D1 /* PlayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayItem.swift; sourceTree = "<group>"; };
@@ -913,6 +927,8 @@
 				AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */,
 				AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */,
 				AB287BD7234F496B00ED5448 /* VIPViewController.swift */,
+				AB441A2D23501F1D00411359 /* MessageViewController.swift */,
+				AB441A2F23501FD700411359 /* MessageDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -928,6 +944,7 @@
 				ABA7052122B641000012FD0A /* NetEasyPod.swift */,
 				AB57FE3C22CF346900BABEF2 /* Favor.swift */,
 				AB4578C7233B5112001DF1D1 /* PlayItem.swift */,
+				AB441A332350216500411359 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -950,6 +967,7 @@
 				AB41AAE72195343200260851 /* PodAPI.swift */,
 				AB1E6DA021B943A100B85135 /* ChapterAPI.swift */,
 				ABEE40E621E35C3800FCB16F /* UserAPI.swift */,
+				AB441A312350208700411359 /* GeneralAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -964,6 +982,7 @@
 				ABEF471B21EB038500212DCA /* UserViewModel.swift */,
 				ABA99AC02219060900840382 /* GlobalViewModel.swift */,
 				AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */,
+				AB441A352350222A00411359 /* GeneralViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1060,6 +1079,8 @@
 				AB97EE912333330000127C37 /* HistoryTableViewCell.swift */,
 				AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */,
 				AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */,
+				AB441A3723502B3B00411359 /* MessageCollectionViewCell.xib */,
+				AB441A3823502B3B00411359 /* MessageCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1467,6 +1488,7 @@
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
 				AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
+				AB441A3923502B3B00411359 /* MessageCollectionViewCell.xib in Resources */,
 				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
 				AB2A372E2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib in Resources */,
 				AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */,
@@ -1659,6 +1681,7 @@
 				ABEE40E221E32C1700FCB16F /* StringExtension.swift in Sources */,
 				ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
+				AB441A2E23501F1D00411359 /* MessageViewController.swift in Sources */,
 				ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */,
 				ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */,
 				AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */,
@@ -1687,12 +1710,15 @@
 				ABEE40DE21E3246E00FCB16F /* MJRefreshComponent.m in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
 				ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */,
+				AB441A342350216500411359 /* Message.swift in Sources */,
 				AB25797F21945E6F004C5F5D /* MainViewController.swift in Sources */,
+				AB441A3023501FD700411359 /* MessageDetailViewController.swift in Sources */,
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
 				AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */,
 				ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
+				AB441A362350222A00411359 /* GeneralViewModel.swift in Sources */,
 				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
@@ -1731,6 +1757,7 @@
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
 				AB4578C6233B4905001DF1D1 /* PlayListManager.swift in Sources */,
+				AB441A3A23502B3B00411359 /* MessageCollectionViewCell.swift in Sources */,
 				AB1E6D7A21B9252500B85135 /* UIStoryboardExtensions.swift in Sources */,
 				AB41AAE221952EAA00260851 /* Episode.swift in Sources */,
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
@@ -1758,6 +1785,7 @@
 				AB41AB07219564F000260851 /* SubviewsForEach.swift in Sources */,
 				ABEE40D821E3246E00FCB16F /* MJRefreshStateHeader.m in Sources */,
 				AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */,
+				AB441A322350208700411359 /* GeneralAPI.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
 				AB5828B4233C92080072F03B /* YBTSPriorityQueue.mm in Sources */,
 				AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */,

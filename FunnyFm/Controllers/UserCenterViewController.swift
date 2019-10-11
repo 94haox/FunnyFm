@@ -108,6 +108,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
 										   ["title":"Pro","subtitle":"订购 Pro".localized,"imageName":"VIP"],
+										   ["title":"消息","subtitle":"服务消息".localized,"imageName":"message"],
 										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]
 }
@@ -133,7 +134,19 @@ extension UserCenterViewController {
 			return
 		}
 		
+		if indexPath.row == 5 {
+			let vipVC = VIPViewController()
+			self.navigationController?.pushViewController(vipVC)
+			return
+		}
+		
 		if indexPath.row == 6 {
+			let msgVC = MessageViewController.init()
+			self.navigationController?.pushViewController(msgVC)
+			return
+		}
+		
+		if indexPath.row == 7 {
 			let adVC = AdShowViewController()
 			self.navigationController?.pushViewController(adVC)
 			return

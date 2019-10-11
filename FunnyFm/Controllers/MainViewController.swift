@@ -69,11 +69,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		FeedManager.shared.delegate = self;
 	}
 	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-
-	}
-	
 }
 
 
