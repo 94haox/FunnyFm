@@ -114,6 +114,7 @@
 		AB441A362350222A00411359 /* GeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A352350222A00411359 /* GeneralViewModel.swift */; };
 		AB441A3923502B3B00411359 /* MessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB441A3723502B3B00411359 /* MessageCollectionViewCell.xib */; };
 		AB441A3A23502B3B00411359 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A3823502B3B00411359 /* MessageCollectionViewCell.swift */; };
+		AB441B1223507B0F00411359 /* vipAd.png in Resources */ = {isa = PBXBuildFile; fileRef = AB441B1123507B0E00411359 /* vipAd.png */; };
 		AB4578C4233B44CC001DF1D1 /* EpisodeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */; };
 		AB4578C6233B4905001DF1D1 /* PlayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C5233B4905001DF1D1 /* PlayListManager.swift */; };
 		AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C7233B5112001DF1D1 /* PlayItem.swift */; };
@@ -411,6 +412,7 @@
 		AB441A352350222A00411359 /* GeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewModel.swift; sourceTree = "<group>"; };
 		AB441A3723502B3B00411359 /* MessageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCollectionViewCell.xib; sourceTree = "<group>"; };
 		AB441A3823502B3B00411359 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB441B1123507B0E00411359 /* vipAd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vipAd.png; sourceTree = "<group>"; };
 		AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSettingViewController.swift; sourceTree = "<group>"; };
 		AB4578C5233B4905001DF1D1 /* PlayListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListManager.swift; sourceTree = "<group>"; };
 		AB4578C7233B5112001DF1D1 /* PlayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayItem.swift; sourceTree = "<group>"; };
@@ -1184,6 +1186,7 @@
 		ABB57AAF22FD07F8000593F2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AB441B1123507B0E00411359 /* vipAd.png */,
 				ABB57AB022FD0820000593F2 /* recommend.json */,
 			);
 			path = Source;
@@ -1477,6 +1480,7 @@
 				ABF4989E2303B88A00441DAF /* RegisterViewController.xib in Resources */,
 				ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */,
 				ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */,
+				AB441B1223507B0F00411359 /* vipAd.png in Resources */,
 				ABEE40CD21E3246E00FCB16F /* MJRefresh.bundle in Resources */,
 				AB57FE2D22CDE5C200BABEF2 /* home_empty.json in Resources */,
 				AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */,
