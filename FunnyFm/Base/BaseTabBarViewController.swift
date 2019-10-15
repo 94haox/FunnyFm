@@ -31,6 +31,7 @@ class BaseTabBarViewController: AnimatedTabBarController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		UIApplication.shared.keyWindow?.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
 	}
     

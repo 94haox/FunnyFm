@@ -103,6 +103,7 @@ extension Notification {
 	static let downloadFailureNotification = Notification.Name.init("download_failure")
 	static let podcastUpdateNewEpisode = Notification.Name.init("podcast_newEpisode_update")
 	static let appHasNewVersionReleased = Notification.Name.init("app_HasNewVersionReleased")
+	static let homeParserSuccess = Notification.Name.init("homechapterParserSuccess")
 }
 
 

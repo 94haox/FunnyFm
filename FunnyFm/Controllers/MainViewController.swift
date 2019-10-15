@@ -99,7 +99,7 @@ extension MainViewController{
     }
 	
 	func dw_addNofications(){
-		NotificationCenter.default.addObserver(forName: NSNotification.Name.init("homechapterParserSuccess"), object: nil, queue: OperationQueue.main) { (notify) in
+		NotificationCenter.default.addObserver(forName: Notification.homeParserSuccess, object: nil, queue: OperationQueue.main) { (notify) in
 			self.fetchLoadingView.stopAnimating()
 		}
 		

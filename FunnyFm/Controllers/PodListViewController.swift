@@ -169,8 +169,8 @@ extension PodListViewController {
 		
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
-		self.view.backgroundColor = CommonColor.background.color
-		self.topBgView.backgroundColor = CommonColor.background.color
+//		self.view.backgroundColor = CommonColor.background.color
+//		self.topBgView.backgroundColor = CommonColor.background.color
 		self.view.addSubview(self.collectionView)
 		
 		self.collectionView.snp.makeConstraints { (make) in

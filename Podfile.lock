@@ -200,6 +200,7 @@ PODS:
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
   - WechatOpenSDK (1.8.4)
+  - WhatsNewKit (1.2.0)
 
 DEPENDENCIES:
   - AnimatedTabBar
@@ -230,9 +231,10 @@ DEPENDENCIES:
   - SwiftyJSON
   - WCDB.swift
   - WechatOpenSDK
+  - WhatsNewKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AnimatedTabBar
     - Crashlytics
@@ -284,6 +286,7 @@ SPEC REPOS:
     - WCDB.swift
     - WCDBOptimizedSQLCipher
     - WechatOpenSDK
+    - WhatsNewKit
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -337,7 +340,8 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
+  WhatsNewKit: 3fc7e34db0902b086fa2760e05d4d4403a38a0e0
 
-PODFILE CHECKSUM: 4aba5242b0ec875f2a2545a1b7ddc7ad47babbfc
+PODFILE CHECKSUM: 9da580390500851375cdb9c9063a953b6dd38a10
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

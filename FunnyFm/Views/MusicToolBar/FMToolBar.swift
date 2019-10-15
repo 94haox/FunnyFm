@@ -143,6 +143,8 @@ extension FMToolBar{
     
     
     func configToolBarAtHome(_ episode : Episode) {
+		self.isHidden = false
+		self.explain()
         self.config(episode, url: episode.coverUrl)
 		self.setUpChapter(episode)
     }
@@ -303,6 +305,5 @@ extension FMToolBar {
 		self.containerView.addSubview(progressBg)
 		self.containerView.sendSubviewToBack(progressBg)
 		
-				
     }
 }

@@ -110,14 +110,20 @@ extension FeedManager {
 					
 					semphore.signal()
 					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
-					self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+					if item!.items.count > 0 {
+						self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+					}
+					
+					
 					podCount -= 1
 					DispatchQueue.main.async {
 						if podCount == 0 {
 							self.isParsering = false
-							NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
+							NotificationCenter.default.post(name: Notification.homeParserSuccess, object: nil)
 						}
-						self.delegate?.feedManagerDidGetEpisodelistSuccess()
+						if item!.items.count > 1{
+							self.delegate?.feedManagerDidGetEpisodelistSuccess()
+						}
 					}
 					print("fetch_success_\(podCount)")
 				}, { (error) in
@@ -126,7 +132,7 @@ extension FeedManager {
 					if podCount == 0 {
 						self.isParsering = false
 						DispatchQueue.main.async {
-							NotificationCenter.default.post(name: NSNotification.Name.init("homechapterParserSuccess"), object: nil)
+							NotificationCenter.default.post(name: Notification.homeParserSuccess, object: nil)
 						}
 					}
 					print("fetch_failure_\(podCount)")

@@ -37,8 +37,7 @@ class HistoryListViewController: BaseViewController {
 		table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
         return table
     }()
-    
-    
+	
     lazy var historyList : [Episode] = {
         return DatabaseManager.allHistory().reversed()
     }()

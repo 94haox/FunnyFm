@@ -18,6 +18,7 @@ class DownloadListViewController: BaseViewController {
 		super.viewDidLoad()
 		self.titleLB.text = "我的下载".localized
 		self.view.addSubview(self.tableview)
+		self.topBgView.addSubview(self.deleteBtn)
 		self.view.addSubview(self.sectionSegment)
 		sectionSegment.config(titles: ["已下载".localized,"正在下载".localized])
 		self.view.insertSubview(self.tableview, at: 0)
@@ -32,13 +33,20 @@ class DownloadListViewController: BaseViewController {
 			make.bottom.equalToSuperview()
 			make.top.equalTo(self.topBgView.snp.bottom)
 		}
+		
+		self.deleteBtn.snp.makeConstraints { (make) in
+			make.right.equalTo(self.topBgView).offset(-16)
+			make.bottom.equalTo(self.titleLB)
+			make.size.equalTo(CGSize.init(width: 60, height: 25))
+		}
+		
 		DownloadManager.shared.delegate = self
 	}
 	
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.deleteBtn.isHidden = self.episodeList.count < 1
+		self.deleteBtn.isHidden = self.episodeList.count < 2
 		self.episodeList = DatabaseManager.allDownload()
 		self.tableview.reloadData()
 	}
@@ -46,6 +54,11 @@ class DownloadListViewController: BaseViewController {
 	@objc func changeSection(){
 		self.isDownloaded = !self.isDownloaded
 		self.tableview.reloadData()
+		if self.isDownloaded && self.episodeList.count >= 2{
+			self.deleteBtn.isHidden = false
+		}else{
+			self.deleteBtn.isHidden = true
+		}
 	}
 	
 	lazy var tableview : UITableView = {
@@ -72,9 +85,8 @@ class DownloadListViewController: BaseViewController {
 		btn.addTarget(self, action: #selector(deleteAll), for: UIControl.Event.touchUpInside)
 		btn.backgroundColor = CommonColor.mainRed.color
 		btn.setTitle("删除全部".localized, for: UIControl.State.normal)
-		btn.titleLabel?.font = p_bfont(fontsize6)
-		btn.cornerRadius = 15
-		btn.addShadow(ofColor: CommonColor.mainPink.color, radius: 5, offset: CGSize.init(width: 2, height: 5), opacity: 0.5)
+		btn.titleLabel?.font = p_bfont(fontsize0)
+		btn.cornerRadius = 5
 		return btn
 	}()
 

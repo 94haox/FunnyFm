@@ -34,9 +34,11 @@ class HistoryTableViewCell: UITableViewCell {
 		if progress == 0 {
 			self.progressBar.isHidden = true
 			self.lastTimeLB.text = "尚未播放".localized
-		}else{
+		}else if differ > 10{
 			self.progressBar.isHidden = false
 			self.lastTimeLB.text = FunnyFm.formatIntervalToString(NSInteger(differ)) + " left"
+		}else{
+			self.lastTimeLB.text = "Finsh"
 		}
 		self.progressBar.update(with: progress/total)
 	}
