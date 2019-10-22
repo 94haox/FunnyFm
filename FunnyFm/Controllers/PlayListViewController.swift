@@ -28,6 +28,7 @@ class PlayListViewController: BaseViewController {
 		self.setupUI()
     }
     
+	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		PlayListManager.shared.updatePlayQueue()
@@ -40,6 +41,7 @@ class PlayListViewController: BaseViewController {
 			}else{
 				self.countLB.isHidden = true
 				self.tipLB.isHidden = true
+				self.countLB.text = "0"		
 			}
 			let indexSet = IndexSet.init(integer: 0)
 			self.tableview.reloadSections(indexSet, with: UITableView.RowAnimation.fade)
@@ -112,9 +114,9 @@ extension PlayListViewController {
 		self.countLB.font = p_bfont(12)
 		
 		self.view.addSubview(self.tableview)
-		self.view.insertSubview(self.tableview, at: 0)
 		self.topBgView.addSubview(self.countLB)
 		self.topBgView.addSubview(self.tipLB)
+		self.view.bringSubviewToFront(self.topBgView)
 		
 		self.tipLB.snp.makeConstraints { (make) in
 			make.right.equalTo(self.countLB.snp.left).offset(-5.adapt())
@@ -122,13 +124,13 @@ extension PlayListViewController {
 		}
 		
 		self.countLB.snp.makeConstraints { (make) in
-			make.right.equalToSuperview().offset(-16)
+			make.right.equalTo(self.view).offset(-16)
 			make.baseline.equalTo(self.titleLB)
 		}
 		
         self.tableview.snp.makeConstraints { (make) in
-            make.left.width.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.left.width.equalTo(self.view)
+			make.bottom.equalTo(self.view)
             make.top.equalTo(self.topBgView.snp.bottom)
         }
 	}

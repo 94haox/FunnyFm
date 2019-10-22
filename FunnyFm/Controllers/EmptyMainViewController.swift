@@ -49,15 +49,8 @@ class EmptyMainViewController: UIViewController {
 	}
 	
 	@IBAction func toLoginVC(_ sender: Any) {
-		if #available(iOS 13.0, *) {
-			let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
-			loginNavi.navigationBar.isHidden = true
-			self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
-			return
-		}
-		let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-		self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
-		self.navigationController?.viewControllers.remove(at: 1)
+		self.navigationController?.popViewController()
+		NotificationCenter.default.post(name: Notification.needLoginNotification, object: nil)
 	}
 
 }

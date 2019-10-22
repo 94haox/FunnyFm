@@ -51,6 +51,7 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         self.addConstraints()
 		self.tapGes = UITapGestureRecognizer.init(target:self, action: #selector(toPlayDetailVC))
 		self.containerView.addGestureRecognizer(self.tapGes)
+		self.progressBg.isUserInteractionEnabled = false
     }
     
     required init?(coder aDecoder: NSCoder) {

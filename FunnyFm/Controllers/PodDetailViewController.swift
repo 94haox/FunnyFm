@@ -139,7 +139,7 @@ extension PodDetailViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let episode = self.vm.episodeList[indexPath.row]
 		FMToolBar.shared.isHidden = false
-		FMToolBar.shared.configToolBarAtHome(episode)
+		FMToolBar.shared.configToolBar(episode)
 	}
 	
 }

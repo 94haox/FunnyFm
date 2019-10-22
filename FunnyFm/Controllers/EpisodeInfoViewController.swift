@@ -121,7 +121,7 @@ extension EpisodeInfoViewController {
 		}
 
 		self.insertBtn.bounce()
-		PlayListManager.shared.queueInsert(episode: self.episode)
+		PlayListManager.shared.queueInsertAffter(episode: self.episode)
 	}
 	
 }

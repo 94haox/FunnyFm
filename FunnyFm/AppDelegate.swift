@@ -101,7 +101,13 @@ extension AppDelegate {
 	
 	@objc func toMainVC(){
 		DispatchQueue.main.async {
-			let navi = UINavigationController.init(rootViewController: MainViewController.init())
+			let controller = BaseTabBarViewController()
+			controller.delegate = self
+			AnimatedTabBarAppearance.shared.animationDuration = 0.5
+			AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
+			AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
+
+			var navi = UINavigationController.init(rootViewController:controller)
 			navi.navigationBar.isHidden = true
 			self.window?.rootViewController = navi
 		}
