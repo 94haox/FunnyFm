@@ -19,8 +19,8 @@ class LoginTypeViewController: UIViewController {
         super.viewDidLoad()
 		self.viewModel.delegate = self;
 		GIDSignIn.sharedInstance().delegate = self
-		GIDSignIn.sharedInstance()?.uiDelegate = self
 		GIDSignIn.sharedInstance()?.clientID = googleSigninKey
+		GIDSignIn.sharedInstance()?.presentingViewController = self
 		ggLoginBtn.style = .wide
 		
     }
@@ -80,16 +80,3 @@ extension LoginTypeViewController :GIDSignInDelegate {
 	
 }
 
-
-extension LoginTypeViewController: GIDSignInUIDelegate {
-	
-	func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-		
-	}
-	
-	func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-		
-	}
-	
-	
-}

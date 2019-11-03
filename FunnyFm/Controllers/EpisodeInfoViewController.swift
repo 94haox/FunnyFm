@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SPStorkController
 
 class EpisodeInfoViewController: UIViewController {
 
@@ -20,6 +19,8 @@ class EpisodeInfoViewController: UIViewController {
 	var titleLB: UILabel!
 	
 	var tipLB: UILabel = UILabel.init(text: "播放列表".localized)
+	
+	var loadingView : UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
 	
 	var authorLB: UILabel!
 	
@@ -44,9 +45,13 @@ class EpisodeInfoViewController: UIViewController {
 		self.dw_addConstrants()
 		self.config(content: episode)
 		DownloadManager.shared.delegate = self
-		PlayListManager.shared.updatePlayQueue()
-		if PlayListManager.shared.isAlreadyIn(episode: self.episode) {
-			self.addBtn.isSelected = true
+		DispatchQueue.global().async {
+			PlayListManager.shared.updatePlayQueue()
+			if PlayListManager.shared.isAlreadyIn(episode: self.episode) {
+				DispatchQueue.main.async {
+					self.addBtn.isSelected = true
+				}
+			}
 		}
 	}
 	
@@ -126,7 +131,6 @@ extension EpisodeInfoViewController {
 	
 }
 
-
 extension EpisodeInfoViewController: DownloadManagerDelegate {
 	
 	func downloadProgress(progress: Double, sourceUrl: String) {
@@ -190,47 +194,58 @@ extension EpisodeInfoViewController {
 				make.top.equalTo(self.addBtn.snp.bottom).offset(24)
 				make.height.equalTo(self.desTextView.contentSize.height)
 			}
+			self.loadingView.removeSubviews()
 			self.view.layoutIfNeeded()
 			return
 		}
 		
-		do{
-			self.episode.intro = episode.title + "\n\n" + self.episode.intro
-			let srtData = self.episode.intro.data(using: String.Encoding.unicode, allowLossyConversion: true)!
-			let attrStr = try NSMutableAttributedString(data: srtData, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
-			attrStr.enumerateAttributes(in: NSRange.init(location: 0, length: attrStr.length), options: NSAttributedString.EnumerationOptions.reverse) {[weak attrStr] (attr, range, lef) in
-				attr.keys.forEach({ (key) in
-					if key == .font {
-						let font = attr[key] as! UIFont
-						var replaceFont = pfont(font.pointSize)
-						if font.pointSize < 14 {
-							replaceFont = pfont(14)
+		DispatchQueue.global().async {
+			do{
+				self.episode.intro = self.episode.title + "<br><br>" + self.episode.intro
+				let srtData = self.episode.intro.data(using: String.Encoding.unicode, allowLossyConversion: true)!
+				let attrStr = try NSMutableAttributedString(data: srtData, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+				
+				attrStr.enumerateAttributes(in: NSRange.init(location: 0, length: attrStr.length), options: NSAttributedString.EnumerationOptions.reverse) {[weak attrStr] (attr, range, lef) in
+					attr.keys.forEach({ (key) in
+						if key == .font {
+							let font = attr[key] as! UIFont
+							var replaceFont = pfont(font.pointSize)
+							if font.pointSize < 14 {
+								replaceFont = pfont(14)
+							}
+							attrStr?.addAttributes([NSAttributedString.Key.font : replaceFont], range: range)
 						}
-						attrStr?.addAttributes([NSAttributedString.Key.font : replaceFont], range: range)
-					}
-					if key == .foregroundColor {
-						attrStr?.addAttributes([NSAttributedString.Key.foregroundColor: CommonColor.content.color], range: range)
-					}
-					
-					if key == .link {
-						attrStr?.addAttributes([.foregroundColor : CommonColor.mainRed.color], range: range)
-						attrStr?.addAttributes([.strokeColor : CommonColor.mainRed.color], range: range)
-						print(range)
-					}
-				})
+						if key == .foregroundColor {
+							attrStr?.addAttributes([NSAttributedString.Key.foregroundColor: CommonColor.content.color], range: range)
+						}
+						
+						if key == .link {
+							attrStr?.addAttributes([.foregroundColor : CommonColor.mainRed.color], range: range)
+							attrStr?.addAttributes([.strokeColor : CommonColor.mainRed.color], range: range)
+						}
+					})
+				}
+				DispatchQueue.main.async {
+					self.desTextView.attributedText = attrStr;
+					self.loadingView.removeSubviews()
+				}
+			}catch _ as NSError {
+				let content = NSAttributedString.init(string: (self.episode.title + "\n\n" + self.episode.intro), attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
+				DispatchQueue.main.async {
+					self.desTextView.attributedText = content
+					self.loadingView.removeSubviews()
+				}
 			}
-			self.desTextView.attributedText = attrStr;
-		}catch _ as NSError {
-			let content = NSAttributedString.init(string: self.episode.intro+"\n\n", attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
-			self.desTextView.attributedText = content
+			DispatchQueue.main.async {
+				self.desTextView.snp.remakeConstraints { (make) in
+					make.leading.equalTo(self.containerView).offset(16);
+					make.trailing.equalTo(self.containerView).offset(-16);
+					make.top.equalTo(self.addBtn.snp.bottom).offset(24)
+					make.height.equalTo(self.desTextView.contentSize.height)
+				}
+				self.view.layoutIfNeeded()
+			}
 		}
-		self.desTextView.snp.remakeConstraints { (make) in
-			make.leading.equalTo(self.containerView).offset(16);
-			make.trailing.equalTo(self.containerView).offset(-16);
-			make.top.equalTo(self.addBtn.snp.bottom).offset(24)
-			make.height.equalTo(self.desTextView.contentSize.height)
-		}
-		self.view.layoutIfNeeded()
 	}
 	
 }
@@ -263,7 +278,7 @@ extension EpisodeInfoViewController {
 		self.containerView.addSubview(self.addBtn)
 		self.containerView.addSubview(self.desTextView)
 		self.containerView.addSubview(self.progressBar);
-		
+		self.containerView.addSubview(self.loadingView);
 		
 		
 		self.scrollView.snp.makeConstraints { (make) in
@@ -341,6 +356,12 @@ extension EpisodeInfoViewController {
 		self.containerView.snp.makeConstraints { (make) in
 			make.bottom.equalTo(self.desTextView).offset(50)
 		}
+		
+		self.loadingView.snp.makeConstraints { (make) in
+			make.top.equalTo(self.addBtn.snp.bottom).offset(50)
+			make.centerX.equalToSuperview()
+			
+		}
 		self.view.layoutIfNeeded()
 		self.addBtn.centerTextAndImage(spacing: 30)
 		self.insertBtn.centerTextAndImage(spacing: 30)
@@ -409,6 +430,8 @@ extension EpisodeInfoViewController {
 		
 		self.progressBar = HistoryProgressBar.init(frame: CGRect.zero)
 		self.progressBar.isHidden = true
+		
+		self.loadingView.startAnimating()
 	}
 	
 }

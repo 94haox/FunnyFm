@@ -27,27 +27,31 @@ class PlayListViewController: BaseViewController {
 		self.view.backgroundColor = CommonColor.background.color
 		self.setupUI()
     }
-    
+    	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.refreshPlayQueue()
+	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		PlayListManager.shared.updatePlayQueue()
-		self.refreshData()
-		DispatchQueue.main.async {
-			if (PlayListManager.shared.playQueue.count - 1) > 0{
-				self.countLB.isHidden = false
-				self.tipLB.isHidden = false
-				self.countLB.text = String(PlayListManager.shared.playQueue.count - 1)
-			}else{
-				self.countLB.isHidden = true
-				self.tipLB.isHidden = true
-				self.countLB.text = "0"		
+	func refreshPlayQueue(){
+		DispatchQueue.global().async {
+			PlayListManager.shared.updatePlayQueue()
+			self.refreshData()
+			DispatchQueue.main.async {
+				if (PlayListManager.shared.playQueue.count - 1) > 0{
+					self.countLB.isHidden = false
+					self.tipLB.isHidden = false
+					self.countLB.text = String(PlayListManager.shared.playQueue.count - 1)
+				}else{
+					self.countLB.isHidden = true
+					self.tipLB.isHidden = true
+					self.countLB.text = "0"
+				}
+				self.tableview.reloadData()
 			}
-			let indexSet = IndexSet.init(integer: 0)
-			self.tableview.reloadSections(indexSet, with: UITableView.RowAnimation.fade)
-			self.tableview.reloadData()
 		}
 	}
+	
 	
 	func refreshData(){
 		var list = PlayListManager.shared.playQueue
@@ -84,6 +88,10 @@ extension PlayListViewController: UITableViewDelegate {
 		detailVC.episode = episode
 		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.6, delegate: self)
 	}
+	
+	func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+		return "从待播中移出".localized
+	}
 }
 
 extension PlayListViewController: UITableViewDataSource {
@@ -101,6 +109,22 @@ extension PlayListViewController: UITableViewDataSource {
 		let itemCell = cell as! HistoryTableViewCell
 		let episode = self.playlist[indexPath.row]
 		itemCell.config(episode: episode)
+	}
+	
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
+	
+	func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+		return .delete
+	}
+	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			let episode = self.playlist[indexPath.row]
+			PlayListManager.shared.queueOut(episode: episode)
+			self.refreshPlayQueue()
+		}
 	}
 }
 
@@ -141,7 +165,7 @@ extension PlayListViewController: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
 		if scrollView.contentOffset.y > 0 {
-			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 5, offset: CGSize.init(width: 0, height: 5), opacity: 0.8)
+			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 2, offset: CGSize.init(width: 0, height: 2), opacity: 0.8)
 		}else{
 			self.topBgView.addShadow(ofColor: .clear, radius: 0, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
 		}
@@ -160,14 +184,14 @@ extension PlayListViewController : DZNEmptyDataSetSource {
 	
 }
 
-extension PlayListViewController {
-	override func didDismissStorkByTap() {
-		super.didDismissStorkByTap()
-		self.viewDidAppear(true)
-	}
-	
-	override func didDismissStorkBySwipe() {
-		super.didDismissStorkBySwipe()
-		self.viewDidAppear(true)
-	}
-}
+//extension PlayListViewController {
+//	override func didDismissStorkByTap() {
+//		super.didDismissStorkByTap()
+//		self.viewDidAppear(true)
+//	}
+//
+//	override func didDismissStorkBySwipe() {
+//		super.didDismissStorkBySwipe()
+//		self.viewDidAppear(true)
+//	}
+//}

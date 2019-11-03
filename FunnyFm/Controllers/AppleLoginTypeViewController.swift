@@ -27,8 +27,8 @@ class AppleLoginTypeViewController: UIViewController {
         super.viewDidLoad()
 		self.viewModel.delegate = self;
 		GIDSignIn.sharedInstance().delegate = self
-		GIDSignIn.sharedInstance()?.uiDelegate = self
 		GIDSignIn.sharedInstance()?.clientID = googleSigninKey
+		GIDSignIn.sharedInstance()?.presentingViewController = self
 		self.googleBtn.style = .wide
 		
 		self.appleBtn.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
@@ -176,18 +176,4 @@ extension AppleLoginTypeViewController :GIDSignInDelegate {
 	
 }
 
-
-@available(iOS 13.0, *)
-extension AppleLoginTypeViewController: GIDSignInUIDelegate {
-	
-	func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-		
-	}
-	
-	func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-		
-	}
-	
-	
-}
 

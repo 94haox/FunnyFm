@@ -67,7 +67,7 @@ class DownloadListViewController: BaseViewController {
 		table.register(nib, forCellReuseIdentifier: "tablecell")
 		table.separatorColor = CommonColor.cellbackgroud.color
 		table.separatorInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 0)
-		table.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 0, right: 0)
+		table.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 100, right: 0)
 		table.rowHeight = 85
 		table.delegate = self
 		table.dataSource = self
@@ -248,15 +248,4 @@ extension DownloadListViewController : DZNEmptyDataSetSource {
 	
 }
 
-extension DownloadListViewController: UIScrollViewDelegate {
-	
-	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		
-		if scrollView.contentOffset.y > 0 {
-			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
-		}else{
-			self.topBgView.addShadow(ofColor: .clear, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
-		}
-	}
-}
 

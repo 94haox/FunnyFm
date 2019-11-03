@@ -10,7 +10,6 @@ def layout
     pod 'SnapKit', '~> 4.0.0'
     pod 'pop', '~> 1.0'
     pod 'SHFullscreenPopGestureSwift'
-    pod 'SPStorkController'
     pod 'lottie-ios', '3.1.1'
 		pod 'NVActivityIndicatorView'
 		pod 'OfficeUIFabric', '0.2.11'
@@ -42,7 +41,8 @@ end
 
 # 广告
 def ads
-	pod 'Google-Mobile-Ads-SDK'
+#	pod 'Google-Mobile-Ads-SDK'
+	pod 'GDTMobSDK', '~> 4.10.5'
 end
 
 # 性能和崩溃分析

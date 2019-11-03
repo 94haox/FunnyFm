@@ -7,27 +7,33 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
+//8020580224686001
+
+//7050583255877020
+
+//1109760306
 
 class AdShowViewController: UIViewController {
 	
-	var interstitial: GADInterstitial!
-	var bottom_bannerView: GADBannerView!
-	var top_bannerView: GADBannerView!
+	var topAd : GDTUnifiedBannerView!
+	
+	var bottomAd : GDTUnifiedBannerView!
+	
+	private var interstitial: GDTMobInterstitial?
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		interstitial = GADInterstitial(adUnitID: screenAD)
-		let request = GADRequest()
-		interstitial.delegate = self
-		interstitial.load(request)
-		
-		bottom_bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-		top_bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-		addBannerViewToView(bottom_bannerView)
-		addTopBannerViewToView(top_bannerView)
+		topAd = GDTUnifiedBannerView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 100), appId: "1109760306", placementId: "8020580224686001", viewController: self)
+		bottomAd = GDTUnifiedBannerView.init(frame: CGRect.init(x: 0, y: kScreenHeight-100, width: kScreenWidth, height: 100), appId: "1109760306", placementId: "7050583255877020", viewController: self)
+		self.view.addSubview(topAd)
+		self.view.addSubview(bottomAd)
+		topAd.delegate = self;
+		bottomAd.delegate = self;
+		topAd.loadAdAndShow()
+		bottomAd.loadAdAndShow()
+		self.loadInsertAd()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -43,74 +49,50 @@ class AdShowViewController: UIViewController {
 	}
 	
 	
-	func addBannerViewToView(_ bannerView: GADBannerView) {
-		bannerView.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(bannerView)
-		view.addConstraints(
-			[NSLayoutConstraint(item: bannerView,
-								attribute: .bottom,
-								relatedBy: .equal,
-								toItem: bottomLayoutGuide,
-								attribute: .top,
-								multiplier: 1,
-								constant: 0),
-			 NSLayoutConstraint(item: bannerView,
-								attribute: .centerX,
-								relatedBy: .equal,
-								toItem: view,
-								attribute: .centerX,
-								multiplier: 1,
-								constant: 0)
-			])
-		bannerView.adUnitID = topBannerAd
-		bannerView.rootViewController = self
-		bannerView.load(GADRequest())
-	}
-	
-	
-	func addTopBannerViewToView(_ bannerView: GADBannerView) {
-		bannerView.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(bannerView)
-		view.addConstraints(
-			[NSLayoutConstraint(item: bannerView,
-								attribute: .top,
-								relatedBy: .equal,
-								toItem: topLayoutGuide,
-								attribute: .bottom,
-								multiplier: 1,
-								constant: 0),
-			 NSLayoutConstraint(item: bannerView,
-								attribute: .centerX,
-								relatedBy: .equal,
-								toItem: view,
-								attribute: .centerX,
-								multiplier: 1,
-								constant: 0)
-			])
-		bannerView.adUnitID = bottomBannerAd
-		bannerView.rootViewController = self
-		bannerView.load(GADRequest())
-	}
-	@IBAction func showFullScreenAd(_ sender: Any) {
-		if !interstitial.isReady {
-			SwiftNotice.showText("广告加载中...".localized);
-			return
+	func loadInsertAd(){
+		if (interstitial != nil) {
+			interstitial?.delegate = nil
+			interstitial = nil
 		}
-		interstitial.present(fromRootViewController: self)
+		interstitial = GDTMobInterstitial.init(appId: "1109760306", placementId: "4010384935083869")
+		interstitial?.delegate = self
+
+		interstitial?.loadAd()
 	}
+	
+	@IBAction func showFullScreenAd(_ sender: Any) {
+		
+		interstitial?.present(fromRootViewController: self)
+	}
+	
 	@IBAction func backAction(_ sender: Any) {
 		self.navigationController?.popViewController()
 	}
 }
 
-
-extension AdShowViewController : GADInterstitialDelegate{
-	func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+extension AdShowViewController: GDTUnifiedBannerViewDelegate{
+	
+	func unifiedBannerViewDidLoad(_ unifiedBannerView: GDTUnifiedBannerView) {
 		
 	}
 	
-	func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+	func unifiedBannerViewFailed(toLoad unifiedBannerView: GDTUnifiedBannerView, error: Error) {
+		print(error.localizedDescription)
+	}
+	
+}
+
+extension AdShowViewController: GDTMobInterstitialDelegate{
+	func interstitialSuccess(toLoadAd interstitial: GDTMobInterstitial!) {
 		
 	}
+	
+	func interstitialFail(toLoadAd interstitial: GDTMobInterstitial!, error: Error!) {
+		print(error.localizedDescription)
+	}
 }
+
+
+
+
 

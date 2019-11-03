@@ -80,16 +80,16 @@ PODS:
     - EFIconFont/Core
   - Fabric (1.10.2)
   - FeedKit (8.1.1)
-  - Firebase/Analytics (6.11.0):
+  - Firebase/Analytics (6.10.0):
     - Firebase/Core
-  - Firebase/Auth (6.11.0):
+  - Firebase/Auth (6.10.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 6.3.1)
-  - Firebase/Core (6.11.0):
+    - FirebaseAuth (~> 6.3.0)
+  - Firebase/Core (6.10.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.1.3)
-  - Firebase/CoreOnly (6.11.0):
-    - FirebaseCore (= 6.3.2)
+  - Firebase/CoreOnly (6.10.0):
+    - FirebaseCore (= 6.3.1)
   - FirebaseAnalytics (6.1.3):
     - FirebaseCore (~> 6.3)
     - FirebaseInstanceID (~> 4.2)
@@ -99,14 +99,14 @@ PODS:
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3.901)
-  - FirebaseAuth (6.3.1):
+  - FirebaseAuth (6.3.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.2)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
     - GoogleUtilities/Environment (~> 6.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (6.3.2):
+  - FirebaseCore (6.3.1):
     - FirebaseCoreDiagnostics (~> 1.0)
     - FirebaseCoreDiagnosticsInterop (~> 1.0)
     - GoogleUtilities/Environment (~> 6.2)
@@ -118,18 +118,19 @@ PODS:
     - GoogleUtilities/Logger (~> 6.2)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.0.0)
-  - FirebaseInstanceID (4.2.6):
+  - FirebaseInstanceID (4.2.5):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebaseUI/Auth (8.3.1):
+  - FirebaseUI/Auth (8.2.0):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
-  - FirebaseUI/Google (8.3.1):
+  - FirebaseUI/Google (8.2.0):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 5.0)
-  - Google-Mobile-Ads-SDK (7.51.0):
-    - GoogleAppMeasurement (~> 6.0)
+  - GDTMobSDK (4.10.14):
+    - GDTMobSDK/GDTMobSDK (= 4.10.14)
+  - GDTMobSDK/GDTMobSDK (4.10.14)
   - GoogleAppMeasurement (6.1.3):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -165,11 +166,11 @@ PODS:
   - GTMAppAuth (1.0.0):
     - AppAuth/Core (~> 1.0)
     - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.3.0):
-    - GTMSessionFetcher/Full (= 1.3.0)
-  - GTMSessionFetcher/Core (1.3.0)
-  - GTMSessionFetcher/Full (1.3.0):
-    - GTMSessionFetcher/Core (= 1.3.0)
+  - GTMSessionFetcher (1.2.2):
+    - GTMSessionFetcher/Full (= 1.2.2)
+  - GTMSessionFetcher/Core (1.2.2)
+  - GTMSessionFetcher/Full (1.2.2):
+    - GTMSessionFetcher/Core (= 1.2.2)
   - Hero (1.4.0)
   - KeychainAccess (3.2.1)
   - lottie-ios (3.1.1)
@@ -178,11 +179,11 @@ PODS:
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - nanopb (0.3.9011):
-    - nanopb/decode (= 0.3.9011)
-    - nanopb/encode (= 0.3.9011)
-  - nanopb/decode (0.3.9011)
-  - nanopb/encode (0.3.9011)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - Nuke (8.0.1)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
@@ -200,7 +201,6 @@ PODS:
   - RxSwift (5.0.0)
   - SHFullscreenPopGestureSwift (1.2.1)
   - SnapKit (4.0.1)
-  - SPStorkController (1.7.9)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (5.0.0)
@@ -221,7 +221,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - FirebaseUI/Auth
   - FirebaseUI/Google
-  - Google-Mobile-Ads-SDK
+  - GDTMobSDK (~> 4.10.5)
   - Hero
   - KeychainAccess
   - lottie-ios (= 3.1.1)
@@ -236,7 +236,6 @@ DEPENDENCIES:
   - RxSwift
   - SHFullscreenPopGestureSwift
   - SnapKit (~> 4.0.0)
-  - SPStorkController
   - SwiftyJSON
   - WCDB.swift
   - WechatOpenSDK
@@ -261,7 +260,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnosticsInterop
     - FirebaseInstanceID
     - FirebaseUI
-    - Google-Mobile-Ads-SDK
+    - GDTMobSDK
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
@@ -286,7 +285,6 @@ SPEC REPOS:
     - RxSwift
     - SHFullscreenPopGestureSwift
     - SnapKit
-    - SPStorkController
     - SQLiteRepairKit
     - SwiftyJSON
     - WCDB.swift
@@ -303,28 +301,28 @@ SPEC CHECKSUMS:
   EFIconFont: 7676f5444bed0bc350265fe3e613a0e10b9c5f28
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
-  Firebase: bc9cfc7a96c73268656d5aaab453ff1b4b530e0e
+  Firebase: 5e6b7b12bf9adb90986688edc06b156c37e109cd
   FirebaseAnalytics: 0e3ecff2c5d86070f7d4325e21f1edabfbd558dc
-  FirebaseAuth: b401a012cc33b04df3b52bb308b04e8766f2693e
+  FirebaseAuth: c66e990f79d1d3429165391f6cd70ace6143c25e
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: beeff42c07c30ea94702471d99db2089b594fbbd
+  FirebaseCore: 064c2dd92a8ca5974bbdcb080df9921e46bd34cd
   FirebaseCoreDiagnostics: af29e43048607588c050889d19204f4d7b758c9f
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
-  FirebaseInstanceID: d0eafcd8bdbd3447cd694594734078c3e3e77d8b
-  FirebaseUI: 826359d83af7cd76bfe0d43a8aab11eabac65558
-  Google-Mobile-Ads-SDK: 5c625884f0788d22b48e3bb641e1d65c673dc7a5
+  FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
+  FirebaseUI: d9393ff139b2671921153c0060cf6fd154afad16
+  GDTMobSDK: b974c327ab530e5fbc165cf4a44466f58110bfac
   GoogleAppMeasurement: 434cc7be25e71dc04b8d0e3079125127b330e84a
   GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
   GoogleSignIn: 3a51b9bb8e48b635fd7f4272cee06ca260345b86
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
-  GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   KeychainAccess: d5470352939ced6d6f7fb51cb2e67aae51fc294f
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   OfficeUIFabric: 63cc5002ab0aa509bd7941ba2542618856150e7c
@@ -337,7 +335,6 @@ SPEC CHECKSUMS:
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
@@ -345,6 +342,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 368ae03b72ee3ea1328c4f11326fbb5d2721d118
   WhatsNewKit: 7ec83c4ab2240605c3af63e302ede1310ab366be
 
-PODFILE CHECKSUM: 767f184ceef12282d5a5c590d5c95d37082b6a92
+PODFILE CHECKSUM: 8ca7412c933ffa99147955137927f3dbb7391154
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

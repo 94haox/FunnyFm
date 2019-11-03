@@ -103,7 +103,6 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     }()
     
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
-											  ["title":"播放列表".localized,"subtitle":"","imageName":"play-list-fill"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
 										   ["title":"消息","subtitle":"服务消息".localized,"imageName":"message"],
@@ -129,7 +128,7 @@ extension UserCenterViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
-		if indexPath.row == 5 {
+		if indexPath.row == 4 {
 			let setvc = SettingViewController()
 			self.navigationController?.pushViewController(setvc)
 			return
@@ -141,25 +140,19 @@ extension UserCenterViewController {
 //			return
 //		}
 		
-		if indexPath.row == 4 {
+		if indexPath.row == 3 {
 			let msgVC = MessageViewController.init()
 			self.navigationController?.pushViewController(msgVC)
 			return
 		}
 		
-		if indexPath.row == 6 {
+		if indexPath.row == 5 {
 			let adVC = AdShowViewController()
 			self.navigationController?.pushViewController(adVC)
 			return
 		}
 		
 		if indexPath.row == 1 {
-			let playlistVC = PlayListViewController()
-			self.navigationController?.pushViewController(playlistVC)
-			return
-		}
-		
-		if indexPath.row == 2 {
 			let downloadVc = DownloadListViewController()
 			self.navigationController?.pushViewController(downloadVc)
 			return
@@ -182,7 +175,7 @@ extension UserCenterViewController {
             self.navigationController?.pushViewController(historyVc)
         }
         
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
             let subscribVc = PodListViewController()
             self.navigationController?.pushViewController(subscribVc)
         }

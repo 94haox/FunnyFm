@@ -106,7 +106,7 @@ class FunnyFm: NSObject {
 		
 		var hourStr = ""
 		if  hour > 0 {
-			hourStr = String(hour) + " H"
+			hourStr = String(hour) + " Hr"
 		}
 		
 		var minStr = ""
@@ -115,6 +115,23 @@ class FunnyFm: NSObject {
 		}
 		
 		return hourStr + " " + minStr
+	}
+	
+	static func formatIntervalToHMS(_ second: NSInteger) -> String {
+		let string = self.formatIntervalToString(second)
+		
+		if string.trim().length() > 0{
+			return string;
+		}
+		
+		let sec = second%3600%60
+		
+		var secStr = ""
+		if sec > 0 {
+			secStr = String(sec) + " Sec"
+		}
+		
+		return secStr
 	}
     
 }

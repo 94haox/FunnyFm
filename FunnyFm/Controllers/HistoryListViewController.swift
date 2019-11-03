@@ -82,7 +82,7 @@ extension HistoryListViewController: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
 		if scrollView.contentOffset.y > 0 {
-			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
+			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 2, offset: CGSize.init(width: 0, height: 2), opacity: 0.8)
 		}else{
 			self.topBgView.addShadow(ofColor: .clear, radius: 10, offset: CGSize.init(width: 0, height: 10), opacity: 0.8)
 		}

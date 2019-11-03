@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SPStorkController
 import OfficeUIFabric
 import OneSignal
-import GoogleMobileAds
+//import GoogleMobileAds
 import Firebase
 import FirebaseUI
 import AnimatedTabBar
@@ -37,9 +36,9 @@ import AnimatedTabBar
         configureNavigationTabBar()
 		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
-		
+		GDTSDKConfig.setSdkSrc("14")
 		PushManager().configurePushSDK(launchOptions: launchOptions)
-
+	
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
 

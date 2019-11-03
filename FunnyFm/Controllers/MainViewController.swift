@@ -8,10 +8,9 @@
 
 import UIKit
 import SnapKit
-import SPStorkController
 import Lottie
 import NVActivityIndicatorView
-import GoogleMobileAds
+//import GoogleMobileAds
 //import YBTaskScheduler
 
 
@@ -88,7 +87,7 @@ extension MainViewController{
 	func toDetail(episode: Episode) {
 		let detailVC = EpisodeInfoViewController.init()
 		detailVC.episode = episode
-		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.6, delegate: self)
+		self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.8, delegate: self)
 	}
     
     @objc func refreshData(){
@@ -136,16 +135,25 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
     }
 	
 	func feedManagerDidGetEpisodelistSuccess() {
-		self.scheduler.addTask {
-			DispatchQueue.main.async {
-				self.tableview.isHidden = false
-				self.loadAnimationView.removeFromSuperview()
-				self.tableview.refreshControl?.endRefreshing()
-				self.tableview.reloadData()
-				self.collectionView.reloadData()
-				self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
-
-			}
+//		self.scheduler.addTask {
+//			DispatchQueue.main.async {
+//				self.tableview.isHidden = false
+//				self.loadAnimationView.removeFromSuperview()
+//				self.tableview.refreshControl?.endRefreshing()
+//				self.tableview.reloadData()
+//				self.collectionView.reloadData()
+//				self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+//
+//			}
+//		}
+		
+		DispatchQueue.main.async {
+			self.tableview.isHidden = false
+			self.loadAnimationView.removeFromSuperview()
+			self.tableview.refreshControl?.endRefreshing()
+			self.tableview.reloadData()
+			self.collectionView.reloadData()
+			self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
 		}
 		
 	}
@@ -255,11 +263,6 @@ extension MainViewController{
 			}
 		}
 		
-		if item is GADUnifiedNativeAd {
-			guard let cell = cell as? AdMobTableViewCell else { return }
-			let ad = item as! GADUnifiedNativeAd
-			cell.config(nativeAd: ad)
-		}
     }
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -413,10 +416,8 @@ extension MainViewController {
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
-		let adNib = UINib.init(nibName: String.init(describing: AdMobTableViewCell.self), bundle: nil)
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
-		self.tableview.register(adNib, forCellReuseIdentifier: "adcell")
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
         self.tableview.rowHeight = 100

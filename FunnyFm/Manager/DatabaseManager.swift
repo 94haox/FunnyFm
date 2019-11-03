@@ -253,15 +253,15 @@ extension DatabaseManager {
 	
 	/// 通过 title 获取指定单集
 	static public func getEpisode(title:String) -> Episode?{
-		let episodeList = self.allEpisodes()
-		let episodes = episodeList.filter { $0.title == title}
-		return episodes.first
+		let episodeList: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
+		where: Episode.Properties.title == title)
+		return episodeList.first
 	}
 	
 	static public func getEpisode(trackUrl:String) -> Episode?{
-		let episodeList = self.allEpisodes()
-		let episodes = episodeList.filter { $0.trackUrl == trackUrl}
-		return episodes.first
+		let episodeList: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
+		where: Episode.Properties.trackUrl == trackUrl)
+		return episodeList.first
 	}
 	
 	/// 添加 Episode
