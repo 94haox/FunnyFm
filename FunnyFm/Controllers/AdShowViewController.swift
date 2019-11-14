@@ -25,7 +25,8 @@ class AdShowViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		topAd = GDTUnifiedBannerView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 100), appId: "1109760306", placementId: "8020580224686001", viewController: self)
+		let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+		topAd = GDTUnifiedBannerView.init(frame: CGRect.init(x: 0, y: statusBarHeight, width: kScreenWidth, height: 100), appId: "1109760306", placementId: "8020580224686001", viewController: self)
 		bottomAd = GDTUnifiedBannerView.init(frame: CGRect.init(x: 0, y: kScreenHeight-100, width: kScreenWidth, height: 100), appId: "1109760306", placementId: "7050583255877020", viewController: self)
 		self.view.addSubview(topAd)
 		self.view.addSubview(bottomAd)

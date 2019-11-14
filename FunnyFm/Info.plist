@@ -2,10 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>weixin</string>
-	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>为了给您提供更精准的服务，我们需要获取您的位置信息</string>
 	<key>AppCenterAppDelegateForwarderEnabled</key>
 	<integer>0</integer>
 	<key>CFBundleDevelopmentRegion</key>
@@ -51,6 +49,10 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-9733320345962237~4240203191</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
