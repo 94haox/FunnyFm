@@ -35,7 +35,7 @@ def lib
 		pod 'FirebaseUI/Auth'
 		pod 'FirebaseUI/Google'
 		pod 'WhatsNewKit'
-		
+		pod 'YYText', '~> 1.0.7'
 end
 
 

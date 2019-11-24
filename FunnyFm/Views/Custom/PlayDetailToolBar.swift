@@ -15,6 +15,7 @@ import AVKit
 
 @objc protocol PlayDetailToolBarDelegate {
 	func didTapSleepBtn()
+	func didTapSttBtn()
 }
 
 class PlayDetailToolBar: UIView {
@@ -26,6 +27,8 @@ class PlayDetailToolBar: UIView {
 	var airBtn: AVRoutePickerView!
 	
 	var likeAniView: AnimationView!
+	
+	var sttBtn: UIButton!
 	
 	var rateBtn: UIButton!
 	
@@ -93,17 +96,25 @@ extension PlayDetailToolBar {
 		ImpactManager.impact()
 		var rate = 1.0;
 		switch btn.titleLabel?.text {
+		case "0.5x":
+			btn.setTitle("0.8x", for: .normal)
+			rate = 0.8
+			break
+		case "0.8x":
+			btn.setTitle("1x", for: .normal)
+			rate = 1
+			break
 		case "1x":
 			btn.setTitle("1.5x", for: .normal)
 			rate = 1.5
 			break
-		case "2x":
-			btn.setTitle("1x", for: .normal)
-			rate = 1
-			break
 		case "1.5x":
 			btn.setTitle("2x", for: .normal)
 			rate = 2
+			break
+		case "2x":
+			btn.setTitle("0.5x", for: .normal)
+			rate = 0.5
 			break
 		default:
 			break
@@ -164,6 +175,16 @@ extension PlayDetailToolBar {
 		self.downProgressLayer.removeAllAnimations()
 	}
 	
+	@objc func speechToTextAction(){
+		if !self.downBtn.isSelected {
+			SwiftNotice.showText("尚未下载", autoClear: true, autoClearTime: 2)
+			return
+		}
+		if self.delegate.isSome {
+			self.delegate?.didTapSttBtn()
+		}
+	}
+	
 	func isCurrentTask(noti: Notification) -> Bool{
 		if noti.object.isNone {
 			return false
@@ -186,15 +207,20 @@ extension PlayDetailToolBar {
 	func dw_addConstraints(){
 		self.airBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self)
-			make.right.equalTo(self.snp.centerX).offset(-25.adapt())
+			make.right.equalTo(self.snp.centerX).offset(-40.adapt())
 			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
 		})
 		
 		self.rateBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self.airBtn)
-			make.left.equalTo(self.snp.centerX).offset(25.adapt())
+			make.left.equalTo(self.snp.centerX).offset(40.adapt())
 			make.size.equalTo(CGSize.init(width: 40.adapt(), height: 25.adapt()))
 		})
+		
+		self.sttBtn.snp.makeConstraints { (make) in
+			make.center.equalToSuperview()
+			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
+		}
 		
 		self.downBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self.airBtn)
@@ -255,6 +281,13 @@ extension PlayDetailToolBar {
 		self.rateBtn.setTitleColor(CommonColor.title.color, for: .normal)
 		self.rateBtn.addTarget(self, action: #selector(changeRateAction(btn:)), for: .touchUpInside)
 		self.addSubview(self.rateBtn)
+		
+		self.sttBtn = UIButton.init(type: .custom)
+		self.sttBtn.setTitleForAllStates("T")
+		self.sttBtn.addTarget(self, action: #selector(speechToTextAction), for: .touchUpInside)
+		self.sttBtn.titleLabel?.font = h_bfont(fontsize6.adapt())
+		self.sttBtn.setTitleColor(CommonColor.title.color, for: .normal)
+		self.addSubview(self.sttBtn)
 	}
 	
 }

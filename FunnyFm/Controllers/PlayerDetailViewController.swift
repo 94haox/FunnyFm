@@ -23,7 +23,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     
     var subTitle: UILabel!
     
-//    var likeBtn: UIButton!
+	var transcriptBtn: UIButton!
 	
 	var swipeAniView: AnimationView!
 	
@@ -246,6 +246,13 @@ extension PlayerDetailViewController {
 }
 
 extension PlayerDetailViewController: PlayDetailToolBarDelegate {
+	
+	func didTapSttBtn() {
+		let speech = SpeechViewController.init()
+		speech.episode = self.episode
+		self.dw_presentAsStork(controller: speech, heigth: kScreenHeight*0.6, delegate: self)
+	}
+	
 	func didTapSleepBtn() {
 		let alertController = UIAlertController.init(title: "定时关闭".localized, message: nil, preferredStyle: .actionSheet)
 		let squaterAction = UIAlertAction.init(title: "15分钟后".localized, style: .default) { (action) in

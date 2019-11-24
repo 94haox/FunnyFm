@@ -11,7 +11,7 @@
 #import "StaticMethods.h"
 #import "YBTaskScheduler.h"
 #import "UIButton+SomeMethods.h"
-
+#import "CropAudioManager.h"
 
 
 #import <GDTNativeExpressAdView.h>

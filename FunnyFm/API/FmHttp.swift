@@ -29,7 +29,7 @@ public class FmHttp<T> where T: Mapable{
 	
 	typealias SuccessModelClosure = (_ result: T?) -> Void
 	typealias SuccessArrModelClosure = (_ result: [T]?) -> Void
-
+	
     
     var tasks : [URLSessionTask]!
     

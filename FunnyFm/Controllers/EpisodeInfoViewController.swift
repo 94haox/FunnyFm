@@ -252,14 +252,7 @@ extension EpisodeInfoViewController {
 
 extension EpisodeInfoViewController: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		if scrollView.contentOffset.y < -60 {
-			self.dismiss(animated: true) { [weak self] in
-				if self?.transitioningDelegate is SPStorkTransitioningDelegate {
-					let storkDelegate = self?.transitioningDelegate as! SPStorkTransitioningDelegate
-					storkDelegate.storkDelegate?.didDismissStorkBySwipe?()
-				}
-			}
-		}
+		SPStorkController.scrollViewDidScroll(scrollView)
 	}
 }
 

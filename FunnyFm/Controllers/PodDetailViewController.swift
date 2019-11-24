@@ -34,7 +34,7 @@ class PodDetailViewController: BaseViewController {
 	init(pod: iTunsPod) {
 		super.init(nibName: nil, bundle: nil)
 		self.pod = pod
-		self.vm = PodDetailViewModel()
+		self.vm = PodDetailViewModel.init(podcast: pod)
 		self.vm.delegate = self
 	}
 	
@@ -53,7 +53,6 @@ class PodDetailViewController: BaseViewController {
 		self.addSubviews()
 		self.addHeader()
 		self.dw_addConstraints()
-        self.vm.parserNewChapter(pod: self.pod)
 		FeedManager.shared.delegate = self
 		self.config()
     }

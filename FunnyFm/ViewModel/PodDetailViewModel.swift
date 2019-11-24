@@ -22,6 +22,13 @@ class PodDetailViewModel: NSObject {
 	
 	var pod: iTunsPod?
 	
+	init(podcast: iTunsPod) {
+		super.init()
+		self.pod = podcast
+		self.episodeList = DatabaseManager.allEpisodes(pod: podcast)
+		self.delegate?.podDetailParserSuccess()
+	}
+	
 	func parserNewChapter(pod: iTunsPod){
 		self.pod = pod
 		self.episodeList = DatabaseManager.allEpisodes(pod: pod)

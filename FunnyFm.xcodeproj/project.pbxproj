@@ -153,6 +153,12 @@
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
 		AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1AE822F9237700790787 /* GoogleService-Info.plist */; };
+		AB7E1884238AB0C200D1C8AD /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E187F238AB0C100D1C8AD /* SpeechManager.swift */; };
+		AB7E1885238AB0C200D1C8AD /* CropAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E1880238AB0C100D1C8AD /* CropAudioManager.m */; };
+		AB7E1886238AB0C200D1C8AD /* SpeechViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB7E1882238AB0C200D1C8AD /* SpeechViewController.xib */; };
+		AB7E1887238AB0C200D1C8AD /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E1883238AB0C200D1C8AD /* SpeechViewController.swift */; };
+		AB7E1889238AB22B00D1C8AD /* SupportLocalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E1888238AB22A00D1C8AD /* SupportLocalListView.swift */; };
+		AB7E188B238ABCBC00D1C8AD /* SuportLocalList.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7E188A238ABCBC00D1C8AD /* SuportLocalList.plist */; };
 		AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C54232A993300FF3757 /* DownloadListViewController.swift */; };
 		AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */; };
 		AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */; };
@@ -500,6 +506,13 @@
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB7B1A9922F8413400790787 /* AdShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdShowViewController.swift; sourceTree = "<group>"; };
 		AB7B1AE822F9237700790787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB7E187F238AB0C100D1C8AD /* SpeechManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		AB7E1880238AB0C100D1C8AD /* CropAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropAudioManager.m; sourceTree = "<group>"; };
+		AB7E1881238AB0C100D1C8AD /* CropAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropAudioManager.h; sourceTree = "<group>"; };
+		AB7E1882238AB0C200D1C8AD /* SpeechViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeechViewController.xib; sourceTree = "<group>"; };
+		AB7E1883238AB0C200D1C8AD /* SpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
+		AB7E1888238AB22A00D1C8AD /* SupportLocalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportLocalListView.swift; sourceTree = "<group>"; };
+		AB7E188A238ABCBC00D1C8AD /* SuportLocalList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SuportLocalList.plist; sourceTree = "<group>"; };
 		AB872C54232A993300FF3757 /* DownloadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
 		AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBarController.swift; sourceTree = "<group>"; };
 		AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
@@ -824,6 +837,7 @@
 				ABA6642F22D6158800AFAEE6 /* PodDetailHeader.swift */,
 				AB6990B32315248E003AC187 /* ProgressHUD.swift */,
 				ABDEF0C3231775E3001FFFC5 /* PlayDetailToolBar.swift */,
+				AB7E1888238AB22A00D1C8AD /* SupportLocalListView.swift */,
 				AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */,
 				AB2A3721232888FA0097DAF7 /* DWSegment.swift */,
 				AB97EE94233376B000127C37 /* HistoryProgressBar.swift */,
@@ -927,6 +941,8 @@
 				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
 				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
+				AB7E1883238AB0C200D1C8AD /* SpeechViewController.swift */,
+				AB7E1882238AB0C200D1C8AD /* SpeechViewController.xib */,
 				AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */,
 				AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */,
 				AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */,
@@ -1281,6 +1297,7 @@
 		ABB57AAF22FD07F8000593F2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AB7E188A238ABCBC00D1C8AD /* SuportLocalList.plist */,
 				AB441B1123507B0E00411359 /* vipAd.png */,
 				ABB57AB022FD0820000593F2 /* recommend.json */,
 			);
@@ -1308,6 +1325,9 @@
 		ABE7ACBB21C22B8700FC6B8E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				AB7E1881238AB0C100D1C8AD /* CropAudioManager.h */,
+				AB7E1880238AB0C100D1C8AD /* CropAudioManager.m */,
+				AB7E187F238AB0C100D1C8AD /* SpeechManager.swift */,
 				ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */,
 				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
 				AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */,
@@ -1607,10 +1627,12 @@
 				ABB57AB122FD0820000593F2 /* recommend.json in Resources */,
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB8DAB90233A08DF00407FCB /* AppleLoginTypeViewController.xib in Resources */,
+				AB7E188B238ABCBC00D1C8AD /* SuportLocalList.plist in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
+				AB7E1886238AB0C200D1C8AD /* SpeechViewController.xib in Resources */,
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */,
@@ -1755,6 +1777,7 @@
 				AB1E6D7921B9252500B85135 /* UIBarButtonItemExtensions.swift in Sources */,
 				ABE7660A21D7196700470D8F /* CalendarExtensions.swift in Sources */,
 				ABE765F121D6414C00470D8F /* PopManager.swift in Sources */,
+				AB7E1887238AB0C200D1C8AD /* SpeechViewController.swift in Sources */,
 				ABE7ACAC21C20DAC00FC6B8E /* HistoryListViewController.swift in Sources */,
 				AB97EE932333330000127C37 /* HistoryTableViewCell.swift in Sources */,
 				AB8BD8D7236E7574006FEFF3 /* SPStorkTransitioningDelegate.swift in Sources */,
@@ -1767,6 +1790,7 @@
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
+				AB7E1885238AB0C200D1C8AD /* CropAudioManager.m in Sources */,
 				AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */,
 				AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
@@ -1845,6 +1869,7 @@
 				AB1E93092211B39900A8F07B /* PodPreviewViewController.swift in Sources */,
 				AB1E6D7421B9252500B85135 /* UILayoutPriorityExtensions.swift in Sources */,
 				ABEF471421EAF7EE00212DCA /* UserCenter.swift in Sources */,
+				AB7E1889238AB22B00D1C8AD /* SupportLocalListView.swift in Sources */,
 				AB6F0CCC23279BEB00ED8B47 /* DWSwitch.swift in Sources */,
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
 				ABEE40D221E3246E00FCB16F /* MJRefreshBackStateFooter.m in Sources */,
@@ -1854,6 +1879,7 @@
 				AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */,
 				ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */,
 				AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */,
+				AB7E1884238AB0C200D1C8AD /* SpeechManager.swift in Sources */,
 				ABEE40CC21E3246E00FCB16F /* MJRefreshConst.m in Sources */,
 				AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */,
 				ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */,
