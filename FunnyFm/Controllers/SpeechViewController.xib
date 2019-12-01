@@ -13,10 +13,11 @@
                 <outlet property="convertTextView" destination="7sh-jG-YZ6" id="gG3-PB-8h9"/>
                 <outlet property="loadingView" destination="n1M-y5-8wL" id="Sog-Zs-YUF"/>
                 <outlet property="localBtn" destination="lGx-Xk-ILt" id="t3q-nV-s26"/>
-                <outlet property="playBtn" destination="9UT-wg-K8w" id="X6T-Je-pDa"/>
+                <outlet property="playBtn" destination="9UT-wg-K8w" id="8FC-9v-GoT"/>
                 <outlet property="rangeLB" destination="Qvk-Kl-FDV" id="5l9-5v-8Fb"/>
                 <outlet property="sttBtn" destination="UpL-nj-Ymw" id="LjK-i3-W9E"/>
                 <outlet property="topView" destination="dfG-vD-qaS" id="D0a-P9-WLF"/>
+                <outlet property="vSpaceConstraints" destination="dMM-i4-zG1" id="hhk-OF-npY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,10 +42,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:27-01:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvk-Kl-FDV">
-                                    <rect key="frame" x="16" y="13" width="65" height="14.5"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <rect key="frame" x="16" y="11" width="81.5" height="18"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoLine" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGx-Xk-ILt">
                                     <rect key="frame" x="293" y="7" width="65" height="26"/>
@@ -77,6 +82,9 @@
                                 <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="play-red"/>
                                 <userDefinedRuntimeAttribute type="image" keyPath="imageForSelected" value="pause-red"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="playAction:" destination="-1" eventType="touchUpInside" id="DXs-2J-Pgj"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.8784313725490196" green="0.88235294117647056" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,43 +98,48 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7sh-jG-YZ6">
-                    <rect key="frame" x="20" y="249" width="374" height="200"/>
+                    <rect key="frame" x="20" y="249" width="374" height="603"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="FdE-Qt-kkr"/>
-                    </constraints>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </textView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="n1M-y5-8wL">
+                    <rect key="frame" x="197" y="540.5" width="20" height="20"/>
+                </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpL-nj-Ymw">
-                    <rect key="frame" x="147" y="473" width="120" height="34"/>
+                    <rect key="frame" x="147" y="333" width="120" height="34"/>
                     <color key="backgroundColor" red="1" green="0.14117647059999999" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="SaS-s1-QYh"/>
                         <constraint firstAttribute="width" constant="120" id="z1c-GR-GN2"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                    <state key="normal" title="Convert"/>
+                    <state key="normal" title="转换"/>
                     <connections>
                         <action selector="sttAction:" destination="-1" eventType="touchUpInside" id="JeR-Vp-lhc"/>
                     </connections>
                 </button>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="n1M-y5-8wL">
-                    <rect key="frame" x="197" y="339" width="20" height="20"/>
-                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="JoN-JI-rBn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="170-9r-STe"/>
                 <constraint firstItem="7sh-jG-YZ6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="32L-CY-DcE"/>
                 <constraint firstItem="dfG-vD-qaS" firstAttribute="top" secondItem="JoN-JI-rBn" secondAttribute="bottom" constant="24" id="3en-XC-U7q"/>
-                <constraint firstItem="UpL-nj-Ymw" firstAttribute="top" secondItem="7sh-jG-YZ6" secondAttribute="bottom" constant="24" id="B0Q-Hf-5ss"/>
+                <constraint firstItem="UpL-nj-Ymw" firstAttribute="centerX" secondItem="7sh-jG-YZ6" secondAttribute="centerX" id="7Lz-6F-2uL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7sh-jG-YZ6" secondAttribute="bottom" constant="10" id="7cA-Cy-Opo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7sh-jG-YZ6" secondAttribute="trailing" constant="20" id="GcY-ZE-SzT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dfG-vD-qaS" secondAttribute="trailing" constant="20" id="Gpr-kT-CqM"/>
                 <constraint firstItem="dfG-vD-qaS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LuM-pO-qUa"/>
                 <constraint firstItem="n1M-y5-8wL" firstAttribute="centerX" secondItem="7sh-jG-YZ6" secondAttribute="centerX" id="RAG-ws-CY5"/>
-                <constraint firstItem="UpL-nj-Ymw" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="SKz-aO-dlR"/>
+                <constraint firstItem="UpL-nj-Ymw" firstAttribute="top" secondItem="dfG-vD-qaS" secondAttribute="bottom" constant="100" id="dMM-i4-zG1">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstant" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="7sh-jG-YZ6" firstAttribute="top" secondItem="dfG-vD-qaS" secondAttribute="bottom" constant="16" id="jWy-Px-02b"/>
                 <constraint firstItem="n1M-y5-8wL" firstAttribute="centerY" secondItem="7sh-jG-YZ6" secondAttribute="centerY" id="lgk-eD-ByB"/>
                 <constraint firstItem="JoN-JI-rBn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="xX4-MM-5q6"/>

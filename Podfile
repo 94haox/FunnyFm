@@ -17,6 +17,7 @@ def layout
 #		pod 'LookinServer', :configurations => ['Debug']
 		pod 'AnimatedTabBar'
 		pod 'DynamicColor', '~> 4.2.0'
+		
 end
 
 def lib
@@ -35,7 +36,8 @@ def lib
 		pod 'FirebaseUI/Auth'
 		pod 'FirebaseUI/Google'
 		pod 'WhatsNewKit'
-		pod 'YYText', '~> 1.0.7'
+		pod 'YYKit'
+		pod 'AutoInch'
 end
 
 

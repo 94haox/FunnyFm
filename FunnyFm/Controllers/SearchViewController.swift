@@ -108,14 +108,8 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 			return;
 		}
 		let preview = PodPreviewViewController()
-		preview.modalPresentationStyle = .overCurrentContext
-		let transitionDelegate = SPStorkTransitioningDelegate()
-		transitionDelegate.customHeight = 300;
-		preview.transitioningDelegate = transitionDelegate
-		preview.modalPresentationStyle = .custom
-		preview.modalPresentationCapturesStatusBarAppearance = true
-		self.present(preview, animated: true, completion: nil)
 		preview.configWithPod(pod: pod)
+		self.dw_presentAsStork(controller: preview, heigth: 300, delegate: self)
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

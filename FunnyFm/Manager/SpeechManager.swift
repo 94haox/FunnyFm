@@ -12,7 +12,11 @@ import Speech
 
 class SpeechManager: NSObject {
 	
-	static func recognizeFile(url: URL, local:String?, startTime: Int, complete:@escaping(String?)->Void) {
+	static let shared = SpeechManager()
+	
+	var myRecognizer: SFSpeechRecognizer?
+	
+	func recognizeFile(url: URL, local:String?, startTime: Int, complete:@escaping(String?, String?)->Void) {
 		SFSpeechRecognizer.requestAuthorization { (status) in
 			if status == .authorized {
 				self.recognize(url: url, local: local, startTime: startTime, complete: complete)
@@ -25,49 +29,52 @@ class SpeechManager: NSObject {
 		
 	}
 	
-	static func recognize(url: URL, local:String?, startTime: Int, complete:@escaping(String?)->Void) {
+	func recognize(url: URL, local:String?, startTime: Int, complete:@escaping(String?, String?)->Void) {
 		let asset = AVURLAsset.init(url: url, options: nil)
-			let assetTime = asset.duration
-			let duration = Int(CMTimeGetSeconds(assetTime).rounded())
-			var endTime = startTime + 59
-			if endTime > duration {
-				endTime = duration
-			}
-			
-			
-			CropAudioManager.audioCrop(url, startTime:startTime , endTime:endTime, name: "\(Date())_crop") { (isSuccessed, filepath) in
-				
-				if !isSuccessed {
-					
-					return
-				}
-				
-				var localString = "en_US"
-				if let string = local {
-					localString = string
-				}
+		let assetTime = asset.duration
+		let duration = Int(CMTimeGetSeconds(assetTime).rounded())
+		var endTime = startTime + 59
+		if endTime > duration {
+			endTime = duration
+		}
 		
-				self.speechToText(filepath: filepath, locale: localString) { (isSuccessed,text) in
-					complete(text)
-				};
+		
+		CropAudioManager.audioCrop(url, startTime:startTime , endTime:endTime, name: "\(Date())_crop") { (isSuccessed, filepath) in
+			
+			if !isSuccessed {
+				return
 			}
+			
+			var localString = "en_US"
+			if let string = local {
+				localString = string
+			}
+	
+			self.speechToText(filepath: filepath, locale: localString) { (isSuccessed,text) in
+				complete(text, filepath)
+			};
+		}
 	}
 	
 
-	static func speechToText(filepath: String, locale: String,complete: @escaping(Bool,String?) -> Void){
+	func speechToText(filepath: String, locale: String,complete: @escaping(Bool,String?) -> Void){
 		
-		guard let myRecognizer = SFSpeechRecognizer.init(locale: Locale.init(identifier: locale)) else {
+		if self.myRecognizer.isNone {
+			self.myRecognizer = SFSpeechRecognizer.init(locale: Locale.init(identifier: locale))
+		}
+		
+		guard self.myRecognizer.isSome else {
 			complete(false,nil)
 		   return
 		}
-		if !myRecognizer.isAvailable {
+		if !self.myRecognizer!.isAvailable {
 			complete(false,nil)
 		   return
 		}
-		
+
 		let cropUrl = URL.init(fileURLWithPath: filepath)
 		let request = SFSpeechURLRecognitionRequest(url: cropUrl)
-		myRecognizer.recognitionTask(with: request) { (result, error) in
+		self.myRecognizer!.recognitionTask(with: request) { (result, error) in
 		   guard let result = result else {
 				print("error----\(String(describing: error))")
 				complete(false,nil)

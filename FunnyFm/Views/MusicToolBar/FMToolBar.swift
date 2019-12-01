@@ -64,6 +64,7 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 		let nav = UIApplication.shared.keyWindow?.rootViewController
 		let presentNavi = UINavigationController.init(rootViewController: vc)
 		presentNavi.navigationBar.isHidden = true
+		presentNavi.modalPresentationStyle = .fullScreen
 //		nav?.dw_presentAsStork(controller: presentNavi, heigth: kScreenHeight, delegate: nav)
 		nav?.present(presentNavi, animated: true, completion: nil)
 	}

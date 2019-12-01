@@ -250,6 +250,9 @@ extension PlayerDetailViewController: PlayDetailToolBarDelegate {
 	func didTapSttBtn() {
 		let speech = SpeechViewController.init()
 		speech.episode = self.episode
+		if self.playBtn.isSelected {
+			self.tapPlayBtnAction(btn: self.playBtn)
+		}
 		self.dw_presentAsStork(controller: speech, heigth: kScreenHeight*0.6, delegate: self)
 	}
 	

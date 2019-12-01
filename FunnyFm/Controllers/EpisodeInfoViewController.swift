@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class EpisodeInfoViewController: UIViewController {
 
 	var scrollView: UIScrollView = UIScrollView()
@@ -32,7 +33,7 @@ class EpisodeInfoViewController: UIViewController {
 	
 	var downloadBtn: UIButton = UIButton.init(type: .custom)
 	
-	var desTextView: UITextView = UITextView.init()
+	var infoTextView: YYLabel!
 	
 	var episode: Episode!
 	
@@ -187,12 +188,15 @@ extension EpisodeInfoViewController {
 		guard self.episode.intro.contains("<") else {
 			self.episode.intro = self.episode.intro.replacingOccurrences(of: "。", with: "。\n")
 			let content = NSAttributedString.init(string: self.episode.intro, attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
-			self.desTextView.attributedText = content
-			self.desTextView.snp.remakeConstraints { (make) in
-				make.leading.equalTo(self.containerView).offset(16);
-				make.trailing.equalTo(self.containerView).offset(-16);
+			
+			let layout = YYTextLayout.init(containerSize: CGSize.init(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude), text: content)
+			
+			self.infoTextView.textLayout = layout
+			self.infoTextView.snp.remakeConstraints { (make) in
+				make.centerX.equalToSuperview()
+				make.width.equalToSuperview().offset(-16*2)
 				make.top.equalTo(self.addBtn.snp.bottom).offset(24)
-				make.height.equalTo(self.desTextView.contentSize.height)
+				make.height.equalTo(layout!.textBoundingSize.height+20)
 			}
 			self.loadingView.removeSubviews()
 			self.view.layoutIfNeeded()
@@ -226,22 +230,24 @@ extension EpisodeInfoViewController {
 					})
 				}
 				DispatchQueue.main.async {
-					self.desTextView.attributedText = attrStr;
+					self.infoTextView.attributedText = attrStr;
 					self.loadingView.removeSubviews()
 				}
 			}catch _ as NSError {
 				let content = NSAttributedString.init(string: (self.episode.title + "\n\n" + self.episode.intro), attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
+				let layout = YYTextLayout.init(containerSize: CGSize.init(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude), text: content)!
 				DispatchQueue.main.async {
-					self.desTextView.attributedText = content
+					self.infoTextView.textLayout = layout
 					self.loadingView.removeSubviews()
 				}
 			}
+			
 			DispatchQueue.main.async {
-				self.desTextView.snp.remakeConstraints { (make) in
-					make.leading.equalTo(self.containerView).offset(16);
-					make.trailing.equalTo(self.containerView).offset(-16);
+				self.infoTextView.snp.remakeConstraints { (make) in
+					make.centerX.equalToSuperview()
+					make.width.equalToSuperview().offset(-16*2)
 					make.top.equalTo(self.addBtn.snp.bottom).offset(24)
-					make.height.equalTo(self.desTextView.contentSize.height)
+					make.height.equalTo(self.infoTextView.textLayout!.textBoundingSize.height+20)
 				}
 				self.view.layoutIfNeeded()
 			}
@@ -269,7 +275,7 @@ extension EpisodeInfoViewController {
 		self.containerView.addSubview(self.downloadBtn)
 		self.containerView.addSubview(self.insertBtn)
 		self.containerView.addSubview(self.addBtn)
-		self.containerView.addSubview(self.desTextView)
+		self.containerView.addSubview(self.infoTextView)
 		self.containerView.addSubview(self.progressBar);
 		self.containerView.addSubview(self.loadingView);
 		
@@ -340,14 +346,14 @@ extension EpisodeInfoViewController {
 			make.height.equalTo(4);
 		}
 		
-		self.desTextView.snp.makeConstraints { (make) in
+		self.infoTextView.snp.makeConstraints { (make) in
 			make.top.equalTo(self.addBtn.snp.bottom).offset(24)
 			make.leading.equalTo(self.containerView).offset(16);
 			make.trailing.equalTo(self.containerView).offset(-16);
 		}
 		
 		self.containerView.snp.makeConstraints { (make) in
-			make.bottom.equalTo(self.desTextView).offset(50)
+			make.bottom.equalTo(self.infoTextView).offset(50)
 		}
 		
 		self.loadingView.snp.makeConstraints { (make) in
@@ -362,10 +368,11 @@ extension EpisodeInfoViewController {
 	
 	func dw_addSubviews(){
 		
-		self.desTextView.isEditable = false
-		self.desTextView.bounces = false
-		self.desTextView.dataDetectorTypes = .all
-		self.desTextView.backgroundColor = UIColor.white
+		self.infoTextView = YYLabel.init()
+//		self.infoTextView.bounces = false
+//		self.infoTextView.dataDetectorTypes = .all
+//		self.infoTextView.backgroundColor = UIColor.white
+		
 		
 		self.scrollView.backgroundColor = .white
 		self.scrollView.delegate = self
@@ -418,8 +425,8 @@ extension EpisodeInfoViewController {
 		self.downloadBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		self.downloadBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
 		
-		self.desTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
-		self.desTextView.showsVerticalScrollIndicator = false
+//		self.infoTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
+//		self.infoTextView.showsVerticalScrollIndicator = false
 		
 		self.progressBar = HistoryProgressBar.init(frame: CGRect.zero)
 		self.progressBar.isHidden = true

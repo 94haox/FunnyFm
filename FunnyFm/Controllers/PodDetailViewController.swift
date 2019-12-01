@@ -276,7 +276,6 @@ extension PodDetailViewController {
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
 		self.tableview.sectionHeaderHeight = 36
 		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
-		self.tableview.backgroundColor = CommonColor.background.color
 		self.tableview.separatorStyle = .none
 		self.tableview.rowHeight = 100
 		self.tableview.delegate = self

@@ -20,7 +20,7 @@ class MessageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 		self.backgroundColor = .white
 		self.cornerRadius = 8
-		self.addShadow(ofColor: CommonColor.content.color, radius: 10, offset: CGSize.init(width: 5, height: 5), opacity: 1)
+		self.addShadow(ofColor: CommonColor.content.color, radius: 10, offset: CGSize.init(width: 5, height: 10), opacity: 0.6)
     }
 	
 	func config(msg: Message){

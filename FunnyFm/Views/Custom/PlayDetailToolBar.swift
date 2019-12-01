@@ -205,37 +205,38 @@ extension PlayDetailToolBar {
 extension PlayDetailToolBar {
 	
 	func dw_addConstraints(){
-		self.airBtn.snp.makeConstraints({ (make) in
-			make.centerY.equalTo(self)
-			make.right.equalTo(self.snp.centerX).offset(-40.adapt())
-			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
-		})
-		
-		self.rateBtn.snp.makeConstraints({ (make) in
-			make.centerY.equalTo(self.airBtn)
-			make.left.equalTo(self.snp.centerX).offset(40.adapt())
-			make.size.equalTo(CGSize.init(width: 40.adapt(), height: 25.adapt()))
-		})
 		
 		self.sttBtn.snp.makeConstraints { (make) in
 			make.center.equalToSuperview()
 			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
 		}
 		
+		self.airBtn.snp.makeConstraints({ (make) in
+			make.centerY.equalTo(self)
+			make.right.equalTo(self.sttBtn.snp.left).offset(-25.adapt())
+			make.size.equalTo(CGSize.init(width: 40.adapt(), height: 25.adapt()))
+		})
+		
+		self.rateBtn.snp.makeConstraints({ (make) in
+			make.centerY.equalTo(self.airBtn)
+			make.left.equalTo(self.sttBtn.snp.right).offset(25.adapt())
+			make.size.equalTo(CGSize.init(width: 40.adapt(), height: 25.adapt()))
+		})
+		
 		self.downBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self.airBtn)
-			make.left.equalTo(self.rateBtn!.snp.right).offset(50.adapt())
+			make.left.equalTo(self.rateBtn!.snp.right).offset(25.adapt())
 			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
 		})
 		
 		self.downBackView.snp.makeConstraints { (make) in
 			make.center.equalTo(self.downBtn)
-			make.size.equalTo(CGSize.init(width: 35.adapt(), height: 35.adapt()))
+			make.size.equalTo(CGSize.init(width: 45.adapt(), height: 35.adapt()))
 		}
 		
 		self.sleepBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self.airBtn)
-			make.right.equalTo(self.airBtn.snp.left).offset(-50.adapt())
+			make.right.equalTo(self.airBtn.snp.left).offset(-25.adapt())
 			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
 		})
 	}
