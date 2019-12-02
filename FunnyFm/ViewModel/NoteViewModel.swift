@@ -10,6 +10,7 @@ import UIKit
 
 class NoteViewModel{
 
+	var notelist: [Note] = [Note]()
 	
 	func createNote(params: [String: Any], _ success:@escaping()->Void){
 		
@@ -22,8 +23,17 @@ class NoteViewModel{
 		}
 	}
 	
-	func getNotes(episode: Episode){
-		
+	func getNotes(episode: Episode, success:@escaping()->Void){
+		FmHttp<Note>().requestForArray(NoteAPI.getNotes(episode.trackUrl), { (list) in
+			if list.isSome {
+				self.notelist = list!
+			}
+			success()
+		}) { (error) in
+			if error.isSome {
+				SwiftNotice.showText(error!)
+			}
+		}
 	}
 	
 

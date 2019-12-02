@@ -16,7 +16,24 @@ class NoteCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var playBtn: UIButton!
 	override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+		self.cornerRadius = 15.auto()
+		self.addShadow(ofColor: CommonColor.background.color, radius: 15, offset: CGSize.zero, opacity: 1)
     }
+	
+	func config(note: Note){
+		self.descLB.text = note.noteDesc
+		self.timeLB.text = FunnyFm.formatIntervalToMM(note.noteMoment)
+		
+		switch note.noteType {
+			case 1:
+				self.typeLB.text = "✍🏻"
+			case 2:
+				self.typeLB.text = "👏🏻"
+			case 3:
+				self.typeLB.text = "🤔"
+			default:
+			break
+		}
+	}
 
 }

@@ -14,7 +14,7 @@ struct Note: Mapable {
 	var userId:     		String
 	var trackUrl: 		    String
 	var noteType:       	Int
-	var noteMoment:        String
+	var noteMoment:        	Int
 	var noteDesc:        	String
 	var isPrivate:       	Bool
 	var createTime:        String
@@ -23,7 +23,7 @@ struct Note: Mapable {
 		userId = jsonData["user_id"].stringValue
 		trackUrl = jsonData["track_url"].stringValue
 		noteType = jsonData["note_type"].intValue
-		noteMoment = jsonData["note_moment"].stringValue
+		noteMoment = jsonData["note_moment"].intValue
 		noteDesc = jsonData["note_desc"].stringValue
 		isPrivate = jsonData["is_private"].boolValue
 		createTime = jsonData["create_time"].stringValue

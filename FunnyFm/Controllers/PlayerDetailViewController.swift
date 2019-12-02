@@ -176,6 +176,11 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
             self.navigationController?.dw_presentAsStork(controller: episodeDetailVC, heigth: kScreenHeight * 0.85, delegate: self)
         }
 		
+		if scrollView.contentOffset.x > 60{
+			let listVC = NoteListViewController.init()
+			listVC.episode = self.episode
+			self.navigationController?.dw_presentAsStork(controller: listVC, heigth: 300, delegate: self)
+		}
     }
 }
 
