@@ -37,7 +37,7 @@ extension PodListViewModel {
 		var podCount = 0
 		podidList.forEach { (podId) in
 			DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-				FmHttp<User>().requestForSingle(UserAPI.addSubscribe(podId), success: { (_) in
+				FmHttp<User>().requestForSingle(UserAPI.addSubscribe(podId), { (_) in
 					podCount += 1
 					DispatchQueue.main.async {
 						self.delegate?.didSyncSuccess(index: podCount)
@@ -87,7 +87,7 @@ extension PodListViewModel {
 	}
 	
 	func registerPod(params: Dictionary<String, String>, success:@escaping SuccessStringClosure, failure: @escaping FailClosure){
-		FmHttp<iTunsPod>().requestForSingle(PodAPI.registerPod(params), success: { (pod) in
+		FmHttp<iTunsPod>().requestForSingle(PodAPI.registerPod(params), { (pod) in
 			if pod.isSome {
 				var dbpod = DatabaseManager.getItunsPod(collectionId: pod!.collectionId)
 				if dbpod.isSome {

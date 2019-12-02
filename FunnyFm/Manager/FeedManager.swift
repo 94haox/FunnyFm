@@ -106,7 +106,7 @@ extension FeedManager {
 				if let episode = episodeList.first {
 					last_title = episode.title
 				}
-				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), success: { (item) in
+				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), { (item) in
 					
 					semphore.signal()
 					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
@@ -154,7 +154,7 @@ extension FeedManager {
 			}
 		}
 		
-		FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":feedUrl,"last_episode_title":last_title]), success: { (item) in
+		FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":feedUrl,"last_episode_title":last_title]), { (item) in
 			pod = iTunsPod.init(pod: item!)
 			pod?.collectionId = collectionId
 			self.addOrUpdate(itunesPod: pod!, episodelist: item!.items)
@@ -188,7 +188,7 @@ extension FeedManager {
 			return;
 		}
 		
-		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), success: { (_) in
+		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), { (_) in
 			DispatchQueue.main.async {
 				self.podlist = DatabaseManager.allItunsPod()
 				self.delegate?.feedManagerDidGetEpisodelistSuccess()

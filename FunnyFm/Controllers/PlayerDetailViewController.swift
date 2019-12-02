@@ -22,8 +22,6 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     var titleLB: UILabel!
     
     var subTitle: UILabel!
-    
-	var transcriptBtn: UIButton!
 	
 	var swipeAniView: AnimationView!
 	
@@ -32,8 +30,12 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     var rewindBtn: UIButton!
     
     var forwardBtn: UIButton!
+	
+	var noteBtn: UIButton!
     
     var infoImageView: UIImageView!
+	
+	var noteImageView: UIImageView!
     
     var infoScrollView: UIScrollView!
     
@@ -136,13 +138,32 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 				let generator = UIImpactFeedbackGenerator.init(style: .heavy)
 				generator.impactOccurred()
 			}
-        }else{
+		}else if scrollView.contentOffset.x > 60{
+			self.noteImageView.image = UIImage.init(named: "note_sel")
+            self.noteImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.size.equalTo(CGSize.init(width: 30, height: 30))
+                make.left.equalTo(self.view.snp.right).offset(-60)
+            }
+			if !self.isImpact {
+				self.isImpact = true
+				let generator = UIImpactFeedbackGenerator.init(style: .heavy)
+				generator.impactOccurred()
+			}
+		} else{
 			self.isImpact = false;
             self.infoImageView.image = UIImage.init(named: "episode_info_nor")
             self.infoImageView.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview()
                 make.size.equalTo(CGSize.init(width: 50, height: 50))
                 make.right.equalTo(self.infoScrollView.snp.left)
+            }
+			
+			self.noteImageView.image = UIImage.init(named: "note_nor")
+            self.noteImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.size.equalTo(CGSize.init(width:30, height: 30))
+				make.left.equalTo(self.view.snp.right).offset(-scrollView.contentOffset.x)
             }
         }
     }
@@ -154,6 +175,7 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 			self.swipeAniView.removeSubviews()
             self.navigationController?.dw_presentAsStork(controller: episodeDetailVC, heigth: kScreenHeight * 0.85, delegate: self)
         }
+		
     }
 }
 
@@ -196,6 +218,12 @@ extension PlayerDetailViewController {
 		ImpactManager.impact()
         FMPlayerManager.shared.seekAdditionSecond(15)
     }
+	
+	@objc func editNote(){
+		let noteVC = NoteEditViewController.init()
+		noteVC.episode = self.episode
+		self.navigationController?.present(noteVC, animated: true, completion: nil)
+	}
 	
 	
 	@objc func likeAction(){
@@ -333,6 +361,12 @@ extension PlayerDetailViewController {
             make.size.equalTo(CGSize.init(width: AdaptScale(50), height: AdaptScale(50)))
             make.right.equalTo(self.infoScrollView.snp.left)
         }
+		
+		self.noteImageView.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+			make.size.equalTo(CGSize.init(width: 25, height: 25))
+            make.left.equalTo(self.view.snp.right)
+        }
         
         self.coverBackView.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
@@ -393,6 +427,12 @@ extension PlayerDetailViewController {
 			make.bottom.equalTo(self.progressLine.snp.top).offset(-20.adaptH())
 			make.size.equalTo(CGSize.init(width: 60, height: 30.adapt()))
 		}
+		
+		self.noteBtn.snp.makeConstraints { (make) in
+			make.right.equalTo(self.progressLine)
+			make.top.equalTo(self.progressLine.snp.bottom).offset(24)
+			make.size.equalTo(CGSize.init(width: 25, height: 25))
+		}
         
     }
     
@@ -422,9 +462,12 @@ extension PlayerDetailViewController {
         self.infoScrollView.layer.masksToBounds = false;
         self.infoScrollView.delegate = self;
         self.view.addSubview(self.infoScrollView)
+		
         
         self.infoImageView = UIImageView.init(image: UIImage.init(named: "episode_info_nor"))
+		self.noteImageView = UIImageView.init(image: UIImage.init(named: "note_nor"))
         self.infoScrollView.addSubview(self.infoImageView);
+		self.infoScrollView.addSubview(self.noteImageView);
         
         self.coverBackView = UIView.init()
         self.coverBackView.cornerRadius = 15.adapt()
@@ -477,6 +520,11 @@ extension PlayerDetailViewController {
 		
 		self.hud = ProgressHUD.init(frame: CGRect.zero)
 		self.view.addSubview(self.hud)
+		
+		self.noteBtn = UIButton.init(type: .custom)
+		self.noteBtn.setImageForAllStates(UIImage.init(named: "write_note")!)
+		self.noteBtn.addTarget(self, action: #selector(editNote), for: .touchUpInside)
+		self.view.addSubview(self.noteBtn)
 
     }
 

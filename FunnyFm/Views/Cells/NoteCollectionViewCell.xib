@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NoteCollectionViewCell" customModule="FunnyFm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="132"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="132"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✍🏻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPN-Qr-9rN">
+                        <rect key="frame" x="20" y="20" width="27" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-Bo-znx">
+                        <rect key="frame" x="62.5" y="97" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="dZ2-LB-xgy"/>
+                            <constraint firstAttribute="width" constant="25" id="sQ5-gR-NTc"/>
+                        </constraints>
+                        <state key="normal" image="play-red"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="summy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQE-nT-YDT">
+                        <rect key="frame" x="20" y="67" width="110" height="17"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:59:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvR-jw-6Sp">
+                        <rect key="frame" x="59" y="23.5" width="71" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FQE-nT-YDT" secondAttribute="trailing" constant="20" id="1vm-pf-cUp"/>
+                <constraint firstItem="NoU-Bo-znx" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="6wT-k2-XiH"/>
+                <constraint firstItem="DPN-Qr-9rN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="G5K-y6-qkX"/>
+                <constraint firstItem="wvR-jw-6Sp" firstAttribute="centerY" secondItem="DPN-Qr-9rN" secondAttribute="centerY" id="HHF-Pu-YSf"/>
+                <constraint firstItem="wvR-jw-6Sp" firstAttribute="leading" secondItem="DPN-Qr-9rN" secondAttribute="trailing" constant="12" id="WDn-bP-zaN"/>
+                <constraint firstItem="FQE-nT-YDT" firstAttribute="top" secondItem="DPN-Qr-9rN" secondAttribute="bottom" constant="18" id="Z8o-iR-l9A"/>
+                <constraint firstItem="DPN-Qr-9rN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="fJD-9G-6Xw"/>
+                <constraint firstAttribute="bottom" secondItem="NoU-Bo-znx" secondAttribute="bottom" constant="10" id="t5F-Kn-YfE"/>
+                <constraint firstItem="FQE-nT-YDT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="z26-Wj-e9F"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="150" height="132"/>
+            <connections>
+                <outlet property="descLB" destination="FQE-nT-YDT" id="Omf-L3-DlI"/>
+                <outlet property="playBtn" destination="NoU-Bo-znx" id="Jvb-uk-EfO"/>
+                <outlet property="timeLB" destination="wvR-jw-6Sp" id="dxW-zJ-ok0"/>
+                <outlet property="typeLB" destination="DPN-Qr-9rN" id="GNW-aF-Cp7"/>
+            </connections>
+            <point key="canvasLocation" x="213.04347826086959" y="169.41964285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="play-red" width="100" height="100"/>
+    </resources>
+</document>

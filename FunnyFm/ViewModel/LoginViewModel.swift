@@ -16,7 +16,7 @@ class LoginViewModel: BaseViewModel {
 		params["mail"] = mail
 		params["password"] = pwd
 		params["type"] = "email"
-        FmHttp<User>().requestForSingle(UserAPI.login(params), success: { (person) in
+		FmHttp<User>().requestForSingle(UserAPI.login(params), { (person) in
             if person.isSome {
                 self.user = person
 				UserCenter.shared.userId = person!.userId
@@ -34,7 +34,7 @@ class LoginViewModel: BaseViewModel {
 		params["mail"] = mail
 		params["password"] = pwd
 		params["type"] = "email"
-        FmHttp<User>().requestForSingle(UserAPI.register(params), success: { (person) in
+		FmHttp<User>().requestForSingle(UserAPI.register(params), { (person) in
             if person.isSome {
                 self.user = person
 				UserCenter.shared.userId = person!.userId
@@ -48,7 +48,7 @@ class LoginViewModel: BaseViewModel {
     }
 	
 	func login(googleData:[String: Any]) {
-		FmHttp<User>().requestForSingle(UserAPI.login(googleData), success: { (person) in
+		FmHttp<User>().requestForSingle(UserAPI.login(googleData), { (person) in
 			if person.isSome {
 				self.user = person
 				UserCenter.shared.isLogin = true
@@ -63,7 +63,7 @@ class LoginViewModel: BaseViewModel {
 	}
 	
 	func login(appleData:[String: Any]) {
-		FmHttp<User>().requestForSingle(UserAPI.login(appleData), success: { (person) in
+		FmHttp<User>().requestForSingle(UserAPI.login(appleData), { (person) in
 			if person.isSome {
 				self.user = person
 				UserCenter.shared.isLogin = true

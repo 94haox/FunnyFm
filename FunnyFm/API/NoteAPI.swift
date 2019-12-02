@@ -1,8 +1,8 @@
 //
-//  GeneralAPI.swift
+//  NoteAPI.swift
 //  FunnyFm
 //
-//  Created by Duke on 2019/10/11.
+//  Created by Duke on 2019/12/2.
 //  Copyright © 2019 Duke. All rights reserved.
 //
 
@@ -11,25 +11,28 @@ import Moya
 
 
 
-let kGetAllMessage = "v1/message/allMessages"
-let kGetVersion = "v1/general/getVersion"
+let kGetNotes = "v1/episode/getNotes"
+let kCreateNotes = "v1/episode/createNote"
 
-let generalProvider = MoyaProvider<GeneralAPI>()
+let noteProvider = MoyaProvider<NoteAPI>()
 
-public enum GeneralAPI {
-    case getAllMessage
-	case getVersion
+public enum NoteAPI {
+	case getNotes(String)
+	case createNotes([String: Any])
 }
 
-extension GeneralAPI : TargetType {
+extension NoteAPI : TargetType {
     
     //请求接口时对应的请求参数
     public var task: Task {
-        let params:[String : Any] = [:]
+        var params:[String : Any] = [:]
         switch self {
-		case .getAllMessage:
+		case .getNotes(let trachUrl):
+			params["track_url"] = trachUrl
             break;
-		case .getVersion:
+		case .createNotes(let param):
+			params = param
+			params["user_id"] = UserCenter.shared.userId
 			break;
         }
         return .requestParameters(parameters: params, encoding: JSONEncoding.default)
@@ -42,18 +45,18 @@ extension GeneralAPI : TargetType {
     
     public var path: String {
         switch self {
-        case .getAllMessage:
-            return kGetAllMessage
-		case .getVersion:
-			return kGetVersion
+        case .getNotes:
+            return kGetNotes
+		case .createNotes:
+			return kCreateNotes
         }
         
     }
     
     public var method: Moya.Method {
         switch self {
-        case .getAllMessage,
-			 .getVersion:
+        case .createNotes,
+			 .getNotes:
             return .post
         }
         

@@ -11,7 +11,7 @@ import UIKit
 class UserViewModel: BaseViewModel {
 	
     func addFavour(_ episodeId: String){
-        FmHttp<User>().requestForSingle(UserAPI.addFavour(episodeId), success: { (_) in
+		FmHttp<User>().requestForSingle(UserAPI.addFavour(episodeId), { (_) in
             self.delegate?.viewModelDidGetDataSuccess()
         }) { (msg) in
             self.delegate?.viewModelDidGetDataFailture(msg: msg)
@@ -19,7 +19,7 @@ class UserViewModel: BaseViewModel {
     }
     
     func deleteFavour(_ episodeId: String){
-        FmHttp<User>().requestForSingle(UserAPI.disFavour(episodeId), success: { (_) in
+		FmHttp<User>().requestForSingle(UserAPI.disFavour(episodeId), { (_) in
             self.delegate?.viewModelDidGetDataSuccess()
         }) { (msg) in
             self.delegate?.viewModelDidGetDataFailture(msg: msg)
@@ -27,7 +27,7 @@ class UserViewModel: BaseViewModel {
     }
     
     func addSubscribe(_ podId: String){
-        FmHttp<User>().requestForSingle(UserAPI.addSubscribe(podId), success: { (_) in
+		FmHttp<User>().requestForSingle(UserAPI.addSubscribe(podId), { (_) in
             self.delegate?.viewModelDidGetDataSuccess()
         }) { (msg) in
             self.delegate?.viewModelDidGetDataFailture(msg: msg)
@@ -35,7 +35,7 @@ class UserViewModel: BaseViewModel {
     }
     
     func cancelSubscribe(_ podId: String){
-        FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), success: { (_) in
+		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), { (_) in
             self.delegate?.viewModelDidGetDataSuccess()
         }) { (msg) in
             self.delegate?.viewModelDidGetDataFailture(msg: msg)

@@ -16,7 +16,7 @@ class GlobalViewModel: BaseViewModel {
 	
 	func getPrePodFromItuns(podId:String, source:String) {
 		
-		FmHttp<Pod>().requestForSingle(PodAPI.checkPodSource(podId, source), success: { (pod) in
+		FmHttp<Pod>().requestForSingle(PodAPI.checkPodSource(podId, source), { (pod) in
 			if pod.isSome {
 				self.importPod = pod
 				self.delegate?.viewModelDidGetDataSuccess()
@@ -27,7 +27,7 @@ class GlobalViewModel: BaseViewModel {
 	}
 	
 	func addItunesPod(podId:String, feedUrl:String,sourceType:String) {
-		FmHttp<Pod>().requestForSingle(PodAPI.addPodSource(podId, feedUrl, sourceType), success: { (pod) in
+		FmHttp<Pod>().requestForSingle(PodAPI.addPodSource(podId, feedUrl, sourceType), { (pod) in
 			if pod.isSome {
 				self.delegate?.viewModelDidGetDataSuccess()
 			}
