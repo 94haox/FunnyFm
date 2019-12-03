@@ -14,6 +14,7 @@ import OfficeUIFabric
 
 class NoteEditViewController: UIViewController {
 
+	@IBOutlet weak var publicBtn: UIButton!
 	@IBOutlet weak var disAgreeBtn: UIButton!
 	@IBOutlet weak var agreeBtn: UIButton!
 	@IBOutlet weak var noteBtn: UIButton!
@@ -24,7 +25,7 @@ class NoteEditViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.changeManner(self.noteBtn)
-		self.contentTextView.contentInset = UIEdgeInsets.init(top: 16, left: 12, bottom: 10, right: -12)
+		self.contentTextView.contentInset = UIEdgeInsets.init(top: 16, left: 12, bottom: 10, right: 12)
 		self.dw_addTouchEndEdit()
     }
 	
@@ -52,6 +53,7 @@ class NoteEditViewController: UIViewController {
 		params["note_moment"] = FMPlayerManager.shared.currentTime
 		params["note_desc"] = self.contentTextView.text
 		params["note_type"] = self.selectedBtn!.tag - 1000
+		params["is_private"] = !self.publicBtn.isSelected
 		MSHUD.shared.show(from: self)
 		self.viewModel.createNote(params: params) {
 			SwiftNotice.showText("添加成功🥳")
@@ -60,6 +62,9 @@ class NoteEditViewController: UIViewController {
 	}
 
 	
+	@IBAction func changePrivate(_ sender: UIButton) {
+		sender.isSelected = !sender.isSelected
+	}
 	@IBAction func changeManner(_ sender: UIButton) {
 		self.contentTextView.endEditing(true)
 		if self.selectedBtn.isSome {

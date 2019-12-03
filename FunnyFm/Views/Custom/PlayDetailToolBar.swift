@@ -51,7 +51,6 @@ class PlayDetailToolBar: UIView {
 	
 	init(episode: Episode) {
 		super.init(frame: CGRect.zero)
-		self.backgroundColor = UIColor.white
 		self.episode = episode
 		self.dw_addSubviews()
 		self.dw_addConstraints()
@@ -251,7 +250,7 @@ extension PlayDetailToolBar {
 		self.downProgressLayer = CAShapeLayer.init()
 		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 35, height: 35))
 		self.downProgressLayer.path = bezier.cgPath
-		self.downProgressLayer.fillColor = UIColor.white.cgColor;
+		self.downProgressLayer.fillColor = UIColor.clear.cgColor;
 		self.downProgressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
 		self.downProgressLayer.strokeStart = 0
 		self.downProgressLayer.strokeEnd = 0

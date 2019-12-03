@@ -10,6 +10,7 @@ import UIKit
 
 class NoteCollectionViewCell: UICollectionViewCell {
 
+	@IBOutlet weak var youImage: UIImageView!
 	@IBOutlet weak var descLB: UILabel!
 	@IBOutlet weak var timeLB: UILabel!
 	@IBOutlet weak var typeLB: UILabel!
@@ -23,6 +24,8 @@ class NoteCollectionViewCell: UICollectionViewCell {
 	func config(note: Note){
 		self.descLB.text = note.noteDesc
 		self.timeLB.text = FunnyFm.formatIntervalToMM(note.noteMoment)
+		
+		self.youImage.isHidden =  !(note.userId == UserCenter.shared.userId)
 		
 		switch note.noteType {
 			case 1:

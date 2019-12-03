@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,6 +14,7 @@
                 <outlet property="contentTextView" destination="CU4-E9-ynx" id="Qza-r0-upy"/>
                 <outlet property="disAgreeBtn" destination="wnz-g6-Hq9" id="DbZ-4o-Xtn"/>
                 <outlet property="noteBtn" destination="JY1-1n-2zg" id="fSV-oF-i8t"/>
+                <outlet property="publicBtn" destination="GU8-1b-zN4" id="8f4-ak-Lu5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -112,11 +113,11 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CU4-E9-ynx">
-                    <rect key="frame" x="20" y="210" width="374" height="250"/>
+                    <rect key="frame" x="20" y="210" width="374" height="210"/>
                     <color key="backgroundColor" red="0.87843137250000003" green="0.88235294119999996" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="1" green="0.14117647059999999" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="250" id="k7i-dy-iyX">
+                        <constraint firstAttribute="height" constant="210" id="k7i-dy-iyX">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstant" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -133,10 +134,10 @@
                     </userDefinedRuntimeAttributes>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqb-Vs-6Ro">
-                    <rect key="frame" x="40" y="484" width="334" height="40"/>
+                    <rect key="frame" x="20" y="498" width="374" height="45"/>
                     <color key="backgroundColor" red="1" green="0.14117647059999999" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="mnC-ls-VDE"/>
+                        <constraint firstAttribute="height" constant="45" id="mnC-ls-VDE"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="16"/>
                     <state key="normal" title="保存"/>
@@ -149,6 +150,27 @@
                         <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="wQj-l5-Re0"/>
                     </connections>
                 </button>
+                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU8-1b-zN4">
+                    <rect key="frame" x="20" y="444" width="92" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="GxV-G1-rEn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="12"/>
+                    <state key="normal" title="  笔记开放给听友">
+                        <color key="titleColor" red="1" green="0.14117647058823529" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title="笔记仅自己可见"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="public"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="imageForSelected" value="private"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="titleForNormal" value="  笔记开放给听友"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="titleForSelected" value="  笔记仅自己可见"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="imageForHighlighted" value="public"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="changePrivate:" destination="-1" eventType="touchUpInside" id="he8-7g-rlx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -157,7 +179,8 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstant" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </constraint>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Xqb-Vs-6Ro" secondAttribute="trailing" constant="40" id="FV7-HD-BDq"/>
+                <constraint firstItem="Xqb-Vs-6Ro" firstAttribute="top" secondItem="GU8-1b-zN4" secondAttribute="bottom" constant="24" id="Bax-yW-Lc2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Xqb-Vs-6Ro" secondAttribute="trailing" constant="20" id="FV7-HD-BDq"/>
                 <constraint firstItem="CU4-E9-ynx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="HtA-DZ-gLI"/>
                 <constraint firstItem="LDp-Nt-tPg" firstAttribute="top" secondItem="u3p-ol-mYd" secondAttribute="bottom" constant="30" id="OS4-F9-Anh">
                     <userDefinedRuntimeAttributes>
@@ -167,12 +190,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CU4-E9-ynx" secondAttribute="trailing" constant="20" id="Qza-Dm-kUM"/>
                 <constraint firstItem="u3p-ol-mYd" firstAttribute="top" secondItem="K4s-GM-zhR" secondAttribute="bottom" constant="8" id="XQv-Yt-FkC"/>
                 <constraint firstItem="LDp-Nt-tPg" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Xgu-l0-8iU"/>
-                <constraint firstItem="Xqb-Vs-6Ro" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="ave-zT-syN"/>
+                <constraint firstItem="Xqb-Vs-6Ro" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ave-zT-syN"/>
+                <constraint firstItem="GU8-1b-zN4" firstAttribute="leading" secondItem="CU4-E9-ynx" secondAttribute="leading" id="fwI-j6-skO"/>
                 <constraint firstItem="K4s-GM-zhR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="gFt-hO-1pe"/>
-                <constraint firstItem="Xqb-Vs-6Ro" firstAttribute="top" secondItem="CU4-E9-ynx" secondAttribute="bottom" constant="24" id="hcU-V3-S8e"/>
                 <constraint firstItem="CU4-E9-ynx" firstAttribute="top" secondItem="LDp-Nt-tPg" secondAttribute="bottom" constant="24" id="jDf-rx-6rb"/>
                 <constraint firstItem="u3p-ol-mYd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oqX-hd-Qec"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wnz-g6-Hq9" secondAttribute="trailing" constant="20" id="vQW-Rt-8J5"/>
+                <constraint firstItem="GU8-1b-zN4" firstAttribute="top" secondItem="CU4-E9-ynx" secondAttribute="bottom" constant="24" id="xNM-id-Tyh"/>
                 <constraint firstItem="K4s-GM-zhR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="y71-PO-grx"/>
                 <constraint firstItem="JY1-1n-2zg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yoE-hR-p13"/>
                 <constraint firstItem="wnz-g6-Hq9" firstAttribute="top" secondItem="u3p-ol-mYd" secondAttribute="bottom" constant="30" id="zd4-U2-pzc">
@@ -185,4 +209,8 @@
             <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>
         </view>
     </objects>
+    <resources>
+        <image name="private" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="public" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
 </document>

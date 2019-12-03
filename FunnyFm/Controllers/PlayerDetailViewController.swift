@@ -179,7 +179,7 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 		if scrollView.contentOffset.x > 60{
 			let listVC = NoteListViewController.init()
 			listVC.episode = self.episode
-			self.navigationController?.dw_presentAsStork(controller: listVC, heigth: 300, delegate: self)
+			self.navigationController?.dw_presentAsStork(controller: listVC, heigth: kScreenHeight*0.4, delegate: self)
 		}
     }
 }
@@ -412,7 +412,7 @@ extension PlayerDetailViewController {
 		self.playToolbar.snp_makeConstraints { (make) in
 			make.top.equalTo(self.playBtn.snp.bottom).offset(50.adaptH())
 			make.centerX.equalToSuperview()
-			make.width.equalToSuperview().offset(-40.adapt())
+			make.width.equalToSuperview()
 			make.height.equalTo(48.adapt())
 		}
 		
@@ -434,7 +434,7 @@ extension PlayerDetailViewController {
 		}
 		
 		self.noteBtn.snp.makeConstraints { (make) in
-			make.right.equalTo(self.progressLine)
+			make.right.equalTo(self.progressLine).offset(-10)
 			make.top.equalTo(self.progressLine.snp.bottom).offset(24)
 			make.size.equalTo(CGSize.init(width: 25, height: 25))
 		}
@@ -488,7 +488,7 @@ extension PlayerDetailViewController {
 		self.coverBackView.addSubview(self.coverImageView)
 		
 		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
-		self.playToolbar.layer.cornerRadius = 24.adapt()
+//		self.playToolbar.layer.cornerRadius = 24.adapt()
 		self.playToolbar.delegate = self
 		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.zero, opacity: 0.6)
 		self.view.addSubview(self.playToolbar)
@@ -527,7 +527,7 @@ extension PlayerDetailViewController {
 		self.view.addSubview(self.hud)
 		
 		self.noteBtn = UIButton.init(type: .custom)
-		self.noteBtn.setImageForAllStates(UIImage.init(named: "write_note")!)
+		self.noteBtn.setImageForAllStates(UIImage.init(named: "filter-note-sel")!)
 		self.noteBtn.addTarget(self, action: #selector(editNote), for: .touchUpInside)
 		self.view.addSubview(self.noteBtn)
 

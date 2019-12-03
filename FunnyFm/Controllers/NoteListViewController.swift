@@ -14,12 +14,14 @@ class NoteListViewController: UIViewController {
 	var viewModel: NoteViewModel = NoteViewModel()
 	var episode: Episode?
 	var noteListView: UICollectionView!
+	var loadingView: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.setupUI()
-		self.viewModel.getNotes(episode: self.episode!) { () in
-			self.noteListView.reloadData()
+		self.viewModel.getNotes(episode: self.episode!) { [weak self]() in
+			self?.loadingView.removeFromSuperview()
+			self?.noteListView.reloadData()
 		}
     }
 
@@ -50,7 +52,7 @@ extension NoteListViewController {
 		let layout = UICollectionViewFlowLayout.init()
 		layout.minimumInteritemSpacing = 20
 		layout.scrollDirection = .horizontal
-		layout.itemSize = CGSize.init(width: 150, height: 130)
+		layout.itemSize = CGSize.init(width: 150.auto(), height: 130.auto())
 		self.noteListView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
 		self.noteListView.register(UINib.init(nibName: "NoteCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "cell")
 		self.noteListView.delegate = self
@@ -62,9 +64,16 @@ extension NoteListViewController {
 		self.view.addSubview(self.noteListView)
 		self.noteListView.snp.makeConstraints { (make) in
 			make.left.width.equalToSuperview()
-			make.bottom.equalToSuperview().offset(-15)
-			make.top.equalTo(self.titleLB.snp.bottom).offset(24)
+			make.height.equalTo(160.auto())
+			make.top.equalTo(self.titleLB.snp.bottom).offset(24.auto())
 		}
+		
+		self.loadingView = UIActivityIndicatorView.init(style: .gray)
+		self.view.addSubview(self.loadingView)
+		self.loadingView.snp.makeConstraints { (make) in
+			make.center.equalTo(self.noteListView)
+		}
+		self.loadingView.startAnimating()
 	}
 	
 	
