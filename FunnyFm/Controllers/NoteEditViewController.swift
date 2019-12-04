@@ -53,7 +53,7 @@ class NoteEditViewController: UIViewController {
 		params["note_moment"] = FMPlayerManager.shared.currentTime
 		params["note_desc"] = self.contentTextView.text
 		params["note_type"] = self.selectedBtn!.tag - 1000
-		params["is_private"] = !self.publicBtn.isSelected
+		params["is_private"] = self.publicBtn.isSelected
 		MSHUD.shared.show(from: self)
 		self.viewModel.createNote(params: params) {
 			SwiftNotice.showText("添加成功🥳")

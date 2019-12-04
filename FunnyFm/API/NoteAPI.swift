@@ -29,6 +29,7 @@ extension NoteAPI : TargetType {
         switch self {
 		case .getNotes(let trachUrl):
 			params["track_url"] = trachUrl
+			params["user_id"] = UserCenter.shared.userId
             break;
 		case .createNotes(let param):
 			params = param
