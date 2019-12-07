@@ -229,8 +229,9 @@ extension EpisodeInfoViewController {
 						}
 					})
 				}
+				let layout = YYTextLayout.init(containerSize: CGSize.init(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude), text: attrStr)!
 				DispatchQueue.main.async {
-					self.infoTextView.attributedText = attrStr;
+					self.infoTextView.textLayout = layout;
 					self.loadingView.removeSubviews()
 				}
 			}catch _ as NSError {

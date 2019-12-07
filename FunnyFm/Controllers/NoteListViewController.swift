@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class NoteListViewController: UIViewController {
 	
 	@IBOutlet weak var titleLB: UILabel!
@@ -21,6 +22,9 @@ class NoteListViewController: UIViewController {
 		self.setupUI()
 		self.viewModel.getNotes(episode: self.episode!) { [weak self]() in
 			self?.loadingView.removeFromSuperview()
+			if self?.viewModel.notelist.count! < 1 {
+				self?.noteListView.emptyDataSetSource = self;
+			}
 			self?.noteListView.reloadData()
 		}
     }
@@ -28,6 +32,12 @@ class NoteListViewController: UIViewController {
 }
 
 extension NoteListViewController: UICollectionViewDelegate{
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let detailVC = NoteDetailViewController.init()
+		detailVC.note = self.viewModel.notelist[indexPath.row]
+		self.present(detailVC, animated: true, completion: nil)
+	}
 	
 }
 
@@ -44,6 +54,15 @@ extension NoteListViewController: UICollectionViewDataSource{
 	}
 }
 
+extension NoteListViewController: DZNEmptyDataSetSource{
+	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+		return NSAttributedString.init(string: "单集还没有笔记哦~", attributes: [NSAttributedString.Key.font : pfont(12)])
+	}
+	
+	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+		return UIImage.init(named: "empty")
+	}
+}
 
 extension NoteListViewController {
 	
@@ -60,6 +79,8 @@ extension NoteListViewController {
 		self.noteListView.backgroundColor = .white
 		self.noteListView.showsHorizontalScrollIndicator = false
 		self.noteListView.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
+		self.noteListView.clipsToBounds = false;
+		self.noteListView.emptyDataSetSource = self;
 		
 		self.view.addSubview(self.noteListView)
 		self.noteListView.snp.makeConstraints { (make) in

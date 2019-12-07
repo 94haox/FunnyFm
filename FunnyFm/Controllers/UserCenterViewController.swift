@@ -17,6 +17,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         super.viewDidLoad()
 		self.titleLB.text = "Hi"
         self.dw_addSubviews()
+		NotificationCenter.default.addObserver(self, selector: #selector(updateAccountStatus), name: NSNotification.Name.init(kParserNotification), object: nil)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +48,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	}
 	
 	
-	func updateAccountStatus(){
+	@objc func updateAccountStatus(){
 		if UserCenter.shared.isLogin {
 			if UserCenter.shared.name.length() > 0 {
 				self.titleLB.text = "Hi  \(UserCenter.shared.name)"

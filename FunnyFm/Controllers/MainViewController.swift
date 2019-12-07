@@ -97,6 +97,15 @@ extension MainViewController{
         self.vm.refresh()
     }
 	
+	@objc func reloadData(){
+		self.tableview.isHidden = false
+		self.loadAnimationView.removeFromSuperview()
+		self.tableview.refreshControl?.endRefreshing()
+		self.tableview.reloadData()
+		self.collectionView.reloadData()
+		self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+	}
+	
 	func dw_addNofications(){
 		NotificationCenter.default.addObserver(forName: Notification.homeParserSuccess, object: nil, queue: OperationQueue.main) { (notify) in
 			self.fetchLoadingView.stopAnimating()
@@ -135,47 +144,11 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
     }
 	
 	func feedManagerDidGetEpisodelistSuccess() {
-//		self.scheduler.addTask {
-//			DispatchQueue.main.async {
-//				self.tableview.isHidden = false
-//				self.loadAnimationView.removeFromSuperview()
-//				self.tableview.refreshControl?.endRefreshing()
-//				self.tableview.reloadData()
-//				self.collectionView.reloadData()
-//				self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
-//
-//			}
-//		}
-		
-		DispatchQueue.main.async {
-			self.tableview.isHidden = false
-			self.loadAnimationView.removeFromSuperview()
-			self.tableview.refreshControl?.endRefreshing()
-			self.tableview.reloadData()
-			self.collectionView.reloadData()
-			self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
-		}
-		
+		self.perform(#selector(reloadData), with: nil, afterDelay: 1, inModes: [.default])
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
-//		if self.vm.nativeAds.count < 1{
-//			return
-//		}
-//		var index = 0
-//		for nativeAd in self.vm.nativeAds {
-//			if index > FeedManager.shared.episodeList.count {
-//				if index > FeedManager.shared.episodeList.count - 1 {
-//					break
-//				}
-//				var episodelist = FeedManager.shared.episodeList[index]
-//				episodelist.append(nativeAd)
-//				index += 1
-//			} else {
-//				break
-//			}
-//		}
-//		self.tableview.reloadData()
+
 	}
     
 }
@@ -266,6 +239,9 @@ extension MainViewController{
     }
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		if FeedManager.shared.episodeList.count-1 < section {
+			return nil;
+		}
 		let episodeList = FeedManager.shared.episodeList[section]
 		let view = UIView.init()
 		view.backgroundColor = .white

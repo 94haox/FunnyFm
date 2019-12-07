@@ -194,6 +194,10 @@
 		AB97EE932333330000127C37 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE912333330000127C37 /* HistoryTableViewCell.swift */; };
 		AB97EE95233376B000127C37 /* HistoryProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE94233376B000127C37 /* HistoryProgressBar.swift */; };
 		AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */; };
+		AB9817F22397FDCE003E008E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB9817F02397FDCD003E008E /* Montserrat-Medium.ttf */; };
+		AB9817F32397FDCE003E008E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB9817F12397FDCE003E008E /* Montserrat-SemiBold.ttf */; };
+		AB9817F62397FDDE003E008E /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9817F42397FDDD003E008E /* NoteDetailViewController.swift */; };
+		AB9817F72397FDDE003E008E /* NoteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9817F52397FDDE003E008E /* NoteDetailViewController.xib */; };
 		AB9E426423951BD500232EE8 /* NoteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9E426223951BD500232EE8 /* NoteListViewController.xib */; };
 		AB9E426523951BD500232EE8 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9E426323951BD500232EE8 /* NoteListViewController.swift */; };
 		AB9E426823951DB500232EE8 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9E426623951DB500232EE8 /* NoteCollectionViewCell.xib */; };
@@ -559,6 +563,10 @@
 		AB97EE912333330000127C37 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		AB97EE94233376B000127C37 /* HistoryProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryProgressBar.swift; sourceTree = "<group>"; };
 		AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
+		AB9817F02397FDCD003E008E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		AB9817F12397FDCE003E008E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		AB9817F42397FDDD003E008E /* NoteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
+		AB9817F52397FDDE003E008E /* NoteDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteDetailViewController.xib; sourceTree = "<group>"; };
 		AB9E426223951BD500232EE8 /* NoteListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteListViewController.xib; sourceTree = "<group>"; };
 		AB9E426323951BD500232EE8 /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		AB9E426623951DB500232EE8 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -995,6 +1003,8 @@
 				AB00BC322394A87900893325 /* NoteEditViewController.swift */,
 				AB9E426223951BD500232EE8 /* NoteListViewController.xib */,
 				AB9E426323951BD500232EE8 /* NoteListViewController.swift */,
+				AB9817F42397FDDD003E008E /* NoteDetailViewController.swift */,
+				AB9817F52397FDDE003E008E /* NoteDetailViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1324,6 +1334,8 @@
 		ABB57AAF22FD07F8000593F2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AB9817F02397FDCD003E008E /* Montserrat-Medium.ttf */,
+				AB9817F12397FDCE003E008E /* Montserrat-SemiBold.ttf */,
 				AB7E188A238ABCBC00D1C8AD /* SuportLocalList.plist */,
 				AB441B1123507B0E00411359 /* vipAd.png */,
 				ABB57AB022FD0820000593F2 /* recommend.json */,
@@ -1629,7 +1641,9 @@
 				AB00BC332394A87900893325 /* NoteEditViewController.xib in Resources */,
 				AB57FE2F22CDE5E500BABEF2 /* search_empty.json in Resources */,
 				AB57FE3622CE1A2C00BABEF2 /* swip_guid.json in Resources */,
+				AB9817F22397FDCE003E008E /* Montserrat-Medium.ttf in Resources */,
 				AB8DA7442338F38000407FCB /* CleanyAlertActionTableViewCell.xib in Resources */,
+				AB9817F32397FDCE003E008E /* Montserrat-SemiBold.ttf in Resources */,
 				AB28ECAD224E241500C7FE43 /* refresh.json in Resources */,
 				ABE765EF21D5D05F00470D8F /* HomeEpisodeTableViewCell.xib in Resources */,
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
@@ -1640,6 +1654,7 @@
 				AB441A3923502B3B00411359 /* MessageCollectionViewCell.xib in Resources */,
 				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
 				AB2A372E2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.xib in Resources */,
+				AB9817F72397FDDE003E008E /* NoteDetailViewController.xib in Resources */,
 				AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */,
 				ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */,
 				AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */,
@@ -1880,6 +1895,7 @@
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
 				AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */,
+				AB9817F62397FDDE003E008E /* NoteDetailViewController.swift in Sources */,
 				ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */,
 				AB8BD8DF236E7574006FEFF3 /* SPStorkHaptic.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,

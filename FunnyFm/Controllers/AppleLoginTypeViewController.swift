@@ -121,9 +121,6 @@ extension AppleLoginTypeViewController: ASAuthorizationControllerDelegate ,ASAut
 			let userIdentifier = appleIDCredential.user
 			let fullName = appleIDCredential.fullName
 			let identityToken = appleIDCredential.identityToken
-//			let email = appleIDCredential.email
-//			let realUserStatus = appleIDCredential.realUserStatus
-//			let authCode = appleIDCredential.authorizationCode
 
 			MSHUD.shared.show(in: self.view)
 			var params:[String : Any] = [:]
