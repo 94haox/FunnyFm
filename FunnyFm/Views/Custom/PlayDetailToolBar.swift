@@ -207,36 +207,36 @@ extension PlayDetailToolBar {
 		
 		self.sttBtn.snp.makeConstraints { (make) in
 			make.center.equalToSuperview()
-			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
+			make.size.equalTo(CGSize.init(width: 25.auto(), height: 25.auto()))
 		}
 		
 		self.airBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self)
-			make.right.equalTo(self.sttBtn.snp.left).offset(-25.adapt())
-			make.size.equalTo(CGSize.init(width: 40.adapt(), height: 25.adapt()))
+			make.right.equalTo(self.sttBtn.snp.left).offset(-25.auto())
+			make.size.equalTo(CGSize.init(width: 40.auto(), height: 25.auto()))
 		})
 		
 		self.rateBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self.airBtn)
-			make.left.equalTo(self.sttBtn.snp.right).offset(25.adapt())
-			make.size.equalTo(CGSize.init(width: 40.adapt(), height: 25.adapt()))
+			make.left.equalTo(self.sttBtn.snp.right).offset(25.auto())
+			make.size.equalTo(CGSize.init(width: 40.auto(), height: 25.auto()))
 		})
 		
 		self.downBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self.airBtn)
-			make.left.equalTo(self.rateBtn!.snp.right).offset(25.adapt())
-			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
+			make.left.equalTo(self.rateBtn!.snp.right).offset(25.auto())
+			make.size.equalTo(CGSize.init(width: 25.auto(), height: 25.auto()))
 		})
 		
 		self.downBackView.snp.makeConstraints { (make) in
 			make.center.equalTo(self.downBtn)
-			make.size.equalTo(CGSize.init(width: 45.adapt(), height: 35.adapt()))
+			make.size.equalTo(CGSize.init(width: 45.auto(), height: 45.auto()))
 		}
 		
 		self.sleepBtn.snp.makeConstraints({ (make) in
 			make.centerY.equalTo(self.airBtn)
-			make.right.equalTo(self.airBtn.snp.left).offset(-25.adapt())
-			make.size.equalTo(CGSize.init(width: 25.adapt(), height: 25.adapt()))
+			make.right.equalTo(self.airBtn.snp.left).offset(-25.auto())
+			make.size.equalTo(CGSize.init(width: 25.auto(), height: 25.auto()))
 		})
 	}
 	
@@ -248,7 +248,7 @@ extension PlayDetailToolBar {
 		self.addSubview(self.airBtn)
 		
 		self.downProgressLayer = CAShapeLayer.init()
-		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 35, height: 35))
+		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 45.auto(), height: 45.auto()))
 		self.downProgressLayer.path = bezier.cgPath
 		self.downProgressLayer.fillColor = UIColor.clear.cgColor;
 		self.downProgressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
@@ -276,8 +276,8 @@ extension PlayDetailToolBar {
 		
 		self.rateBtn = UIButton.init(type: .custom)
 		self.rateBtn.setTitle("1x", for: .normal)
-		self.rateBtn.titleLabel?.sizeThatFits(CGSize.init(width: 40.adapt(), height: 25.adapt()))
-		self.rateBtn.titleLabel?.font = h_bfont(fontsize6.adapt())
+		self.rateBtn.titleLabel?.sizeThatFits(CGSize.init(width: 40.auto(), height: 25.auto()))
+		self.rateBtn.titleLabel?.font = h_bfont(fontsize6.auto())
 		self.rateBtn.setTitleColor(CommonColor.title.color, for: .normal)
 		self.rateBtn.addTarget(self, action: #selector(changeRateAction(btn:)), for: .touchUpInside)
 		self.addSubview(self.rateBtn)
@@ -285,7 +285,7 @@ extension PlayDetailToolBar {
 		self.sttBtn = UIButton.init(type: .custom)
 		self.sttBtn.setTitleForAllStates("T")
 		self.sttBtn.addTarget(self, action: #selector(speechToTextAction), for: .touchUpInside)
-		self.sttBtn.titleLabel?.font = h_bfont(fontsize6.adapt())
+		self.sttBtn.titleLabel?.font = h_bfont(fontsize6.auto())
 		self.sttBtn.setTitleColor(CommonColor.title.color, for: .normal)
 		self.addSubview(self.sttBtn)
 	}

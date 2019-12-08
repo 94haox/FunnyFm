@@ -30,6 +30,7 @@ public class FmHttp<T> where T: Mapable{
 	
 	typealias SuccessModelClosure = (_ result: T?) -> Void
 	typealias SuccessArrModelClosure = (_ result: [T]?) -> Void
+	typealias SuccessJsonClosure = (_ result: JSON) -> Void
 	
     var tasks : [URLSessionTask]!
     
@@ -104,7 +105,7 @@ public class FmHttp<T> where T: Mapable{
                         return
                     }
 					if needParser {
-						let jsonlist = json["data"]["items"].array!
+						let jsonlist = json["data"]["items"].arrayValue
 						var models = [T]()
 						jsonlist.forEach({ (item) in
 							let t = T.init(jsonData:item)!
@@ -160,6 +161,50 @@ public class FmHttp<T> where T: Mapable{
             }
         }
 	}
+	
+	
+	func requestForSingle<R:TargetType>(_ type:R,
+									   _ success:@escaping SuccessJsonClosure,
+									   _ failure: FailClosure?){
+		let provider = MoyaProvider<R>()
+        provider.request(type) { (result) in
+			MSHUD.shared.hide()
+            switch result {
+            case .success(let data):
+                do{
+                    let jsondata = try data.mapJSON()
+                    let json = JSON(jsondata)
+                    let code = json["code"]
+					let resultCode = json["result"]
+                    if code.intValue != 0 || resultCode.intValue != 1 {
+						if failure.isSome{
+							failure!(json["message"].string)
+						}else{
+							SwiftNotice.showText(json["message"].stringValue)
+						}
+                        return
+                    }
+					success(json)
+                }catch{
+					if failure.isSome {
+						failure!("数据解析失败")
+					}else{
+						SwiftNotice.showText("数据解析失败")
+					}
+                }
+            case .failure(_):
+                print("error")
+				if failure.isSome {
+					failure!("未连接到服务器")
+				}else{
+					SwiftNotice.showText("网络貌似有些问题，请稍候重试")
+				}
+            }
+        }
+	}
+	
+	
+	
 	
     
 }

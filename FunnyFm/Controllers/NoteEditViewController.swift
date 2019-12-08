@@ -14,19 +14,21 @@ import OfficeUIFabric
 
 class NoteEditViewController: UIViewController {
 
+	@IBOutlet weak var limitTextView: GFLimitTextView!
 	@IBOutlet weak var publicBtn: UIButton!
 	@IBOutlet weak var disAgreeBtn: UIButton!
 	@IBOutlet weak var agreeBtn: UIButton!
 	@IBOutlet weak var noteBtn: UIButton!
-	@IBOutlet weak var contentTextView: UITextView!
 	var viewModel: NoteViewModel = NoteViewModel()
 	var selectedBtn: UIButton?
 	var episode: Episode?
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.changeManner(self.noteBtn)
-		self.contentTextView.contentInset = UIEdgeInsets.init(top: 16, left: 12, bottom: 10, right: 12)
 		self.dw_addTouchEndEdit()
+		self.limitTextView.limitTextNum = 100;
+		self.limitTextView.placeText = "写点什么吧🤳🏻"
     }
 	
 	@IBAction func confirmAction(_ sender: Any) {
@@ -38,20 +40,25 @@ class NoteEditViewController: UIViewController {
 			return
 		}
 		
+		if self.limitTextView.isLimit {
+			self.limitTextView.alertAnimation()
+			return
+		}
+		
 		if FMPlayerManager.shared.currentTime < 10 {
 			SwiftNotice.showText("您似乎还没开始听？🤭")
 			return
 		}
 		
-		if self.contentTextView.text.length() < 1 {
+		if self.limitTextView.textView.text.length() < 1 {
 			SwiftNotice.showText("写点什么吧😉")
 			return;
 		}
 		
 		var params = [String: Any]()
 		params["track_url"] = self.episode!.trackUrl
-		params["note_moment"] = FMPlayerManager.shared.currentTime
-		params["note_desc"] = self.contentTextView.text
+		params["note_moment"] = FMPlayerManager.shared.currentTime-5
+		params["note_desc"] = self.limitTextView.textView.text
 		params["note_type"] = self.selectedBtn!.tag - 1000
 		params["is_private"] = self.publicBtn.isSelected
 		MSHUD.shared.show(from: self)
@@ -66,7 +73,7 @@ class NoteEditViewController: UIViewController {
 		sender.isSelected = !sender.isSelected
 	}
 	@IBAction func changeManner(_ sender: UIButton) {
-		self.contentTextView.endEditing(true)
+		self.limitTextView.textView.endEditing(true)
 		if self.selectedBtn.isSome {
 			self.selectedBtn!.isSelected = false
 			self.selectedBtn!.backgroundColor = UIColor.black

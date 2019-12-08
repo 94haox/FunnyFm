@@ -113,8 +113,6 @@ extension FeedManager {
 					if item!.items.count > 0 {
 						self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 					}
-					
-					
 					podCount -= 1
 					DispatchQueue.main.async {
 						if podCount == 0 {
@@ -144,7 +142,7 @@ extension FeedManager {
 	}
 	
 	
-	func parserForSingle(feedUrl: String, collectionId:String){
+	func parserForSingle(feedUrl: String, collectionId:String,complete:((Pod?)->Void)?){
 		var last_title = ""
 		var pod = DatabaseManager.getItunsPod(collectionId: collectionId)
 		if pod.isSome {
@@ -160,11 +158,17 @@ extension FeedManager {
 			self.addOrUpdate(itunesPod: pod!, episodelist: item!.items)
 			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			print("fetched")
+			if(complete.isSome){
+				complete!(item)
+			}
 			DispatchQueue.main.async {
 				self.podlist = DatabaseManager.allItunsPod()
 				self.delegate?.feedManagerDidGetEpisodelistSuccess()
 			}
 		}, { (error) in
+			if(complete.isSome){
+				complete!(nil)
+			}
 		})
 	}
 	
@@ -175,7 +179,7 @@ extension FeedManager {
 extension FeedManager {
 	
 	func deleteAllEpisode(collectionId: String, podId: String) {
-		DatabaseManager.deleteItunsPod(collectionId: collectionId)
+		DatabaseManager.deleteItunesPod(podId: podId)
 		DatabaseManager.deleteEpisode(collectionId: collectionId)
 		PushManager.shared.removeTags(tags: [podId])
 		DispatchQueue.main.async {
@@ -201,7 +205,7 @@ extension FeedManager {
 // MARK: - 数据解析
 extension FeedManager {
 	
-	func addOrUpdate(itunesPod:iTunsPod, episodelist: Array<Episode>) {
+	func addOrUpdate(itunesPod:iTunsPod, episodelist: [Episode]) {
 		var pod = itunesPod
 		if episodelist.count < 1 {
 			return

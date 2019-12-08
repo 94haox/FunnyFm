@@ -108,8 +108,8 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 			return;
 		}
 		let preview = PodPreviewViewController()
-		preview.configWithPod(pod: pod)
-		self.dw_presentAsStork(controller: preview, heigth: 300, delegate: self)
+		preview.itunsPod = pod
+		self.present(preview, animated: true, completion: nil)
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

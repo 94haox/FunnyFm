@@ -18,7 +18,7 @@ class PodDetailViewModel: NSObject {
 	
 	weak var delegate : PodDetailViewModelDelegate?
 
-	var episodeList : [Episode]!
+	var episodeList : [Episode] = [Episode]()
 	
 	var pod: iTunsPod?
 	
@@ -34,12 +34,33 @@ class PodDetailViewModel: NSObject {
 		self.episodeList = DatabaseManager.allEpisodes(pod: pod)
 		self.delegate?.podDetailParserSuccess()
 		FeedManager.shared.delegate = self
-		FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId)
-		
+		FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId) { (podcast) in
+			if podcast.isSome {
+				self.pod = DatabaseManager.getPodcast(podId:pod.podId)
+				self.pod?.podDes = podcast!.description
+				self.pod?.trackCount = "\(self.episodeList.count)"
+			}
+		}
 	}
 	
-	func cancelSubscribe(collectionId: String) {
-		DatabaseManager.deleteItunsPod(collectionId: collectionId)
+	func getPodcastPrev(pod: iTunsPod){
+		self.pod = pod
+		FmHttp<iTunsPod>().requestForSingle(PodAPI.getPodcastPrev(pod.feedUrl), { (json) in
+			var data = json["data"]
+			if data["detail"]["rss_url"].stringValue.length() < 1{
+				data["detail"]["rss_url"].stringValue = pod.feedUrl
+			}
+			self.pod = iTunsPod.init(jsonData: data["detail"])
+			data["detail"]["items"].arrayValue.forEach({ (item) in
+				let t = Episode.init(jsonData:item)!
+				self.episodeList.append(t)
+			})
+			self.delegate?.podDetailParserSuccess()
+		},nil)
+	}
+	
+	func cancelSubscribe(feedUrl: String) {
+		DatabaseManager.deleteItunsPod(feedUrl: feedUrl)
 		self.delegate?.podDetailCancelSubscribeSuccess()
 	}
 	

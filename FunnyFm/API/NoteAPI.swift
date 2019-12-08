@@ -13,12 +13,14 @@ import Moya
 
 let kGetNotes = "v1/episode/getNotes"
 let kCreateNotes = "v1/episode/createNote"
+let kDeleteNote = "v1/episode/delNote"
 
 let noteProvider = MoyaProvider<NoteAPI>()
 
 public enum NoteAPI {
 	case getNotes(String)
 	case createNotes([String: Any])
+	case deleteNote([String: Any])
 }
 
 extension NoteAPI : TargetType {
@@ -35,6 +37,9 @@ extension NoteAPI : TargetType {
 			params = param
 			params["user_id"] = UserCenter.shared.userId
 			break;
+		case .deleteNote(let param):
+			params = param
+			params["user_id"] = UserCenter.shared.userId
         }
         return .requestParameters(parameters: params, encoding: JSONEncoding.default)
     }
@@ -50,17 +55,14 @@ extension NoteAPI : TargetType {
             return kGetNotes
 		case .createNotes:
 			return kCreateNotes
+		case .deleteNote:
+			return kDeleteNote
         }
         
     }
     
     public var method: Moya.Method {
-        switch self {
-        case .createNotes,
-			 .getNotes:
-            return .post
-        }
-        
+        return .post
     }
     
     public var headers: [String : String]? {

@@ -13,10 +13,11 @@ import OneSignal
 import Firebase
 import FirebaseUI
 import AnimatedTabBar
+import Siren
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
-
+	
 	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
 					   title: "New", controller: MainViewController()),
 	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
@@ -38,7 +39,7 @@ import AnimatedTabBar
         DatabaseManager.setupDefaultDatabase()
 		GDTSDKConfig.setSdkSrc("14")
 		PushManager().configurePushSDK(launchOptions: launchOptions)
-	
+		Siren.shared.wail()
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
 

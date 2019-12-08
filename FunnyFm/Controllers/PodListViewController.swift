@@ -99,12 +99,17 @@ extension PodListViewController: PodListViewModelDelegate{
 extension PodListViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		var pod = self.vm.syncList[indexPath.row]
+		var pod: iTunsPod? = nil
 		if self.sectionSegment.isOn {
 			pod = self.vm.podlist[indexPath.row]
+		}else{
+			pod = self.vm.syncList[indexPath.row]
 		}
-		let vc = PodDetailViewController.init(pod: pod)
-		self.navigationController?.pushViewController(vc)
+		
+		if pod.isSome {
+			let vc = PodDetailViewController.init(pod: pod!)
+			self.navigationController?.pushViewController(vc)
+		}
     }
     
 }

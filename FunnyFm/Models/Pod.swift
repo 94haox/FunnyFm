@@ -22,11 +22,11 @@ struct Pod : Mapable{
     
     init?(jsonData:JSON) {
 		let time = jsonData["update_time"].intValue / 1000
-        title = jsonData["title"].stringValue
+        title = jsonData["track_name"].stringValue
 		author = jsonData["author"].stringValue
-        url = jsonData["url"].stringValue
-        description = jsonData["description"].stringValue
-		image = jsonData["image"].stringValue
+        url = jsonData["rss_url"].stringValue
+        description = jsonData["desc"].stringValue
+		image = jsonData["artwork_url"].stringValue
 		items = [Episode]()
 		copyright = jsonData["copyright"].stringValue
 		updateTime = Date.init(timeIntervalSince1970: TimeInterval(time)).dateString()

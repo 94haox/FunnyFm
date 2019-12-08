@@ -8,18 +8,11 @@
 
 import UIKit
 import EFIconFont
+import AutoInch
 
 class PodDetailViewController: BaseViewController {
 	
-	var topView: UIView!
-	
-	var podImageView: UIImageView!
-	
-	var podNameLB: UILabel!
-	
-	var podAuthorLB: UILabel!
-	
-	var countLB: UILabel!
+	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.zero)
 	
 	var pod: iTunsPod!
 	
@@ -28,6 +21,8 @@ class PodDetailViewController: BaseViewController {
 	var shareBtn: UIButton!
 	
 	var tableview : UITableView!
+	
+	var refreshControl: UIRefreshControl!
 	
 	var vm: PodDetailViewModel!
 	
@@ -56,12 +51,16 @@ class PodDetailViewController: BaseViewController {
 		FeedManager.shared.delegate = self
 		self.config()
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		self.refreshData()
+	}
 
 	func config(){
 		self.title = "detail"
-		self.podNameLB.text = self.pod.trackName.trimmingCharacters(in: CharacterSet.whitespaces)
-		self.podAuthorLB.text = self.pod.podAuthor.length() > 0 ? self.pod.podAuthor.trimmingCharacters(in: CharacterSet.whitespaces) : "未知"
-		self.podImageView.loadImage(url: self.pod.artworkUrl600, placeholder: nil)
+		self.infoView.config(pod: self.pod)
 	}
 	
 	@objc func subscribtionAction() {
@@ -77,7 +76,7 @@ class PodDetailViewController: BaseViewController {
 	}
 	
 	@objc func refreshData (){
-		FeedManager.shared.parserForSingle(feedUrl: self.pod.feedUrl, collectionId: self.pod.collectionId)
+		self.vm.parserNewChapter(pod: self.pod!)
 	}
 	
 	@objc func sharePodcast(){
@@ -86,7 +85,7 @@ class PodDetailViewController: BaseViewController {
 		}
 		let url = podcastShareUrl.appending(self.pod.podId)
 		let textToShare = self.pod.trackName
-		let imageToShare = self.podImageView.image!
+		let imageToShare = self.infoView.podImageView.image!
 		let urlToShare = NSURL.init(string: url)
         var items = ["funnyfm",textToShare,imageToShare] as [Any]
         if urlToShare != nil {
@@ -102,14 +101,16 @@ class PodDetailViewController: BaseViewController {
 
 extension PodDetailViewController: PodDetailViewModelDelegate{
 	
-	func viewModelDidGetDataSuccess() {}
+	func viewModelDidGetDataSuccess() {
+		
+	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {}
 		
 	func podDetailParserSuccess() {
 		DispatchQueue.main.async {
-			self.countLB.text = String(self.vm.episodeList.count) + "  Episodes"
 			self.tableview.reloadData()
+			self.infoView.config(pod: self.vm.pod!)
 		}
 	}
 	
@@ -168,89 +169,47 @@ extension PodDetailViewController: UITableViewDataSource {
 extension PodDetailViewController {
 	
 	func addHeader(){
-		let refreshControl = UIRefreshControl.init()
+		refreshControl = UIRefreshControl.init()
 		refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
 		self.tableview.refreshControl = refreshControl;
 	}
 	
 	func dw_addConstraints(){
 		self.view.addSubview(self.tableview)
-		self.view.addSubview(self.topView)
-		self.topView.addSubview(self.podImageView)
-		self.topView.addSubview(self.podNameLB)
-		self.topView.addSubview(self.podAuthorLB)
-		self.topView.addSubview(self.countLB)
-		self.topView.addSubview(self.subBtn)
-		self.topView.addSubview(self.shareBtn)
+		self.view.addSubview(self.infoView)
+		self.view.addSubview(self.subBtn)
+		self.view.addSubview(self.shareBtn)
 		
-		self.topView.snp.makeConstraints { (make) in
+		self.infoView.snp.makeConstraints { (make) in
 			make.left.width.equalToSuperview()
 			make.top.equalTo(self.view.snp.topMargin)
-			make.bottom.equalTo(self.subBtn).offset(14)
+			make.height.equalTo(260)
 		}
 		
-		self.podImageView.snp.makeConstraints { (make) in
-			make.left.equalToSuperview().offset(18)
-			make.top.equalToSuperview().offset(18)
-			make.size.equalTo(CGSize.init(width: 100, height: 100))
-		}
-		
-		self.podNameLB.snp.makeConstraints { (make) in
-			make.left.equalTo(self.podImageView.snp.right).offset(12)
-			make.right.equalTo(self.shareBtn.snp.left).offset(-8)
-			make.top.equalTo(self.podImageView)
-		}
 		
 		self.shareBtn.snp.makeConstraints { (make) in
 			make.right.equalToSuperview().offset(-16.adapt())
-			make.baseline.equalTo(self.podNameLB)
+			make.top.equalTo(self.infoView).offset(12)
 			make.size.equalTo(CGSize.init(width: 25, height: 25))
 		}
 		
-		self.podAuthorLB.snp.makeConstraints { (make) in
-			make.left.equalTo(self.podNameLB);
-			make.top.equalTo(self.podNameLB.snp.bottom).offset(16)
-		}
-		
-		self.countLB.snp.makeConstraints { (make) in
-			make.left.equalTo(self.podNameLB);
-			make.top.equalTo(self.podAuthorLB.snp.bottom).offset(12)
-		}
 		
 		self.subBtn.snp.makeConstraints { (make) in
-			make.left.equalTo(self.podImageView);
-			make.right.equalToSuperview().offset(-18)
-			make.height.equalTo(45)
-			make.top.equalTo(self.countLB.snp.bottom).offset(50)
+			make.width.equalTo(70)
+			make.height.equalTo(30)
+			make.centerX.equalToSuperview()
+			make.top.equalTo(self.infoView.snp.bottom).offset(6)
 		}
 		
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview();
-			make.top.equalTo(self.topView.snp.bottom)
+			make.top.equalTo(self.subBtn.snp.bottom).offset(6)
 		}
 		
 	}
 	
 	func addSubviews(){
-		self.topView = UIView.init()
-		self.topView.backgroundColor = .white
-		
-		self.podImageView = UIImageView.init()
-		self.podImageView.cornerRadius = 5;
-		
-		self.podNameLB = UILabel.init(text: self.pod.trackName)
-		self.podNameLB.textColor = CommonColor.title.color
-		self.podNameLB.font = p_bfont(18)
-		self.podNameLB.numberOfLines = 0;
-		
-		self.podAuthorLB = UILabel.init(text: self.pod.podAuthor)
-		self.podAuthorLB.textColor = CommonColor.content.color
-		self.podAuthorLB.font = p_bfont(12)
-		
-		self.countLB = UILabel.init(text: self.pod.releaseDate)
-		self.countLB.textColor = CommonColor.content.color
-		self.countLB.font = p_bfont(12)
 		
 		self.subBtn = UIButton.init(type: .custom)
 		self.subBtn.setTitle("已订阅".localized, for: .normal)
@@ -258,7 +217,7 @@ extension PodDetailViewController {
 		self.subBtn.setTitle("订阅".localized, for: .selected)
 		self.subBtn.setTitleColor(CommonColor.mainRed.color, for: .selected)
 		self.subBtn.backgroundColor = CommonColor.mainRed.color
-		self.subBtn.titleLabel?.font = p_bfont(12)
+		self.subBtn.titleLabel?.font = p_bfont(10.auto())
 		self.subBtn.borderWidth = 1;
 		self.subBtn.borderColor = CommonColor.mainRed.color
 		self.subBtn.cornerRadius = 5

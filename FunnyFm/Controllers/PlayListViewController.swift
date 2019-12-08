@@ -36,8 +36,8 @@ class PlayListViewController: BaseViewController {
 	func refreshPlayQueue(){
 		DispatchQueue.global().async {
 			PlayListManager.shared.updatePlayQueue()
-			self.refreshData()
 			DispatchQueue.main.async {
+				self.refreshData()
 				if (PlayListManager.shared.playQueue.count - 1) > 0{
 					self.countLB.isHidden = false
 					self.tipLB.isHidden = false

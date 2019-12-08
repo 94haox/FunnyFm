@@ -153,6 +153,8 @@
 		AB6F0CCC23279BEB00ED8B47 /* DWSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */; };
 		AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */; };
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
+		AB76EF67239C993E0096020B /* PodcastInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76EF66239C993E0096020B /* PodcastInfoView.swift */; };
+		AB76EF69239CCD8E0096020B /* GFLimitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76EF68239CCD8E0096020B /* GFLimitTextView.swift */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
 		AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1AE822F9237700790787 /* GoogleService-Info.plist */; };
 		AB7E1884238AB0C200D1C8AD /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E187F238AB0C100D1C8AD /* SpeechManager.swift */; };
@@ -519,6 +521,8 @@
 		AB74FB8222F7F36800A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB8322F7F36800A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB76EF66239C993E0096020B /* PodcastInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastInfoView.swift; sourceTree = "<group>"; };
+		AB76EF68239CCD8E0096020B /* GFLimitTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFLimitTextView.swift; sourceTree = "<group>"; };
 		AB7B1A9922F8413400790787 /* AdShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdShowViewController.swift; sourceTree = "<group>"; };
 		AB7B1AE822F9237700790787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB7E187F238AB0C100D1C8AD /* SpeechManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
@@ -867,6 +871,7 @@
 				AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */,
 				AB2A3721232888FA0097DAF7 /* DWSegment.swift */,
 				AB97EE94233376B000127C37 /* HistoryProgressBar.swift */,
+				AB76EF66239C993E0096020B /* PodcastInfoView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -943,6 +948,7 @@
 		AB41AAD7219529DB00260851 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AB76EF68239CCD8E0096020B /* GFLimitTextView.swift */,
 				AB41AAD821952A1300260851 /* FunnyFm.swift */,
 				AB41AADD21952C1C00260851 /* GlobalConfig.swift */,
 				AB1E6DB121BA6DA000B85135 /* SwiftNotice.swift */,
@@ -1789,6 +1795,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB8BD8DA236E7574006FEFF3 /* SPStorkControllerConfirmDelegate.swift in Sources */,
+				AB76EF67239C993E0096020B /* PodcastInfoView.swift in Sources */,
 				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
 				ABE9F4152329D45B000BED40 /* PreferenceCenter.swift in Sources */,
 				AB2A372F2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift in Sources */,
@@ -1847,6 +1854,7 @@
 				AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */,
 				AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ABE7660921D7196700470D8F /* NSAttributedStringExtensions.swift in Sources */,
+				AB76EF69239CCD8E0096020B /* GFLimitTextView.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
 				ABEE40EB21E35EF800FCB16F /* VaildManager.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
@@ -2356,7 +2364,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2520,7 +2528,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

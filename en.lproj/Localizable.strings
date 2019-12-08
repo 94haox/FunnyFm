@@ -29,6 +29,7 @@
 "我的下载"="Downloads";
 "设置"="Setting";
 "订阅"="Subscribe";
+"查看更多请订阅"="Subscribe";
 "已订阅"="Subscribed";
 "登录"="Sign In";
 "登录成功"= "Successful";
@@ -102,4 +103,5 @@
 "服务消息"="Offical news";
 "详情"="Info";
 "未播"="LEFT";
+
 

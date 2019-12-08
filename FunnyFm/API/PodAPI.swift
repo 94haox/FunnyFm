@@ -18,6 +18,7 @@ let kAddPodSourceUrl = "v1/addPodSource"
 let kSearchPodUrl = "v1/pod/searchPod"
 let kRegisterPodUrl = "v1/pod/registerPod"
 let kParserRssUrl = "v1/pod/parser"
+let kPodcastDetailUrl = "v1/pod/detail"
 
 
 
@@ -32,6 +33,7 @@ public enum PodAPI {
 	case searchTopic(String)
 	case parserRss(Dictionary<String, String>)
 	case registerPod(Dictionary<String, String>)
+	case getPodcastPrev(String)
 }
 
 extension PodAPI : TargetType {
@@ -69,6 +71,8 @@ extension PodAPI : TargetType {
 			params["user_id"] = UserCenter.shared.userId
 		case .parserRss(let param):
 			params = param
+		case .getPodcastPrev(let rssUrl):
+			params["rss_url"] = rssUrl
 		}
 		
 		return .requestParameters(parameters: params, encoding: JSONEncoding.default)
@@ -99,6 +103,8 @@ extension PodAPI : TargetType {
 			return kRegisterPodUrl
 		case .parserRss(_):
 			return kParserRssUrl
+		case .getPodcastPrev(_):
+			return kPodcastDetailUrl
 		}
     }
     

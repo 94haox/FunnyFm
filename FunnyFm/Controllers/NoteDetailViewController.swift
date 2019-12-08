@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import OfficeUIFabric
 
 class NoteDetailViewController: UIViewController {
+	@IBOutlet weak var delBtn: UIButton!
 	@IBOutlet weak var timeLB: UILabel!
 	@IBOutlet weak var dateLB: UILabel!
 	@IBOutlet weak var typeLB: UILabel!
 	@IBOutlet weak var contentLB: UILabel!
 	var note: Note?
+	var viewModel: NoteViewModel = NoteViewModel()
+	var deleteCallback: ((String)->Void)?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.timeLB.text = FunnyFm.formatIntervalToMM(note!.noteMoment)
@@ -29,10 +34,33 @@ class NoteDetailViewController: UIViewController {
 			default:
 			break
 		}
+		
+		if UserCenter.shared.userId == note?.userId {
+			self.delBtn.isHidden = false
+		}
+		
     }
 
 
-    /*
+	@IBAction func deleteAction(_ sender: Any) {
+		if self.note.isNone {
+			SwiftNotice.showText("参数v错误")
+			return;
+		}
+		MSHUD.shared.show(from: self)
+		var params = [String : Any]()
+		params["note_id"] = self.note?.noteId
+		self.viewModel.deletNotes(params: params) { [weak self] in
+			if self.isNone {
+				return
+			}
+			if self!.deleteCallback.isSome {
+				self!.deleteCallback!(self!.note!.noteId)
+			}
+			self?.dismiss(animated: true, completion: nil)
+		}
+	}
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

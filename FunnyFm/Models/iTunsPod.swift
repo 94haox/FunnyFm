@@ -30,10 +30,10 @@ struct iTunsPod : Mapable, TableCodable {
 			collectionId = jsonData["collection_id"].stringValue
 			artworkUrl600 = jsonData["artwork_url"].stringValue
 			releaseDate = jsonData["update_time"].stringValue
-			trackCount = "0"
-			podAuthor = ""
+			podAuthor = jsonData["author"].stringValue
+			podDes = jsonData["desc"].stringValue
+			trackCount = jsonData["episode_count"].stringValue
 			copyRight = ""
-			podDes = ""
 			podId = jsonData["_id"].stringValue
 		}else{
 			feedUrl = jsonData["feedUrl"].stringValue

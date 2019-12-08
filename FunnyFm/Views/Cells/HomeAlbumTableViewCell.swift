@@ -57,14 +57,22 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = episode.title
         self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-        self.logoImageView.loadImage(url: episode.podCoverUrl)
+		if episode.podCoverUrl.length() > 0 {
+			self.logoImageView.loadImage(url: episode.podCoverUrl)
+		}else{
+			self.logoImageView.loadImage(url: episode.coverUrl)
+		}
     }
     
     func configCell(_ episode:Episode){
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-        self.logoImageView.loadImage(url: episode.podCoverUrl)
+		if episode.podCoverUrl.length() > 0 {
+			self.logoImageView.loadImage(url: episode.podCoverUrl)
+		}else{
+			self.logoImageView.loadImage(url: episode.coverUrl)
+		}
     }
 	
 	func configNoDetailCell(_ episode:Episode){

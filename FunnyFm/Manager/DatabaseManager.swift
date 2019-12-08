@@ -177,24 +177,36 @@ extension DatabaseManager {
 	}
 	
 	static public func addItunsPod(pod: iTunsPod){
-		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
-		if exsitPod.isSome {
-			return
-		}
-		try! self.database.insert(objects: pod, intoTable: exsitPodTable)
+		self.updateItunsPod(pod: pod)
 	}
 	
 	static public func updateItunsPod(pod: iTunsPod){
 		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
 		if exsitPod.isSome {
-			try! self.database.update(table: exsitPodTable, on: iTunsPod.Properties.all, with: pod, where: iTunsPod.Properties.collectionId == pod.collectionId)
+			try! self.database.update(table: exsitPodTable, on: iTunsPod.Properties.all, with: pod, where: iTunsPod.Properties.feedUrl == pod.feedUrl)
 			return
 		}
 		try! self.database.insert(objects: pod, intoTable: exsitPodTable)
 	}
 		
-	static public func deleteItunsPod(collectionId: String){
-		try! self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.collectionId == collectionId, orderBy: nil, limit: nil, offset: nil)
+	static public func deleteItunsPod(feedUrl: String){
+		do{
+			try self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.feedUrl == feedUrl)
+		}
+		catch{
+			print(error)
+		}
+		
+	}
+	
+	static public func deleteItunesPod(podId: String){
+		do{
+			try self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.podId == podId)
+		}
+		catch{
+			print(error)
+		}
+		
 	}
 }
 
@@ -269,7 +281,7 @@ extension DatabaseManager {
 	static public func addEpisode(episode: Episode){
 		
 		let exsitEpisode: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
-													where: Episode.Properties.title == episode.title)
+													where: Episode.Properties.trackUrl == episode.trackUrl)
 		if exsitEpisode.count > 0 {
 			return
 		}
@@ -279,12 +291,23 @@ extension DatabaseManager {
 	
 	/// 通过 collectionId 删除所有Episode
 	static public func deleteEpisode(collectionId: String) {
-		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.collectionId == collectionId)
+		do{
+			try database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.collectionId == collectionId)
+		}
+		catch{
+			print(error)
+		}
+			
 	}
 	
 	/// 通过音频文件 url 删除单集
 	static public func deleteEpisode(trackUrl: String) {
-		try! database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.trackUrl == trackUrl)
+		do{
+			try database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.trackUrl == trackUrl)
+		}
+		catch{
+			print(error)
+		}
 	}
 
 	

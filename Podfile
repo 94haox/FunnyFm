@@ -38,6 +38,7 @@ def lib
 		pod 'WhatsNewKit'
 		pod 'YYKit'
 		pod 'AutoInch'
+		pod 'Siren'
 end
 
 

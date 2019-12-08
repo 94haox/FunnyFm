@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,10 +16,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteDetailViewController" customModule="ComponentList" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteDetailViewController" customModule="FunnyFm" customModuleProvider="target">
             <connections>
                 <outlet property="contentLB" destination="rci-d5-DAZ" id="HLP-ff-pkj"/>
                 <outlet property="dateLB" destination="QSV-MU-Jsa" id="Wld-0J-jzc"/>
+                <outlet property="delBtn" destination="Fde-cP-D76" id="6Jj-0M-uhM"/>
                 <outlet property="timeLB" destination="0lF-ja-pND" id="VSU-qz-o90"/>
                 <outlet property="typeLB" destination="mbj-ds-J1H" id="NRm-PN-nig"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -62,15 +64,34 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fde-cP-D76">
+                    <rect key="frame" x="157" y="779" width="100" height="33"/>
+                    <color key="backgroundColor" red="1" green="0.14117647059999999" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="gX5-7e-s1T"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                    <state key="normal" title="删除"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="autoCornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="deleteAction:" destination="-1" eventType="touchUpInside" id="Ijn-gF-KuF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="mYy-rV-hF6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="4Wd-Sb-2wS"/>
+                <constraint firstItem="Fde-cP-D76" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="558-IQ-HTv"/>
                 <constraint firstItem="QSV-MU-Jsa" firstAttribute="top" secondItem="0lF-ja-pND" secondAttribute="bottom" constant="8" id="7bo-uL-iPR"/>
                 <constraint firstItem="rci-d5-DAZ" firstAttribute="top" secondItem="mbj-ds-J1H" secondAttribute="bottom" constant="48" id="AD6-1G-P5a"/>
                 <constraint firstItem="QSV-MU-Jsa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Iei-oV-wCu"/>
                 <constraint firstItem="0lF-ja-pND" firstAttribute="leading" secondItem="mYy-rV-hF6" secondAttribute="leading" id="Iuc-Ac-SF0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rci-d5-DAZ" secondAttribute="trailing" constant="20" id="NNJ-Zc-nEI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Fde-cP-D76" secondAttribute="bottom" constant="50" id="Yxo-xi-fcK"/>
                 <constraint firstItem="mbj-ds-J1H" firstAttribute="top" secondItem="QSV-MU-Jsa" secondAttribute="bottom" constant="32" id="aXs-F9-w3b"/>
                 <constraint firstItem="mYy-rV-hF6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="fHZ-Xx-YHN"/>
                 <constraint firstItem="rci-d5-DAZ" firstAttribute="leading" secondItem="mbj-ds-J1H" secondAttribute="leading" id="hDy-59-QDc"/>

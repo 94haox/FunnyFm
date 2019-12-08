@@ -24,7 +24,7 @@ struct Episode : TableCodable,Mapable{
     var pubDate:         		String
 	var pubDateSecond:         	Int
     var download_filpath:        String
-	var downloadSize: String
+	var downloadSize: 			String
 	
 	init(feedItem: RSSFeedItem) {
 		title = feedItem.title ?? ""

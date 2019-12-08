@@ -36,5 +36,15 @@ class NoteViewModel{
 		}
 	}
 	
+	func deletNotes(params: [String: Any], success:@escaping()->Void){
+		FmHttp<Note>().requestForSingle(NoteAPI.deleteNote(params), false, { (_) in
+			success()
+		}) { (error) in
+			if error.isSome {
+				SwiftNotice.showText(error!)
+			}
+		}
+	}
+	
 
 }

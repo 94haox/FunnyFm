@@ -22,7 +22,7 @@ class NoteListViewController: UIViewController {
 		self.setupUI()
 		self.viewModel.getNotes(episode: self.episode!) { [weak self]() in
 			self?.loadingView.removeFromSuperview()
-			if self?.viewModel.notelist.count! < 1 {
+			if (self?.viewModel.notelist.count)! < 1 {
 				self?.noteListView.emptyDataSetSource = self;
 			}
 			self?.noteListView.reloadData()
@@ -36,6 +36,18 @@ extension NoteListViewController: UICollectionViewDelegate{
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let detailVC = NoteDetailViewController.init()
 		detailVC.note = self.viewModel.notelist[indexPath.row]
+		detailVC.deleteCallback = { (noteId) in
+			var tempIndex = 1000000
+			for (index, note) in self.viewModel.notelist.enumerated() {
+				if note.noteId == noteId {
+					tempIndex = index
+				}
+			}
+			if tempIndex < 1000000 {
+				self.viewModel.notelist.remove(at: tempIndex)
+				collectionView.reloadData()
+			}
+		}
 		self.present(detailVC, animated: true, completion: nil)
 	}
 	

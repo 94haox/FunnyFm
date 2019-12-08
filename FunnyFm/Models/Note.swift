@@ -11,6 +11,7 @@ import SwiftyJSON
 import WCDBSwift
 
 struct Note: Mapable {
+	var noteId: 			String
 	var userId:     		String
 	var trackUrl: 		    String
 	var noteType:       	Int
@@ -20,6 +21,7 @@ struct Note: Mapable {
 	var createTime:        String
 	
 	init?(jsonData:JSON) {
+		noteId = jsonData["_id"].stringValue
 		userId = jsonData["user_id"].stringValue
 		trackUrl = jsonData["track_url"].stringValue
 		noteType = jsonData["note_type"].intValue

@@ -13,28 +13,31 @@ import OfficeUIFabric
 
 class PodPreviewViewController: BaseViewController {
 	
-	var podImageView: UIImageView!
-	var podNameLB: UILabel!
-	var desLB: UILabel!
-	var sourceLB: UILabel!
-	var authorLB: UILabel!
+	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.zero)
 	var subscribeBtn: UIButton!
 	var loadingView: UIActivityIndicatorView!
 	var pod: Pod!
 	var itunsPod: iTunsPod!
 	var addLoadView: NVActivityIndicatorView!
 	var subTempView: UIView!
+	var viewModel: PodDetailViewModel!
+	var tableview : UITableView! = UITableView.init(frame: CGRect.zero, style: .plain)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.dw_addSubViews()
 		self.dw_addConstraints()
-        // Do any additional setup after loading the view.
+		self.configWithPod(pod: itunsPod)
+		self.viewModel = PodDetailViewModel.init(podcast: self.itunsPod)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		FMToolBar.shared.isHidden = true
+		DispatchQueue.global(qos: .background).async {
+			self.viewModel.delegate = self;
+			self.viewModel.getPodcastPrev(pod: self.itunsPod)
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -46,18 +49,14 @@ class PodPreviewViewController: BaseViewController {
 	
 	func config(pod :Pod){
 		self.pod = pod;
-		self.podNameLB.text = pod.title
+//		self.podNameLB.text = pod.title
 //		self.authorLB.text = pod.author
-		self.desLB.text = pod.description
-		self.podImageView.loadImage(url: pod.image)
+//		self.desLB.text = pod.description
+//		self.podImageView.loadImage(url: pod.image)
 	}
 	
 	func configWithPod(pod :iTunsPod){
-		self.itunsPod = pod;
-		self.podNameLB.text = pod.trackName.trim()
-		self.authorLB.text = " Episode:  " + pod.trackCount
-		self.podImageView.loadImage(url:pod.artworkUrl600)
-//		self.sourceLB.text = "来自：" + "iTunes";
+		self.infoView.config(pod: pod)
 	}
 	
 	@objc func addPodToLibary(){
@@ -70,8 +69,9 @@ class PodPreviewViewController: BaseViewController {
 		params["collection_id"] = self.itunsPod.collectionId;
 		params["source_type"] = "iTunes";
 		params["artwork_url"] = self.itunsPod.artworkUrl600
+		params["author"] = self.viewModel.pod?.podAuthor
 		PodListViewModel.init().registerPod(params: params, success: { [weak self] (msg) in
-			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: self!.itunsPod.collectionId)
+			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: self!.itunsPod.collectionId,complete: nil)
 			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
 		}
@@ -108,43 +108,60 @@ extension PodPreviewViewController: ViewModelDelegate {
 	
 }
 
+extension PodPreviewViewController : PodDetailViewModelDelegate {
+	
+	func podDetailParserSuccess() {
+		DispatchQueue.main.async {
+			if self.viewModel.pod.isSome {
+				self.configWithPod(pod: self.viewModel.pod!)
+				self.tableview.reloadData()
+				self.loadingView.removeFromSuperview()
+			}
+		}
+	}
+	
+	func podDetailCancelSubscribeSuccess() {
+		
+	}
+}
+
+extension PodPreviewViewController: UITableViewDataSource, UITableViewDelegate {
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		SwiftNotice.showText("您尚未订阅哦😯")
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.viewModel.episodeList.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
+		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		guard let cell = cell as? HomeAlbumTableViewCell else { return }
+		let episode = self.viewModel.episodeList[indexPath.row]
+		cell.configNoDetailCell(episode)
+	}
+}
+
 
 extension PodPreviewViewController {
 	
 	func dw_addConstraints(){
-		self.podImageView.snp.makeConstraints { (make) in
-			make.top.equalTo(self.view).offset(44);
-			make.left.equalTo(self.view).offset(15);
-			make.size.equalTo(CGSize.init(width: 100, height: 100));
-		}
 		
-		self.podNameLB.snp.makeConstraints { (make) in
-			make.top.equalTo(self.podImageView).offset(5);
-			make.left.equalTo(self.podImageView.snp.right).offset(10);
-			make.right.equalTo(self.view).offset(-6);
-		}
-		
-		self.authorLB.snp.makeConstraints { (make) in
-			make.left.equalTo(self.podNameLB);
-			make.top.equalTo(self.podNameLB.snp.bottom).offset(12)
-		}
-		
-		self.sourceLB.snp.makeConstraints { (make) in
-			make.width.left.equalTo(self.podNameLB);
-			make.top.equalTo(self.authorLB.snp.bottom).offset(12)
-		}
-		
-		self.desLB.snp.makeConstraints { (make) in
-			make.centerX.equalTo(self.view);
-			make.width.equalTo(self.view).offset(-30);
-			make.top.equalTo(self.podImageView.snp.bottom).offset(12)
+		self.infoView.snp.makeConstraints { (make) in
+			make.left.width.top.equalToSuperview()
+			make.height.equalTo(260.auto())
 		}
 		
 		self.subscribeBtn.snp.makeConstraints { (make) in
 			make.centerX.equalTo(self.view);
 			make.width.equalTo(self.view).offset(-30);
-			make.height.equalTo(50);
-			make.top.equalTo(self.desLB.snp.bottom).offset(20)
+			make.height.equalTo(40);
+			make.top.equalTo(self.infoView.snp.bottom).offset(6)
 		}
 		
 		self.subTempView.snp.makeConstraints { (make) in
@@ -152,7 +169,7 @@ extension PodPreviewViewController {
 		}
 		
 		self.loadingView.snp.makeConstraints { (make) in
-			make.center.equalTo(self.podImageView)
+			make.center.equalToSuperview()
 		}
 		
 		self.addLoadView.snp.makeConstraints { (make) in
@@ -160,39 +177,32 @@ extension PodPreviewViewController {
 			make.centerY.equalTo(self.subscribeBtn);
 			make.centerX.equalTo(self.view)
 		}
+		
+		self.tableview.snp.makeConstraints { (make) in
+			make.left.width.bottom.equalTo(self.view)
+			make.top.equalTo(self.subscribeBtn.snp.bottom).offset(16);
+		}
 	}
 	
 	func dw_addSubViews() {
 		
+		self.view.addSubview(self.infoView)
+		
+		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
+		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
+		self.tableview.sectionHeaderHeight = 36
+		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+		self.tableview.separatorStyle = .none
+		self.tableview.rowHeight = 100
+		self.tableview.dataSource = self
+		self.tableview.delegate = self
+		self.tableview.showsVerticalScrollIndicator = false
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+		self.view.addSubview(self.tableview)
+		
 		self.loadingView = UIActivityIndicatorView.init(style: .gray)
 		self.loadingView.startAnimating()
 		self.view.addSubview(self.loadingView)
-		
-		self.podImageView = UIImageView.init()
-		self.podImageView.cornerRadius = 15
-		self.view.addSubview(self.podImageView)
-		
-		self.podNameLB = UILabel.init();
-		self.podNameLB.font = h_bfont(22);
-		self.podNameLB.textColor = .black
-		self.podNameLB.numberOfLines = 2;
-		self.view.addSubview(self.podNameLB)
-		
-		self.desLB = UILabel.init();
-		self.desLB.font = hfont(14);
-		self.desLB.numberOfLines = 3;
-		self.desLB.textColor = CommonColor.content.color
-		self.view.addSubview(self.desLB)
-		
-		self.sourceLB = UILabel.init();
-		self.sourceLB.font = hfont(14);
-		self.sourceLB.textColor = CommonColor.content.color
-		self.view.addSubview(self.sourceLB)
-		
-		self.authorLB = UILabel.init()
-		self.authorLB.font = hfont(14)
-		self.authorLB.textColor = CommonColor.content.color
-		self.view.addSubview(self.authorLB)
 		
 		
 		self.subTempView = UIView.init()
@@ -202,7 +212,7 @@ extension PodPreviewViewController {
 		self.view.addSubview(self.subTempView)
 		
 		self.subscribeBtn = UIButton.init(type: .custom)
-		self.subscribeBtn.setTitle("订阅".localized, for: .normal)
+		self.subscribeBtn.setTitle("查看更多请订阅".localized, for: .normal)
 		self.subscribeBtn.setTitleColor(.white, for: .normal)
 		self.subscribeBtn.titleLabel?.font = h_bfont(16);
 		self.subscribeBtn.cornerRadius = 15;

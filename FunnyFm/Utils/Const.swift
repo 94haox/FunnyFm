@@ -96,6 +96,14 @@ let subtitleFontSize: CGFloat = 20.0
 let titleFontSize: CGFloat = 24.0
 
 
+func numFont(_ fontsize: CGFloat) -> UIFont {
+	return UIFont.init(name: "Montserrat-Medium", size: fontsize)!
+}
+
+func b_numFont(_ fontsize: CGFloat) -> UIFont {
+	return UIFont.init(name: "Montserrat-SemiBold", size: fontsize)!
+}
+
 func sFont(_ fontsize:CGFloat) -> UIFont {
     return UIFont.systemFont(ofSize: fontsize)
 }
