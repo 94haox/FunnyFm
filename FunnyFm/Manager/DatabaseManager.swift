@@ -176,6 +176,12 @@ extension DatabaseManager {
 		return podList.first
 	}
 	
+	static public func getPodcast(feedUrl: String) -> iTunsPod?{
+		let podList: [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable,
+											   where: iTunsPod.Properties.feedUrl == feedUrl)
+		return podList.first
+	}
+	
 	static public func addItunsPod(pod: iTunsPod){
 		self.updateItunsPod(pod: pod)
 	}

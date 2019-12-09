@@ -151,6 +151,7 @@
 		AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */; };
 		AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */; };
 		AB6F0CCC23279BEB00ED8B47 /* DWSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */; };
+		AB731740239E4944000E1588 /* VersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73173F239E4944000E1588 /* VersionManager.swift */; };
 		AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */; };
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB76EF67239C993E0096020B /* PodcastInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76EF66239C993E0096020B /* PodcastInfoView.swift */; };
@@ -505,6 +506,7 @@
 		AB6F0B082327815600ED8B47 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LoginTypeViewController.strings; sourceTree = "<group>"; };
 		AB6F0B0A2327823500ED8B47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoginTypeViewController.strings"; sourceTree = "<group>"; };
 		AB6F0CCB23279BEB00ED8B47 /* DWSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWSwitch.swift; sourceTree = "<group>"; };
+		AB73173F239E4944000E1588 /* VersionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionManager.swift; sourceTree = "<group>"; };
 		AB74FB7022F7DD7A00A00706 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		AB74FB7222F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB7322F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -1387,6 +1389,7 @@
 				ABE9F4142329D45B000BED40 /* PreferenceCenter.swift */,
 				AB4578C5233B4905001DF1D1 /* PlayListManager.swift */,
 				AB287BD9234F4E1500ED5448 /* VipManager.swift */,
+				AB73173F239E4944000E1588 /* VersionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1980,6 +1983,7 @@
 				AB41AB07219564F000260851 /* SubviewsForEach.swift in Sources */,
 				ABDB9DE82394F36B00539049 /* Note.swift in Sources */,
 				ABEE40D821E3246E00FCB16F /* MJRefreshStateHeader.m in Sources */,
+				AB731740239E4944000E1588 /* VersionManager.swift in Sources */,
 				AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */,
 				AB441A322350208700411359 /* GeneralAPI.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
@@ -2181,7 +2185,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2190,7 +2194,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2204,7 +2208,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2213,7 +2217,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2351,7 +2355,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2515,7 +2519,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFm/FunnyFm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2545,7 +2549,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2572,7 +2576,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

@@ -48,25 +48,26 @@ extension FeedManager {
 						taglist[pod.podId] = "1"
 						DatabaseManager.addItunsPod(pod: pod)
 					})
-					
 					PushManager.shared.addTag(taglist: taglist)
 				}
-				
 				self.podlist = DatabaseManager.allItunsPod()
+				DispatchQueue.main.async {
+					self.delegate?.feedManagerDidGetEpisodelistSuccess()
+				}
 				self.getHomeChapters()
 			}){ msg in
-				self.podlist = DatabaseManager.allItunsPod()
 				self.getHomeChapters()
+				if msg.isSome {
+					SwiftNotice.showNoticeWithText(NoticeType.error, text: msg!, autoClear: true, autoClearTime: 2)
+				}
 			}
 		}else{
 			PushManager.shared.removeAllTages()
-			self.podlist = DatabaseManager.allItunsPod()
 			DispatchQueue.main.async {
 				self.delegate?.feedManagerDidGetEpisodelistSuccess()
 			}
 			self.getHomeChapters()
 		}
-		
 	}
 	
 	func getHomeChapters() {

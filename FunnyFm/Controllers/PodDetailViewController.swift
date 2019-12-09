@@ -12,11 +12,9 @@ import AutoInch
 
 class PodDetailViewController: BaseViewController {
 	
-	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.zero)
+	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260))
 	
 	var pod: iTunsPod!
-	
-	var subBtn: UIButton!
 	
 	var shareBtn: UIButton!
 	
@@ -34,7 +32,7 @@ class PodDetailViewController: BaseViewController {
 	}
 	
 	deinit {
-		if self.subBtn.isSelected {
+		if self.infoView.subBtn.isSelected {
 			FeedManager.shared.deleteAllEpisode(collectionId: self.pod.collectionId, podId: self.pod.podId)
 		}
 	}
@@ -50,11 +48,13 @@ class PodDetailViewController: BaseViewController {
 		self.dw_addConstraints()
 		FeedManager.shared.delegate = self
 		self.config()
+		self.infoView.subscribeClosure = { [weak self] in
+			self?.subscribtionAction()
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		
 		self.refreshData()
 	}
 
@@ -65,8 +65,8 @@ class PodDetailViewController: BaseViewController {
 	
 	@objc func subscribtionAction() {
 		ImpactManager.impact()
-		self.subBtn.isSelected = !self.subBtn.isSelected;
-		self.subBtn.backgroundColor = self.subBtn.isSelected ? .white : CommonColor.mainRed.color
+		self.infoView.subBtn.isSelected = !self.infoView.subBtn.isSelected;
+		self.infoView.subBtn.backgroundColor = self.infoView.subBtn.isSelected ? .white : CommonColor.mainRed.color
 	}
 	
 	func toDetail(episode: Episode) {
@@ -109,6 +109,7 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 		
 	func podDetailParserSuccess() {
 		DispatchQueue.main.async {
+			self.tableview.refreshControl?.endRefreshing()
 			self.tableview.reloadData()
 			self.infoView.config(pod: self.vm.pod!)
 		}
@@ -176,62 +177,34 @@ extension PodDetailViewController {
 	
 	func dw_addConstraints(){
 		self.view.addSubview(self.tableview)
-		self.view.addSubview(self.infoView)
-		self.view.addSubview(self.subBtn)
 		self.view.addSubview(self.shareBtn)
-		
-		self.infoView.snp.makeConstraints { (make) in
-			make.left.width.equalToSuperview()
-			make.top.equalTo(self.view.snp.topMargin)
-			make.height.equalTo(260)
-		}
 		
 		
 		self.shareBtn.snp.makeConstraints { (make) in
 			make.right.equalToSuperview().offset(-16.adapt())
-			make.top.equalTo(self.infoView).offset(12)
+			make.top.equalTo(self.view.snp_topMargin).offset(12)
 			make.size.equalTo(CGSize.init(width: 25, height: 25))
-		}
-		
-		
-		self.subBtn.snp.makeConstraints { (make) in
-			make.width.equalTo(70)
-			make.height.equalTo(30)
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.infoView.snp.bottom).offset(6)
 		}
 		
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview();
-			make.top.equalTo(self.subBtn.snp.bottom).offset(6)
+			make.top.equalToSuperview()
 		}
 		
 	}
 	
 	func addSubviews(){
 		
-		self.subBtn = UIButton.init(type: .custom)
-		self.subBtn.setTitle("已订阅".localized, for: .normal)
-		self.subBtn.setTitleColor(.white, for: .normal)
-		self.subBtn.setTitle("订阅".localized, for: .selected)
-		self.subBtn.setTitleColor(CommonColor.mainRed.color, for: .selected)
-		self.subBtn.backgroundColor = CommonColor.mainRed.color
-		self.subBtn.titleLabel?.font = p_bfont(10.auto())
-		self.subBtn.borderWidth = 1;
-		self.subBtn.borderColor = CommonColor.mainRed.color
-		self.subBtn.cornerRadius = 5
-		self.subBtn.addTarget(self, action: #selector(subscribtionAction), for: .touchUpInside)
-		
 		self.shareBtn = UIButton.init(type: .custom)
 		self.shareBtn.setImageForAllStates(UIImage.init(named: "share-red")!)
 		self.shareBtn.addTarget(self, action: #selector(sharePodcast), for: .touchUpInside)
-//		self.shareBtn.backgroundColor = .white
 		self.shareBtn.cornerRadius = 5
 		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
 		
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
+		self.tableview.tableHeaderView = self.infoView
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
 		self.tableview.sectionHeaderHeight = 36
 		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")

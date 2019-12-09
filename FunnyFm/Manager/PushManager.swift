@@ -34,6 +34,11 @@ class PushManager: NSObject {
 				if payload.additionalData["type"] as! String == "appUpdate" {
 					NotificationCenter.default.post(name: Notification.appHasNewVersionReleased, object: nil, userInfo: nil)
 				}
+				
+				if payload.additionalData["type"] as! String == "h5" {
+					NotificationCenter.default.post(name: Notification.appWillOpenH5, object: nil, userInfo: payload.additionalData)
+				}
+				
 			}
 		}
 		

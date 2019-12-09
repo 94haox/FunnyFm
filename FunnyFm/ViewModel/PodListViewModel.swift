@@ -64,12 +64,12 @@ extension PodListViewModel {
 				self.syncList = podlist!
 				var idList = [String]()
 				self.podlist.forEach({ (pod) in
-					idList.append(pod.podId)
+					idList.append(pod.feedUrl)
 				})
 				
 				podlist!.forEach({ (pod) in
-					if idList.contains(pod.podId) {
-						let index = idList.index(of: pod.podId)
+					if idList.contains(pod.feedUrl) {
+						let index = idList.index(of: pod.feedUrl)
 						if index.isSome {
 							self.podlist.remove(at: index!)
 							idList.remove(at: index!)

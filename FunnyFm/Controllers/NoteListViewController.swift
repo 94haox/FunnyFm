@@ -92,7 +92,6 @@ extension NoteListViewController {
 		self.noteListView.showsHorizontalScrollIndicator = false
 		self.noteListView.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
 		self.noteListView.clipsToBounds = false;
-		self.noteListView.emptyDataSetSource = self;
 		
 		self.view.addSubview(self.noteListView)
 		self.noteListView.snp.makeConstraints { (make) in

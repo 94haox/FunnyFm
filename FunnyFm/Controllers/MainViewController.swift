@@ -64,6 +64,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.emptyAnimationView.play()
+		self.loadAnimationView.play()
 		self.vm.getAd(vc: self)
 		FeedManager.shared.delegate = self;
 	}
@@ -100,7 +101,9 @@ extension MainViewController{
 	@objc func reloadData(){
 		self.tableview.isHidden = false
 		self.loadAnimationView.removeFromSuperview()
-		self.tableview.refreshControl?.endRefreshing()
+		if self.tableview.refreshControl!.isRefreshing {
+			self.tableview.refreshControl?.endRefreshing()
+		}
 		self.tableview.reloadData()
 		self.collectionView.reloadData()
 		self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
@@ -335,20 +338,12 @@ extension MainViewController {
     
     fileprivate func addConstrains() {
 		self.view.addSubview(self.topBgView)
-//		self.view.addSubview(self.avatarView)
-//        self.view.addSubview(self.profileBtn)
         self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
 		self.view.sendSubviewToBack(self.topBgView)
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
-		
-//		self.avatarView.snp.makeConstraints { (make) in
-//			make.size.equalTo(CGSize.init(width: 35, height: 35))
-//			make.right.equalTo(self.searchBtn.snp.left).offset(-5)
-//			make.centerY.equalTo(self.titleLB)
-//		}
         
         self.searchBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 40, height: 40))

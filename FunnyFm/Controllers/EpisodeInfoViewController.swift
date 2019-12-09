@@ -27,6 +27,8 @@ class EpisodeInfoViewController: UIViewController {
 	
 	var playBtn: UIButton = UIButton.init(type: .custom)
 	
+	var noteListBtn: UIButton = UIButton.init(type: .custom)
+	
 	var insertBtn: UIButton = UIButton.init(type: .custom)
 	
 	var addBtn: UIButton = UIButton.init(type: .custom)
@@ -75,6 +77,12 @@ extension EpisodeInfoViewController {
 			FMToolBar.shared.configToolBarAtHome(self.episode)
 		}
 		self.playBtn.isSelected = !self.playBtn.isSelected;
+	}
+	
+	@objc func showNoteList(){
+		let listVC = NoteListViewController.init()
+		listVC.episode = self.episode
+		self.dw_presentAsStork(controller: listVC, heigth: kScreenHeight*0.4, delegate: self)
 	}
 	
 	@objc func downloadAction(){
@@ -274,6 +282,7 @@ extension EpisodeInfoViewController {
 		self.containerView.addSubview(self.playBtn)
 		self.containerView.addSubview(self.tipLB)
 		self.containerView.addSubview(self.downloadBtn)
+		self.containerView.addSubview(self.noteListBtn)
 		self.containerView.addSubview(self.insertBtn)
 		self.containerView.addSubview(self.addBtn)
 		self.containerView.addSubview(self.infoTextView)
@@ -310,8 +319,15 @@ extension EpisodeInfoViewController {
 		self.playBtn.snp.makeConstraints { (make) in
 			make.left.equalTo(self.episodeImageView)
 			make.top.equalTo(self.episodeImageView.snp.bottom).offset(16)
-			make.right.equalTo(self.downloadBtn.snp_left).offset(-24)
+			make.right.equalTo(self.noteListBtn.snp_left).offset(-24)
 			make.height.equalTo(40)
+		}
+		
+		self.noteListBtn.snp.makeConstraints { (make) in
+			make.centerY.equalTo(self.playBtn)
+			make.right.equalTo(self.downloadBtn.snp_left).offset(-16)
+			make.height.equalTo(self.playBtn)
+			make.width.equalTo(50)
 		}
 		
 		self.downloadBtn.snp.makeConstraints { (make) in
@@ -370,6 +386,9 @@ extension EpisodeInfoViewController {
 	func dw_addSubviews(){
 		
 		self.infoTextView = YYLabel.init()
+		self.infoTextView.highlightTapAction = { (containerView, text, range, rect) in
+			
+		}
 //		self.infoTextView.bounces = false
 //		self.infoTextView.dataDetectorTypes = .all
 //		self.infoTextView.backgroundColor = UIColor.white
@@ -425,6 +444,12 @@ extension EpisodeInfoViewController {
 		self.downloadBtn.setImage(UIImage.init(named: "cancel"), for: .selected)
 		self.downloadBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		self.downloadBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
+		
+		self.noteListBtn.backgroundColor = .white
+		self.noteListBtn.cornerRadius = 8
+		self.noteListBtn.setImageForAllStates(UIImage.init(named: "notelist_little")!)
+		self.noteListBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
+		self.noteListBtn.addTarget(self, action: #selector(showNoteList), for: .touchUpInside)
 		
 //		self.infoTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
 //		self.infoTextView.showsVerticalScrollIndicator = false

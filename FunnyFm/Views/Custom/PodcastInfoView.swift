@@ -9,15 +9,16 @@
 import UIKit
 
 class PodcastInfoView: UIView {
-
+	
 	var podImageView: UIImageView = UIImageView.init()
 	var podNameLB: UILabel = UILabel.init()
 	var pageControl: UIPageControl = UIPageControl.init(frame: CGRect.zero)
 	var desLB: UILabel = UILabel.init()
-	var sourceLB: UILabel = UILabel.init()
 	var authorLB: UILabel = UILabel.init()
 	var mainScrollView: UIScrollView = UIScrollView.init()
 	var countLB: UILabel = UILabel.init()
+	var subBtn: UIButton!
+	var subscribeClosure: (()->Void)?
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -25,19 +26,40 @@ class PodcastInfoView: UIView {
 		self.dw_addConstraints()
 	}
 	
+	@objc func subscribtionAction(){
+		if subscribeClosure.isSome {
+			subscribeClosure!()
+		}
+	}
+	
 	func config(pod: iTunsPod){
+		
 		self.podNameLB.text = pod.trackName
 		self.authorLB.text = pod.podAuthor
+		self.countLB.text = "by-" + pod.podAuthor
 		self.desLB.text = pod.podDes
 		if self.podImageView.image.isNone {
 			self.podImageView.loadImage(url: pod.artworkUrl600)
 		}
-		self.countLB.text = "Episodes: " + pod.trackCount
+		
+		if pod.podAuthor.length() < 1 {
+			self.countLB.text = "by-" + pod.trackName
+			self.authorLB.text = pod.trackName
+		}
+		
 		
 		if pod.podDes.length() > 0 {
 			self.mainScrollView.contentSize = CGSize.init(width: kScreenWidth*2, height: 0)
 			self.pageControl.numberOfPages = 2
 		}
+		
+		if DatabaseManager.getPodcast(feedUrl: pod.feedUrl).isSome {
+			self.subBtn.isSelected = false
+		}else{
+			self.subBtn.isSelected = true
+			self.subBtn.backgroundColor = .white
+		}
+		
 	}
 	
 	required init?(coder: NSCoder) {
@@ -66,29 +88,24 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.podImageView.snp.makeConstraints { (make) in
 			make.top.equalTo(self).offset(44.auto());
 			make.centerX.equalTo(self.mainScrollView)
-			make.size.equalTo(CGSize.init(width: 100.auto(), height: 100.auto()));
+			make.size.equalTo(CGSize.init(width: 100, height: 100));
 		}
 		
 		self.podNameLB.snp.makeConstraints { (make) in
-			make.top.equalTo(self.podImageView.snp_bottom).offset(5);
-			make.width.equalToSuperview().offset(-100.auto())
+			make.top.equalTo(self.podImageView.snp_bottom).offset(8);
+			make.width.equalToSuperview().offset(-20.auto())
 			make.centerX.equalToSuperview();
 		}
 		
 		self.authorLB.snp.makeConstraints { (make) in
-			make.top.equalTo(self.podNameLB.snp.bottom).offset(12)
+			make.top.equalTo(self.podNameLB.snp.bottom).offset(5)
 			make.centerX.equalToSuperview();
-		}
-		
-		self.sourceLB.snp.makeConstraints { (make) in
-			make.width.left.equalTo(self.podNameLB);
-			make.top.equalTo(self.authorLB.snp.bottom).offset(12)
 		}
 		
 		self.desLB.snp.makeConstraints { (make) in
 			make.centerX.equalTo(self.mainScrollView).offset(kScreenWidth);
-			make.centerY.equalToSuperview()
-			make.width.equalTo(self).offset(-40.auto());
+			make.top.equalTo(self.podImageView).offset(12.auto())
+			make.width.equalTo(self).offset(-50.auto());
 		}
 		
 		self.countLB.snp.makeConstraints { (make) in
@@ -98,8 +115,15 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		
 		self.pageControl.snp.makeConstraints { (make) in
 			make.centerX.equalTo(self)
-			make.bottom.equalTo(self).offset(-2)
-			
+			make.bottom.equalTo(self.subBtn.snp_top).offset(-8)
+			make.height.equalTo(10)
+		}
+		
+		self.subBtn.snp.makeConstraints { (make) in
+			make.width.equalTo(70)
+			make.height.equalTo(30)
+			make.centerX.equalToSuperview()
+			make.bottom.equalTo(self).offset(-8)
 		}
 	
 	}
@@ -120,23 +144,19 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.podImageView.cornerRadius = 15
 		self.mainScrollView.addSubview(self.podImageView)
 		
-		self.podNameLB.font = h_bfont(22);
+		self.podNameLB.font = h_bfont(18);
 		self.podNameLB.textColor = CommonColor.title.color
-		self.podNameLB.numberOfLines = 2;
+		self.podNameLB.numberOfLines = 1;
 		self.podNameLB.textAlignment = .center;
 		self.mainScrollView.addSubview(self.podNameLB)
 		
-		self.desLB.font = hfont(14);
-		self.desLB.numberOfLines = 4;
+		self.desLB.font = hfont(12);
+		self.desLB.numberOfLines = 7;
 		self.desLB.textColor = CommonColor.content.color
 		self.desLB.textAlignment = .center;
 		self.mainScrollView.addSubview(self.desLB)
 		
-		self.sourceLB.font = hfont(14);
-		self.sourceLB.textColor = CommonColor.content.color
-		self.mainScrollView.addSubview(self.sourceLB)
-		
-		self.authorLB.font = hfont(14)
+		self.authorLB.font = hfont(12)
 		self.authorLB.textColor = CommonColor.content.color
 		self.mainScrollView.addSubview(self.authorLB)
 		
@@ -144,6 +164,18 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.countLB.textColor = CommonColor.content.color
 		self.mainScrollView.addSubview(self.countLB)
 		
+		self.subBtn = UIButton.init(type: .custom)
+		self.subBtn.setTitle("已订阅".localized, for: .normal)
+		self.subBtn.setTitleColor(.white, for: .normal)
+		self.subBtn.setTitle("订阅".localized, for: .selected)
+		self.subBtn.setTitleColor(CommonColor.mainRed.color, for: .selected)
+		self.subBtn.backgroundColor = CommonColor.mainRed.color
+		self.subBtn.titleLabel?.font = p_bfont(10.auto())
+		self.subBtn.borderWidth = 1;
+		self.subBtn.borderColor = CommonColor.mainRed.color
+		self.subBtn.cornerRadius = 5
+		self.subBtn.addTarget(self, action: #selector(subscribtionAction), for: .touchUpInside)
+		self.addSubview(self.subBtn)
 		
 	}
 }

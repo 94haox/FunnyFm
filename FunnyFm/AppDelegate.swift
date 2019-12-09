@@ -39,7 +39,7 @@ import Siren
         DatabaseManager.setupDefaultDatabase()
 		GDTSDKConfig.setSdkSrc("14")
 		PushManager().configurePushSDK(launchOptions: launchOptions)
-		Siren.shared.wail()
+		VersionManager.setupSiren()
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
 
