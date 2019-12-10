@@ -164,6 +164,24 @@ extension PodDetailViewController: UITableViewDataSource {
 			self?.toDetail(episode: episode)
 		}
 	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let view = UIView()
+		let titleLB = UILabel.init(text: "All Episodes")
+		titleLB.font = numFont(14)
+		titleLB.textColor = CommonColor.content.color
+		view.addSubview(titleLB)
+		view.backgroundColor = .white
+		titleLB.snp.makeConstraints { (make) in
+			make.centerY.equalToSuperview()
+			make.left.equalToSuperview().offset(16)
+		}
+		return view;
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 50
+	}
 }
 
 
@@ -178,8 +196,7 @@ extension PodDetailViewController {
 	func dw_addConstraints(){
 		self.view.addSubview(self.tableview)
 		self.view.addSubview(self.shareBtn)
-		
-		
+
 		self.shareBtn.snp.makeConstraints { (make) in
 			make.right.equalToSuperview().offset(-16.adapt())
 			make.top.equalTo(self.view.snp_topMargin).offset(12)
@@ -189,7 +206,7 @@ extension PodDetailViewController {
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview();
-			make.top.equalToSuperview()
+			make.top.equalTo(self.view.snp_topMargin)
 		}
 		
 	}

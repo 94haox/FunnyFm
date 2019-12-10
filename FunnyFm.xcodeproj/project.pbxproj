@@ -139,6 +139,9 @@
 		AB5828B4233C92080072F03B /* YBTSPriorityQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB5828B0233C92080072F03B /* YBTSPriorityQueue.mm */; };
 		AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */; };
 		AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */; };
+		AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */; };
+		AB62DF21239FB0450004BF6B /* SearchTopicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB62DF1F239FB0450004BF6B /* SearchTopicCollectionViewCell.xib */; };
+		AB62DF22239FB0450004BF6B /* SearchTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62DF20239FB0450004BF6B /* SearchTopicCollectionViewCell.swift */; };
 		AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D7662316680200F76F8E /* PlayListViewController.swift */; };
 		AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */; };
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
@@ -489,6 +492,10 @@
 		AB6253162306571400301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
 		AB6253182306571500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailHeader.swift; sourceTree = "<group>"; };
+		AB62DF1F239FB0450004BF6B /* SearchTopicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTopicCollectionViewCell.xib; sourceTree = "<group>"; };
+		AB62DF20239FB0450004BF6B /* SearchTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB62DF23239FD3210004BF6B /* FunnyFM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFM.entitlements; sourceTree = "<group>"; };
 		AB63D7662316680200F76F8E /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoViewController.swift; sourceTree = "<group>"; };
 		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
@@ -773,6 +780,7 @@
 		AB091D10229FCF8800723602 /* FunnyFM */ = {
 			isa = PBXGroup;
 			children = (
+				AB62DF23239FD3210004BF6B /* FunnyFM.entitlements */,
 				AB091D11229FCF8800723602 /* ShareViewController.swift */,
 				AB091D13229FCF8800723602 /* MainInterface.storyboard */,
 				AB091D16229FCF8800723602 /* Info.plist */,
@@ -874,6 +882,7 @@
 				AB2A3721232888FA0097DAF7 /* DWSegment.swift */,
 				AB97EE94233376B000127C37 /* HistoryProgressBar.swift */,
 				AB76EF66239C993E0096020B /* PodcastInfoView.swift */,
+				AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1169,6 +1178,8 @@
 				AB441A3823502B3B00411359 /* MessageCollectionViewCell.swift */,
 				AB9E426623951DB500232EE8 /* NoteCollectionViewCell.xib */,
 				AB9E426723951DB500232EE8 /* NoteCollectionViewCell.swift */,
+				AB62DF1F239FB0450004BF6B /* SearchTopicCollectionViewCell.xib */,
+				AB62DF20239FB0450004BF6B /* SearchTopicCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1669,6 +1680,7 @@
 				AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
+				AB62DF21239FB0450004BF6B /* SearchTopicCollectionViewCell.xib in Resources */,
 				AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
@@ -1802,6 +1814,7 @@
 				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
 				ABE9F4152329D45B000BED40 /* PreferenceCenter.swift in Sources */,
 				AB2A372F2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift in Sources */,
+				AB62DF22239FB0450004BF6B /* SearchTopicCollectionViewCell.swift in Sources */,
 				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
 				AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */,
 				AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */,
@@ -2007,6 +2020,7 @@
 				ABEE40D421E3246E00FCB16F /* MJRefreshAutoStateFooter.m in Sources */,
 				ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */,
 				AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */,
+				AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
@@ -2183,6 +2197,7 @@
 		AB091D1B229FCF8800723602 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -2198,6 +2213,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2206,6 +2222,7 @@
 		AB091D1C229FCF8800723602 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -2221,6 +2238,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2501,10 +2519,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "FunnyFm/FunnyFm-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2536,9 +2555,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "FunnyFm/FunnyFm-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2547,6 +2567,7 @@
 			baseConfigurationReference = 14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -2562,6 +2583,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2574,6 +2596,7 @@
 			baseConfigurationReference = 6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -2589,6 +2612,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

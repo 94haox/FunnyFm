@@ -55,6 +55,7 @@ public enum CommonColor {
     case cellbackgroud    // cell 背景色
     case mainPink
     case mainRed
+	case tipYellow
     
     public var color : UIColor {
         switch self {
@@ -71,7 +72,9 @@ public enum CommonColor {
         case .mainPink:
             return UIColor.init(hex: "fd5795")
         case .mainRed:
-            return UIColor.init(hex: "ff2453")
+            return UIColor.init(hex: "ff004e")
+		case .tipYellow:
+			return UIColor.init(hex: "fdf5df")
         }
         
         

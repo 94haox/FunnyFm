@@ -120,7 +120,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		}
 		
 		self.subBtn.snp.makeConstraints { (make) in
-			make.width.equalTo(70)
+			make.width.equalTo(70.auto())
 			make.height.equalTo(30)
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(self).offset(-8)
@@ -136,7 +136,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.addSubview(self.mainScrollView)
 		
 		self.pageControl.currentPageIndicatorTintColor = CommonColor.mainRed.color
-		self.pageControl.pageIndicatorTintColor = .lightGray
+		self.pageControl.pageIndicatorTintColor = UIColor.init(hex: "c1bdbe")
 		self.pageControl.numberOfPages = 1;
 		self.pageControl.currentPage = 0
 		self.addSubview(self.pageControl)
@@ -160,7 +160,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.authorLB.textColor = CommonColor.content.color
 		self.mainScrollView.addSubview(self.authorLB)
 		
-		self.countLB.font = hfont(14)
+		self.countLB.font = hfont(12)
 		self.countLB.textColor = CommonColor.content.color
 		self.mainScrollView.addSubview(self.countLB)
 		
@@ -176,6 +176,5 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.subBtn.cornerRadius = 5
 		self.subBtn.addTarget(self, action: #selector(subscribtionAction), for: .touchUpInside)
 		self.addSubview(self.subBtn)
-		
 	}
 }

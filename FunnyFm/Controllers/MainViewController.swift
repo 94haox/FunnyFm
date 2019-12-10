@@ -65,7 +65,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		super.viewWillAppear(animated)
 		self.emptyAnimationView.play()
 		self.loadAnimationView.play()
-		self.vm.getAd(vc: self)
+//		self.vm.getAd(vc: self)
 		FeedManager.shared.delegate = self;
 	}
 	
@@ -355,7 +355,7 @@ extension MainViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.view.snp.topMargin)
+            make.top.equalTo(self.topBgView.snp_bottom)
         }
 		
 		self.loadAnimationView.snp.makeConstraints { (make) in
@@ -395,7 +395,7 @@ extension MainViewController {
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
-        self.tableview.contentInset = UIEdgeInsets.init(top: 35.adapt(), left: 0, bottom: 120, right: 0)
+        self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
 				
@@ -404,12 +404,6 @@ extension MainViewController {
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
 		
 		self.titleLB.text = "最近更新".localized
-		
-//		self.avatarView = UIImageView.init()
-//		self.avatarView.cornerRadius = 35.0/2
-//		self.avatarView.isUserInteractionEnabled = true
-//		let tap = UITapGestureRecognizer.init(target: self, action: #selector(toUserCenter))
-//		self.avatarView.addGestureRecognizer(tap)
 		
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;

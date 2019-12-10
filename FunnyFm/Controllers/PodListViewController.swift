@@ -100,7 +100,8 @@ extension PodListViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		var pod: iTunsPod? = nil
-		if self.sectionSegment.isOn {
+		
+		if self.sectionSegment.isOn || !UserCenter.shared.isLogin {
 			pod = self.vm.podlist[indexPath.row]
 		}else{
 			pod = self.vm.syncList[indexPath.row]
@@ -174,16 +175,12 @@ extension PodListViewController {
 		
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
-//		self.view.backgroundColor = CommonColor.background.color
-//		self.topBgView.backgroundColor = CommonColor.background.color
 		self.view.addSubview(self.collectionView)
 		
 		self.collectionView.snp.makeConstraints { (make) in
 			make.top.equalTo(self.titleLB.snp.bottom)
 			make.left.width.bottom.equalToSuperview()
 		}
-		
-		
 		
 		if UserCenter.shared.isLogin {
 		

@@ -23,8 +23,8 @@ class PodListViewModel: NSObject {
 	
 	var syncList: [iTunsPod] = []
 	
-	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Games & Hobbies".localized, "Government & Organisations".localized, "Health".localized, "Kids & Family".localized, "Music".localized, "News & Politics".localized, "Religion & Spirituality".localized, "Science & Medicine".localized, "Society & Culture".localized, "Sports & Recreation".localized, "Technology".localized, "TV & Film".localized]
-	var topicIDs = ["1301", "1321", "1303", "1304", "1323", "1325", "1307", "1305", "1310", "1311", "1314", "1315", "1324", "1316", "1318", "1309"]
+	var topics = ["Arts".localized, "Business".localized, "Comedy".localized, "Education".localized, "Kids & Family".localized, "Music".localized, "Religion & Spirituality".localized, "Society & Culture".localized, "Technology".localized]
+	var topicIDs = ["1301", "1321", "1303", "1304", "1305", "1310", "1314", "1324", "1318"]
 	var topicIcons = ["art", "business", "comedy", "edu", "game", "govern", "health", "kids", "music-cate", "news", "pray", "science", "society", "ball", "tech", "tv"]
 
     

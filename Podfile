@@ -12,6 +12,7 @@ def layout
     pod 'SHFullscreenPopGestureSwift'
     pod 'lottie-ios', '3.1.1'
 		pod 'NVActivityIndicatorView'
+		pod 'JXSegmentedView'
 		pod 'OfficeUIFabric', '0.2.11'
 		pod 'Hero'
 #		pod 'LookinServer', :configurations => ['Debug']
