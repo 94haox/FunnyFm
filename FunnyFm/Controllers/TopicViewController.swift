@@ -1,41 +1,41 @@
 //
-//  SearchViewController.swift
+//  TopicViewController.swift
 //  FunnyFm
 //
-//  Created by Duke on 2019/6/14.
+//  Created by Duke on 2019/12/13.
 //  Copyright © 2019 Duke. All rights reserved.
 //
 
 import UIKit
+import JXSegmentedView
 import OfficeUIFabric
-import Lottie
 
 
-class SearchViewController: UIViewController {
+class TopicViewController: BaseViewController {
 
-	@IBOutlet weak var searchTF: UITextField!
-	var tableview : UITableView!
-	
+	var segmentedView: JXSegmentedView!
+	var segmentedDataSource: JXSegmentedTitleDataSource!
+	var tableview: UITableView!
 	let vm : PodListViewModel = {
 		return PodListViewModel.init()
 	}()
-	
-	override func viewDidLoad() {
-        super.viewDidLoad()
+
+   	override func viewDidLoad() {
+		super.viewDidLoad()
 		self.dw_addSubviews()
-		self.searchTF.delegate = self;
+		self.titleLB.text = "播客分类"
 		self.vm.delegate = self
-    }
-		
-	@IBAction func toTopicVC(_ sender: Any) {
-		let topicVC = TopicViewController.init()
-		self.navigationController?.pushViewController(topicVC)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.vm.searchTopic(keyword: self.vm.topicIDs[0])
+		MSHUD.shared.show(in: self.view)
+	}
 }
 
 
-extension SearchViewController : PodListViewModelDelegate {
+extension TopicViewController : PodListViewModelDelegate {
 	func didSyncSuccess(index: Int) {
 
 	}
@@ -55,7 +55,7 @@ extension SearchViewController : PodListViewModelDelegate {
 	}
 }
 
-extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
+extension TopicViewController : UITableViewDelegate, UITableViewDataSource {
 	
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -89,54 +89,16 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 	}
 }
 
-extension SearchViewController : UITextFieldDelegate {
+extension TopicViewController: JXSegmentedViewDelegate {
 	
-	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-		UIView.animate(withDuration: 0.3) {
-			self.searchTF.backgroundColor = .white;
-			self.searchTF.addShadow(ofColor: UIColor.init(hex: "#d6d80e", alpha: 0.3), radius: 5, offset: CGSize.init(width: 0, height: 5), opacity: 0.6)
-		}
-		self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
-		return true
-	}
-	
-	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-		UIView.animate(withDuration: 0.3) {
-			self.searchTF.backgroundColor = UIColor.init(hex: "E2E3E9", alpha: 1);
-			self.searchTF.addShadow(ofColor: UIColor.init(hex: "#d6d80e", alpha: 0.3), radius: 0, offset: CGSize.init(width: 0, height: 0), opacity: 0.6)
-		}
-		return true
-	}
-	
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		self.view.endEditing(true)
-		if textField.text.isNone {
-			return true;
-		}
-		
-		if textField.text!.length() < 1 {
-			return true
-		}
-		self.vm.searchPod(keyword: textField.text!)
+	func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+		self.vm.searchTopic(keyword: self.vm.topicIDs[index])
 		MSHUD.shared.show(in: self.view)
-		return true
 	}
 	
 }
 
-extension SearchViewController: DZNEmptyDataSetSource{
-	func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-		return NSAttributedString.init(string: "你喜欢什么播客呢？", attributes: [NSAttributedString.Key.font : pfont(12)])
-	}
-	
-	func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-		return UIImage.init(named: "empty")
-	}
-}
-
-
-
-extension SearchViewController {
+extension TopicViewController {
 	func dw_addSubviews(){
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: ItunsPodTableViewCell.self), bundle: nil)
@@ -148,18 +110,34 @@ extension SearchViewController {
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.keyboardDismissMode = .onDrag
-		self.tableview.emptyDataSetSource = self
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
-
-		self.searchTF.attributedPlaceholder = FunnyFm.attributePlaceholder("搜索播客".localized)
-		self.searchTF.font = p_bfont(14)
-		self.searchTF.textColor = CommonColor.title.color
 		
+		segmentedView = JXSegmentedView()
+		segmentedView.delegate = self
+		segmentedDataSource = JXSegmentedTitleDataSource()
+		segmentedDataSource.titleSelectedColor = CommonColor.mainRed.color
+		segmentedDataSource.titleNormalColor = CommonColor.content.color
+		segmentedDataSource.isTitleColorGradientEnabled = true
+		segmentedDataSource.titles = self.vm.topics
+		segmentedView.dataSource = self.segmentedDataSource
+		let indicator = JXSegmentedIndicatorLineView()
+		indicator.indicatorColor = CommonColor.mainRed.color
+		segmentedView.indicators = [indicator]
+		view.addSubview(self.segmentedView)
+		
+		self.view.addSubview(self.segmentedView)
 		self.view.addSubview(self.tableview)
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.bottom.width.equalTo(self.view);
-			make.top.equalTo(self.searchTF.snp.bottom).offset(12);
+			make.top.equalTo(self.segmentedView.snp.bottom).offset(12);
+		}
+		
+		self.segmentedView.snp.makeConstraints { (make) in
+			make.left.width.equalTo(self.view);
+			make.top.equalTo(self.topBgView.snp.bottom);
+			make.height.equalTo(40)
 		}
 		
 	}
 }
+

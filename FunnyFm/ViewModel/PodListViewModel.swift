@@ -115,6 +115,7 @@ extension PodListViewModel {
 				self.delegate?.viewModelDidGetDataSuccess()
 			}
 		}){ msg in
+			self.itunsPodlist.removeAll()
 			self.delegate?.viewModelDidGetDataFailture(msg: msg)
 		}
 	}

@@ -95,10 +95,10 @@ extension FeedManager {
 		}
 		
 		NotificationCenter.default.post(name: Notification.Name.init("homechapterParserBegin"), object: nil)
-		DispatchQueue.global().async {
+		DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
 			var podCount = podList.count
 			
-			let semphore = DispatchSemaphore.init(value: 2)
+			let semphore = DispatchSemaphore.init(value: 1)
 			
 			podList.forEach { (pod) in
 				semphore.wait()

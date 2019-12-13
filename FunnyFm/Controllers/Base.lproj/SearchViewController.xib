@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,17 +39,33 @@
                     <color key="textColor" red="0.792156862745098" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bF1-5W-LKh">
+                    <rect key="frame" x="365" y="58.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="AP1-Wt-BeG"/>
+                        <constraint firstAttribute="height" constant="20" id="JuV-Rc-4tg"/>
+                    </constraints>
+                    <state key="normal" image="category"/>
+                    <connections>
+                        <action selector="toTopicVC:" destination="-1" eventType="touchUpInside" id="sJN-sS-Pv5"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="eUc-8g-g1M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="29" id="LLU-zF-pq5"/>
+                <constraint firstItem="bF1-5W-LKh" firstAttribute="trailing" secondItem="eUc-8g-g1M" secondAttribute="trailing" id="Zia-7c-8mL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eUc-8g-g1M" secondAttribute="trailing" constant="29" id="m8E-6n-nsm"/>
                 <constraint firstItem="a7u-GF-5AE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="nn0-xD-P2w"/>
                 <constraint firstItem="eUc-8g-g1M" firstAttribute="top" secondItem="a7u-GF-5AE" secondAttribute="bottom" constant="16" id="ptg-Fs-PBW"/>
+                <constraint firstItem="bF1-5W-LKh" firstAttribute="centerY" secondItem="a7u-GF-5AE" secondAttribute="centerY" id="ufX-Jl-i85"/>
                 <constraint firstItem="a7u-GF-5AE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="wzX-ux-4GR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="148"/>
         </view>
     </objects>
+    <resources>
+        <image name="category" width="33.333332061767578" height="33.333332061767578"/>
+    </resources>
 </document>
