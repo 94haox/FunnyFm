@@ -13,8 +13,8 @@ import OfficeUIFabric
 
 class PodPreviewViewController: BaseViewController {
 	
-	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.zero)
-	var loadingView: UIActivityIndicatorView!
+	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260))
+	var loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
 	var pod: Pod!
 	var itunsPod: iTunsPod!
 	var viewModel: PodDetailViewModel!
@@ -23,10 +23,10 @@ class PodPreviewViewController: BaseViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.viewModel = PodDetailViewModel.init(podcast: self.itunsPod)
 		self.dw_addSubViews()
 		self.dw_addConstraints()
 		self.configWithPod(pod: itunsPod)
-		self.viewModel = PodDetailViewModel.init(podcast: self.itunsPod)
 		self.infoView.subscribeClosure = { [weak self] in
 			self?.addPodToLibary()
 		}
@@ -123,6 +123,9 @@ extension PodPreviewViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if self.viewModel.episodeList.count > 1 {
+			self.loadingView.removeFromSuperview()
+		}
 		return self.viewModel.episodeList.count
 	}
 	
@@ -139,7 +142,7 @@ extension PodPreviewViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView()
-		let titleLB = UILabel.init(text: "In recent 15 Episodes")
+		let titleLB = UILabel.init(text: "Last 15 Episodes")
 		titleLB.font = numFont(14)
 		titleLB.textColor = CommonColor.content.color
 		view.addSubview(titleLB)
@@ -161,10 +164,6 @@ extension PodPreviewViewController {
 	
 	func dw_addConstraints(){
 		
-		self.infoView.snp.makeConstraints { (make) in
-			make.left.width.top.equalToSuperview()
-			make.height.equalTo(260)
-		}
 		
 		
 		self.loadingView.snp.makeConstraints { (make) in
@@ -172,8 +171,7 @@ extension PodPreviewViewController {
 		}
 		
 		self.tableview.snp.makeConstraints { (make) in
-			make.left.width.bottom.equalTo(self.view)
-			make.top.equalTo(self.infoView.snp.bottom).offset(8);
+			make.top.left.width.bottom.equalTo(self.view)
 		}
 	}
 	
@@ -193,7 +191,6 @@ extension PodPreviewViewController {
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
 		self.view.addSubview(self.tableview)
 		
-		self.loadingView = UIActivityIndicatorView.init(style: .gray)
 		self.loadingView.startAnimating()
 		self.view.addSubview(self.loadingView)
 		
