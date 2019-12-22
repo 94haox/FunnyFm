@@ -40,6 +40,7 @@ def lib
 		pod 'YYKit'
 		pod 'AutoInch'
 		pod 'Siren'
+		pod 'VIMediaCache'
 end
 
 

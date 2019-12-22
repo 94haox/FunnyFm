@@ -118,8 +118,12 @@ extension MainViewController{
 			self.fetchLoadingView.startAnimating()
 		}
 		
-		NotificationCenter.default.addObserver(forName: NSNotification.Name.init(kParserNotification), object: nil, queue: OperationQueue.main) { (notify) in
+		NotificationCenter.default.addObserver(forName: Notification.Name.init(kParserNotification), object: nil, queue: OperationQueue.main) { (notify) in
 			self.vm.refresh()
+		}
+		
+		NotificationCenter.default.addObserver(forName: Notification.willAddPrevPodcast, object: nibName, queue: OperationQueue.main) { (notify) in
+			FeedManager.shared.delegate = self
 		}
 	}
 }
@@ -151,7 +155,7 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
-
+		
 	}
     
 }

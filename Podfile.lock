@@ -1,32 +1,38 @@
 PODS:
   - Alamofire (4.9.1)
   - AnimatedTabBar (0.1.7)
-  - AppAuth (1.2.0):
-    - AppAuth/Core (= 1.2.0)
-    - AppAuth/ExternalUserAgent (= 1.2.0)
-  - AppAuth/Core (1.2.0)
-  - AppAuth/ExternalUserAgent (1.2.0)
+  - AppAuth (1.3.0):
+    - AppAuth/Core (= 1.3.0)
+    - AppAuth/ExternalUserAgent (= 1.3.0)
+  - AppAuth/Core (1.3.0)
+  - AppAuth/ExternalUserAgent (1.3.0)
   - AutoInch (1.3.1)
   - Crashlytics (3.13.3):
     - Fabric (~> 1.10.2)
   - DynamicColor (4.2.0)
-  - EFIconFont/AntDesign (0.7.0):
+  - EFIconFont/AntDesign (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/Complete (0.7.0):
+  - EFIconFont/Complete (0.8.0):
     - EFIconFont/AntDesign
     - EFIconFont/Core
     - EFIconFont/Dashicons
     - EFIconFont/Devicons
     - EFIconFont/ElusiveIcons
     - EFIconFont/EvilIcons
-    - EFIconFont/FontAwesome
+    - EFIconFont/FontAwesomeBrands
+    - EFIconFont/FontAwesomeRegular
+    - EFIconFont/FontAwesomeSolid
     - EFIconFont/GenericonsNeue
-    - EFIconFont/Hawcons
+    - EFIconFont/HawconsFilled
+    - EFIconFont/HawconsStroke
     - EFIconFont/IcoMoon
     - EFIconFont/Ionicons
     - EFIconFont/LigatureSymbols
     - EFIconFont/MapIcons
-    - EFIconFont/MaterialIcons
+    - EFIconFont/MaterialIconsFilled
+    - EFIconFont/MaterialIconsOutlined
+    - EFIconFont/MaterialIconsRounded
+    - EFIconFont/MaterialIconsSharp
     - EFIconFont/Meteocons
     - EFIconFont/MetrizeIcons
     - EFIconFont/OpenIconic
@@ -36,83 +42,95 @@ PODS:
     - EFIconFont/Typicons
     - EFIconFont/VSCodeIcons
     - EFIconFont/WeatherIcons
-  - EFIconFont/Core (0.7.0)
-  - EFIconFont/Dashicons (0.7.0):
+  - EFIconFont/Core (0.8.0)
+  - EFIconFont/Dashicons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/Devicons (0.7.0):
+  - EFIconFont/Devicons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/ElusiveIcons (0.7.0):
+  - EFIconFont/ElusiveIcons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/EvilIcons (0.7.0):
+  - EFIconFont/EvilIcons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/FontAwesome (0.7.0):
+  - EFIconFont/FontAwesomeBrands (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/GenericonsNeue (0.7.0):
+  - EFIconFont/FontAwesomeRegular (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/Hawcons (0.7.0):
+  - EFIconFont/FontAwesomeSolid (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/IcoMoon (0.7.0):
+  - EFIconFont/GenericonsNeue (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/Ionicons (0.7.0):
+  - EFIconFont/HawconsFilled (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/LigatureSymbols (0.7.0):
+  - EFIconFont/HawconsStroke (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/MapIcons (0.7.0):
+  - EFIconFont/IcoMoon (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/MaterialIcons (0.7.0):
+  - EFIconFont/Ionicons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/Meteocons (0.7.0):
+  - EFIconFont/LigatureSymbols (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/MetrizeIcons (0.7.0):
+  - EFIconFont/MapIcons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/OpenIconic (0.7.0):
+  - EFIconFont/MaterialIconsFilled (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/StrawberryIcon (0.7.0):
+  - EFIconFont/MaterialIconsOutlined (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/Stroke7 (0.7.0):
+  - EFIconFont/MaterialIconsRounded (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/ThemifyIcons (0.7.0):
+  - EFIconFont/MaterialIconsSharp (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/Typicons (0.7.0):
+  - EFIconFont/Meteocons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/VSCodeIcons (0.7.0):
+  - EFIconFont/MetrizeIcons (0.8.0):
     - EFIconFont/Core
-  - EFIconFont/WeatherIcons (0.7.0):
+  - EFIconFont/OpenIconic (0.8.0):
+    - EFIconFont/Core
+  - EFIconFont/StrawberryIcon (0.8.0):
+    - EFIconFont/Core
+  - EFIconFont/Stroke7 (0.8.0):
+    - EFIconFont/Core
+  - EFIconFont/ThemifyIcons (0.8.0):
+    - EFIconFont/Core
+  - EFIconFont/Typicons (0.8.0):
+    - EFIconFont/Core
+  - EFIconFont/VSCodeIcons (0.8.0):
+    - EFIconFont/Core
+  - EFIconFont/WeatherIcons (0.8.0):
     - EFIconFont/Core
   - Fabric (1.10.2)
   - FeedKit (8.1.1)
-  - Firebase/Analytics (6.12.0):
+  - Firebase/Analytics (6.13.0):
     - Firebase/Core
-  - Firebase/Auth (6.12.0):
+  - Firebase/Auth (6.13.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 6.3.1)
-  - Firebase/Core (6.12.0):
+    - FirebaseAuth (~> 6.4.0)
+  - Firebase/Core (6.13.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.1.5)
-  - Firebase/CoreOnly (6.12.0):
-    - FirebaseCore (= 6.3.3)
-  - FirebaseAnalytics (6.1.5):
-    - FirebaseCore (~> 6.3)
+    - FirebaseAnalytics (= 6.1.6)
+  - Firebase/CoreOnly (6.13.0):
+    - FirebaseCore (= 6.4.0)
+  - FirebaseAnalytics (6.1.6):
+    - FirebaseCore (~> 6.4)
     - FirebaseInstanceID (~> 4.2)
-    - GoogleAppMeasurement (= 6.1.5)
+    - GoogleAppMeasurement (= 6.1.6)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (= 0.3.9011)
-  - FirebaseAuth (6.3.1):
+  - FirebaseAuth (6.4.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.2)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
     - GoogleUtilities/Environment (~> 6.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (6.3.3):
+  - FirebaseCore (6.4.0):
     - FirebaseCoreDiagnostics (~> 1.0)
     - FirebaseCoreDiagnosticsInterop (~> 1.0)
     - GoogleUtilities/Environment (~> 6.2)
     - GoogleUtilities/Logger (~> 6.2)
-  - FirebaseCoreDiagnostics (1.1.1):
+  - FirebaseCoreDiagnostics (1.1.2):
     - FirebaseCoreDiagnosticsInterop (~> 1.0)
     - GoogleDataTransportCCTSupport (~> 1.0)
     - GoogleUtilities/Environment (~> 6.2)
@@ -123,46 +141,46 @@ PODS:
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebaseUI/Auth (8.3.1):
+  - FirebaseUI/Auth (8.4.0):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
-  - FirebaseUI/Google (8.3.1):
+  - FirebaseUI/Google (8.4.0):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 5.0)
   - GDTMobSDK (4.10.19):
     - GDTMobSDK/GDTMobSDK (= 4.10.19)
   - GDTMobSDK/GDTMobSDK (4.10.19)
-  - GoogleAppMeasurement (6.1.5):
+  - GoogleAppMeasurement (6.1.6):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (= 0.3.9011)
-  - GoogleDataTransport (3.0.1)
-  - GoogleDataTransportCCTSupport (1.2.1):
-    - GoogleDataTransport (~> 3.0)
+  - GoogleDataTransport (3.2.0)
+  - GoogleDataTransportCCTSupport (1.2.2):
+    - GoogleDataTransport (~> 3.2)
     - nanopb (~> 0.3.901)
-  - GoogleSignIn (5.0.1):
+  - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleUtilities/AppDelegateSwizzler (6.3.1):
+  - GoogleUtilities/AppDelegateSwizzler (6.3.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.3.1)
-  - GoogleUtilities/Logger (6.3.1):
+  - GoogleUtilities/Environment (6.3.2)
+  - GoogleUtilities/Logger (6.3.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.3.1):
+  - GoogleUtilities/MethodSwizzler (6.3.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.3.1):
+  - GoogleUtilities/Network (6.3.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.3.1)"
-  - GoogleUtilities/Reachability (6.3.1):
+  - "GoogleUtilities/NSData+zlib (6.3.2)"
+  - GoogleUtilities/Reachability (6.3.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.3.1):
+  - GoogleUtilities/UserDefaults (6.3.2):
     - GoogleUtilities/Logger
   - GTMAppAuth (1.0.0):
     - AppAuth/Core (~> 1.0)
@@ -191,7 +209,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - OfficeUIFabric (0.2.11)
-  - OneSignal (2.11.2)
+  - OneSignal (2.12.2)
   - pop (1.0.12)
   - PullToReach (0.1.2)
   - Result (4.1.0)
@@ -207,6 +225,7 @@ PODS:
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (5.0.0)
+  - VIMediaCache (0.4)
   - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -246,6 +265,7 @@ DEPENDENCIES:
   - Siren
   - SnapKit (~> 4.0.0)
   - SwiftyJSON
+  - VIMediaCache
   - WCDB.swift
   - WechatOpenSDK
   - WhatsNewKit
@@ -300,6 +320,7 @@ SPEC REPOS:
     - SnapKit
     - SQLiteRepairKit
     - SwiftyJSON
+    - VIMediaCache
     - WCDB.swift
     - WCDBOptimizedSQLCipher
     - WechatOpenSDK
@@ -309,28 +330,28 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AnimatedTabBar: ce6bc2c2993bd74b4b51c7977631e3321f417095
-  AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
+  AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   AutoInch: f70a38b393dc2ce21e7f0bbceb5b2a0abe898575
   Crashlytics: 2aa08cd61fb1d62718c4e653169461d1d7377de2
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
-  EFIconFont: 7676f5444bed0bc350265fe3e613a0e10b9c5f28
+  EFIconFont: dce94c0ce96ba8445898de3d90376acb985d9ead
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
-  Firebase: da031bc7012374e3bed17a6731b89327b29863b9
-  FirebaseAnalytics: 4e53a7eb7b76bc703c4d9239bc964545e9b23361
-  FirebaseAuth: b401a012cc33b04df3b52bb308b04e8766f2693e
+  Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
+  FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
+  FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: bcd6c112429249d7921e907d661e8955a3549e26
-  FirebaseCoreDiagnostics: af29e43048607588c050889d19204f4d7b758c9f
+  FirebaseCore: 307ea2508df730c5865334e41965bd9ea344b0e5
+  FirebaseCoreDiagnostics: 511f4f3ed7d440bb69127e8b97c2bc8befae639e
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
   FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
-  FirebaseUI: 826359d83af7cd76bfe0d43a8aab11eabac65558
+  FirebaseUI: 433550cb9e3d03ec7ee2c25f87493f76358d9b68
   GDTMobSDK: 7cadef357ef98125c5fb4e3cb9e50f3afe7801f4
-  GoogleAppMeasurement: 037f46d1d8ae8b312720f1042585ab961a1289e3
-  GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
-  GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
-  GoogleSignIn: 3a51b9bb8e48b635fd7f4272cee06ca260345b86
-  GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
+  GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
+  GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
+  GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
@@ -342,7 +363,7 @@ SPEC CHECKSUMS:
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   OfficeUIFabric: 63cc5002ab0aa509bd7941ba2542618856150e7c
-  OneSignal: 4e3e68bb6c29975286a2fa910cb49132bc6e20bb
+  OneSignal: b2c1511c6b5db2d3b0ce1859f574dcf190dde5f3
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PullToReach: 0e747e10403d2827277f8728151ad7998d4576eb
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -354,12 +375,13 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  VIMediaCache: aa650f82cb114c68a343beb4e67416cf5eb2f3a2
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WechatOpenSDK: 368ae03b72ee3ea1328c4f11326fbb5d2721d118
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: ade82a1f52fc9fe14be875fe1a9b99a4d27361cc
+PODFILE CHECKSUM: 53d8f69862032b17e783c83b78d869805bb79968
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3

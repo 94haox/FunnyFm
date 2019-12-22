@@ -19,6 +19,7 @@ class PodcastInfoView: UIView {
 	var countLB: UILabel = UILabel.init()
 	var subBtn: UIButton!
 	var subscribeClosure: (()->Void)?
+	var stackView: UIStackView!
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -102,15 +103,14 @@ extension PodcastInfoView : UIScrollViewDelegate{
 			make.centerX.equalToSuperview();
 		}
 		
-		self.desLB.snp.makeConstraints { (make) in
+		self.stackView.snp_makeConstraints { (make) in
 			make.centerX.equalTo(self.mainScrollView).offset(kScreenWidth);
-			make.top.equalTo(self.podImageView).offset(12.auto())
-			make.width.equalTo(self).offset(-50.auto());
-		}
-		
-		self.countLB.snp.makeConstraints { (make) in
-			make.centerX.equalTo(self.desLB)
-			make.top.equalTo(self.desLB.snp_bottom).offset(8)
+			make.centerY.equalToSuperview().offset(-9)
+			if UIDevice.current.systemVersion.hasPrefix("13.") {
+				make.width.equalTo(self).offset(-50.auto())
+			}else{
+				make.width.equalTo(self).offset(-70.auto())
+			}
 		}
 		
 		self.pageControl.snp.makeConstraints { (make) in
@@ -154,15 +154,17 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.desLB.numberOfLines = 7;
 		self.desLB.textColor = CommonColor.content.color
 		self.desLB.textAlignment = .center;
-		self.mainScrollView.addSubview(self.desLB)
+		
+		self.countLB.font = hfont(12)
+		self.countLB.textAlignment = .center
+		self.countLB.textColor = CommonColor.content.color
 		
 		self.authorLB.font = hfont(12)
 		self.authorLB.textColor = CommonColor.content.color
 		self.mainScrollView.addSubview(self.authorLB)
-		
-		self.countLB.font = hfont(12)
-		self.countLB.textColor = CommonColor.content.color
-		self.mainScrollView.addSubview(self.countLB)
+
+		self.stackView = UIStackView.init(arrangedSubviews: [self.desLB, self.countLB], axis: .vertical)
+		self.mainScrollView.addSubview(self.stackView)
 		
 		self.subBtn = UIButton.init(type: .custom)
 		self.subBtn.setTitle("已订阅".localized, for: .normal)

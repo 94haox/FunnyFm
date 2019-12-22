@@ -22,6 +22,8 @@ class PodDetailViewController: BaseViewController {
 	
 	var refreshControl: UIRefreshControl!
 	
+	var loadingView: UIActivityIndicatorView!
+	
 	var vm: PodDetailViewModel!
 	
 	init(pod: iTunsPod) {
@@ -105,7 +107,9 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 		
 	}
 	
-	func viewModelDidGetDataFailture(msg: String?) {}
+	func viewModelDidGetDataFailture(msg: String?) {
+		
+	}
 		
 	func podDetailParserSuccess() {
 		DispatchQueue.main.async {
@@ -148,6 +152,9 @@ extension PodDetailViewController: UITableViewDelegate {
 extension PodDetailViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if self.vm.episodeList.count > 0 {
+			self.loadingView.removeFromSuperview()
+		}
 		return self.vm.episodeList.count
 	}
 	
@@ -195,29 +202,34 @@ extension PodDetailViewController {
 	
 	func dw_addConstraints(){
 		self.view.addSubview(self.tableview)
-		self.view.addSubview(self.shareBtn)
+//		self.view.addSubview(self.shareBtn)
+		self.view.addSubview(self.loadingView)
 
-		self.shareBtn.snp.makeConstraints { (make) in
-			make.right.equalToSuperview().offset(-16.adapt())
-			make.top.equalTo(self.view.snp_topMargin).offset(12)
-			make.size.equalTo(CGSize.init(width: 25, height: 25))
-		}
-		
+//		self.shareBtn.snp.makeConstraints { (make) in
+//			make.right.equalToSuperview().offset(-16.adapt())
+//			make.top.equalTo(self.view.snp_topMargin).offset(12)
+//			make.size.equalTo(CGSize.init(width: 25, height: 25))
+//		}
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview();
 			make.top.equalTo(self.view.snp_topMargin)
 		}
 		
+		self.loadingView.snp.makeConstraints { (make) in
+			make.center.equalTo(self.tableview)
+			make.size.equalTo(CGSize.init(width: 50, height: 50))
+		}
+		
 	}
 	
 	func addSubviews(){
 		
-		self.shareBtn = UIButton.init(type: .custom)
-		self.shareBtn.setImageForAllStates(UIImage.init(named: "share-red")!)
-		self.shareBtn.addTarget(self, action: #selector(sharePodcast), for: .touchUpInside)
-		self.shareBtn.cornerRadius = 5
-		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
+//		self.shareBtn = UIButton.init(type: .custom)
+//		self.shareBtn.setImageForAllStates(UIImage.init(named: "share-red")!)
+//		self.shareBtn.addTarget(self, action: #selector(sharePodcast), for: .touchUpInside)
+//		self.shareBtn.cornerRadius = 5
+//		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
 		
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -231,6 +243,9 @@ extension PodDetailViewController {
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+		
+		self.loadingView = UIActivityIndicatorView.init(style: .gray)
+		self.loadingView.startAnimating()
 		
 	}
 	

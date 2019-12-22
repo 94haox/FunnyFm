@@ -21,4 +21,5 @@
 #import <GDTNativeAd.h>
 #import <GDTSplashAd.h>
 #import <GDTSDKConfig.h>
+#import <VIMediaCache.h>
 #import "GDTUnifiedBannerView.h"

@@ -30,7 +30,8 @@ class FMPlayerManager: NSObject {
     var delegate: FMPlayerManagerDelegate?
 	
 	var playerDelegate: FMPlayerManagerDelegate?
-    
+	
+	var resourceLoaderManager: VIResourceLoaderManager = VIResourceLoaderManager()
     /// 事件观察者
     var timerObserver: Any?
     
@@ -70,7 +71,7 @@ class FMPlayerManager: NSObject {
     
     override init() {
         super.init()
-		
+		self.resourceLoaderManager.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
 		self.addRemoteCommand()
     }
@@ -266,7 +267,8 @@ extension FMPlayerManager {
 			let asset = AVAsset.init(url: url!)
 			item = AVPlayerItem.init(asset: asset)
 		}else{
-			item = AVPlayerItem.init(url: url!)
+			
+			item = self.resourceLoaderManager.playerItem(with: url)
 		}
 		self.lastTime = self.checkProgress(chapter)
         self.changePlayItem(item)
@@ -318,6 +320,14 @@ extension FMPlayerManager {
 		}
 	}
 	
+}
+
+
+extension FMPlayerManager: VIResourceLoaderManagerDelegate {
+	
+	func resourceLoaderManagerLoad(_ url: URL!, didFailWithError error: Error!) {
+		
+	}
 }
 
 

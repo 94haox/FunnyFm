@@ -19,6 +19,7 @@ class PodPreviewViewController: BaseViewController {
 	var itunsPod: iTunsPod!
 	var viewModel: PodDetailViewModel!
 	var tableview : UITableView! = UITableView.init(frame: CGRect.zero, style: .plain)
+	var backBtn: UIButton = UIButton.init(type: .custom)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +73,16 @@ class PodPreviewViewController: BaseViewController {
 		PodListViewModel.init().registerPod(params: params, success: { [weak self] (msg) in
 			MSHUD.shared.hide()
 			SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看".localized)
+			NotificationCenter.default.post(Notification.init(name: Notification.willAddPrevPodcast))
 			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: self!.itunsPod.collectionId,complete: nil)
 			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
 			MSHUD.shared.hide()
 		}
+	}
+	
+	@objc func backAction(){
+		self.dismiss(animated: true, completion: nil)
 	}
 }
 
@@ -130,6 +136,24 @@ extension PodPreviewViewController: UITableViewDataSource, UITableViewDelegate {
 		let episode = self.viewModel.episodeList[indexPath.row]
 		cell.configNoDetailCell(episode)
 	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let view = UIView()
+		let titleLB = UILabel.init(text: "In recent 15 Episodes")
+		titleLB.font = numFont(14)
+		titleLB.textColor = CommonColor.content.color
+		view.addSubview(titleLB)
+		view.backgroundColor = .white
+		titleLB.snp.makeConstraints { (make) in
+			make.centerY.equalToSuperview()
+			make.left.equalToSuperview().offset(16)
+		}
+		return view;
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 50
+	}
 }
 
 
@@ -155,7 +179,6 @@ extension PodPreviewViewController {
 	
 	func dw_addSubViews() {
 		
-		self.view.addSubview(self.infoView)
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
@@ -165,6 +188,7 @@ extension PodPreviewViewController {
 		self.tableview.rowHeight = 100
 		self.tableview.dataSource = self
 		self.tableview.delegate = self
+		self.tableview.tableHeaderView = self.infoView;
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
 		self.view.addSubview(self.tableview)
@@ -172,6 +196,20 @@ extension PodPreviewViewController {
 		self.loadingView = UIActivityIndicatorView.init(style: .gray)
 		self.loadingView.startAnimating()
 		self.view.addSubview(self.loadingView)
+		
+		if !UIDevice.current.systemVersion.hasPrefix("13.") {
+			self.backBtn.setImageForAllStates(UIImage.init(named: "back-white")!)
+			self.backBtn.cornerRadius = 5
+			self.backBtn.backgroundColor = CommonColor.mainRed.color
+			self.backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+			self.view.addSubview(self.backBtn)
+			
+			self.backBtn.snp.makeConstraints { (make) in
+				make.size.equalTo(CGSize.init(width: 25, height: 25))
+				make.left.equalTo(self.view).offset(18)
+				make.top.equalTo(self.view.snp_topMargin)
+			}
+		}
 	}
 	
 	
