@@ -25,8 +25,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     var collectionView : UICollectionView!
     
     var tableview : UITableView!
-    
-    var searchBtn : UIButton!
 	
 	var addBtn : UIButton!
 	
@@ -342,18 +340,11 @@ extension MainViewController {
     
     fileprivate func addConstrains() {
 		self.view.addSubview(self.topBgView)
-        self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadAnimationView);
 		self.view.sendSubviewToBack(self.topBgView)
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
-        
-        self.searchBtn.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize.init(width: 40, height: 40))
-            make.right.equalToSuperview().offset(-16)
-            make.centerY.equalTo(self.titleLB)
-        }
 
                 
         self.tableview.snp.makeConstraints { (make) in
@@ -402,10 +393,6 @@ extension MainViewController {
         self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
-				
-        self.searchBtn = UIButton.init(type: .custom)
-        self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
-        self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
 		
 		self.titleLB.text = "最近更新".localized
 		

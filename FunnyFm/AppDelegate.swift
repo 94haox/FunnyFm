@@ -20,6 +20,8 @@ import Siren
 	
 	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
 					   title: "New", controller: MainViewController()),
+	AnimatedTabBarItem(icon: UIImage(named: "rss_tab") ?? UIImage(),
+	title: "Discover", controller: DiscoveryViewController()),
 	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
 					   title: "Playlist", controller: PlayListViewController()),
 	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),

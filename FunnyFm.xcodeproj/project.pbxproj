@@ -93,6 +93,8 @@
 		AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5722B39376007C9E41 /* ItunsPodTableViewCell.swift */; };
 		AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */; };
 		AB34C4FC2331DFDA007FC0EC /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */; };
+		AB39B55223B257120062BBE5 /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB39B55123B257120062BBE5 /* DiscoveryViewController.swift */; };
+		AB39B55423BAEF710062BBE5 /* RssAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB39B55323BAEF710062BBE5 /* RssAddView.swift */; };
 		AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3D4819232A47CD00078DA4 /* DownloadTask.swift */; };
 		AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADD21952C1C00260851 /* GlobalConfig.swift */; };
@@ -430,6 +432,8 @@
 		AB32CF5A22B39A31007C9E41 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		AB32CF5B22B39A32007C9E41 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		AB39B55123B257120062BBE5 /* DiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
+		AB39B55323BAEF710062BBE5 /* RssAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssAddView.swift; sourceTree = "<group>"; };
 		AB3D4819232A47CD00078DA4 /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
 		AB41AAD821952A1300260851 /* FunnyFm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFm.swift; sourceTree = "<group>"; };
 		AB41AADD21952C1C00260851 /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
@@ -885,6 +889,7 @@
 				AB97EE94233376B000127C37 /* HistoryProgressBar.swift */,
 				AB76EF66239C993E0096020B /* PodcastInfoView.swift */,
 				AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */,
+				AB39B55323BAEF710062BBE5 /* RssAddView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -986,6 +991,13 @@
 				ABE7ACAD21C20E1400FC6B8E /* SubscribListController.swift */,
 				ABE7ACB321C20E7800FC6B8E /* FavouriteListController.swift */,
 				ABE7ACAF21C20E3300FC6B8E /* SettingViewController.swift */,
+				AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */,
+				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
+				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
+				AB287BD7234F496B00ED5448 /* VIPViewController.swift */,
+				AB441A2D23501F1D00411359 /* MessageViewController.swift */,
+				AB441A2F23501FD700411359 /* MessageDetailViewController.swift */,
+				AB39B55123B257120062BBE5 /* DiscoveryViewController.swift */,
 				AB7E1883238AB0C200D1C8AD /* SpeechViewController.swift */,
 				AB7E1882238AB0C200D1C8AD /* SpeechViewController.xib */,
 				AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */,
@@ -998,7 +1010,6 @@
 				ABF498972303B71A00441DAF /* NeLoginViewController.xib */,
 				ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */,
 				ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */,
-				AB1E93072211B39900A8F07B /* PodPreviewViewController.swift */,
 				ABF4988E2303B6D100441DAF /* SearchViewController.xib */,
 				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
 				ABB4E54B23A3B30000CFF37A /* TopicViewController.swift */,
@@ -1012,13 +1023,8 @@
 				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
 				AB2A37232328A7C10097DAF7 /* CloudSyncViewController.xib */,
 				AB2A37242328A7C10097DAF7 /* CloudSyncViewController.swift */,
-				AB97EE9723339FD500127C37 /* HistoryDetailViewController.swift */,
-				AB872C54232A993300FF3757 /* DownloadListViewController.swift */,
 				AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */,
 				AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */,
-				AB287BD7234F496B00ED5448 /* VIPViewController.swift */,
-				AB441A2D23501F1D00411359 /* MessageViewController.swift */,
-				AB441A2F23501FD700411359 /* MessageDetailViewController.swift */,
 				AB00BC312394A87900893325 /* NoteEditViewController.xib */,
 				AB00BC322394A87900893325 /* NoteEditViewController.swift */,
 				AB9E426223951BD500232EE8 /* NoteListViewController.xib */,
@@ -1845,6 +1851,7 @@
 				ABA99AC12219060900840382 /* GlobalViewModel.swift in Sources */,
 				AB1E6D8C21B9252500B85135 /* UIFontExtensions.swift in Sources */,
 				AB5828B1233C92080072F03B /* YBTSStack.mm in Sources */,
+				AB39B55223B257120062BBE5 /* DiscoveryViewController.swift in Sources */,
 				AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */,
 				AB1E6D7921B9252500B85135 /* UIBarButtonItemExtensions.swift in Sources */,
 				ABE7660A21D7196700470D8F /* CalendarExtensions.swift in Sources */,
@@ -1922,6 +1929,7 @@
 				AB1E6D8921B9252500B85135 /* UIImageViewExtensions.swift in Sources */,
 				AB41AAE82195343200260851 /* PodAPI.swift in Sources */,
 				AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */,
+				AB39B55423BAEF710062BBE5 /* RssAddView.swift in Sources */,
 				AB9817F62397FDDE003E008E /* NoteDetailViewController.swift in Sources */,
 				ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */,
 				AB8BD8DF236E7574006FEFF3 /* SPStorkHaptic.swift in Sources */,

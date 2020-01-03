@@ -158,7 +158,6 @@ extension FeedManager {
 			pod?.collectionId = collectionId
 			self.addOrUpdate(itunesPod: pod!, episodelist: item!.items)
 			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-			print("fetched")
 			if(complete.isSome){
 				complete!(item)
 			}
@@ -213,8 +212,9 @@ extension FeedManager {
 		}
 		if pod.podAuthor != episodelist.first!.author {
 			pod.podAuthor = episodelist.first!.author
-			DatabaseManager.updateItunsPod(pod: pod)
 		}
+		
+		DatabaseManager.updateItunsPod(pod: pod)
 		
 		episodelist.forEach { (item) in
 			var episode = item
@@ -237,30 +237,32 @@ extension FeedManager {
 extension FeedManager {
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
-		
-		var episodes = episodeList.suffix(100)
-		episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
 		var sortEpisodeList = [[Episode]]()
-		
-		var dic : [String: [Episode]] = [:]
-		var index = 0;
-		episodes.forEach { (episode) in
-			var list = dic[episode.pubDate]
-			if list.isSome {
-				list!.append(episode)
-			}else{
-				list = Array.init()
-				list!.append(episode)
-				index += 1
-			}
-			dic[episode.pubDate] = list!
-			if sortEpisodeList.count < index{
-				sortEpisodeList.append(list!)
-			}else{
-				sortEpisodeList.remove(at: index-1)
-				sortEpisodeList.append(list!)
+		autoreleasepool{
+			var episodes = episodeList.suffix(100)
+			episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
+			
+			var dic : [String: [Episode]] = [:]
+			var index = 0;
+			episodes.forEach { (episode) in
+				var list = dic[episode.pubDate]
+				if list.isSome {
+					list!.append(episode)
+				}else{
+					list = Array.init()
+					list!.append(episode)
+					index += 1
+				}
+				dic[episode.pubDate] = list!
+				if sortEpisodeList.count < index{
+					sortEpisodeList.append(list!)
+				}else{
+					sortEpisodeList.remove(at: index-1)
+					sortEpisodeList.append(list!)
+				}
 			}
 		}
+		
 		return sortEpisodeList
 	}
 	

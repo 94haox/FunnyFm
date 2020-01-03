@@ -22,6 +22,10 @@ class PodDetailViewModel: NSObject {
 	
 	var pod: iTunsPod?
 	
+	override init() {
+		super.init()
+	}
+	
 	init(podcast: iTunsPod) {
 		super.init()
 		self.pod = podcast
@@ -49,6 +53,23 @@ class PodDetailViewModel: NSObject {
 			var data = json["data"]
 			if data["detail"]["rss_url"].stringValue.length() < 1{
 				data["detail"]["rss_url"].stringValue = pod.feedUrl
+			}
+			self.pod = iTunsPod.init(jsonData: data["detail"])
+			data["detail"]["items"].arrayValue.forEach({ (item) in
+				let t = Episode.init(jsonData:item)!
+				self.episodeList.append(t)
+			})
+			self.delegate?.podDetailParserSuccess()
+		},nil)
+	}
+	
+	func getPrev(feedUrl: String) {
+		self.episodeList.removeAll()
+		self.pod = nil
+		FmHttp<iTunsPod>().requestForSingle(PodAPI.getPodcastPrev(feedUrl), { (json) in
+			var data = json["data"]
+			if data["detail"]["rss_url"].stringValue.length() < 1{
+				data["detail"]["rss_url"].stringValue = feedUrl
 			}
 			self.pod = iTunsPod.init(jsonData: data["detail"])
 			data["detail"]["items"].arrayValue.forEach({ (item) in
