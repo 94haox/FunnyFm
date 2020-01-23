@@ -127,7 +127,8 @@ extension SettingViewController {
         
         if indexPath.section == 1{
             if indexPath.row == 0 {
-                UIApplication.shared.open(URL.init(string: "https://github.com/94haox/FunnyFM-issue/issues")!, options: [:], completionHandler:     nil)
+				let feedbackVC = FeedbackViewController.init()
+				self.navigationController?.pushViewController(feedbackVC)
             }
         }
         

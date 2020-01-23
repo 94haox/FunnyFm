@@ -40,7 +40,7 @@ class PodDetailViewModel: NSObject {
 		FeedManager.shared.delegate = self
 		FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId) { (podcast) in
 			if podcast.isSome {
-				self.pod = DatabaseManager.getPodcast(podId:pod.podId)
+				self.pod = DatabaseManager.getPodcast(feedUrl:pod.feedUrl)
 				self.pod?.podDes = podcast!.description
 				self.pod?.trackCount = "\(self.episodeList.count)"
 			}
@@ -68,6 +68,12 @@ class PodDetailViewModel: NSObject {
 		self.pod = nil
 		FmHttp<iTunsPod>().requestForSingle(PodAPI.getPodcastPrev(feedUrl), { (json) in
 			var data = json["data"]
+			
+			if data["detail"].dictionaryValue.count < 2{
+				SwiftNotice.showText("Podcast 尚未找到")
+				return
+			}
+			
 			if data["detail"]["rss_url"].stringValue.length() < 1{
 				data["detail"]["rss_url"].stringValue = feedUrl
 			}

@@ -10,10 +10,10 @@ import UIKit
 
 class PodListCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var logoImageView: UIImageView!
+	@IBOutlet weak var bgView: UIView!
+	@IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var updateTimeLB: UILabel!
-    
 	@IBOutlet weak var imageBg: UIView!
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +22,11 @@ class PodListCollectionViewCell: UICollectionViewCell {
 		self.imageBg.layer.masksToBounds = false
 		self.imageBg.layer.borderWidth = CGFloat.leastNormalMagnitude
 		self.imageBg.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+		self.bgView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.titleLB.textColor = CommonColor.title.color
         self.updateTimeLB.textColor = CommonColor.subtitle.color
 		self.updateTimeLB.font = p_bfont(10)
+		self.clipsToBounds = false
     }
     
     func configCell(_ pod: iTunsPod){

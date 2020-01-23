@@ -256,7 +256,7 @@ extension PlayerDetailViewController {
     }
 	
 	@objc func toPodDetail(){
-		let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+		let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
 		let detailVC =  PodDetailViewController.init(pod: pod!)
 		let navi = UIApplication.shared.keyWindow!.rootViewController as! UINavigationController
 		self.navigationController?.dismiss(animated: true, completion: {

@@ -161,15 +161,6 @@ extension DatabaseManager {
 		return itunsPodList
 	}
 	
-	static public func getItunsPod(collectionId:String) -> iTunsPod?{
-		if collectionId.length() < 1 {
-			return nil
-		}
-		let podList: [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable,
-											   where: iTunsPod.Properties.collectionId == collectionId)
-		return podList.first
-	}
-	
 	static public func getPodcast(podId: String) -> iTunsPod?{
 		let podList: [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable,
 											   where: iTunsPod.Properties.podId == podId)
@@ -179,6 +170,13 @@ extension DatabaseManager {
 	static public func getPodcast(feedUrl: String) -> iTunsPod?{
 		let podList: [iTunsPod] = try! database.getObjects(fromTable: exsitPodTable,
 											   where: iTunsPod.Properties.feedUrl == feedUrl)
+		if podList.count > 1 {
+			for (index,pod) in podList.enumerated() {
+				if index != 0 {
+					self.deleteItunsPod(feedUrl: pod.feedUrl)
+				}
+			}
+		}
 		return podList.first
 	}
 	
@@ -187,7 +185,7 @@ extension DatabaseManager {
 	}
 	
 	static public func updateItunsPod(pod: iTunsPod){
-		let exsitPod = self.getItunsPod(collectionId: pod.collectionId)
+		let exsitPod = self.getPodcast(feedUrl: pod.feedUrl)
 		if exsitPod.isSome {
 			try! self.database.update(table: exsitPodTable, on: iTunsPod.Properties.all, with: pod, where: iTunsPod.Properties.feedUrl == pod.feedUrl)
 			return
@@ -250,7 +248,7 @@ extension DatabaseManager {
 	/// 指定 Pod 下的所有 Episode
 	static public func allEpisodes(pod: iTunsPod) -> [Episode] {
 		let objects: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
-														where: Episode.Properties.collectionId == pod.collectionId)
+														where: Episode.Properties.podcastUrl == pod.feedUrl)
 		let episodeList = objects.sorted(by: { (obj1, obj2) -> Bool in
 			let second1 = obj1.pubDateSecond
 			let second2 = obj2.pubDateSecond
@@ -270,11 +268,6 @@ extension DatabaseManager {
 	
 	
 	/// 通过 title 获取指定单集
-	static public func getEpisode(title:String) -> Episode?{
-		let episodeList: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
-		where: Episode.Properties.title == title)
-		return episodeList.first
-	}
 	
 	static public func getEpisode(trackUrl:String) -> Episode?{
 		let episodeList: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
@@ -289,6 +282,10 @@ extension DatabaseManager {
 		let exsitEpisode: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
 													where: Episode.Properties.trackUrl == episode.trackUrl)
 		if exsitEpisode.count > 0 {
+			let oldEpisode = exsitEpisode.first!
+			if oldEpisode.podcastUrl.length() < 1 {
+				try! self.database.update(table: exsitEpisodeTable, on: Episode.Properties.all, with: episode, where: Episode.Properties.trackUrl == episode.trackUrl)
+			}
 			return
 		}
 		try! self.database.insert(objects: episode, intoTable: exsitEpisodeTable)

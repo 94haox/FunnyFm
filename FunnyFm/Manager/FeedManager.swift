@@ -100,8 +100,9 @@ extension FeedManager {
 			
 			let semphore = DispatchSemaphore.init(value: 1)
 			
-			podList.forEach { (pod) in
+			podList.forEach { (podcast) in
 				semphore.wait()
+				var pod = podcast
 				var last_title = ""
 				let episodeList = DatabaseManager.allEpisodes(pod: pod)
 				if let episode = episodeList.first {
@@ -110,6 +111,7 @@ extension FeedManager {
 				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), { (item) in
 					
 					semphore.signal()
+					pod.podId = item!.podId
 					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
 					if item!.items.count > 0 {
 						self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
@@ -145,7 +147,7 @@ extension FeedManager {
 	
 	func parserForSingle(feedUrl: String, collectionId:String,complete:((Pod?)->Void)?){
 		var last_title = ""
-		var pod = DatabaseManager.getItunsPod(collectionId: collectionId)
+		var pod = DatabaseManager.getPodcast(feedUrl: feedUrl)
 		if pod.isSome {
 			let episodeList = DatabaseManager.allEpisodes(pod: pod!)
 			if let episode = episodeList.first {
@@ -219,6 +221,7 @@ extension FeedManager {
 		episodelist.forEach { (item) in
 			var episode = item
 			episode.collectionId = pod.collectionId;
+			episode.podcastUrl = pod.feedUrl
 			episode.podCoverUrl = pod.artworkUrl600
 			if episode.coverUrl.length() < 1 {
 				episode.coverUrl = pod.artworkUrl600

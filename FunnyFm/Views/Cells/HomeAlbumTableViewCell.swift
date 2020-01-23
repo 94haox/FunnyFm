@@ -68,10 +68,10 @@ class HomeAlbumTableViewCell: UITableViewCell {
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
-		if episode.podCoverUrl.length() > 0 {
-			self.logoImageView.loadImage(url: episode.podCoverUrl)
-		}else{
+		if episode.coverUrl.length() > 0 {
 			self.logoImageView.loadImage(url: episode.coverUrl)
+		}else{
+			self.logoImageView.loadImage(url: episode.podCoverUrl)
 		}
     }
 	

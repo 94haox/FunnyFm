@@ -37,6 +37,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	var emptyAnimationView : AnimationView!
 	
 	var fetchLoadingView : NVActivityIndicatorView!
+	
+	var searchBtn : UIButton = UIButton.init(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -233,7 +235,7 @@ extension MainViewController{
 			}
 			
 			cell.tapLogoGesAction { [weak self] in
-				let pod = DatabaseManager.getItunsPod(collectionId: episode.collectionId)
+				let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
 				if pod.isSome {
 					let vc = PodDetailViewController.init(pod: pod!)
 					self?.navigationController?.pushViewController(vc)
@@ -310,9 +312,6 @@ extension MainViewController{
 			return
 		}
 		let pod = item as! iTunsPod
-		if pod.collectionId.length() < 1 {
-			return
-		}
         cell.configCell(pod)
     }
 }
@@ -362,6 +361,14 @@ extension MainViewController {
 			make.size.equalTo(CGSize.init(width:AdaptScale(30), height: AdaptScale(30)))
 			make.centerY.equalTo(self.titleLB);
 			make.left.equalTo(self.titleLB.snp.right).offset(AdaptScale(20))
+		}
+		
+		self.view.addSubview(self.searchBtn)
+		
+		self.searchBtn.snp.makeConstraints { (make) in
+		   make.size.equalTo(CGSize.init(width: 40, height: 40))
+		   make.right.equalToSuperview().offset(-16)
+		   make.centerY.equalTo(self.titleLB)
 		}
     }
     
@@ -416,6 +423,9 @@ extension MainViewController {
 		emptyView.isHidden = true
 		
 		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);
+		
+		self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
+		self.searchBtn.addTarget(self, action: #selector(toSearch), for: .touchUpInside)
     }
     
 }

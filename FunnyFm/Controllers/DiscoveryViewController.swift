@@ -49,6 +49,7 @@ extension DiscoveryViewController: PodDetailViewModelDelegate {
 	}
 	
 	func podDetailCancelSubscribeSuccess() {
+		
 	}
 	
 	func viewModelDidGetDataSuccess() {

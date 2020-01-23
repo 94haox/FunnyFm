@@ -61,7 +61,7 @@ extension RssAddView: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if textField.text.isSome && textField.text!.length() > 5 {
 			if self.searchBlock.isSome {
-				self.searchBlock!(textField.text!)
+				self.searchBlock!(textField.text!.trim())
 			}
 		}else{
 			SwiftNotice.showText("请输入完整订阅地址")

@@ -74,7 +74,7 @@ extension PodAPI : TargetType {
 		case .getPodcastPrev(let rssUrl):
 			params["rss_url"] = rssUrl
 		}
-		
+		params["user_id"] = UserCenter.shared.userId
 		return .requestParameters(parameters: params, encoding: JSONEncoding.default)
     }
     

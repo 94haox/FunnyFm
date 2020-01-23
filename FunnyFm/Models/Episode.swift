@@ -20,6 +20,7 @@ struct Episode : TableCodable,Mapable{
 	var duration:              Double
     var trackUrl:          	String
     var coverUrl:         		String
+	var podcastUrl: 			String
 	var podCoverUrl:         	String
     var pubDate:         		String
 	var pubDateSecond:         	Int
@@ -39,6 +40,7 @@ struct Episode : TableCodable,Mapable{
 		podCoverUrl = ""
 		collectionId = ""
 		downloadSize = ""
+		podcastUrl = ""
 	}
 	
 	init?(jsonData:JSON) {
@@ -57,6 +59,7 @@ struct Episode : TableCodable,Mapable{
 		}
 		download_filpath = ""
 		podCoverUrl = ""
+		podcastUrl = ""
 		collectionId = ""
 		downloadSize = ""
 	}
@@ -77,6 +80,7 @@ struct Episode : TableCodable,Mapable{
 		case collectionId
         case download_filpath
 		case downloadSize
+		case podcastUrl
     }
 	
 	func isFavor(trackUrl:String) -> Bool{

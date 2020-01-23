@@ -89,7 +89,7 @@ extension PodListViewModel {
 	func registerPod(params: Dictionary<String, String>, success:@escaping SuccessStringClosure, failure: @escaping FailClosure){
 		FmHttp<iTunsPod>().requestForSingle(PodAPI.registerPod(params), { (pod) in
 			if pod.isSome {
-				var dbpod = DatabaseManager.getItunsPod(collectionId: pod!.collectionId)
+				var dbpod = DatabaseManager.getPodcast(feedUrl: pod!.feedUrl)
 				if dbpod.isSome {
 					dbpod!.podId = pod!.podId
 					DatabaseManager.updateItunsPod(pod: dbpod!)

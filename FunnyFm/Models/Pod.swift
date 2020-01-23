@@ -11,6 +11,7 @@ import UIKit
 import SwiftyJSON
 
 struct Pod : Mapable{
+	var podId: String
     var title:       String
 	var author: String
 	var description:     String
@@ -30,6 +31,7 @@ struct Pod : Mapable{
 		items = [Episode]()
 		copyright = jsonData["copyright"].stringValue
 		updateTime = Date.init(timeIntervalSince1970: TimeInterval(time)).dateString()
+		podId = jsonData["_id"].stringValue
 		jsonData["items"].arrayValue.forEach { (itemJson) in
 			let episode = Episode.init(jsonData: itemJson)
 			if episode.isSome {
@@ -48,6 +50,7 @@ struct Pod : Mapable{
 		case copyright
 		case updateTime
 		case author
+		case podId
     }
     
     

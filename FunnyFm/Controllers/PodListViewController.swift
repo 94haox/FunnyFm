@@ -66,7 +66,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         collectionview.showsHorizontalScrollIndicator = false
         let nib = UINib(nibName: String(describing: PodListCollectionViewCell.self), bundle: nil)
         collectionview.register(nib, forCellWithReuseIdentifier: "cell")
-        collectionview.backgroundColor = CommonColor.background.color
+		collectionview.backgroundColor = .white
 		collectionview.emptyDataSetSource = self;
 		collectionview.showsVerticalScrollIndicator = false
 		collectionview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
