@@ -104,6 +104,14 @@ extension PlayerDetailViewController {
     func playerStatusDidChanged(isCanPlay: Bool) {
         self.playBtn!.isHidden = !isCanPlay
     }
+	
+	
+	func playerStatusDidFailure() {
+		SwiftNotice.showText("音频获取失败，请稍候重试")
+        self.playBtn.isHidden = false
+		self.playBtn.isSelected = false
+		FMToolBar.shared.playBtn.isSelected = false
+	}
     
     func playerDidPlay() {
         self.playBtn!.isSelected = true

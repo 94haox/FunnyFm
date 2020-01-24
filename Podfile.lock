@@ -7,6 +7,7 @@ PODS:
   - AppAuth/Core (1.3.0)
   - AppAuth/ExternalUserAgent (1.3.0)
   - AutoInch (1.3.1)
+  - Bugly (2.5.2)
   - Crashlytics (3.13.3):
     - Fabric (~> 1.10.2)
   - DynamicColor (4.2.0)
@@ -239,6 +240,7 @@ PODS:
 DEPENDENCIES:
   - AnimatedTabBar
   - AutoInch
+  - Bugly
   - Crashlytics (= 3.13.3)
   - DynamicColor (~> 4.2.0)
   - EFIconFont/Complete
@@ -277,6 +279,7 @@ SPEC REPOS:
     - AnimatedTabBar
     - AppAuth
     - AutoInch
+    - Bugly
     - Crashlytics
     - DynamicColor
     - EFIconFont
@@ -332,6 +335,7 @@ SPEC CHECKSUMS:
   AnimatedTabBar: ce6bc2c2993bd74b4b51c7977631e3321f417095
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   AutoInch: f70a38b393dc2ce21e7f0bbceb5b2a0abe898575
+  Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
   Crashlytics: 2aa08cd61fb1d62718c4e653169461d1d7377de2
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
   EFIconFont: dce94c0ce96ba8445898de3d90376acb985d9ead
@@ -382,6 +386,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 53d8f69862032b17e783c83b78d869805bb79968
+PODFILE CHECKSUM: 6151e4abec0372393194370c22dc484d62f2145d
 
 COCOAPODS: 1.8.3

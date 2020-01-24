@@ -45,7 +45,9 @@ extension FeedManager {
 				if let list = cloudPodlist {
 					var taglist = [AnyHashable: Any]()
 					list.forEach({ (pod) in
-						taglist[pod.podId] = "1"
+						if taglist.count < 9 {
+							taglist[pod.podId] = "1"
+						}
 						DatabaseManager.addItunsPod(pod: pod)
 					})
 					PushManager.shared.addTag(taglist: taglist)

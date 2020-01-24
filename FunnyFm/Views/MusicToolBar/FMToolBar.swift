@@ -123,6 +123,14 @@ extension FMToolBar {
 		}
     }
 	
+	func playerStatusDidFailure() {
+		SwiftNotice.showText("音频获取失败，请稍候重试")
+		self.loadingView.isHidden = true
+        self.playBtn.isHidden = false
+		self.playBtn.isSelected = false
+		FMPlayerManager.shared.pause()
+	}
+	
 	func playerDidPlay() {
 		self.isPlaying = true
 	}
@@ -173,7 +181,6 @@ extension FMToolBar{
         }
 		self.progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: self.height)
         self.titleLB.text = chapter.title
-//        self.authorLB.text = chapter.author
 		self.logoImageView.loadImage(url: (self.currentEpisode?.coverUrl)!, placeholder: nil) {[unowned self] (image) in
 			self.configShadowColor()
 		}

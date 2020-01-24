@@ -14,6 +14,7 @@ import Firebase
 import FirebaseUI
 import AnimatedTabBar
 import Siren
+import Bugly
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -41,6 +42,7 @@ import Siren
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		FirebaseApp.configure()
+		Bugly.start(withAppId: "fe63efca9b")
 		self.dw_addNotifies()
 		self.window = UIWindow.init()
         self.options = launchOptions

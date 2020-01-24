@@ -41,6 +41,7 @@ def lib
 		pod 'AutoInch'
 		pod 'Siren'
 		pod 'VIMediaCache'
+		pod 'Bugly'
 end
 
 

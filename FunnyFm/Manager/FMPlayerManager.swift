@@ -18,6 +18,7 @@ enum MAudioPlayState {
 
 protocol FMPlayerManagerDelegate {
     func playerStatusDidChanged(isCanPlay:Bool)
+	func playerStatusDidFailure()
 	func playerDidPlay()
 	func playerDidPause()
     func managerDidChangeProgress(progess:Double, currentTime: Double, totalTime: Double)
@@ -188,33 +189,6 @@ extension FMPlayerManager {
 // MARK: observers
 
 extension FMPlayerManager{
-	
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        let value = change?[NSKeyValueChangeKey.newKey]
-        if value.isNone {
-            return
-        }
-        if keyPath == "status" {
-            let status = value! as! Int
-            self.isCanPlay = status == 1
-            self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
-			self.playerDelegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
-        }
-        
-        if keyPath == "loadedTimeRanges" {
-			if self.lastTime < 1 {
-				return
-			}
-			let timeRanges = self.playerItem!.loadedTimeRanges
-			let timeRange = timeRanges.first!.timeRangeValue
-			let duration = timeRange.duration.seconds
-			if self.lastTime < duration {
-				self.seekToTime(self.lastTime)
-				self.lastTime = 0
-			}
-        }
-        
-    }
     
     func addTimeObserver(){
         self.timerObserver = self.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 0.1, preferredTimescale: 600), queue: DispatchQueue.main, using: { [unowned self] (time) in
@@ -319,6 +293,42 @@ extension FMPlayerManager {
 			self.isSleepTimerActive = false
 		}
 	}
+	
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        let value = change?[NSKeyValueChangeKey.newKey]
+        if value.isNone {
+            return
+        }
+		if keyPath == "status"{
+			if self.playerItem.isNone {
+				return
+			}
+			
+			if self.playerItem!.status != .readyToPlay {
+				print("音频初始化失败，请重试")
+				self.isCanPlay = false
+				self.playerDelegate?.playerStatusDidFailure()
+			}else{
+				self.isCanPlay = true
+				self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
+				self.playerDelegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
+			}
+        }
+        
+        if keyPath == "loadedTimeRanges" {
+			if self.lastTime < 1 {
+				return
+			}
+			let timeRanges = self.playerItem!.loadedTimeRanges
+			let timeRange = timeRanges.first!.timeRangeValue
+			let duration = timeRange.duration.seconds
+			if self.lastTime < duration {
+				self.seekToTime(self.lastTime)
+				self.lastTime = 0
+			}
+        }
+        
+    }
 	
 }
 
