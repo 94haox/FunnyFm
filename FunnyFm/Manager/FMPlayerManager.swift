@@ -171,8 +171,14 @@ extension FMPlayerManager {
 			return;
 		}
         self.seekToProgress(0)
-        self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
-		self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
+		if self.delegate.isSome {
+			self.delegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
+		}
+		
+		if self.playerDelegate.isSome {
+			self.playerDelegate?.managerDidChangeProgress(progess: 0, currentTime: 0, totalTime: (self.playerItem?.duration.seconds)!)
+		}
+		
         self.pause()
 		if self.currentModel.isSome {
 			PlayListManager.shared.queueOut(episode: self.currentModel!)
