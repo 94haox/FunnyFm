@@ -43,10 +43,10 @@ extension FeedManager {
 		if UserCenter.shared.isLogin {
 			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList, { (cloudPodlist) in
 				if let list = cloudPodlist {
-					var taglist = [AnyHashable: Any]()
+					var taglist = [String]()
 					list.forEach({ (pod) in
 						if taglist.count < 9 {
-							taglist[pod.podId] = "1"
+							taglist.append(pod.podId)
 						}
 						DatabaseManager.addItunsPod(pod: pod)
 					})

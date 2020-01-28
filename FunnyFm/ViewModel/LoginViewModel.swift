@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OneSignal
 
 class LoginViewModel: BaseViewModel {
     var user: User?

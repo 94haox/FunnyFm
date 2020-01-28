@@ -23,3 +23,4 @@
 #import <GDTSDKConfig.h>
 #import <VIMediaCache.h>
 #import "GDTUnifiedBannerView.h"
+#import "JPUSHService.h"

@@ -149,8 +149,6 @@
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */; };
 		AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */; };
-		AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D1B1722C633EA00E9E221 /* NotificationService.swift */; };
-		AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */; };
 		AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */; };
 		AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */; };
@@ -300,7 +298,6 @@
 		ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */; };
 		ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */; };
 		ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */; };
-		C2AAA04DB06DFC0F128AF81A /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -311,13 +308,6 @@
 			remoteGlobalIDString = AB091D0E229FCF8800723602;
 			remoteInfo = FunnyFM;
 		};
-		AB6D1B1A22C633EA00E9E221 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AB6D1B1422C633E900E9E221;
-			remoteInfo = OneSignalNotificationServiceExtension;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -327,7 +317,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				AB6D1B1C22C633EA00E9E221 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 				AB091D19229FCF8800723602 /* FunnyFM.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -462,7 +451,6 @@
 		AB4578C3233B44CC001DF1D1 /* EpisodeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeSettingViewController.swift; sourceTree = "<group>"; };
 		AB4578C5233B4905001DF1D1 /* PlayListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListManager.swift; sourceTree = "<group>"; };
 		AB4578C7233B5112001DF1D1 /* PlayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayItem.swift; sourceTree = "<group>"; };
-		AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtensionRelease.entitlements; sourceTree = "<group>"; };
 		AB4E145B22C63F8F0053BE00 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		AB571D8C22B209E80021236C /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -472,7 +460,6 @@
 		AB57FE2C22CDE5C200BABEF2 /* home_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home_empty.json; sourceTree = "<group>"; };
 		AB57FE2E22CDE5E500BABEF2 /* search_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_empty.json; sourceTree = "<group>"; };
 		AB57FE3022CDF1D600BABEF2 /* login_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_anim.json; sourceTree = "<group>"; };
-		AB57FE3222CDFBB800BABEF2 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swip_guid.json; sourceTree = "<group>"; };
 		AB57FE3722CEE2AC00BABEF2 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		AB57FE3A22CEE63400BABEF2 /* normal_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = normal_empty.json; sourceTree = "<group>"; };
@@ -507,9 +494,6 @@
 		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTableViewCell.xib; sourceTree = "<group>"; };
 		AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
-		AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB6D1B1722C633EA00E9E221 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		AB6D1B1922C633EA00E9E221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
 		AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeViewController.swift; sourceTree = "<group>"; };
@@ -574,7 +558,6 @@
 		AB8DA7402338F38000407FCB /* CleanyModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalViewController.swift; sourceTree = "<group>"; };
 		AB8DA7412338F38000407FCB /* CleanyModalTransitionDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyModalTransitionDelegates.swift; sourceTree = "<group>"; };
 		AB8DA7422338F38000407FCB /* CleanyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanyConfig.swift; sourceTree = "<group>"; };
-		AB8DAB8A2339B9AB00407FCB /* OneSignalNotificationServiceExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneSignalNotificationServiceExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		AB8DAB8E233A08DF00407FCB /* AppleLoginTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleLoginTypeViewController.xib; sourceTree = "<group>"; };
 		AB8DAB8F233A08DF00407FCB /* AppleLoginTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTypeViewController.swift; sourceTree = "<group>"; };
 		AB97EE8D2333246600127C37 /* StaticMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticMethods.h; sourceTree = "<group>"; };
@@ -754,14 +737,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB6D1B1222C633E900E9E221 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2AAA04DB06DFC0F128AF81A /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -903,7 +878,6 @@
 				AB74FB7822F7F33E00A00706 /* Localizable.strings */,
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
 				AB091D10229FCF8800723602 /* FunnyFM */,
-				AB6D1B1622C633EA00E9E221 /* OneSignalNotificationServiceExtension */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -915,7 +889,6 @@
 			children = (
 				AB25797921945E6F004C5F5D /* FunnyFm.app */,
 				AB091D0F229FCF8800723602 /* FunnyFM.appex */,
-				AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1235,18 +1208,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		AB6D1B1622C633EA00E9E221 /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXGroup;
-			children = (
-				AB57FE3222CDFBB800BABEF2 /* OneSignalNotificationServiceExtension.entitlements */,
-				AB4E145822C638770053BE00 /* OneSignalNotificationServiceExtensionRelease.entitlements */,
-				AB6D1B1722C633EA00E9E221 /* NotificationService.swift */,
-				AB6D1B1922C633EA00E9E221 /* Info.plist */,
-				AB8DAB8A2339B9AB00407FCB /* OneSignalNotificationServiceExtension-Bridging-Header.h */,
-			);
-			path = OneSignalNotificationServiceExtension;
-			sourceTree = "<group>";
-		};
 		AB872C56232BC4F600FF3757 /* BubbleTabbarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1559,30 +1520,11 @@
 			);
 			dependencies = (
 				AB091D18229FCF8800723602 /* PBXTargetDependency */,
-				AB6D1B1B22C633EA00E9E221 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
 			productReference = AB25797921945E6F004C5F5D /* FunnyFm.app */;
 			productType = "com.apple.product-type.application";
-		};
-		AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AB6D1B1F22C633EA00E9E221 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
-			buildPhases = (
-				144D6788558D6BCE54C11C4E /* [CP] Check Pods Manifest.lock */,
-				AB6D1B1122C633E900E9E221 /* Sources */,
-				AB6D1B1222C633E900E9E221 /* Frameworks */,
-				AB6D1B1322C633E900E9E221 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OneSignalNotificationServiceExtension;
-			productName = OneSignalNotificationServiceExtension;
-			productReference = AB6D1B1522C633E900E9E221 /* OneSignalNotificationServiceExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1615,15 +1557,6 @@
 							};
 						};
 					};
-					AB6D1B1422C633E900E9E221 = {
-						CreatedOnToolsVersion = 10.2.1;
-						LastSwiftMigration = 1100;
-						SystemCapabilities = {
-							com.apple.Push = {
-								enabled = 0;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = AB25797421945E6F004C5F5D /* Build configuration list for PBXProject "FunnyFm" */;
@@ -1645,7 +1578,6 @@
 			targets = (
 				AB25797821945E6F004C5F5D /* FunnyFm */,
 				AB091D0E229FCF8800723602 /* FunnyFM */,
-				AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1721,38 +1653,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB6D1B1322C633E900E9E221 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		144D6788558D6BCE54C11C4E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		16EF1320CCF93212ACE508BC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2055,14 +1958,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB6D1B1122C633E900E9E221 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AB6D1B1822C633EA00E9E221 /* NotificationService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2070,11 +1965,6 @@
 			isa = PBXTargetDependency;
 			target = AB091D0E229FCF8800723602 /* FunnyFM */;
 			targetProxy = AB091D17229FCF8800723602 /* PBXContainerItemProxy */;
-		};
-		AB6D1B1B22C633EA00E9E221 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AB6D1B1422C633E900E9E221 /* OneSignalNotificationServiceExtension */;
-			targetProxy = AB6D1B1A22C633EA00E9E221 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2216,7 +2106,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2231,7 +2121,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2241,7 +2131,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2256,7 +2146,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2390,7 +2280,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2487,8 +2377,6 @@
 					"-framework",
 					"\"OfficeUIFabric\"",
 					"-framework",
-					"\"OneSignal\"",
-					"-framework",
 					"\"PullToReach\"",
 					"-framework",
 					"\"QuartzCore\"",
@@ -2557,7 +2445,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2579,65 +2467,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FunnyFm/FunnyFm-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		AB6D1B1D22C633EA00E9E221 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.4.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		AB6D1B1E22C633EA00E9E221 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.4.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2667,15 +2496,6 @@
 			buildConfigurations = (
 				AB25798C21945E70004C5F5D /* Debug */,
 				AB25798D21945E70004C5F5D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AB6D1B1F22C633EA00E9E221 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB6D1B1D22C633EA00E9E221 /* Debug */,
-				AB6D1B1E22C633EA00E9E221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

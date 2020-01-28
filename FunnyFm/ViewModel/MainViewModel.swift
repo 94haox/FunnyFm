@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OneSignal
 
 
 @objc protocol MainViewModelDelegate: ViewModelDelegate {

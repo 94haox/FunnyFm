@@ -192,6 +192,9 @@ PODS:
   - GTMSessionFetcher/Full (1.3.0):
     - GTMSessionFetcher/Core (= 1.3.0)
   - Hero (1.5.0)
+  - JCore (2.1.4)
+  - JPush (3.2.6):
+    - JCore (< 3.0.0, >= 2.0.0)
   - JXSegmentedView (1.0.2)
   - KeychainAccess (4.1.0)
   - lottie-ios (3.1.1)
@@ -210,7 +213,6 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - OfficeUIFabric (0.2.11)
-  - OneSignal (2.12.2)
   - pop (1.0.12)
   - PullToReach (0.1.2)
   - Result (4.1.0)
@@ -251,6 +253,7 @@ DEPENDENCIES:
   - FirebaseUI/Google
   - GDTMobSDK (~> 4.10.5)
   - Hero
+  - JPush
   - JXSegmentedView
   - KeychainAccess
   - lottie-ios (= 3.1.1)
@@ -258,7 +261,6 @@ DEPENDENCIES:
   - Nuke (~> 8.0.1)
   - NVActivityIndicatorView
   - OfficeUIFabric (= 0.2.11)
-  - OneSignal (< 3.0, >= 2.6.2)
   - pop (~> 1.0)
   - PullToReach
   - RxCocoa
@@ -303,6 +305,8 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - Hero
+    - JCore
+    - JPush
     - JXSegmentedView
     - KeychainAccess
     - lottie-ios
@@ -311,7 +315,6 @@ SPEC REPOS:
     - Nuke
     - NVActivityIndicatorView
     - OfficeUIFabric
-    - OneSignal
     - pop
     - PullToReach
     - Result
@@ -359,6 +362,8 @@ SPEC CHECKSUMS:
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  JCore: d345c049141877eb61c33011455fdb5fcab1673f
+  JPush: 41dd48a69bd8c08abc692dc7f2b23c0fb281471f
   JXSegmentedView: 2988fe07060a9b91b0112eabd6dee0df0cbca8b3
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
@@ -367,7 +372,6 @@ SPEC CHECKSUMS:
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   OfficeUIFabric: 63cc5002ab0aa509bd7941ba2542618856150e7c
-  OneSignal: b2c1511c6b5db2d3b0ce1859f574dcf190dde5f3
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PullToReach: 0e747e10403d2827277f8728151ad7998d4576eb
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -386,6 +390,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 6151e4abec0372393194370c22dc484d62f2145d
+PODFILE CHECKSUM: 12494a09b15dc967e835cd7a0ec47a2d961b8444
 
 COCOAPODS: 1.8.3
