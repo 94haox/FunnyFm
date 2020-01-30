@@ -19,21 +19,21 @@ import Bugly
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
 	
-//	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
-//					   title: "New", controller: MainViewController()),
-//	AnimatedTabBarItem(icon: UIImage(named: "rss_tab") ?? UIImage(),
-//	title: "Discover", controller: DiscoveryViewController()),
-//	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
-//					   title: "Playlist", controller: PlayListViewController()),
-//	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),
-//					   title: "User", controller: UserCenterViewController())]
-	
 	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
 					   title: "New", controller: MainViewController()),
+	AnimatedTabBarItem(icon: UIImage(named: "rss_tab") ?? UIImage(),
+	title: "Discover", controller: DiscoveryViewController()),
 	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
 					   title: "Playlist", controller: PlayListViewController()),
 	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),
 					   title: "User", controller: UserCenterViewController())]
+	
+//	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
+//					   title: "New", controller: MainViewController()),
+//	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
+//					   title: "Playlist", controller: PlayListViewController()),
+//	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),
+//					   title: "User", controller: UserCenterViewController())]
 
 	
     var window: UIWindow?

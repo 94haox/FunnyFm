@@ -13,12 +13,14 @@ import Moya
 
 let kGetAllMessage = "v1/message/allMessages"
 let kGetVersion = "v1/general/getVersion"
+let kGetRecommends = "v1/discover/recommends"
 
 let generalProvider = MoyaProvider<GeneralAPI>()
 
 public enum GeneralAPI {
     case getAllMessage
 	case getVersion
+	case getRecommends
 }
 
 extension GeneralAPI : TargetType {
@@ -26,12 +28,6 @@ extension GeneralAPI : TargetType {
     //请求接口时对应的请求参数
     public var task: Task {
         let params:[String : Any] = [:]
-        switch self {
-		case .getAllMessage:
-            break;
-		case .getVersion:
-			break;
-        }
         return .requestParameters(parameters: params, encoding: JSONEncoding.default)
     }
     
@@ -46,6 +42,8 @@ extension GeneralAPI : TargetType {
             return kGetAllMessage
 		case .getVersion:
 			return kGetVersion
+		case .getRecommends:
+			return kGetRecommends
         }
         
     }
@@ -53,6 +51,7 @@ extension GeneralAPI : TargetType {
     public var method: Moya.Method {
         switch self {
         case .getAllMessage,
+			 .getRecommends,
 			 .getVersion:
             return .post
         }

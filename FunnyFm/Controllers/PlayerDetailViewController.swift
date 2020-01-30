@@ -460,14 +460,16 @@ extension PlayerDetailViewController {
         self.titleLB.font = p_bfont(fontsize6)
         self.view.addSubview(self.titleLB)
         
-		self.subTitle = UILabel.init(text: self.episode.author)
-		self.subTitle.isUserInteractionEnabled = true
-		let author = NSMutableAttributedString.init(string: self.episode.author)
-		author.addAttributes([NSAttributedString.Key.foregroundColor : CommonColor.content.color, NSAttributedString.Key.font : pfont(fontsize2)], range: NSRange.init(location: 0, length: self.episode.author.length()))
-		self.subTitle.attributedText = author + NSMutableAttributedString.init(string: " ") + NSMutableAttributedString.init(attributedString: EFIconFont.antDesign.rightCircle.attributedString(size: fontsize2, foregroundColor: CommonColor.content.color, backgroundColor: nil)!)
-        self.view.addSubview(self.subTitle)
-		self.subTitle.addGestureRecognizer(self.tapGes)
-		
+		let podcast = DatabaseManager.getPodcast(feedUrl: self.episode.podcastUrl)
+		if podcast.isSome {
+			self.subTitle = UILabel.init(text: self.episode.author)
+			self.subTitle.isUserInteractionEnabled = true
+			let author = NSMutableAttributedString.init(string: podcast!.trackName)
+			author.addAttributes([NSAttributedString.Key.foregroundColor : CommonColor.content.color, NSAttributedString.Key.font : pfont(fontsize2)], range: NSRange.init(location: 0, length: podcast!.trackName.length()))
+			self.subTitle.attributedText = author + NSMutableAttributedString.init(string: " ") + NSMutableAttributedString.init(attributedString: EFIconFont.antDesign.rightCircle.attributedString(size: fontsize2, foregroundColor: CommonColor.content.color, backgroundColor: nil)!)
+			self.view.addSubview(self.subTitle)
+			self.subTitle.addGestureRecognizer(self.tapGes)
+		}
         
         self.infoScrollView = UIScrollView.init(frame: CGRect.zero)
         self.infoScrollView.showsHorizontalScrollIndicator = false;

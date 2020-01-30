@@ -13,7 +13,12 @@ class DiscoveryViewController: BaseViewController {
 
 	let rssAddView: RssAddView = RssAddView.init(frame: CGRect.zero)
 	let vm: PodDetailViewModel = PodDetailViewModel()
+	var collectionView: UICollectionView!
 	var searchBtn : UIButton = UIButton.init(type: .custom)
+	
+	required init?(coder: NSCoder) {
+		fatalError("")
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +26,7 @@ class DiscoveryViewController: BaseViewController {
 		self.setupUI()
 		self.dw_addConstraints()
 		self.vm.delegate = self
+		self.vm.getAllRecommends()
 		self.rssAddView.searchBlock = { [weak self] rss in
 			MSHUD.shared.show(from: self!)
 			self!.vm.getPrev(feedUrl: rss)
@@ -53,6 +59,7 @@ extension DiscoveryViewController: PodDetailViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataSuccess() {
+		
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
@@ -65,6 +72,7 @@ extension DiscoveryViewController {
 	func dw_addConstraints(){
 		self.view.addSubview(self.rssAddView)
 		self.view.addSubview(self.searchBtn)
+		
 		
 		self.searchBtn.snp.makeConstraints { (make) in
 		   make.size.equalTo(CGSize.init(width: 40, height: 40))
@@ -84,6 +92,9 @@ extension DiscoveryViewController {
 		
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
+		
+		let layout = UICollectionViewFlowLayout.init()
+		self.collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
 		
 	}
 	

@@ -203,9 +203,9 @@ extension DatabaseManager {
 		
 	}
 	
-	static public func deleteItunesPod(podId: String){
+	static public func deleteItunesPod(feedUrl: String){
 		do{
-			try self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.podId == podId)
+			try self.database.delete(fromTable: exsitPodTable, where: iTunsPod.Properties.feedUrl == feedUrl)
 		}
 		catch{
 			print(error)

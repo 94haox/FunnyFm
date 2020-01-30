@@ -21,6 +21,8 @@
 		AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C64C4230B8E1800C4DF30 /* PathKit.swift */; };
 		AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */; };
 		AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14632021D385FC00D41B83 /* AnimationButton.swift */; };
+		AB14DE9123E3286700E0FA38 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9023E3286700E0FA38 /* Collection.swift */; };
+		AB14DE9323E32C3200E0FA38 /* DiscoverHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9223E32C3200E0FA38 /* DiscoverHeader.swift */; };
 		AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */; };
 		AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */; };
 		AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */; };
@@ -357,6 +359,8 @@
 		AB0C64C4230B8E1800C4DF30 /* PathKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathKit.swift; sourceTree = "<group>"; };
 		AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLoadButton.swift; sourceTree = "<group>"; };
 		AB14632021D385FC00D41B83 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
+		AB14DE9023E3286700E0FA38 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		AB14DE9223E32C3200E0FA38 /* DiscoverHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHeader.swift; sourceTree = "<group>"; };
 		AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePodCollectionViewCell.xib; sourceTree = "<group>"; };
 		AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
@@ -851,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				AB1E6D9821B9344B00B85135 /* HomePodListHeader.swift */,
+				AB14DE9223E32C3200E0FA38 /* DiscoverHeader.swift */,
 			);
 			path = CollectionReusebleView;
 			sourceTree = "<group>";
@@ -1054,6 +1059,7 @@
 				AB4578C7233B5112001DF1D1 /* PlayItem.swift */,
 				AB441A332350216500411359 /* Message.swift */,
 				ABDB9DE72394F36B00539049 /* Note.swift */,
+				AB14DE9023E3286700E0FA38 /* Collection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1860,6 +1866,7 @@
 				AB39B55223B257120062BBE5 /* DiscoveryViewController.swift in Sources */,
 				AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */,
 				AB1E6D7921B9252500B85135 /* UIBarButtonItemExtensions.swift in Sources */,
+				AB14DE9323E32C3200E0FA38 /* DiscoverHeader.swift in Sources */,
 				ABE7660A21D7196700470D8F /* CalendarExtensions.swift in Sources */,
 				ABE765F121D6414C00470D8F /* PopManager.swift in Sources */,
 				AB7E1887238AB0C200D1C8AD /* SpeechViewController.swift in Sources */,
@@ -1869,6 +1876,7 @@
 				ABE7ACB021C20E3300FC6B8E /* SettingViewController.swift in Sources */,
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
+				AB14DE9123E3286700E0FA38 /* Collection.swift in Sources */,
 				AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */,
 				AB287BD8234F496B00ED5448 /* VIPViewController.swift in Sources */,
 				ABDB9DE62394F04A00539049 /* NoteAPI.swift in Sources */,

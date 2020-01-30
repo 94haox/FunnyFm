@@ -183,7 +183,7 @@ extension FeedManager {
 extension FeedManager {
 	
 	func deleteAllEpisode(podcastUrl: String, podId: String) {
-		DatabaseManager.deleteItunesPod(podId: podId)
+		DatabaseManager.deleteItunesPod(feedUrl: podcastUrl)
 		DatabaseManager.deleteEpisode(podcastUrl: podcastUrl)
 		PushManager.shared.removeTags(tags: [podId])
 		DispatchQueue.main.async {

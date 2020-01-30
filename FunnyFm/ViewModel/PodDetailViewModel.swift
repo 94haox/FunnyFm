@@ -22,6 +22,8 @@ class PodDetailViewModel: NSObject {
 	
 	var pod: iTunsPod?
 	
+	var collectionList: [Collection] = [Collection]()
+	
 	override init() {
 		super.init()
 	}
@@ -89,6 +91,17 @@ class PodDetailViewModel: NSObject {
 	func cancelSubscribe(feedUrl: String) {
 		DatabaseManager.deleteItunsPod(feedUrl: feedUrl)
 		self.delegate?.podDetailCancelSubscribeSuccess()
+	}
+	
+	func getAllRecommends(){
+		FmHttp<Collection>().requestForArray(GeneralAPI.getRecommends, { (collectionList) in
+			if collectionList.isSome{
+				self.collectionList = collectionList!
+			}
+			self.delegate?.viewModelDidGetDataSuccess()
+		}) { (error) in
+			self.delegate?.viewModelDidGetDataFailture(msg: error)
+		}
 	}
 	
 }
