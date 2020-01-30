@@ -49,6 +49,7 @@ class DownloadListViewController: BaseViewController {
 		self.deleteBtn.isHidden = self.episodeList.count < 2
 		self.episodeList = DatabaseManager.allDownload()
 		self.tableview.reloadData()
+		self.sectionSegment.isHidden = self.episodeList.count < 1
 	}
 	
 	@objc func changeSection(){

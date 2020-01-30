@@ -35,7 +35,7 @@ class PodDetailViewController: BaseViewController {
 	
 	deinit {
 		if self.infoView.subBtn.isSelected {
-			FeedManager.shared.deleteAllEpisode(collectionId: self.pod.collectionId, podId: self.pod.podId)
+			FeedManager.shared.deleteAllEpisode(podcastUrl: self.pod.feedUrl, podId: self.pod.podId)
 		}
 	}
 	

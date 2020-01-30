@@ -146,6 +146,7 @@
 		AB62DF22239FB0450004BF6B /* SearchTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62DF20239FB0450004BF6B /* SearchTopicCollectionViewCell.swift */; };
 		AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D7662316680200F76F8E /* PlayListViewController.swift */; };
 		AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */; };
+		AB67FC3523E07ED2003D3380 /* ProfileCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67FC3423E07ED2003D3380 /* ProfileCompleteViewController.swift */; };
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */; };
 		AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */; };
@@ -504,6 +505,7 @@
 		AB62DF23239FD3210004BF6B /* FunnyFM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFM.entitlements; sourceTree = "<group>"; };
 		AB63D7662316680200F76F8E /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		AB63D9822316A98100F76F8E /* EpisodeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoViewController.swift; sourceTree = "<group>"; };
+		AB67FC3423E07ED2003D3380 /* ProfileCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCompleteViewController.swift; sourceTree = "<group>"; };
 		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTableViewCell.xib; sourceTree = "<group>"; };
 		AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
@@ -1034,6 +1036,7 @@
 				AB9817F42397FDDD003E008E /* NoteDetailViewController.swift */,
 				AB9817F52397FDDE003E008E /* NoteDetailViewController.xib */,
 				AB7822F323D9B3C2006BD595 /* FeedbackViewController.swift */,
+				AB67FC3423E07ED2003D3380 /* ProfileCompleteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1940,6 +1943,7 @@
 				AB441A362350222A00411359 /* GeneralViewModel.swift in Sources */,
 				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
+				AB67FC3523E07ED2003D3380 /* ProfileCompleteViewController.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
 				AB5828B3233C92080072F03B /* YBTSQueue.mm in Sources */,
@@ -2231,7 +2235,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2256,7 +2260,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2608,7 +2612,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2637,7 +2641,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

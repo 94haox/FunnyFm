@@ -50,7 +50,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     func setUpDataSource (){
 		self.settings.removeAll()
         if PrivacyManager.isOpenPusn() {
-            self.settings.append(["title":"接收通知".localized,"imageName":"notify","rightImage":"icon_correct"])
+		 self.settings.append(["title":"接收通知".localized,"imageName":"notify","rightImage":"icon_correct"])
         }else{
             self.settings.append(["title":"接收通知".localized,"imageName":"notify"])
         }
@@ -61,7 +61,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
 		self.others.append(["title":"将 FunnyFM 推荐给好友".localized,"imageName":"share"])
 		self.others.append(["title":"查看开发者其他的 App".localized,"imageName":"github"])
-		self.others.append(["title":"关于 FunnyFM".localized,"imageName":"about us"])
+		self.others.append(["title":"关于".localized,"imageName":"about us"])
 	}
     
     func toShare(){

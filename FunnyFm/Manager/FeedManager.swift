@@ -182,9 +182,9 @@ extension FeedManager {
 // MARK: - 增删改查
 extension FeedManager {
 	
-	func deleteAllEpisode(collectionId: String, podId: String) {
+	func deleteAllEpisode(podcastUrl: String, podId: String) {
 		DatabaseManager.deleteItunesPod(podId: podId)
-		DatabaseManager.deleteEpisode(collectionId: collectionId)
+		DatabaseManager.deleteEpisode(podcastUrl: podcastUrl)
 		PushManager.shared.removeTags(tags: [podId])
 		DispatchQueue.main.async {
 			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())

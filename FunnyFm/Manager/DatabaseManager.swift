@@ -303,6 +303,16 @@ extension DatabaseManager {
 			
 	}
 	
+	static public func deleteEpisode(podcastUrl: String) {
+		do{
+			try database.delete(fromTable: exsitEpisodeTable,where: Episode.Properties.podcastUrl == podcastUrl)
+		}
+		catch{
+			print(error)
+		}
+			
+	}
+	
 	/// 通过音频文件 url 删除单集
 	static public func deleteEpisode(trackUrl: String) {
 		do{
