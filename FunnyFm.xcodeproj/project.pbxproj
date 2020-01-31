@@ -21,8 +21,10 @@
 		AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C64C4230B8E1800C4DF30 /* PathKit.swift */; };
 		AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */; };
 		AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14632021D385FC00D41B83 /* AnimationButton.swift */; };
-		AB14DE9123E3286700E0FA38 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9023E3286700E0FA38 /* Collection.swift */; };
+		AB14DE9123E3286700E0FA38 /* PodcastCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9023E3286700E0FA38 /* PodcastCollection.swift */; };
 		AB14DE9323E32C3200E0FA38 /* DiscoverHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9223E32C3200E0FA38 /* DiscoverHeader.swift */; };
+		AB14DE9723E3E68300E0FA38 /* DiscoverPodcastViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9523E3E68300E0FA38 /* DiscoverPodcastViewCell.swift */; };
+		AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */; };
 		AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */; };
 		AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */; };
 		AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */; };
@@ -174,9 +176,6 @@
 		AB7E1889238AB22B00D1C8AD /* SupportLocalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7E1888238AB22A00D1C8AD /* SupportLocalListView.swift */; };
 		AB7E188B238ABCBC00D1C8AD /* SuportLocalList.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7E188A238ABCBC00D1C8AD /* SuportLocalList.plist */; };
 		AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C54232A993300FF3757 /* DownloadListViewController.swift */; };
-		AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */; };
-		AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */; };
-		AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */; };
 		AB8BD8D6236E7574006FEFF3 /* SPStorkPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BD8C2236E7574006FEFF3 /* SPStorkPresentingAnimationController.swift */; };
 		AB8BD8D7236E7574006FEFF3 /* SPStorkTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BD8C3236E7574006FEFF3 /* SPStorkTransitioningDelegate.swift */; };
 		AB8BD8D8236E7574006FEFF3 /* SPStorkPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BD8C4236E7574006FEFF3 /* SPStorkPresentationController.swift */; };
@@ -359,8 +358,10 @@
 		AB0C64C4230B8E1800C4DF30 /* PathKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathKit.swift; sourceTree = "<group>"; };
 		AB143DE3221B936A0065B036 /* AnimationLoadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLoadButton.swift; sourceTree = "<group>"; };
 		AB14632021D385FC00D41B83 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
-		AB14DE9023E3286700E0FA38 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		AB14DE9023E3286700E0FA38 /* PodcastCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCollection.swift; sourceTree = "<group>"; };
 		AB14DE9223E32C3200E0FA38 /* DiscoverHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHeader.swift; sourceTree = "<group>"; };
+		AB14DE9523E3E68300E0FA38 /* DiscoverPodcastViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPodcastViewCell.swift; sourceTree = "<group>"; };
+		AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListTableViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePodCollectionViewCell.xib; sourceTree = "<group>"; };
 		AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
@@ -555,9 +556,6 @@
 		AB7E1888238AB22A00D1C8AD /* SupportLocalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportLocalListView.swift; sourceTree = "<group>"; };
 		AB7E188A238ABCBC00D1C8AD /* SuportLocalList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SuportLocalList.plist; sourceTree = "<group>"; };
 		AB872C54232A993300FF3757 /* DownloadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
-		AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBarController.swift; sourceTree = "<group>"; };
-		AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
-		AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTabBarButton.swift; sourceTree = "<group>"; };
 		AB8BD8C2236E7574006FEFF3 /* SPStorkPresentingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStorkPresentingAnimationController.swift; sourceTree = "<group>"; };
 		AB8BD8C3236E7574006FEFF3 /* SPStorkTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStorkTransitioningDelegate.swift; sourceTree = "<group>"; };
 		AB8BD8C4236E7574006FEFF3 /* SPStorkPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStorkPresentationController.swift; sourceTree = "<group>"; };
@@ -1059,7 +1057,7 @@
 				AB4578C7233B5112001DF1D1 /* PlayItem.swift */,
 				AB441A332350216500411359 /* Message.swift */,
 				ABDB9DE72394F36B00539049 /* Note.swift */,
-				AB14DE9023E3286700E0FA38 /* Collection.swift */,
+				AB14DE9023E3286700E0FA38 /* PodcastCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1110,7 +1108,6 @@
 				AB8BD8C0236E7574006FEFF3 /* SPStorkController */,
 				AB5828A5233C92080072F03B /* YBTaskScheduler */,
 				AB8DA73B2338F37200407FCB /* CleanyModal */,
-				AB872C56232BC4F600FF3757 /* BubbleTabbarController */,
 				AB2A37272328ADDE0097DAF7 /* LoadingButton */,
 				AB0C64C4230B8E1800C4DF30 /* PathKit.swift */,
 				AB2D266421DF7BCD00BF3391 /* VisualActivityViewController.swift */,
@@ -1201,6 +1198,8 @@
 				AB9E426723951DB500232EE8 /* NoteCollectionViewCell.swift */,
 				AB62DF1F239FB0450004BF6B /* SearchTopicCollectionViewCell.xib */,
 				AB62DF20239FB0450004BF6B /* SearchTopicCollectionViewCell.swift */,
+				AB14DE9523E3E68300E0FA38 /* DiscoverPodcastViewCell.swift */,
+				AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1254,16 +1253,6 @@
 				AB8DAB8A2339B9AB00407FCB /* OneSignalNotificationServiceExtension-Bridging-Header.h */,
 			);
 			path = OneSignalNotificationServiceExtension;
-			sourceTree = "<group>";
-		};
-		AB872C56232BC4F600FF3757 /* BubbleTabbarController */ = {
-			isa = PBXGroup;
-			children = (
-				AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */,
-				AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */,
-				AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */,
-			);
-			path = BubbleTabbarController;
 			sourceTree = "<group>";
 		};
 		AB8BD8C0236E7574006FEFF3 /* SPStorkController */ = {
@@ -1849,7 +1838,6 @@
 				AB8BD8D8236E7574006FEFF3 /* SPStorkPresentationController.swift in Sources */,
 				AB8BD8E3236E7574006FEFF3 /* SPStorkIndicatorView.swift in Sources */,
 				ABE7ACBA21C21C1A00FC6B8E /* BaseTableViewCell.swift in Sources */,
-				AB872C5C232BC4F600FF3757 /* BubbleTabBar.swift in Sources */,
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
@@ -1876,7 +1864,7 @@
 				ABE7ACB021C20E3300FC6B8E /* SettingViewController.swift in Sources */,
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
-				AB14DE9123E3286700E0FA38 /* Collection.swift in Sources */,
+				AB14DE9123E3286700E0FA38 /* PodcastCollection.swift in Sources */,
 				AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */,
 				AB287BD8234F496B00ED5448 /* VIPViewController.swift in Sources */,
 				ABDB9DE62394F04A00539049 /* NoteAPI.swift in Sources */,
@@ -1885,7 +1873,6 @@
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
 				AB7E1885238AB0C200D1C8AD /* CropAudioManager.m in Sources */,
-				AB872C5E232BC4F600FF3757 /* CBTabBarButton.swift in Sources */,
 				AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
@@ -1945,6 +1932,7 @@
 				AB8DA7462338F38000407FCB /* CleanyAlertViewController.swift in Sources */,
 				AB39B55423BAEF710062BBE5 /* RssAddView.swift in Sources */,
 				AB9817F62397FDDE003E008E /* NoteDetailViewController.swift in Sources */,
+				AB14DE9723E3E68300E0FA38 /* DiscoverPodcastViewCell.swift in Sources */,
 				ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */,
 				AB8BD8DF236E7574006FEFF3 /* SPStorkHaptic.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
@@ -2000,7 +1988,6 @@
 				AB1E6D7A21B9252500B85135 /* UIStoryboardExtensions.swift in Sources */,
 				AB41AAE221952EAA00260851 /* Episode.swift in Sources */,
 				ABEE40DC21E3246E00FCB16F /* MJRefreshBackFooter.m in Sources */,
-				AB872C5B232BC4F600FF3757 /* BubbleTabBarController.swift in Sources */,
 				ABEE40D521E3246E00FCB16F /* MJRefreshAutoGifFooter.m in Sources */,
 				ABEE40D721E3246E00FCB16F /* MJRefreshNormalHeader.m in Sources */,
 				AB571D8D22B209E80021236C /* FeedManager.swift in Sources */,
@@ -2025,6 +2012,7 @@
 				ABDB9DE82394F36B00539049 /* Note.swift in Sources */,
 				ABEE40D821E3246E00FCB16F /* MJRefreshStateHeader.m in Sources */,
 				AB731740239E4944000E1588 /* VersionManager.swift in Sources */,
+				AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */,
 				AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */,
 				AB441A322350208700411359 /* GeneralAPI.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,

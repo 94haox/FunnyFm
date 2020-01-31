@@ -11,7 +11,6 @@ import AnimatedTabBar
 
 class BaseTabBarViewController: AnimatedTabBarController {
 
-	
     override func viewDidLoad() {
         super.viewDidLoad()
 		FMPlayerManager.shared.delegate = FMToolBar.shared

@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-struct Collection: Mapable {
+struct PodcastCollection: Mapable {
 	var collectionId: String
 	var collectionName: String
 	var collectionCover: String

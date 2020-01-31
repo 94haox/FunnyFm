@@ -98,6 +98,11 @@ extension MainViewController{
         self.vm.refresh()
     }
 	
+	@objc func toDiscovery(){
+		let discoverVC = DiscoveryViewController()
+		self.navigationController?.pushViewController(discoverVC)
+	}
+	
 	@objc func reloadData(){
 		self.tableview.isHidden = false
 		self.loadAnimationView.removeFromSuperview()
@@ -415,7 +420,7 @@ extension MainViewController {
 		addBtn.backgroundColor = CommonColor.mainRed.color
 		addBtn.cornerRadius = 15.0
 		addBtn.titleLabel?.font = p_bfont(14);
-		addBtn.addTarget(self, action: #selector(toSearch), for: .touchUpInside)
+		addBtn.addTarget(self, action: #selector(toDiscovery), for: .touchUpInside)
 		addBtn.addShadow(ofColor: CommonColor.mainPink.color, radius: 16, offset: CGSize.init(width: 0, height: 9), opacity: 0.6)
 		
 		self.emptyView = UIView.init()

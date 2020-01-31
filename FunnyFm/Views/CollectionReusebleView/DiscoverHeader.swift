@@ -12,14 +12,14 @@ class DiscoverHeader: UICollectionReusableView {
 	
 	let titleLB: UILabel = UILabel.init(text: "Category")
 			
-	let moreLB: UILabel = UILabel.init(text: "see more")
+	let moreLB: UILabel = UILabel.init(text: "")
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setupUI()
 	}
 	
-	func config(collection: Collection) {
+	func config(collection: PodcastCollection) {
 		self.titleLB.text = collection.collectionName
 	}
 	
@@ -33,8 +33,9 @@ extension DiscoverHeader {
 	
 	func setupUI(){
 		
-		titleLB.font = pfont(fontsize6)
+		titleLB.font = p_bfont(fontsize6)
 		moreLB.font = pfont(fontsize2)
+		moreLB.textColor = CommonColor.content.color
 		self.addSubview(titleLB)
 		self.addSubview(moreLB)
 		

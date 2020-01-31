@@ -22,7 +22,7 @@ class PodDetailViewModel: NSObject {
 	
 	var pod: iTunsPod?
 	
-	var collectionList: [Collection] = [Collection]()
+	var collectionList: [PodcastCollection] = [PodcastCollection]()
 	
 	override init() {
 		super.init()
@@ -94,7 +94,7 @@ class PodDetailViewModel: NSObject {
 	}
 	
 	func getAllRecommends(){
-		FmHttp<Collection>().requestForArray(GeneralAPI.getRecommends, { (collectionList) in
+		FmHttp<PodcastCollection>().requestForArray(GeneralAPI.getRecommends, { (collectionList) in
 			if collectionList.isSome{
 				self.collectionList = collectionList!
 			}
