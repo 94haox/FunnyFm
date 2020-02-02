@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import OneSignal
+
 
 @objc protocol PodDetailViewModelDelegate :ViewModelDelegate {
 	func podDetailParserSuccess()

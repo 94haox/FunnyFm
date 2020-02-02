@@ -8,7 +8,6 @@
 
 import UIKit
 import StoreKit
-import OneSignal
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OneSignal
 
 @objc protocol PodListViewModelDelegate: ViewModelDelegate {
 	func didSyncSuccess(index:Int)

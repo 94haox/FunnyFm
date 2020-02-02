@@ -8,8 +8,6 @@
 
 import UIKit
 import OfficeUIFabric
-import OneSignal
-//import GoogleMobileAds
 import Firebase
 import FirebaseUI
 import AnimatedTabBar
@@ -41,16 +39,17 @@ import Bugly
     var options: [UIApplication.LaunchOptionsKey: Any]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		self.window = UIWindow.init()
+        self.options = launchOptions
 		FirebaseApp.configure()
 		Bugly.start(withAppId: "fe63efca9b")
 		self.dw_addNotifies()
-		self.window = UIWindow.init()
-        self.options = launchOptions
         configureNavigationTabBar()
 		configureTextfield()
         DatabaseManager.setupDefaultDatabase()
 		GDTSDKConfig.setSdkSrc("14")
-		PushManager().configurePushSDK(launchOptions: launchOptions)
+//		PushManager().configurePushSDK(launchOptions: launchOptions)
+		PushManager().configureJpushSDK(launchOptions: launchOptions)
 		VersionManager.setupSiren()
 		
         UIApplication.shared.applicationIconBadgeNumber = 0
@@ -215,6 +214,16 @@ extension AppDelegate : AnimatedTabBarDelegate {
     func tabBar(_ tabBar: AnimatedTabBar, itemFor index: Int) -> AnimatedTabBarItem {
         return items[index]
     }
+}
+
+extension AppDelegate {
+	
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		JPUSHService.registerDeviceToken(deviceToken)
+	}
+	
+	
+	
 }
 
 

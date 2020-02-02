@@ -33,7 +33,7 @@ def lib
     pod 'Moya'
     pod 'WechatOpenSDK'
 		pod 'FeedKit', '~> 8.0'
-		pod 'OneSignal', '>= 2.6.2', '< 3.0'
+		pod 'JPush'
 		pod 'FirebaseUI/Auth'
 		pod 'FirebaseUI/Google'
 		pod 'WhatsNewKit'
@@ -66,8 +66,4 @@ target "FunnyFm" do
 		performance
     layout
     lib
-end
-
-target 'OneSignalNotificationServiceExtension' do
-	pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end
