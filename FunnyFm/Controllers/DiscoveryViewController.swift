@@ -15,6 +15,7 @@ class DiscoveryViewController: BaseViewController {
 	let vm: PodDetailViewModel = PodDetailViewModel()
 	var tableview: UITableView = UITableView.init(frame: CGRect.zero, style: .grouped)
 	var searchBtn : UIButton = UIButton.init(type: .custom)
+	let loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +23,18 @@ class DiscoveryViewController: BaseViewController {
 		self.setupUI()
 		self.dw_addConstraints()
 		self.vm.delegate = self
-		self.vm.getAllRecommends()
 		self.rssAddView.searchBlock = { [weak self] rss in
 			MSHUD.shared.show(from: self!)
 			self!.vm.getPrev(feedUrl: rss)
 		}
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		if self.vm.collectionList.count < 1 {
+			self.vm.getAllRecommends()
+		}
+	}
 
 }
 
@@ -55,6 +62,7 @@ extension DiscoveryViewController: PodDetailViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataSuccess() {
+		self.loadingView.removeFromSuperview()
 		self.tableview.reloadData()
 	}
 	
@@ -115,6 +123,7 @@ extension DiscoveryViewController {
 		self.view.addSubview(self.rssAddView)
 		self.view.addSubview(self.searchBtn)
 		self.view.addSubview(self.tableview)
+		self.view.addSubview(self.loadingView)
 		
 		
 		self.searchBtn.snp.makeConstraints { (make) in
@@ -134,6 +143,10 @@ extension DiscoveryViewController {
 			make.left.width.bottom.equalToSuperview()
 			make.top.equalTo(self.rssAddView.snp.bottom).offset(16.auto())
 		}
+		
+		self.loadingView.snp.makeConstraints { (make) in
+			make.center.equalTo(self.tableview)
+		}
 	}
 	
 	func setupUI(){
@@ -150,6 +163,8 @@ extension DiscoveryViewController {
 		self.tableview.tableFooterView = UIView.init()
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
 		self.tableview.showsVerticalScrollIndicator = false
+		
+		self.loadingView.startAnimating()
 	}
 	
 }
