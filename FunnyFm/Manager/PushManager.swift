@@ -9,19 +9,10 @@
 import UIKit
 
 
-
 class PushManager: NSObject {
 	
 	static let shared = PushManager.init()
-	
-	func configureJpushSDK(launchOptions: [UIApplication.LaunchOptionsKey: Any]?){
-		let entity = JPUSHRegisterEntity.init()
-		entity.types = Int(JPAuthorizationOptions.alert.rawValue | JPAuthorizationOptions.badge.rawValue | JPAuthorizationOptions.sound.rawValue | JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
-		JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
-		JPUSHService.setup(withOption: launchOptions, appKey: "96982e6dbcb84da30216bdb1", channel: "app store", apsForProduction: true)
-		print(JPUSHService.registrationID())
-	}
-	
+		
 	func removeAllTages(){
 		JPUSHService.cleanTags({ (code, tags, seq) in
 		}, seq: 1)
@@ -38,22 +29,24 @@ class PushManager: NSObject {
 		}, seq: 1)
 	}
 	
-	
-	
+	func handlerNotification(userInfo: [AnyHashable : Any]){
+		let type = userInfo["type"] as? String
+		guard type.isNone else {
+			return
+		}
+		
+		if type! == "podcast" {
+			NotificationCenter.default.post(name: Notification.podcastUpdateNewEpisode, object: nil, userInfo: userInfo)
+		}
+		
+		if type! == "appUpdate" {
+			NotificationCenter.default.post(name: Notification.appHasNewVersionReleased, object: nil, userInfo: nil)
+		}
+		
+		if type! == "h5" {
+			NotificationCenter.default.post(name: Notification.appWillOpenH5, object: nil, userInfo: userInfo)
+		}
+		
+	}
 }
 
-extension PushManager : JPUSHRegisterDelegate {
-	func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
-		
-	}
-	
-	func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
-		
-	}
-	
-	func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification!) {
-		
-	}
-	
-	
-}

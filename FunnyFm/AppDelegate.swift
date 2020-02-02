@@ -26,12 +26,6 @@ import Bugly
 	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),
 					   title: "User", controller: UserCenterViewController())]
 	
-//	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
-//					   title: "New", controller: MainViewController()),
-//	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
-//					   title: "Playlist", controller: PlayListViewController()),
-//	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),
-//					   title: "User", controller: UserCenterViewController())]
 
 	
     var window: UIWindow?
@@ -39,25 +33,33 @@ import Bugly
     var options: [UIApplication.LaunchOptionsKey: Any]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		UIApplication.shared.applicationIconBadgeNumber = 0
 		self.window = UIWindow.init()
         self.options = launchOptions
+		DatabaseManager.setupDefaultDatabase()
+	
 		FirebaseApp.configure()
 		Bugly.start(withAppId: "fe63efca9b")
 		self.dw_addNotifies()
         configureNavigationTabBar()
 		configureTextfield()
-        DatabaseManager.setupDefaultDatabase()
 		GDTSDKConfig.setSdkSrc("14")
-//		PushManager().configurePushSDK(launchOptions: launchOptions)
-		PushManager().configureJpushSDK(launchOptions: launchOptions)
 		VersionManager.setupSiren()
+		self.setupJpush()
 		
-        UIApplication.shared.applicationIconBadgeNumber = 0
-
-//		var navi = UINavigationController.init(rootViewController: MainViewController.init())
-//		navi.navigationBar.isHidden = true
+		self.window?.rootViewController = self.configRootVC()
+		self.window?.makeKeyAndVisible()
+        return true
+    }
+	
+    func applicationWillTerminate(_ application: UIApplication) {
+        NotificationCenter.default.removeObserver(self)
+		FMToolBar.shared.toobarPause()
+    }
+	
+	func configRootVC() -> UINavigationController{
 		let controller = BaseTabBarViewController()
-        controller.delegate = self
+		controller.delegate = self
 		AnimatedTabBarAppearance.shared.animationDuration = 0.5
 		AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
 		AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
@@ -68,17 +70,11 @@ import Bugly
 			navi = UINavigationController.init(rootViewController: WelcomeViewController.init())
 			UserDefaults.standard.set(true, forKey: "isFirst")
 		}
-		self.window?.rootViewController = navi
-		self.window?.makeKeyAndVisible()
-        return true
-    }
-	
-    func applicationWillTerminate(_ application: UIApplication) {
-        NotificationCenter.default.removeObserver(self)
-		FMToolBar.shared.toobarPause()
-    }
+		return navi
+	}
 	
 }
+
 
 // MARK: - Notifications
 extension AppDelegate {
@@ -126,8 +122,8 @@ extension AppDelegate {
 	
 	@objc func episodeUpdate(noti: Notification){
 		if noti.userInfo.isSome {
-			let podId = noti.userInfo!["podId"] as! String
-			let pod = DatabaseManager.getPodcast(podId: podId)
+			let feedurl = noti.userInfo!["feedurl"] as! String
+			let pod = DatabaseManager.getPodcast(feedUrl: feedurl)
 			if pod.isNone {
 				return
 			}
@@ -216,15 +212,56 @@ extension AppDelegate : AnimatedTabBarDelegate {
     }
 }
 
-extension AppDelegate {
+
+extension AppDelegate: JPUSHRegisterDelegate {
+	
+	func setupJpush(){
+		let entity = JPUSHRegisterEntity.init()
+		entity.types = Int(JPAuthorizationOptions.alert.rawValue | JPAuthorizationOptions.badge.rawValue | JPAuthorizationOptions.sound.rawValue | JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
+		JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
+		JPUSHService.setup(withOption: self.options, appKey: "96982e6dbcb84da30216bdb1", channel: "app store", apsForProduction: false)
+		print(JPUSHService.registrationID())
+	}
 	
 	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 		JPUSHService.registerDeviceToken(deviceToken)
 	}
 	
+	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+		
+	}
+	
+	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		JPUSHService.handleRemoteNotification(userInfo)
+		completionHandler(UIBackgroundFetchResult.newData)
+	}
+
+	func jpushNotificationAuthorization(_ status: JPAuthorizationStatus, withInfo info: [AnyHashable : Any]!) {
+		
+	}
+
+	func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
+		completionHandler(Int(UNNotificationPresentationOptions.badge.rawValue | UNNotificationPresentationOptions.sound.rawValue | UNNotificationPresentationOptions.alert.rawValue));
+	}
+	
+	func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
+		let userinfo = response.notification.request.content.userInfo
+		if let trigger = response.notification.request.trigger {
+			if trigger.isKind(of: UNPushNotificationTrigger.self) {
+				JPUSHService.handleRemoteNotification(userinfo)
+				PushManager.shared.handlerNotification(userInfo: userinfo)
+			}
+		}
+		completionHandler()
+	}
+	
+	func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification!) {
+		
+	}
 	
 	
 }
+
 
 
 

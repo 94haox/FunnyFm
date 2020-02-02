@@ -25,6 +25,7 @@
 		AB14DE9323E32C3200E0FA38 /* DiscoverHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9223E32C3200E0FA38 /* DiscoverHeader.swift */; };
 		AB14DE9723E3E68300E0FA38 /* DiscoverPodcastViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9523E3E68300E0FA38 /* DiscoverPodcastViewCell.swift */; };
 		AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */; };
+		AB14E02B23E7202200E0FA38 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = AB14E02A23E7202100E0FA38 /* sound.caf */; };
 		AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */; };
 		AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */; };
 		AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */; };
@@ -351,6 +352,7 @@
 		AB14DE9223E32C3200E0FA38 /* DiscoverHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHeader.swift; sourceTree = "<group>"; };
 		AB14DE9523E3E68300E0FA38 /* DiscoverPodcastViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPodcastViewCell.swift; sourceTree = "<group>"; };
 		AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListTableViewCell.swift; sourceTree = "<group>"; };
+		AB14E02A23E7202100E0FA38 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePodCollectionViewCell.xib; sourceTree = "<group>"; };
 		AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
@@ -917,6 +919,7 @@
 				ABB57AAF22FD07F8000593F2 /* Source */,
 				AB1E6D4A21B9243000B85135 /* Extension */,
 				AB25798321945E70004C5F5D /* Assets.xcassets */,
+				AB14E02A23E7202100E0FA38 /* sound.caf */,
 				AB4E145B22C63F8F0053BE00 /* sound.wav */,
 				AB25798521945E70004C5F5D /* LaunchScreen.storyboard */,
 				AB25798821945E70004C5F5D /* Info.plist */,
@@ -1214,16 +1217,6 @@
 				AB09DE1A2340AD5F002A9384 /* BaseTabBarViewController.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		AB872C56232BC4F600FF3757 /* BubbleTabbarController */ = {
-			isa = PBXGroup;
-			children = (
-				AB872C57232BC4F600FF3757 /* BubbleTabBarController.swift */,
-				AB872C58232BC4F600FF3757 /* BubbleTabBar.swift */,
-				AB872C5A232BC4F600FF3757 /* CBTabBarButton.swift */,
-			);
-			path = BubbleTabbarController;
 			sourceTree = "<group>";
 		};
 		AB8BD8C0236E7574006FEFF3 /* SPStorkController */ = {
@@ -1637,6 +1630,7 @@
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
+				AB14E02B23E7202200E0FA38 /* sound.caf in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				AB2A37252328A7C10097DAF7 /* CloudSyncViewController.xib in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
