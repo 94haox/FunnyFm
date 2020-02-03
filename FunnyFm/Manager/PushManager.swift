@@ -15,17 +15,20 @@ class PushManager: NSObject {
 		
 	func removeAllTages(){
 		JPUSHService.cleanTags({ (code, tags, seq) in
+			
 		}, seq: 1)
 	}
 	
 	func removeTags(tags: [String]){
 		let tagset = Set.init(tags)
 		JPUSHService.deleteTags(tagset, completion: { (code, tags, seq) in
+			
 		}, seq: 1)
 	}
 	
 	func addTag(taglist: [String]) {
 		JPUSHService.addTags(Set.init(taglist), completion: { (code, tags, seq) in
+			
 		}, seq: 1)
 	}
 	

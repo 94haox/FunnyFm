@@ -45,7 +45,7 @@ extension FeedManager {
 				if let list = cloudPodlist {
 					var taglist = [String]()
 					list.forEach({ (pod) in
-						if taglist.count < 9 {
+						if pod.podId.length() > 0 {
 							taglist.append(pod.podId)
 						}
 						DatabaseManager.addItunsPod(pod: pod)
