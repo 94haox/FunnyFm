@@ -26,6 +26,7 @@
 		AB14DE9723E3E68300E0FA38 /* DiscoverPodcastViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9523E3E68300E0FA38 /* DiscoverPodcastViewCell.swift */; };
 		AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */; };
 		AB14E02B23E7202200E0FA38 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = AB14E02A23E7202100E0FA38 /* sound.caf */; };
+		AB14E02E23E7ADAF00E0FA38 /* VICahcheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB14E02D23E7ADAF00E0FA38 /* VICahcheHelper.m */; };
 		AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */; };
 		AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */; };
 		AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */; };
@@ -353,6 +354,8 @@
 		AB14DE9523E3E68300E0FA38 /* DiscoverPodcastViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPodcastViewCell.swift; sourceTree = "<group>"; };
 		AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListTableViewCell.swift; sourceTree = "<group>"; };
 		AB14E02A23E7202100E0FA38 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
+		AB14E02C23E7ADAF00E0FA38 /* VICahcheHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VICahcheHelper.h; sourceTree = "<group>"; };
+		AB14E02D23E7ADAF00E0FA38 /* VICahcheHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VICahcheHelper.m; sourceTree = "<group>"; };
 		AB1E6D4621B923BD00B85135 /* HomePodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePodCollectionViewCell.xib; sourceTree = "<group>"; };
 		AB1E6D4E21B9252500B85135 /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
@@ -851,6 +854,8 @@
 				AB97EE8E2333246600127C37 /* StaticMethods.m */,
 				AB08F097233DEE0000B93D31 /* UIButton+SomeMethods.h */,
 				AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */,
+				AB14E02C23E7ADAF00E0FA38 /* VICahcheHelper.h */,
+				AB14E02D23E7ADAF00E0FA38 /* VICahcheHelper.m */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -1818,6 +1823,7 @@
 				AB1E6D7F21B9252500B85135 /* UISliderExtensions.swift in Sources */,
 				ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */,
 				AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */,
+				AB14E02E23E7ADAF00E0FA38 /* VICahcheHelper.m in Sources */,
 				AB9E426523951BD500232EE8 /* NoteListViewController.swift in Sources */,
 				ABEE40DA21E3246E00FCB16F /* MJRefreshFooter.m in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
@@ -2110,7 +2116,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2135,7 +2141,7 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2284,7 +2290,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2449,7 +2455,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

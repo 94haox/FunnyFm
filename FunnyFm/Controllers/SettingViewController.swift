@@ -25,6 +25,8 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         self.setupUI()
         self.view.backgroundColor = .white
         self.dw_addsubviews()
+		
+		let size = VICahcheHelper.init().getAllCacheSize()/1024
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +45,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     
     lazy var datasource : Array = {return []}()
 	lazy var settings : Array = {return []}()
+	lazy var functions : Array = {return []}()
 	lazy var feedbacks : Array = {return []}()
     lazy var others : Array = {return []}()
     
@@ -56,6 +59,12 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func setUpImmutableData(){
+		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
+		if cache != 0 {
+			self.functions.append(["title":"清除缓存","imageName":"cache","rightText":"\(cache)M"])
+		}else{
+			self.functions.append(["title":"清除缓存","imageName":"cache"])
+		}
 		self.feedbacks.append(["title":"Feedback","imageName":"github"])
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
 		self.others.append(["title":"将 FunnyFM 推荐给好友".localized,"imageName":"share"])
@@ -78,6 +87,18 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     func toGrade() {
         SKStoreReviewController.requestReview()
     }
+	
+	func cleanAllCache(){
+		VICahcheHelper.init().cleanAllCache()
+		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
+		if cache != 0 {
+			self.functions[0] = ["title":"清除缓存","imageName":"cache","rightText":"\(cache)M"]
+		}else{
+			self.functions[0] = ["title":"清除缓存","imageName":"cache"]
+		}
+		self.tableview.reloadData()
+		SwiftNotice.showText("缓存清除成功🎉")
+	}
 	
 	func toAboutUs(){
 		let url = URL(string: "https://live.funnyfm.top/#/")
@@ -119,19 +140,27 @@ extension SettingViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 		if indexPath.section == 0{
+			self.cleanAllCache()
+		}
+		
+		if indexPath.section == 1{
 //			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
             UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
 			return
 		}
         
-        if indexPath.section == 1{
+        if indexPath.section == 2{
             if indexPath.row == 0 {
 				let feedbackVC = FeedbackViewController.init()
 				self.navigationController?.pushViewController(feedbackVC)
             }
+			
+			if indexPath.row == 1 {
+				self.cleanAllCache()
+			}
         }
         
-        if indexPath.section == 2{
+        if indexPath.section == 3{
             if indexPath.row == 0 {
                 self.toGrade()
             }
@@ -159,17 +188,22 @@ extension SettingViewController {
 extension SettingViewController {
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 3
+		return 4
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
+			return self.functions.count
+		}
+		
+		if section == 1 {
 			return self.settings.count
 		}
         
-        if section == 1 {
+        if section == 2 {
             return self.feedbacks.count
         }
+		
 		return self.others.count
 	}
 	
@@ -177,14 +211,19 @@ extension SettingViewController {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView.init()
 		view.backgroundColor = UIColor.white
-		let lb = UILabel.init(text: "通知".localized)
+		let lb = UILabel.init(text: "通用".localized)
 		lb.textColor = CommonColor.subtitle.color
 		lb.font = pfont(fontsize2)
+		
 		if section == 1 {
+			lb.text = "通知".localized
+		}
+		
+		if section == 2 {
 			lb.text = "反馈".localized
 		}
         
-        if section == 2 {
+        if section == 3 {
             lb.text = "关于".localized
         }
 		view.addSubview(lb)
@@ -197,10 +236,14 @@ extension SettingViewController {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingTableViewCell
+		
 		if indexPath.section == 0 {
+			let item = self.functions[indexPath.row] as! Dictionary<String,String>
+			cell.config(dic: item)
+		}else if indexPath.section == 1 {
 			let item = self.settings[indexPath.row] as! Dictionary<String,String>
 			cell.config(dic: item)
-		}else if indexPath.section == 1{
+		}else if indexPath.section == 2{
 			let item = self.feedbacks[indexPath.row] as! Dictionary<String,String>
 			cell.config(dic: item)
         }else{

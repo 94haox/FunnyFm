@@ -12,6 +12,7 @@
 #import "YBTaskScheduler.h"
 #import "UIButton+SomeMethods.h"
 #import "CropAudioManager.h"
+#import "VICahcheHelper.h"
 
 #import <YYKit.h>
 #import <GDTNativeExpressAdView.h>
@@ -21,6 +22,5 @@
 #import <GDTNativeAd.h>
 #import <GDTSplashAd.h>
 #import <GDTSDKConfig.h>
-#import <VIMediaCache.h>
 #import "GDTUnifiedBannerView.h"
 #import "JPUSHService.h"

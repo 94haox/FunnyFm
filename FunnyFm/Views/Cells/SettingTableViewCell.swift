@@ -14,11 +14,19 @@ class SettingTableViewCell: BaseTableViewCell {
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var rightView: UIView!
+	var rightLB: UILabel = UILabel.init(text: "")
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
         self.contentView.backgroundColor = .white
+		self.contentView.addSubview(self.rightLB)
+		self.rightLB.textColor = CommonColor.content.color
+		self.rightLB.font = pfont(fontsize2)
+		self.rightLB.snp.makeConstraints { (make) in
+			make.centerY.equalToSuperview()
+			make.right.equalTo(self.rightView)
+		}
     }
     
     func config(dic : Dictionary<String, String>){
@@ -30,6 +38,13 @@ class SettingTableViewCell: BaseTableViewCell {
         }else{
             self.rightView.isHidden = true
         }
+		
+		if dic["rightText"].isSome {
+			self.rightLB.text = dic["rightText"]
+			self.rightLB.isHidden = false
+		}else{
+			self.rightLB.isHidden = true
+		}
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
