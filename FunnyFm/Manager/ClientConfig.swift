@@ -18,7 +18,7 @@ class ClientConfig: NSObject {
     
     var items = [AnimatedTabBarItem(icon: UIImage(named: "main_ipad") ?? UIImage(),
                        title: "New", controller: MainViewController()),
-    AnimatedTabBarItem(icon: UIImage(named: "rss_tab") ?? UIImage(),
+    AnimatedTabBarItem(icon: UIImage(named: "rss_ipad") ?? UIImage(),
     title: "Discover", controller: DiscoveryViewController()),
     AnimatedTabBarItem(icon: UIImage(named: "playlist_ipad") ?? UIImage(),
                        title: "Playlist", controller: PlayListViewController()),
@@ -27,14 +27,13 @@ class ClientConfig: NSObject {
     
     
     
-    func rootController() -> UINavigationController{
+    func rootController() -> UIViewController{
         AnimatedTabBarAppearance.shared.animationDuration = 0.5
         AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
         AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
         
         if isIPad {
-//            return self.rootControllerForIpad()
-            return UINavigationController.init()
+            return self.rootControllerForIpad()
         }else{
             return self.rootControllerForIphone()
         }
@@ -63,7 +62,7 @@ class ClientConfig: NSObject {
         masterVC.clickClosure = { [weak self] index in
             splitVC.viewControllers = [masterVC, self!.controllers[index]]
         }
-        splitVC.maximumPrimaryColumnWidth = 100
+        splitVC.maximumPrimaryColumnWidth = 100.auto()
         splitVC.viewControllers = [masterVC, controllers.first!]
         splitVC.preferredDisplayMode = .allVisible;
         splitVC.primaryBackgroundStyle = .none

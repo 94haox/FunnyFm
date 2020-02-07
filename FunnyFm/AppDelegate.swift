@@ -35,7 +35,7 @@ import Bugly
 		VersionManager.setupSiren()
 		self.setupJpush()
 		
-        self.window?.rootViewController = ClientConfig.shared.rootControllerForIpad()
+        self.window?.rootViewController = self.configRootVC()
 		self.window?.makeKeyAndVisible()
         return true
     }
@@ -45,10 +45,17 @@ import Bugly
 		FMToolBar.shared.toobarPause()
     }
 	
-	func configRootVC() -> UINavigationController{
+	func configRootVC() -> UIViewController{
         return ClientConfig.shared.rootController()
 	}
 	
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if ClientConfig.shared.isIPad {
+            return .landscapeRight
+        }
+        return .portrait
+    }
+    
 }
 
 

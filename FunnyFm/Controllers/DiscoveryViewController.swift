@@ -83,10 +83,16 @@ extension DiscoveryViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DiscoverListTableViewCell
 		cell.config(collection: self.vm.collectionList[indexPath.section])
-		cell.clickCloure = { podcast in
+		cell.clickCloure = { [weak self] podcast in
+            let pod = DatabaseManager.getPodcast(feedUrl: podcast.feedUrl)
+            if pod.isSome {
+                let vc = PodDetailViewController.init(pod: pod!)
+                self!.navigationController?.pushViewController(vc)
+                return
+            }
 			let preview = PodPreviewViewController()
 			preview.itunsPod = podcast
-			self.present(preview, animated: true, completion: nil)
+			self!.present(preview, animated: true, completion: nil)
 		}
 		return cell
 	}

@@ -12,8 +12,8 @@ import OfficeUIFabric
 
 class PodPreviewViewController: BaseViewController {
 	
-	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260))
-	var loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
+	var infoView: PodcastInfoView!
+    var loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
 	var pod: Pod!
 	var itunsPod: iTunsPod!
 	var viewModel: PodDetailViewModel!
@@ -175,8 +175,7 @@ extension PodPreviewViewController {
 	}
 	
 	func dw_addSubViews() {
-		
-		
+        self.infoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: 260))
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
 		self.tableview.sectionHeaderHeight = 36

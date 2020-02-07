@@ -74,8 +74,12 @@ extension PodcastInfoView : UIScrollViewDelegate{
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let offset = scrollView.contentOffset
 		if offset.x >= self.width {
+            self.stackView.isHidden = false
 			self.pageControl.currentPage = 1
 		}else{
+            if ClientConfig.shared.isIPad {
+                self.stackView.isHidden = true
+            }
 			self.pageControl.currentPage = 0
 		}
 	}
@@ -104,13 +108,15 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		}
 		
 		self.stackView.snp_makeConstraints { (make) in
-			make.centerX.equalTo(self.mainScrollView).offset(self.width);
-			make.centerY.equalToSuperview().offset(-9)
-			if UIDevice.current.systemVersion.hasPrefix("13.") {
-				make.width.equalTo(self).offset(-50.auto())
-			}else{
-				make.width.equalTo(self).offset(-70.auto())
-			}
+            if ClientConfig.shared.isIPad {
+                self.stackView.isHidden = true
+                make.centerX.equalTo(self);
+                make.width.equalToSuperview().multipliedBy(0.5)
+            }else{
+                make.centerX.equalTo(self.mainScrollView).offset(self.width);
+                make.width.equalTo(self).offset(-50.auto())
+            }
+            make.centerY.equalToSuperview().offset(-9)
 		}
 		
 		self.pageControl.snp.makeConstraints { (make) in

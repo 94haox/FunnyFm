@@ -61,9 +61,9 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 	func setUpImmutableData(){
 		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
 		if cache != 0 {
-			self.functions.append(["title":"清除缓存","imageName":"cache","rightText":"\(cache)M"])
+            self.functions.append(["title":"清除缓存".localized,"imageName":"cache","rightText":"\(cache)M"])
 		}else{
-			self.functions.append(["title":"清除缓存","imageName":"cache"])
+            self.functions.append(["title":"清除缓存".localized,"imageName":"cache"])
 		}
 		self.feedbacks.append(["title":"Feedback","imageName":"github"])
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
@@ -92,9 +92,9 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		VICahcheHelper.init().cleanAllCache()
 		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
 		if cache != 0 {
-			self.functions[0] = ["title":"清除缓存","imageName":"cache","rightText":"\(cache)M"]
+            self.functions[0] = ["title":"清除缓存".localized,"imageName":"cache","rightText":"\(cache)M"]
 		}else{
-			self.functions[0] = ["title":"清除缓存","imageName":"cache"]
+            self.functions[0] = ["title":"清除缓存".localized,"imageName":"cache"]
 		}
 		self.tableview.reloadData()
 		SwiftNotice.showText("缓存清除成功🎉")

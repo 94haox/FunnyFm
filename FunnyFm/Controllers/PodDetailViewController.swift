@@ -12,8 +12,7 @@ import AutoInch
 
 class PodDetailViewController: BaseViewController {
 	
-	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260))
-	
+	var infoView: PodcastInfoView!
 	var pod: iTunsPod!
 	
 	var shareBtn: UIButton!
@@ -224,13 +223,8 @@ extension PodDetailViewController {
 	}
 	
 	func addSubviews(){
-		
-//		self.shareBtn = UIButton.init(type: .custom)
-//		self.shareBtn.setImageForAllStates(UIImage.init(named: "share-red")!)
-//		self.shareBtn.addTarget(self, action: #selector(sharePodcast), for: .touchUpInside)
-//		self.shareBtn.cornerRadius = 5
-//		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
-		
+        
+        self.infoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: 260))
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		self.tableview.tableHeaderView = self.infoView

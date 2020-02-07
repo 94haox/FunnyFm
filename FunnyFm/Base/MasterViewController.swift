@@ -48,7 +48,6 @@ class MasterViewController: UIViewController {
         HorizonHUD.showSuccess("退出成功".localized)
         self.updateAccountStatus()
     }
-
     
 }
 
