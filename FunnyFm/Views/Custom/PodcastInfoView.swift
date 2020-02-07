@@ -50,7 +50,7 @@ class PodcastInfoView: UIView {
 		
 		
 		if pod.podDes.length() > 0 {
-			self.mainScrollView.contentSize = CGSize.init(width: kScreenWidth*2, height: 0)
+            self.mainScrollView.contentSize = CGSize.init(width: self.width*2, height: 0)
 			self.pageControl.numberOfPages = 2
 		}
 		
@@ -73,7 +73,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let offset = scrollView.contentOffset
-		if offset.x >= kScreenWidth {
+		if offset.x >= self.width {
 			self.pageControl.currentPage = 1
 		}else{
 			self.pageControl.currentPage = 0
@@ -89,7 +89,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.podImageView.snp.makeConstraints { (make) in
 			make.top.equalTo(self).offset(44.auto());
 			make.centerX.equalTo(self.mainScrollView)
-			make.size.equalTo(CGSize.init(width: 100, height: 100));
+            make.size.equalTo(CGSize.init(width: 100.auto(), height: 100.auto()));
 		}
 		
 		self.podNameLB.snp.makeConstraints { (make) in
@@ -104,7 +104,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		}
 		
 		self.stackView.snp_makeConstraints { (make) in
-			make.centerX.equalTo(self.mainScrollView).offset(kScreenWidth);
+			make.centerX.equalTo(self.mainScrollView).offset(self.width);
 			make.centerY.equalToSuperview().offset(-9)
 			if UIDevice.current.systemVersion.hasPrefix("13.") {
 				make.width.equalTo(self).offset(-50.auto())

@@ -15,8 +15,8 @@ def layout
 		pod 'JXSegmentedView'
 		pod 'OfficeUIFabric', '0.2.11'
 		pod 'Hero'
-#		pod 'LookinServer', :configurations => ['Debug']
-		pod 'AnimatedTabBar'
+		pod 'LookinServer', :configurations => ['Debug']
+#		pod 'AnimatedTabBar'
 		pod 'DynamicColor', '~> 4.2.0'
 		
 end

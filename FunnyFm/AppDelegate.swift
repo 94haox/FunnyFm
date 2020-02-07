@@ -10,24 +10,12 @@ import UIKit
 import OfficeUIFabric
 import Firebase
 import FirebaseUI
-import AnimatedTabBar
 import Siren
 import Bugly
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
-	
-	var items = [AnimatedTabBarItem(icon: UIImage(named: "thunder") ?? UIImage(),
-					   title: "New", controller: MainViewController()),
-	AnimatedTabBarItem(icon: UIImage(named: "rss_tab") ?? UIImage(),
-	title: "Discover", controller: DiscoveryViewController()),
-	AnimatedTabBarItem(icon: UIImage(named: "playlist") ?? UIImage(),
-					   title: "Playlist", controller: PlayListViewController()),
-	AnimatedTabBarItem(icon: UIImage(named: "usercenter") ?? UIImage(),
-					   title: "User", controller: UserCenterViewController())]
-	
 
-	
     var window: UIWindow?
     
     var options: [UIApplication.LaunchOptionsKey: Any]?
@@ -47,7 +35,7 @@ import Bugly
 		VersionManager.setupSiren()
 		self.setupJpush()
 		
-		self.window?.rootViewController = self.configRootVC()
+        self.window?.rootViewController = ClientConfig.shared.rootControllerForIpad()
 		self.window?.makeKeyAndVisible()
         return true
     }
@@ -58,19 +46,7 @@ import Bugly
     }
 	
 	func configRootVC() -> UINavigationController{
-		let controller = BaseTabBarViewController()
-		controller.delegate = self
-		AnimatedTabBarAppearance.shared.animationDuration = 0.5
-		AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
-		AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
-
-		var navi = UINavigationController.init(rootViewController:controller)
-		navi.navigationBar.isHidden = true
-		if !UserDefaults.standard.bool(forKey: "isFirst") {
-			navi = UINavigationController.init(rootViewController: WelcomeViewController.init())
-			UserDefaults.standard.set(true, forKey: "isFirst")
-		}
-		return navi
+        return ClientConfig.shared.rootController()
 	}
 	
 }
@@ -94,29 +70,20 @@ extension AppDelegate {
 	
 	@objc func toLoginVC(){
 		DispatchQueue.main.async {
-			let navi = self.window?.rootViewController as! UINavigationController
 			if #available(iOS 13.0, *) {
 				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
 				loginNavi.navigationBar.isHidden = true
-				navi.present(loginNavi, animated: true, completion: nil)
+                self.window!.rootViewController!.present(loginNavi, animated: true, completion: nil)
 				return
 			}
 			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-			navi.present(loginNavi, animated: true, completion: nil)
+			self.window!.rootViewController!.present(loginNavi, animated: true, completion: nil)
 		}
 	}
 	
 	@objc func toMainVC(){
 		DispatchQueue.main.async {
-			let controller = BaseTabBarViewController()
-			controller.delegate = self
-			AnimatedTabBarAppearance.shared.animationDuration = 0.5
-			AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
-			AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
-
-			let navi = UINavigationController.init(rootViewController:controller)
-			navi.navigationBar.isHidden = true
-			self.window?.rootViewController = navi
+            self.window?.rootViewController = ClientConfig.shared.rootController()
 		}
 	}
 	
@@ -195,23 +162,6 @@ extension AppDelegate {
 	func applicationDidBecomeActive(_ application: UIApplication) {
 	}
 }
-
-
-extension AppDelegate : AnimatedTabBarDelegate {
-	
-    func initialIndex(_ tabBar: AnimatedTabBar) -> Int? {
-        return 0
-    }
-    
-    var numberOfItems: Int {
-        return items.count
-    }
-    
-    func tabBar(_ tabBar: AnimatedTabBar, itemFor index: Int) -> AnimatedTabBarItem {
-        return items[index]
-    }
-}
-
 
 extension AppDelegate: JPUSHRegisterDelegate {
 	

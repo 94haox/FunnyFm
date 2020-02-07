@@ -56,41 +56,41 @@ extension UIImage {
 
 extension Float {
 	func adapt() -> CGFloat{
-		return AdaptScale(CGFloat(self))
+        return self.auto()
 	}
 	
 	func adaptH() -> CGFloat {
-		return AdaptScaleH(CGFloat(self))
+        return self.auto()
 	}
 }
 
 extension CGFloat {
 	func adapt() -> CGFloat{
-		return AdaptScale(self)
+        return self.auto()
 	}
 	
 	func adaptH() -> CGFloat {
-		return AdaptScaleH(self)
+		return self.auto()
 	}
 }
 
 extension Double {
 	func adapt() -> CGFloat{
-		return AdaptScale(CGFloat(self))
+		return self.auto()
 	}
 	
 	func adaptH() -> CGFloat {
-		return AdaptScaleH(CGFloat(self))
+		return self.auto()
 	}
 }
 
 extension Int {
 	func adapt() -> CGFloat{
-		return AdaptScale(CGFloat(self))
+		return self.auto()
 	}
 	
 	func adaptH() -> CGFloat {
-		return AdaptScaleH(CGFloat(self))
+		return self.auto()
 	}
 }
 
@@ -106,6 +106,8 @@ extension Notification {
 	static let appWillOpenH5 = Notification.Name.init("app_willOpenH5")
 	static let homeParserSuccess = Notification.Name.init("homechapterParserSuccess")
 	static let willAddPrevPodcast = Notification.Name.init("willAddPrevPodcast")
+    static let loginSuccess = Notification.Name.init("loginSuccess")
+    static let logoutSuccess = Notification.Name.init("logoutSuccess")
 }
 
 

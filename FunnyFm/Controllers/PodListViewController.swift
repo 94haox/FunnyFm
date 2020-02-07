@@ -57,7 +57,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: (kScreenWidth-32*3)/2, height: (kScreenWidth-32*3)/2.0)
+        layout.itemSize = CGSize(width: 139.auto(), height: 139.auto())
         layout.minimumInteritemSpacing = 18
         layout.minimumLineSpacing = 31;
 		
@@ -69,7 +69,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
 		collectionview.backgroundColor = .white
 		collectionview.emptyDataSetSource = self;
 		collectionview.showsVerticalScrollIndicator = false
-		collectionview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
+		collectionview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
         return collectionview
     }()
 

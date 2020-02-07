@@ -171,8 +171,8 @@ extension NeLoginViewController {
 		
 		self.view.addSubview(self.emptyAnimationView)
 		self.emptyAnimationView.snp.makeConstraints { (make) in
-			make.bottom.equalTo(self.tipLB.snp.top).offset(-AdaptScale(10))
-			make.size.equalTo(CGSize.init(width: AdaptScale(200), height: AdaptScale(200)))
+            make.bottom.equalTo(self.tipLB.snp.top).offset(-10.auto())
+            make.size.equalTo(CGSize.init(width: 200.auto(), height: 200.auto()))
 			make.right.equalToSuperview()
 		}
         

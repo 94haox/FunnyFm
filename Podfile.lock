@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.9.1)
-  - AnimatedTabBar (0.1.7)
   - AppAuth (1.3.0):
     - AppAuth/Core (= 1.3.0)
     - AppAuth/ExternalUserAgent (= 1.3.0)
@@ -202,6 +201,7 @@ PODS:
     - JCore (< 3.0.0, >= 2.0.0)
   - JXSegmentedView (1.0.4)
   - KeychainAccess (4.1.0)
+  - LookinServer (1.0.0)
   - lottie-ios (3.1.1)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -246,7 +246,6 @@ PODS:
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - AnimatedTabBar
   - AutoInch
   - Bugly
   - Crashlytics (= 3.13.3)
@@ -262,6 +261,7 @@ DEPENDENCIES:
   - JPush
   - JXSegmentedView
   - KeychainAccess
+  - LookinServer
   - lottie-ios (= 3.1.1)
   - Moya
   - Nuke (~> 8.0.1)
@@ -284,7 +284,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - AnimatedTabBar
     - AppAuth
     - AutoInch
     - Bugly
@@ -316,6 +315,7 @@ SPEC REPOS:
     - JPush
     - JXSegmentedView
     - KeychainAccess
+    - LookinServer
     - lottie-ios
     - Moya
     - nanopb
@@ -343,7 +343,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AnimatedTabBar: ce6bc2c2993bd74b4b51c7977631e3321f417095
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   AutoInch: f70a38b393dc2ce21e7f0bbceb5b2a0abe898575
   Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
@@ -375,6 +374,7 @@ SPEC CHECKSUMS:
   JPush: 8ce888d6dedfa417e90c8b6bc87405a16ce2e699
   JXSegmentedView: b278b4c5d4c4c2982b4e084cef76ff1ddd37c6a5
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
@@ -400,6 +400,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 12494a09b15dc967e835cd7a0ec47a2d961b8444
+PODFILE CHECKSUM: e2c51f4b276b5fe79b103bd1598fe3e3021a0016
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

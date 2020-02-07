@@ -242,9 +242,9 @@ extension PodDetailViewController {
 		self.tableview.delegate = self
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false
-		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
 		
-		self.loadingView = UIActivityIndicatorView.init(style: .gray)
+        self.loadingView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
 		self.loadingView.startAnimating()
 		
 	}

@@ -70,11 +70,11 @@ extension MessageViewController {
 	
 	func setupUI(){
 		let layout = UICollectionViewFlowLayout.init()
-		layout.itemSize = CGSize.init(width: kScreenWidth*0.9, height: 140)
-		layout.minimumLineSpacing = 30
+        layout.itemSize = CGSize.init(width: (375*0.9).auto(), height: 140.auto())
+        layout.minimumLineSpacing = 30.auto()
 		self.collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
 		self.collectionView.register(UINib.init(nibName: "MessageCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "cell")
-		self.collectionView.contentInset = UIEdgeInsets.init(top: 30, left: 0, bottom: 100, right: 0)
+        self.collectionView.contentInset = UIEdgeInsets.init(top: 30, left: 30.auto(), bottom: toolbarH*2, right: 30.auto())
 		self.collectionView.showsVerticalScrollIndicator = false
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self

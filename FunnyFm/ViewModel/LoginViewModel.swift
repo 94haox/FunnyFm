@@ -22,6 +22,7 @@ class LoginViewModel: BaseViewModel {
 				UserCenter.shared.name = person!.name
 				UserCenter.shared.avatar = person!.avatar
                 self.delegate?.viewModelDidGetDataSuccess()
+                NotificationCenter.default.post(name: Notification.loginSuccess, object: nil)
             }
         }, { (message) in
             self.delegate?.viewModelDidGetDataFailture(msg: message)
@@ -40,6 +41,7 @@ class LoginViewModel: BaseViewModel {
 				UserCenter.shared.name = person!.name
 				UserCenter.shared.avatar = person!.avatar
                 self.delegate?.viewModelDidGetDataSuccess()
+                NotificationCenter.default.post(name: Notification.loginSuccess, object: nil)
             }
         }, { (message) in
             self.delegate?.viewModelDidGetDataFailture(msg: message)
@@ -55,6 +57,7 @@ class LoginViewModel: BaseViewModel {
 				UserCenter.shared.name = person!.name
 				UserCenter.shared.avatar = person!.avatar
 				self.delegate?.viewModelDidGetDataSuccess()
+                NotificationCenter.default.post(name: Notification.loginSuccess, object: nil)
 			}
 		}, { (message) in
 			self.delegate?.viewModelDidGetDataFailture(msg: message)
@@ -70,6 +73,7 @@ class LoginViewModel: BaseViewModel {
 				UserCenter.shared.name = person!.name
 				UserCenter.shared.avatar = person!.avatar
 				self.delegate?.viewModelDidGetDataSuccess()
+                NotificationCenter.default.post(name: Notification.loginSuccess, object: nil)
 			}
 		}, { (message) in
 			self.delegate?.viewModelDidGetDataFailture(msg: message)

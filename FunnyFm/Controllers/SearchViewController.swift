@@ -149,7 +149,7 @@ extension SearchViewController {
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.keyboardDismissMode = .onDrag
 		self.tableview.emptyDataSetSource = self
-		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
 
 		self.searchTF.attributedPlaceholder = FunnyFm.attributePlaceholder("搜索播客".localized)
 		self.searchTF.font = p_bfont(14)

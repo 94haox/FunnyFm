@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AnimatedTabBar
 
 class BaseTabBarViewController: AnimatedTabBarController {
 

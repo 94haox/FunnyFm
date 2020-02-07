@@ -21,12 +21,15 @@ extension UIViewController {
 	}
 	
 	func dw_presentAsStork(controller: UIViewController, heigth: CGFloat, delegate: UIViewController?){
-		let transitionDelegate = SPStorkTransitioningDelegate()
-		transitionDelegate.storkDelegate = delegate
-		transitionDelegate.customHeight = heigth
-//		transitionDelegate.confirmDelegate = controller as? SPStorkControllerConfirmDelegate
-		controller.transitioningDelegate = transitionDelegate
-		controller.modalPresentationStyle = .custom
+        
+        if !ClientConfig.shared.isIPad {
+            let transitionDelegate = SPStorkTransitioningDelegate()
+            transitionDelegate.storkDelegate = delegate
+            transitionDelegate.customHeight = heigth
+            //        transitionDelegate.confirmDelegate = controller as? SPStorkControllerConfirmDelegate
+            controller.transitioningDelegate = transitionDelegate
+            controller.modalPresentationStyle = .custom
+        }
 		
 		self.present(controller, animated: true, completion: nil)
 	}
@@ -37,6 +40,9 @@ extension UIViewController {
 extension UIViewController : SPStorkControllerDelegate {
 
 	public func didDismissStorkByTap() {
+        guard !ClientConfig.shared.isIPad else {
+            return
+        }
 		let navi = UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController
 		if navi.viewControllers.count < 2  {
 			FMToolBar.shared.explain()
@@ -47,6 +53,9 @@ extension UIViewController : SPStorkControllerDelegate {
 	}
 	
 	public func didDismissStorkBySwipe() {
+        guard !ClientConfig.shared.isIPad else {
+            return
+        }
 		let navi = UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController
 		if navi.viewControllers.count < 2  {
 			FMToolBar.shared.explain()

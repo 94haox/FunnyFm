@@ -65,17 +65,17 @@ class PlayListViewController: BaseViewController {
 	}
 
 	lazy var tableview : UITableView = {
-		   let table = UITableView.init(frame: CGRect.zero, style: .plain)
-		   let nib = UINib(nibName: String(describing: HistoryTableViewCell.self), bundle: nil)
-		   table.register(nib, forCellReuseIdentifier: "cell")
-		   table.separatorStyle = .none
-		   table.rowHeight = 85
-		   table.delegate = self
-		   table.dataSource = self
-		   table.showsVerticalScrollIndicator = false
-		   table.backgroundColor = .white
-		   table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
-		   return table
+        let table = UITableView.init(frame: CGRect.zero, style: .plain)
+        let nib = UINib(nibName: String(describing: HistoryTableViewCell.self), bundle: nil)
+        table.register(nib, forCellReuseIdentifier: "cell")
+        table.separatorStyle = .none
+        table.rowHeight = 85
+        table.delegate = self
+        table.dataSource = self
+        table.showsVerticalScrollIndicator = false
+        table.backgroundColor = .white
+        table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
+        return table
 	   }()
 
 }

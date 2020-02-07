@@ -11,20 +11,8 @@ import UIKit
 
 // MARK: UI Adapt
 
-func AdaptScale(_ w: CGFloat) -> CGFloat {
-    let scale = kScreenWidth / 375.0
-    return ( w * scale)
-}
-
-func AdaptScaleH(_ h: CGFloat) -> CGFloat {
-	let scale = kScreenHeight / 667.0
-	return ( h * scale)
-}
-
 let kScreenHeight = UIScreen.main.bounds.size.height
 let kScreenWidth = UIScreen.main.bounds.size.width
-let kHMargin = AdaptScale(14)
-let kVMargin = AdaptScale(12)
 
 
 // MARK: Device

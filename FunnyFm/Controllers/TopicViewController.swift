@@ -110,7 +110,7 @@ extension TopicViewController {
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.keyboardDismissMode = .onDrag
-		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
 		
 		segmentedView = JXSegmentedView()
 		segmentedView.delegate = self

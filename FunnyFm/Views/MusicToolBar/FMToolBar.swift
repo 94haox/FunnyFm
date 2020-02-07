@@ -11,11 +11,11 @@ import MediaPlayer
 import RxSwift
 import pop
 
-let toolbarH: CGFloat = 55
+let toolbarH: CGFloat = ClientConfig.shared.isIPad ? 80.auto() : 55
 
 class FMToolBar: UIView , FMPlayerManagerDelegate{
 
-    static let shared = FMToolBar(frame: CGRect.init(x: 16, y: kScreenHeight-150, width: kScreenWidth-32 , height: toolbarH))
+    static let shared = ClientConfig.shared.isIPad ? FMToolBar(frame: CGRect.zero) : FMToolBar(frame: CGRect.init(x: 16, y: kScreenHeight-150, width: kScreenWidth-32 , height: toolbarH))
 	
 	var isPlaying: Bool = false
 	
@@ -213,6 +213,9 @@ extension FMToolBar {
     
     
     func shrink(){
+        guard !ClientConfig.shared.isIPad else {
+            return
+        }
 		
         let animationTime = 0.3
 	
@@ -224,6 +227,9 @@ extension FMToolBar {
     }
     
     func explain() {
+        guard !ClientConfig.shared.isIPad else {
+            return
+        }
 
         let animationTime = 0.3
 		
@@ -241,7 +247,52 @@ extension FMToolBar {
 
 extension FMToolBar {
     
-    func addConstraints() {
+    func addConstraints(){
+        if ClientConfig.shared.isIPad {
+            self.addConstraintsForIPad()
+        }else{
+            self.addConstraintsForIphone()
+        }
+    }
+    
+    func addConstraintsForIPad() {
+        self.backgroundColor = .white
+        self.addSubview(self.containerView)
+        self.addSubview(self.logoImageView)
+        self.containerView.addSubview(self.titleLB)
+        self.addSubview(self.playBtn)
+        self.addSubview(self.loadingView)
+        self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 2), opacity: 0.5)
+        
+        self.containerView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        self.titleLB.snp.makeConstraints { (make) in
+            make.left.equalTo(self.logoImageView.snp.right).offset(32.auto())
+            make.width.equalTo(400.auto())
+            make.centerY.equalToSuperview()
+        }
+        
+        self.logoImageView.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(32.auto())
+            make.size.equalTo(CGSize.init(width: 50.auto(), height: 50.auto()))
+        }
+        
+        self.loadingView.snp.makeConstraints { (make) in
+            make.center.equalTo(self.playBtn)
+            make.size.equalTo(CGSize.init(width: 20, height: 20))
+        }
+        
+        self.playBtn.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.logoImageView)
+            make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
+            make.right.equalToSuperview().offset(-50.auto())
+        }
+    }
+    
+    func addConstraintsForIphone() {
         self.backgroundColor = .white
         self.cornerRadius = 8.0
         self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
@@ -250,6 +301,9 @@ extension FMToolBar {
         self.containerView.addSubview(self.titleLB)
         self.addSubview(self.playBtn)
         self.addSubview(self.loadingView)
+
+        self.containerView.cornerRadius = 8.0
+        self.containerView.layer.masksToBounds = true
 		
 		
         self.containerView.snp.makeConstraints { (make) in
@@ -258,7 +312,7 @@ extension FMToolBar {
         
         self.titleLB.snp.makeConstraints { (make) in
             make.left.equalTo(self.logoImageView.snp.right).offset(16)
-            make.width.equalTo(AdaptScale(200))
+            make.width.equalTo(200.auto())
 			make.centerY.equalToSuperview()
         }
         
@@ -284,10 +338,7 @@ extension FMToolBar {
 	
     func setUpUI() {
 		
-        self.containerView = UIView()
-		self.containerView.cornerRadius = 8.0
-		self.containerView.layer.masksToBounds = true
-		
+		self.containerView = UIView()
 		self.playBtn = UIButton.init(type: .custom)
         self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
         self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
@@ -306,7 +357,7 @@ extension FMToolBar {
         self.logoImageView.layer.shadowOffset = CGSize.init(width: 2, height: 10)
         self.logoImageView.layer.shadowRadius = 10
         
-        self.loadingView = UIActivityIndicatorView.init(style: .gray)
+        self.loadingView = UIActivityIndicatorView.init(style: .medium)
         self.loadingView.isHidden = true
         self.loadingView.startAnimating()
 		

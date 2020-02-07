@@ -161,7 +161,7 @@ extension DiscoveryViewController {
 		self.tableview.backgroundColor = .clear
 		self.tableview.separatorStyle = .none
 		self.tableview.tableFooterView = UIView.init()
-		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
 		self.tableview.showsVerticalScrollIndicator = false
 		
 		self.loadingView.startAnimating()

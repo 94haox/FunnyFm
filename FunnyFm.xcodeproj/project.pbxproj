@@ -167,6 +167,16 @@
 		AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB74FB7822F7F33E00A00706 /* Localizable.strings */; };
 		AB76EF67239C993E0096020B /* PodcastInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76EF66239C993E0096020B /* PodcastInfoView.swift */; };
 		AB76EF69239CCD8E0096020B /* GFLimitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76EF68239CCD8E0096020B /* GFLimitTextView.swift */; };
+		AB77890123EC53EA00DF8447 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890023EC53EA00DF8447 /* MasterViewController.swift */; };
+		AB77891023EC5BE400DF8447 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890923EC5BE400DF8447 /* Utils.swift */; };
+		AB77891123EC5BE400DF8447 /* LabelAndDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890A23EC5BE400DF8447 /* LabelAndDot.swift */; };
+		AB77891223EC5BE400DF8447 /* AnimatedTabBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890B23EC5BE400DF8447 /* AnimatedTabBarAppearance.swift */; };
+		AB77891323EC5BE400DF8447 /* AnimatedTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890C23EC5BE400DF8447 /* AnimatedTabBarView.swift */; };
+		AB77891423EC5BE400DF8447 /* AnimatedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890D23EC5BE400DF8447 /* AnimatedTabBar.swift */; };
+		AB77891523EC5BE400DF8447 /* CommonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890E23EC5BE400DF8447 /* CommonUIView.swift */; };
+		AB77891623EC5BE400DF8447 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77890F23EC5BE400DF8447 /* AnimatedTabBarController.swift */; };
+		AB7789E623EC5CB300DF8447 /* VerticalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7789E523EC5CB300DF8447 /* VerticalTabBar.swift */; };
+		AB7789E823EC68E100DF8447 /* VerticalTabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7789E723EC68E000DF8447 /* VerticalTabBarItemView.swift */; };
 		AB7822F423D9B3C2006BD595 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7822F323D9B3C2006BD595 /* FeedbackViewController.swift */; };
 		AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B1A9922F8413400790787 /* AdShowViewController.swift */; };
 		AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7B1AE822F9237700790787 /* GoogleService-Info.plist */; };
@@ -536,6 +546,16 @@
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB76EF66239C993E0096020B /* PodcastInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastInfoView.swift; sourceTree = "<group>"; };
 		AB76EF68239CCD8E0096020B /* GFLimitTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFLimitTextView.swift; sourceTree = "<group>"; };
+		AB77890023EC53EA00DF8447 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		AB77890923EC5BE400DF8447 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AB77890A23EC5BE400DF8447 /* LabelAndDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAndDot.swift; sourceTree = "<group>"; };
+		AB77890B23EC5BE400DF8447 /* AnimatedTabBarAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarAppearance.swift; sourceTree = "<group>"; };
+		AB77890C23EC5BE400DF8447 /* AnimatedTabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarView.swift; sourceTree = "<group>"; };
+		AB77890D23EC5BE400DF8447 /* AnimatedTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTabBar.swift; sourceTree = "<group>"; };
+		AB77890E23EC5BE400DF8447 /* CommonUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUIView.swift; sourceTree = "<group>"; };
+		AB77890F23EC5BE400DF8447 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
+		AB7789E523EC5CB300DF8447 /* VerticalTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBar.swift; sourceTree = "<group>"; };
+		AB7789E723EC68E000DF8447 /* VerticalTabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBarItemView.swift; sourceTree = "<group>"; };
 		AB7822F323D9B3C2006BD595 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		AB7B1A9922F8413400790787 /* AdShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdShowViewController.swift; sourceTree = "<group>"; };
 		AB7B1AE822F9237700790787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -956,6 +976,7 @@
 		AB41AAD7219529DB00260851 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AB77890823EC5BE400DF8447 /* AnimatedTabBar */,
 				AB76EF68239CCD8E0096020B /* GFLimitTextView.swift */,
 				AB41AAD821952A1300260851 /* FunnyFm.swift */,
 				AB41AADD21952C1C00260851 /* GlobalConfig.swift */,
@@ -1222,8 +1243,25 @@
 				AB0B2BB421E8797A00B2A9CF /* BaseViewModel.swift */,
 				ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */,
 				AB09DE1A2340AD5F002A9384 /* BaseTabBarViewController.swift */,
+				AB77890023EC53EA00DF8447 /* MasterViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		AB77890823EC5BE400DF8447 /* AnimatedTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				AB77890923EC5BE400DF8447 /* Utils.swift */,
+				AB77890A23EC5BE400DF8447 /* LabelAndDot.swift */,
+				AB77890B23EC5BE400DF8447 /* AnimatedTabBarAppearance.swift */,
+				AB77890C23EC5BE400DF8447 /* AnimatedTabBarView.swift */,
+				AB77890E23EC5BE400DF8447 /* CommonUIView.swift */,
+				AB77890F23EC5BE400DF8447 /* AnimatedTabBarController.swift */,
+				AB77890D23EC5BE400DF8447 /* AnimatedTabBar.swift */,
+				AB7789E523EC5CB300DF8447 /* VerticalTabBar.swift */,
+				AB7789E723EC68E000DF8447 /* VerticalTabBarItemView.swift */,
+			);
+			path = AnimatedTabBar;
 			sourceTree = "<group>";
 		};
 		AB8BD8C0236E7574006FEFF3 /* SPStorkController */ = {
@@ -1756,6 +1794,7 @@
 				AB1E6D7021B9252500B85135 /* UITableViewExtensions.swift in Sources */,
 				AB62C46F21BB9330008D6BA6 /* BaseViewController.swift in Sources */,
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
+				AB77891223EC5BE400DF8447 /* AnimatedTabBarAppearance.swift in Sources */,
 				AB8BD8D9236E7574006FEFF3 /* SPStorkDismissingAnimationController.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
@@ -1778,6 +1817,7 @@
 				AB8BD8D7236E7574006FEFF3 /* SPStorkTransitioningDelegate.swift in Sources */,
 				ABE7ACB021C20E3300FC6B8E /* SettingViewController.swift in Sources */,
 				AB1E6D9E21B9388800B85135 /* HomeAlbumTableViewCell.swift in Sources */,
+				AB77891023EC5BE400DF8447 /* Utils.swift in Sources */,
 				AB41AAE021952D2200260851 /* Pod.swift in Sources */,
 				AB14DE9123E3286700E0FA38 /* PodcastCollection.swift in Sources */,
 				AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */,
@@ -1805,6 +1845,7 @@
 				ABDEF0C4231775E3001FFFC5 /* PlayDetailToolBar.swift in Sources */,
 				ABEE40E221E32C1700FCB16F /* StringExtension.swift in Sources */,
 				ABE7660121D7196700470D8F /* NSPredicateExtensions.swift in Sources */,
+				AB77890123EC53EA00DF8447 /* MasterViewController.swift in Sources */,
 				AB8BD8DB236E7574006FEFF3 /* SPStorkControllerDelegate.swift in Sources */,
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
 				AB441A2E23501F1D00411359 /* MessageViewController.swift in Sources */,
@@ -1820,6 +1861,7 @@
 				AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */,
 				AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
+				AB77891623EC5BE400DF8447 /* AnimatedTabBarController.swift in Sources */,
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
 				AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */,
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
@@ -1895,6 +1937,7 @@
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,
 				AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */,
 				AB1E6D8321B9252500B85135 /* UIViewExtensions.swift in Sources */,
+				AB7789E623EC5CB300DF8447 /* VerticalTabBar.swift in Sources */,
 				AB2A372B2328ADDE0097DAF7 /* Loady.swift in Sources */,
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				ABB4E54C23A3B30000CFF37A /* TopicViewController.swift in Sources */,
@@ -1920,6 +1963,7 @@
 				AB97EE95233376B000127C37 /* HistoryProgressBar.swift in Sources */,
 				AB4578C4233B44CC001DF1D1 /* EpisodeSettingViewController.swift in Sources */,
 				AB31E9C721C1FC7E005E80FC /* UserCenterCollectionViewCell.swift in Sources */,
+				AB77891123EC5BE400DF8447 /* LabelAndDot.swift in Sources */,
 				AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */,
 				AB1E6DB221BA6DA100B85135 /* SwiftNotice.swift in Sources */,
 				AB1E6D7221B9252500B85135 /* UIScrollViewExtensions.swift in Sources */,
@@ -1935,6 +1979,7 @@
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
 				AB5828B4233C92080072F03B /* YBTSPriorityQueue.mm in Sources */,
 				AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */,
+				AB77891323EC5BE400DF8447 /* AnimatedTabBarView.swift in Sources */,
 				ABE7660821D7196700470D8F /* DateExtensions.swift in Sources */,
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
 				ABE7660721D7196700470D8F /* LocaleExtensions.swift in Sources */,
@@ -1948,13 +1993,16 @@
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
 				AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */,
+				AB77891523EC5BE400DF8447 /* CommonUIView.swift in Sources */,
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
 				ABA8BDC521DF1E0200366C6F /* RegisterViewController.swift in Sources */,
 				ABEE40D421E3246E00FCB16F /* MJRefreshAutoStateFooter.m in Sources */,
 				ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */,
 				AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */,
+				AB77891423EC5BE400DF8447 /* AnimatedTabBar.swift in Sources */,
 				AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
+				AB7789E823EC68E100DF8447 /* VerticalTabBarItemView.swift in Sources */,
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,
@@ -2120,22 +2168,22 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2145,22 +2193,22 @@
 				CODE_SIGN_ENTITLEMENTS = FunnyFM/FunnyFM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2294,10 +2342,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2307,7 +2355,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2443,7 +2491,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FunnyFm/FunnyFm-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2459,10 +2507,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2472,7 +2520,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2480,7 +2528,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "FunnyFm/FunnyFm-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

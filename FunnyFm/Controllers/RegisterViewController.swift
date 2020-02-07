@@ -113,7 +113,7 @@ extension RegisterViewController {
         
         self.mailTF.snp.makeConstraints { (make) in
             make.left.equalTo(self.tipLB)
-            make.top.equalTo(self.tipLB.snp.bottom).offset(AdaptScale(100))
+            make.top.equalTo(self.tipLB.snp.bottom).offset(100.auto())
             make.width.equalToSuperview().multipliedBy(0.7)
             make.height.equalTo(50)
         }
@@ -126,7 +126,7 @@ extension RegisterViewController {
         }
         
         self.registerBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(self.passTF.snp.bottom).offset(AdaptScale(40))
+            make.top.equalTo(self.passTF.snp.bottom).offset(40.auto())
         }
         
         

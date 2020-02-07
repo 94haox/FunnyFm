@@ -49,6 +49,11 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	
 	
 	@objc func updateAccountStatus(){
+        
+        guard !ClientConfig.shared.isIPad else {
+            return
+        }
+        
 		if UserCenter.shared.isLogin {
 			if UserCenter.shared.name.length() > 0 {
 				self.titleLB.text = "Hi  \(UserCenter.shared.name)"
@@ -68,6 +73,9 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
             make.left.width.bottom.equalToSuperview()
         }
 		
+        if ClientConfig.shared.isIPad {
+            return
+        }
 		self.logoutBtn = UIButton.init(type: .custom)
 		logoutBtn.setTitleColor(.white, for: .normal)
 		logoutBtn.backgroundColor = CommonColor.mainRed.color
@@ -78,35 +86,31 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 		self.logoutBtn.snp.makeConstraints { (make) in
 			make.baseline.equalTo(self.titleLB)
 			make.right.equalTo(-18)
-			make.width.equalTo(100.adapt())
-			make.height.equalTo(30.adapt())
+			make.width.equalTo(100.auto())
+			make.height.equalTo(30.auto())
 		}
-		
-        
-        self.view.backgroundColor = CommonColor.background.color
-		self.topBgView.backgroundColor = CommonColor.background.color;
     }
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: AdaptScale(146), height: AdaptScale(170))
+        layout.itemSize = CGSize(width: 146.auto(), height: 170.auto())
         layout.minimumLineSpacing = 16
-        layout.sectionInset = UIEdgeInsets.init(top: 30.adapt(), left: 30, bottom: 120, right: 30)
+        layout.sectionInset = UIEdgeInsets.init(top: 30.auto(), left: 30, bottom: toolbarH*2, right: 30)
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         let nib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
         let headernib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)
         collectionview.register(nib, forCellWithReuseIdentifier: "cell")
-        collectionview.backgroundColor = CommonColor.background.color
         collectionview.delegate = self
         collectionview.dataSource = self
 		collectionview.showsVerticalScrollIndicator = false
+        collectionview.backgroundColor = .white
         return collectionview
     }()
     
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
-										   ["title":"消息","subtitle":"服务消息".localized,"imageName":"message"],
+                                           ["title":"消息".localized,"subtitle":"服务消息".localized,"imageName":"message"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
 										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]

@@ -304,7 +304,6 @@ extension MainViewController{
             header.tapClosure = {
                 let podlistvc = PodListViewController()
                 self.navigationController?.pushViewController(podlistvc)
-                
             }
         }
         return header
@@ -363,9 +362,9 @@ extension MainViewController {
 		}
 		
 		self.fetchLoadingView.snp.makeConstraints { (make) in
-			make.size.equalTo(CGSize.init(width:AdaptScale(30), height: AdaptScale(30)))
+            make.size.equalTo(CGSize.init(width:30.auto(), height: 30.auto()))
 			make.centerY.equalTo(self.titleLB);
-			make.left.equalTo(self.titleLB.snp.right).offset(AdaptScale(20))
+            make.left.equalTo(self.titleLB.snp.right).offset(20.auto())
 		}
 		
 		self.view.addSubview(self.searchBtn)
@@ -402,7 +401,7 @@ extension MainViewController {
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
-        self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
+        self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
 		
@@ -452,7 +451,7 @@ extension MainViewController {
 		self.emptyAnimationView.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.centerY.equalToSuperview().offset(-50)
-			make.size.equalTo(CGSize.init(width: kScreenWidth, height: AdaptScale(150)))
+            make.size.equalTo(CGSize.init(width: kScreenWidth, height: 150.auto()))
 		}
 		
 		let label = UILabel.init(text: "快来添加你的第一个播客吧".localized)

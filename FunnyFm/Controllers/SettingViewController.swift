@@ -270,10 +270,19 @@ extension SettingViewController {
             make.height.equalTo(44)
         }
 		
-        self.tableview.snp.makeConstraints { (make) in
-            make.left.width.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.top.equalTo(self.naviBar.snp.bottom)
+        if ClientConfig.shared.isIPad {
+            self.tableview.snp.makeConstraints { (make) in
+                make.centerX.equalToSuperview()
+                make.width.equalToSuperview().offset(-100.auto())
+                make.bottom.equalToSuperview()
+                make.top.equalTo(self.naviBar.snp.bottom)
+            }
+        }else{
+            self.tableview.snp.makeConstraints { (make) in
+                make.left.width.equalToSuperview()
+                make.bottom.equalToSuperview()
+                make.top.equalTo(self.naviBar.snp.bottom)
+            }
         }
 		
 		self.versionLB.snp.makeConstraints { (make) in
