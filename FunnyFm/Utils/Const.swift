@@ -41,28 +41,85 @@ public enum CommonColor {
     case content         // 内容颜色
     case background       // controller背景色
     case cellbackgroud    // cell 背景色
+    case white
+    case whiteBackgroud
     case mainPink
     case mainRed
 	case tipYellow
+    case progress
     
     public var color : UIColor {
         switch self {
         case .title:
-            return UIColor.init(hex: "464d5c")
+            return UIColor.init { (traitCollection) -> UIColor in
+                if traitCollection.userInterfaceStyle == .light {
+                    return UIColor.init(hex: "464d5c")
+                }else{
+                    return UIColor.label
+                }
+            }
         case .subtitle:
-            return RGB(202,202,202)
+            return UIColor.init { (traitCollection) -> UIColor in
+                if traitCollection.userInterfaceStyle == .light {
+                    return RGB(202,202,202)
+                }else{
+                    return UIColor.secondaryLabel
+                }
+            }
         case .background:
-            return RGB(245,245,245)
+            return UIColor.init { (collection) -> UIColor in
+                if collection.userInterfaceStyle == .light {
+                    return RGB(245,245,245)
+                }else{
+                    return RGB(20, 24, 29)
+                }
+            }
         case .cellbackgroud:
-            return RGB(250,250,250)
+            return UIColor.init { (collection) -> UIColor in
+                if collection.userInterfaceStyle == .light {
+                    return RGB(250,250,250)
+                }else{
+                    return RGB(33, 34, 44)
+                }
+            }
+        case .white:
+            return UIColor.init { (collection) -> UIColor in
+                if collection.userInterfaceStyle == .light {
+                    return .white
+                }else{
+                    return RGB(20, 24, 29)
+                }
+            }
+        case .whiteBackgroud:
+            return UIColor.init { (collection) -> UIColor in
+                if collection.userInterfaceStyle == .light {
+                    return .white
+                }else{
+                    return RGB(33, 34, 44)
+                }
+            }
         case .content:
             return UIColor.init(hex: "b9bbbf")
         case .mainPink:
             return UIColor.init(hex: "fd5795")
         case .mainRed:
-            return UIColor.init(hex: "ff004e")
+            return UIColor.init { (collection) -> UIColor in
+                if collection.userInterfaceStyle == .light {
+                    return UIColor.init(hex: "ff004e")
+                }else{
+                    return UIColor.init(hex: "ff004e")
+                }
+            }
 		case .tipYellow:
 			return UIColor.init(hex: "fdf5df")
+        case.progress:
+            return UIColor.init { (collection) -> UIColor in
+                if collection.userInterfaceStyle == .light{
+                    return UIColor.init(hex: "f2faff")
+                }else{
+                    return UIColor.init(hex: "a0a1a1")
+                }
+            }
         }
         
         

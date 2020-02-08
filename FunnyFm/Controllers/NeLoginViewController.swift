@@ -180,7 +180,7 @@ extension NeLoginViewController {
     }
     
     func setupUI() {
-                
+        self.view.backgroundColor = CommonColor.white.color
         self.mailTF = FMTextField.init(frame: CGRect.zero)
         self.mailTF.cornerRadius = 15;
         self.mailTF.tintColor = CommonColor.mainRed.color

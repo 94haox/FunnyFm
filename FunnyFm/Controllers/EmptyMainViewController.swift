@@ -23,6 +23,7 @@ class EmptyMainViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = CommonColor.white.color
 		welcomeTopConst.constant = 50.adapt()
 		musicTopConst.constant = 100.adapt()
 		welImgView.snp_makeConstraints { (make) in

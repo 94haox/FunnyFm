@@ -145,7 +145,7 @@ extension PodPreviewViewController: UITableViewDataSource, UITableViewDelegate {
 		titleLB.font = numFont(14)
 		titleLB.textColor = CommonColor.content.color
 		view.addSubview(titleLB)
-		view.backgroundColor = .white
+		view.backgroundColor = CommonColor.white.color
 		titleLB.snp.makeConstraints { (make) in
 			make.centerY.equalToSuperview()
 			make.left.equalToSuperview().offset(16)
@@ -186,6 +186,7 @@ extension PodPreviewViewController {
 		self.tableview.delegate = self
 		self.tableview.tableHeaderView = self.infoView;
 		self.tableview.showsVerticalScrollIndicator = false
+        self.tableview.backgroundColor = CommonColor.white.color
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
 		self.view.addSubview(self.tableview)
 		

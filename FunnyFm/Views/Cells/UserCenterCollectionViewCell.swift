@@ -13,6 +13,7 @@ class UserCenterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var subtitleLB: UILabel!
+    @IBOutlet weak var imageBackgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +21,8 @@ class UserCenterCollectionViewCell: UICollectionViewCell {
         self.subtitleLB.textColor = CommonColor.content.color
         self.cornerRadius = 15.0
         self.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        self.backgroundColor = CommonColor.whiteBackgroud.color
+        self.imageBackgroundView.backgroundColor = CommonColor.white.color
     }
     
     func configCell(_ dic: [String:String]){

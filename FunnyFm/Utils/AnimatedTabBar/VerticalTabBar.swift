@@ -39,6 +39,7 @@ open class VerticalTabBar: CommonUIView {
         super.commonInit()
         contentView = UIView()
         stackView = UIStackView()
+        self.backgroundColor = CommonColor.white.color
     }
     
     override open func willMove(toSuperview newSuperview: UIView?) {

@@ -103,7 +103,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         collectionview.delegate = self
         collectionview.dataSource = self
 		collectionview.showsVerticalScrollIndicator = false
-        collectionview.backgroundColor = .white
+        collectionview.backgroundColor = CommonColor.white.color
         return collectionview
     }()
     

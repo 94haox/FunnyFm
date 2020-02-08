@@ -18,6 +18,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
 		self.cornerRadius = 15.auto()
+        self.backgroundColor = CommonColor.whiteBackgroud.color
 		self.addShadow(ofColor: CommonColor.background.color, radius: 15, offset: CGSize.zero, opacity: 1)
     }
 	

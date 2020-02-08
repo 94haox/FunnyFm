@@ -25,6 +25,7 @@ class NoteEditViewController: UIViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = CommonColor.white.color
 		self.changeManner(self.noteBtn)
 		self.dw_addTouchEndEdit()
 		self.limitTextView.limitTextNum = 100;

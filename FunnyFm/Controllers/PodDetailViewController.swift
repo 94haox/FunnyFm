@@ -177,7 +177,7 @@ extension PodDetailViewController: UITableViewDataSource {
 		titleLB.font = numFont(14)
 		titleLB.textColor = CommonColor.content.color
 		view.addSubview(titleLB)
-		view.backgroundColor = .white
+        view.backgroundColor = CommonColor.white.color
 		titleLB.snp.makeConstraints { (make) in
 			make.centerY.equalToSuperview()
 			make.left.equalToSuperview().offset(16)
@@ -201,14 +201,7 @@ extension PodDetailViewController {
 	
 	func dw_addConstraints(){
 		self.view.addSubview(self.tableview)
-//		self.view.addSubview(self.shareBtn)
 		self.view.addSubview(self.loadingView)
-
-//		self.shareBtn.snp.makeConstraints { (make) in
-//			make.right.equalToSuperview().offset(-16.adapt())
-//			make.top.equalTo(self.view.snp_topMargin).offset(12)
-//			make.size.equalTo(CGSize.init(width: 25, height: 25))
-//		}
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview();
@@ -224,6 +217,7 @@ extension PodDetailViewController {
 	
 	func addSubviews(){
         
+        self.view.backgroundColor = CommonColor.white.color
         self.infoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: 260))
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -235,6 +229,7 @@ extension PodDetailViewController {
 		self.tableview.rowHeight = 100
 		self.tableview.delegate = self
 		self.tableview.dataSource = self
+        self.tableview.backgroundColor = CommonColor.white.color
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
 		

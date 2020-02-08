@@ -78,7 +78,7 @@ extension MessageViewController {
 		self.collectionView.showsVerticalScrollIndicator = false
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
-		self.collectionView.backgroundColor = .white
+		self.collectionView.backgroundColor = CommonColor.white.color
 		
 		self.view.addSubview(self.collectionView)
 		self.collectionView.snp.makeConstraints { (make) in

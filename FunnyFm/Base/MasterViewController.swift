@@ -18,7 +18,7 @@ class MasterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = CommonColor.white.color
         self.dw_addSubviews()
         NotificationCenter.default.addObserver(self, selector: #selector(updateAccountStatus), name: Notification.loginSuccess, object: nil)
     }
@@ -75,46 +75,47 @@ extension MasterViewController {
     }
     
     private func addTabBar() {
-            let tabBar = VerticalTabBar()
-            tabBar.internalDelegate = self
-            tabBar.backgroundColor = AnimatedTabBarAppearance.shared.backgroundColor
-            tabBar.translatesAutoresizingMaskIntoConstraints = false
-            tabBar.delegate = delegate
-            tabBar.clipsToBounds = true
-            view.addSubview(tabBar)
-            
-            tabBar.snp.makeConstraints { (make) in
-                make.center.width.equalToSuperview()
-                make.height.equalTo(400.auto())
-            }
-            self.tabBar = tabBar
+        let tabBar = VerticalTabBar()
+        tabBar.internalDelegate = self
+        tabBar.backgroundColor = AnimatedTabBarAppearance.shared.backgroundColor
+        tabBar.translatesAutoresizingMaskIntoConstraints = false
+        tabBar.delegate = delegate
+        tabBar.clipsToBounds = true
+        tabBar.backgroundColor = CommonColor.white.color
+        view.addSubview(tabBar)
+        
+        tabBar.snp.makeConstraints { (make) in
+            make.center.width.equalToSuperview()
+            make.height.equalTo(400.auto())
         }
+        self.tabBar = tabBar
+    }
         
-        @objc func updateAccountStatus(){
-            if UserCenter.shared.isLogin {
-                logoutBtn.setTitle("退出登录".localized, for: .normal)
-            }else{
-                logoutBtn.setTitle("登录".localized, for: .normal)
-            }
+    @objc func updateAccountStatus(){
+        if UserCenter.shared.isLogin {
+            logoutBtn.setTitle("退出登录".localized, for: .normal)
+        }else{
+            logoutBtn.setTitle("登录".localized, for: .normal)
         }
-        
-        
-        private func addLoginButton(){
-            self.logoutBtn = UIButton.init(type: .custom)
-            logoutBtn.setTitleColor(.white, for: .normal)
-            logoutBtn.backgroundColor = CommonColor.mainRed.color
-            logoutBtn.cornerRadius = 5.0
-            logoutBtn.titleLabel?.font = p_bfont(12);
-            logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
-            self.view.addSubview(self.logoutBtn)
-            self.logoutBtn.snp.makeConstraints { (make) in
-                make.centerX.equalToSuperview()
-                make.width.equalToSuperview().multipliedBy(0.8)
-                make.height.equalTo(30.auto())
-                make.top.equalTo(self.logoImage.snp_bottom).offset(16.auto())
-            }
+    }
+    
+    
+    private func addLoginButton(){
+        self.logoutBtn = UIButton.init(type: .custom)
+        logoutBtn.setTitleColor(.white, for: .normal)
+        logoutBtn.backgroundColor = CommonColor.mainRed.color
+        logoutBtn.cornerRadius = 5.0
+        logoutBtn.titleLabel?.font = p_bfont(12);
+        logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
+        self.view.addSubview(self.logoutBtn)
+        self.logoutBtn.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalTo(30.auto())
+            make.top.equalTo(self.logoImage.snp_bottom).offset(16.auto())
+        }
 
-        }
+    }
     
 }
 

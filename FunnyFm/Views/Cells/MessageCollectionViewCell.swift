@@ -18,7 +18,7 @@ class MessageCollectionViewCell: UICollectionViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-		self.backgroundColor = .white
+		self.backgroundColor = CommonColor.whiteBackgroud.color
 		self.cornerRadius = 8
 		self.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.zero, opacity:1)
     }
