@@ -83,16 +83,16 @@ extension DiscoveryViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DiscoverListTableViewCell
 		cell.config(collection: self.vm.collectionList[indexPath.section])
-		cell.clickCloure = { [weak self] podcast in
+		cell.clickCloure = { podcast in
             let pod = DatabaseManager.getPodcast(feedUrl: podcast.feedUrl)
             if pod.isSome {
-                let vc = PodDetailViewController.init(pod: pod!)
-                self!.navigationController?.pushViewController(vc)
+                let podvc = PodDetailViewController.init(pod: pod!)
+                self.navigationController?.pushViewController(podvc)
                 return
             }
 			let preview = PodPreviewViewController()
 			preview.itunsPod = podcast
-			self!.present(preview, animated: true, completion: nil)
+			self.present(preview, animated: true, completion: nil)
 		}
 		return cell
 	}
@@ -167,7 +167,7 @@ extension DiscoveryViewController {
 		self.tableview.backgroundColor = .clear
 		self.tableview.separatorStyle = .none
 		self.tableview.tableFooterView = UIView.init()
-		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
 		self.tableview.showsVerticalScrollIndicator = false
 		
 		self.loadingView.startAnimating()

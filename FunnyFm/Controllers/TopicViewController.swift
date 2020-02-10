@@ -64,6 +64,12 @@ extension TopicViewController : UITableViewDelegate, UITableViewDataSource {
 			SwiftNotice.showText("Error - Rss not found")
 			return;
 		}
+        let podcast = DatabaseManager.getPodcast(feedUrl: pod.feedUrl)
+        if podcast.isSome {
+            let podvc = PodDetailViewController.init(pod: podcast!)
+            self.navigationController?.pushViewController(podvc)
+            return
+        }
 		let preview = PodPreviewViewController()
 		preview.itunsPod = pod
 		self.present(preview, animated: true, completion: nil)

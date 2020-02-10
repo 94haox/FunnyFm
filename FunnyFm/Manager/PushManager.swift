@@ -34,7 +34,7 @@ class PushManager: NSObject {
 	
 	func handlerNotification(userInfo: [AnyHashable : Any]){
 		let type = userInfo["type"] as? String
-		guard type.isNone else {
+		guard type.isSome else {
 			return
 		}
 		
