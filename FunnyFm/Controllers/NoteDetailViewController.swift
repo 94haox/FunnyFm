@@ -38,7 +38,7 @@ class NoteDetailViewController: UIViewController {
 		if UserCenter.shared.userId == note?.userId {
 			self.delBtn.isHidden = false
 		}
-		
+        self.view.backgroundColor = CommonColor.background.color
     }
 
 

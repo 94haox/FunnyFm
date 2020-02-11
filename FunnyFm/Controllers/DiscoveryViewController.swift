@@ -15,7 +15,7 @@ class DiscoveryViewController: BaseViewController {
 	let vm: PodDetailViewModel = PodDetailViewModel()
 	var tableview: UITableView = UITableView.init(frame: CGRect.zero, style: .grouped)
 	var searchBtn : UIButton = UIButton.init(type: .custom)
-	let loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
+    let loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class DiscoveryViewController: BaseViewController {
 			MSHUD.shared.show(from: self!)
 			self!.vm.getPrev(feedUrl: rss)
 		}
+        self.view.backgroundColor = CommonColor.white.color
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
