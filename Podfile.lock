@@ -221,6 +221,9 @@ PODS:
   - pop (1.0.12)
   - PromisesObjC (1.2.8)
   - PullToReach (0.1.2)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
   - Result (4.1.0)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
@@ -269,6 +272,7 @@ DEPENDENCIES:
   - OfficeUIFabric (= 0.2.11)
   - pop (~> 1.0)
   - PullToReach
+  - R.swift
   - RxCocoa
   - RxSwift
   - SHFullscreenPopGestureSwift
@@ -325,6 +329,8 @@ SPEC REPOS:
     - pop
     - PromisesObjC
     - PullToReach
+    - R.swift
+    - R.swift.Library
     - Result
     - RxCocoa
     - RxRelay
@@ -384,6 +390,8 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   PullToReach: 0e747e10403d2827277f8728151ad7998d4576eb
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
@@ -400,6 +408,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: e2c51f4b276b5fe79b103bd1598fe3e3021a0016
+PODFILE CHECKSUM: 0e6129dd3a9045b452c9584d6111106e9a9615d8
 
 COCOAPODS: 1.8.4

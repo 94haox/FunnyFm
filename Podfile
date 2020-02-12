@@ -42,6 +42,7 @@ def lib
 		pod 'Siren'
 		pod 'VIMediaCache'
 		pod 'Bugly'
+    pod 'R.swift'
 end
 
 
