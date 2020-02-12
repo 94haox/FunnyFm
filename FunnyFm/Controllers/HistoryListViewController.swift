@@ -33,7 +33,7 @@ class HistoryListViewController: BaseViewController {
         table.dataSource = self
 		table.emptyDataSetSource = self
         table.showsVerticalScrollIndicator = false
-		table.backgroundColor = .white
+		table.backgroundColor = CommonColor.white.color
 		table.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
         return table
     }()

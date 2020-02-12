@@ -42,7 +42,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.view.backgroundColor = .white
+		self.view.backgroundColor = CommonColor.white.color
 		self.dw_addViews()
 		self.addConstrains()
 		self.addHeader();
@@ -256,7 +256,7 @@ extension MainViewController{
 		}
 		let episodeList = FeedManager.shared.episodeList[section]
 		let view = UIView.init()
-		view.backgroundColor = .white
+		view.backgroundColor = CommonColor.white.color
 		let episode = episodeList.first! as! Episode
 		let titleLB = UILabel.init(text: episode.pubDate)
 		titleLB.textColor = CommonColor.content.color
@@ -330,7 +330,7 @@ extension MainViewController {
 		label.textAlignment = .center
 		label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 36);
 		label.font = h_bfont(14)
-		label.backgroundColor = .white
+		label.backgroundColor = CommonColor.white.color
 		self.tableview.tableFooterView = label
 	}
     
@@ -386,7 +386,7 @@ extension MainViewController {
         let nib = UINib(nibName: String(describing: HomePodCollectionViewCell.self), bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "cell")
         self.collectionView.register(HomePodListHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
-        self.collectionView.backgroundColor = .white
+        self.collectionView.backgroundColor = CommonColor.white.color
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
@@ -423,7 +423,7 @@ extension MainViewController {
 		addBtn.addShadow(ofColor: CommonColor.mainPink.color, radius: 16, offset: CGSize.init(width: 0, height: 9), opacity: 0.6)
 		
 		self.emptyView = UIView.init()
-		emptyView.backgroundColor = .white
+        emptyView.backgroundColor = CommonColor.white.color
 		emptyView.isHidden = true
 		
 		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);

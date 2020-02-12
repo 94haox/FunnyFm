@@ -394,7 +394,7 @@ extension EpisodeInfoViewController {
 //		self.infoTextView.backgroundColor = UIColor.white
 		
 		
-		self.scrollView.backgroundColor = .white
+		self.scrollView.backgroundColor = CommonColor.white.color
 		self.scrollView.delegate = self
 		self.episodeImageView.cornerRadius = 5;
 		
@@ -422,7 +422,7 @@ extension EpisodeInfoViewController {
 		self.insertBtn.setImageForAllStates(UIImage.init(named: "playlist_insert")!)
 		self.insertBtn.titleLabel?.font = pfont(fontsize4)
 		self.insertBtn.addTarget(self, action: #selector(insertAction), for: .touchUpInside)
-		self.insertBtn.backgroundColor = .white
+		self.insertBtn.backgroundColor = CommonColor.whiteBackgroud.color
 		self.insertBtn.cornerRadius = 8
 		self.insertBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		
@@ -433,26 +433,23 @@ extension EpisodeInfoViewController {
 		self.addBtn.setImageForAllStates(UIImage.init(named: "playlist_nor")!)
 		self.addBtn.titleLabel?.font = pfont(fontsize4)
 		self.addBtn.addTarget(self, action: #selector(addAction), for: .touchUpInside)
-		self.addBtn.backgroundColor = .white
+		self.addBtn.backgroundColor = CommonColor.whiteBackgroud.color
 		self.addBtn.cornerRadius = 8
 		self.addBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		
 		
-		self.downloadBtn.backgroundColor = .white
+        self.downloadBtn.backgroundColor = CommonColor.whiteBackgroud.color
 		self.downloadBtn.cornerRadius = 8
 		self.downloadBtn.setImage(UIImage.init(named: "download_icon"), for: .normal)
 		self.downloadBtn.setImage(UIImage.init(named: "cancel"), for: .selected)
 		self.downloadBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		self.downloadBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
 		
-		self.noteListBtn.backgroundColor = .white
+		self.noteListBtn.backgroundColor = CommonColor.whiteBackgroud.color
 		self.noteListBtn.cornerRadius = 8
 		self.noteListBtn.setImageForAllStates(UIImage.init(named: "notelist_little")!)
 		self.noteListBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		self.noteListBtn.addTarget(self, action: #selector(showNoteList), for: .touchUpInside)
-		
-//		self.infoTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: CommonColor.mainRed.color]
-//		self.infoTextView.showsVerticalScrollIndicator = false
 		
 		self.progressBar = HistoryProgressBar.init(frame: CGRect.zero)
 		self.progressBar.isHidden = true

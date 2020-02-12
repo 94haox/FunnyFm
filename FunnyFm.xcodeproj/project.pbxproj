@@ -2222,7 +2222,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2247,7 +2247,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2400,7 +2400,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2565,7 +2565,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

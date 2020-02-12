@@ -17,12 +17,13 @@ class PodListCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var imageBg: UIView!
 	override func awakeFromNib() {
         super.awakeFromNib()
-		self.backgroundColor = UIColor.clear
+        self.backgroundColor = CommonColor.white.color
 		self.logoImageView.cornerRadius = 30.0
 		self.imageBg.layer.masksToBounds = false
 		self.imageBg.layer.borderWidth = CGFloat.leastNormalMagnitude
 		self.imageBg.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
 		self.bgView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        self.bgView.backgroundColor = CommonColor.whiteBackgroud.color
         self.titleLB.textColor = CommonColor.title.color
         self.updateTimeLB.textColor = CommonColor.subtitle.color
 		self.updateTimeLB.font = p_bfont(10)

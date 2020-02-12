@@ -23,10 +23,8 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		self.titleLB.text = "设置".localized
 		self.setUpImmutableData()
         self.setupUI()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = CommonColor.white.color
         self.dw_addsubviews()
-		
-		let size = VICahcheHelper.init().getAllCacheSize()/1024
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -210,7 +208,7 @@ extension SettingViewController {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView.init()
-		view.backgroundColor = UIColor.white
+        view.backgroundColor = CommonColor.white.color
 		let lb = UILabel.init(text: "通用".localized)
 		lb.textColor = CommonColor.subtitle.color
 		lb.font = pfont(fontsize2)
@@ -292,6 +290,7 @@ extension SettingViewController {
     }
     
     func setupUI(){
+
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let nib = UINib(nibName: String(describing: SettingTableViewCell.self), bundle: nil)
         self.tableview.register(nib, forCellReuseIdentifier: "cell")
@@ -302,10 +301,10 @@ extension SettingViewController {
         self.tableview.dataSource = self
         self.tableview.tableFooterView = UIView()
         self.tableview.showsVerticalScrollIndicator = false
-		self.tableview.backgroundColor = .white
+		self.tableview.backgroundColor = CommonColor.white.color
         
         self.naviBar = UIView.init()
-        self.naviBar.backgroundColor = .white
+        self.naviBar.backgroundColor = CommonColor.white.color
 		
 		let infoDic = Bundle.main.infoDictionary
 		let appVersion = infoDic?["CFBundleShortVersionString"]

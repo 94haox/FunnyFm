@@ -158,6 +158,7 @@ class SpeechViewController: UIViewController {
 extension SpeechViewController {
 	
 	func setUpUI(){
+        self.view.backgroundColor = CommonColor.white.color
 		self.convertTextView.isEditable = false
 		
 		self.rangeLB.text = "\(FunnyFm.formatIntervalToMM(startTime)) - \(FunnyFm.formatIntervalToMM(startTime+60))"

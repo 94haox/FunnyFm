@@ -60,13 +60,11 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
         layout.itemSize = CGSize(width: 139.auto(), height: 139.auto())
         layout.minimumInteritemSpacing = 18
         layout.minimumLineSpacing = 31;
-		
-        
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         collectionview.showsHorizontalScrollIndicator = false
         let nib = UINib(nibName: String(describing: PodListCollectionViewCell.self), bundle: nil)
         collectionview.register(nib, forCellWithReuseIdentifier: "cell")
-		collectionview.backgroundColor = .white
+        collectionview.backgroundColor = CommonColor.white.color
 		collectionview.emptyDataSetSource = self;
 		collectionview.showsVerticalScrollIndicator = false
 		collectionview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)

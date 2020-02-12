@@ -25,6 +25,8 @@ class AppleLoginTypeViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = CommonColor.white.color
 		self.viewModel.delegate = self;
 		GIDSignIn.sharedInstance().delegate = self
 		GIDSignIn.sharedInstance()?.clientID = googleSigninKey

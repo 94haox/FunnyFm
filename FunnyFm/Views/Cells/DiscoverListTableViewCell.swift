@@ -79,7 +79,7 @@ extension DiscoverListTableViewCell {
 		layout.scrollDirection = .horizontal
 		self.collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
 		self.collectionView.register(DiscoverPodcastViewCell.self, forCellWithReuseIdentifier: "cell")
-		self.collectionView.backgroundColor = UIColor.clear
+		self.collectionView.backgroundColor = CommonColor.white.color
 		self.collectionView.contentInset = UIEdgeInsets.init(top: 0, left: 24.auto(), bottom: 0, right: 24.auto())
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self

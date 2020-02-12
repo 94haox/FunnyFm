@@ -15,7 +15,7 @@ class DiscoveryViewController: BaseViewController {
 	let vm: PodDetailViewModel = PodDetailViewModel()
 	var tableview: UITableView = UITableView.init(frame: CGRect.zero, style: .grouped)
 	var searchBtn : UIButton = UIButton.init(type: .custom)
-	let loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
+    let loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class DiscoveryViewController: BaseViewController {
 			MSHUD.shared.show(from: self!)
 			self!.vm.getPrev(feedUrl: rss)
 		}
+        self.view.backgroundColor = CommonColor.white.color
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +106,7 @@ extension DiscoveryViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = DiscoverHeader.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: 40))
 		header.config(collection: self.vm.collectionList[section])
-		header.backgroundColor = .white
+		header.backgroundColor = CommonColor.white.color
 		return header
 	}
 	
@@ -164,7 +165,7 @@ extension DiscoveryViewController {
 		self.tableview.dataSource = self
 		self.tableview.delegate = self
 		self.tableview.rowHeight = 160.auto()
-		self.tableview.backgroundColor = .clear
+        self.tableview.backgroundColor = CommonColor.white.color
 		self.tableview.separatorStyle = .none
 		self.tableview.tableFooterView = UIView.init()
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 60, right: 0)
