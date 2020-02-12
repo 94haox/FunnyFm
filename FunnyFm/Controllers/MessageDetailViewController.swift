@@ -15,9 +15,9 @@ class MessageDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.titleLB.text = "详情".localized
-		self.view.backgroundColor = .white
+		self.view.backgroundColor = CommonColor.white.color
 		self.detailInfoTextView.isEditable = false
-		self.detailInfoTextView.backgroundColor = .clear
+		self.detailInfoTextView.backgroundColor = CommonColor.white.color
 		self.detailInfoTextView.contentInset = UIEdgeInsets.init(top: 30, left: 20, bottom: 0, right: 30)
 		self.detailInfoTextView.font = pfont(fontsize6)
 		self.view.addSubview(self.detailInfoTextView)

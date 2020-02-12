@@ -111,6 +111,8 @@ extension RegisterViewController {
     
     func dw_addSubviews() {
         
+        self.view.backgroundColor = CommonColor.white.color
+        
         self.mailTF.snp.makeConstraints { (make) in
             make.left.equalTo(self.tipLB)
             make.top.equalTo(self.tipLB.snp.bottom).offset(100.auto())

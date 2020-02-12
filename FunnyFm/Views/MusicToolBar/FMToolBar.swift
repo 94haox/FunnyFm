@@ -248,6 +248,7 @@ extension FMToolBar {
 extension FMToolBar {
     
     func addConstraints(){
+        self.backgroundColor = CommonColor.whiteBackgroud.color
         if ClientConfig.shared.isIPad {
             self.addConstraintsForIPad()
         }else{
@@ -256,7 +257,6 @@ extension FMToolBar {
     }
     
     func addConstraintsForIPad() {
-        self.backgroundColor = .white
         self.addSubview(self.containerView)
         self.addSubview(self.logoImageView)
         self.containerView.addSubview(self.titleLB)
@@ -293,7 +293,6 @@ extension FMToolBar {
     }
     
     func addConstraintsForIphone() {
-        self.backgroundColor = .white
         self.cornerRadius = 8.0
         self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
         self.addSubview(self.containerView)
@@ -361,7 +360,7 @@ extension FMToolBar {
         self.loadingView.isHidden = true
         self.loadingView.startAnimating()
 		
-		progressBg.backgroundColor = UIColor.init(hex: "f2faff")
+        progressBg.backgroundColor = CommonColor.progress.color
 		progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: 85)
 		self.containerView.addSubview(progressBg)
 		self.containerView.sendSubviewToBack(progressBg)

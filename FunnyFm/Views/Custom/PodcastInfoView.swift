@@ -58,7 +58,7 @@ class PodcastInfoView: UIView {
 			self.subBtn.isSelected = false
 		}else{
 			self.subBtn.isSelected = true
-			self.subBtn.backgroundColor = .white
+			self.subBtn.backgroundColor = CommonColor.white.color
 		}
 		
 	}
@@ -135,7 +135,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 	}
 	
 	func setupUI(){
-		
+        self.backgroundColor = CommonColor.white.color
 		self.mainScrollView.isPagingEnabled = true
 		self.mainScrollView.showsHorizontalScrollIndicator = false
 		self.mainScrollView.delegate = self

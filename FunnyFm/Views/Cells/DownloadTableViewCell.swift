@@ -26,9 +26,9 @@ class DownloadTableViewCell: UITableViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-		self.contentView.backgroundColor = .white
+		self.contentView.backgroundColor = CommonColor.white.color
 		self.selectionStyle = .none
-		progressBg.backgroundColor = UIColor.init(hex: "f2faff")
+        progressBg.backgroundColor = CommonColor.progress.color
 		progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: 85)
 		self.contentView.addSubview(progressBg)
 		self.contentView.sendSubviewToBack(progressBg)

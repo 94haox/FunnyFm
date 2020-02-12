@@ -99,7 +99,7 @@ extension SearchViewController : UITextFieldDelegate {
 	
 	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
 		UIView.animate(withDuration: 0.3) {
-			self.searchTF.backgroundColor = .white;
+            self.searchTF.backgroundColor = CommonColor.white.color;
 			self.searchTF.addShadow(ofColor: UIColor.init(hex: "#d6d80e", alpha: 0.3), radius: 5, offset: CGSize.init(width: 0, height: 5), opacity: 0.6)
 		}
 		self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
@@ -144,11 +144,12 @@ extension SearchViewController: DZNEmptyDataSetSource{
 
 extension SearchViewController {
 	func dw_addSubviews(){
+        self.view.backgroundColor = CommonColor.white.color
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: ItunsPodTableViewCell.self), bundle: nil)
 		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
 		self.tableview.register(TopicTableViewCell.self, forCellReuseIdentifier: "celld")
-		self.tableview.backgroundColor = .clear;
+		self.tableview.backgroundColor = CommonColor.white.color;
 		self.tableview.separatorStyle = .none
 		self.tableview.delegate = self
 		self.tableview.dataSource = self

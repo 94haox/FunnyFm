@@ -21,7 +21,7 @@ class HistoryTableViewCell: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
 		self.selectionStyle = .none
-		self.contentView.backgroundColor = .white
+        self.contentView.backgroundColor = CommonColor.white.color
     }
 
 	

@@ -109,6 +109,7 @@ extension DWSegment {
 extension DWSegment {
 	
 	func setupUI(){
+        self.backgroundColor = CommonColor.white.color
 		self.leftBtn.addTarget(self, action: #selector(selectBtn(btn:)), for: .touchUpInside)
 		self.rightBtn.addTarget(self, action: #selector(selectBtn(btn:)), for: .touchUpInside)
 		self.leftBtn.setTitleColor(CommonColor.subtitle.color, for: .normal)
@@ -118,7 +119,7 @@ extension DWSegment {
 		self.rightBtn.setTitleColor(CommonColor.subtitle.color, for: .normal)
 		self.rightBtn.setTitleColor(.white, for: .selected)
 		self.contaniner.cornerRadius = self.containerCornerRadius
-		self.contaniner.backgroundColor = .white
+		self.contaniner.backgroundColor = CommonColor.whiteBackgroud.color
 		self.squareView.backgroundColor = CommonColor.mainRed.color
 		self.squareView.cornerRadius = self.containerCornerRadius;
 		

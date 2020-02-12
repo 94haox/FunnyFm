@@ -79,7 +79,7 @@ extension NoteListViewController: DZNEmptyDataSetSource{
 extension NoteListViewController {
 	
 	func setupUI(){
-		
+        self.view.backgroundColor = CommonColor.white.color
 		let layout = UICollectionViewFlowLayout.init()
 		layout.minimumInteritemSpacing = 20
 		layout.scrollDirection = .horizontal
@@ -88,7 +88,7 @@ extension NoteListViewController {
 		self.noteListView.register(UINib.init(nibName: "NoteCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "cell")
 		self.noteListView.delegate = self
 		self.noteListView.dataSource = self;
-		self.noteListView.backgroundColor = .white
+		self.noteListView.backgroundColor = CommonColor.white.color
 		self.noteListView.showsHorizontalScrollIndicator = false
 		self.noteListView.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
 		self.noteListView.clipsToBounds = false;

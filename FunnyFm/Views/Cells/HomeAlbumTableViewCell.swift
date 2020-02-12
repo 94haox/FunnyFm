@@ -27,6 +27,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 2, height: 2), opacity: 1)
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapLogoAction(_:)))
 		self.logoImageView.addGestureRecognizer(tap)
+        self.contentView.backgroundColor = CommonColor.white.color
     }
 	
 	func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {

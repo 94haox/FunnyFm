@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.view.backgroundColor = .white
+		self.view.backgroundColor = .systemBackground
 		self.view.addSubview(self.topBgView)
 		self.topBgView.addSubview(self.titleLB)
 		self.titleLB.snp.makeConstraints { (make) in
@@ -47,7 +47,7 @@ class BaseViewController: UIViewController {
 	
 	lazy var topBgView: UIView = {
 		let view = UIView.init()
-		view.backgroundColor = .white
+        view.backgroundColor = CommonColor.white.color
 		return view;
 	}()
     
