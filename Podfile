@@ -16,7 +16,6 @@ def layout
 		pod 'OfficeUIFabric', '0.2.11'
 		pod 'Hero'
 		pod 'LookinServer', :configurations => ['Debug']
-#		pod 'AnimatedTabBar'
 		pod 'DynamicColor', '~> 4.2.0'
 		
 end
@@ -43,6 +42,7 @@ def lib
 		pod 'VIMediaCache'
 		pod 'Bugly'
     pod 'R.swift'
+    pod 'SwiftyStoreKit'
 end
 
 
@@ -58,6 +58,7 @@ def performance
 	pod 'Fabric', '1.10.2'
 	pod 'Crashlytics', '3.13.3'
 	pod 'Firebase/Analytics'
+#  pod 'Firebase/Performance'
 	
 end
 

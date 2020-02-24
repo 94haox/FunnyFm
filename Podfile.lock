@@ -237,6 +237,7 @@ PODS:
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (5.0.0)
+  - SwiftyStoreKit (0.15.0)
   - VIMediaCache (0.4)
   - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
@@ -279,6 +280,7 @@ DEPENDENCIES:
   - Siren
   - SnapKit (~> 4.0.0)
   - SwiftyJSON
+  - SwiftyStoreKit
   - VIMediaCache
   - WCDB.swift
   - WechatOpenSDK
@@ -340,6 +342,7 @@ SPEC REPOS:
     - SnapKit
     - SQLiteRepairKit
     - SwiftyJSON
+    - SwiftyStoreKit
     - VIMediaCache
     - WCDB.swift
     - WCDBOptimizedSQLCipher
@@ -401,6 +404,7 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
   VIMediaCache: aa650f82cb114c68a343beb4e67416cf5eb2f3a2
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
@@ -408,6 +412,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 0e6129dd3a9045b452c9584d6111106e9a9615d8
+PODFILE CHECKSUM: 9f103d1f87edf4f4b357806ee007cbe97abfc34f
 
 COCOAPODS: 1.8.4

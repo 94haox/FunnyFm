@@ -240,6 +240,7 @@
 		ABCF531A23F3A91800DA6B16 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF531923F3A91800DA6B16 /* RoundedButton.swift */; };
 		ABCF531C23F3AC4100DA6B16 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF531B23F3AC4100DA6B16 /* ActivityIndicatorView.swift */; };
 		ABCF53F523F3B5BC00DA6B16 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53F423F3B5BC00DA6B16 /* R.generated.swift */; };
+		ABCF54CF23F3DD9500DA6B16 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF54CE23F3DD9500DA6B16 /* StoreManager.swift */; };
 		ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */; };
 		ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */; };
 		ABDB9DE62394F04A00539049 /* NoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB9DE52394F04A00539049 /* NoteAPI.swift */; };
@@ -627,6 +628,7 @@
 		ABCF531923F3A91800DA6B16 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		ABCF531B23F3AC4100DA6B16 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		ABCF53F423F3B5BC00DA6B16 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		ABCF54CE23F3DD9500DA6B16 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFillViewController.xib; sourceTree = "<group>"; };
 		ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFillViewController.swift; sourceTree = "<group>"; };
 		ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FunnyFm-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1439,6 +1441,7 @@
 				AB287BD9234F4E1500ED5448 /* VipManager.swift */,
 				AB73173F239E4944000E1588 /* VersionManager.swift */,
 				AB14E1D823E803EA00E0FA38 /* ClientConfig.swift */,
+				ABCF54CE23F3DD9500DA6B16 /* StoreManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1840,6 +1843,7 @@
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
+				ABCF54CF23F3DD9500DA6B16 /* StoreManager.swift in Sources */,
 				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
 				AB1E6D7C21B9252500B85135 /* UISegmentedControlExtensions.swift in Sources */,

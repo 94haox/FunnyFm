@@ -26,6 +26,7 @@ class InPurchaseViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        StoreManager.shared.getAllProducts()
         self.titleLB.text = "订购趣播客 Pro"
         infoTopConstraint.constant = 80.auto()
         infoHConstraint.constant = 150.auto()
