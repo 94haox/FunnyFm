@@ -68,6 +68,8 @@
 	<string>将使用语音识别功能为您提供文本转录功能</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Montserrat-SemiBold.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
 		<string>Ubuntu.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>

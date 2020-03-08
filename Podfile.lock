@@ -195,7 +195,6 @@ PODS:
   - GTMSessionFetcher/Core (1.3.1)
   - GTMSessionFetcher/Full (1.3.1):
     - GTMSessionFetcher/Core (= 1.3.1)
-  - Hero (1.5.0)
   - JCore (2.1.8)
   - JPush (3.2.8):
     - JCore (< 3.0.0, >= 2.0.0)
@@ -220,24 +219,13 @@ PODS:
   - OfficeUIFabric (0.2.11)
   - pop (1.0.12)
   - PromisesObjC (1.2.8)
-  - PullToReach (0.1.2)
-  - R.swift (5.1.0):
-    - R.swift.Library (~> 5.1.0)
-  - R.swift.Library (5.1.0)
   - Result (4.1.0)
-  - RxCocoa (5.0.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.0.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.0.1)
   - SHFullscreenPopGestureSwift (1.2.1)
   - Siren (5.2.3)
   - SnapKit (4.0.1)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (5.0.0)
-  - SwiftyStoreKit (0.15.0)
   - VIMediaCache (0.4)
   - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
@@ -261,7 +249,6 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - GDTMobSDK (~> 4.10.5)
-  - Hero
   - JPush
   - JXSegmentedView
   - KeychainAccess
@@ -272,15 +259,10 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - OfficeUIFabric (= 0.2.11)
   - pop (~> 1.0)
-  - PullToReach
-  - R.swift
-  - RxCocoa
-  - RxSwift
   - SHFullscreenPopGestureSwift
   - Siren
   - SnapKit (~> 4.0.0)
   - SwiftyJSON
-  - SwiftyStoreKit
   - VIMediaCache
   - WCDB.swift
   - WechatOpenSDK
@@ -316,7 +298,6 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
-    - Hero
     - JCore
     - JPush
     - JXSegmentedView
@@ -330,19 +311,12 @@ SPEC REPOS:
     - OfficeUIFabric
     - pop
     - PromisesObjC
-    - PullToReach
-    - R.swift
-    - R.swift.Library
     - Result
-    - RxCocoa
-    - RxRelay
-    - RxSwift
     - SHFullscreenPopGestureSwift
     - Siren
     - SnapKit
     - SQLiteRepairKit
     - SwiftyJSON
-    - SwiftyStoreKit
     - VIMediaCache
     - WCDB.swift
     - WCDBOptimizedSQLCipher
@@ -378,7 +352,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
-  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   JCore: a7f1dead960d77a97717c73ea8b0aa5b33706491
   JPush: 8ce888d6dedfa417e90c8b6bc87405a16ce2e699
   JXSegmentedView: b278b4c5d4c4c2982b4e084cef76ff1ddd37c6a5
@@ -392,19 +365,12 @@ SPEC CHECKSUMS:
   OfficeUIFabric: 63cc5002ab0aa509bd7941ba2542618856150e7c
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  PullToReach: 0e747e10403d2827277f8728151ad7998d4576eb
-  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
-  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   Siren: 996f37869eae1f343f8c11f17d90c9c8da90bd4c
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
   VIMediaCache: aa650f82cb114c68a343beb4e67416cf5eb2f3a2
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
@@ -412,6 +378,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 9f103d1f87edf4f4b357806ee007cbe97abfc34f
+PODFILE CHECKSUM: 8b783c8492b579b65c30402957416449ea65e61e
 
 COCOAPODS: 1.8.4

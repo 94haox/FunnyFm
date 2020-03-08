@@ -12,7 +12,10 @@ import AutoInch
 
 class PodDetailViewController: BaseViewController {
 	
-	var infoView: PodcastInfoView!
+	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260))
+    
+    var sortedBtn: UIButton = UIButton.init(type: .custom)
+	
 	var pod: iTunsPod!
 	
 	var shareBtn: UIButton!
@@ -95,6 +98,26 @@ class PodDetailViewController: BaseViewController {
         let activityVC = VisualActivityViewController(activityItems: items, applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
 	}
+    
+    @objc func sorted(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
+        self.reload(needSorted: true)
+    }
+    
+    func reload(needSorted: Bool) {
+        guard needSorted else {
+            self.tableview.reloadData()
+            return
+        }
+        self.vm.episodeList.sort { (obj1, obj2) -> Bool in
+            if self.sortedBtn.isSelected {
+               return obj1.pubDateSecond >= obj2.pubDateSecond
+            }else{
+                return obj1.pubDateSecond <= obj2.pubDateSecond
+            }
+        }
+        self.tableview.reloadData()
+    }
 	
 }
 
@@ -113,7 +136,7 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 	func podDetailParserSuccess() {
 		DispatchQueue.main.async {
 			self.tableview.refreshControl?.endRefreshing()
-			self.tableview.reloadData()
+			self.reload(needSorted: true)
 			self.infoView.config(pod: self.vm.pod!)
 		}
 	}
@@ -127,7 +150,7 @@ extension PodDetailViewController: FeedManagerDelegate {
 	
 	func feedManagerDidGetEpisodelistSuccess() {
 		self.tableview.refreshControl?.endRefreshing()
-		self.tableview.reloadData()
+		self.reload(needSorted: true)
 	}
 	
 	
@@ -165,7 +188,7 @@ extension PodDetailViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		guard let cell = cell as? HomeAlbumTableViewCell else { return }
 		let episode = self.vm.episodeList[indexPath.row]
-		cell.configCell(episode)
+        cell.configCell(episode)
 		cell.tranferNoParameterClosure { [weak self] in
 			self?.toDetail(episode: episode)
 		}
@@ -177,11 +200,17 @@ extension PodDetailViewController: UITableViewDataSource {
 		titleLB.font = numFont(14)
 		titleLB.textColor = CommonColor.content.color
 		view.addSubview(titleLB)
-        view.backgroundColor = CommonColor.white.color
+		view.backgroundColor = .white
+        view.addSubview(self.sortedBtn)
 		titleLB.snp.makeConstraints { (make) in
 			make.centerY.equalToSuperview()
-			make.left.equalToSuperview().offset(16)
+            make.left.equalToSuperview().offset(16.auto())
 		}
+        self.sortedBtn.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-16.auto())
+            make.size.equalTo(CGSize.init(width: 25, height: 25))
+        }
 		return view;
 	}
 	
@@ -216,9 +245,13 @@ extension PodDetailViewController {
 	}
 	
 	func addSubviews(){
-        
-        self.view.backgroundColor = CommonColor.white.color
-        self.infoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: 260))
+		
+//		self.shareBtn = UIButton.init(type: .custom)
+//		self.shareBtn.setImageForAllStates(UIImage.init(named: "share-red")!)
+//		self.shareBtn.addTarget(self, action: #selector(sharePodcast), for: .touchUpInside)
+//		self.shareBtn.cornerRadius = 5
+//		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
+		
 		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		self.tableview.tableHeaderView = self.infoView
@@ -229,13 +262,15 @@ extension PodDetailViewController {
 		self.tableview.rowHeight = 100
 		self.tableview.delegate = self
 		self.tableview.dataSource = self
-        self.tableview.backgroundColor = CommonColor.white.color
 		self.tableview.showsVerticalScrollIndicator = false
-		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
 		
-        self.loadingView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
+		self.loadingView = UIActivityIndicatorView.init(style: .gray)
 		self.loadingView.startAnimating()
 		
+        self.sortedBtn.setImage(UIImage.init(named: "sort_down"), for: .normal)
+        self.sortedBtn.setImage(UIImage.init(named: "sort_up"), for: .selected)
+        self.sortedBtn.addTarget(self, action: #selector(sorted(btn:)), for: .touchUpInside)
 	}
 	
 }

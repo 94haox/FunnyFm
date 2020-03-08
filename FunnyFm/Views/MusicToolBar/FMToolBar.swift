@@ -8,7 +8,6 @@
 
 import UIKit
 import MediaPlayer
-import RxSwift
 import pop
 
 let toolbarH: CGFloat = ClientConfig.shared.isIPad ? 80.auto() : 55

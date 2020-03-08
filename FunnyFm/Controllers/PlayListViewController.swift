@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
+
 
 class PlayListViewController: BaseViewController {
 	var tipLB: UILabel = UILabel.init(text: "待播:".localized)
