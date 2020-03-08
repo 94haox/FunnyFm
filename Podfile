@@ -1,10 +1,23 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '12.0'
+platform :ios, '13.0'
 use_frameworks!
 inhibit_all_warnings!
 install! 'cocoapods', generate_multiple_pod_projects: true
 
+#keep_dynamically_linked = ['VIResourceLoader', 'GDTResourceLoader']
+#
+#pre_install do |installer|
+#  puts "Make pods linked statically except reserved pods"
+#  installer.pod_targets.each do |pod|
+#    if !keep_dynamically_linked.include?(pod.name)
+#      puts "Override the static_framework? method for #{pod.name}"
+#      def pod.build_type;
+#        Pod::Target::BuildType.static_framework
+#      end
+#    end
+#  end
+#end
 
 def layout
     pod 'SnapKit', '~> 4.0.0'
@@ -67,3 +80,4 @@ target "FunnyFm" do
     layout
     lib
 end
+

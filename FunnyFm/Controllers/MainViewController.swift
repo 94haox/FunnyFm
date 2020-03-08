@@ -66,6 +66,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.emptyAnimationView.play()
 		self.loadAnimationView.play()
 		FeedManager.shared.delegate = self;
+        
 	}
 	
 }

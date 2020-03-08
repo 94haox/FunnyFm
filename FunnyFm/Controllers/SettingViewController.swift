@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import OfficeUIFabric
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 
@@ -23,7 +24,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		self.titleLB.text = "设置".localized
 		self.setUpImmutableData()
         self.setupUI()
-        self.view.backgroundColor = CommonColor.white.color
+        self.view.backgroundColor = .white
         self.dw_addsubviews()
     }
 	
@@ -57,9 +58,14 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func setUpImmutableData(){
-		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
+		var cache = Double(VICahcheHelper.init().getAllCacheSize()/1024/1024)
 		if cache != 0 {
-            self.functions.append(["title":"清除缓存".localized,"imageName":"cache","rightText":"\(cache)M"])
+            if cache > 1024 {
+                cache = cache/1024.0
+                self.functions.append(["title":"清除缓存".localized,"imageName":"cache","rightText":String(format: "%.2f G", cache)])
+            }else{
+                self.functions.append(["title":"清除缓存".localized,"imageName":"cache","rightText":String(format: "%.0f M", cache)])
+            }
 		}else{
             self.functions.append(["title":"清除缓存".localized,"imageName":"cache"])
 		}
@@ -87,13 +93,15 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func cleanAllCache(){
+        MSHUD.shared.show(in: self.view)
 		VICahcheHelper.init().cleanAllCache()
 		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
 		if cache != 0 {
-            self.functions[0] = ["title":"清除缓存".localized,"imageName":"cache","rightText":"\(cache)M"]
+			self.functions[0] = ["title":"清除缓存","imageName":"cache","rightText":"\(cache)M"]
 		}else{
-            self.functions[0] = ["title":"清除缓存".localized,"imageName":"cache"]
+			self.functions[0] = ["title":"清除缓存","imageName":"cache"]
 		}
+        MSHUD.shared.hide()
 		self.tableview.reloadData()
 		SwiftNotice.showText("缓存清除成功🎉")
 	}
@@ -208,7 +216,7 @@ extension SettingViewController {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView.init()
-        view.backgroundColor = CommonColor.white.color
+		view.backgroundColor = UIColor.white
 		let lb = UILabel.init(text: "通用".localized)
 		lb.textColor = CommonColor.subtitle.color
 		lb.font = pfont(fontsize2)
@@ -268,19 +276,10 @@ extension SettingViewController {
             make.height.equalTo(44)
         }
 		
-        if ClientConfig.shared.isIPad {
-            self.tableview.snp.makeConstraints { (make) in
-                make.centerX.equalToSuperview()
-                make.width.equalToSuperview().offset(-100.auto())
-                make.bottom.equalToSuperview()
-                make.top.equalTo(self.naviBar.snp.bottom)
-            }
-        }else{
-            self.tableview.snp.makeConstraints { (make) in
-                make.left.width.equalToSuperview()
-                make.bottom.equalToSuperview()
-                make.top.equalTo(self.naviBar.snp.bottom)
-            }
+        self.tableview.snp.makeConstraints { (make) in
+            make.left.width.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(self.naviBar.snp.bottom)
         }
 		
 		self.versionLB.snp.makeConstraints { (make) in
@@ -290,7 +289,6 @@ extension SettingViewController {
     }
     
     func setupUI(){
-
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let nib = UINib(nibName: String(describing: SettingTableViewCell.self), bundle: nil)
         self.tableview.register(nib, forCellReuseIdentifier: "cell")
@@ -301,10 +299,10 @@ extension SettingViewController {
         self.tableview.dataSource = self
         self.tableview.tableFooterView = UIView()
         self.tableview.showsVerticalScrollIndicator = false
-		self.tableview.backgroundColor = CommonColor.white.color
+		self.tableview.backgroundColor = .white
         
         self.naviBar = UIView.init()
-        self.naviBar.backgroundColor = CommonColor.white.color
+        self.naviBar.backgroundColor = .white
 		
 		let infoDic = Bundle.main.infoDictionary
 		let appVersion = infoDic?["CFBundleShortVersionString"]

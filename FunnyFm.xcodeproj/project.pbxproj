@@ -331,6 +331,7 @@
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		74A5CD75241239A200705E75 /* FunnyFm.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		AB00BC312394A87900893325 /* NoteEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditViewController.xib; sourceTree = "<group>"; };
 		AB00BC322394A87900893325 /* NoteEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
 		AB08F097233DEE0000B93D31 /* UIButton+SomeMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SomeMethods.h"; sourceTree = "<group>"; };
@@ -716,7 +717,6 @@
 		ABF498A22303B88C00441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
 		ABF498A42303B88D00441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
 		ABF498A62303B88E00441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/RegisterViewController.strings; sourceTree = "<group>"; };
-		ABF5117A21BE74240083A81B /* FunnyFm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		ABF5117E21BE8A7C0083A81B /* FMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMTextField.h; path = FunnyFm/OC/FMTextField.h; sourceTree = SOURCE_ROOT; };
 		ABF5117F21BE8A7C0083A81B /* FMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMTextField.m; path = FunnyFm/OC/FMTextField.m; sourceTree = SOURCE_ROOT; };
 		ABF5118121BF43CB0083A81B /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
@@ -886,7 +886,7 @@
 			isa = PBXGroup;
 			children = (
 				ABAFF26E21E22CA30009A3A2 /* Lotties */,
-				ABF5117A21BE74240083A81B /* FunnyFm.entitlements */,
+				74A5CD75241239A200705E75 /* FunnyFm.entitlements */,
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
 				AB62C46A21BB92F0008D6BA6 /* Base */,
 				AB41AAE3219532E500260851 /* API */,
@@ -1497,9 +1497,9 @@
 				AB25797521945E6F004C5F5D /* Sources */,
 				AB25797621945E6F004C5F5D /* Frameworks */,
 				AB25797721945E6F004C5F5D /* Resources */,
-				FE0B038FAAFA1EB55467A8B2 /* [CP] Embed Pods Frameworks */,
 				ABE7661E21D7650E00470D8F /* Embed App Extensions */,
 				16EF1320CCF93212ACE508BC /* [CP] Copy Pods Resources */,
+				55BEEE97A1DDA8ADD4ECD9A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1664,7 +1664,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FE0B038FAAFA1EB55467A8B2 /* [CP] Embed Pods Frameworks */ = {
+		55BEEE97A1DDA8ADD4ECD9A8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2187,7 +2187,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 1;
+=======
+				CURRENT_PROJECT_VERSION = 2;
+>>>>>>> podcast_prev
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2352,7 +2356,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 1;
+=======
+				CURRENT_PROJECT_VERSION = 2;
+>>>>>>> podcast_prev
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

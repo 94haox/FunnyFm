@@ -104,9 +104,13 @@ extension PlayDetailToolBar {
 			rate = 1
 			break
 		case "1x":
-			btn.setTitle("1.5x", for: .normal)
-			rate = 1.5
+			btn.setTitle("1.25x", for: .normal)
+			rate = 1.25
 			break
+        case "1.25x":
+            btn.setTitle("1.5x", for: .normal)
+            rate = 1.5
+        break
 		case "1.5x":
 			btn.setTitle("2x", for: .normal)
 			rate = 2
