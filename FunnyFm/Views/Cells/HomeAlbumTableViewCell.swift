@@ -12,7 +12,8 @@ import Lottie
 
 class HomeAlbumTableViewCell: UITableViewCell {
 
-	@IBOutlet weak var shadowBgView: UIView!
+    @IBOutlet weak var noLB: UILabel!
+    @IBOutlet weak var shadowBgView: UIView!
 	@IBOutlet weak var moreBtn: UIButton!
 	@IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
@@ -27,6 +28,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 2, height: 2), opacity: 1)
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapLogoAction(_:)))
 		self.logoImageView.addGestureRecognizer(tap)
+        self.noLB.isHidden = true
     }
 	
 	func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {
@@ -73,6 +75,19 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		}else{
 			self.logoImageView.loadImage(url: episode.podCoverUrl)
 		}
+    }
+    
+    func configCell(_ episode:Episode, index:Int){
+        self.noLB.isHidden = false
+        self.titleLB.text = episode.title
+        self.updateLB.text = episode.pubDate
+        self.noLB.text = " • no.\(index)"
+        self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
+        if episode.coverUrl.length() > 0 {
+            self.logoImageView.loadImage(url: episode.coverUrl)
+        }else{
+            self.logoImageView.loadImage(url: episode.podCoverUrl)
+        }
     }
 	
 	func configNoDetailCell(_ episode:Episode){

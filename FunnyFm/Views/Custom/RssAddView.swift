@@ -74,7 +74,7 @@ extension RssAddView {
 	
 	func setupUI(){
 		self.addBtn.setImage(UIImage.init(named: "rss_white"), for: .normal)
-		self.addBtn.setTitle("通过 RSS 链接订阅播客", for: .normal)
+        self.addBtn.setTitle("通过 RSS 链接订阅播客".localized, for: .normal)
 		self.addBtn.setImage(nil, for: .normal)
 		self.addBtn.setTitle("取消", for: .selected)
 		self.addBtn.setTitleColorForAllStates(.white)

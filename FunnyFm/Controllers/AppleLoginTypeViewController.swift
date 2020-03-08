@@ -14,7 +14,6 @@ import OfficeUIFabric
 import AuthenticationServices
 #endif
 
-@available(iOS 13.0, *)
 class AppleLoginTypeViewController: UIViewController {
 	
 	var viewModel: LoginViewModel = LoginViewModel()
@@ -73,7 +72,7 @@ class AppleLoginTypeViewController: UIViewController {
 
 //MARK: Actions
 
-@available(iOS 13.0, *)
+
 extension AppleLoginTypeViewController {
 	
 	@objc func handleAuthorizationAppleIDButtonPress() {
@@ -96,7 +95,7 @@ extension AppleLoginTypeViewController {
 	
 }
 
-@available(iOS 13.0, *)
+
 extension AppleLoginTypeViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
 		MSHUD.shared.hide()
@@ -112,7 +111,7 @@ extension AppleLoginTypeViewController: ViewModelDelegate {
 }
 
 
-@available(iOS 13.0, *)
+
 extension AppleLoginTypeViewController: ASAuthorizationControllerDelegate ,ASAuthorizationControllerPresentationContextProviding{
 	
 	func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
@@ -149,7 +148,6 @@ extension AppleLoginTypeViewController: ASAuthorizationControllerDelegate ,ASAut
 	}
 }
 
-@available(iOS 13.0, *)
 extension AppleLoginTypeViewController :GIDSignInDelegate {
 	
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {

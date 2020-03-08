@@ -106,7 +106,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
-										   ["title":"消息","subtitle":"服务消息".localized,"imageName":"message"],
+                                           ["title":"消息".localized,"subtitle":"服务消息".localized,"imageName":"message"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
 										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]

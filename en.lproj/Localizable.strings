@@ -55,8 +55,8 @@
 "订阅为空哦~"="Subscription is empty~";
 "您还没下载过哦~"="You haven't downloaded it yet~";
 "接收通知"="Receive notification";
-"通知"="notification";
-"反馈"="feedback";
+"通知"="Notification";
+"反馈"="Feedback";
 "关于"="about";
 "给 FunnyFM 评分"="Rate FunnyFM";
 "将 FunnyFM 推荐给好友"="Recommended FunnyFM";
@@ -104,5 +104,9 @@
 "详情"="Info";
 "未播"="LEFT";
 "通用"="General";
+"通过 RSS 链接订阅播客" = "Subscribe by RSS";
+"为您推荐" = "Recommended for you";
+"消息" = "Messages";
+"清除缓存" = "Clear cache";
 
 

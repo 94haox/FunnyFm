@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import OfficeUIFabric
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 
@@ -25,8 +26,6 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         self.setupUI()
         self.view.backgroundColor = .white
         self.dw_addsubviews()
-		
-		let size = VICahcheHelper.init().getAllCacheSize()/1024
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -59,11 +58,16 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func setUpImmutableData(){
-		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
+		var cache = Double(VICahcheHelper.init().getAllCacheSize()/1024/1024)
 		if cache != 0 {
-			self.functions.append(["title":"清除缓存","imageName":"cache","rightText":"\(cache)M"])
+            if cache > 1024 {
+                cache = cache/1024.0
+                self.functions.append(["title":"清除缓存".localized,"imageName":"cache","rightText":String(format: "%.2f G", cache)])
+            }else{
+                self.functions.append(["title":"清除缓存".localized,"imageName":"cache","rightText":String(format: "%.0f M", cache)])
+            }
 		}else{
-			self.functions.append(["title":"清除缓存","imageName":"cache"])
+            self.functions.append(["title":"清除缓存".localized,"imageName":"cache"])
 		}
 		self.feedbacks.append(["title":"Feedback","imageName":"github"])
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
@@ -89,6 +93,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func cleanAllCache(){
+        MSHUD.shared.show(in: self.view)
 		VICahcheHelper.init().cleanAllCache()
 		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
 		if cache != 0 {
@@ -96,6 +101,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		}else{
 			self.functions[0] = ["title":"清除缓存","imageName":"cache"]
 		}
+        MSHUD.shared.hide()
 		self.tableview.reloadData()
 		SwiftNotice.showText("缓存清除成功🎉")
 	}

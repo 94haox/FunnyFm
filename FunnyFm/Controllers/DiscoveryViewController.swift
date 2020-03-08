@@ -19,7 +19,7 @@ class DiscoveryViewController: BaseViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.titleLB.text = "为您推荐"
+        self.titleLB.text = "为您推荐".localized
 		self.setupUI()
 		self.dw_addConstraints()
 		self.vm.delegate = self
