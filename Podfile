@@ -27,9 +27,7 @@ def layout
 		pod 'NVActivityIndicatorView'
 		pod 'JXSegmentedView'
 		pod 'OfficeUIFabric', '0.2.11'
-		pod 'Hero'
 		pod 'LookinServer', :configurations => ['Debug']
-#		pod 'AnimatedTabBar'
 		pod 'DynamicColor', '~> 4.2.0'
 		
 end
@@ -37,9 +35,6 @@ end
 def lib
     pod 'KeychainAccess'
     pod 'WCDB.swift'
-    pod 'RxSwift'
-		pod 'RxCocoa'
-		pod 'PullToReach'
 		pod 'Nuke', '~> 8.0.1'
 		pod 'EFIconFont', :subspecs => ['Complete']
     pod 'SwiftyJSON'

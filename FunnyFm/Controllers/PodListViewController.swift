@@ -8,8 +8,6 @@
 
 import UIKit
 import OfficeUIFabric
-import RxSwift
-import RxCocoa
 
 class PodListViewController: BaseViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 

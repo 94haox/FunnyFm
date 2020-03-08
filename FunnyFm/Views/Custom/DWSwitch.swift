@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import pop
-import RxSwift
 
 class DWSwitch: UIControl {
 	
