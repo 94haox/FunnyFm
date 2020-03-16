@@ -9,5 +9,13 @@
 import UIKit
 
 class VipManager: NSObject {
-
+    
+    static let shared = VipManager()
+    
+    var isVip: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "isPurchase")
+        }
+    }
+    
 }

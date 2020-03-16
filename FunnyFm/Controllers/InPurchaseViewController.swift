@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Rswift
 
 class InPurchaseViewController: BaseViewController {
 
@@ -26,7 +27,7 @@ class InPurchaseViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        StoreManager.shared.getAllProducts()
+        StoreManager.shared.restorePurchase()
         self.titleLB.text = "订购趣播客 Pro"
         infoTopConstraint.constant = 80.auto()
         infoHConstraint.constant = 150.auto()
@@ -64,6 +65,14 @@ class InPurchaseViewController: BaseViewController {
         }
         self.seletedBtn = btn
         self.seletedBtn!.isBusy = true
+        StoreManager.shared.purchaseProduct(productId: String(self.seletedBtn!.tag)) { (isSuccess) in
+            self.seletedBtn?.isBusy = false
+            if isSuccess {
+                SwiftNotice.showText("购买成功")
+            }else{
+                SwiftNotice.showText("购买失败")
+            }
+        }
     }
     
     

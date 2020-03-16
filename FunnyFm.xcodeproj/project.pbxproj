@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */; };
+		7455CD2D24151FFB004886EF /* InPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7455CD2B24151FFB004886EF /* InPurchaseViewController.xib */; };
+		7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */; };
+		7455CD3024152030004886EF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2F24152030004886EF /* RoundedButton.swift */; };
+		7455CD322415206B004886EF /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD312415206A004886EF /* StoreManager.swift */; };
+		7455CD342415209C004886EF /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
+		7455CD372415216E004886EF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD362415216E004886EF /* R.generated.swift */; };
+		7455CD39241521E3004886EF /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7455CD38241521E3004886EF /* colors.xcassets */; };
+		74777A6B241E284400BAE34B /* ConcurrentJobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74777A6A241E284400BAE34B /* ConcurrentJobQueue.swift */; };
+		7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6702417ACA1007E5319 /* BaseJob.swift */; };
+		7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6732417ACBF007E5319 /* JobQueue.swift */; };
+		7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6772417AD44007E5319 /* CloudParserJob.swift */; };
 		AB00BC332394A87900893325 /* NoteEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB00BC312394A87900893325 /* NoteEditViewController.xib */; };
 		AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00BC322394A87900893325 /* NoteEditViewController.swift */; };
 		AB08F099233DEE0000B93D31 /* UIButton+SomeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */; };
@@ -331,6 +342,17 @@
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		7455CD2B24151FFB004886EF /* InPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InPurchaseViewController.xib; path = FunnyFM/Controllers/InPurchaseViewController.xib; sourceTree = SOURCE_ROOT; };
+		7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InPurchaseViewController.swift; path = FunnyFM/Controllers/InPurchaseViewController.swift; sourceTree = SOURCE_ROOT; };
+		7455CD2F24152030004886EF /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = FunnyFM/Views/Custom/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
+		7455CD312415206A004886EF /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreManager.swift; path = FunnyFM/Manager/StoreManager.swift; sourceTree = SOURCE_ROOT; };
+		7455CD332415209C004886EF /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorView.swift; path = FunnyFM/Views/Custom/ActivityIndicatorView.swift; sourceTree = SOURCE_ROOT; };
+		7455CD362415216E004886EF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		7455CD38241521E3004886EF /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = colors.xcassets; path = FunnyFM/colors.xcassets; sourceTree = SOURCE_ROOT; };
+		74777A6A241E284400BAE34B /* ConcurrentJobQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConcurrentJobQueue.swift; path = FunnyFM/Job/Queue/ConcurrentJobQueue.swift; sourceTree = SOURCE_ROOT; };
+		7493F6702417ACA1007E5319 /* BaseJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseJob.swift; sourceTree = "<group>"; };
+		7493F6732417ACBF007E5319 /* JobQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
+		7493F6772417AD44007E5319 /* CloudParserJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudParserJob.swift; path = FunnyFM/Job/CloudParserJob.swift; sourceTree = SOURCE_ROOT; };
 		74A5CD75241239A200705E75 /* FunnyFm.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		AB00BC312394A87900893325 /* NoteEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditViewController.xib; sourceTree = "<group>"; };
 		AB00BC322394A87900893325 /* NoteEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
@@ -759,6 +781,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7493F66F2417AC97007E5319 /* Job */ = {
+			isa = PBXGroup;
+			children = (
+				7493F6722417ACAB007E5319 /* Queue */,
+				7493F6772417AD44007E5319 /* CloudParserJob.swift */,
+			);
+			path = Job;
+			sourceTree = "<group>";
+		};
+		7493F6722417ACAB007E5319 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				74777A6A241E284400BAE34B /* ConcurrentJobQueue.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
 		AB1E6D4A21B9243000B85135 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -842,6 +881,7 @@
 		AB1E6DA821BA251B00B85135 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				7455CD332415209C004886EF /* ActivityIndicatorView.swift */,
 				AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */,
 				ABF5118321BF43E50083A81B /* NormalHeaderView.swift */,
 				ABEE4B6721D0D42A008016A0 /* ChapterProgressView.swift */,
@@ -858,6 +898,7 @@
 				AB76EF66239C993E0096020B /* PodcastInfoView.swift */,
 				AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */,
 				AB39B55323BAEF710062BBE5 /* RssAddView.swift */,
+				7455CD2F24152030004886EF /* RoundedButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -885,6 +926,8 @@
 		AB25797B21945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXGroup;
 			children = (
+				7493F66F2417AC97007E5319 /* Job */,
+				7455CD362415216E004886EF /* R.generated.swift */,
 				ABAFF26E21E22CA30009A3A2 /* Lotties */,
 				74A5CD75241239A200705E75 /* FunnyFm.entitlements */,
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
@@ -901,6 +944,7 @@
 				ABB57AAF22FD07F8000593F2 /* Source */,
 				AB1E6D4A21B9243000B85135 /* Extension */,
 				AB25798321945E70004C5F5D /* Assets.xcassets */,
+				7455CD38241521E3004886EF /* colors.xcassets */,
 				AB14E02A23E7202100E0FA38 /* sound.caf */,
 				AB4E145B22C63F8F0053BE00 /* sound.wav */,
 				AB25798521945E70004C5F5D /* LaunchScreen.storyboard */,
@@ -999,6 +1043,8 @@
 				AB9817F52397FDDE003E008E /* NoteDetailViewController.xib */,
 				AB7822F323D9B3C2006BD595 /* FeedbackViewController.swift */,
 				AB67FC3423E07ED2003D3380 /* ProfileCompleteViewController.swift */,
+				7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */,
+				7455CD2B24151FFB004886EF /* InPurchaseViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1192,6 +1238,8 @@
 		AB62C46A21BB92F0008D6BA6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				7493F6732417ACBF007E5319 /* JobQueue.swift */,
+				7493F6702417ACA1007E5319 /* BaseJob.swift */,
 				AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */,
 				ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */,
 				ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */,
@@ -1376,6 +1424,7 @@
 				AB287BD9234F4E1500ED5448 /* VipManager.swift */,
 				AB73173F239E4944000E1588 /* VersionManager.swift */,
 				AB14E1D823E803EA00E0FA38 /* ClientConfig.swift */,
+				7455CD312415206A004886EF /* StoreManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1494,6 +1543,7 @@
 			buildConfigurationList = AB25798B21945E70004C5F5D /* Build configuration list for PBXNativeTarget "FunnyFm" */;
 			buildPhases = (
 				4C1BB038A9C73B4AC704AFA7 /* [CP] Check Pods Manifest.lock */,
+				7455CD3524152100004886EF /* ShellScript */,
 				AB25797521945E6F004C5F5D /* Sources */,
 				AB25797621945E6F004C5F5D /* Frameworks */,
 				AB25797721945E6F004C5F5D /* Resources */,
@@ -1611,10 +1661,12 @@
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB8DAB90233A08DF00407FCB /* AppleLoginTypeViewController.xib in Resources */,
 				AB7E188B238ABCBC00D1C8AD /* SuportLocalList.plist in Resources */,
+				7455CD2D24151FFB004886EF /* InPurchaseViewController.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
+				7455CD39241521E3004886EF /* colors.xcassets in Resources */,
 				AB7E1886238AB0C200D1C8AD /* SpeechViewController.xib in Resources */,
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
@@ -1681,6 +1733,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7455CD3524152100004886EF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1696,11 +1767,13 @@
 				AB62DF22239FB0450004BF6B /* SearchTopicCollectionViewCell.swift in Sources */,
 				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
 				AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */,
+				7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */,
 				AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				ABDB9DEA2394F45800539049 /* NoteViewModel.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
+				7455CD322415206B004886EF /* StoreManager.swift in Sources */,
 				AB32CF5922B39376007C9E41 /* ItunsPodTableViewCell.swift in Sources */,
 				AB1E6DAC21BA2FE000B85135 /* FMPlayerManager.swift in Sources */,
 				ABEE40E021E3292400FCB16F /* SchemManager.swift in Sources */,
@@ -1747,6 +1820,7 @@
 				AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */,
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
+				7455CD342415209C004886EF /* ActivityIndicatorView.swift in Sources */,
 				AB287BDA234F4E1500ED5448 /* VipManager.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
 				AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */,
@@ -1774,6 +1848,7 @@
 				AB8BD8E0236E7574006FEFF3 /* SPStorkArrowMode.swift in Sources */,
 				AB97EE8F2333246600127C37 /* StaticMethods.m in Sources */,
 				AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */,
+				7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */,
 				AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */,
 				AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
@@ -1813,6 +1888,7 @@
 				AB441A362350222A00411359 /* GeneralViewModel.swift in Sources */,
 				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
+				7455CD372415216E004886EF /* R.generated.swift in Sources */,
 				AB67FC3523E07ED2003D3380 /* ProfileCompleteViewController.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
@@ -1843,6 +1919,7 @@
 				AB7E1884238AB0C200D1C8AD /* SpeechManager.swift in Sources */,
 				ABEE40CC21E3246E00FCB16F /* MJRefreshConst.m in Sources */,
 				AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */,
+				7455CD3024152030004886EF /* RoundedButton.swift in Sources */,
 				AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */,
 				ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */,
 				AB8BD8E2236E7574006FEFF3 /* SPStorkCloseButton.swift in Sources */,
@@ -1868,9 +1945,12 @@
 				ABEE40D721E3246E00FCB16F /* MJRefreshNormalHeader.m in Sources */,
 				AB571D8D22B209E80021236C /* FeedManager.swift in Sources */,
 				AB1E6D7D21B9252500B85135 /* UINavigationBarExtensions.swift in Sources */,
+				74777A6B241E284400BAE34B /* ConcurrentJobQueue.swift in Sources */,
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
+				7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
+				7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */,
 				AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,

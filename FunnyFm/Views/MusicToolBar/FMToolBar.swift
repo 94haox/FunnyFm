@@ -193,6 +193,9 @@ extension FMToolBar{
 	}
     
     func configShadowColor() {
+        guard let _ = self.logoImageView.image else {
+            return
+        }
         let color = self.logoImageView.image!.mostColor()
         self.logoImageView.layer.shadowColor = color!.cgColor
     }

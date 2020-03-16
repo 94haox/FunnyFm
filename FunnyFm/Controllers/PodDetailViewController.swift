@@ -196,11 +196,11 @@ extension PodDetailViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView()
+        view.backgroundColor = CommonColor.white.color
 		let titleLB = UILabel.init(text: "All Episodes")
 		titleLB.font = numFont(14)
 		titleLB.textColor = CommonColor.content.color
 		view.addSubview(titleLB)
-		view.backgroundColor = .white
         view.addSubview(self.sortedBtn)
 		titleLB.snp.makeConstraints { (make) in
 			make.centerY.equalToSuperview()
