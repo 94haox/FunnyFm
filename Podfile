@@ -29,7 +29,8 @@ def layout
 		pod 'OfficeUIFabric', '0.2.11'
 		pod 'LookinServer', :configurations => ['Debug']
 		pod 'DynamicColor', '~> 4.2.0'
-		
+		pod 'AutoInch'
+    pod 'YYKit'
 end
 
 def lib
@@ -37,45 +38,58 @@ def lib
     pod 'WCDB.swift'
 		pod 'Nuke', '~> 8.0.1'
 		pod 'EFIconFont', :subspecs => ['Complete']
-    pod 'SwiftyJSON'
-    pod 'Moya'
     pod 'WechatOpenSDK'
 		pod 'FeedKit', '~> 8.0'
 		pod 'JPush'
-		pod 'FirebaseUI/Auth'
-		pod 'FirebaseUI/Google'
-		pod 'WhatsNewKit'
-		pod 'YYKit'
-		pod 'AutoInch'
-		pod 'Siren'
 		pod 'VIMediaCache'
-		pod 'Bugly'
     pod 'R.swift'
     pod 'SwiftyStoreKit'
 end
 
+def network
+  
+  pod 'SwiftyJSON'
+  pod 'Moya'
+  
+end
+
+# 授权
+def authoration
+  
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+  
+end
+
+#版本管理
+def version
+  
+  pod 'WhatsNewKit'
+  pod 'Siren'
+  
+end
 
 # 广告
 def ads
 #	pod 'Google-Mobile-Ads-SDK'
 	pod 'GDTMobSDK', '~> 4.10.5'
+  
 end
 
 # 性能和崩溃分析
 def performance
-	
-	pod 'Fabric', '1.10.2'
-	pod 'Crashlytics', '3.13.3'
-	pod 'Firebase/Analytics'
-#  pod 'Firebase/Performance'
-	
+  
+	pod 'Bugly'
+  
 end
-
 
 target "FunnyFm" do
 		ads
 		performance
     layout
     lib
+    version
+    authoration
+    network
 end
 
