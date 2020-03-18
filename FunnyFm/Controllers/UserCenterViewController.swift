@@ -110,6 +110,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
+                                           ["title":"VIP", "imageName":"VIP.png"],
                                            ["title":"消息".localized,"subtitle":"服务消息".localized,"imageName":"message"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
 										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
@@ -133,25 +134,25 @@ extension UserCenterViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
-		if indexPath.row == 4 {
+		if indexPath.row == 5 {
 			let setvc = SettingViewController()
 			self.navigationController?.pushViewController(setvc)
 			return
 		}
 		
-//		if indexPath.row == 5 {
-//			let vipVC = VIPViewController()
-//			self.navigationController?.pushViewController(vipVC)
-//			return
-//		}
-		
 		if indexPath.row == 3 {
+			let vipVC = InPurchaseViewController()
+			self.navigationController?.pushViewController(vipVC)
+			return
+		}
+		
+		if indexPath.row == 4 {
 			let msgVC = MessageViewController.init()
 			self.navigationController?.pushViewController(msgVC)
 			return
 		}
 		
-		if indexPath.row == 5 {
+		if indexPath.row == 6 {
 			let adVC = AdShowViewController()
 			self.navigationController?.pushViewController(adVC)
 			return

@@ -253,7 +253,7 @@ public extension UIImage {
 
         self.init(cgImage: aCgImage)
     }
-
+    
 }
 #endif
 

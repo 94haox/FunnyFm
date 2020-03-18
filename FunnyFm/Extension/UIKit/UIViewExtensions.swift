@@ -279,6 +279,13 @@ extension UIView {
         layer.shadowOpacity = opacity
         layer.masksToBounds = false
     }
+    
+    func cleanShadow() {
+        layer.shadowColor = UIColor.clear.cgColor
+        layer.shadowRadius = 0
+        layer.shadowOpacity = 0
+        layer.masksToBounds = true
+    }
 
     /// SwifterSwift: Add array of subviews to view.
     ///

@@ -65,8 +65,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		super.viewWillAppear(animated)
 		self.emptyAnimationView.play()
 		self.loadAnimationView.play()
-		FeedManager.shared.delegate = self;
-        
+		FeedManager.shared.delegate = self;   
 	}
 	
 }
@@ -141,6 +140,7 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	}
 	
 	func feedManagerDidParserPodcasrSuccess() {
+        
 	}
 	
     

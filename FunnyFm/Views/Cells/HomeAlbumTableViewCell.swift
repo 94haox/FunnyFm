@@ -102,4 +102,13 @@ class HomeAlbumTableViewCell: UITableViewCell {
         }
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 2, height: 2), opacity: 1)
+        }else{
+            self.shadowBgView.cleanShadow()
+        }
+    }
+    
 }

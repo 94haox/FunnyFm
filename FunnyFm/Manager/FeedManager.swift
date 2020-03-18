@@ -34,6 +34,8 @@ class FeedManager: NSObject {
 	lazy var episodeList : [[Any]] = {
 		return []
 	}()
+    
+    var waitingPodlist: [iTunsPod] = [iTunsPod]()
 	
 }
 
@@ -75,7 +77,7 @@ extension FeedManager {
 	func getHomeChapters() {
 		
 		DispatchQueue.global().async {
-			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if self.episodeList.count > 0 {
 				DispatchQueue.main.async {
 					self.delegate?.feedManagerDidGetEpisodelistSuccess()
@@ -83,85 +85,50 @@ extension FeedManager {
 			}
 		}
 		
-		let podList = DatabaseManager.allItunsPod()
-		
-		if self.isParsering{
-			return
-		}else if podList.count > 0{
-			self.isParsering = true
-		}else{
-			DispatchQueue.main.async {
-				self.delegate?.feedManagerDidGetEpisodelistSuccess()
-			}
-			return;
-		}
-		
 		NotificationCenter.default.post(name: Notification.Name.init("homechapterParserBegin"), object: nil)
-		DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-			var podCount = podList.count
-			
-			let semphore = DispatchSemaphore.init(value: 1)
-			
-			podList.forEach { (podcast) in
-				semphore.wait()
-				var pod = podcast
-				var last_title = ""
-				let episodeList = DatabaseManager.allEpisodes(pod: pod)
-				if let episode = episodeList.first {
-					last_title = episode.title
-				}
-				FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":pod.feedUrl,"last_episode_title":last_title]), { (item) in
-					
-					semphore.signal()
-					pod.podId = item!.podId
-					self.addOrUpdate(itunesPod: pod, episodelist: item!.items)
-					if item!.items.count > 0 {
-						self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-					}
-					podCount -= 1
-					DispatchQueue.main.async {
-						if podCount == 0 {
-							self.isParsering = false
-							NotificationCenter.default.post(name: Notification.homeParserSuccess, object: nil)
-						}
-						if item!.items.count > 1{
-							self.delegate?.feedManagerDidGetEpisodelistSuccess()
-						}
-					}
-					print("fetch_success_\(podCount)")
-				}, { (error) in
-					semphore.signal()
-					podCount -= 1
-					if podCount == 0 {
-						self.isParsering = false
-						DispatchQueue.main.async {
-							NotificationCenter.default.post(name: Notification.homeParserSuccess, object: nil)
-						}
-					}
-					print("fetch_failure_\(podCount)")
-				})
-
-				
-			}
-		}
+        
+        NotificationCenter.default.addObserver(forName: Notification.podcastParserSuccess, object: nil, queue: nil) { (noti) in
+            self.removeDonePodcast(noti: noti)
+        }
+        
+        NotificationCenter.default.addObserver(forName: Notification.podcastParserFailure, object: nil, queue: nil) { (noti) in
+            self.removeDonePodcast(noti: noti)
+        }
+        
+        
+		DatabaseManager.allItunsPod().forEach { (podcast) in
+            let job = CloudParserJob(podcast: podcast)
+            if ConcurrentJobQueue.shared.addJob(job: job) {
+                self.waitingPodlist.append(podcast)
+            }
+        }
 	}
 	
+    func removeDonePodcast(noti: Notification) {
+        let info = noti.userInfo!
+        var delIndex = -1
+        for (index, podcast) in self.waitingPodlist.enumerated() {
+            if podcast.feedUrl == info["feedUrl"] as! String {
+                delIndex = index
+                break
+            }
+        }
+        if delIndex >= 0 {
+            self.waitingPodlist.remove(at: delIndex)
+        }
+        
+        if self.waitingPodlist.count <= 0 {
+            NotificationCenter.default.post(name: Notification.homeParserSuccess, object: nil)
+        }
+    }
 	
 	func parserForSingle(feedUrl: String, collectionId:String,complete:((Pod?)->Void)?){
-		var last_title = ""
-		var pod = DatabaseManager.getPodcast(feedUrl: feedUrl)
-		if pod.isSome {
-			let episodeList = DatabaseManager.allEpisodes(pod: pod!)
-			if let episode = episodeList.first {
-				last_title = episode.title
-			}
-		}
-		
+        var (last_title, pod) = DatabaseManager.getLastEpisodeTitle(feedUrl: feedUrl)
 		FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":feedUrl,"last_episode_title":last_title]), { (item) in
 			pod = iTunsPod.init(pod: item!)
 			pod?.collectionId = collectionId
 			self.addOrUpdate(itunesPod: pod!, episodelist: item!.items)
-			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if(complete.isSome){
 				complete!(item)
 			}
@@ -187,7 +154,7 @@ extension FeedManager {
 		DatabaseManager.deleteEpisode(podcastUrl: podcastUrl)
 		PushManager.shared.removeTags(tags: [podId])
 		DispatchQueue.main.async {
-			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			self.podlist = DatabaseManager.allItunsPod()
 			self.delegate?.feedManagerDidGetEpisodelistSuccess()
 		}
@@ -241,7 +208,7 @@ extension FeedManager {
 // MARK: - 排序
 extension FeedManager {
 	
-	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]]{
+	func sortEpisodeToGroup(_ episodeList: [Episode]) {
 		var sortEpisodeList = [[Episode]]()
 		autoreleasepool{
 			var episodes = episodeList.suffix(100)
@@ -268,7 +235,7 @@ extension FeedManager {
 			}
 		}
 		
-		return sortEpisodeList
+        self.episodeList = sortEpisodeList
 	}
 	
 }

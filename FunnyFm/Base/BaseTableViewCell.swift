@@ -42,5 +42,4 @@ class BaseTableViewCell: UITableViewCell {
             self.alpha = 1
         }
     }
-
 }

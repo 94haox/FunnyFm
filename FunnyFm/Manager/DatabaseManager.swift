@@ -179,6 +179,18 @@ extension DatabaseManager {
 		}
 		return podList.first
 	}
+    
+    static public func getLastEpisodeTitle(feedUrl: String) -> (String, iTunsPod?) {
+        var last_title = ""
+        let pod = DatabaseManager.getPodcast(feedUrl: feedUrl)
+        if pod.isSome {
+            let episodeList = DatabaseManager.allEpisodes(pod: pod!)
+            if let episode = episodeList.first {
+                last_title = episode.title
+            }
+        }
+        return (last_title, pod)
+    }
 	
 	static public func addItunsPod(pod: iTunsPod){
 		self.updateItunsPod(pod: pod)

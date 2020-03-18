@@ -53,5 +53,13 @@ class UserCenterCollectionViewCell: UICollectionViewCell {
             self.alpha = 1
         }
     }
-
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        }else{
+            self.cleanShadow()
+        }
+    }
 }

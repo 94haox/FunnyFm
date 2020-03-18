@@ -14,7 +14,7 @@ let toolbarH: CGFloat = ClientConfig.shared.isIPad ? 80.auto() : 55
 
 class FMToolBar: UIView , FMPlayerManagerDelegate{
 
-    static let shared = ClientConfig.shared.isIPad ? FMToolBar(frame: CGRect.zero) : FMToolBar(frame: CGRect.init(x: 16, y: kScreenHeight-150, width: kScreenWidth-32 , height: toolbarH))
+    static let shared = ClientConfig.shared.isIPad ? FMToolBar(frame: CGRect.zero) : FMToolBar(frame: CGRect.init(x: 16, y: kScreenHeight-80, width: kScreenWidth-32 , height: toolbarH))
 	
 	var isPlaying: Bool = false
 	
@@ -193,6 +193,9 @@ extension FMToolBar{
 	}
     
     func configShadowColor() {
+        guard let _ = self.logoImageView.image else {
+            return
+        }
         let color = self.logoImageView.image!.mostColor()
         self.logoImageView.layer.shadowColor = color!.cgColor
     }
@@ -248,6 +251,7 @@ extension FMToolBar {
     
     func addConstraints(){
         self.backgroundColor = CommonColor.whiteBackgroud.color
+        self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
         if ClientConfig.shared.isIPad {
             self.addConstraintsForIPad()
         }else{
@@ -261,8 +265,6 @@ extension FMToolBar {
         self.containerView.addSubview(self.titleLB)
         self.addSubview(self.playBtn)
         self.addSubview(self.loadingView)
-        self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 2), opacity: 0.5)
-        
         self.containerView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -293,7 +295,6 @@ extension FMToolBar {
     
     func addConstraintsForIphone() {
         self.cornerRadius = 8.0
-        self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
         self.addSubview(self.containerView)
         self.addSubview(self.logoImageView)
         self.containerView.addSubview(self.titleLB)
@@ -365,4 +366,16 @@ extension FMToolBar {
 		self.containerView.sendSubviewToBack(progressBg)
 		
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.configShadowColor()
+            self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
+        }else{
+            self.logoImageView.layer.shadowColor = UIColor.clear.cgColor
+            self.cleanShadow()
+        }
+    }
 }
+
