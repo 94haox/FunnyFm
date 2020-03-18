@@ -247,9 +247,24 @@ extension FMPlayerManager {
 			let asset = AVAsset.init(url: url!)
 			item = AVPlayerItem.init(asset: asset)
 		}else{
-			
 			item = self.resourceLoaderManager.playerItem(with: url)
 		}
+        
+        let chapterLocalesKey = "availableChapterLocales"
+        let asset = AVURLAsset.init(url: url!)
+        asset.loadValuesAsynchronously(forKeys: [chapterLocalesKey]) {
+            var error: NSError?
+            let status = asset.statusOfValue(forKey: chapterLocalesKey, error: &error)
+            if status == .loaded {
+                let languages = Locale.preferredLanguages
+                let chapterMetadata = asset.chapterMetadataGroups(bestMatchingPreferredLanguages: languages)
+                self.convertTimedMetadataGroupsToChapters(groups: chapterMetadata)
+            }
+            else {
+                // Handle other status cases
+            }
+        }
+        
 		self.lastTime = self.checkProgress(chapter)
         self.changePlayItem(item)
         if self.player.isNone {
@@ -270,6 +285,29 @@ extension FMPlayerManager {
 	func checkProgress(_ episode: Episode) -> Double {
 		return DatabaseManager.qureyProgress(episodeId: episode.title)
 	}
+    
+    func convertTimedMetadataGroupsToChapters(groups: [AVTimedMetadataGroup]) -> [Chapter] {
+        return groups.map { group -> Chapter in
+            // Retrieve AVMetadataCommonIdentifierTitle metadata items
+            let titleItems = AVMetadataItem.metadataItems(from: group.items, filteredByIdentifier: AVMetadataIdentifier.commonIdentifierTitle)
+     
+            // Retrieve AVMetadataCommonIdentifierTitle metadata items
+            let artworkItems = AVMetadataItem.metadataItems(from: group.items, filteredByIdentifier: AVMetadataIdentifier.commonIdentifierArtwork)
+
+            var title = "Default Title"
+            var image = UIImage(named: "placeholder")!
+
+            if let titleValue = titleItems.first?.stringValue {
+                title = titleValue
+            }
+
+            if let imgData = artworkItems.first?.dataValue, let imageValue = UIImage(data: imgData) {
+                image = imageValue
+            }
+
+            return Chapter(time: group.timeRange.start, title: title, image: image)
+        }
+    }
     
 }
 

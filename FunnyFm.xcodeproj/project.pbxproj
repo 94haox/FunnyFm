@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33D94851E7E71156CDD82C4B /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF2FDC874750A98495D92F0 /* Pods_FunnyFm.framework */; };
+		74A5C8BF2420EA6E00AE1AB4 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5C8BE2420EA6E00AE1AB4 /* Chapter.swift */; };
 		AB00BC332394A87900893325 /* NoteEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB00BC312394A87900893325 /* NoteEditViewController.xib */; };
 		AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00BC322394A87900893325 /* NoteEditViewController.swift */; };
 		AB08F099233DEE0000B93D31 /* UIButton+SomeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */; };
@@ -331,6 +332,7 @@
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		74A5C8BE2420EA6E00AE1AB4 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chapter.swift; path = FunnyFM/Models/Chapter.swift; sourceTree = SOURCE_ROOT; };
 		74A5CD75241239A200705E75 /* FunnyFm.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		AB00BC312394A87900893325 /* NoteEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditViewController.xib; sourceTree = "<group>"; };
 		AB00BC322394A87900893325 /* NoteEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
@@ -1017,6 +1019,7 @@
 				AB441A332350216500411359 /* Message.swift */,
 				ABDB9DE72394F36B00539049 /* Note.swift */,
 				AB14DE9023E3286700E0FA38 /* PodcastCollection.swift */,
+				74A5C8BE2420EA6E00AE1AB4 /* Chapter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1741,6 +1744,7 @@
 				ABDB9DE62394F04A00539049 /* NoteAPI.swift in Sources */,
 				AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
+				74A5C8BF2420EA6E00AE1AB4 /* Chapter.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
 				AB7E1885238AB0C200D1C8AD /* CropAudioManager.m in Sources */,
