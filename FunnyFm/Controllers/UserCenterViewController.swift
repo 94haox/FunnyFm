@@ -28,17 +28,17 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	
 	@objc func toLogoutAction(){
 		
+
+        
 		if !UserCenter.shared.isLogin {
-			if #available(iOS 13.0, *) {
-				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
-				loginNavi.navigationBar.isHidden = true
-				self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
-				return
-			}
-			
-			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-			loginNavi.navigationBar.isHidden = true
-			self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
+            if !VipManager.shared.isVip {
+                self.alert("此功能仅向 Pro 用户开放")
+                return
+            }
+            
+			let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+            loginNavi.navigationBar.isHidden = true
+            self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
 			return
 		}
 		
@@ -110,13 +110,11 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
     var datasource: Array<[String:String]> = [["title":"近期收听".localized,"subtitle":"","imageName":"lishijilu"],
                                            ["title":"我的下载".localized,"subtitle":"","imageName":"download"],
                                            ["title":"我的订阅".localized,"subtitle":"","imageName":"handbag"],
-                                           ["title":"VIP", "imageName":"VIP.png"],
+                                           ["title":"Pro","subtitle":"解锁 Pro 功能".localized, "imageName":"VIP.png"],
                                            ["title":"消息".localized,"subtitle":"服务消息".localized,"imageName":"message"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
 										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]
-	
-	//["title":"Pro","subtitle":"订购 Pro".localized,"imageName":"VIP"],
 }
 
 
@@ -141,7 +139,10 @@ extension UserCenterViewController {
 		}
 		
 		if indexPath.row == 3 {
-			let vipVC = InPurchaseViewController()
+            var vipVC: BaseViewController = InPurchaseViewController()
+            if VipManager.shared.isVip {
+                vipVC = PurchaseSuccessfulViewController()
+            }
 			self.navigationController?.pushViewController(vipVC)
 			return
 		}

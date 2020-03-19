@@ -24,7 +24,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		self.titleLB.text = "设置".localized
 		self.setUpImmutableData()
         self.setupUI()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = R.color.background()
         self.dw_addsubviews()
     }
 	
@@ -51,7 +51,12 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     func setUpDataSource (){
 		self.settings.removeAll()
         if PrivacyManager.isOpenPusn() {
-		 self.settings.append(["title":"接收通知".localized,"imageName":"notify","rightImage":"icon_correct"])
+            self.settings.append(["title":"接收通知".localized,"imageName":"notify","rightImage":"icon_correct"])
+            if VipManager.shared.allowEpisodeNoti {
+                self.settings.append(["title":"单集更新通知".localized,"imageName":"episode_noti","rightImage":"icon_correct"])
+            }else{
+                self.settings.append(["title":"单集更新通知".localized,"imageName":"episode_noti","rightImage":""])
+            }
         }else{
             self.settings.append(["title":"接收通知".localized,"imageName":"notify"])
         }
@@ -150,8 +155,17 @@ extension SettingViewController {
 		}
 		
 		if indexPath.section == 1{
-//			NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: kSetupNotification), object: nil)
-            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+            if indexPath.row == 0 {
+                UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+            }else{
+                if VipManager.shared.isVip {
+                    VipManager.shared.allowEpisodeNoti = !VipManager.shared.allowEpisodeNoti
+                    self.setUpDataSource()
+                    tableView.reloadData()
+                }else{
+                    
+                }
+            }
 			return
 		}
         
@@ -216,7 +230,7 @@ extension SettingViewController {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView.init()
-		view.backgroundColor = UIColor.white
+		view.backgroundColor = R.color.ffWhite()
 		let lb = UILabel.init(text: "通用".localized)
 		lb.textColor = CommonColor.subtitle.color
 		lb.font = pfont(fontsize2)
@@ -299,7 +313,7 @@ extension SettingViewController {
         self.tableview.dataSource = self
         self.tableview.tableFooterView = UIView()
         self.tableview.showsVerticalScrollIndicator = false
-		self.tableview.backgroundColor = .white
+        self.tableview.backgroundColor = R.color.background()
         
         self.naviBar = UIView.init()
         self.naviBar.backgroundColor = .white

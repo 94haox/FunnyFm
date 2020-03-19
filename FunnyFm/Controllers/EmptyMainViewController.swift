@@ -50,6 +50,10 @@ class EmptyMainViewController: UIViewController {
 	}
 	
 	@IBAction func toLoginVC(_ sender: Any) {
+        guard VipManager.shared.isVip else {
+            self.alert("此服务仅向 Pro 用户开放")
+            return
+        }
 		self.navigationController?.popViewController()
 		NotificationCenter.default.post(name: Notification.needLoginNotification, object: nil)
 	}

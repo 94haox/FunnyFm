@@ -31,7 +31,7 @@ class DownloadTableViewCell: UITableViewCell {
 		self.contentView.addSubview(progressBg)
 		self.contentView.sendSubviewToBack(progressBg)
 		self.actionBtn.addShadow(ofColor: CommonColor.cellbackgroud.color, radius: 5, offset: CGSize.zero, opacity: 1)
-
+        self.actionBtn.backgroundColor = R.color.button_background_disabled()
     }
 	
 	func config(task: DownloadTask){

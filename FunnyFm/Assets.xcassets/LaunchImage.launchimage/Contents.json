@@ -63,19 +63,21 @@
       "scale" : "2x"
     },
     {
-      "orientation" : "landscape",
+      "extent" : "full-screen",
       "idiom" : "ipad",
       "filename" : "ipad.png",
-      "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "orientation" : "landscape",
+      "unassigned" : true,
       "scale" : "1x"
     },
     {
-      "orientation" : "landscape",
+      "extent" : "full-screen",
       "idiom" : "ipad",
       "filename" : "ipad@2x.png",
-      "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "orientation" : "landscape",
+      "unassigned" : true,
       "scale" : "2x"
     }
   ],

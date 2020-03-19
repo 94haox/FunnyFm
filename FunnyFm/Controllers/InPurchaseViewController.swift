@@ -11,28 +11,27 @@ import Rswift
 
 class InPurchaseViewController: BaseViewController {
 
+    @IBOutlet weak var restoreBtn: RoundedButton!
+    @IBOutlet weak var actionStackView: UIStackView!
     @IBOutlet weak var infoStack: UIStackView!
     @IBOutlet weak var infoTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var infoHConstraint: NSLayoutConstraint!
     @IBOutlet weak var priceHConstraint: NSLayoutConstraint!
     @IBOutlet weak var priceTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var monthBtn: RoundedButton!
-    
     @IBOutlet weak var yearBtn: RoundedButton!
-    
     @IBOutlet weak var foreverBtn: RoundedButton!
     
     private var seletedBtn: RoundedButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        StoreManager.shared.restorePurchase()
-        self.titleLB.text = "订购趣播客 Pro"
+        self.view.backgroundColor = R.color.background()
+        self.view.bringSubviewToFront(self.restoreBtn)
+        self.titleLB.text = "解锁 Pro 功能".localized
         infoTopConstraint.constant = 80.auto()
         infoHConstraint.constant = 150.auto()
         priceTopConstraint.constant = 100.auto()
-        infoStack.backgroundColor = R.color.mainRed()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,15 +58,30 @@ class InPurchaseViewController: BaseViewController {
         self.buyAction(btn: self.foreverBtn)
     }
     
+    @IBAction func restoreAction(_ sender: RoundedButton) {
+        sender.isBusy = true
+        VipManager.shared.restorePurchase { (result) in
+            sender.isBusy = false
+            if result {
+                VipManager.shared.allowEpisodeNoti = true
+                DispatchQueue.main.async {
+                    let successVC = PurchaseSuccessfulViewController()
+                    self.navigationController?.pushViewController(successVC, animated: true)
+                }
+            }
+        }
+    }
+    
     func buyAction(btn: RoundedButton){
         if let seletedBtn = self.seletedBtn, seletedBtn.isBusy {
             return
         }
         self.seletedBtn = btn
         self.seletedBtn!.isBusy = true
-        StoreManager.shared.purchaseProduct(productId: String(self.seletedBtn!.tag)) { (isSuccess) in
+        VipManager.shared.purchaseProduct(productId: String(self.seletedBtn!.tag)) { (isSuccess) in
             self.seletedBtn?.isBusy = false
             if isSuccess {
+                VipManager.shared.allowEpisodeNoti = true
                 SwiftNotice.showText("购买成功")
             }else{
                 SwiftNotice.showText("购买失败")

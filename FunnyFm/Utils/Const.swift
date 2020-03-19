@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 // MARK: UI Adapt
 
@@ -182,6 +183,14 @@ func h_mfont(_ fontsize:CGFloat) -> UIFont {
 
 func h_bfont(_ fontsize:CGFloat) -> UIFont {
 	return UIFont.init(name: "HelveticaNeue-Bold", size: fontsize)!
+}
+
+func m_mfont(_ fontsize:CGFloat) -> UIFont {
+    return UIFont.init(name: "Montserrat-Medium", size: fontsize)!
+}
+
+func m_bfont(_ fontsize:CGFloat) -> UIFont {
+    return UIFont.init(name: "Montserrat-SemiBold", size: fontsize)!
 }
 
 

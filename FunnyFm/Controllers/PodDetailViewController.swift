@@ -55,6 +55,7 @@ class PodDetailViewController: BaseViewController {
 		self.infoView.subscribeClosure = { [weak self] in
 			self?.subscribtionAction()
 		}
+        
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -103,7 +104,7 @@ class PodDetailViewController: BaseViewController {
         btn.isSelected = !btn.isSelected
         self.reload(needSorted: true)
     }
-    
+        
     func reload(needSorted: Bool) {
         guard needSorted else {
             self.tableview.reloadData()
@@ -229,8 +230,7 @@ extension PodDetailViewController {
 	}
 	
 	func dw_addConstraints(){
-		self.view.addSubview(self.tableview)
-		self.view.addSubview(self.loadingView)
+        self.view.addSubviews([self.tableview, self.loadingView])
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview();
@@ -252,7 +252,6 @@ extension PodDetailViewController {
 //		self.shareBtn.cornerRadius = 5
 //		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
 		
-		
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		self.tableview.tableHeaderView = self.infoView
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
@@ -265,7 +264,7 @@ extension PodDetailViewController {
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 120, right: 0)
 		
-		self.loadingView = UIActivityIndicatorView.init(style: .gray)
+        self.loadingView = UIActivityIndicatorView.init(style: .medium)
 		self.loadingView.startAnimating()
 		
         self.sortedBtn.setImage(UIImage.init(named: "sort_down"), for: .normal)

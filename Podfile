@@ -31,6 +31,7 @@ def layout
 		pod 'DynamicColor', '~> 4.2.0'
 		pod 'AutoInch'
     pod 'YYKit'
+    pod 'SCLAlertView'
 end
 
 def lib

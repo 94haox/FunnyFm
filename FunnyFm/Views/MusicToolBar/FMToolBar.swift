@@ -369,10 +369,10 @@ extension FMToolBar {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        if previousTraitCollection?.userInterfaceStyle == .dark {
+        if previousTraitCollection?.userInterfaceStyle == .dark  || self.traitCollection.userInterfaceStyle == .light{
             self.configShadowColor()
             self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
-        }else{
+        }else if self.traitCollection.userInterfaceStyle != .light {
             self.logoImageView.layer.shadowColor = UIColor.clear.cgColor
             self.cleanShadow()
         }

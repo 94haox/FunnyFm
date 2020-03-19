@@ -12,10 +12,15 @@ import Lottie
 import MediaPlayer
 import AVKit
 import EFIconFont
+import SwiftUI
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     
     var episode: Episode!
+    
+    var chaptersBtn: UIButton = UIButton.init(type: .custom)
+    
+    var chapterCountLB: UILabel = UILabel.init()
     
     var backBtn: UIButton!
     
@@ -56,6 +61,8 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	var hud: ProgressHUD!
 	
 	var isImpact = false
+    
+    var chapters: [Chapter] = [Chapter]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +72,19 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
 		self.progressLine.allDot.text = "-" + FunnyFm.formatIntervalToMM(NSInteger(self.episode.duration))
-		
+        FMPlayerManager.shared.getChapters { (chapters) in
+            guard let _ = chapters else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.chaptersBtn.isHidden = chapters!.count < 1
+                self.chapterCountLB.isHidden = chapters!.count < 1
+                self.chapterCountLB.text = "\(chapters!.count)"
+            }
+            self.chapters = chapters!.map({ (avchapter) -> Chapter in
+                return Chapter(title: avchapter.title, id: avchapter.identifier, time: avchapter.time)
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -237,6 +256,16 @@ extension PlayerDetailViewController {
 		noteVC.episode = self.episode
 		self.navigationController?.present(noteVC, animated: true, completion: nil)
 	}
+    
+    @objc func showChapters() {
+        let chapterListVC = ChapterListViewController()
+        chapterListVC.chapters = self.chapters
+        chapterListVC.skipClourse = { time in
+            FMPlayerManager.shared.seekToTime(time.seconds)
+        }
+        self.present(chapterListVC, animated: true, completion: nil)
+    }
+
 	
 	
 	@objc func likeAction(){
@@ -458,6 +487,16 @@ extension PlayerDetailViewController {
 			make.size.equalTo(CGSize.init(width: 25, height: 25))
 		}
         
+        self.chaptersBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(self.progressLine).offset(10)
+            make.size.centerY.equalTo(self.noteBtn)
+        }
+        
+        self.chapterCountLB.snp.makeConstraints { (make) in
+            make.left.equalTo(self.chaptersBtn.snp_right).offset(4)
+            make.centerY.equalTo(self.chaptersBtn)
+        }
+        
     }
     
     func dw_addSubviews(){
@@ -551,6 +590,17 @@ extension PlayerDetailViewController {
 		self.noteBtn.setImageForAllStates(UIImage.init(named: "filter-note-sel")!)
 		self.noteBtn.addTarget(self, action: #selector(editNote), for: .touchUpInside)
 		self.view.addSubview(self.noteBtn)
+        
+        self.chaptersBtn.setImageForAllStates(UIImage.init(named: "chapters")!)
+        self.chaptersBtn.addTarget(self, action: #selector(showChapters), for: .touchUpInside)
+        self.chaptersBtn.isHidden = true
+        self.view.addSubview(self.chaptersBtn)
+        
+        self.chapterCountLB.font = m_mfont(12.auto())
+        self.chapterCountLB.textColor = R.color.mainRed()
+        self.chapterCountLB.isHidden = true
+        self.view.addSubview(self.chapterCountLB)
+
 
     }
 

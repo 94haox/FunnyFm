@@ -25,7 +25,7 @@ import Bugly
 		self.window = UIWindow.init()
         self.options = launchOptions
 		DatabaseManager.setupDefaultDatabase()
-        StoreManager.shared.completeTransactions()
+        VipManager.shared.completeTransactions()
 		FirebaseApp.configure()
 		Bugly.start(withAppId: "fe63efca9b")
 		self.dw_addNotifies()

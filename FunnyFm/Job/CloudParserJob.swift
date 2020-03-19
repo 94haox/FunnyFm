@@ -26,9 +26,8 @@ class CloudParserJob: BaseJob {
         FmHttp<Pod>().requestForSingle(PodAPI.parserRss(["rssurl":podcast.feedUrl, "last_episode_title":last_title]), { (item) in
             podcast.podId = item!.podId
             FeedManager.shared.addOrUpdate(itunesPod: podcast, episodelist: item!.items)
-            FeedManager.shared.sortEpisodeToGroup(DatabaseManager.allEpisodes())
             NotificationCenter.default.post(name: Notification.podcastParserSuccess, object: nil, userInfo: ["feedUrl": podcast.feedUrl])
-            print("fetch_success_\(podcast.feedUrl)")
+            print("fetch_success_\(podcast.feedUrl), \(Thread.isMainThread)")
         }, { (error) in
             NotificationCenter.default.post(name: Notification.podcastParserFailure, object: nil, userInfo: ["feedUrl": podcast.feedUrl])
             print("fetch_failure_\(podcast.feedUrl)")

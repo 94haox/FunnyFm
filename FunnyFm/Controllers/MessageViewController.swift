@@ -13,6 +13,8 @@ class MessageViewController: BaseViewController {
 	var vm: GeneralViewModel = GeneralViewModel()
 	
 	var collectionView: UICollectionView!
+    
+    var loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .medium)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,11 @@ class MessageViewController: BaseViewController {
 		self.vm.delegate = self
 		self.setupUI()
 		self.vm.getAllMessageList()
+        self.view.addSubview(self.loadingView)
+        self.loadingView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        self.loadingView.startAnimating()
     }
     
 }
@@ -48,6 +55,7 @@ extension MessageViewController: UICollectionViewDataSource{
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        self.loadingView.removeFromSuperview()
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
 		if cell is MessageCollectionViewCell {
 			let msgCell = cell as! MessageCollectionViewCell

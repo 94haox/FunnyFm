@@ -27,9 +27,11 @@ class PushManager: NSObject {
 	}
 	
 	func addTag(taglist: [String]) {
-		JPUSHService.addTags(Set.init(taglist), completion: { (code, tags, seq) in
-			
-		}, seq: 1)
+        guard VipManager.shared.isVip, VipManager.shared.allowEpisodeNoti  else {
+            self.removeAllTages()
+            return
+        }
+		JPUSHService.addTags(Set.init(taglist), completion: { (code, tags, seq) in }, seq: 1)
 	}
 	
 	func handlerNotification(userInfo: [AnyHashable : Any]){

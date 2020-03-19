@@ -1,11 +1,12 @@
 import Foundation
 import UIKit
 
-open class JobQueue {
+public class JobQueue {
     
     public let queue = OperationQueue()
     
     public init(maxConcurrentOperationCount: Int) {
+        queue.name = "JobQueue"
         queue.maxConcurrentOperationCount = maxConcurrentOperationCount
     }
     

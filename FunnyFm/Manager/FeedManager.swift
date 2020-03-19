@@ -42,6 +42,7 @@ class FeedManager: NSObject {
 extension FeedManager {
 	
 	func getAllPods() {
+        self.getHomeChapters()
 		if UserCenter.shared.isLogin {
 			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList, { (cloudPodlist) in
 				if let list = cloudPodlist {
@@ -58,9 +59,8 @@ extension FeedManager {
 				DispatchQueue.main.async {
 					self.delegate?.feedManagerDidGetEpisodelistSuccess()
 				}
-				self.getHomeChapters()
+                self.getHomeChapters()
 			}){ msg in
-				self.getHomeChapters()
 				if msg.isSome {
 					SwiftNotice.showNoticeWithText(NoticeType.error, text: msg!, autoClear: true, autoClearTime: 2)
 				}
@@ -70,7 +70,6 @@ extension FeedManager {
 			DispatchQueue.main.async {
 				self.delegate?.feedManagerDidGetEpisodelistSuccess()
 			}
-			self.getHomeChapters()
 		}
 	}
 	
@@ -105,6 +104,10 @@ extension FeedManager {
 	}
 	
     func removeDonePodcast(noti: Notification) {
+        self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+        DispatchQueue.main.async {
+            self.delegate?.feedManagerDidGetEpisodelistSuccess()
+        }
         let info = noti.userInfo!
         var delIndex = -1
         for (index, podcast) in self.waitingPodlist.enumerated() {

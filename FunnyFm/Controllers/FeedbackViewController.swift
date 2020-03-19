@@ -26,4 +26,14 @@ class FeedbackViewController: BaseViewController {
 		webview.load(requst as URLRequest)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        FMToolBar.shared.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        FMToolBar.shared.isHidden = false
+    }
+    
 }

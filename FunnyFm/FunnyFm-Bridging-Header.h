@@ -13,6 +13,7 @@
 #import "UIButton+SomeMethods.h"
 #import "CropAudioManager.h"
 #import "VICahcheHelper.h"
+#import "MNAVChapterReader.h"
 
 #import <YYKit.h>
 #import <GDTNativeExpressAdView.h>
