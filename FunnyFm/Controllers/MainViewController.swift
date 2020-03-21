@@ -10,34 +10,22 @@ import UIKit
 import SnapKit
 import Lottie
 import NVActivityIndicatorView
-//import GoogleMobileAds
-//import YBTaskScheduler
 
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
 	
     var vm = MainViewModel.init()
-	
-	var scheduler = YBTaskScheduler.init(strategy: YBTaskSchedulerStrategy.FIFO)
-    
-    var containerView: UIView!
     
     var collectionView : UICollectionView!
     
     var tableview : UITableView!
 	
-	var addBtn : UIButton!
-	
-	var emptyView: UIView!
-	
-//	var avatarView: UIImageView!
-	
 	var loadAnimationView : AnimationView!
-	
-	var emptyAnimationView : AnimationView!
 	
 	var fetchLoadingView : NVActivityIndicatorView!
 	
+    var emptyView: MainEmptyView = MainEmptyView.init(frame: CGRect.zero)
+    
 	var searchBtn : UIButton = UIButton.init(type: .custom)
     
     override func viewDidLoad() {
@@ -46,7 +34,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.dw_addViews()
 		self.addConstrains()
 		self.addHeader();
-		self.loadAnimationView.play()
 		self.dw_addNofications()
 		self.vm.delegate = self
 		self.addEmptyViews()
@@ -63,8 +50,10 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.emptyAnimationView.play()
-		self.loadAnimationView.play()
+        if DatabaseManager.allItunsPod().count < 1 {
+            self.loadAnimationView.play()
+            self.addEmptyViews()
+        }
 		FeedManager.shared.delegate = self;   
 	}
 	
@@ -156,7 +145,9 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
     }
 	
 	func feedManagerDidGetEpisodelistSuccess() {
-		self.perform(#selector(reloadData), with: nil, afterDelay: 1, inModes: [.default])
+        if FeedManager.shared.needRefresh {
+            self.reloadData()
+        }
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
@@ -410,22 +401,6 @@ extension MainViewController {
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
 		
-		self.emptyAnimationView = AnimationView(name:"home_empty")
-		self.emptyAnimationView.loopMode = .loop;
-		
-		self.addBtn = UIButton.init(type: .custom)
-		addBtn.setTitle("发现播客".localized, for: .normal)
-		addBtn.setTitleColor(.white, for: .normal)
-		addBtn.backgroundColor = CommonColor.mainRed.color
-		addBtn.cornerRadius = 15.0
-		addBtn.titleLabel?.font = p_bfont(14);
-		addBtn.addTarget(self, action: #selector(toDiscovery), for: .touchUpInside)
-		addBtn.addShadow(ofColor: CommonColor.mainPink.color, radius: 16, offset: CGSize.init(width: 0, height: 9), opacity: 0.6)
-		
-		self.emptyView = UIView.init()
-        emptyView.backgroundColor = CommonColor.white.color
-		emptyView.isHidden = true
-		
 		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);
 		
 		self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
@@ -441,39 +416,19 @@ extension MainViewController {
 extension MainViewController {
 	
 	func addEmptyViews(){
-		self.view.addSubview(self.emptyView)
-		self.emptyView.snp.makeConstraints { (make) in
-			make.left.width.bottom.equalToSuperview()
-			make.top.equalTo(self.topBgView.snp.bottom)
-		}
+        self.emptyView.isHidden = DatabaseManager.allItunsPod().count > 0
+        self.view.addSubview(self.emptyView)
+        self.emptyView.snp.makeConstraints { (make) in
+            make.centerX.width.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(self.topBgView.snp_bottom)
+        }
+        
+        self.emptyView.actionBlock = { [weak self] in
+            self?.toDiscovery()
+        }
 		
-		self.emptyView.addSubview(self.emptyAnimationView)
-		self.emptyAnimationView.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.centerY.equalToSuperview().offset(-50)
-            make.size.equalTo(CGSize.init(width: kScreenWidth, height: 150.auto()))
-		}
-		
-		let label = UILabel.init(text: "快来添加你的第一个播客吧".localized)
-		label.textColor = .lightGray
-		label.font = pfont(14);
-		self.emptyView.addSubview(label)
-		label.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(self.emptyAnimationView.snp.bottom).offset(15)
-		}
-		
-		self.emptyView.addSubview(self.addBtn);
-		self.addBtn.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(label.snp.bottom).offset(40)
-//			make.width.equalTo(180)
-			make.width.equalToSuperview().offset(-100)
-			make.height.equalTo(50)
-		}
-		
-		self.emptyAnimationView.play()
-		
+
 	}
 	
 }

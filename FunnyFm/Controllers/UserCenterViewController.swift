@@ -11,42 +11,30 @@ import UIKit
 
 class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
-	var logoutBtn: UIButton!
-	
+    var loginTipView: UserLoginTipView = UserLoginTipView.init(frame: CGRect.zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.titleLB.text = "Hi"
         self.dw_addSubviews()
-		NotificationCenter.default.addObserver(self, selector: #selector(updateAccountStatus), name: NSNotification.Name.init(kParserNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAccountStatus), name: NSNotification.Name.init(kParserNotification), object: nil)
+        self.loginTipView.actionClosure = {
+            guard VipManager.shared.isVip else {
+                self.alertVip()
+                return
+            }
+            let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+            loginNavi.navigationBar.isHidden = true
+            self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
+        }
+        self.view.backgroundColor = CommonColor.white.color
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.updateAccountStatus()
+        self.loginTipView.animationView.play()
 	}
-	
-	
-	@objc func toLogoutAction(){
-		
-
-        
-		if !UserCenter.shared.isLogin {
-            if !VipManager.shared.isVip {
-                self.alert("此功能仅向 Pro 用户开放")
-                return
-            }
-            
-			let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
-            loginNavi.navigationBar.isHidden = true
-            self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
-			return
-		}
-		
-		UserCenter.shared.isLogin = false
-		HorizonHUD.showSuccess("退出成功".localized)
-		self.updateAccountStatus()
-	}
-	
 	
 	@objc func updateAccountStatus(){
         
@@ -55,46 +43,47 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         }
         
 		if UserCenter.shared.isLogin {
+            self.loginTipView.removeFromSuperview()
 			if UserCenter.shared.name.length() > 0 {
 				self.titleLB.text = "Hi  \(UserCenter.shared.name)"
 			}
-			logoutBtn.setTitle("退出登录".localized, for: .normal)
-		}else{
-			logoutBtn.setTitle("登录".localized, for: .normal)
-		}
+        }else{
+            self.dw_addLoginTipView()
+            self.collectionView.snp.remakeConstraints { (make) in
+                make.top.equalTo(self.loginTipView.snp.bottom).priorityHigh()
+                make.top.equalTo(self.topBgView.snp.bottom).priorityMedium()
+                make.left.width.bottom.equalToSuperview()
+            }
+        }
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
 	}
     
     func dw_addSubviews(){
-		
+        self.dw_addLoginTipView()
         self.view.addSubview(self.collectionView)
-		
         self.collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLB.snp.bottom)
+            make.top.equalTo(self.loginTipView.snp.bottom).priorityHigh()
+            make.top.equalTo(self.topBgView.snp.bottom).priorityMedium()
             make.left.width.bottom.equalToSuperview()
         }
-		
-        if ClientConfig.shared.isIPad {
-            return
+    }
+    
+    func dw_addLoginTipView() {
+        self.view.addSubview(self.loginTipView)
+        self.loginTipView.snp_makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.topBgView.snp.bottom).offset(6.auto())
+            make.width.equalToSuperview().offset(-60)
+            make.height.equalTo(120.auto())
         }
-		self.logoutBtn = UIButton.init(type: .custom)
-		logoutBtn.setTitleColor(.white, for: .normal)
-		logoutBtn.backgroundColor = CommonColor.mainRed.color
-		logoutBtn.cornerRadius = 5.0
-		logoutBtn.titleLabel?.font = p_bfont(12);
-		logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
-		self.view.addSubview(self.logoutBtn)
-		self.logoutBtn.snp.makeConstraints { (make) in
-			make.baseline.equalTo(self.titleLB)
-			make.right.equalTo(-18)
-			make.width.equalTo(100.auto())
-			make.height.equalTo(30.auto())
-		}
     }
     
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
         layout.itemSize = CGSize(width: 146.auto(), height: 170.auto())
-        layout.minimumLineSpacing = 16
+        layout.minimumLineSpacing = 16.auto()
         layout.sectionInset = UIEdgeInsets.init(top: 30.auto(), left: 30, bottom: toolbarH*2, right: 30)
         let collectionview = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         let nib = UINib(nibName: String(describing: UserCenterCollectionViewCell.self), bundle: nil)

@@ -8,7 +8,7 @@
 
 import UIKit
 import GoogleSignIn
-import OfficeUIFabric
+
 
 class LoginTypeViewController: UIViewController {
 	
@@ -44,14 +44,14 @@ class LoginTypeViewController: UIViewController {
 
 extension LoginTypeViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		HorizonHUD.showSuccess("登录成功".localized)
 		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
 		self.navigationController?.dismiss(animated: true, completion: nil)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		SwiftNotice.showText(msg!)
 	}
 }
@@ -64,7 +64,7 @@ extension LoginTypeViewController :GIDSignInDelegate {
 			SwiftNotice.showText(error.localizedDescription)
 			return;
 		}
-		MSHUD.shared.show(in: self.view)
+		Hud.shared.show(on: self.view)
 		var params:[String : Any] = [:]
 		params["type"] = "google"
 		params["google_userid"] = user.userID

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OfficeUIFabric
 import Firebase
 import FirebaseUI
 import Siren
@@ -15,14 +14,17 @@ import Bugly
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
+    
+    static var current: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 
-    var window: UIWindow?
+    let window = UIWindow(frame: UIScreen.main.bounds)
     
     var options: [UIApplication.LaunchOptionsKey: Any]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		UIApplication.shared.applicationIconBadgeNumber = 0
-		self.window = UIWindow.init()
         self.options = launchOptions
 		DatabaseManager.setupDefaultDatabase()
         VipManager.shared.completeTransactions()
@@ -33,10 +35,9 @@ import Bugly
 		configureTextfield()
 		GDTSDKConfig.setSdkSrc("14")
 		VersionManager.setupSiren()
-		self.setupJpush()
 		
-        self.window?.rootViewController = self.configRootVC()
-		self.window?.makeKeyAndVisible()
+        self.window.rootViewController = self.configRootVC()
+		self.window.makeKeyAndVisible()
         return true
     }
 	
@@ -61,9 +62,9 @@ import Bugly
 
 // MARK: - Notifications
 extension AppDelegate {
-	
+    	
 	func dw_addNotifies(){
-//		NotificationCenter.default.addObserver(self, selector: #selector(setupNotification), name: Notification.setupNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(setupJpush), name: Notification.setupNotification, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(toLoginVC), name: Notification.needLoginNotification, object: nil)
 		
@@ -80,17 +81,17 @@ extension AppDelegate {
 			if #available(iOS 13.0, *) {
 				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
 				loginNavi.navigationBar.isHidden = true
-                self.window!.rootViewController!.present(loginNavi, animated: true, completion: nil)
+                self.window.rootViewController!.present(loginNavi, animated: true, completion: nil)
 				return
 			}
 			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-			self.window!.rootViewController!.present(loginNavi, animated: true, completion: nil)
+			self.window.rootViewController!.present(loginNavi, animated: true, completion: nil)
 		}
 	}
 	
 	@objc func toMainVC(){
 		DispatchQueue.main.async {
-            self.window?.rootViewController = ClientConfig.shared.rootController()
+            self.window.rootViewController = ClientConfig.shared.rootController()
 		}
 	}
 	
@@ -102,7 +103,7 @@ extension AppDelegate {
 				return
 			}
 			let vc = PodDetailViewController.init(pod: pod!)
-			let navi = self.window?.rootViewController as! UINavigationController
+			let navi = self.window.rootViewController as! UINavigationController
 			navi.pushViewController(vc)
 		}
 	}
@@ -117,10 +118,10 @@ extension AppDelegate {
 extension AppDelegate : ViewModelDelegate {
 	
 	func viewModelDidGetDataSuccess() {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		let preview = PodPreviewViewController()
 		preview.modalPresentationStyle = .overCurrentContext
-		let vc = self.window!.rootViewController!
+		let vc = self.window.rootViewController!
 		let transitionDelegate = SPStorkTransitioningDelegate()
 		transitionDelegate.customHeight = 450;
 		preview.transitioningDelegate = transitionDelegate
@@ -131,7 +132,7 @@ extension AppDelegate : ViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-		MSHUD.shared.showFailure(in: self.window!, with: msg!)
+        showAutoHiddenHud(style: .error, text: msg!)
 	}
 }
 
@@ -156,7 +157,7 @@ extension AppDelegate {
 					return false
 				}
 				let vc = PodDetailViewController.init(pod: pod!)
-				let navi = self.window?.rootViewController as! UINavigationController
+				let navi = self.window.rootViewController as! UINavigationController
 				navi.pushViewController(vc)
 			}
 			return true
@@ -172,7 +173,8 @@ extension AppDelegate {
 
 extension AppDelegate: JPUSHRegisterDelegate {
 	
-	func setupJpush(){
+	@objc func setupJpush(){
+        UserDefaults.standard.set(true, forKey: ff_isConfigANPS)
 		let entity = JPUSHRegisterEntity.init()
 		entity.types = Int(JPAuthorizationOptions.alert.rawValue | JPAuthorizationOptions.badge.rawValue | JPAuthorizationOptions.sound.rawValue | JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
 		JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)

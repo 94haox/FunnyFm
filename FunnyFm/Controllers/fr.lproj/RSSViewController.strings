@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "通过 RSS 链接订阅播客"; ObjectID = "YqE-4L-51f"; */
+"YqE-4L-51f.text" = "Abonnez-vous aux podcasts via le lien RSS";
+
+/* Class = "UIButton"; normalTitle = "添加"; ObjectID = "eCw-6q-jHf"; */
+"eCw-6q-jHf.normalTitle" = "Analyse";
+
+/* Class = "UILabel"; text = "Import"; ObjectID = "exb-St-Tr8"; */
+"exb-St-Tr8.text" = "Import";

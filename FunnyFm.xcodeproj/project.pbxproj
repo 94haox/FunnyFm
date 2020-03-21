@@ -13,9 +13,16 @@
 		741F273124237A0B006F1DCE /* ChapterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */; };
 		741F2733242381B5006F1DCE /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F2732242381B5006F1DCE /* Chapter.swift */; };
 		741F27442423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */; };
-		741F27452423B6D7006F1DCE /* PurchaseSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F27432423B6D7006F1DCE /* PurchaseSuccessfulViewController.xib */; };
+		743AC8DA2426109F001D252F /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8DC2426109F001D252F /* AboutViewController.xib */; };
+		743AC8E524261148001D252F /* PurchaseSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8E724261148001D252F /* PurchaseSuccessfulViewController.xib */; };
+		743AC8EE24261343001D252F /* InPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8F024261343001D252F /* InPurchaseViewController.xib */; };
+		743AC8FA24261CCC001D252F /* MainEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743AC8F924261CCC001D252F /* MainEmptyView.swift */; };
+		743AC8FD24262128001D252F /* RSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743AC8FB24262128001D252F /* RSSViewController.swift */; };
+		743AC8FF242629FF001D252F /* RSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC901242629FF001D252F /* RSSViewController.xib */; };
+		743B0BAA2424DE7800E42A16 /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B0BA82424DE7800E42A16 /* HudView.xib */; };
+		743B0BAB2424DE7800E42A16 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BA92424DE7800E42A16 /* Hud.swift */; };
+		743B0BAD2424DE8500E42A16 /* BouncingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BAC2424DE8500E42A16 /* BouncingButton.swift */; };
 		7440B1C5242257F200543AFD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */; };
-		7455CD2D24151FFB004886EF /* InPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7455CD2B24151FFB004886EF /* InPurchaseViewController.xib */; };
 		7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */; };
 		7455CD3024152030004886EF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2F24152030004886EF /* RoundedButton.swift */; };
 		7455CD342415209C004886EF /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
@@ -23,6 +30,9 @@
 		7455CD39241521E3004886EF /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7455CD38241521E3004886EF /* colors.xcassets */; };
 		745DE3082423607100EFFDA4 /* MNAVChapterReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 745DE3072423607100EFFDA4 /* MNAVChapterReader.m */; };
 		74777A6B241E284400BAE34B /* ConcurrentJobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74777A6A241E284400BAE34B /* ConcurrentJobQueue.swift */; };
+		74799F8E2424F65000265D3B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74799F8C2424F65000265D3B /* AboutViewController.swift */; };
+		74799F912425185D00265D3B /* UserLoginTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74799F902425185D00265D3B /* UserLoginTipView.swift */; };
+		74799F9524251CF000265D3B /* login_tip.json in Resources */ = {isa = PBXBuildFile; fileRef = 74799F9424251CF000265D3B /* login_tip.json */; };
 		7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6702417ACA1007E5319 /* BaseJob.swift */; };
 		7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6732417ACBF007E5319 /* JobQueue.swift */; };
 		7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6772417AD44007E5319 /* CloudParserJob.swift */; };
@@ -353,9 +363,35 @@
 		741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChapterCollectionViewCell.xib; path = FunnyFM/Views/Cells/ChapterCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		741F2732242381B5006F1DCE /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chapter.swift; path = FunnyFM/Models/Chapter.swift; sourceTree = SOURCE_ROOT; };
 		741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSuccessfulViewController.swift; path = FunnyFM/Controllers/PurchaseSuccessfulViewController.swift; sourceTree = SOURCE_ROOT; };
-		741F27432423B6D7006F1DCE /* PurchaseSuccessfulViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PurchaseSuccessfulViewController.xib; path = FunnyFM/Controllers/PurchaseSuccessfulViewController.xib; sourceTree = SOURCE_ROOT; };
+		743AC8DB2426109F001D252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutViewController.xib; sourceTree = "<group>"; };
+		743AC8DE242610A9001D252F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AboutViewController.strings; sourceTree = "<group>"; };
+		743AC8E2242610AD001D252F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AboutViewController.strings; sourceTree = "<group>"; };
+		743AC8E4242610AE001D252F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AboutViewController.strings; sourceTree = "<group>"; };
+		743AC8E624261148001D252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PurchaseSuccessfulViewController.xib; sourceTree = "<group>"; };
+		743AC8E924261158001D252F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PurchaseSuccessfulViewController.strings; sourceTree = "<group>"; };
+		743AC8EB2426115D001D252F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/PurchaseSuccessfulViewController.strings; sourceTree = "<group>"; };
+		743AC8ED2426115F001D252F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PurchaseSuccessfulViewController.strings; sourceTree = "<group>"; };
+		743AC8EF24261343001D252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InPurchaseViewController.xib; sourceTree = "<group>"; };
+		743AC8F224261348001D252F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InPurchaseViewController.strings; sourceTree = "<group>"; };
+		743AC8F42426134B001D252F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InPurchaseViewController.strings; sourceTree = "<group>"; };
+		743AC8F62426134C001D252F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InPurchaseViewController.strings; sourceTree = "<group>"; };
+		743AC8F82426162A001D252F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InPurchaseViewController.strings"; sourceTree = "<group>"; };
+		743AC8F924261CCC001D252F /* MainEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainEmptyView.swift; path = FunnyFM/Views/Custom/MainEmptyView.swift; sourceTree = SOURCE_ROOT; };
+		743AC8FB24262128001D252F /* RSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RSSViewController.swift; path = FunnyFM/Controllers/RSSViewController.swift; sourceTree = SOURCE_ROOT; };
+		743AC900242629FF001D252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RSSViewController.xib; sourceTree = "<group>"; };
+		743AC90324262A06001D252F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RSSViewController.strings; sourceTree = "<group>"; };
+		743AC90524262A07001D252F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/RSSViewController.strings; sourceTree = "<group>"; };
+		743AC90724262A08001D252F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/RSSViewController.strings; sourceTree = "<group>"; };
+		743AC908242643E2001D252F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		743AC9092426444A001D252F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
+		743AC90A24264452001D252F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/NeLoginViewController.strings"; sourceTree = "<group>"; };
+		743AC90B2426446B001D252F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PurchaseSuccessfulViewController.strings"; sourceTree = "<group>"; };
+		743AC90C24264473001D252F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AboutViewController.strings"; sourceTree = "<group>"; };
+		743AC90E24264479001D252F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RSSViewController.strings"; sourceTree = "<group>"; };
+		743B0BA82424DE7800E42A16 /* HudView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HudView.xib; sourceTree = "<group>"; };
+		743B0BA92424DE7800E42A16 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		743B0BAC2424DE8500E42A16 /* BouncingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingButton.swift; sourceTree = "<group>"; };
 		7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		7455CD2B24151FFB004886EF /* InPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InPurchaseViewController.xib; path = FunnyFM/Controllers/InPurchaseViewController.xib; sourceTree = SOURCE_ROOT; };
 		7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InPurchaseViewController.swift; path = FunnyFM/Controllers/InPurchaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		7455CD2F24152030004886EF /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = FunnyFM/Views/Custom/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
 		7455CD332415209C004886EF /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorView.swift; path = FunnyFM/Views/Custom/ActivityIndicatorView.swift; sourceTree = SOURCE_ROOT; };
@@ -364,6 +400,9 @@
 		745DE3062423607100EFFDA4 /* MNAVChapterReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNAVChapterReader.h; sourceTree = "<group>"; };
 		745DE3072423607100EFFDA4 /* MNAVChapterReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNAVChapterReader.m; sourceTree = "<group>"; };
 		74777A6A241E284400BAE34B /* ConcurrentJobQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConcurrentJobQueue.swift; path = FunnyFM/Job/Queue/ConcurrentJobQueue.swift; sourceTree = SOURCE_ROOT; };
+		74799F8C2424F65000265D3B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = FunnyFM/Controllers/AboutViewController.swift; sourceTree = SOURCE_ROOT; };
+		74799F902425185D00265D3B /* UserLoginTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginTipView.swift; path = FunnyFM/Views/Custom/UserLoginTipView.swift; sourceTree = SOURCE_ROOT; };
+		74799F9424251CF000265D3B /* login_tip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_tip.json; sourceTree = "<group>"; };
 		7493F6702417ACA1007E5319 /* BaseJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseJob.swift; sourceTree = "<group>"; };
 		7493F6732417ACBF007E5319 /* JobQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
 		7493F6772417AD44007E5319 /* CloudParserJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudParserJob.swift; path = FunnyFM/Job/CloudParserJob.swift; sourceTree = SOURCE_ROOT; };
@@ -520,10 +559,6 @@
 		AB62530C2306570500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/EmptyMainViewController.strings"; sourceTree = "<group>"; };
 		AB62530E2306570A00301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
 		AB6253102306570B00301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
-		AB6253122306570F00301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/NeLoginViewController.strings"; sourceTree = "<group>"; };
-		AB6253142306571000301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/NeLoginViewController.strings"; sourceTree = "<group>"; };
-		AB6253162306571400301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
-		AB6253182306571500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegisterViewController.strings"; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailHeader.swift; sourceTree = "<group>"; };
 		AB62DF1F239FB0450004BF6B /* SearchTopicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTopicCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -548,11 +583,9 @@
 		AB74FB7222F7F29F00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB7722F7F33E00A00706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB74FB7922F7F35500A00706 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		AB74FB7B22F7F35500A00706 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AB74FB7C22F7F35A00A00706 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB7E22F7F35A00A00706 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB74FB7F22F7F36200A00706 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		AB74FB8122F7F36200A00706 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AB74FB8222F7F36800A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB74FB8422F7F36900A00706 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB76EF66239C993E0096020B /* PodcastInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastInfoView.swift; sourceTree = "<group>"; };
@@ -903,6 +936,9 @@
 		AB1E6DA821BA251B00B85135 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				743B0BAC2424DE8500E42A16 /* BouncingButton.swift */,
+				743B0BA92424DE7800E42A16 /* Hud.swift */,
+				743B0BA82424DE7800E42A16 /* HudView.xib */,
 				7455CD332415209C004886EF /* ActivityIndicatorView.swift */,
 				AB1E6DA921BA256100B85135 /* AnimationRectAngle.swift */,
 				ABF5118321BF43E50083A81B /* NormalHeaderView.swift */,
@@ -921,6 +957,8 @@
 				AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */,
 				AB39B55323BAEF710062BBE5 /* RssAddView.swift */,
 				7455CD2F24152030004886EF /* RoundedButton.swift */,
+				74799F902425185D00265D3B /* UserLoginTipView.swift */,
+				743AC8F924261CCC001D252F /* MainEmptyView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1067,9 +1105,13 @@
 				AB7822F323D9B3C2006BD595 /* FeedbackViewController.swift */,
 				AB67FC3423E07ED2003D3380 /* ProfileCompleteViewController.swift */,
 				7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */,
-				7455CD2B24151FFB004886EF /* InPurchaseViewController.xib */,
+				743AC8F024261343001D252F /* InPurchaseViewController.xib */,
 				741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */,
-				741F27432423B6D7006F1DCE /* PurchaseSuccessfulViewController.xib */,
+				743AC8E724261148001D252F /* PurchaseSuccessfulViewController.xib */,
+				74799F8C2424F65000265D3B /* AboutViewController.swift */,
+				743AC8DC2426109F001D252F /* AboutViewController.xib */,
+				743AC8FB24262128001D252F /* RSSViewController.swift */,
+				743AC901242629FF001D252F /* RSSViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1383,6 +1425,7 @@
 			isa = PBXGroup;
 			children = (
 				AB57FE3A22CEE63400BABEF2 /* normal_empty.json */,
+				74799F9424251CF000265D3B /* login_tip.json */,
 				AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */,
 				AB57FE2A22CDE16A00BABEF2 /* boom.json */,
 				AB57FE2822CDDF9200BABEF2 /* firework_2.json */,
@@ -1664,7 +1707,7 @@
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
 				AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
-				741F27452423B6D7006F1DCE /* PurchaseSuccessfulViewController.xib in Resources */,
+				743AC8E524261148001D252F /* PurchaseSuccessfulViewController.xib in Resources */,
 				AB9E426823951DB500232EE8 /* NoteCollectionViewCell.xib in Resources */,
 				AB9E426423951BD500232EE8 /* NoteListViewController.xib in Resources */,
 				AB441A3923502B3B00411359 /* MessageCollectionViewCell.xib in Resources */,
@@ -1677,9 +1720,11 @@
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
 				AB62DF21239FB0450004BF6B /* SearchTopicCollectionViewCell.xib in Resources */,
+				743AC8DA2426109F001D252F /* AboutViewController.xib in Resources */,
 				AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
+				743B0BAA2424DE7800E42A16 /* HudView.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
 				AB14E02B23E7202200E0FA38 /* sound.caf in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
@@ -1691,7 +1736,7 @@
 				ABE57E2C21EA088A00F90EED /* done_button.json in Resources */,
 				AB8DAB90233A08DF00407FCB /* AppleLoginTypeViewController.xib in Resources */,
 				AB7E188B238ABCBC00D1C8AD /* SuportLocalList.plist in Resources */,
-				7455CD2D24151FFB004886EF /* InPurchaseViewController.xib in Resources */,
+				743AC8EE24261343001D252F /* InPurchaseViewController.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
@@ -1701,8 +1746,10 @@
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
 				ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */,
+				74799F9524251CF000265D3B /* login_tip.json in Resources */,
 				AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
+				743AC8FF242629FF001D252F /* RSSViewController.xib in Resources */,
 				AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */,
 				ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */,
 			);
@@ -1842,6 +1889,7 @@
 				AB97EE9923339FD500127C37 /* HistoryDetailViewController.swift in Sources */,
 				ABDB9DE62394F04A00539049 /* NoteAPI.swift in Sources */,
 				AB8DA7482338F38000407FCB /* CleanyModalTransitionDelegates.swift in Sources */,
+				743AC8FA24261CCC001D252F /* MainEmptyView.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
@@ -1874,10 +1922,12 @@
 				ABE7660521D7196700470D8F /* FileManagerExtensions.swift in Sources */,
 				ABE7660321D7196700470D8F /* DataExtensions.swift in Sources */,
 				AB1E6DB821BA809D00B85135 /* PodListViewController.swift in Sources */,
+				74799F8E2424F65000265D3B /* AboutViewController.swift in Sources */,
 				AB8BD8E0236E7574006FEFF3 /* SPStorkArrowMode.swift in Sources */,
 				AB97EE8F2333246600127C37 /* StaticMethods.m in Sources */,
 				AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */,
 				7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */,
+				74799F912425185D00265D3B /* UserLoginTipView.swift in Sources */,
 				AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */,
 				AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
@@ -1980,6 +2030,7 @@
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
 				7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */,
+				743AC8FD24262128001D252F /* RSSViewController.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
 				7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */,
 				AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */,
@@ -2006,6 +2057,7 @@
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
 				AB5828B4233C92080072F03B /* YBTSPriorityQueue.mm in Sources */,
 				AB5828B6233CBA6B0072F03B /* PlayItemEditViewController.swift in Sources */,
+				743B0BAD2424DE8500E42A16 /* BouncingButton.swift in Sources */,
 				AB77891323EC5BE400DF8447 /* AnimatedTabBarView.swift in Sources */,
 				ABE7660821D7196700470D8F /* DateExtensions.swift in Sources */,
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
@@ -2031,6 +2083,7 @@
 				AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
 				AB7789E823EC68E100DF8447 /* VerticalTabBarItemView.swift in Sources */,
+				743B0BAB2424DE7800E42A16 /* Hud.swift in Sources */,
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				741F273024237A0B006F1DCE /* ChapterCollectionViewCell.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
@@ -2054,6 +2107,58 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		743AC8DC2426109F001D252F /* AboutViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743AC8DB2426109F001D252F /* Base */,
+				743AC8DE242610A9001D252F /* en */,
+				743AC8E2242610AD001D252F /* fr */,
+				743AC8E4242610AE001D252F /* ja */,
+				743AC90C24264473001D252F /* zh-Hans */,
+			);
+			name = AboutViewController.xib;
+			path = FunnyFM/Controllers;
+			sourceTree = SOURCE_ROOT;
+		};
+		743AC8E724261148001D252F /* PurchaseSuccessfulViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743AC8E624261148001D252F /* Base */,
+				743AC8E924261158001D252F /* en */,
+				743AC8EB2426115D001D252F /* fr */,
+				743AC8ED2426115F001D252F /* ja */,
+				743AC90B2426446B001D252F /* zh-Hans */,
+			);
+			name = PurchaseSuccessfulViewController.xib;
+			path = FunnyFM/Controllers;
+			sourceTree = SOURCE_ROOT;
+		};
+		743AC8F024261343001D252F /* InPurchaseViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743AC8EF24261343001D252F /* Base */,
+				743AC8F224261348001D252F /* en */,
+				743AC8F42426134B001D252F /* fr */,
+				743AC8F62426134C001D252F /* ja */,
+				743AC8F82426162A001D252F /* zh-Hans */,
+			);
+			name = InPurchaseViewController.xib;
+			path = FunnyFM/Controllers;
+			sourceTree = SOURCE_ROOT;
+		};
+		743AC901242629FF001D252F /* RSSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743AC900242629FF001D252F /* Base */,
+				743AC90324262A06001D252F /* en */,
+				743AC90524262A07001D252F /* fr */,
+				743AC90724262A08001D252F /* ja */,
+				743AC90E24264479001D252F /* zh-Hans */,
+			);
+			name = RSSViewController.xib;
+			path = FunnyFM/Controllers;
+			sourceTree = SOURCE_ROOT;
+		};
 		AB25798521945E70004C5F5D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2083,10 +2188,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB74FB7722F7F33E00A00706 /* en */,
-				AB74FB7B22F7F35500A00706 /* zh-Hans */,
 				AB74FB7E22F7F35A00A00706 /* ja */,
-				AB74FB8122F7F36200A00706 /* zh-Hant */,
 				AB74FB8422F7F36900A00706 /* fr */,
+				743AC908242643E2001D252F /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -2150,8 +2254,7 @@
 				ABF498992303B71D00441DAF /* en */,
 				ABF4989B2303B71E00441DAF /* ja */,
 				ABF4989D2303B71F00441DAF /* fr */,
-				AB6253122306570F00301113 /* zh-Hans */,
-				AB6253142306571000301113 /* zh-Hant */,
+				743AC90A24264452001D252F /* zh-Hans */,
 			);
 			name = NeLoginViewController.xib;
 			sourceTree = "<group>";
@@ -2163,8 +2266,7 @@
 				ABF498A22303B88C00441DAF /* en */,
 				ABF498A42303B88D00441DAF /* ja */,
 				ABF498A62303B88E00441DAF /* fr */,
-				AB6253162306571400301113 /* zh-Hant */,
-				AB6253182306571500301113 /* zh-Hans */,
+				743AC9092426444A001D252F /* zh-Hans */,
 			);
 			name = RegisterViewController.xib;
 			sourceTree = "<group>";
@@ -2302,7 +2404,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2385,8 +2487,6 @@
 					"-framework",
 					"\"Nuke\"",
 					"-framework",
-					"\"OfficeUIFabric\"",
-					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
 					"\"Result\"",
@@ -2451,7 +2551,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

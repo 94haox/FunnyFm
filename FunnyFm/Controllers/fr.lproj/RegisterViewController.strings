@@ -3,7 +3,7 @@
 "83u-MT-0Mz.text" = "FunnyFM";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "c2m-Tn-bUn"; */
-"c2m-Tn-bUn.normalTitle" = "Button";
+"c2m-Tn-bUn.normalTitle" = "Inscription";
 
 /* Class = "UILabel"; text = "注册"; ObjectID = "ms8-h7-zaB"; */
 "ms8-h7-zaB.text" = "Inscription";

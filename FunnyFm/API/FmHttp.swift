@@ -11,7 +11,6 @@ import UIKit
 import Moya
 import SwiftyJSON
 import Result
-import OfficeUIFabric
 
 ///成功
 typealias SuccessStringClosure = (_ result: String) -> Void
@@ -91,7 +90,7 @@ public class FmHttp<T> where T: Mapable{
 									  _ failure: @escaping FailClosure){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
-			MSHUD.shared.hide()
+			Hud.shared.hide()
             switch result {
             case .success(let response):
                 do{
@@ -131,7 +130,7 @@ public class FmHttp<T> where T: Mapable{
 									   _ failure: @escaping FailClosure){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
-			MSHUD.shared.hide()
+			Hud.shared.hide()
             switch result {
             case .success(let data):
                 do{
@@ -166,7 +165,7 @@ public class FmHttp<T> where T: Mapable{
 									   _ failure: FailClosure?){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
-			MSHUD.shared.hide()
+			Hud.shared.hide()
             switch result {
             case .success(let data):
                 do{

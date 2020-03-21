@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OfficeUIFabric
 
 class NoteDetailViewController: UIViewController {
 	@IBOutlet weak var delBtn: UIButton!
@@ -47,7 +46,7 @@ class NoteDetailViewController: UIViewController {
 			SwiftNotice.showText("参数v错误")
 			return;
 		}
-		MSHUD.shared.show(from: self)
+        Hud.shared.show(on: self.view)
 		var params = [String : Any]()
 		params["note_id"] = self.note?.noteId
 		self.viewModel.deletNotes(params: params) { [weak self] in

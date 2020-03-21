@@ -182,12 +182,12 @@ PODS:
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
-  - OfficeUIFabric (0.2.11)
   - pop (1.0.12)
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
   - Result (4.1.0)
+  - SCLAlertView (0.8)
   - SHFullscreenPopGestureSwift (1.2.1)
   - Siren (5.2.3)
   - SnapKit (4.0.1)
@@ -223,9 +223,9 @@ DEPENDENCIES:
   - Moya
   - Nuke (~> 8.0.1)
   - NVActivityIndicatorView
-  - OfficeUIFabric (= 0.2.11)
   - pop (~> 1.0)
   - R.swift
+  - SCLAlertView
   - SHFullscreenPopGestureSwift
   - Siren
   - SnapKit (~> 4.0.0)
@@ -270,11 +270,11 @@ SPEC REPOS:
     - nanopb
     - Nuke
     - NVActivityIndicatorView
-    - OfficeUIFabric
     - pop
     - R.swift
     - R.swift.Library
     - Result
+    - SCLAlertView
     - SHFullscreenPopGestureSwift
     - Siren
     - SnapKit
@@ -320,11 +320,11 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
-  OfficeUIFabric: 63cc5002ab0aa509bd7941ba2542618856150e7c
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   Siren: 996f37869eae1f343f8c11f17d90c9c8da90bd4c
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
@@ -338,6 +338,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 5d0b76400ea2cbe7c089681af24c567c830ccacf
+PODFILE CHECKSUM: 148279a5eaff0600018a65d82891021c52601a09
 
 COCOAPODS: 1.8.4

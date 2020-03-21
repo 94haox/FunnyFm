@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OfficeUIFabric
 
 class PodListViewController: BaseViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
@@ -26,7 +25,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
 		self.titleLB.text = "我的订阅".localized
 		self.setupUI()
 		self.vm.delegate = self
-		MSHUD.shared.show(in: self.view)
+		Hud.shared.show(style: .busy, on: self.view)
 		NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name.init(rawValue: "kSyncSuccess"), object: nil)
     }
 	
@@ -80,11 +79,11 @@ extension PodListViewController: PodListViewModelDelegate{
 	
     func viewModelDidGetDataSuccess() {
         collectionView.reloadData()
-		MSHUD.shared.hide()
+		Hud.shared.hide()
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
         SwiftNotice.noticeOnStatusBar("请求失败", autoClear: true, autoClearTime: 2)
     }
     

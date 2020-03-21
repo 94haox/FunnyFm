@@ -197,7 +197,7 @@
                             </userDefinedRuntimeAttributes>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" name="ffWhite"/>
                     <constraints>
                         <constraint firstItem="WHP-Fp-5Q4" firstAttribute="centerY" secondItem="DbP-Gb-pMy" secondAttribute="centerY" id="P59-iC-jxk"/>
                         <constraint firstItem="WHP-Fp-5Q4" firstAttribute="centerX" secondItem="DbP-Gb-pMy" secondAttribute="centerX" id="aN6-TM-UiU"/>
@@ -213,7 +213,7 @@
                     <rect key="frame" x="54" y="528" width="306" height="354"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="background"/>
             <constraints>
                 <constraint firstItem="DbP-Gb-pMy" firstAttribute="width" secondItem="wYy-2b-RJO" secondAttribute="width" id="UIG-Sg-YCp"/>
                 <constraint firstItem="DbP-Gb-pMy" firstAttribute="top" secondItem="wYy-2b-RJO" secondAttribute="bottom" constant="32" id="VjA-wL-AJy"/>

@@ -18,7 +18,7 @@ class PurchaseSuccessfulViewController: BaseViewController {
         if self.navigationController!.viewControllers.count > 2 {
             self.backNaviBtn.isHidden = false
         }
-        self.vaildTimeLB.text = "订阅截止日期：" + VipManager.shared.vipVaildDate!.string()
+        self.vaildTimeLB.text = "订阅截止日期：".localized + VipManager.shared.vipVaildDate!.string()
         self.backNaviBtn.addTarget(self, action: #selector(backToRoot), for: .touchUpInside)
     }
     

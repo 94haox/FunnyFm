@@ -10,9 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="FunnyFm" customModuleProvider="target">
             <connections>
                 <outlet property="ggLoginBtn" destination="1Mz-Lt-WCM" id="X59-ki-IdZ"/>
-                <outlet property="loadingView" destination="pjC-kg-UGr" id="K23-sz-GTi"/>
                 <outlet property="loginBtn" destination="MxH-Qs-caB" id="tFb-oe-fdY"/>
-                <outlet property="nextImageView" destination="Kzo-Oa-9b1" id="WqE-tp-kg6"/>
                 <outlet property="tipLB" destination="3eE-Fx-2Yq" id="VAs-nl-31J"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,7 +30,7 @@
                     <state key="normal" title="Button" image="back-white"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="15"/>
+                            <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -70,33 +68,26 @@
                         <action selector="registerAction:" destination="-1" eventType="touchUpInside" id="eEm-Ox-spR"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxH-Qs-caB">
-                    <rect key="frame" x="24" y="399" width="190" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxH-Qs-caB" customClass="RoundedButton" customModule="FunnyFm" customModuleProvider="target">
+                    <rect key="frame" x="24" y="399" width="150" height="60"/>
                     <color key="backgroundColor" red="1" green="0.14117647059999999" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="5Js-wf-Shw"/>
-                        <constraint firstAttribute="width" constant="190" id="h0A-m0-Ox1"/>
+                        <constraint firstAttribute="height" constant="40" id="5Js-wf-Shw"/>
+                        <constraint firstAttribute="width" constant="150" id="h0A-m0-Ox1"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="18"/>
+                    <state key="normal" title="登录"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="15"/>
+                            <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="7hB-I0-tkZ"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qce-aD-ORU">
-                    <rect key="frame" x="40" y="419" width="34" height="21"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pjC-kg-UGr">
-                    <rect key="frame" x="177" y="420" width="20" height="20"/>
-                </activityIndicatorView>
                 <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mz-Lt-WCM">
-                    <rect key="frame" x="230" y="380" width="30" height="100"/>
+                    <rect key="frame" x="190" y="380" width="30" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="AjT-YR-z59"/>
                         <constraint firstAttribute="height" constant="30" id="Azh-LZ-mbs"/>
@@ -106,13 +97,6 @@
                         <action selector="wxLoginAction:" destination="-1" eventType="touchUpInside" id="mCU-rY-yQ8"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="white-next" translatesAutoresizingMaskIntoConstraints="NO" id="Kzo-Oa-9b1">
-                    <rect key="frame" x="177" y="414" width="30" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Uga-kS-Mua"/>
-                        <constraint firstAttribute="width" constant="30" id="Vz0-tl-hR8"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -122,15 +106,9 @@
                 <constraint firstItem="mb8-Ca-5XA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="541-sq-7yN"/>
                 <constraint firstItem="mb8-Ca-5XA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="94W-Qf-4j3"/>
                 <constraint firstItem="1Mz-Lt-WCM" firstAttribute="leading" secondItem="MxH-Qs-caB" secondAttribute="trailing" constant="16" id="BaR-Wd-RKg"/>
-                <constraint firstItem="Kzo-Oa-9b1" firstAttribute="leading" secondItem="pjC-kg-UGr" secondAttribute="leading" id="D4C-xj-Yrb"/>
-                <constraint firstItem="Kzo-Oa-9b1" firstAttribute="centerY" secondItem="MxH-Qs-caB" secondAttribute="centerY" id="GWd-So-O02"/>
-                <constraint firstItem="Qce-aD-ORU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="PIJ-Ov-vMP"/>
                 <constraint firstItem="zFR-So-9c3" firstAttribute="leading" secondItem="7va-3G-yYg" secondAttribute="leading" id="W2B-EP-g3Z"/>
-                <constraint firstItem="Qce-aD-ORU" firstAttribute="centerY" secondItem="MxH-Qs-caB" secondAttribute="centerY" id="ZUN-TM-2hO"/>
                 <constraint firstItem="3eE-Fx-2Yq" firstAttribute="top" secondItem="AXu-Wd-KwD" secondAttribute="bottom" constant="8" id="Zfr-gH-Wky"/>
                 <constraint firstItem="7va-3G-yYg" firstAttribute="leading" secondItem="3eE-Fx-2Yq" secondAttribute="leading" id="d3g-mA-FDc"/>
-                <constraint firstItem="pjC-kg-UGr" firstAttribute="leading" secondItem="Qce-aD-ORU" secondAttribute="trailing" constant="103" id="fWL-dc-bCB"/>
-                <constraint firstItem="pjC-kg-UGr" firstAttribute="centerY" secondItem="MxH-Qs-caB" secondAttribute="centerY" id="gat-Gj-QpB"/>
                 <constraint firstItem="AXu-Wd-KwD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="kZ3-zC-Abl"/>
                 <constraint firstItem="AXu-Wd-KwD" firstAttribute="top" secondItem="mb8-Ca-5XA" secondAttribute="bottom" constant="16" id="lUv-Th-LFC"/>
                 <constraint firstItem="1Mz-Lt-WCM" firstAttribute="centerY" secondItem="MxH-Qs-caB" secondAttribute="centerY" id="otj-K7-ZTh"/>
@@ -143,6 +121,5 @@
     <resources>
         <image name="back-white" width="100" height="100"/>
         <image name="google" width="500" height="500"/>
-        <image name="white-next" width="100" height="100"/>
     </resources>
 </document>

@@ -8,7 +8,6 @@
 
 import UIKit
 import Speech
-import OfficeUIFabric
 
 class SpeechViewController: UIViewController {
 

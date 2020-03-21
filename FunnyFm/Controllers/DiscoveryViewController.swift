@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import OfficeUIFabric
+import SCLAlertView
 
 class DiscoveryViewController: BaseViewController {
 
-	let rssAddView: RssAddView = RssAddView.init(frame: CGRect.zero)
 	let vm: PodDetailViewModel = PodDetailViewModel()
 	var tableview: UITableView = UITableView.init(frame: CGRect.zero, style: .grouped)
 	var searchBtn : UIButton = UIButton.init(type: .custom)
+    var addBtn: UIButton = UIButton.init(type: .custom)
     let loadingView: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
 	
     override func viewDidLoad() {
@@ -23,10 +23,6 @@ class DiscoveryViewController: BaseViewController {
 		self.setupUI()
 		self.dw_addConstraints()
 		self.vm.delegate = self
-		self.rssAddView.searchBlock = { [weak self] rss in
-			MSHUD.shared.show(from: self!)
-			self!.vm.getPrev(feedUrl: rss)
-		}
         self.view.backgroundColor = CommonColor.white.color
     }
 	
@@ -46,13 +42,22 @@ extension DiscoveryViewController {
 		let search = SearchViewController.init()
 		self.navigationController?.pushViewController(search);
 	}
+    
+    @objc func showAdd() {
+        let rssVc = RSSViewController()
+        rssVc.actionBlock = { [weak self] rss in
+            Hud.shared.show()
+            self?.vm.getPrev(feedUrl: rss)
+        }
+        self.present(rssVc, animated: true, completion: nil)
+    }
 	
 }
 
 extension DiscoveryViewController: PodDetailViewModelDelegate {
 	
 	func podDetailParserSuccess() {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		let preview = PodPreviewViewController()
 		preview.itunsPod = self.vm.pod
 		self.present(preview, animated: true, completion: nil)
@@ -127,28 +132,28 @@ extension DiscoveryViewController: UITableViewDelegate {
 extension DiscoveryViewController {
 	
 	func dw_addConstraints(){
-		self.view.addSubview(self.rssAddView)
+//		self.view.addSubview(self.rssAddView)
 		self.view.addSubview(self.searchBtn)
+        self.view.addSubview(self.addBtn)
 		self.view.addSubview(self.tableview)
 		self.view.addSubview(self.loadingView)
 		
 		
 		self.searchBtn.snp.makeConstraints { (make) in
-		   make.size.equalTo(CGSize.init(width: 40, height: 40))
-		   make.right.equalToSuperview().offset(-16)
-		   make.centerY.equalTo(self.titleLB)
+            make.size.equalTo(CGSize.init(width: 40.auto(), height: 40.auto()))
+            make.right.equalToSuperview().offset(-16)
+            make.centerY.equalTo(self.titleLB)
 		}
-		
-		self.rssAddView.snp.makeConstraints { (make) in
-			make.top.equalTo(self.topBgView.snp_bottom).offset(8.auto())
-			make.centerX.equalToSuperview()
-			make.width.equalToSuperview().offset(-24.auto())
-			make.height.equalTo(40)
-		}
+        
+        self.addBtn.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize.init(width: 25.auto(), height: 25.auto()))
+            make.right.equalTo(self.searchBtn.snp_left).offset(-4.auto())
+            make.centerY.equalTo(self.titleLB)
+        }
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview()
-			make.top.equalTo(self.rssAddView.snp.bottom).offset(16.auto())
+			make.top.equalTo(self.topBgView.snp.bottom).offset(16.auto())
 		}
 		
 		self.loadingView.snp.makeConstraints { (make) in
@@ -160,6 +165,11 @@ extension DiscoveryViewController {
 		
         self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
+        
+        self.addBtn.setImageForAllStates(R.image.add()!)
+        self.addBtn.backgroundColor = R.color.mainRed()
+        self.addBtn.cornerRadius = 4.auto()
+        self.addBtn.addTarget(self, action: #selector(showAdd), for: .touchUpInside)
 	
 		self.tableview.register(DiscoverListTableViewCell.self, forCellReuseIdentifier: "cell")
 		self.tableview.dataSource = self

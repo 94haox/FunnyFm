@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OfficeUIFabric
 import Lottie
 
 
@@ -41,7 +40,7 @@ extension SearchViewController : PodListViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataSuccess() {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		self.tableview.reloadData()
 		DispatchQueue.main.asyncAfter(deadline: .init(uptimeNanoseconds: UInt64(0.2))) {
 			self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
@@ -49,7 +48,7 @@ extension SearchViewController : PodListViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		SwiftNotice.showText(msg!)
 		self.tableview.reloadData();
 	}
@@ -124,7 +123,7 @@ extension SearchViewController : UITextFieldDelegate {
 			return true
 		}
 		self.vm.searchPod(keyword: textField.text!)
-		MSHUD.shared.show(in: self.view)
+		Hud.shared.show(on: self.view)
 		return true
 	}
 	

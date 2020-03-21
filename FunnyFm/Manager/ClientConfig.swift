@@ -16,13 +16,13 @@ class ClientConfig: NSObject {
     
     var controllers: [UIViewController] = []
     
-    var items = [AnimatedTabBarItem(icon: UIImage(named: "main_ipad") ?? UIImage(),
+    var items = [AnimatedTabBarItem(icon: R.image.main_ipad()!,
                        title: "New", controller: MainViewController()),
-    AnimatedTabBarItem(icon: UIImage(named: "rss_ipad") ?? UIImage(),
+                 AnimatedTabBarItem(icon: R.image.rss_ipad()!,
     title: "Discover", controller: DiscoveryViewController()),
-    AnimatedTabBarItem(icon: UIImage(named: "playlist_ipad") ?? UIImage(),
+                 AnimatedTabBarItem(icon: R.image.playlist()!,
                        title: "Playlist", controller: PlayListViewController()),
-    AnimatedTabBarItem(icon: UIImage(named: "user_ipad") ?? UIImage(),
+                 AnimatedTabBarItem(icon: R.image.user_ipad()!,
                        title: "User", controller: UserCenterViewController())]
     
     

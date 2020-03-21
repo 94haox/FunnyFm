@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "永久使用"; ObjectID = "999-0Y-KYk"; */
+"999-0Y-KYk.text" = "This is permanent";
+
+/* Class = "UILabel"; text = "全部功能解锁，无限制使用"; ObjectID = "B6a-13-zhV"; */
+"B6a-13-zhV.text" = "Unlock all features";
+
+/* Class = "UILabel"; text = "恢复购买"; ObjectID = "KKn-1f-QC1"; */
+"KKn-1f-QC1.text" = "Restore";
+
+/* Class = "UILabel"; text = "单集更新及时通知"; ObjectID = "Kzx-gf-T3c"; */
+"Kzx-gf-T3c.text" = "New episode notifications";
+
+/* Class = "UILabel"; text = "按月订阅"; ObjectID = "MgA-ib-ukT"; */
+"MgA-ib-ukT.text" = "Monthly Subscription";
+
+/* Class = "UIButton"; normalTitle = "18/年"; ObjectID = "UFd-Xb-BvN"; */
+"UFd-Xb-BvN.normalTitle" = "￥18/Year";
+
+/* Class = "UIButton"; normalTitle = "￥3/每月"; ObjectID = "YCu-KY-lPr"; */
+"YCu-KY-lPr.normalTitle" = "￥3/Month";
+
+/* Class = "UILabel"; text = "全功能去除广告"; ObjectID = "gxk-py-N4z"; */
+"gxk-py-N4z.text" = "Ad free";
+
+/* Class = "UILabel"; text = "更多专属 Pro 用户的实用功能"; ObjectID = "hSD-Te-0QP"; */
+"hSD-Te-0QP.text" = "More useful features for Pro";
+
+/* Class = "UIButton"; normalTitle = "恢复订阅"; ObjectID = "k3v-3D-lqa"; */
+"k3v-3D-lqa.normalTitle" = "Restore";
+
+/* Class = "UILabel"; text = "50%优惠"; ObjectID = "lAx-Qh-60z"; */
+"lAx-Qh-60z.text" = "50% OFF";
+
+/* Class = "UILabel"; text = "多平台，多设备数据同步"; ObjectID = "nqi-gy-zDI"; */
+"nqi-gy-zDI.text" = "MultiDevice Sync";
+
+/* Class = "UIButton"; normalTitle = "￥25"; ObjectID = "zzn-Iz-hgY"; */
+"zzn-Iz-hgY.normalTitle" = "￥25";

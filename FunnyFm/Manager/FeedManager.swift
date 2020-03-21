@@ -25,8 +25,8 @@ class FeedManager: NSObject {
 	
 	weak var delegate: FeedManagerDelegate?
 	
-	var isParsering = false
-	
+	var needRefresh = false
+    
 	lazy var podlist : [iTunsPod] = {
 		return DatabaseManager.allItunsPod()
 	}()
@@ -36,6 +36,17 @@ class FeedManager: NSObject {
 	}()
     
     var waitingPodlist: [iTunsPod] = [iTunsPod]()
+    
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(forName: Notification.podcastParserSuccess, object: nil, queue: nil) { (noti) in
+            self.removeDonePodcast(noti: noti)
+        }
+        
+        NotificationCenter.default.addObserver(forName: Notification.podcastParserFailure, object: nil, queue: nil) { (noti) in
+            self.removeDonePodcast(noti: noti)
+        }
+    }
 	
 }
 
@@ -78,22 +89,18 @@ extension FeedManager {
 		DispatchQueue.global().async {
 			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if self.episodeList.count > 0 {
+                self.needRefresh = true
 				DispatchQueue.main.async {
 					self.delegate?.feedManagerDidGetEpisodelistSuccess()
 				}
 			}
 		}
+        
+        guard DatabaseManager.allItunsPod().count > 0 else {
+            return
+        }
 		
 		NotificationCenter.default.post(name: Notification.Name.init("homechapterParserBegin"), object: nil)
-        
-        NotificationCenter.default.addObserver(forName: Notification.podcastParserSuccess, object: nil, queue: nil) { (noti) in
-            self.removeDonePodcast(noti: noti)
-        }
-        
-        NotificationCenter.default.addObserver(forName: Notification.podcastParserFailure, object: nil, queue: nil) { (noti) in
-            self.removeDonePodcast(noti: noti)
-        }
-        
         
 		DatabaseManager.allItunsPod().forEach { (podcast) in
             let job = CloudParserJob(podcast: podcast)
@@ -116,7 +123,7 @@ extension FeedManager {
                 break
             }
         }
-        if delIndex >= 0 {
+        if delIndex >= 0, delIndex < self.waitingPodlist.count {
             self.waitingPodlist.remove(at: delIndex)
         }
         
@@ -180,10 +187,12 @@ extension FeedManager {
 extension FeedManager {
 	
 	func addOrUpdate(itunesPod:iTunsPod, episodelist: [Episode]) {
+        guard episodelist.count > 0 else {
+            needRefresh = false
+            return
+        }
+        needRefresh = true
 		var pod = itunesPod
-		if episodelist.count < 1 {
-			return
-		}
 		if pod.podAuthor != episodelist.first!.author {
 			pod.podAuthor = episodelist.first!.author
 		}
@@ -237,7 +246,6 @@ extension FeedManager {
 				}
 			}
 		}
-		
         self.episodeList = sortEpisodeList
 	}
 	

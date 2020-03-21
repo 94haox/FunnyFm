@@ -15,11 +15,7 @@ class NeLoginViewController: UIViewController, ViewModelDelegate {
 
     @IBOutlet weak var tipLB: UILabel!
     
-    @IBOutlet weak var loginBtn: UIButton!
-    
-    @IBOutlet weak var nextImageView: UIImageView!
-    
-    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var loginBtn: RoundedButton!
 	
 	@IBOutlet weak var ggLoginBtn: UIButton!
 	
@@ -41,7 +37,6 @@ class NeLoginViewController: UIViewController, ViewModelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadingView.isHidden = true
         self.setupUI()
         self.dw_addSubviews()
         self.viewModel.delegate = self;
@@ -73,12 +68,9 @@ class NeLoginViewController: UIViewController, ViewModelDelegate {
  		self.present(authViewController, animated: true, completion: nil)
     }
     
-    @IBAction func loginAction(_ sender: Any) {
+    @IBAction func loginAction(_ sender: RoundedButton) {
         self.endEidted()
-        
-        if self.isLoading {
-            return
-        }
+
         
         if let mail = self.mailTF.text?.trim(), mail.count < 1 {
             SwiftNotice.showText("请输入邮箱地址".localized)
@@ -95,6 +87,7 @@ class NeLoginViewController: UIViewController, ViewModelDelegate {
             SwiftNotice.showText("请输入正确密码（六位）".localized)
             return
         }
+    
         UserDefaults.standard.set(self.mailTF.text!, forKey: "lastLoginAccount")
         self.showLoading()
         self.viewModel.login(mail: self.mailTF.text!.trim(), and: self.passTF.text!.trim())
@@ -105,17 +98,11 @@ class NeLoginViewController: UIViewController, ViewModelDelegate {
     }
     
     func showLoading() {
-        self.isLoading = true
-        self.loadingView.isHidden = false
-        self.nextImageView.isHidden = true
-        self.loadingView.startAnimating()
+        self.loginBtn.isBusy = true
     }
     
     func hideLoading(){
-        self.isLoading = false
-        self.loadingView.isHidden = true
-        self.nextImageView.isHidden = false
-        self.loadingView.stopAnimating()
+        self.loginBtn.isBusy = false
     }
 
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OfficeUIFabric
 
 class BaseViewController: UIViewController {
 	
@@ -46,7 +45,7 @@ class BaseViewController: UIViewController {
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-		MSHUD.shared.hide()
+        Hud.shared.hide()
 	}
 	
 	

@@ -9,7 +9,6 @@
 import UIKit
 import AutoInch
 import DynamicColor
-import OfficeUIFabric
 
 
 class NoteEditViewController: UIViewController {
@@ -62,7 +61,7 @@ class NoteEditViewController: UIViewController {
 		params["note_desc"] = self.limitTextView.textView.text
 		params["note_type"] = self.selectedBtn!.tag - 1000
 		params["is_private"] = self.publicBtn.isSelected
-		MSHUD.shared.show(from: self)
+        Hud.shared.show(on: self.view)
 		self.viewModel.createNote(params: params) {
 			SwiftNotice.showText("添加成功🥳")
 			self.dismiss(animated: true, completion: nil)

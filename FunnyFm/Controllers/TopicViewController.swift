@@ -8,7 +8,6 @@
 
 import UIKit
 import JXSegmentedView
-import OfficeUIFabric
 
 
 class TopicViewController: BaseViewController {
@@ -30,7 +29,8 @@ class TopicViewController: BaseViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.vm.searchTopic(keyword: self.vm.topicIDs[0])
-		MSHUD.shared.show(in: self.view)
+		Hud.shared.show(on: self.view)
+        
 	}
 }
 
@@ -41,7 +41,7 @@ extension TopicViewController : PodListViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataSuccess() {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		self.tableview.reloadData()
 		DispatchQueue.main.asyncAfter(deadline: .init(uptimeNanoseconds: UInt64(0.2))) {
 			self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
@@ -49,7 +49,7 @@ extension TopicViewController : PodListViewModelDelegate {
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		SwiftNotice.showText(msg!)
 		self.tableview.reloadData();
 	}
@@ -99,7 +99,7 @@ extension TopicViewController: JXSegmentedViewDelegate {
 	
 	func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
 		self.vm.searchTopic(keyword: self.vm.topicIDs[index])
-		MSHUD.shared.show(in: self.view)
+		Hud.shared.show(on: self.view)
 	}
 	
 }

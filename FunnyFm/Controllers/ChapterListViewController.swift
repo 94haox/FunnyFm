@@ -26,9 +26,7 @@ class ChapterListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !VipManager.shared.isVip {
-            self.alert("此功能仅向 Pro 用户开放",cancelHandler: { action in
-                self.dismiss(animated: true, completion: nil)
-            })
+            self.alertVip()
         }
     }
     

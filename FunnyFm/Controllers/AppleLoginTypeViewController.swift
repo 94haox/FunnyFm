@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleSignIn
-import OfficeUIFabric
 
 #if canImport(AuthenticationServices)
 import AuthenticationServices
@@ -100,14 +99,14 @@ extension AppleLoginTypeViewController {
 
 extension AppleLoginTypeViewController: ViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		HorizonHUD.showSuccess("登录成功".localized)
 		NotificationCenter.default.post(name: NSNotification.Name.init(kParserNotification), object: nil)
 		self.navigationController?.dismiss(animated: true, completion: nil)
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
-		MSHUD.shared.hide()
+		Hud.shared.hide()
 		SwiftNotice.showText(msg!)
 	}
 }
@@ -123,7 +122,7 @@ extension AppleLoginTypeViewController: ASAuthorizationControllerDelegate ,ASAut
 			let fullName = appleIDCredential.fullName
 			let identityToken = appleIDCredential.identityToken
 
-			MSHUD.shared.show(in: self.view)
+			Hud.shared.show(on: self.view)
 			var params:[String : Any] = [:]
 			params["type"] = "apple"
 			params["apple_userid"] = userIdentifier
@@ -157,7 +156,7 @@ extension AppleLoginTypeViewController :GIDSignInDelegate {
 			SwiftNotice.showText(error.localizedDescription)
 			return;
 		}
-		MSHUD.shared.show(in: self.view)
+		Hud.shared.show(on: self.view)
 		var params:[String : Any] = [:]
 		params["type"] = "google"
 		params["google_userid"] = user.userID

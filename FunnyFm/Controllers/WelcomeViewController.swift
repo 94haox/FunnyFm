@@ -19,5 +19,10 @@ class WelcomeViewController: UIViewController {
 	@IBAction func toMainVCAction(_ sender: Any) {
 		NotificationCenter.default.post(name: NSNotification.Name.init(kToMainAction), object: nil)
 	}
-	
+    
+    @IBAction func setUpNotiAction(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.setupNotification, object: nil)
+        //TODO 延迟两秒，检查授权
+        
+    }
 }

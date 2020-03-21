@@ -1,21 +1,21 @@
 
-/* Class = "UILabel"; text = "您已成功订阅趣播客 Pro"; ObjectID = "1fE-kf-Fgi"; */
-"1fE-kf-Fgi.text" = "您已成功订阅趣播客 Pro";
+/* Class = "UILabel"; text = "多平台，多设备数据同步"; ObjectID = "0bE-xT-Fvz"; */
+"0bE-xT-Fvz.text" = "Synchronisation multiappareil";
 
-/* Class = "UILabel"; text = "更多专属 Pro 用户的使用功能"; ObjectID = "A7J-TN-q1z"; */
-"A7J-TN-q1z.text" = "更多专属 Pro 用户的使用功能";
+/* Class = "UILabel"; text = "单集更新及时通知"; ObjectID = "9ZB-CC-RKF"; */
+"9ZB-CC-RKF.text" = "Notifications de nouvel épisode";
 
-/* Class = "UILabel"; text = "订阅截止日期："; ObjectID = "Jel-Qa-Pje"; */
-"Jel-Qa-Pje.text" = "订阅截止日期：";
+/* Class = "UILabel"; text = "更多专属 Pro 用户的实用功能"; ObjectID = "9cJ-uc-FTh"; */
+"9cJ-uc-FTh.text" = "Plus de fonctionnalités avec la version PRO";
 
-/* Class = "UILabel"; text = "单集更新及时通知"; ObjectID = "QgV-xS-aUE"; */
-"QgV-xS-aUE.text" = "单集更新及时通知";
+/* Class = "UILabel"; text = "您已成功订阅趣播客 Pro"; ObjectID = "OfP-Fe-KsQ"; */
+"OfP-Fe-KsQ.text" = "Abonnement réussi.";
 
-/* Class = "UILabel"; text = "全功能去除广告"; ObjectID = "Rdu-gO-FPP"; */
-"Rdu-gO-FPP.text" = "全功能去除广告";
+/* Class = "UILabel"; text = "全部功能解锁，无限制使用"; ObjectID = "QXl-l7-dkF"; */
+"QXl-l7-dkF.text" = "Débloquez les fonctions";
 
-/* Class = "UILabel"; text = "多平台，多设备数据同步"; ObjectID = "Za1-Mh-6fY"; */
-"Za1-Mh-6fY.text" = "多平台，多设备数据同步";
+/* Class = "UILabel"; text = "全功能去除广告"; ObjectID = "ovd-9p-1Wc"; */
+"ovd-9p-1Wc.text" = "Aucune publicité";
 
-/* Class = "UILabel"; text = "全部功能解锁，无限制使用"; ObjectID = "ryz-aV-EYn"; */
-"ryz-aV-EYn.text" = "全部功能解锁，无限制使用";
+/* Class = "UILabel"; text = "订阅截止时间："; ObjectID = "twF-5a-r69"; */
+"twF-5a-r69.text" = "订阅截止时间：";

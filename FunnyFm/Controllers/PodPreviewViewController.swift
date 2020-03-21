@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import OfficeUIFabric
 
 class PodPreviewViewController: BaseViewController {
 	
@@ -60,7 +59,7 @@ class PodPreviewViewController: BaseViewController {
 	}
 	
 	@objc func addPodToLibary(){
-		MSHUD.shared.show(in: self.view)
+		Hud.shared.show(on: self.view)
 		DatabaseManager.addItunsPod(pod: self.itunsPod);
 		var params = [String: String]()
 		params["track_name"] = self.itunsPod.trackName;
@@ -70,13 +69,13 @@ class PodPreviewViewController: BaseViewController {
 		params["artwork_url"] = self.itunsPod.artworkUrl600
 		params["author"] = self.viewModel.pod?.podAuthor
 		PodListViewModel.init().registerPod(params: params, success: { [weak self] (msg) in
-			MSHUD.shared.hide()
+			Hud.shared.hide()
 			SwiftNotice.showText("添加成功，正在获取所有节目单，请稍候查看".localized)
 			NotificationCenter.default.post(Notification.init(name: Notification.willAddPrevPodcast))
 			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: self!.itunsPod.collectionId,complete: nil)
 			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
-			MSHUD.shared.hide()
+			Hud.shared.hide()
 		}
 	}
 	

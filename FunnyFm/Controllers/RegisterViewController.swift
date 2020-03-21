@@ -12,13 +12,7 @@ class RegisterViewController: UIViewController, ViewModelDelegate {
 
     @IBOutlet var tipLB: UIView!
     
-    @IBOutlet weak var loadingView: UIActivityIndicatorView!
-    
-    @IBOutlet weak var nextImageVIew: UIImageView!
-    
-    @IBOutlet weak var registerBtn: UIButton!
-    
-    var isLoading = false
+    @IBOutlet weak var registerBtn: RoundedButton!
     
     var viewModel: LoginViewModel = LoginViewModel()
     
@@ -30,7 +24,6 @@ class RegisterViewController: UIViewController, ViewModelDelegate {
         super.viewDidLoad()
         self.setupUI()
         self.dw_addSubviews()
-        self.loadingView.isHidden = true
         self.viewModel.delegate = self
         self.dw_addTouchEndEdit()
     }
@@ -42,11 +35,7 @@ class RegisterViewController: UIViewController, ViewModelDelegate {
 
     @IBAction func registerAction(_ sender: Any) {
         self.endEidted()
-        
-        if self.isLoading {
-            return
-        }
-        
+                
         if let mail = self.mailTF.text?.trim(), mail.count < 1 {
             SwiftNotice.showText("请输入邮箱地址".localized)
             return
@@ -71,17 +60,11 @@ class RegisterViewController: UIViewController, ViewModelDelegate {
     }
 	
     func showLoading() { 
-        self.isLoading = true
-        self.loadingView.isHidden = false
-        self.nextImageVIew.isHidden = true
-        self.loadingView.startAnimating()
+        self.registerBtn.isBusy = true
     }
     
     func hideLoading(){
-        self.isLoading = false
-        self.loadingView.isHidden = true
-        self.nextImageVIew.isHidden = false
-        self.loadingView.stopAnimating()
+        self.registerBtn.isBusy = false
     }
 
 }

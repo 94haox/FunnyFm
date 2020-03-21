@@ -1,9 +1,30 @@
 import UIKit
+import SCLAlertView
 
 extension UIViewController {
     
     public func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    func alertVip(){
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.addButton("解锁 Pro".localized, backgroundColor: R.color.mainRed(), textColor: .white, showTimeout: nil, action: {
+            alertView.hideView()
+            self.dismiss(animated: true) {
+                let purchaseVC = InPurchaseViewController()
+                let navi = UIApplication.shared.keyWindow?.rootViewController! as! UINavigationController
+                navi.pushViewController(purchaseVC)
+            }
+        })
+        alertView.addButton("知道了", backgroundColor: R.color.mainRed(), textColor: .white, showTimeout: nil, action: {
+            alertView.hideView()
+            self.dismiss(animated: true) {}
+        })
+        alertView.showWarning("提示".localized, subTitle: "此功能仅向 Pro 用户开放 \n 请先解锁 Pro 功能".localized)
     }
 
     func alert(_ message: String, actionTitle: String = "OK", cancelHandler: ((UIAlertAction) -> Void)? = nil) {

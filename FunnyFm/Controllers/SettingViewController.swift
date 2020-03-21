@@ -8,11 +8,11 @@
 
 import UIKit
 import StoreKit
-import OfficeUIFabric
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 
-	
+	var logoutBtn: UIButton!
+    
 	var versionLB: UILabel!
     
     var tableview : UITableView!
@@ -26,13 +26,16 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         self.setupUI()
         self.view.backgroundColor = R.color.background()
         self.dw_addsubviews()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAccountStatus), name: NSNotification.Name.init(kParserNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setUpDataSource), name: UIApplication.didBecomeActiveNotification, object: nil)
+
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.setUpDataSource()
-		self.tableview.reloadData()
 		FMToolBar.shared.isHidden = true
+        self.updateAccountStatus()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -48,7 +51,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 	lazy var feedbacks : Array = {return []}()
     lazy var others : Array = {return []}()
     
-    func setUpDataSource (){
+    @objc func setUpDataSource (){
 		self.settings.removeAll()
         if PrivacyManager.isOpenPusn() {
             self.settings.append(["title":"接收通知".localized,"imageName":"notify","rightImage":"icon_correct"])
@@ -60,6 +63,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         }else{
             self.settings.append(["title":"接收通知".localized,"imageName":"notify"])
         }
+        self.tableview.reloadData()
     }
 	
 	func setUpImmutableData(){
@@ -98,7 +102,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func cleanAllCache(){
-        MSHUD.shared.show(in: self.view)
+        Hud.shared.show(on: self.view)
 		VICahcheHelper.init().cleanAllCache()
 		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
 		if cache != 0 {
@@ -106,22 +110,24 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		}else{
 			self.functions[0] = ["title":"清除缓存","imageName":"cache"]
 		}
-        MSHUD.shared.hide()
+        Hud.shared.hide()
 		self.tableview.reloadData()
 		SwiftNotice.showText("缓存清除成功🎉")
 	}
 	
 	func toAboutUs(){
-		let url = URL(string: "https://live.funnyfm.top/#/")
-		var responder = self as UIResponder?
-		let selectorOpenURL = sel_registerName("openURL:")
-		
-		while (responder != nil) {
-			if (responder?.responds(to: selectorOpenURL))! {
-				let _ = responder?.perform(selectorOpenURL, with: url)
-			}
-			responder = responder!.next
-		}
+        let aboutVC = AboutViewController()
+        self.navigationController?.pushViewController(aboutVC)
+//		let url = URL(string: "https://live.funnyfm.top/#/")
+//		var responder = self as UIResponder?
+//		let selectorOpenURL = sel_registerName("openURL:")
+//
+//		while (responder != nil) {
+//			if (responder?.responds(to: selectorOpenURL))! {
+//				let _ = responder?.perform(selectorOpenURL, with: url)
+//			}
+//			responder = responder!.next
+//		}
 	}
     
     func toAppStore() {
@@ -141,6 +147,35 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         self.navigationController?.popViewController()
     }
     
+    @objc func toLogoutAction(){
+        
+        if !UserCenter.shared.isLogin {
+            guard VipManager.shared.isVip else {
+                self.alertVip()
+                return
+            }
+            
+            let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+            loginNavi.navigationBar.isHidden = true
+            self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
+            return
+        }
+        
+        UserCenter.shared.isLogin = false
+        HorizonHUD.showSuccess("退出成功".localized)
+        self.updateAccountStatus()
+    }
+    
+    @objc func updateAccountStatus(){
+        guard !ClientConfig.shared.isIPad else {
+            return
+        }
+        if UserCenter.shared.isLogin {
+            logoutBtn.setTitle("退出登录".localized, for: .normal)
+        }else{
+            logoutBtn.setTitle("登录".localized, for: .normal)
+        }
+    }
     
 }
 
@@ -156,7 +191,11 @@ extension SettingViewController {
 		
 		if indexPath.section == 1{
             if indexPath.row == 0 {
-                UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                if PrivacyManager.isConfigAPNS {
+                    UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                }else{
+                    AppDelegate.current.setupJpush()
+                }
             }else{
                 if VipManager.shared.isVip {
                     VipManager.shared.allowEpisodeNoti = !VipManager.shared.allowEpisodeNoti
@@ -282,6 +321,7 @@ extension SettingViewController {
         self.view.addSubview(self.naviBar)
         self.view.addSubview(self.tableview)
 		self.view.addSubview(self.versionLB)
+        self.view.addSubview(self.logoutBtn)
 		self.view.sendSubviewToBack(self.naviBar)
         
         self.naviBar.snp.makeConstraints { (make) in
@@ -300,6 +340,13 @@ extension SettingViewController {
 			make.centerX.equalToSuperview()
 			make.bottom.equalTo(self.view.snp.bottomMargin).offset(-15)
 		}
+        
+        self.logoutBtn.snp.makeConstraints { (make) in
+            make.bottom.equalTo(self.versionLB.snp_top).offset(-40.auto())
+            make.centerX.equalToSuperview()
+            make.width.equalTo(200.auto())
+            make.height.equalTo(40.auto())
+        }
     }
     
     func setupUI(){
@@ -316,7 +363,7 @@ extension SettingViewController {
         self.tableview.backgroundColor = R.color.background()
         
         self.naviBar = UIView.init()
-        self.naviBar.backgroundColor = .white
+        self.naviBar.backgroundColor = R.color.ffWhite()
 		
 		let infoDic = Bundle.main.infoDictionary
 		let appVersion = infoDic?["CFBundleShortVersionString"]
@@ -324,6 +371,13 @@ extension SettingViewController {
 		self.versionLB = UILabel.init(text: "Version: " + (appVersion as! String) + "(\((appBuildVersion as! String)))")
 		self.versionLB.font = p_bfont(12)
 		self.versionLB.textColor = CommonColor.content.color
+        
+        self.logoutBtn = UIButton.init(type: .custom)
+        logoutBtn.setTitleColor(.white, for: .normal)
+        logoutBtn.backgroundColor = CommonColor.mainRed.color
+        logoutBtn.cornerRadius = 5.0
+        logoutBtn.titleLabel?.font = p_bfont(12);
+        logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
         
     }
 }

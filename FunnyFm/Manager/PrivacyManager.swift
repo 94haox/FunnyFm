@@ -9,7 +9,13 @@
 import UIKit
 import UserNotifications
 
+let ff_isConfigANPS = "ff_isConfigANPS"
+
 class PrivacyManager: NSObject {
+    
+    static var isConfigAPNS: Bool {
+        UserDefaults.standard.bool(forKey: ff_isConfigANPS)
+    }
     
     /// 是否开启推送
     static func isOpenPusn() -> Bool{

@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "多平台，多设备数据同步"; ObjectID = "0bE-xT-Fvz"; */
+"0bE-xT-Fvz.text" = "マルチデバイス同期";
+
+/* Class = "UILabel"; text = "单集更新及时通知"; ObjectID = "9ZB-CC-RKF"; */
+"9ZB-CC-RKF.text" = "新着エピソードの通知";
+
+/* Class = "UILabel"; text = "更多专属 Pro 用户的实用功能"; ObjectID = "9cJ-uc-FTh"; */
+"9cJ-uc-FTh.text" = "PROバージョンのその他の機能";
+
+/* Class = "UILabel"; text = "您已成功订阅趣播客 Pro"; ObjectID = "OfP-Fe-KsQ"; */
+"OfP-Fe-KsQ.text" = "申し込みが完了しました";
+
+/* Class = "UILabel"; text = "全部功能解锁，无限制使用"; ObjectID = "QXl-l7-dkF"; */
+"QXl-l7-dkF.text" = "すべてをロック解除する";
+
+/* Class = "UILabel"; text = "全功能去除广告"; ObjectID = "ovd-9p-1Wc"; */
+"ovd-9p-1Wc.text" = "広告表示なし";
+
+/* Class = "UILabel"; text = "订阅截止时间："; ObjectID = "twF-5a-r69"; */
+"twF-5a-r69.text" = "订阅截止时间：";

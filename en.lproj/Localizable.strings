@@ -105,11 +105,22 @@
 "未播"="LEFT";
 "通用"="General";
 "通过 RSS 链接订阅播客" = "Subscribe by RSS";
-"为您推荐" = "Recommended for you";
+"为您推荐" = "Discover";
 "消息" = "Messages";
 "清除缓存" = "Clear cache";
 "无法连接 iTunes Store，请稍后重试" = "Can not link iTunes Store, please try again!";
 "恢复购买成功" = "Restore Successful";
 "无可恢复项" = "Nothing to Restore";
 "解锁 Pro 功能" = "Pro-subscription";
+"订阅截止日期：" = "Subscription end date: ";
+"单集更新通知" = "New episode notifications";
+"订阅详情" = "Order Details";
+"解锁 Pro 功能" = "Unlock PRO features";
+"想同步云端数据？快来登录吧!" = "Want to sync data?";
+"输入 RSS 订阅源地址" = "Enter an RSS feed address";
+"确认"="Confirm";
+"此功能仅向 Pro 用户开放 \n 请先解锁 Pro 功能"= "This feature is only available to Pro users \ n Please unlock Pro features first";
+"提示"="Tips";
+"解锁 Pro" = "Unlock PRO";
+"知道了"="Cancel";
 
