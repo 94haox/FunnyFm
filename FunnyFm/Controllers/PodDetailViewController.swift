@@ -55,7 +55,6 @@ class PodDetailViewController: BaseViewController {
 		self.infoView.subscribeClosure = { [weak self] in
 			self?.subscribtionAction()
 		}
-        
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

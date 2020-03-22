@@ -11,6 +11,7 @@ import Rswift
 
 class InPurchaseViewController: BaseViewController {
 
+    @IBOutlet weak var featureView: UIView!
     @IBOutlet weak var restoreBtn: RoundedButton!
     @IBOutlet weak var actionStackView: UIStackView!
     @IBOutlet weak var infoStack: UIStackView!
@@ -32,6 +33,7 @@ class InPurchaseViewController: BaseViewController {
         infoTopConstraint.constant = 80.auto()
         infoHConstraint.constant = 150.auto()
         priceTopConstraint.constant = 100.auto()
+        self.featureView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,5 +91,14 @@ class InPurchaseViewController: BaseViewController {
         }
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.featureView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        }else{
+            self.featureView.cleanShadow()
+        }
+    }
+
     
 }

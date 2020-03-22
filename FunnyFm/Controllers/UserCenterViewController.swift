@@ -37,11 +37,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	}
 	
 	@objc func updateAccountStatus(){
-        
-        guard !ClientConfig.shared.isIPad else {
-            return
-        }
-        
+                
 		if UserCenter.shared.isLogin {
             self.loginTipView.removeFromSuperview()
 			if UserCenter.shared.name.length() > 0 {
@@ -55,11 +51,8 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
                 make.left.width.bottom.equalToSuperview()
             }
         }
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
-        }
 	}
-    
+        
     func dw_addSubviews(){
         self.dw_addLoginTipView()
         self.view.addSubview(self.collectionView)

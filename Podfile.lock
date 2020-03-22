@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.0.0)
   - AppAuth (1.3.0):
     - AppAuth/Core (= 1.3.0)
     - AppAuth/ExternalUserAgent (= 1.3.0)
@@ -161,18 +161,17 @@ PODS:
   - GTMSessionFetcher/Core (1.3.1)
   - GTMSessionFetcher/Full (1.3.1):
     - GTMSessionFetcher/Core (= 1.3.1)
-  - JCore (2.1.8)
-  - JPush (3.2.8):
+  - JCore (2.2.2)
+  - JPush (3.3.0):
     - JCore (< 3.0.0, >= 2.0.0)
   - JXSegmentedView (1.0.4)
   - KeychainAccess (4.1.0)
   - LookinServer (1.0.0)
   - lottie-ios (3.1.1)
-  - Moya (13.0.1):
-    - Moya/Core (= 13.0.1)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -186,10 +185,9 @@ PODS:
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
-  - Result (4.1.0)
   - SCLAlertView (0.8)
   - SHFullscreenPopGestureSwift (1.2.1)
-  - Siren (5.2.3)
+  - Siren (5.4.0)
   - SnapKit (4.0.1)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -200,7 +198,6 @@ PODS:
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
-  - WechatOpenSDK (1.8.6)
   - WhatsNewKit (1.3.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -233,7 +230,6 @@ DEPENDENCIES:
   - SwiftyStoreKit
   - VIMediaCache
   - WCDB.swift
-  - WechatOpenSDK
   - WhatsNewKit
   - YYKit
 
@@ -273,7 +269,6 @@ SPEC REPOS:
     - pop
     - R.swift
     - R.swift.Library
-    - Result
     - SCLAlertView
     - SHFullscreenPopGestureSwift
     - Siren
@@ -284,12 +279,11 @@ SPEC REPOS:
     - VIMediaCache
     - WCDB.swift
     - WCDBOptimizedSQLCipher
-    - WechatOpenSDK
     - WhatsNewKit
     - YYKit
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   AutoInch: f70a38b393dc2ce21e7f0bbceb5b2a0abe898575
   Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
@@ -310,23 +304,22 @@ SPEC CHECKSUMS:
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
-  JCore: a7f1dead960d77a97717c73ea8b0aa5b33706491
-  JPush: 8ce888d6dedfa417e90c8b6bc87405a16ce2e699
+  JCore: 2e6690b41b1b59c4a768e0a3187c311911c02ca8
+  JPush: 65cd9d8cb050b6d8c95736517d846fac2f53c134
   JXSegmentedView: b278b4c5d4c4c2982b4e084cef76ff1ddd37c6a5
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
-  Siren: 996f37869eae1f343f8c11f17d90c9c8da90bd4c
+  Siren: 9df16ed5278cfaad7ea034f3d2206e4f6983e9b8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
@@ -334,10 +327,9 @@ SPEC CHECKSUMS:
   VIMediaCache: aa650f82cb114c68a343beb4e67416cf5eb2f3a2
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
-  WechatOpenSDK: 368ae03b72ee3ea1328c4f11326fbb5d2721d118
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 148279a5eaff0600018a65d82891021c52601a09
+PODFILE CHECKSUM: d59a1ffa7d5ea6987e5eec9caa13adf9dd0503b0
 
 COCOAPODS: 1.8.4

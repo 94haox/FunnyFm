@@ -27,22 +27,6 @@ struct Episode : TableCodable,Mapable{
     var download_filpath:        String
 	var downloadSize: 			String
 	
-	init(feedItem: RSSFeedItem) {
-		title = feedItem.title ?? ""
-		pubDate = feedItem.pubDate?.dateString() ?? Date().dateString()
-		pubDateSecond = NSDate.minuteOffsetBetweenStart(feedItem.pubDate!, end: Date.init(timeIntervalSince1970: 1))
-		intro = feedItem.description ?? "暂无"
-		author = feedItem.iTunes?.iTunesAuthor ?? ""
-		coverUrl = feedItem.iTunes?.iTunesImage?.attributes?.href ?? ""
-		trackUrl = feedItem.enclosure?.attributes?.url ?? ""
-		download_filpath = ""
-		duration = feedItem.iTunes?.iTunesDuration ?? 0
-		podCoverUrl = ""
-		collectionId = ""
-		downloadSize = ""
-		podcastUrl = ""
-	}
-	
 	init?(jsonData:JSON) {
 		let time = jsonData["created"].intValue / 1000
 		title = jsonData["title"].stringValue
@@ -63,7 +47,59 @@ struct Episode : TableCodable,Mapable{
 		collectionId = ""
 		downloadSize = ""
 	}
-	
+    
+    init(feedItem: RSSFeedItem) {
+        
+        if let pub = feedItem.pubDate {
+            pubDate = pub.dateString()
+            pubDateSecond = NSDate.minuteOffsetBetweenStart(pub, end: Date.init(timeIntervalSince1970: 1))
+        }else{
+            pubDate = Date().dateString()
+            pubDateSecond = NSDate.minuteOffsetBetweenStart(Date(), end: Date.init(timeIntervalSince1970: 1))
+        }
+        
+        if let tit = feedItem.title {
+            title = tit
+        }else{
+            title = ""
+        }
+        
+        if let des = feedItem.description {
+            intro = des
+        }else{
+            intro = ""
+        }
+        
+        if let auth = feedItem.author {
+            author = auth
+        }else{
+            author = ""
+        }
+        
+        if let href = feedItem.iTunes?.iTunesImage?.attributes?.href {
+            coverUrl = href
+        }else{
+            coverUrl = ""
+        }
+        
+        if let url = feedItem.enclosure?.attributes?.url {
+            trackUrl = url
+        }else{
+            trackUrl = ""
+        }
+        
+        if let dur = feedItem.iTunes?.iTunesDuration {
+            duration = dur
+        }else{
+            duration = 0
+        }
+        
+        download_filpath = ""
+        podCoverUrl = ""
+        podcastUrl = ""
+        collectionId = ""
+        downloadSize = ""
+    }
     
     enum CodingKeys : String ,CodingTableKey {
         typealias Root = Episode

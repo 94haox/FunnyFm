@@ -18,10 +18,8 @@ class PodListCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = CommonColor.white.color
-		self.logoImageView.cornerRadius = 30.0
-		self.imageBg.layer.masksToBounds = false
-		self.imageBg.layer.borderWidth = CGFloat.leastNormalMagnitude
-		self.imageBg.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        self.logoImageView.layer.cornerCurve = .continuous
+        self.logoImageView.layer.cornerRadius = 30.0
 		self.bgView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.bgView.backgroundColor = CommonColor.whiteBackgroud.color
         self.titleLB.textColor = CommonColor.title.color
@@ -34,7 +32,6 @@ class PodListCollectionViewCell: UICollectionViewCell {
         self.logoImageView.loadImage(url: pod.artworkUrl600)
         self.titleLB.text = pod.trackName
         self.updateTimeLB.text = self.fromStringToDate(string: pod.releaseDate).dateString()
-//		self.updateTimeLB.text = "\(pod.trackCount)  Episodes"
     }
 	
 	func fromStringToDate(string :String) ->Date{
@@ -53,6 +50,15 @@ class PodListCollectionViewCell: UICollectionViewCell {
 		}
 		return Date()
 	}
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.bgView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        }else{
+            self.bgView.cleanShadow()
+        }
+    }
 
 
 }

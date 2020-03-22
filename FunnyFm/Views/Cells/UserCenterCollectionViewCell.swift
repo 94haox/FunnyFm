@@ -17,12 +17,12 @@ class UserCenterCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titleLB.textColor = CommonColor.title.color
-        self.subtitleLB.textColor = CommonColor.content.color
+        self.titleLB.textColor = R.color.titleColor()
+        self.subtitleLB.textColor = R.color.content()
         self.cornerRadius = 15.0
-        self.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
-        self.backgroundColor = CommonColor.whiteBackgroud.color
-        self.imageBackgroundView.backgroundColor = CommonColor.white.color
+        self.addShadow(ofColor: R.color.background()!, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        self.backgroundColor = R.color.whiteBackground()
+        self.imageBackgroundView.backgroundColor = R.color.ffWhite()
     }
     
     func configCell(_ dic: [String:String]){

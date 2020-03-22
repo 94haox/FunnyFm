@@ -4,7 +4,6 @@
 
 #import "UIImage+someMethods.h"
 #import "FMTextField.h"
-#import <WXApi.h>
 #import "UIScrollView+EmptyDataSet.h"
 #import "MJRefresh.h"
 #import "NSDate+Utils.h"
@@ -14,6 +13,7 @@
 #import "CropAudioManager.h"
 #import "VICahcheHelper.h"
 #import "MNAVChapterReader.h"
+#import "BHTimeProfiler.h"
 
 #import <YYKit.h>
 #import <GDTNativeExpressAdView.h>

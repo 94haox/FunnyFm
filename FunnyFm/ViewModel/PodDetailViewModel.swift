@@ -41,11 +41,18 @@ class PodDetailViewModel: NSObject {
 		self.delegate?.podDetailParserSuccess()
 		FeedManager.shared.delegate = self
 		FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId) { (podcast) in
-			if podcast.isSome {
+            if let podcast_receive = podcast, podcast_receive.podId.length() > 0 {
 				self.pod = DatabaseManager.getPodcast(feedUrl:pod.feedUrl)
 				self.pod?.podDes = podcast!.description
 				self.pod?.trackCount = "\(self.episodeList.count)"
-			}
+            }else{
+                FeedManager.shared.parserByFeedKit(podcast: pod, complete: { isSuccess in
+                    self.episodeList = DatabaseManager.allEpisodes(pod: pod)
+                    self.pod = DatabaseManager.getPodcast(feedUrl: pod.feedUrl)
+                    self.pod?.trackCount = "\(self.episodeList.count)"
+                    self.delegate?.podDetailParserSuccess()
+                })
+            }
 		}
 	}
 	

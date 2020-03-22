@@ -56,16 +56,7 @@ extension FeedManager {
         self.getHomeChapters()
 		if UserCenter.shared.isLogin {
 			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList, { (cloudPodlist) in
-				if let list = cloudPodlist {
-					var taglist = [String]()
-					list.forEach({ (pod) in
-						if pod.podId.length() > 0 {
-							taglist.append(pod.podId)
-						}
-						DatabaseManager.addItunsPod(pod: pod)
-					})
-					PushManager.shared.addTag(taglist: taglist)
-				}
+                PushManager.shared.addTags(podcasts: cloudPodlist)
 				self.podlist = DatabaseManager.allItunsPod()
 				DispatchQueue.main.async {
 					self.delegate?.feedManagerDidGetEpisodelistSuccess()
@@ -111,10 +102,6 @@ extension FeedManager {
 	}
 	
     func removeDonePodcast(noti: Notification) {
-        self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-        DispatchQueue.main.async {
-            self.delegate?.feedManagerDidGetEpisodelistSuccess()
-        }
         let info = noti.userInfo!
         var delIndex = -1
         for (index, podcast) in self.waitingPodlist.enumerated() {
@@ -125,6 +112,11 @@ extension FeedManager {
         }
         if delIndex >= 0, delIndex < self.waitingPodlist.count {
             self.waitingPodlist.remove(at: delIndex)
+        }
+        
+        self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+        DispatchQueue.main.async {
+            self.delegate?.feedManagerDidGetEpisodelistSuccess()
         }
         
         if self.waitingPodlist.count <= 0 {
@@ -153,6 +145,24 @@ extension FeedManager {
 		})
 	}
 	
+    func parserByFeedKit(podcast: iTunsPod, complete:@escaping ((Bool)->Void)) {
+        guard let url = URL.init(string: podcast.feedUrl) else {
+            return
+        }
+        var pod = podcast
+        FeedParser.init(URL: url).parseAsync { (result) in
+            if let rss = result.rssFeed, let items = rss.items {
+                let episodes = items.map { (item) -> Episode in
+                    return Episode.init(feedItem: item)
+                }
+                if let des = rss.description {
+                    pod.podDes = des
+                }
+                self.addOrUpdate(itunesPod: pod, episodelist: episodes)
+            }
+            complete(result.rssFeed.isSome)
+        }
+    }
 	
 }
 

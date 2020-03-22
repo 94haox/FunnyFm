@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 import Moya
 import SwiftyJSON
-import Result
-
+//import Result
 ///成功
 typealias SuccessStringClosure = (_ result: String) -> Void
 typealias SuccessJSONClosure = (_ result:JSON) -> Void

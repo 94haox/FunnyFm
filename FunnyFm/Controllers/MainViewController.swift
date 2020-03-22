@@ -52,6 +52,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		super.viewWillAppear(animated)
         if DatabaseManager.allItunsPod().count < 1 {
             self.loadAnimationView.play()
+            self.emptyView.emptyAnimationView.play()
             self.addEmptyViews()
         }
 		FeedManager.shared.delegate = self;   

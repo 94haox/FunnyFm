@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PurchaseSuccessfulViewController" customModule="FunnyFm" customModuleProvider="target">
             <connections>
+                <outlet property="featureView" destination="DbP-Gb-pMy" id="tTi-8b-yhm"/>
+                <outlet property="topView" destination="wYy-2b-RJO" id="B2I-eO-eyF"/>
                 <outlet property="vaildTimeLB" destination="twF-5a-r69" id="TVK-cJ-ndg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,7 +44,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" name="ffWhite"/>
+                    <color key="backgroundColor" name="whiteBackground"/>
                     <constraints>
                         <constraint firstItem="R3w-Cd-faf" firstAttribute="top" secondItem="wYy-2b-RJO" secondAttribute="top" constant="12" id="6GE-I7-00f"/>
                         <constraint firstItem="OfP-Fe-KsQ" firstAttribute="centerX" secondItem="wYy-2b-RJO" secondAttribute="centerX" id="7QJ-1s-Ujz"/>
@@ -197,7 +199,7 @@
                             </userDefinedRuntimeAttributes>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" name="ffWhite"/>
+                    <color key="backgroundColor" name="whiteBackground"/>
                     <constraints>
                         <constraint firstItem="WHP-Fp-5Q4" firstAttribute="centerY" secondItem="DbP-Gb-pMy" secondAttribute="centerY" id="P59-iC-jxk"/>
                         <constraint firstItem="WHP-Fp-5Q4" firstAttribute="centerX" secondItem="DbP-Gb-pMy" secondAttribute="centerX" id="aN6-TM-UiU"/>
@@ -213,7 +215,7 @@
                     <rect key="frame" x="54" y="528" width="306" height="354"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" name="background"/>
+            <color key="backgroundColor" name="ffWhite"/>
             <constraints>
                 <constraint firstItem="DbP-Gb-pMy" firstAttribute="width" secondItem="wYy-2b-RJO" secondAttribute="width" id="UIG-Sg-YCp"/>
                 <constraint firstItem="DbP-Gb-pMy" firstAttribute="top" secondItem="wYy-2b-RJO" secondAttribute="bottom" constant="32" id="VjA-wL-AJy"/>
@@ -251,6 +253,9 @@
         </namedColor>
         <namedColor name="titleColor">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whiteBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

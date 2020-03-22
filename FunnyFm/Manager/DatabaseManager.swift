@@ -30,8 +30,6 @@ class DatabaseManager: NSObject {
 		try! database.create(table: playItemTable, of: PlayItem.self)
     }
 	
-    
-	
 }
 
 // MARK: 播放列表操作记录

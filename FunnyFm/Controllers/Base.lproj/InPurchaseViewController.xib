@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InPurchaseViewController" customModule="FunnyFm" customModuleProvider="target">
             <connections>
                 <outlet property="actionStackView" destination="Dfm-mn-O8y" id="huS-e0-qAN"/>
+                <outlet property="featureView" destination="8ae-eD-OcC" id="SWJ-se-xrp"/>
                 <outlet property="foreverBtn" destination="zzn-Iz-hgY" id="54I-PX-QWK"/>
                 <outlet property="infoHConstraint" destination="K73-oE-27V" id="UgH-Gy-xUG"/>
                 <outlet property="infoStack" destination="6Ax-Km-G5M" id="Vnc-Lm-sdh"/>
@@ -30,7 +31,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ae-eD-OcC">
                     <rect key="frame" x="63.5" y="114" width="287" height="190"/>
-                    <color key="backgroundColor" name="ffWhite"/>
+                    <color key="backgroundColor" name="whiteBackground"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="autoCornerRadius">
                             <real key="value" value="12"/>
@@ -319,7 +320,7 @@
                     <rect key="frame" x="0.0" y="634" width="414" height="228"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" name="background"/>
+            <color key="backgroundColor" name="ffWhite"/>
             <constraints>
                 <constraint firstItem="MuO-gF-RwE" firstAttribute="top" secondItem="Dfm-mn-O8y" secondAttribute="bottom" constant="50" id="1Es-RG-bSY"/>
                 <constraint firstItem="8ae-eD-OcC" firstAttribute="height" secondItem="6Ax-Km-G5M" secondAttribute="height" constant="40" id="2mU-i6-jy8"/>
@@ -360,6 +361,9 @@
         </namedColor>
         <namedColor name="title">
             <color red="0.27450980392156865" green="0.30196078431372547" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whiteBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

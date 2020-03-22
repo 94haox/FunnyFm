@@ -95,6 +95,7 @@ extension UIView {
         }
         set {
             layer.masksToBounds = true
+            layer.cornerCurve = .continuous
             layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }

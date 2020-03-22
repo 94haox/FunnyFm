@@ -57,6 +57,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
             self.settings.append(["title":"接收通知".localized,"imageName":"notify","rightImage":"icon_correct"])
             if VipManager.shared.allowEpisodeNoti {
                 self.settings.append(["title":"单集更新通知".localized,"imageName":"episode_noti","rightImage":"icon_correct"])
+                PushManager.shared.addAllDatabaseTags()
             }else{
                 self.settings.append(["title":"单集更新通知".localized,"imageName":"episode_noti","rightImage":""])
             }
@@ -360,7 +361,7 @@ extension SettingViewController {
         self.tableview.dataSource = self
         self.tableview.tableFooterView = UIView()
         self.tableview.showsVerticalScrollIndicator = false
-        self.tableview.backgroundColor = R.color.background()
+        self.tableview.backgroundColor = R.color.ffWhite()
         
         self.naviBar = UIView.init()
         self.naviBar.backgroundColor = R.color.ffWhite()

@@ -10,11 +10,16 @@ import UIKit
 
 class PurchaseSuccessfulViewController: BaseViewController {
 
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var vaildTimeLB: UILabel!
+    @IBOutlet weak var featureView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.topView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        self.featureView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.titleLB.text = "订阅详情".localized
-        self.view.backgroundColor = R.color.background()
+        self.view.backgroundColor = R.color.ffWhite()
         if self.navigationController!.viewControllers.count > 2 {
             self.backNaviBtn.isHidden = false
         }
@@ -40,6 +45,17 @@ class PurchaseSuccessfulViewController: BaseViewController {
     @objc func backToRoot() {
         self.navigationController?.sh_fullscreenPopGestureRecognizer.isEnabled = true
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.topView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+            self.featureView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        }else{
+            self.topView.cleanShadow()
+            self.featureView.cleanShadow()
+        }
     }
 
 }

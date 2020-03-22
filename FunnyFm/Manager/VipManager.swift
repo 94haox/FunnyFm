@@ -23,10 +23,9 @@ class VipManager: NSObject {
     var isVip: Bool {
         get {
             if let date = self.vipVaildDate {
-                return Date().secondsSince(date) <= 0
-            }else{
-                return false
+                return !date.isInPast
             }
+            return false
         }
     }
     
@@ -36,6 +35,7 @@ class VipManager: NSObject {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "allowEpisodeNoti")
+            PushManager.shared.addAllDatabaseTags()
         }
     }
     

@@ -18,8 +18,8 @@ protocol DownloadTaskDelegate {
 
 class DownloadTask : NSObject{
 	
-	var downloadRequest:DownloadRequest!
-	var cancelledData:Data?
+	var downloadRequest: DownloadRequest!
+	var cancelledData: Data?
 	var delegate: DownloadTaskDelegate?
 	var episode: Episode?
 	var sourceUrl: String = ""
@@ -38,7 +38,7 @@ class DownloadTask : NSObject{
 		self.addDate = Date.init().dateString()
 	}
 	
-	let destination:DownloadRequest.DownloadFileDestination = { url, response in
+	let destination: DownloadRequest.Destination = { url, response in
 		let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 		let mp3Path = documentURL.appendingPathComponent("mp3")
 		let fileURL = mp3Path.appendingPathComponent(response.suggestedFilename!)
@@ -59,12 +59,12 @@ class DownloadTask : NSObject{
 		}
 		if let cancelledData = self.cancelledData {
 			//续传
-			self.downloadRequest = Alamofire.download(resumingWith: cancelledData, to: self.destination)
+            self.downloadRequest = Session().download(resumingWith: cancelledData, to: self.destination)
 			self.downloadRequest.downloadProgress(closure: downloadProgress)
 			self.downloadRequest.responseData(completionHandler: downloadResponse)
 		}else{
 			//开始下载
-			self.downloadRequest = Alamofire.download(self.sourceUrl, to: self.destination)
+			self.downloadRequest = Session().download(self.sourceUrl, to: self.destination)
 			self.downloadRequest.downloadProgress(closure: downloadProgress)
 			self.downloadRequest.responseData(completionHandler: downloadResponse)
 		}
@@ -77,10 +77,10 @@ class DownloadTask : NSObject{
 	}
 	
 	
-	func downloadResponse(response:DownloadResponse<Data>){
+	func downloadResponse(response: AFDownloadResponse<Data>){
 		switch response.result {
 		case .success(_):
-			self.delegate?.didDownloadSuccess(fileUrl: response.destinationURL?.path, sourceUrl: self.sourceUrl)
+			self.delegate?.didDownloadSuccess(fileUrl: response.fileURL?.path, sourceUrl: self.sourceUrl)
 		case .failure(error:):
 			self.cancelledData = response.resumeData //意外中止的话把已下载的数据存起来
 			self.delegate?.didDownloadFailure(sourceUrl: self.sourceUrl)

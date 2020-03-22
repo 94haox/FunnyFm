@@ -31,8 +31,33 @@ class PushManager: NSObject {
             self.removeAllTages()
             return
         }
-		JPUSHService.addTags(Set.init(taglist), completion: { (code, tags, seq) in }, seq: 1)
+		JPUSHService.setTags(Set.init(taglist), completion: { (code, tags, seq) in }, seq: 1)
 	}
+    
+    func addAllDatabaseTags() {
+        let list = DatabaseManager.allItunsPod()
+        var taglist = [String]()
+        list.forEach({ (pod) in
+            if pod.podId.length() > 0 {
+                taglist.append(pod.podId)
+            }
+        })
+        PushManager.shared.addTag(taglist: taglist)
+    }
+    
+    func addTags(podcasts: [iTunsPod]?) {
+        guard let list = podcasts else {
+            return
+        }
+        var taglist = [String]()
+        list.forEach({ (pod) in
+            if pod.podId.length() > 0 {
+                taglist.append(pod.podId)
+            }
+            DatabaseManager.addItunsPod(pod: pod)
+        })
+        self.addTag(taglist: taglist)
+    }
 	
 	func handlerNotification(userInfo: [AnyHashable : Any]){
 		let type = userInfo["type"] as? String

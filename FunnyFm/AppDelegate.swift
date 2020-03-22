@@ -25,6 +25,7 @@ import Bugly
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		UIApplication.shared.applicationIconBadgeNumber = 0
+        BHTimeProfiler.shared()?.recordEventTime("BeeHive::super start launch")
         self.options = launchOptions
 		DatabaseManager.setupDefaultDatabase()
         VipManager.shared.completeTransactions()

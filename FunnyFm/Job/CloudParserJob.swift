@@ -29,7 +29,6 @@ class CloudParserJob: BaseJob {
             DispatchQueue.global().async {
                 NotificationCenter.default.post(name: Notification.podcastParserSuccess, object: nil, userInfo: ["feedUrl": podcast.feedUrl])
             }
-            print("fetch_success_\(podcast.feedUrl)")
         }, { (error) in
             NotificationCenter.default.post(name: Notification.podcastParserFailure, object: nil, userInfo: ["feedUrl": podcast.feedUrl])
             print("fetch_failure_\(podcast.feedUrl)")
