@@ -9,7 +9,10 @@ extension UIViewController {
     
     func alertVip(){
         let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
+            showCloseButton: false,
+            contentViewColor: R.color.background()!,
+            contentViewBorderColor: R.color.background()!,
+            titleColor: R.color.titleColor()!
         )
         let alertView = SCLAlertView(appearance: appearance)
         alertView.addButton("解锁 Pro".localized, backgroundColor: R.color.mainRed(), textColor: .white, showTimeout: nil, action: {

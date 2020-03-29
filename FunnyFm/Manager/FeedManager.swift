@@ -24,8 +24,6 @@ class FeedManager: NSObject {
 	static let shared = FeedManager()
 	
 	weak var delegate: FeedManagerDelegate?
-	
-	var needRefresh = false
     
 	lazy var podlist : [iTunsPod] = {
 		return DatabaseManager.allItunsPod()
@@ -80,7 +78,6 @@ extension FeedManager {
 		DispatchQueue.global().async {
 			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if self.episodeList.count > 0 {
-                self.needRefresh = true
 				DispatchQueue.main.async {
 					self.delegate?.feedManagerDidGetEpisodelistSuccess()
 				}
@@ -110,8 +107,12 @@ extension FeedManager {
                 break
             }
         }
+        let semp = DispatchSemaphore.init(value: 1)
         if delIndex >= 0, delIndex < self.waitingPodlist.count {
-            self.waitingPodlist.remove(at: delIndex)
+            if semp.wait(timeout: DispatchTime.distantFuture) == .success {
+                self.waitingPodlist.remove(at: delIndex)
+            }
+            semp.signal()
         }
         
         self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
@@ -147,6 +148,7 @@ extension FeedManager {
 	
     func parserByFeedKit(podcast: iTunsPod, complete:@escaping ((Bool)->Void)) {
         guard let url = URL.init(string: podcast.feedUrl) else {
+            complete(false)
             return
         }
         var pod = podcast
@@ -160,7 +162,7 @@ extension FeedManager {
                 }
                 self.addOrUpdate(itunesPod: pod, episodelist: episodes)
             }
-            complete(result.rssFeed.isSome)
+            complete(result.error != nil)
         }
     }
 	
@@ -198,10 +200,9 @@ extension FeedManager {
 	
 	func addOrUpdate(itunesPod:iTunsPod, episodelist: [Episode]) {
         guard episodelist.count > 0 else {
-            needRefresh = false
             return
         }
-        needRefresh = true
+
 		var pod = itunesPod
 		if pod.podAuthor != episodelist.first!.author {
 			pod.podAuthor = episodelist.first!.author

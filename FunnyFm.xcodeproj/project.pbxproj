@@ -12,7 +12,8 @@
 		741F273124237A0B006F1DCE /* ChapterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */; };
 		741F2733242381B5006F1DCE /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F2732242381B5006F1DCE /* Chapter.swift */; };
 		741F27442423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */; };
-		743A4B70242758D9008E0086 /* FunnyFmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A4B6F242758D9008E0086 /* FunnyFmTests.swift */; };
+		742DD23C2430813E0010FBE3 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */; };
+		7438FF73243076D200A31FA9 /* notification_ad.json in Resources */ = {isa = PBXBuildFile; fileRef = 7438FF72243076D200A31FA9 /* notification_ad.json */; };
 		743A4C3C242759CF008E0086 /* RefreshJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A4C3B242759CF008E0086 /* RefreshJob.swift */; };
 		743AC8DA2426109F001D252F /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8DC2426109F001D252F /* AboutViewController.xib */; };
 		743AC8E524261148001D252F /* PurchaseSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8E724261148001D252F /* PurchaseSuccessfulViewController.xib */; };
@@ -25,6 +26,9 @@
 		743B0BAB2424DE7800E42A16 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BA92424DE7800E42A16 /* Hud.swift */; };
 		743B0BAD2424DE8500E42A16 /* BouncingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BAC2424DE8500E42A16 /* BouncingButton.swift */; };
 		7440B1C5242257F200543AFD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */; };
+		7446860F2428C3D40094843F /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446860E2428C3D40094843F /* AdsManager.swift */; };
+		7446874E2428D3D60094843F /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446874C2428D3D60094843F /* AdTableViewCell.swift */; };
+		7446874F2428D3D60094843F /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7446874D2428D3D60094843F /* AdTableViewCell.xib */; };
 		7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */; };
 		7455CD3024152030004886EF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2F24152030004886EF /* RoundedButton.swift */; };
 		7455CD342415209C004886EF /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
@@ -38,6 +42,7 @@
 		7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6702417ACA1007E5319 /* BaseJob.swift */; };
 		7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6732417ACBF007E5319 /* JobQueue.swift */; };
 		7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6772417AD44007E5319 /* CloudParserJob.swift */; };
+		74E92F832430842A00A0F64A /* first_ads.json in Resources */ = {isa = PBXBuildFile; fileRef = 74E92F822430842A00A0F64A /* first_ads.json */; };
 		AB00BC332394A87900893325 /* NoteEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB00BC312394A87900893325 /* NoteEditViewController.xib */; };
 		AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00BC322394A87900893325 /* NoteEditViewController.swift */; };
 		AB08F099233DEE0000B93D31 /* UIButton+SomeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */; };
@@ -182,7 +187,6 @@
 		AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6990B32315248E003AC187 /* ProgressHUD.swift */; };
 		AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */; };
 		AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */; };
-		AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */; };
 		AB6F088F23266A6000ED8B47 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */; };
 		AB6F089323266EBC00ED8B47 /* LoginTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */; };
 		AB6F0B002327814E00ED8B47 /* LoginTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6F0B022327814E00ED8B47 /* LoginTypeViewController.xib */; };
@@ -341,16 +345,6 @@
 		B695110D868CD0326F60A963 /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		743A4B72242758D9008E0086 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AB25797821945E6F004C5F5D;
-			remoteInfo = FunnyFm;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		ABE7661E21D7650E00470D8F /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -375,10 +369,12 @@
 		741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChapterCollectionViewCell.xib; path = FunnyFM/Views/Cells/ChapterCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		741F2732242381B5006F1DCE /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chapter.swift; path = FunnyFM/Models/Chapter.swift; sourceTree = SOURCE_ROOT; };
 		741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSuccessfulViewController.swift; path = FunnyFM/Controllers/PurchaseSuccessfulViewController.swift; sourceTree = SOURCE_ROOT; };
-		743A4B6824275861008E0086 /* FunnyFm.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FunnyFm.xctestplan; sourceTree = "<group>"; };
-		743A4B6D242758D9008E0086 /* FunnyFmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunnyFmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		743A4B6F242758D9008E0086 /* FunnyFmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyFmTests.swift; sourceTree = "<group>"; };
-		743A4B71242758D9008E0086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		742DD23D2430813E0010FBE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PrivacyViewController.xib; sourceTree = "<group>"; };
+		742DD240243081440010FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../FunnyFM/Controllers/en.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
+		742DD242243081490010FBE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../../FunnyFM/Controllers/zh-Hans.lproj/PrivacyViewController.strings"; sourceTree = "<group>"; };
+		742DD2442430814C0010FBE3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../../FunnyFM/Controllers/fr.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
+		742DD2462430814D0010FBE3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../../FunnyFM/Controllers/ja.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
+		7438FF72243076D200A31FA9 /* notification_ad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification_ad.json; sourceTree = "<group>"; };
 		743A4C3B242759CF008E0086 /* RefreshJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshJob.swift; path = FunnyFM/Job/RefreshJob.swift; sourceTree = SOURCE_ROOT; };
 		743AC8DB2426109F001D252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutViewController.xib; sourceTree = "<group>"; };
 		743AC8DE242610A9001D252F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AboutViewController.strings; sourceTree = "<group>"; };
@@ -411,6 +407,9 @@
 		743B0BA92424DE7800E42A16 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		743B0BAC2424DE8500E42A16 /* BouncingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingButton.swift; sourceTree = "<group>"; };
 		7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		7446860E2428C3D40094843F /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdsManager.swift; path = FunnyFM/Manager/AdsManager.swift; sourceTree = SOURCE_ROOT; };
+		7446874C2428D3D60094843F /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdTableViewCell.swift; path = FunnyFM/Views/Cells/AdTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		7446874D2428D3D60094843F /* AdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdTableViewCell.xib; path = FunnyFM/Views/Cells/AdTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InPurchaseViewController.swift; path = FunnyFM/Controllers/InPurchaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		7455CD2F24152030004886EF /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = FunnyFM/Views/Custom/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
 		7455CD332415209C004886EF /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorView.swift; path = FunnyFM/Views/Custom/ActivityIndicatorView.swift; sourceTree = SOURCE_ROOT; };
@@ -426,6 +425,7 @@
 		7493F6732417ACBF007E5319 /* JobQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
 		7493F6772417AD44007E5319 /* CloudParserJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudParserJob.swift; path = FunnyFM/Job/CloudParserJob.swift; sourceTree = SOURCE_ROOT; };
 		74A5CD75241239A200705E75 /* FunnyFm.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
+		74E92F822430842A00A0F64A /* first_ads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = first_ads.json; sourceTree = "<group>"; };
 		862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB00BC312394A87900893325 /* NoteEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditViewController.xib; sourceTree = "<group>"; };
 		AB00BC322394A87900893325 /* NoteEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
@@ -589,7 +589,6 @@
 		AB6990B32315248E003AC187 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		AB6CE3402330DA6A006D8D11 /* DownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTableViewCell.xib; sourceTree = "<group>"; };
 		AB6CE3412330DA6A006D8D11 /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
-		AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
 		AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		AB6F089123266EBC00ED8B47 /* LoginTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeViewController.swift; sourceTree = "<group>"; };
 		AB6F0B012327814E00ED8B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginTypeViewController.xib; sourceTree = "<group>"; };
@@ -816,13 +815,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		743A4B6A242758D9008E0086 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AB25797621945E6F004C5F5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -852,15 +844,6 @@
 				862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		743A4B6E242758D9008E0086 /* FunnyFmTests */ = {
-			isa = PBXGroup;
-			children = (
-				743A4B6F242758D9008E0086 /* FunnyFmTests.swift */,
-				743A4B71242758D9008E0086 /* Info.plist */,
-			);
-			path = FunnyFmTests;
 			sourceTree = "<group>";
 		};
 		745DE3052423606900EFFDA4 /* MNAVChapters */ = {
@@ -1005,11 +988,9 @@
 		AB25797021945E6F004C5F5D = {
 			isa = PBXGroup;
 			children = (
-				743A4B6824275861008E0086 /* FunnyFm.xctestplan */,
 				AB7B1AE822F9237700790787 /* GoogleService-Info.plist */,
 				AB74FB7822F7F33E00A00706 /* Localizable.strings */,
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
-				743A4B6E242758D9008E0086 /* FunnyFmTests */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -1020,7 +1001,6 @@
 			isa = PBXGroup;
 			children = (
 				AB25797921945E6F004C5F5D /* FunnyFm.app */,
-				743A4B6D242758D9008E0086 /* FunnyFmTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1129,7 +1109,7 @@
 				ABDC4D2A22CCAAB700EF31C0 /* EmptyMainViewController.swift */,
 				ABF498762303B45600441DAF /* WelcomeViewController.xib */,
 				AB57D5B722DDCD6F00979994 /* WelcomeViewController.swift */,
-				AB6F088C23266A6000ED8B47 /* PrivacyViewController.xib */,
+				742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */,
 				AB6F088D23266A6000ED8B47 /* PrivacyViewController.swift */,
 				ABF498692303B33300441DAF /* AdShowViewController.xib */,
 				AB7B1A9922F8413400790787 /* AdShowViewController.swift */,
@@ -1317,6 +1297,8 @@
 				AB14DE9823E3FD5400E0FA38 /* DiscoverListTableViewCell.swift */,
 				741F272E24237A0B006F1DCE /* ChapterCollectionViewCell.swift */,
 				741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */,
+				7446874C2428D3D60094843F /* AdTableViewCell.swift */,
+				7446874D2428D3D60094843F /* AdTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1466,6 +1448,8 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				74E92F822430842A00A0F64A /* first_ads.json */,
+				7438FF72243076D200A31FA9 /* notification_ad.json */,
 				AB57FE3A22CEE63400BABEF2 /* normal_empty.json */,
 				74799F9424251CF000265D3B /* login_tip.json */,
 				AB57FE3522CE1A2C00BABEF2 /* swip_guid.json */,
@@ -1538,6 +1522,7 @@
 				AB287BD9234F4E1500ED5448 /* VipManager.swift */,
 				AB73173F239E4944000E1588 /* VersionManager.swift */,
 				AB14E1D823E803EA00E0FA38 /* ClientConfig.swift */,
+				7446860E2428C3D40094843F /* AdsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1651,24 +1636,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		743A4B6C242758D9008E0086 /* FunnyFmTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 743A4B74242758D9008E0086 /* Build configuration list for PBXNativeTarget "FunnyFmTests" */;
-			buildPhases = (
-				743A4B69242758D9008E0086 /* Sources */,
-				743A4B6A242758D9008E0086 /* Frameworks */,
-				743A4B6B242758D9008E0086 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				743A4B73242758D9008E0086 /* PBXTargetDependency */,
-			);
-			name = FunnyFmTests;
-			productName = FunnyFmTests;
-			productReference = 743A4B6D242758D9008E0086 /* FunnyFmTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		AB25797821945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB25798B21945E70004C5F5D /* Build configuration list for PBXNativeTarget "FunnyFm" */;
@@ -1701,10 +1668,6 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Duke;
 				TargetAttributes = {
-					743A4B6C242758D9008E0086 = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = AB25797821945E6F004C5F5D;
-					};
 					AB25797821945E6F004C5F5D = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -1743,19 +1706,11 @@
 			projectRoot = "";
 			targets = (
 				AB25797821945E6F004C5F5D /* FunnyFm */,
-				743A4B6C242758D9008E0086 /* FunnyFmTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		743A4B6B242758D9008E0086 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AB25797721945E6F004C5F5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1793,8 +1748,9 @@
 				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
 				AB62DF21239FB0450004BF6B /* SearchTopicCollectionViewCell.xib in Resources */,
 				743AC8DA2426109F001D252F /* AboutViewController.xib in Resources */,
-				AB6F088E23266A6000ED8B47 /* PrivacyViewController.xib in Resources */,
+				742DD23C2430813E0010FBE3 /* PrivacyViewController.xib in Resources */,
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
+				7446874F2428D3D60094843F /* AdTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				743B0BAA2424DE7800E42A16 /* HudView.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
@@ -1811,6 +1767,7 @@
 				743AC8EE24261343001D252F /* InPurchaseViewController.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
 				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
+				74E92F832430842A00A0F64A /* first_ads.json in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
 				ABEF471A21EAFD7F00212DCA /* play_state.json in Resources */,
 				7455CD39241521E3004886EF /* colors.xcassets in Resources */,
@@ -1824,6 +1781,7 @@
 				743AC8FF242629FF001D252F /* RSSViewController.xib in Resources */,
 				AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */,
 				ABDC4D2E22CCD79900EF31C0 /* point_loading.json in Resources */,
+				7438FF73243076D200A31FA9 /* notification_ad.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1905,14 +1863,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		743A4B69242758D9008E0086 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				743A4B70242758D9008E0086 /* FunnyFmTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AB25797521945E6F004C5F5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1953,6 +1903,7 @@
 				AB5828B1233C92080072F03B /* YBTSStack.mm in Sources */,
 				AB39B55223B257120062BBE5 /* DiscoveryViewController.swift in Sources */,
 				AB41AB08219564F000260851 /* ConfigurationHelper.swift in Sources */,
+				7446874E2428D3D60094843F /* AdTableViewCell.swift in Sources */,
 				AB1E6D7921B9252500B85135 /* UIBarButtonItemExtensions.swift in Sources */,
 				AB14DE9323E32C3200E0FA38 /* DiscoverHeader.swift in Sources */,
 				ABE7660A21D7196700470D8F /* CalendarExtensions.swift in Sources */,
@@ -1978,6 +1929,7 @@
 				ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */,
 				ABF5118221BF43CC0083A81B /* UserCenterViewController.swift in Sources */,
 				7455CD342415209C004886EF /* ActivityIndicatorView.swift in Sources */,
+				7446860F2428C3D40094843F /* AdsManager.swift in Sources */,
 				AB287BDA234F4E1500ED5448 /* VipManager.swift in Sources */,
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
 				AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */,
@@ -2188,15 +2140,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		743A4B73242758D9008E0086 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AB25797821945E6F004C5F5D /* FunnyFm */;
-			targetProxy = 743A4B72242758D9008E0086 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				742DD23D2430813E0010FBE3 /* Base */,
+				742DD240243081440010FBE3 /* en */,
+				742DD242243081490010FBE3 /* zh-Hans */,
+				742DD2442430814C0010FBE3 /* fr */,
+				742DD2462430814D0010FBE3 /* ja */,
+			);
+			name = PrivacyViewController.xib;
+			sourceTree = "<group>";
+		};
 		743AC8DC2426109F001D252F /* AboutViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2364,48 +2320,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		743A4B75242758D9008E0086 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				INFOPLIST_FILE = FunnyFmTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tao.www.FunnyFmTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FunnyFm.app/FunnyFm";
-			};
-			name = Debug;
-		};
-		743A4B76242758D9008E0086 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				INFOPLIST_FILE = FunnyFmTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tao.www.FunnyFmTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FunnyFm.app/FunnyFm";
-			};
-			name = Release;
-		};
 		AB25798921945E70004C5F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2536,7 +2450,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2681,7 +2595,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2710,15 +2624,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		743A4B74242758D9008E0086 /* Build configuration list for PBXNativeTarget "FunnyFmTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				743A4B75242758D9008E0086 /* Debug */,
-				743A4B76242758D9008E0086 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		AB25797421945E6F004C5F5D /* Build configuration list for PBXProject "FunnyFm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

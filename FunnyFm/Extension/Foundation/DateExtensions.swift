@@ -716,6 +716,12 @@ extension Date {
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
+    
+    static func date(withString string: String, format: String = "dd/MM/yyyy HH:mm") -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: string)
+    }
 
     /// SwifterSwift: Date string from date.
     ///

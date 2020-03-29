@@ -128,7 +128,7 @@ class ChapterProgressView: UIView {
     
     lazy var totalProgress: UIView = {
         let view = UIView.init()
-        view.backgroundColor = RGB(236, 238, 240)
+        view.backgroundColor = R.color.progressBgColor()
         view.cornerRadius = 3
         return view
     }()

@@ -46,6 +46,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		
 		FeedManager.shared.delegate = self;
 		FeedManager.shared.getAllPods()
+        AdsManager.shared.loadAds(viewController: self)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -146,9 +147,7 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
     }
 	
 	func feedManagerDidGetEpisodelistSuccess() {
-        if FeedManager.shared.needRefresh {
-            self.reloadData()
-        }
+        perform(#selector(reloadData))
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
@@ -203,21 +202,37 @@ extension MainViewController{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let episodeList = FeedManager.shared.episodeList[section]
+        if AdsManager.shared.expressAdViews.count > 0{
+            return episodeList.count + 1
+        }
         return episodeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
+        let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section)
+        let list = episodeList as! [Episode]
+        if indexPath.row > list.count - 1, AdsManager.shared.expressAdViews.count > indexPath.section{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "adCell", for: indexPath) as! AdTableViewCell
+            let ads = AdsManager.shared.expressAdViews[indexPath.section]
+            cell.render(ads: ads)
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
 		return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
-		let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section)
-		if episodeList.isNone {
+		let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section) as? [Episode]
+		guard let list = episodeList else {
 			return
 		}
-		let list = episodeList as! [Episode]
+        
+        if indexPath.row > list.count {
+            return
+        }
+        
 		let item = list.safeObj(index: indexPath.row)
 		if item.isNone {
 			return
@@ -274,6 +289,13 @@ extension MainViewController{
 		return 30
 	}
 	
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let list = FeedManager.shared.episodeList[indexPath.section]
+        if indexPath.row > list.count - 1, AdsManager.shared.expressAdViews.count > indexPath.section {
+            return 50
+        }
+        return 100
+    }
 }
 
 
@@ -387,9 +409,9 @@ extension MainViewController {
         let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+        self.tableview.register(UINib.init(nibName: "AdTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "adCell")
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
-        self.tableview.rowHeight = 100
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false

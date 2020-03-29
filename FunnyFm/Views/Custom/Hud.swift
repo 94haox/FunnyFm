@@ -70,7 +70,7 @@ final class Hud: NSObject {
         guard isShowing else {
             return
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.hide()
         }
     }

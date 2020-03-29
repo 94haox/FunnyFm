@@ -88,6 +88,7 @@ class ClientConfig: NSObject {
         navi.navigationBar.isHidden = true
         if !UserDefaults.standard.bool(forKey: "isFirst") {
             navi = UINavigationController.init(rootViewController: WelcomeViewController.init())
+            navi.navigationBar.isHidden = true
             UserDefaults.standard.set(true, forKey: "isFirst")
         }
         return navi

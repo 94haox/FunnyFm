@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "为您推送新的单集通知"; ObjectID = "Nsw-G0-saQ"; */
+"Nsw-G0-saQ.text" = "为您推送新的单集通知";
+
+/* Class = "UIButton"; normalTitle = "立即使用"; ObjectID = "P0o-Kc-ApS"; */
+"P0o-Kc-ApS.normalTitle" = "立即使用";
+
+/* Class = "UIButton"; normalTitle = "授权"; ObjectID = "Z6o-ca-Qd7"; */
+"Z6o-ca-Qd7.normalTitle" = "授权";
+
+/* Class = "UILabel"; text = "为了向您提供新单集的更新通知，FunnyFM需要您授权推送权限。"; ObjectID = "yEp-VB-K0C"; */
+"yEp-VB-K0C.text" = "为了向您提供新单集的更新通知，FunnyFM需要您授权推送权限。";

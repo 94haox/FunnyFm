@@ -27,8 +27,7 @@ class InPurchaseViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = R.color.background()
-        self.view.bringSubviewToFront(self.restoreBtn)
+        self.view.backgroundColor = R.color.ffWhite()
         self.titleLB.text = "解锁 Pro 功能".localized
         infoTopConstraint.constant = 80.auto()
         infoHConstraint.constant = 150.auto()
@@ -80,11 +79,16 @@ class InPurchaseViewController: BaseViewController {
         }
         self.seletedBtn = btn
         self.seletedBtn!.isBusy = true
+
         VipManager.shared.purchaseProduct(productId: String(self.seletedBtn!.tag)) { (isSuccess) in
             self.seletedBtn?.isBusy = false
             if isSuccess {
                 VipManager.shared.allowEpisodeNoti = true
                 SwiftNotice.showText("购买成功")
+                DispatchQueue.main.async {
+                    let successVC = PurchaseSuccessfulViewController()
+                    self.navigationController?.pushViewController(successVC, animated: true)
+                }
             }else{
                 SwiftNotice.showText("购买失败")
             }

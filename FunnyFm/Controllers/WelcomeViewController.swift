@@ -9,20 +9,13 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
 
 	@IBAction func toMainVCAction(_ sender: Any) {
-		NotificationCenter.default.post(name: NSNotification.Name.init(kToMainAction), object: nil)
+        self.navigationController?.pushViewController(PrivacyViewController())
 	}
     
-    @IBAction func setUpNotiAction(_ sender: Any) {
-        NotificationCenter.default.post(name: Notification.setupNotification, object: nil)
-        //TODO 延迟两秒，检查授权
-        
-    }
 }

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class FunnyFm: NSObject {
 //	#if targetEnvironment(simulator)
 //	static let baseurl = "http://127.0.0.1:7001/api/"
 //	#else
 	static let baseurl = "https://api.funnyfm.top/api/"
+    
+    static let keychain = Keychain(service: "com.duke.www.FunnyFm")
+    
 //	#endif
 
 	static func attributePlaceholder(_ placeHolder:String)-> NSAttributedString{

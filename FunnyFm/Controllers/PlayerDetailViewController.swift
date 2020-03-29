@@ -326,6 +326,10 @@ extension PlayerDetailViewController {
 extension PlayerDetailViewController: PlayDetailToolBarDelegate {
 	
 	func didTapSttBtn() {
+        guard VipManager.shared.isVip else {
+            alertVip()
+            return
+        }
 		let speech = SpeechViewController.init()
 		speech.episode = self.episode
 		if self.playBtn.isSelected {
@@ -395,8 +399,8 @@ extension PlayerDetailViewController {
         })
         
         self.backBtn.snp.makeConstraints({ (make) in
-            make.centerY.equalTo(self.titleLB)
-            make.left.equalToSuperview().offset(24)
+            make.top.equalTo(self.playToolbar.snp_bottom).offset(8.auto())
+            make.centerX.equalToSuperview()
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
         })
         

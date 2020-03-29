@@ -41,16 +41,35 @@ class VipManager: NSObject {
     
     var vipVaildDate: Date? {
         get {
-            return UserDefaults.standard.object(forKey: "vipVaildDate") as? Date
+            let dateString = try? FunnyFm.keychain.get("FunnyFM-VipVaildDate")
+            if let _ = dateString {
+                return Date.date(withString: dateString!)
+            }
+            return nil
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "vipVaildDate")
+            if let _ = newValue {
+                try? FunnyFm.keychain.set(newValue!.string(), key: "FunnyFM-VipVaildDate")
+            }
         }
     }
         
-    func updateVipVailDate(purchase: Purchase) {
-        let payment = purchase.transaction
-        self.vipVaildDate = payment.transactionDate!.adding(.month, value: 1)
+    func updateVipVailDate(type: Product, trainsationDate: Date?) {
+        guard let date = trainsationDate else {
+            return
+        }
+        switch type {
+        case .forever:
+            self.vipVaildDate = date.adding(.year, value: 99)
+            break
+        case .year:
+            self.vipVaildDate = date.adding(.year, value: 1)
+            break
+        default:
+            self.vipVaildDate = date.adding(.month, value: 1)
+            break
+        }
+        
     }
     
     func getAllProducts(){
@@ -88,9 +107,9 @@ class VipManager: NSObject {
                 complete(false)
             }
             else if results.restoredPurchases.count > 0 {
-                let purchase = results.restoredPurchases.first!
-                self.updateVipVailDate(purchase: purchase)
-                print(purchase)
+                let purchase = results.restoredPurchases.last!
+                self.updateVipVailDate(type: Product(rawValue: purchase.productId)!, trainsationDate: purchase.transaction.transactionDate)
+                print(results.restoredPurchases)
                 complete(true)
             }
             else {
@@ -105,7 +124,7 @@ class VipManager: NSObject {
         SwiftyStoreKit.purchaseProduct(productId, quantity: 1, atomically: true) { result in
             switch result {
             case .success(let purchase):
-//                self.updateVipVailDate(purchase: Purchase(pro))
+                self.updateVipVailDate(type: Product(rawValue: purchase.productId)!, trainsationDate: purchase.transaction.transactionDate)
                 print("Purchase Success: \(purchase.productId)")
                 complete(true)
             case .error(let error):

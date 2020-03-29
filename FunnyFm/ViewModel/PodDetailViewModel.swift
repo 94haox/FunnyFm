@@ -47,6 +47,10 @@ class PodDetailViewModel: NSObject {
 				self.pod?.trackCount = "\(self.episodeList.count)"
             }else{
                 FeedManager.shared.parserByFeedKit(podcast: pod, complete: { isSuccess in
+                    guard isSuccess else {
+                        showAutoHiddenHud(style: .warning, text: "你现在可能在墙内，如果你懂我的意思，换个方式再重新刷新一下试试吧")
+                        return
+                    }
                     self.episodeList = DatabaseManager.allEpisodes(pod: pod)
                     self.pod = DatabaseManager.getPodcast(feedUrl: pod.feedUrl)
                     self.pod?.trackCount = "\(self.episodeList.count)"

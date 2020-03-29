@@ -34,9 +34,7 @@ import Bugly
 		self.dw_addNotifies()
         configureNavigationTabBar()
 		configureTextfield()
-		GDTSDKConfig.setSdkSrc("14")
 		VersionManager.setupSiren()
-		
         self.window.rootViewController = self.configRootVC()
 		self.window.makeKeyAndVisible()
         return true

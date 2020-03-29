@@ -11,29 +11,29 @@ import Lottie
 
 class EmptyMainViewController: UIViewController {
 
-	@IBOutlet weak var welcomeTopConst: NSLayoutConstraint!
-	@IBOutlet weak var musicTopConst: NSLayoutConstraint!
+    @IBOutlet weak var animationBgView: UIView!
+    @IBOutlet weak var welcomeTopConst: NSLayoutConstraint!
 	@IBOutlet weak var welcomeLB: UILabel!
-	@IBOutlet weak var welImgView: UIImageView!
 	
-	var firework : AnimationView = {
-		let view = AnimationView.init(name: "boom")
-		return view
-	}()
+    var adsView = AnimationView.init(name: "first_ads")
+	var firework = AnimationView.init(name: "boom")
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = CommonColor.white.color
-		welcomeTopConst.constant = 50.adapt()
-		musicTopConst.constant = 100.adapt()
-		welImgView.snp_makeConstraints { (make) in
-			make.height.equalTo(260.adapt())
-		}
+		welcomeTopConst.constant = 50.auto()
+
 		self.view.addSubview(self.firework)
+        self.animationBgView.addSubview(self.adsView)
+        self.adsView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
 		self.firework.snp.makeConstraints { (make) in
 			make.center.equalTo(self.welcomeLB)
 			make.size.equalTo(CGSize.init(width: kScreenWidth, height: kScreenHeight))
 		}
+        self.adsView.loopMode = .loop
+        self.adsView.play()
 		self.firework.play()
 		self.navigationController?.sh_fullscreenPopGestureRecognizer.isEnabled = false
     }

@@ -151,7 +151,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     @objc func toLogoutAction(){
         
         if !UserCenter.shared.isLogin {
-            guard VipManager.shared.isVip else {
+            guard !VipManager.shared.isVip else {
                 self.alertVip()
                 return
             }
