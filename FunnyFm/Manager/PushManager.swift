@@ -27,7 +27,7 @@ class PushManager: NSObject {
 	}
 	
 	func addTag(taglist: [String]) {
-        guard VipManager.shared.isVip, VipManager.shared.allowEpisodeNoti  else {
+        guard VipManager.shared.isVip else {
             self.removeAllTages()
             return
         }

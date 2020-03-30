@@ -48,7 +48,7 @@ class DownloadManager: NSObject {
 	}
 	
 	func stopDownload(episode: Episode) {
-		let index = self.downloadKeys.index(of: episode.trackUrl)
+		let index = self.downloadKeys.firstIndex(of: episode.trackUrl)
 		if index.isSome {
 			let task = self.downloadQueue[index!]
 			self.stopDownload(task)
@@ -57,7 +57,7 @@ class DownloadManager: NSObject {
 	
 	func stopDownload(_ task: DownloadTask) {
 		task.stopDownload()
-		let index = self.downloadKeys.index(of: task.episode!.trackUrl)
+		let index = self.downloadKeys.firstIndex(of: task.episode!.trackUrl)
 		if index.isSome {
 			self.downloadQueue.remove(at: index!)
 			self.downloadKeys.remove(at: index!)
@@ -79,7 +79,7 @@ extension DownloadManager : DownloadTaskDelegate {
 	}
 	
 	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
-		let index = self.downloadKeys.index(of: sourceUrl)
+		let index = self.downloadKeys.firstIndex(of: sourceUrl)
 		if index.isSome {
 			let task = self.downloadQueue[index!]
 			task.episode!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
@@ -104,7 +104,7 @@ extension DownloadManager : DownloadTaskDelegate {
 	}
 	
 	func didDownloadFailure(sourceUrl: String) {
-		let index = self.downloadKeys.index(of: sourceUrl)
+		let index = self.downloadKeys.firstIndex(of: sourceUrl)
 		if index.isSome {
 			let task = self.downloadQueue[index!]
 			self.downloadQueue.remove(at: index!)

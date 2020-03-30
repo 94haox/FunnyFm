@@ -29,16 +29,6 @@ class VipManager: NSObject {
         }
     }
     
-    var allowEpisodeNoti: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "allowEpisodeNoti")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "allowEpisodeNoti")
-            PushManager.shared.addAllDatabaseTags()
-        }
-    }
-    
     var vipVaildDate: Date? {
         get {
             let dateString = try? FunnyFm.keychain.get("FunnyFM-VipVaildDate")

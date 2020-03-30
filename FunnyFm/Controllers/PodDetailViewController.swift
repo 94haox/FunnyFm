@@ -12,7 +12,7 @@ import AutoInch
 
 class PodDetailViewController: BaseViewController {
 	
-	var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260))
+    var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260.auto()))
     
     var sortedBtn: UIButton = UIButton.init(type: .custom)
 	

@@ -22,5 +22,4 @@ class PrivacyManager: NSObject {
         return UIApplication.shared.currentUserNotificationSettings?.types.rawValue != 0
     }
     
-
 }

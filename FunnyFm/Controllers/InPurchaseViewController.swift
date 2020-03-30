@@ -64,7 +64,6 @@ class InPurchaseViewController: BaseViewController {
         VipManager.shared.restorePurchase { (result) in
             sender.isBusy = false
             if result {
-                VipManager.shared.allowEpisodeNoti = true
                 DispatchQueue.main.async {
                     let successVC = PurchaseSuccessfulViewController()
                     self.navigationController?.pushViewController(successVC, animated: true)
@@ -83,7 +82,6 @@ class InPurchaseViewController: BaseViewController {
         VipManager.shared.purchaseProduct(productId: String(self.seletedBtn!.tag)) { (isSuccess) in
             self.seletedBtn?.isBusy = false
             if isSuccess {
-                VipManager.shared.allowEpisodeNoti = true
                 SwiftNotice.showText("购买成功")
                 DispatchQueue.main.async {
                     let successVC = PurchaseSuccessfulViewController()

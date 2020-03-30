@@ -38,7 +38,7 @@ extension DiscoverHeader {
 		titleLB.font = p_bfont(fontsize6)
 		moreLB.font = pfont(fontsize2)
 		moreLB.textColor = CommonColor.content.color
-        subscribeBtn.setTitleForAllStates("订阅所有".localized)
+//        subscribeBtn.setTitleForAllStates("订阅所有".localized)
         subscribeBtn.setTitleColor(R.color.mainRed(), for: .normal)
         subscribeBtn.titleLabel?.font = pfont(10.auto())
         

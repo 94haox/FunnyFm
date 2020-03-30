@@ -100,20 +100,13 @@ extension FeedManager {
 	
     func removeDonePodcast(noti: Notification) {
         let info = noti.userInfo!
-        var delIndex = -1
-        for (index, podcast) in self.waitingPodlist.enumerated() {
-            if podcast.feedUrl == info["feedUrl"] as! String {
-                delIndex = index
-                break
-            }
-        }
         let semp = DispatchSemaphore.init(value: 1)
-        if delIndex >= 0, delIndex < self.waitingPodlist.count {
-            if semp.wait(timeout: DispatchTime.distantFuture) == .success {
-                self.waitingPodlist.remove(at: delIndex)
+        if semp.wait(timeout: DispatchTime.distantFuture) == .success {
+            self.waitingPodlist.removeAll { (podcast) -> Bool in
+                return podcast.feedUrl == info["feedUrl"] as! String
             }
-            semp.signal()
         }
+        semp.signal()
         
         self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
         DispatchQueue.main.async {

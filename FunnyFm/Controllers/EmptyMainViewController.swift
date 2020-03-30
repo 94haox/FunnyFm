@@ -44,7 +44,7 @@ class EmptyMainViewController: UIViewController {
  	}
 
 	@IBAction func toSeatchVC(_ sender: Any) {
-		let search = SearchViewController.init()
+		let search = DiscoveryViewController.init()
 		self.navigationController?.pushViewController(search);
 		self.navigationController?.viewControllers .remove(at: 1)
 	}

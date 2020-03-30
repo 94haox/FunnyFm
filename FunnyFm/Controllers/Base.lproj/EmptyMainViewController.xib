@@ -31,7 +31,8 @@
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                     <state key="normal" title="自己发掘"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoTitle" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="autoCornerRadius">
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
@@ -49,9 +50,10 @@
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                     <state key="normal" title="同步云端"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <userDefinedRuntimeAttribute type="number" keyPath="autoCornerRadius">
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoTitle" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="toLoginVC:" destination="-1" eventType="touchUpInside" id="bhX-Uf-dlr"/>
@@ -83,13 +85,13 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gs3-gV-pw8">
                     <rect key="frame" x="20" y="165.5" width="374" height="200"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" name="ffWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="zbQ-oC-bqs"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="ffWhite"/>
             <constraints>
                 <constraint firstItem="A52-bi-VoF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-35" id="CGa-NW-xWY"/>
                 <constraint firstItem="SUa-7f-T6c" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="OEd-kM-zRy"/>
@@ -113,6 +115,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="ffWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mainRed">
             <color red="1" green="0.0" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

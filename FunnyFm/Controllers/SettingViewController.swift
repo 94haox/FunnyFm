@@ -55,12 +55,6 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		self.settings.removeAll()
         if PrivacyManager.isOpenPusn() {
             self.settings.append(["title":"接收通知".localized,"imageName":"notify","rightImage":"icon_correct"])
-            if VipManager.shared.allowEpisodeNoti {
-                self.settings.append(["title":"单集更新通知".localized,"imageName":"episode_noti","rightImage":"icon_correct"])
-                PushManager.shared.addAllDatabaseTags()
-            }else{
-                self.settings.append(["title":"单集更新通知".localized,"imageName":"episode_noti","rightImage":""])
-            }
         }else{
             self.settings.append(["title":"接收通知".localized,"imageName":"notify"])
         }
@@ -199,7 +193,6 @@ extension SettingViewController {
                 }
             }else{
                 if VipManager.shared.isVip {
-                    VipManager.shared.allowEpisodeNoti = !VipManager.shared.allowEpisodeNoti
                     self.setUpDataSource()
                     tableView.reloadData()
                 }else{

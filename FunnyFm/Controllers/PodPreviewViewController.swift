@@ -101,11 +101,13 @@ extension PodPreviewViewController : PodDetailViewModelDelegate {
 	
 	func podDetailParserSuccess() {
 		DispatchQueue.main.async {
-			if self.viewModel.pod.isSome {
-				self.configWithPod(pod: self.viewModel.pod!)
+            if let podcast = self.viewModel.pod, podcast.trackName.length() > 1{
+				self.configWithPod(pod: podcast)
 				self.tableview.reloadData()
 				self.loadingView.removeFromSuperview()
-			}
+            }else{
+                self.viewModel.getPodcastPrev(pod: self.itunsPod)
+            }
 		}
 	}
 	
@@ -174,7 +176,7 @@ extension PodPreviewViewController {
 	}
 	
 	func dw_addSubViews() {
-        self.infoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: 260))
+        self.infoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: 260.auto()))
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
 		self.tableview.sectionHeaderHeight = 36
