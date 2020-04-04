@@ -20,7 +20,7 @@ class PodListCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = CommonColor.white.color
         self.logoImageView.layer.cornerCurve = .continuous
         self.logoImageView.layer.cornerRadius = 30.0
-		self.bgView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+		self.bgView.addShadowPath(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.bgView.backgroundColor = CommonColor.whiteBackgroud.color
         self.titleLB.textColor = CommonColor.title.color
         self.updateTimeLB.textColor = CommonColor.subtitle.color
@@ -54,7 +54,7 @@ class PodListCollectionViewCell: UICollectionViewCell {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if previousTraitCollection?.userInterfaceStyle == .dark {
-            self.bgView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+            self.bgView.addShadowPath()
         }else{
             self.bgView.cleanShadow()
         }

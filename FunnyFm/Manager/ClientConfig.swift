@@ -40,7 +40,7 @@ class ClientConfig: NSObject {
         
     }
     
-    func rootControllerForIpad() -> UISplitViewController{
+    func rootControllerForIpad() -> UIViewController{
         AnimatedTabBarAppearance.shared.animationDuration = 0.5
         AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
         AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color

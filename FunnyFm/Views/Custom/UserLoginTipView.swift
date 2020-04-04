@@ -12,6 +12,8 @@ import Lottie
 
 class UserLoginTipView: UIView {
     
+    let contentView = UIView.init(frame: CGRect.zero)
+    
     var animationView : AnimationView = AnimationView(name:"login_tip")
     
     var tipLB: UILabel = UILabel.init(text: "想同步云端数据？快来登录吧!".localized)
@@ -42,6 +44,7 @@ class UserLoginTipView: UIView {
 extension UserLoginTipView {
     
     func setupUI() {
+        self.addSubview(self.contentView)
         self.cornerRadius = 12.auto()
         self.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.backgroundColor = CommonColor.whiteBackgroud.color
@@ -54,22 +57,28 @@ extension UserLoginTipView {
         self.btn.setTitleColor(.white, for: .normal)
         self.btn.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
         
-        self.addSubviews([self.animationView, self.tipLB, self.btn])
+        self.contentView.addSubviews([self.animationView, self.tipLB, self.btn])
+        self.contentView.snp_makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.height.equalToSuperview()
+            make.leading.equalTo(self.animationView)
+            make.right.equalTo(self.tipLB)
+        }
         self.animationView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(16.auto())
-            make.size.equalTo(CGSize.init(width: 80, height: 80))
+            make.size.equalTo(CGSize.init(width: 80.auto(), height: 80.auto()))
         }
         
         self.tipLB.snp.makeConstraints { (make) in
-            make.left.equalTo(self.animationView.snp.right).offset(12)
-            make.bottom.equalTo(self.snp_centerY).offset(-6)
+            make.left.equalTo(self.animationView.snp.right).offset(12.auto())
+            make.bottom.equalTo(self.snp_centerY).offset(-6.auto())
         }
         
         self.btn.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.tipLB)
-            make.top.equalTo(self.snp_centerY).offset(6)
-            make.size.equalTo(CGSize.init(width: 100, height: 30))
+            make.top.equalTo(self.snp_centerY).offset(6.auto())
+            make.size.equalTo(CGSize.init(width: 100.auto(), height: 30.auto()))
         }
         
     }

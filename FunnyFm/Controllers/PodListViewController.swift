@@ -13,8 +13,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
     var vm = PodListViewModel.init()
 	
 	var syncBtn = UIButton.init(type: .custom)
-	
-	var sectionSegment: DWSegment = DWSegment()
+    var segment = UISegmentedControl.init(items: ["已同步".localized,"未同步".localized])
 	
 	deinit {
 		NotificationCenter.default.removeObserver(self)
@@ -30,7 +29,6 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
     }
 	
 	@objc func changeSegment(){
-		self.syncBtn.isHidden = !sectionSegment.isOn
 		self.collectionView .reloadData()
 	}
 	
@@ -96,7 +94,7 @@ extension PodListViewController{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		var pod: iTunsPod? = nil
 		
-		if self.sectionSegment.isOn || !UserCenter.shared.isLogin {
+		if self.segment.selectedSegmentIndex != 0 || !UserCenter.shared.isLogin {
 			pod = self.vm.podlist[indexPath.row]
 		}else{
 			pod = self.vm.syncList[indexPath.row]
@@ -116,7 +114,7 @@ extension PodListViewController{
 extension PodListViewController{
     
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-		if !self.sectionSegment.isOn && UserCenter.shared.isLogin{
+		if self.segment.selectedSegmentIndex == 0 && UserCenter.shared.isLogin{
 			return self.vm.syncList.count
 		}else{
 			return self.vm.podlist.count
@@ -130,7 +128,7 @@ extension PodListViewController{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 		var pod: iTunsPod
-		if !self.sectionSegment.isOn && UserCenter.shared.isLogin{
+        if self.segment.selectedSegmentIndex == 0 && UserCenter.shared.isLogin{
 			pod = self.vm.syncList[indexPath.row]
 		}else{
 			pod = self.vm.podlist[indexPath.row]
@@ -179,16 +177,16 @@ extension PodListViewController {
 		
 		if UserCenter.shared.isLogin {
 		
-			self.sectionSegment.addShadow(ofColor: CommonColor.content.color, radius: 5, offset: CGSize.init(width: 5, height: 5), opacity: 0.8)
-			self.sectionSegment.config(titles: ["已同步".localized,"未同步".localized])
+            self.view.addSubview(self.segment)
+            self.segment.tintColor = R.color.mainRed()
+            self.segment.selectedSegmentIndex = 0
+            self.segment.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
 			
 			self.syncBtn.setImage(UIImage.init(named: "cloud-sync"), for: .normal)
 			self.syncBtn.isHidden = true
 			
-			self.sectionSegment.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
 			self.syncBtn.addTarget(self, action: #selector(toSyncSubscribe), for: .touchUpInside)
 			
-			self.view.addSubview(sectionSegment)
 			self.view.addSubview(self.syncBtn)
 			
 			self.syncBtn.snp.makeConstraints { (make) in
@@ -197,7 +195,7 @@ extension PodListViewController {
 				make.size.equalTo(CGSize.init(width: 30, height: 30))
 			}
 			
-			self.sectionSegment.snp.makeConstraints { (make) in
+			self.segment.snp.makeConstraints { (make) in
 				make.top.equalTo(self.topBgView.snp.bottom).offset(10)
 				make.size.equalTo(CGSize.init(width: 180, height: 40))
 				make.centerX.equalToSuperview()

@@ -45,7 +45,7 @@ extension UIViewController : SPStorkControllerDelegate {
         guard !ClientConfig.shared.isIPad else {
             return
         }
-		let navi = UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController
+		let navi = AppDelegate.current.window.rootViewController! as! UINavigationController
 		if navi.viewControllers.count < 2  {
 			FMToolBar.shared.explain()
 		}else{
@@ -58,7 +58,7 @@ extension UIViewController : SPStorkControllerDelegate {
         guard !ClientConfig.shared.isIPad else {
             return
         }
-		let navi = UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController
+        let navi = AppDelegate.current.window.rootViewController! as! UINavigationController
 		if navi.viewControllers.count < 2  {
 			FMToolBar.shared.explain()
 		}else{

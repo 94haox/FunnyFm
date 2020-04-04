@@ -68,7 +68,7 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
         self.loginTipView.snp_makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.topBgView.snp.bottom).offset(6.auto())
-            make.width.equalToSuperview().offset(-60)
+            make.width.equalToSuperview().offset(-60.auto())
             make.height.equalTo(120.auto())
         }
     }
@@ -148,16 +148,16 @@ extension UserCenterViewController {
 		}
 		
 		if !UserCenter.shared.isLogin {
-			if #available(iOS 13.0, *) {
-				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
-				loginNavi.navigationBar.isHidden = true
-				self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
-				return
-			}
-			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-			self.navigationController?.present(loginNavi, animated: true, completion: nil)
-			return
-		}
+            guard VipManager.shared.isVip else {
+                self.alertVip()
+                return
+            }
+            let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+            loginNavi.navigationBar.isHidden = true
+            self.navigationController?.dw_presentAsStork(controller: loginNavi, heigth: kScreenHeight, delegate: self)
+            return
+            
+        }
 		
         if indexPath.row == 0 {
             let historyVc = HistoryListViewController()

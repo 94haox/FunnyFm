@@ -367,6 +367,7 @@ extension FMPlayerManager {
 	func addRemoteCommand() {
 		MPRemoteCommandCenter.shared().skipBackwardCommand.preferredIntervals = [15.0]
 		MPRemoteCommandCenter.shared().skipForwardCommand.preferredIntervals = [15.0]
+        
 		MPRemoteCommandCenter.shared().skipForwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
 			self.seekAdditionSecond(15)
 			return .success

@@ -56,6 +56,13 @@ extension AdsManager: GDTNativeExpressAdDelegete {
     func nativeExpressAdViewRenderFail(_ nativeExpressAdView: GDTNativeExpressAdView!) {
         print(#function)
     }
+    
+    func nativeExpressAdViewClosed(_ nativeExpressAdView: GDTNativeExpressAdView!) {
+        self.expressAdViews.removeAll { (ads) -> Bool in
+            return ads == nativeExpressAdView
+        }
+        self.targetVc?.reloadData()
+    }
 
 
 }

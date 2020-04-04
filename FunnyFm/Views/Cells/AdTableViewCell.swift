@@ -13,12 +13,13 @@ class AdTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.backgroundColor = CommonColor.white.color
+        self.contentView.backgroundColor = R.color.ffWhite()
     }
     
     func render(ads: GDTNativeExpressAdView) {
         self.contentView.removeAllSubviews()
         self.contentView.addSubview(ads)
+        ads.backgroundColor = R.color.ffWhite()
         ads.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }

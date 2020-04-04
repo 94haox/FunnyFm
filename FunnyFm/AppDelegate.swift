@@ -77,14 +77,9 @@ extension AppDelegate {
 	
 	@objc func toLoginVC(){
 		DispatchQueue.main.async {
-			if #available(iOS 13.0, *) {
-				let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
-				loginNavi.navigationBar.isHidden = true
-                self.window.rootViewController!.present(loginNavi, animated: true, completion: nil)
-				return
-			}
-			let loginNavi = UINavigationController.init(rootViewController: LoginTypeViewController.init())
-			self.window.rootViewController!.present(loginNavi, animated: true, completion: nil)
+			let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
+            loginNavi.navigationBar.isHidden = true
+            self.window.rootViewController!.present(loginNavi, animated: true, completion: nil)
 		}
 	}
 	

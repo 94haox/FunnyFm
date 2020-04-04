@@ -19,8 +19,9 @@ extension UIViewController {
             alertView.hideView()
             self.dismiss(animated: true) {
                 let purchaseVC = InPurchaseViewController()
-                let navi = UIApplication.shared.keyWindow?.rootViewController! as! UINavigationController
-                navi.pushViewController(purchaseVC)
+                let navi = UINavigationController.init(rootViewController: purchaseVC)
+                navi.isNavigationBarHidden = true
+                AppDelegate.current.window.rootViewController!.present(navi, animated: true, completion: nil)
             }
         })
         alertView.addButton("知道了", backgroundColor: R.color.mainRed(), textColor: .white, showTimeout: nil, action: {

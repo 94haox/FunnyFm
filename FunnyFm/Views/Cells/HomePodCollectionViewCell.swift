@@ -13,7 +13,8 @@ class HomePodCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.logoImageView.cornerRadius = 25
+        self.logoImageView.layer.cornerCurve = .continuous
     }
     
     func configCell(_ pod: iTunsPod) {

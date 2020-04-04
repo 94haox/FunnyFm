@@ -290,10 +290,6 @@ extension MainViewController{
 	}
 	
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let list = FeedManager.shared.episodeList[indexPath.section]
-        if indexPath.row > list.count - 1, AdsManager.shared.expressAdViews.count > indexPath.section {
-            return 50
-        }
         return 100
     }
 }

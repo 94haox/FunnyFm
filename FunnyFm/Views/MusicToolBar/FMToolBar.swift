@@ -15,7 +15,7 @@ let toolbarH: CGFloat = ClientConfig.shared.isIPad ? 80.auto() : 55
 class FMToolBar: UIView , FMPlayerManagerDelegate{
 
     static let shared = ClientConfig.shared.isIPad ? FMToolBar(frame: CGRect.zero) : FMToolBar(frame: CGRect.init(x: 16, y: kScreenHeight-80, width: kScreenWidth-32 , height: toolbarH))
-	
+
 	var isPlaying: Bool = false
 	
 	var isStart: Bool = false
