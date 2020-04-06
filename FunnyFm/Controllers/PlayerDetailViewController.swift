@@ -545,7 +545,7 @@ extension PlayerDetailViewController {
 		self.coverImageView = UIImageView.init()
         self.coverImageView.isUserInteractionEnabled = true
 		self.coverImageView.loadImage(url: (self.episode?.coverUrl)!, placeholder: nil) { [unowned self] (image) in
-			self.coverBackView.addShadow(ofColor: image.mostColor(), radius: 20, offset: CGSize.zero, opacity: 0.8)
+			self.coverBackView.addShadow(ofColor: image.mostColor(), radius: 20, offset: CGSize.zero, opacity: 0.6)
 		}
 		
 		self.coverImageView.cornerRadius = 15.auto()

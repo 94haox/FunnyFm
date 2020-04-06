@@ -62,19 +62,6 @@ class VipManager: NSObject {
         
     }
     
-    func getAllProducts(){
-        SwiftyStoreKit.retrieveProductsInfo(["10001"]) { (result) in
-            if let product = result.retrievedProducts.first {
-                let priceString = product.localizedPrice!
-                print("Product: \(product.localizedDescription), price: \(priceString)")
-            } else if let invalidProductId = result.invalidProductIDs.first {
-                print("Invalid product identifier: \(invalidProductId)")
-            } else {
-                print("Error: \(result.error?.localizedDescription)")
-            }
-        }
-    }
-    
     func completeTransactions() {
         
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in

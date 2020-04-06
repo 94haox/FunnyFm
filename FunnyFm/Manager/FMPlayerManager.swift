@@ -74,6 +74,7 @@ class FMPlayerManager: NSObject {
         super.init()
 		self.resourceLoaderManager.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioInterruptionAction), name: AVAudioSession.interruptionNotification, object: nil)
 		self.addRemoteCommand()
     }
     
@@ -177,6 +178,10 @@ extension FMPlayerManager {
 			self.setBackground()
 		})
 	}
+    
+    @objc func audioInterruptionAction() {
+        self.pause()
+    }
 	
     @objc func recivEndNotification(_ notify: Notification){
 		if self.playerItem.isNone || self.delegate.isNone {
