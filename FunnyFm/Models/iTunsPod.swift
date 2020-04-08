@@ -21,6 +21,7 @@ struct iTunsPod : Mapable, TableCodable {
 	var feedUrl:     	String
 	var releaseDate: 	String
 	var copyRight: 	String
+    var isNeedVpn: Bool
 	
 	
 	init?(jsonData:JSON) {
@@ -47,6 +48,11 @@ struct iTunsPod : Mapable, TableCodable {
 			copyRight = ""
 			podDes = ""
 		}
+        if let podcast = DatabaseManager.getPodcast(feedUrl: feedUrl) {
+            isNeedVpn = podcast.isNeedVpn
+        }else{
+            isNeedVpn = false
+        }
 	}
 	
 	init(pod: Pod) {
@@ -60,6 +66,11 @@ struct iTunsPod : Mapable, TableCodable {
 		podAuthor = pod.author
 		copyRight = pod.copyright
 		podDes = pod.description
+        if let podcast = DatabaseManager.getPodcast(feedUrl: feedUrl) {
+            isNeedVpn = podcast.isNeedVpn
+        }else{
+            isNeedVpn = false
+        }
 	}
 	
 	init(dic:NSDictionary) {
@@ -87,6 +98,11 @@ struct iTunsPod : Mapable, TableCodable {
 			copyRight = ""
 			podDes = ""
 		}
+        if let podcast = DatabaseManager.getPodcast(feedUrl: feedUrl) {
+            isNeedVpn = podcast.isNeedVpn
+        }else{
+            isNeedVpn = false
+        }
 	}
 	
 	enum CodingKeys : String, CodingKey,CodingTableKey {
@@ -102,5 +118,6 @@ struct iTunsPod : Mapable, TableCodable {
 		case podId
 		case podAuthor
 		case copyRight
+        case isNeedVpn
 	}
 }

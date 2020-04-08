@@ -12,7 +12,8 @@ import Lottie
 
 class HomeAlbumTableViewCell: UITableViewCell {
 
-	@IBOutlet weak var shadowBgView: UIView!
+    @IBOutlet weak var wallBtn: UIButton!
+    @IBOutlet weak var shadowBgView: UIView!
 	@IBOutlet weak var moreBtn: UIButton!
 	@IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
@@ -44,7 +45,11 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		}
 	}
 	
-	@objc func tapLogoAction(_ sender: Any) {
+    @IBAction func wallAction(_ sender: Any) {
+        showAutoHiddenHud(style: .error, text: "此播客中国国内网络暂不支持访问!".localized)
+    }
+    
+    @objc func tapLogoAction(_ sender: Any) {
 		if self.tapLogoClosure.isSome {
 			self.tapLogoClosure!()
 		}
@@ -63,6 +68,11 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		}else{
 			self.logoImageView.loadImage(url: episode.coverUrl)
 		}
+        if let podcast = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl) {
+            self.wallBtn.isHidden = !podcast.isNeedVpn
+        }else{
+            self.wallBtn.isHidden = false
+        }
     }
     
     func configCell(_ episode:Episode){
@@ -74,6 +84,12 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		}else{
 			self.logoImageView.loadImage(url: episode.podCoverUrl)
 		}
+        if let podcast = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl) {
+            self.wallBtn.isHidden = !podcast.isNeedVpn
+        }else{
+            self.wallBtn.isHidden = false
+        }
+
     }
 	
 	func configNoDetailCell(_ episode:Episode){

@@ -30,8 +30,8 @@ class PodDetailViewModel: NSObject {
 	
 	init(podcast: iTunsPod) {
 		super.init()
-		self.pod = podcast
-		self.episodeList = DatabaseManager.allEpisodes(pod: podcast)
+        self.pod = DatabaseManager.getPodcast(feedUrl: podcast.feedUrl)
+        self.isNeedVpn()
 		self.delegate?.podDetailParserSuccess()
 	}
 	
@@ -40,24 +40,28 @@ class PodDetailViewModel: NSObject {
 		self.episodeList = DatabaseManager.allEpisodes(pod: pod)
 		self.delegate?.podDetailParserSuccess()
 		FeedManager.shared.delegate = self
-		FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId) { (podcast) in
-            if let podcast_receive = podcast, podcast_receive.podId.length() > 0 {
-				self.pod = DatabaseManager.getPodcast(feedUrl:pod.feedUrl)
-				self.pod?.podDes = podcast!.description
-				self.pod?.trackCount = "\(self.episodeList.count)"
-            }else{
-                FeedManager.shared.parserByFeedKit(podcast: pod, complete: { isSuccess in
-                    guard isSuccess else {
-                        showAutoHiddenHud(style: .warning, text: "你现在可能在墙内，如果你懂我的意思，换个方式再重新刷新一下试试吧")
-                        return
-                    }
-                    self.episodeList = DatabaseManager.allEpisodes(pod: pod)
-                    self.pod = DatabaseManager.getPodcast(feedUrl: pod.feedUrl)
+        if self.pod!.isNeedVpn {
+            FeedManager.shared.parserByFeedKit(podcast: pod, complete: { isSuccess in
+                self.episodeList = DatabaseManager.allEpisodes(pod: pod)
+                self.pod = DatabaseManager.getPodcast(feedUrl: pod.feedUrl)
+                self.pod?.trackCount = "\(self.episodeList.count)"
+                self.delegate?.podDetailParserSuccess()
+            })
+        }else{
+            FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId) { (podcast) in
+                if let podcast_receive = podcast, podcast_receive.podId.length() > 0 {
+                    self.pod = DatabaseManager.getPodcast(feedUrl:pod.feedUrl)
+                    self.pod?.podDes = podcast!.description
                     self.pod?.trackCount = "\(self.episodeList.count)"
-                    self.delegate?.podDetailParserSuccess()
-                })
+                    self.pod!.isNeedVpn = false
+                }else{
+                    self.pod!.isNeedVpn = true
+                    self.parserNewChapter(pod: self.pod!)
+                }
+                DatabaseManager.updateItunsPod(pod: self.pod!)
+                self.delegate?.podDetailParserSuccess()
             }
-		}
+        }
 	}
 	
 	func getPodcastPrev(pod: iTunsPod){
@@ -114,6 +118,17 @@ class PodDetailViewModel: NSObject {
 			self.delegate?.viewModelDidGetDataFailture(msg: error)
 		}
 	}
+    
+    func isNeedVpn() {
+        self.episodeList = DatabaseManager.allEpisodes(pod: self.pod!)
+        if let episode = self.episodeList.first{
+            guard episode.trackUrl.contains("anchor.fm") || episode.trackUrl.contains("soundcloud") else {
+                return
+            }
+            self.pod!.isNeedVpn = true
+            DatabaseManager.updateItunsPod(pod: self.pod!)
+        }
+    }
 	
 }
 

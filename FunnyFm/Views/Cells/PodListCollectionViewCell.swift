@@ -54,7 +54,7 @@ class PodListCollectionViewCell: UICollectionViewCell {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if previousTraitCollection?.userInterfaceStyle == .dark {
-            self.bgView.addShadowPath()
+            self.bgView.addShadowPath(ofColor: CommonColor.background.color)
         }else{
             self.bgView.cleanShadow()
         }

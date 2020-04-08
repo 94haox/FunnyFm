@@ -192,17 +192,15 @@ extension FeedManager {
 extension FeedManager {
 	
 	func addOrUpdate(itunesPod:iTunsPod, episodelist: [Episode]) {
+        var pod = itunesPod
         guard episodelist.count > 0 else {
             return
         }
 
-		var pod = itunesPod
 		if pod.podAuthor != episodelist.first!.author {
 			pod.podAuthor = episodelist.first!.author
 		}
-		
-		DatabaseManager.updateItunsPod(pod: pod)
-		
+    
 		episodelist.forEach { (item) in
 			var episode = item
 			episode.collectionId = pod.collectionId;
@@ -214,8 +212,11 @@ extension FeedManager {
 			if episode.author.length() < 1 {
 				episode.author = pod.trackName
 			}
-			DatabaseManager.addEpisode(episode: episode);
+            if !episode.title.contains("getpodcast.xyz") {
+                DatabaseManager.addEpisode(episode: episode);
+            }
 		}
+        DatabaseManager.updateItunsPod(pod: pod)
 	}
 	
 }
@@ -249,8 +250,8 @@ extension FeedManager {
 					sortEpisodeList.append(list!)
 				}
 			}
+            self.episodeList = sortEpisodeList
 		}
-        self.episodeList = sortEpisodeList
 	}
 	
 }

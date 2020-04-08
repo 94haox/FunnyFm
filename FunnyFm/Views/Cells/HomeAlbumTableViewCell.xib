@@ -83,9 +83,28 @@
                             <action selector="tapAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yQp-pb-ugl"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efl-oy-J03">
+                        <rect key="frame" x="334" y="45" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="X6c-5v-XI7"/>
+                            <constraint firstAttribute="width" constant="20" id="tTX-eb-IgJ"/>
+                        </constraints>
+                        <state key="normal" image="greatwall"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="imageForDisabled" value="greatwall"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="imageForHighlighted" value="greatwall"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="greatwall"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="imageForSelected" value="greatwall"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoImage" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="wallAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Pwz-Y0-KR1"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="Ypi-GG-83U" firstAttribute="top" secondItem="efl-oy-J03" secondAttribute="bottom" constant="-12.5" id="0KO-Iu-a2x"/>
                     <constraint firstAttribute="trailing" secondItem="IEv-QG-ewQ" secondAttribute="trailing" constant="73.5" id="2vz-hp-qHo"/>
                     <constraint firstItem="SRA-sb-TP5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="8yD-FR-jHz"/>
                     <constraint firstItem="Azq-lx-OWs" firstAttribute="centerY" secondItem="SRA-sb-TP5" secondAttribute="centerY" id="IhD-og-jmW"/>
@@ -94,6 +113,7 @@
                     <constraint firstItem="Zj1-Jf-osQ" firstAttribute="leading" secondItem="SRA-sb-TP5" secondAttribute="trailing" constant="18" id="LLO-qw-iTq"/>
                     <constraint firstItem="SRA-sb-TP5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Qx5-VV-pIj"/>
                     <constraint firstItem="Ypi-GG-83U" firstAttribute="firstBaseline" secondItem="IEv-QG-ewQ" secondAttribute="firstBaseline" id="S56-Wt-Pt9"/>
+                    <constraint firstItem="efl-oy-J03" firstAttribute="centerX" secondItem="Ypi-GG-83U" secondAttribute="centerX" id="Su4-6U-Hm1"/>
                     <constraint firstAttribute="trailing" secondItem="Ypi-GG-83U" secondAttribute="trailing" constant="16" id="W27-at-WgR"/>
                     <constraint firstItem="Azq-lx-OWs" firstAttribute="width" secondItem="SRA-sb-TP5" secondAttribute="width" id="XTg-ra-8Qj"/>
                     <constraint firstItem="Zj1-Jf-osQ" firstAttribute="top" secondItem="SRA-sb-TP5" secondAttribute="top" id="bXh-1V-6Bl"/>
@@ -111,11 +131,13 @@
                 <outlet property="timeLB" destination="iDd-zJ-gei" id="ZqP-zp-wCB"/>
                 <outlet property="titleLB" destination="Zj1-Jf-osQ" id="gAC-PO-dld"/>
                 <outlet property="updateLB" destination="IEv-QG-ewQ" id="FSt-R9-gXu"/>
+                <outlet property="wallBtn" destination="efl-oy-J03" id="FR1-jR-1Ml"/>
             </connections>
             <point key="canvasLocation" x="181.59999999999999" y="189.80509745127438"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="greatwall" width="33.333332061767578" height="33.333332061767578"/>
         <namedColor name="titleColor">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

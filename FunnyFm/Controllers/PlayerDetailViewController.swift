@@ -296,14 +296,14 @@ extension PlayerDetailViewController {
 		let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
 		let detailVC =  PodDetailViewController.init(pod: pod!)
         if ClientConfig.shared.isIPad {
-            let splitVC = UIApplication.shared.keyWindow!.rootViewController as! UISplitViewController
+            let splitVC = AppDelegate.current.window.rootViewController as! UISplitViewController
             let navi = splitVC.viewControllers[1] as! UINavigationController
             self.navigationController?.dismiss(animated: true, completion: {
                 navi.pushViewController(detailVC, animated: true)
             })
             return
         }
-		let navi = UIApplication.shared.keyWindow!.rootViewController as! UINavigationController
+		let navi = AppDelegate.current.window.rootViewController as! UINavigationController
 		self.navigationController?.dismiss(animated: true, completion: {
 			navi.pushViewController(detailVC, animated: true)
 		})

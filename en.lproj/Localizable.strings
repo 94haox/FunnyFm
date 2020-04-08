@@ -123,4 +123,6 @@
 "提示"="Tips";
 "解锁 Pro" = "Unlock PRO";
 "知道了"="Cancel";
+"此播客中国国内网络暂不支持访问! 请切换网络后重试。" = "This podcast is not available on the China domestic network at this time! Please switch networks and try again.";
+"此播客中国国内网络暂不支持访问!" = "This podcast is not available on the China domestic network at this time!";
 

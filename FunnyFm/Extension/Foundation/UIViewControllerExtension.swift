@@ -24,7 +24,7 @@ extension UIViewController {
                 AppDelegate.current.window.rootViewController!.present(navi, animated: true, completion: nil)
             }
         })
-        alertView.addButton("知道了", backgroundColor: R.color.mainRed(), textColor: .white, showTimeout: nil, action: {
+        alertView.addButton("知道了".localized, backgroundColor: R.color.mainRed(), textColor: .white, showTimeout: nil, action: {
             alertView.hideView()
             self.dismiss(animated: true) {}
         })

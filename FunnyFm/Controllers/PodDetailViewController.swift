@@ -15,8 +15,8 @@ class PodDetailViewController: BaseViewController {
     var infoView: PodcastInfoView = PodcastInfoView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 260.auto()))
     
     var sortedBtn: UIButton = UIButton.init(type: .custom)
-	
-	var pod: iTunsPod!
+    
+    var wallBtn: UIButton = UIButton.init(type: .custom)
 	
 	var shareBtn: UIButton!
 	
@@ -30,14 +30,13 @@ class PodDetailViewController: BaseViewController {
 	
 	init(pod: iTunsPod) {
 		super.init(nibName: nil, bundle: nil)
-		self.pod = pod
 		self.vm = PodDetailViewModel.init(podcast: pod)
 		self.vm.delegate = self
 	}
 	
 	deinit {
 		if self.infoView.subBtn.isSelected {
-			FeedManager.shared.deleteAllEpisode(podcastUrl: self.pod.feedUrl, podId: self.pod.podId)
+            FeedManager.shared.deleteAllEpisode(podcastUrl: self.vm.pod!.feedUrl, podId: self.vm.pod!.podId)
 		}
 	}
 	
@@ -64,7 +63,7 @@ class PodDetailViewController: BaseViewController {
 
 	func config(){
 		self.title = "detail"
-		self.infoView.config(pod: self.pod)
+        self.infoView.config(pod: self.vm.pod!)
 	}
 	
 	@objc func subscribtionAction() {
@@ -80,15 +79,15 @@ class PodDetailViewController: BaseViewController {
 	}
 	
 	@objc func refreshData (){
-		self.vm.parserNewChapter(pod: self.pod!)
+		self.vm.parserNewChapter(pod: self.vm.pod!)
 	}
 	
 	@objc func sharePodcast(){
-		if self.pod.podId.length() < 1 {
+		if self.vm.pod!.podId.length() < 1 {
 			return
 		}
-		let url = podcastShareUrl.appending(self.pod.podId)
-		let textToShare = self.pod.trackName
+		let url = podcastShareUrl.appending(self.vm.pod!.podId)
+		let textToShare = self.vm.pod!.trackName
 		let imageToShare = self.infoView.podImageView.image!
 		let urlToShare = NSURL.init(string: url)
         var items = ["funnyfm",textToShare,imageToShare] as [Any]
@@ -100,8 +99,15 @@ class PodDetailViewController: BaseViewController {
 	}
     
     @objc func sorted(btn: UIButton) {
+        guard self.vm.episodeList.count > 0 else {
+            return
+        }
         btn.isSelected = !btn.isSelected
         self.reload(needSorted: true)
+    }
+    
+    @objc func showNeedVpnAlert() {
+        showAutoHiddenHud(style: .error, text: "此播客中国国内网络暂不支持访问! 请切换网络后重试。".localized)
     }
         
     func reload(needSorted: Bool) {
@@ -202,6 +208,7 @@ extension PodDetailViewController: UITableViewDataSource {
 		titleLB.textColor = CommonColor.content.color
 		view.addSubview(titleLB)
         view.addSubview(self.sortedBtn)
+        view.addSubview(self.wallBtn)
 		titleLB.snp.makeConstraints { (make) in
 			make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(16.auto())
@@ -211,6 +218,13 @@ extension PodDetailViewController: UITableViewDataSource {
             make.right.equalToSuperview().offset(-16.auto())
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         }
+        
+        self.wallBtn.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.right.equalTo(self.sortedBtn.snp_left).offset(-16.auto())
+            make.size.equalTo(CGSize.init(width: 25, height: 25))
+        }
+        self.wallBtn.isHidden = !self.vm.pod!.isNeedVpn
 		return view;
 	}
 	
@@ -269,6 +283,10 @@ extension PodDetailViewController {
         self.sortedBtn.setImage(UIImage.init(named: "sort_down"), for: .normal)
         self.sortedBtn.setImage(UIImage.init(named: "sort_up"), for: .selected)
         self.sortedBtn.addTarget(self, action: #selector(sorted(btn:)), for: .touchUpInside)
+        
+        self.wallBtn.setImageForAllStates(UIImage.init(named: "greatwall")!)
+        self.wallBtn.addTarget(self, action: #selector(showNeedVpnAlert), for: .touchUpInside)
+        self.wallBtn.isHidden = true
 	}
 	
 }

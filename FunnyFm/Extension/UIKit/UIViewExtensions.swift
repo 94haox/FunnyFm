@@ -269,7 +269,7 @@ extension UIView {
     ///   - radius: shadow radius (default is 3).
     ///   - offset: shadow offset (default is .zero).
     ///   - opacity: shadow opacity (default is 0.5).
-	func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+	func addShadow(ofColor color: UIColor = UIColor.clear, radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         let currentMode = UITraitCollection.current.userInterfaceStyle
         if (currentMode == .dark) {
             return
@@ -281,7 +281,7 @@ extension UIView {
         layer.masksToBounds = false
     }
     
-    func addShadowPath(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+    func addShadowPath(ofColor color: UIColor = UIColor.clear, radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         self.addShadow(ofColor: color, radius: radius, offset: offset, opacity: opacity)
         let edges = UIEdgeInsets.init(top: radius, left: radius, bottom: radius, right: radius)
         let rect = CGRect.init(x: edges.left, y: edges.top, width: self.frame.width + edges.left + edges.right, height: self.frame.height + edges.top + edges.bottom)
