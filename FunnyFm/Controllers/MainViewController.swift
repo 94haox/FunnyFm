@@ -16,6 +16,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	
     var vm = MainViewModel.init()
     
+    let guideView = GuideTipView.init(frame: CGRect.zero)
+    
     var collectionView : UICollectionView!
     
     var tableview : UITableView!
@@ -37,6 +39,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.dw_addNofications()
 		self.vm.delegate = self
 		self.addEmptyViews()
+        self.guideActions()
 		
 		if !UserDefaults.standard.bool(forKey: "kisFirstMain") {
 			let emptyVC = EmptyMainViewController.init()
@@ -64,6 +67,23 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 
 // MARK: - Actions
 extension MainViewController{
+    
+    func guideActions() {
+        self.guideView.readClosure = {
+            
+        }
+        
+        self.guideView.closeClosure = { [weak self] in
+            self?.guideView.alpha = 0
+            self?.guideView.snp.updateConstraints({ (make) in
+                make.height.equalTo(0)
+            })
+            
+            UIView.animate(withDuration: 0.2) {
+                self?.view.layoutIfNeeded()
+            }
+        }
+    }
     
     @objc func toUserCenter() {
         let usercenterVC = UserCenterViewController()
@@ -290,7 +310,7 @@ extension MainViewController{
 	}
 	
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 85
     }
 }
 
@@ -358,12 +378,19 @@ extension MainViewController {
 		self.view.sendSubviewToBack(self.topBgView)
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
-
+        self.view.addSubview(self.guideView)
+        
+        self.guideView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().offset(-20.auto())
+            make.top.equalTo(self.topBgView.snp_bottom)
+            make.height.equalTo(130.auto())
+        }
                 
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.topBgView.snp_bottom)
+            make.top.equalTo(self.guideView.snp_bottom)
         }
 		
 		self.loadAnimationView.snp.makeConstraints { (make) in

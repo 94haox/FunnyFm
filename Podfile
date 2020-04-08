@@ -30,6 +30,7 @@ def layout
 		pod 'AutoInch'
     pod 'YYKit'
     pod 'SCLAlertView'
+    pod 'SPLarkController'
 end
 
 def lib

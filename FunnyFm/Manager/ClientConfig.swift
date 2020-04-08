@@ -93,12 +93,6 @@ class ClientConfig: NSObject {
         }
         return navi
     }
-    
-    
-    
-    
-    
-    
 }
 
 // MARK: iOS
@@ -118,6 +112,7 @@ extension ClientConfig: AnimatedTabBarDelegate {
 }
 
 extension ClientConfig: VerticalTabBarDelegate {
+    
     func vTabBar(_ tabBar: VerticalTabBar, itemFor index: Int) -> AnimatedTabBarItem {
         return items[index]
     }

@@ -84,11 +84,11 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		}else{
 			self.logoImageView.loadImage(url: episode.podCoverUrl)
 		}
-        if let podcast = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl) {
-            self.wallBtn.isHidden = !podcast.isNeedVpn
-        }else{
-            self.wallBtn.isHidden = false
-        }
+//        if let podcast = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl) {
+//            self.wallBtn.isHidden = !podcast.isNeedVpn
+//        }else{
+//            self.wallBtn.isHidden = false
+//        }
 
     }
 	

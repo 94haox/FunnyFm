@@ -258,20 +258,14 @@ extension PodDetailViewController {
 	}
 	
 	func addSubviews(){
-		
-//		self.shareBtn = UIButton.init(type: .custom)
-//		self.shareBtn.setImageForAllStates(UIImage.init(named: "share-red")!)
-//		self.shareBtn.addTarget(self, action: #selector(sharePodcast), for: .touchUpInside)
-//		self.shareBtn.cornerRadius = 5
-//		self.shareBtn.addShadow(ofColor: CommonColor.content.color, radius: 3, offset: CGSize.init(width: 3, height: 3), opacity: 1)
-		
+				
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		self.tableview.tableHeaderView = self.infoView
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
 		self.tableview.sectionHeaderHeight = 36
 		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
 		self.tableview.separatorStyle = .none
-		self.tableview.rowHeight = 100
+		self.tableview.rowHeight = 85
 		self.tableview.delegate = self
 		self.tableview.dataSource = self
 		self.tableview.showsVerticalScrollIndicator = false

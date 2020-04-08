@@ -42,6 +42,7 @@
 		7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6702417ACA1007E5319 /* BaseJob.swift */; };
 		7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6732417ACBF007E5319 /* JobQueue.swift */; };
 		7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6772417AD44007E5319 /* CloudParserJob.swift */; };
+		74C9DF76243E01DC000B1745 /* GuideTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DF75243E01DC000B1745 /* GuideTipView.swift */; };
 		74E92F832430842A00A0F64A /* first_ads.json in Resources */ = {isa = PBXBuildFile; fileRef = 74E92F822430842A00A0F64A /* first_ads.json */; };
 		AB00BC332394A87900893325 /* NoteEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB00BC312394A87900893325 /* NoteEditViewController.xib */; };
 		AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00BC322394A87900893325 /* NoteEditViewController.swift */; };
@@ -425,6 +426,7 @@
 		7493F6732417ACBF007E5319 /* JobQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
 		7493F6772417AD44007E5319 /* CloudParserJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudParserJob.swift; path = FunnyFM/Job/CloudParserJob.swift; sourceTree = SOURCE_ROOT; };
 		74A5CD75241239A200705E75 /* FunnyFm.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
+		74C9DF75243E01DC000B1745 /* GuideTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuideTipView.swift; path = FunnyFM/Views/Custom/GuideTipView.swift; sourceTree = SOURCE_ROOT; };
 		74E92F822430842A00A0F64A /* first_ads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = first_ads.json; sourceTree = "<group>"; };
 		862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB00BC312394A87900893325 /* NoteEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditViewController.xib; sourceTree = "<group>"; };
@@ -981,6 +983,7 @@
 				7455CD2F24152030004886EF /* RoundedButton.swift */,
 				74799F902425185D00265D3B /* UserLoginTipView.swift */,
 				743AC8F924261CCC001D252F /* MainEmptyView.swift */,
+				74C9DF75243E01DC000B1745 /* GuideTipView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -2112,6 +2115,7 @@
 				ABEE40D421E3246E00FCB16F /* MJRefreshAutoStateFooter.m in Sources */,
 				ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */,
 				AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */,
+				74C9DF76243E01DC000B1745 /* GuideTipView.swift in Sources */,
 				AB77891423EC5BE400DF8447 /* AnimatedTabBar.swift in Sources */,
 				AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
@@ -2450,7 +2454,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2595,7 +2599,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

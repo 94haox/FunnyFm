@@ -13,6 +13,7 @@ import MediaPlayer
 import AVKit
 import EFIconFont
 import SwiftUI
+import SPLarkController
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     
@@ -206,7 +207,7 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 		if scrollView.contentOffset.x > 60{
 			let listVC = NoteListViewController.init()
 			listVC.episode = self.episode
-			self.navigationController?.dw_presentAsStork(controller: listVC, heigth: kScreenHeight*0.4, delegate: self)
+            self.presentAsLark(listVC)
 		}
     }
 }
@@ -263,7 +264,7 @@ extension PlayerDetailViewController {
         chapterListVC.skipClourse = { time in
             FMPlayerManager.shared.seekToTime(time.seconds)
         }
-        self.present(chapterListVC, animated: true, completion: nil)
+        self.presentAsLark(chapterListVC)
     }
 
 	
@@ -390,7 +391,7 @@ extension PlayerDetailViewController {
         self.titleLB.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.view.snp_topMargin).offset(32.auto())
-            make.width.equalTo(200)
+            make.width.equalToSuperview().offset(-30.auto())
         })
         
         self.subTitle.snp.makeConstraints({ (make) in
@@ -512,6 +513,8 @@ extension PlayerDetailViewController {
         self.titleLB = UILabel.init(text: self.episode.title.trim())
         self.titleLB.textColor = CommonColor.title.color
         self.titleLB.font = p_bfont(fontsize6)
+        self.titleLB.numberOfLines = 2;
+        self.titleLB.textAlignment = .center
         self.view.addSubview(self.titleLB)
         
 		let podcast = DatabaseManager.getPodcast(feedUrl: self.episode.podcastUrl)

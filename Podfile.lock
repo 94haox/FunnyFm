@@ -189,6 +189,7 @@ PODS:
   - SHFullscreenPopGestureSwift (1.2.1)
   - Siren (5.4.0)
   - SnapKit (4.0.1)
+  - SPLarkController (1.1)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SwiftyJSON (5.0.0)
@@ -226,6 +227,7 @@ DEPENDENCIES:
   - SHFullscreenPopGestureSwift
   - Siren
   - SnapKit (~> 4.0.0)
+  - SPLarkController
   - SwiftyJSON
   - SwiftyStoreKit
   - VIMediaCache
@@ -273,6 +275,7 @@ SPEC REPOS:
     - SHFullscreenPopGestureSwift
     - Siren
     - SnapKit
+    - SPLarkController
     - SQLiteRepairKit
     - SwiftyJSON
     - SwiftyStoreKit
@@ -321,6 +324,7 @@ SPEC CHECKSUMS:
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   Siren: 9df16ed5278cfaad7ea034f3d2206e4f6983e9b8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SPLarkController: 22c79e54b12a29705b87ee0179455e1c51f2fdc8
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
@@ -330,6 +334,6 @@ SPEC CHECKSUMS:
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: d59a1ffa7d5ea6987e5eec9caa13adf9dd0503b0
+PODFILE CHECKSUM: 05433474dec345bb3204400aef06b2b997667360
 
 COCOAPODS: 1.8.4
