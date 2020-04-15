@@ -115,7 +115,7 @@ class AnimatedTabBarView: CommonUIView {
     func setupView(model: AnimatedTabBarItem) {
         self.associatedController = model.controller
         labelAndDot.label.text = model.title
-        imageView.image = model.icon.imageWithInsets(insetDimen: 4)
+        imageView.image = model.icon
     }
     
     @objc private func itemTapped(_ sender: UITapGestureRecognizer) {
