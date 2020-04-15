@@ -32,7 +32,8 @@ class FMPlayerManager: NSObject {
 	
 	var playerDelegate: FMPlayerManagerDelegate?
 	
-	var resourceLoaderManager: VIResourceLoaderManager = VIResourceLoaderManager()
+//	var resourceLoaderManager: VIResourceLoaderManager = VIResourceLoaderManager()
+    var resourceLoaderManager = BCQResourceLoaderManager()
     /// 事件观察者
     var timerObserver: Any?
     
@@ -135,7 +136,7 @@ extension FMPlayerManager {
 			progress = progress - 5
 		}
 		
-		DatabaseManager.updateProgress(progress: progress, episodeId: self.currentModel!.title)
+		DatabaseManager.updateProgress(progress: progress, trackUrl: self.currentModel!.trackUrl)
 	}
     
     func seekToProgress(_ progress: CGFloat) {
@@ -264,7 +265,7 @@ extension FMPlayerManager {
 			let asset = AVAsset.init(url: url!)
 			item = AVPlayerItem.init(asset: asset)
 		}else{
-			item = self.resourceLoaderManager.playerItem(with: url)
+			item = self.resourceLoaderManager.playerItem(with: url)!
 		}
     
 		self.lastTime = self.checkProgress(chapter)
@@ -285,7 +286,7 @@ extension FMPlayerManager {
 	}
 	
 	func checkProgress(_ episode: Episode) -> Double {
-		return DatabaseManager.qureyProgress(episodeId: episode.title)
+		return DatabaseManager.qureyProgress(trackUrl: episode.trackUrl)
 	}
     
 }
@@ -361,6 +362,14 @@ extension FMPlayerManager: VIResourceLoaderManagerDelegate {
 	func resourceLoaderManagerLoad(_ url: URL!, didFailWithError error: Error!) {
 		
 	}
+}
+
+extension FMPlayerManager: BCQResourceLoaderManagerDelegate {
+    
+    func resourceLoaderManager(_ manager: BCQResourceLoaderManager, didCompleteWithError error: Error?) {
+        
+    }
+    
 }
 
 

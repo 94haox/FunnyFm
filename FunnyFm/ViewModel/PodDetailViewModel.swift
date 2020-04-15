@@ -125,7 +125,7 @@ class PodDetailViewModel: NSObject {
         }
         self.episodeList = DatabaseManager.allEpisodes(pod: self.pod!)
         if let episode = self.episodeList.first{
-            guard episode.trackUrl.contains("anchor.fm") || episode.trackUrl.contains("soundcloud") else {
+            guard episode.trackUrl.contains("anchor.fm") || episode.trackUrl.contains("soundcloud")  else {
                 return
             }
             self.pod!.isNeedVpn = true

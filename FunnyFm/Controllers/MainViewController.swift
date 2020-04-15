@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Lottie
 import NVActivityIndicatorView
+import SafariServices
 
 
 class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
@@ -70,7 +71,8 @@ extension MainViewController{
     
     func guideActions() {
         self.guideView.readClosure = {
-            
+            let vc = SFSafariViewController.init(url: URL.init(string: "https://live.funnyfm.top/#/guide")!)
+            self.present(vc, animated: true, completion: nil)
         }
         
         self.guideView.closeClosure = { [weak self] in
@@ -384,7 +386,12 @@ extension MainViewController {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-20.auto())
             make.top.equalTo(self.topBgView.snp_bottom)
-            make.height.equalTo(130.auto())
+            if UserDefaults.standard.bool(forKey: "GuideisShowed") {
+                guideView.isHidden = true
+                make.height.equalTo(0)
+            }else{
+                make.height.equalTo(130.auto())
+            }
         }
                 
         self.tableview.snp.makeConstraints { (make) in
@@ -464,6 +471,7 @@ extension MainViewController {
 	func addEmptyViews(){
         self.emptyView.isHidden = DatabaseManager.allItunsPod().count > 0
         self.view.addSubview(self.emptyView)
+        self.view.bringSubviewToFront(self.guideView)
         self.emptyView.snp.makeConstraints { (make) in
             make.centerX.width.equalToSuperview()
             make.bottom.equalToSuperview()

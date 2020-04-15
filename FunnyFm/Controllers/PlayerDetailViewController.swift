@@ -17,7 +17,11 @@ import SPLarkController
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     
-    var episode: Episode!
+    var episode: Episode! {
+        didSet {
+            configEpisode()
+        }
+    }
     
     var chaptersBtn: UIButton = UIButton.init(type: .custom)
     
@@ -64,28 +68,15 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	var isImpact = false
     
     var chapters: [Chapter] = [Chapter]()
+    
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dw_addSubviews()
         self.dw_addConstraints()
-        self.view.backgroundColor = CommonColor.background.color
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
-		self.progressLine.allDot.text = "-" + FunnyFm.formatIntervalToMM(NSInteger(self.episode.duration))
-        FMPlayerManager.shared.getChapters { (chapters) in
-            guard let _ = chapters else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.chaptersBtn.isHidden = chapters!.count < 1
-                self.chapterCountLB.isHidden = chapters!.count < 1
-                self.chapterCountLB.text = "\(chapters!.count)"
-            }
-            self.chapters = chapters!.map({ (avchapter) -> Chapter in
-                return Chapter(title: avchapter.title, id: avchapter.identifier, time: avchapter.time)
-            })
-        }
+        self.configEpisode()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,10 +104,6 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	}()
 
 }
-
-
-
-
 
 // MARK: FMPlayerManagerDelegate
 extension PlayerDetailViewController {
@@ -207,7 +194,7 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 		if scrollView.contentOffset.x > 60{
 			let listVC = NoteListViewController.init()
 			listVC.episode = self.episode
-            self.presentAsLark(listVC)
+            self.navigationController?.dw_presentAsStork(controller: listVC, heigth: kScreenHeight*0.4, delegate: self)
 		}
     }
 }
@@ -232,6 +219,44 @@ extension PlayerDetailViewController : ChapterProgressDelegate {
 
 // MARK: actions
 extension PlayerDetailViewController {
+    
+    func configEpisode() {
+        guard self.isViewLoaded else {
+            return
+        }
+        
+        if let currentEpisode = FMToolBar.shared.currentEpisode, currentEpisode.trackUrl != episode.trackUrl {
+            FMToolBar.shared.setUpChapter(episode)
+        }
+        
+        self.titleLB.text = self.episode.title.trim()
+        self.progressLine.allDot.text = "-" + FunnyFm.formatIntervalToMM(NSInteger(self.episode.duration))
+        self.coverImageView.loadImage(url: (self.episode?.coverUrl)!, placeholder: nil) { [weak self] (image) in
+            self?.coverBackView.addShadow(ofColor: image.mostColor(), radius: 10, offset: CGSize.zero, opacity: 0.7)
+        }
+        
+        let podcast = DatabaseManager.getPodcast(feedUrl: self.episode.podcastUrl)
+        if podcast.isSome {
+            let author = NSMutableAttributedString.init(string: podcast!.trackName)
+            author.addAttributes([NSAttributedString.Key.foregroundColor : CommonColor.content.color, NSAttributedString.Key.font : pfont(fontsize2)], range: NSRange.init(location: 0, length: podcast!.trackName.length()))
+            self.subTitle.attributedText = author + NSMutableAttributedString.init(string: " ") + NSMutableAttributedString.init(attributedString: EFIconFont.antDesign.rightCircle.attributedString(size: fontsize2, foregroundColor: CommonColor.content.color, backgroundColor: nil)!)
+        }
+
+        
+        FMPlayerManager.shared.getChapters { (chapters) in
+            guard let _ = chapters else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.chaptersBtn.isHidden = chapters!.count < 1
+                self.chapterCountLB.isHidden = chapters!.count < 1
+                self.chapterCountLB.text = "\(chapters!.count)"
+            }
+            self.chapters = chapters!.map({ (avchapter) -> Chapter in
+                return Chapter(title: avchapter.title, id: avchapter.identifier, time: avchapter.time)
+            })
+        }
+    }
     
     @objc func tapPlayBtnAction(btn:UIButton){
         btn.isSelected = !self.playBtn!.isSelected
@@ -264,7 +289,7 @@ extension PlayerDetailViewController {
         chapterListVC.skipClourse = { time in
             FMPlayerManager.shared.seekToTime(time.seconds)
         }
-        self.presentAsLark(chapterListVC)
+        self.present(chapterListVC, animated: true, completion: nil)
     }
 
 	
@@ -288,14 +313,18 @@ extension PlayerDetailViewController {
 //		self.likeAniView.play()
 
 	}
+    
+    
 	
     @objc func back(){
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
 	
 	@objc func toPodDetail(){
-		let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
-		let detailVC =  PodDetailViewController.init(pod: pod!)
+        guard let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl) else {
+            return
+        }
+		let detailVC =  PodDetailViewController.init(pod: pod)
         if ClientConfig.shared.isIPad {
             let splitVC = AppDelegate.current.window.rootViewController as! UISplitViewController
             let navi = splitVC.viewControllers[1] as! UINavigationController
@@ -400,8 +429,13 @@ extension PlayerDetailViewController {
         })
         
         self.backBtn.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.playToolbar.snp_bottom).offset(8.auto())
-            make.centerX.equalToSuperview()
+            if ClientConfig.shared.isIPad {
+                make.left.equalToSuperview().offset(18.auto())
+                make.centerY.equalTo(self.titleLB)
+            }else{
+                make.top.equalTo(self.playToolbar.snp_bottom).offset(8.auto())
+                make.centerX.equalToSuperview()
+            }
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
         })
         
@@ -505,28 +539,24 @@ extension PlayerDetailViewController {
     }
     
     func dw_addSubviews(){
+        
+        self.view.backgroundColor = R.color.ffWhite()
+        
         self.backBtn = UIButton.init(type: .custom)
         self.backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
         self.backBtn.setImage(UIImage.init(named: "dismiss"), for: .normal)
         self.view.addSubview(self.backBtn)
         
-        self.titleLB = UILabel.init(text: self.episode.title.trim())
+        self.titleLB = UILabel.init(text: "")
         self.titleLB.textColor = CommonColor.title.color
         self.titleLB.font = p_bfont(fontsize6)
         self.titleLB.numberOfLines = 2;
         self.titleLB.textAlignment = .center
         self.view.addSubview(self.titleLB)
-        
-		let podcast = DatabaseManager.getPodcast(feedUrl: self.episode.podcastUrl)
-		if podcast.isSome {
-			self.subTitle = UILabel.init(text: self.episode.author)
-			self.subTitle.isUserInteractionEnabled = true
-			let author = NSMutableAttributedString.init(string: podcast!.trackName)
-			author.addAttributes([NSAttributedString.Key.foregroundColor : CommonColor.content.color, NSAttributedString.Key.font : pfont(fontsize2)], range: NSRange.init(location: 0, length: podcast!.trackName.length()))
-			self.subTitle.attributedText = author + NSMutableAttributedString.init(string: " ") + NSMutableAttributedString.init(attributedString: EFIconFont.antDesign.rightCircle.attributedString(size: fontsize2, foregroundColor: CommonColor.content.color, backgroundColor: nil)!)
-			self.view.addSubview(self.subTitle)
-			self.subTitle.addGestureRecognizer(self.tapGes)
-		}
+        self.subTitle = UILabel.init(text: self.episode.author)
+        self.subTitle.isUserInteractionEnabled = true
+        self.view.addSubview(self.subTitle)
+        self.subTitle.addGestureRecognizer(self.tapGes)
         
         self.infoScrollView = UIScrollView.init(frame: CGRect.zero)
         self.infoScrollView.showsHorizontalScrollIndicator = false;
@@ -547,9 +577,7 @@ extension PlayerDetailViewController {
         
 		self.coverImageView = UIImageView.init()
         self.coverImageView.isUserInteractionEnabled = true
-		self.coverImageView.loadImage(url: (self.episode?.coverUrl)!, placeholder: nil) { [unowned self] (image) in
-			self.coverBackView.addShadow(ofColor: image.mostColor(), radius: 20, offset: CGSize.zero, opacity: 0.6)
-		}
+		
 		
 		self.coverImageView.cornerRadius = 15.auto()
 		self.coverBackView.addSubview(self.coverImageView)

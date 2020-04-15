@@ -28,7 +28,11 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 		}
 	}
     
-    var currentEpisode: Episode?
+    var currentEpisode: Episode? {
+        didSet {
+            configHandoff()
+        }
+    }
     
     var containerView: UIView!
     
@@ -44,6 +48,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
 	
 	let progressBg = UIView()
     
+    var activity = NSUserActivity.init(activityType: "com.duke.www.FunnyFm")
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setUpUI()
@@ -58,10 +64,10 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     }
 	
 	func toPlayDetailView(){
-		let vc = PlayerDetailViewController()
-		vc.episode = self.currentEpisode
+        let playDetailVC = PlayerDetailViewController()
+		playDetailVC.episode = self.currentEpisode
         let nav = AppDelegate.current.window.rootViewController
-		let presentNavi = UINavigationController.init(rootViewController: vc)
+		let presentNavi = UINavigationController.init(rootViewController: playDetailVC)
 		presentNavi.navigationBar.isHidden = true
 		presentNavi.modalPresentationStyle = .fullScreen
 		nav?.present(presentNavi, animated: true, completion: nil)
@@ -73,6 +79,53 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
         }
         self.toPlayDetailView()
 	}
+}
+
+// MARK: handoff
+
+extension FMToolBar: NSUserActivityDelegate {
+    
+    func configHandoff() {
+        guard let episode = currentEpisode, let data = episode.toData() else {
+            return
+        }
+        let progress = DatabaseManager.qureyProgress(trackUrl: episode.trackUrl)
+        activity.userInfo = ["episode": data, "track_url": episode.trackUrl, "progress": progress]
+        activity.becomeCurrent()
+        activity.delegate = self
+    }
+    
+    override func restoreUserActivityState(_ activity: NSUserActivity) {
+        guard let userInfo = activity.userInfo else {
+            return
+        }
+        let url = userInfo["track_url"] as? String
+        if let trackurl = url, let progress = userInfo["progress"] as? Double {
+            DatabaseManager.updateProgress(progress: progress, trackUrl: trackurl)
+        }
+        
+        if let trackurl = url, let episode = DatabaseManager.getEpisode(trackUrl: trackurl) {
+            self.configToolBar(episode)
+            return
+        }
+        
+        if let data = userInfo["episode"] as? Data {
+            let episode = Episode.init(data: data)
+            self.configToolBar(episode)
+        }
+    }
+    
+    func userActivityWillSave(_ userActivity: NSUserActivity) {
+        self.configHandoff()
+    }
+    
+    func userActivityWasContinued(_ userActivity: NSUserActivity) {
+        
+    }
+    
+    func userActivity(_ userActivity: NSUserActivity, didReceive inputStream: InputStream, outputStream: OutputStream) {
+        
+    }
 }
 
 // MARK: action
@@ -144,6 +197,7 @@ extension FMToolBar {
 		UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIView.KeyframeAnimationOptions.calculationModeDiscrete, animations: {
 			self.progressBg.frame = frame
 		}, completion: nil)
+        self.configHandoff()
     }
 }
 

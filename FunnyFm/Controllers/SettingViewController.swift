@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import StoreKit
+import SafariServices
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 
@@ -22,13 +22,12 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.titleLB.text = "设置".localized
-		self.setUpImmutableData()
         self.setupUI()
-        self.view.backgroundColor = R.color.background()
         self.dw_addsubviews()
+        self.setUpImmutableData()
         NotificationCenter.default.addObserver(self, selector: #selector(updateAccountStatus), name: NSNotification.Name.init(kParserNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setUpDataSource), name: UIApplication.didBecomeActiveNotification, object: nil)
-
+        
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +61,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
 	
 	func setUpImmutableData(){
-		var cache = Double(VICahcheHelper.init().getAllCacheSize()/1024/1024)
+        var cache = Double(BCQResourceUtils.shared.getAllCacheSize()/1024/1024)
 		if cache != 0 {
             if cache > 1024 {
                 cache = cache/1024.0
@@ -78,6 +77,8 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		self.others.append(["title":"将 FunnyFM 推荐给好友".localized,"imageName":"share"])
 		self.others.append(["title":"查看开发者其他的 App".localized,"imageName":"github"])
 		self.others.append(["title":"关于".localized,"imageName":"about us"])
+        self.others.append(["title":"使用指南".localized,"imageName":"guide"])
+        self.tableview.reloadData()
 	}
     
     func toShare(){
@@ -99,7 +100,8 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 	func cleanAllCache(){
         Hud.shared.show(on: self.view)
 		VICahcheHelper.init().cleanAllCache()
-		let cache = VICahcheHelper.init().getAllCacheSize()/1024/1024
+        BCQResourceUtils.shared.cleanAllCache()
+        let cache = BCQResourceUtils.shared.getAllCacheSize()/1024/1024
 		if cache != 0 {
 			self.functions[0] = ["title":"清除缓存","imageName":"cache","rightText":"\(cache)M"]
 		}else{
@@ -113,16 +115,6 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 	func toAboutUs(){
         let aboutVC = AboutViewController()
         self.navigationController?.pushViewController(aboutVC)
-//		let url = URL(string: "https://live.funnyfm.top/#/")
-//		var responder = self as UIResponder?
-//		let selectorOpenURL = sel_registerName("openURL:")
-//
-//		while (responder != nil) {
-//			if (responder?.responds(to: selectorOpenURL))! {
-//				let _ = responder?.perform(selectorOpenURL, with: url)
-//			}
-//			responder = responder!.next
-//		}
 	}
     
     func toAppStore() {
@@ -229,6 +221,11 @@ extension SettingViewController {
 			if indexPath.row == 3{
 				self.toAboutUs()
 			}
+            
+            if indexPath.row == 4 {
+                let vc = SFSafariViewController.init(url: URL.init(string: "https://live.funnyfm.top/#/guide")!)
+                self.present(vc, animated: true, completion: nil)
+            }
         }
 		
 		
@@ -308,7 +305,6 @@ extension SettingViewController {
 	}
 }
 
-
 extension SettingViewController {
     
     func dw_addsubviews(){
@@ -344,6 +340,7 @@ extension SettingViewController {
     }
     
     func setupUI(){
+        self.view.backgroundColor = R.color.background()
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let nib = UINib(nibName: String(describing: SettingTableViewCell.self), bundle: nil)
         self.tableview.register(nib, forCellReuseIdentifier: "cell")

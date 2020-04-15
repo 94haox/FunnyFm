@@ -25,7 +25,7 @@ class HomeAlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-		self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 10, offset: CGSize.init(width: 2, height: 2), opacity: 1)
+		self.shadowBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 5, offset: CGSize.init(width: 2, height: 2), opacity: 1)
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapLogoAction(_:)))
 		self.logoImageView.addGestureRecognizer(tap)
         self.contentView.backgroundColor = CommonColor.white.color

@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.duke.www.FunnyFm</string>
+	</array>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>『趣播客』需要您的同意，才能访问媒体资料库，用来导入您在 Podcast 中的订阅</string>
 	<key>AppCenterAppDelegateForwarderEnabled</key>
 	<integer>0</integer>
 	<key>CFBundleDevelopmentRegion</key>

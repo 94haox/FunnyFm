@@ -31,7 +31,7 @@ class PushManager: NSObject {
             self.removeAllTages()
             return
         }
-		JPUSHService.setTags(Set.init(taglist), completion: { (code, tags, seq) in }, seq: 1)
+        JPUSHService.addTags(Set.init(taglist), completion: { (code, tags, seq) in }, seq: 1)
 	}
     
     func addAllDatabaseTags() {

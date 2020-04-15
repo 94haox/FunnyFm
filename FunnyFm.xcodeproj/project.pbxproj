@@ -26,6 +26,16 @@
 		743B0BAB2424DE7800E42A16 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BA92424DE7800E42A16 /* Hud.swift */; };
 		743B0BAD2424DE8500E42A16 /* BouncingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BAC2424DE8500E42A16 /* BouncingButton.swift */; };
 		7440B1C5242257F200543AFD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */; };
+		744239E32441E2BD0015DB21 /* BCQResourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239DA2441E2BD0015DB21 /* BCQResourceUtils.swift */; };
+		744239E42441E2BD0015DB21 /* BCQResourceFragmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239DB2441E2BD0015DB21 /* BCQResourceFragmentRequest.swift */; };
+		744239E52441E2BD0015DB21 /* BCQResourceLoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239DC2441E2BD0015DB21 /* BCQResourceLoaderManager.swift */; };
+		744239E62441E2BD0015DB21 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239DD2441E2BD0015DB21 /* String+Extension.swift */; };
+		744239E72441E2BD0015DB21 /* BCQResourceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239DE2441E2BD0015DB21 /* BCQResourceInfo.swift */; };
+		744239E82441E2BD0015DB21 /* BCQResourceMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239DF2441E2BD0015DB21 /* BCQResourceMeta.swift */; };
+		744239E92441E2BD0015DB21 /* BCQResourceFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239E02441E2BD0015DB21 /* BCQResourceFragment.swift */; };
+		744239EA2441E2BD0015DB21 /* BCQResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239E12441E2BD0015DB21 /* BCQResourceLoader.swift */; };
+		744239EB2441E2BD0015DB21 /* BCQResourceFragmentDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239E22441E2BD0015DB21 /* BCQResourceFragmentDownloader.swift */; };
+		744239ED2441F32A0015DB21 /* OPMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239EC2441F32A0015DB21 /* OPMLParser.swift */; };
 		7446860F2428C3D40094843F /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446860E2428C3D40094843F /* AdsManager.swift */; };
 		7446874E2428D3D60094843F /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446874C2428D3D60094843F /* AdTableViewCell.swift */; };
 		7446874F2428D3D60094843F /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7446874D2428D3D60094843F /* AdTableViewCell.xib */; };
@@ -408,6 +418,16 @@
 		743B0BA92424DE7800E42A16 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		743B0BAC2424DE8500E42A16 /* BouncingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingButton.swift; sourceTree = "<group>"; };
 		7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		744239DA2441E2BD0015DB21 /* BCQResourceUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceUtils.swift; sourceTree = "<group>"; };
+		744239DB2441E2BD0015DB21 /* BCQResourceFragmentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceFragmentRequest.swift; sourceTree = "<group>"; };
+		744239DC2441E2BD0015DB21 /* BCQResourceLoaderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceLoaderManager.swift; sourceTree = "<group>"; };
+		744239DD2441E2BD0015DB21 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		744239DE2441E2BD0015DB21 /* BCQResourceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceInfo.swift; sourceTree = "<group>"; };
+		744239DF2441E2BD0015DB21 /* BCQResourceMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceMeta.swift; sourceTree = "<group>"; };
+		744239E02441E2BD0015DB21 /* BCQResourceFragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceFragment.swift; sourceTree = "<group>"; };
+		744239E12441E2BD0015DB21 /* BCQResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceLoader.swift; sourceTree = "<group>"; };
+		744239E22441E2BD0015DB21 /* BCQResourceFragmentDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCQResourceFragmentDownloader.swift; sourceTree = "<group>"; };
+		744239EC2441F32A0015DB21 /* OPMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OPMLParser.swift; path = FunnyFM/Utils/OPMLParser.swift; sourceTree = SOURCE_ROOT; };
 		7446860E2428C3D40094843F /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdsManager.swift; path = FunnyFM/Manager/AdsManager.swift; sourceTree = SOURCE_ROOT; };
 		7446874C2428D3D60094843F /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdTableViewCell.swift; path = FunnyFM/Views/Cells/AdTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7446874D2428D3D60094843F /* AdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdTableViewCell.xib; path = FunnyFM/Views/Cells/AdTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -848,6 +868,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		744239D92441E2A50015DB21 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				744239DC2441E2BD0015DB21 /* BCQResourceLoaderManager.swift */,
+				744239E02441E2BD0015DB21 /* BCQResourceFragment.swift */,
+				744239E22441E2BD0015DB21 /* BCQResourceFragmentDownloader.swift */,
+				744239DB2441E2BD0015DB21 /* BCQResourceFragmentRequest.swift */,
+				744239DE2441E2BD0015DB21 /* BCQResourceInfo.swift */,
+				744239E12441E2BD0015DB21 /* BCQResourceLoader.swift */,
+				744239DF2441E2BD0015DB21 /* BCQResourceMeta.swift */,
+				744239DA2441E2BD0015DB21 /* BCQResourceUtils.swift */,
+				744239DD2441E2BD0015DB21 /* String+Extension.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		745DE3052423606900EFFDA4 /* MNAVChapters */ = {
 			isa = PBXGroup;
 			children = (
@@ -1060,6 +1096,7 @@
 		AB41AAD7219529DB00260851 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				744239D92441E2A50015DB21 /* Cache */,
 				745DE3052423606900EFFDA4 /* MNAVChapters */,
 				AB77890823EC5BE400DF8447 /* AnimatedTabBar */,
 				AB76EF68239CCD8E0096020B /* GFLimitTextView.swift */,
@@ -1069,6 +1106,7 @@
 				AB41AAE9219537B400260851 /* Const.swift */,
 				AB41AAED21955ECF00260851 /* Protocol.swift */,
 				AB41AB0A2195752B00260851 /* Extension.swift */,
+				744239EC2441F32A0015DB21 /* OPMLParser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1895,6 +1933,7 @@
 				AB32CF5322B38400007C9E41 /* SearchViewController.swift in Sources */,
 				AB77891223EC5BE400DF8447 /* AnimatedTabBarAppearance.swift in Sources */,
 				AB8BD8D9236E7574006FEFF3 /* SPStorkDismissingAnimationController.swift in Sources */,
+				744239E52441E2BD0015DB21 /* BCQResourceLoaderManager.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
@@ -1937,8 +1976,10 @@
 				ABF5118921BF6A0C0083A81B /* PodListCollectionViewCell.swift in Sources */,
 				AB8DA7492338F38000407FCB /* CleanyConfig.swift in Sources */,
 				AB2D266B21DF827000BF3391 /* UIScrollView+EmptyDataSet.m in Sources */,
+				744239ED2441F32A0015DB21 /* OPMLParser.swift in Sources */,
 				ABE7660921D7196700470D8F /* NSAttributedStringExtensions.swift in Sources */,
 				AB76EF69239CCD8E0096020B /* GFLimitTextView.swift in Sources */,
+				744239E92441E2BD0015DB21 /* BCQResourceFragment.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
 				ABEE40EB21E35EF800FCB16F /* VaildManager.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
@@ -1964,9 +2005,12 @@
 				7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */,
 				74799F912425185D00265D3B /* UserLoginTipView.swift in Sources */,
 				AB3D481A232A47CD00078DA4 /* DownloadTask.swift in Sources */,
+				744239E32441E2BD0015DB21 /* BCQResourceUtils.swift in Sources */,
+				744239E82441E2BD0015DB21 /* BCQResourceMeta.swift in Sources */,
 				AB09A53E21DDBACB00CB621C /* DownloadManager.swift in Sources */,
 				AB41AADE21952C1C00260851 /* GlobalConfig.swift in Sources */,
 				AB77891623EC5BE400DF8447 /* AnimatedTabBarController.swift in Sources */,
+				744239EA2441E2BD0015DB21 /* BCQResourceLoader.swift in Sources */,
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
 				AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */,
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
@@ -1984,6 +2028,7 @@
 				ABEE40CE21E3246E00FCB16F /* UIScrollView+MJExtension.m in Sources */,
 				AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */,
 				AB2A3722232888FA0097DAF7 /* DWSegment.swift in Sources */,
+				744239E72441E2BD0015DB21 /* BCQResourceInfo.swift in Sources */,
 				ABEE40DE21E3246E00FCB16F /* MJRefreshComponent.m in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
 				ABA7052222B641000012FD0A /* NetEasyPod.swift in Sources */,
@@ -2004,6 +2049,7 @@
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
 				7455CD372415216E004886EF /* R.generated.swift in Sources */,
 				AB67FC3523E07ED2003D3380 /* ProfileCompleteViewController.swift in Sources */,
+				744239E42441E2BD0015DB21 /* BCQResourceFragmentRequest.swift in Sources */,
 				AB0C64C5230B8E1800C4DF30 /* PathKit.swift in Sources */,
 				AB32CF5C22B39A32007C9E41 /* NSDate+Utils.m in Sources */,
 				AB5828B3233C92080072F03B /* YBTSQueue.mm in Sources */,
@@ -2086,6 +2132,7 @@
 				ABDB9DE82394F36B00539049 /* Note.swift in Sources */,
 				ABEE40D821E3246E00FCB16F /* MJRefreshStateHeader.m in Sources */,
 				AB731740239E4944000E1588 /* VersionManager.swift in Sources */,
+				744239EB2441E2BD0015DB21 /* BCQResourceFragmentDownloader.swift in Sources */,
 				AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */,
 				AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */,
 				AB441A322350208700411359 /* GeneralAPI.swift in Sources */,
@@ -2120,6 +2167,7 @@
 				AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
 				AB7789E823EC68E100DF8447 /* VerticalTabBarItemView.swift in Sources */,
+				744239E62441E2BD0015DB21 /* String+Extension.swift in Sources */,
 				743B0BAB2424DE7800E42A16 /* Hud.swift in Sources */,
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				741F273024237A0B006F1DCE /* ChapterCollectionViewCell.swift in Sources */,
@@ -2454,7 +2502,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2468,7 +2516,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.1.2;
+				MARKETING_VERSION = 2.1.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2599,7 +2647,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2613,7 +2661,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.1.2;
+				MARKETING_VERSION = 2.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

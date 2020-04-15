@@ -33,12 +33,14 @@ class GuideTipView: UIView {
     
     @objc func closeAction() {
         if self.closeClosure.isSome {
+            UserDefaults.standard.set(true, forKey: "GuideisShowed")
             self.closeClosure!()
         }
     }
     
     @objc func readAction() {
         if self.readClosure.isSome {
+            UserDefaults.standard.set(true, forKey: "GuideisShowed")
             self.closeClosure?()
             self.readClosure!()
         }
@@ -58,7 +60,7 @@ class GuideTipView: UIView {
         
         closeBtn.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
         
-        tipLB.font = p_bfont(titleFontSize)
+        tipLB.font = p_bfont(subtitleFontSize)
         tipLB.textColor = R.color.titleColor()
 
         sumLB.font = pfont(fontsize2)
@@ -71,7 +73,7 @@ class GuideTipView: UIView {
         
         sumLB.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(tipLB.snp_bottom).offset(12.auto())
+            make.top.equalTo(tipLB.snp_bottom).offset(8.auto())
         }
         
         showBtn.snp.makeConstraints { (make) in
@@ -83,6 +85,15 @@ class GuideTipView: UIView {
         closeBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-8.auto())
             make.top.equalToSuperview().offset(8.auto())
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        }else{
+            self.cleanShadow()
         }
     }
 

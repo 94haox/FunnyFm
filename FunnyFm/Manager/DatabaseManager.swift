@@ -195,7 +195,9 @@ extension DatabaseManager {
 	}
 	
 	static public func updateItunsPod(pod: iTunsPod){
+        var podcast = pod
 		let exsitPod = self.getPodcast(feedUrl: pod.feedUrl)
+        podcast.isNeedVpn = pod.feedUrl.contains("fireside") || pod.feedUrl.contains("feedburner")
 		if exsitPod.isSome {
 			try! self.database.update(table: exsitPodTable, on: iTunsPod.Properties.all, with: pod, where: iTunsPod.Properties.feedUrl == pod.feedUrl)
 			return
@@ -290,11 +292,11 @@ extension DatabaseManager {
 	static public func addEpisode(episode: Episode){
 		
 		let exsitEpisode: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
-													where: Episode.Properties.trackUrl == episode.trackUrl)
+                                                               where: (Episode.Properties.trackUrl == episode.trackUrl && Episode.Properties.podcastUrl == episode.podcastUrl))
 		if exsitEpisode.count > 0 {
 			let oldEpisode = exsitEpisode.first!
 			if oldEpisode.podcastUrl.length() < 1 {
-				try! self.database.update(table: exsitEpisodeTable, on: Episode.Properties.all, with: episode, where: Episode.Properties.trackUrl == episode.trackUrl)
+				try! self.database.update(table: exsitEpisodeTable, on: Episode.Properties.all, with: episode, where: (Episode.Properties.trackUrl == episode.trackUrl && Episode.Properties.podcastUrl == episode.podcastUrl))
 			}
 			return
 		}
@@ -340,26 +342,15 @@ extension DatabaseManager {
 extension DatabaseManager {
 	
     /// 查询进度记录
-    static public func qureyProgress(episodeId: String) -> Double{
-		return UserDefaults.standard.double(forKey: "Progress_" + episodeId)
+    static public func qureyProgress(trackUrl: String) -> Double{
+        UserDefaults.standard.double(forKey: "Progress_" + trackUrl.trim())
     }
 
 	
     /// 更新进度记录
-	static public func updateProgress(progress: Double, episodeId:String){
-		UserDefaults.standard.set(progress, forKey: "Progress_" + episodeId)
+	static public func updateProgress(progress: Double, trackUrl: String){
+        UserDefaults.standard.set(progress, forKey: "Progress_" + trackUrl.trim())
 		UserDefaults.standard.synchronize()
-    }
-    
-    /// 删除进度记录
-    static public func deleteProgress(chapterId: String){
-        try! database.delete(fromTable: historyTable,
-                             where: ChapterProgress.Properties.episodeId == chapterId)
-    }
-    
-    static public func allProgress() -> [ChapterProgress]{
-        let ChapterProgressList : [ChapterProgress] = try! database.getObjects(fromTable: progressTable)
-        return ChapterProgressList
     }
 	
 }

@@ -14,17 +14,17 @@ import FeedKit
 
 struct Episode : TableCodable,Mapable{
 	var collectionId:		  	String
-    var title:                String
-    var intro:                String
-	var author:               String
-	var duration:              Double
-    var trackUrl:          	String
+    var title:                  String
+    var intro:                  String
+	var author:                 String
+	var duration:               Double
+    var trackUrl:          	    String
     var coverUrl:         		String
 	var podcastUrl: 			String
 	var podCoverUrl:         	String
     var pubDate:         		String
 	var pubDateSecond:         	Int
-    var download_filpath:        String
+    var download_filpath:       String
 	var downloadSize: 			String
 	
 	init?(jsonData:JSON) {
@@ -47,6 +47,23 @@ struct Episode : TableCodable,Mapable{
 		collectionId = ""
 		downloadSize = ""
 	}
+    
+    init(data: Data) {
+        let jsonData = JSON(data)
+        title = jsonData["title"].stringValue
+        pubDate = jsonData["pubDate"].stringValue
+        pubDateSecond = jsonData["pubDateSecond"].intValue
+        intro = jsonData["intro"].stringValue
+        author = jsonData["author"].stringValue
+        coverUrl = jsonData["coverUrl"].stringValue
+        trackUrl = jsonData["trackUrl"].stringValue
+        duration =  jsonData["duration"].doubleValue
+        podCoverUrl = jsonData["podCoverUrl"].stringValue
+        podcastUrl = jsonData["podcastUrl"].stringValue
+        download_filpath = ""
+        collectionId = ""
+        downloadSize = ""
+    }
     
     init(feedItem: RSSFeedItem) {
         
@@ -100,7 +117,7 @@ struct Episode : TableCodable,Mapable{
         collectionId = ""
         downloadSize = ""
     }
-    
+        
     enum CodingKeys : String ,CodingTableKey {
         typealias Root = Episode
         static let objectRelationalMapping = TableBinding(CodingKeys.self)
@@ -112,16 +129,26 @@ struct Episode : TableCodable,Mapable{
         case trackUrl
 		case coverUrl
 		case podCoverUrl
+        case podcastUrl
 		case author
 		case collectionId
         case download_filpath
 		case downloadSize
-		case podcastUrl
     }
 	
 	func isFavor(trackUrl:String) -> Bool{
 		return self.trackUrl == trackUrl
 	}
+    
+    func toData() -> Data? {
+        let encoder = JSONEncoder()
+        do {
+            return try encoder.encode(self)
+        }catch {
+            return nil
+        }
+    }
+
     
 }
 

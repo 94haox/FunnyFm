@@ -227,31 +227,29 @@ extension FeedManager {
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) {
 		var sortEpisodeList = [[Episode]]()
-		autoreleasepool{
-			var episodes = episodeList.suffix(100)
-			episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
-			
-			var dic : [String: [Episode]] = [:]
-			var index = 0;
-			episodes.forEach { (episode) in
-				var list = dic[episode.pubDate]
-				if list.isSome {
-					list!.append(episode)
-				}else{
-					list = Array.init()
-					list!.append(episode)
-					index += 1
-				}
-				dic[episode.pubDate] = list!
-				if sortEpisodeList.count < index{
-					sortEpisodeList.append(list!)
-				}else{
-					sortEpisodeList.remove(at: index-1)
-					sortEpisodeList.append(list!)
-				}
-			}
-            self.episodeList = sortEpisodeList
-		}
+        var episodes = episodeList.suffix(100)
+        episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
+        
+        var dic : [String: [Episode]] = [:]
+        var index = 0;
+        episodes.forEach { (episode) in
+            var list = dic[episode.pubDate]
+            if list.isSome {
+                list!.append(episode)
+            }else{
+                list = Array.init()
+                list!.append(episode)
+                index += 1
+            }
+            dic[episode.pubDate] = list!
+            if sortEpisodeList.count < index{
+                sortEpisodeList.append(list!)
+            }else{
+                sortEpisodeList.remove(at: index-1)
+                sortEpisodeList.append(list!)
+            }
+        }
+        self.episodeList = sortEpisodeList
 	}
 	
 }

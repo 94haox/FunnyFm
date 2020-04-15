@@ -29,7 +29,7 @@ class HistoryTableViewCell: UITableViewCell {
 		self.episodeLogoImgView.loadImage(url: episode.coverUrl)
 		self.titleLB.text = episode.title
 		let total = episode.duration
-		let progress = DatabaseManager.qureyProgress(episodeId: episode.title)
+		let progress = DatabaseManager.qureyProgress(trackUrl: episode.trackUrl)
 		let differ = total - progress
 		if progress == 0 {
 			self.progressBar.isHidden = true

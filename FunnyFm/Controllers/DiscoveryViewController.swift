@@ -8,6 +8,7 @@
 
 import UIKit
 import SCLAlertView
+import MediaPlayer.MPMediaPickerController
 
 class DiscoveryViewController: BaseViewController {
 
@@ -35,12 +36,48 @@ class DiscoveryViewController: BaseViewController {
 
 }
 
+extension DiscoveryViewController: MPMediaPickerControllerDelegate {
+    
+    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+        
+    }
+    
+    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        
+    }
+}
+
+
 // actions
 extension DiscoveryViewController {
 	
     @objc func toSearch() {
-		let search = SearchViewController.init()
-		self.navigationController?.pushViewController(search);
+//		let search = SearchViewController.init()
+//		self.navigationController?.pushViewController(search);
+        
+        let queue = MPMediaQuery.podcasts()
+        
+        if let items = queue.items {
+            for item in items {
+                if item.mediaType == .podcast {
+                    print(item.podcastTitle, item.assetURL?.absoluteString)
+                }
+            }
+        }
+        
+        if let collections = queue.collections {
+            for item in collections {
+                
+            }
+        }
+        
+//        let picker = MPMediaPickerController.init(mediaTypes: .music)
+//        picker.prompt = "添加本地音乐";
+//        picker.showsCloudItems = false;
+//        picker.allowsPickingMultipleItems = true;
+//        picker.delegate = self;
+//        self.navigationController?.presentAsStork(picker)
+
 	}
     
     @objc func showAdd() {
