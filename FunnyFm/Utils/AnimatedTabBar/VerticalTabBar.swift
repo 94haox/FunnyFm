@@ -20,7 +20,7 @@ protocol VerticalTabBarInternalDelegate : AnyObject {
 
 
 open class VerticalTabBar: CommonUIView {
-    
+    var itemViews = [VerticalTabBarItemView]()
     var contentView : UIView!
     var stackView: UIStackView!
     open weak var delegate: VerticalTabBarDelegate?
@@ -87,6 +87,7 @@ open class VerticalTabBar: CommonUIView {
             if let item = delegate?.vTabBar(self, itemFor: i) {
                 // Add View to the stack
                 let view = VerticalTabBarItemView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
+                itemViews.append(view)
                 view.delegate = self
                 stackView.addArrangedSubview(view)
                 view.setupView(model: item)

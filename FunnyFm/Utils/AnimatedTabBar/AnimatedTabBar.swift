@@ -31,7 +31,7 @@ public struct AnimatedTabBarItem {
 }
 
 open class AnimatedTabBar: CommonUIView {
-    
+    var itemViews = [AnimatedTabBarView]()
     private var contentView : UIView!
     internal var stackView: UIStackView!
     open weak var delegate: AnimatedTabBarDelegate?
@@ -95,6 +95,7 @@ open class AnimatedTabBar: CommonUIView {
             if let item = delegate?.tabBar(self, itemFor: i) {
                 // Add View to the stack
                 let view = AnimatedTabBarView()
+                itemViews.append(view)
                 view.delegate = self
                 stackView.addArrangedSubview(view)
                 view.setupView(model: item)

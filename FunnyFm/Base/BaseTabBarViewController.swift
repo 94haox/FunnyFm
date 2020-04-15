@@ -13,7 +13,7 @@ class BaseTabBarViewController: AnimatedTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		FMPlayerManager.shared.delegate = FMToolBar.shared
-		UIApplication.shared.keyWindow?.addSubview(FMToolBar.shared)
+        AppDelegate.current.window.addSubview(FMToolBar.shared)
         FMToolBar.shared.isHidden = true
 		PlayListManager.shared.updatePlayQueue()
 		if PlayListManager.shared.playQueue.first.isSome {
@@ -29,7 +29,7 @@ class BaseTabBarViewController: AnimatedTabBarController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		UIApplication.shared.keyWindow?.bringSubviewToFront(FMToolBar.shared)
+		AppDelegate.current.window.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
 	}
     
@@ -38,15 +38,4 @@ class BaseTabBarViewController: AnimatedTabBarController {
 		FMToolBar.shared.shrink()
 	}
 	
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

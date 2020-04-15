@@ -25,6 +25,10 @@ class ClientConfig: NSObject {
                  AnimatedTabBarItem(icon: R.image.user_ipad()!,
                        title: "User", controller: UserCenterViewController())]
     
+    let tabbarVC = BaseTabBarViewController()
+    
+    let masterVC = MasterViewController()
+    
     
     
     func rootController() -> UIViewController{
@@ -57,10 +61,9 @@ class ClientConfig: NSObject {
         self.controllers = [mainNavi, discoverNavi, playlistNavi, usercenterNavi]
 
         let splitVC = UISplitViewController.init()
-        let masterVC = MasterViewController()
         masterVC.delegate = self
         masterVC.clickClosure = { [weak self] index in
-            splitVC.viewControllers = [masterVC, self!.controllers[index]]
+            splitVC.viewControllers = [self!.masterVC, self!.controllers[index]]
         }
         splitVC.maximumPrimaryColumnWidth = 100.auto()
         splitVC.viewControllers = [masterVC, controllers.first!]
@@ -82,9 +85,8 @@ class ClientConfig: NSObject {
     }
     
     func rootControllerForIphone() -> UINavigationController{
-        let controller = BaseTabBarViewController()
-        controller.delegate = self
-        var navi = UINavigationController.init(rootViewController:controller)
+        tabbarVC.delegate = self
+        var navi = UINavigationController.init(rootViewController:tabbarVC)
         navi.navigationBar.isHidden = true
         if !UserDefaults.standard.bool(forKey: "isFirst") {
             navi = UINavigationController.init(rootViewController: WelcomeViewController.init())

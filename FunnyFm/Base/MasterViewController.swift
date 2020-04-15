@@ -20,7 +20,9 @@ class MasterViewController: UIViewController {
         self.view.backgroundColor = CommonColor.white.color
         self.dw_addSubviews()
     }
-        
+    open func changeViewController(to index: Int) {
+        tabBar.didTapped(on: tabBar.itemViews[index])
+    }
 
 }
 

@@ -14,6 +14,7 @@ open class AnimatedTabBarController: UIViewController {
     open weak var delegate: AnimatedTabBarDelegate?
     
     private var heightConstraint : NSLayoutConstraint!
+    private var currentController: UIViewController?
     
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -48,6 +49,10 @@ open class AnimatedTabBarController: UIViewController {
         coordinator.animate(alongsideTransition: { [weak self] (_) in
             self?.addTabBarConstraint()
             }, completion: nil)
+    }
+    
+    open func changeViewController(to index: Int) {
+        tabBar.didTapped(on: tabBar.itemViews[index])
     }
     
     private func addTabBarConstraint() {
@@ -108,6 +113,7 @@ extension AnimatedTabBarController : AnimatedTabBarInternalDelegate {
             contentView.addSubview(newController.view)
             newController.view.frame = contentView.bounds
             newController.didMove(toParent: self)
+            self.currentController = newController
         }
     }
 }

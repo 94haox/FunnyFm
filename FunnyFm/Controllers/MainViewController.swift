@@ -111,8 +111,11 @@ extension MainViewController{
     }
 	
 	@objc func toDiscovery(){
-		let discoverVC = DiscoveryViewController()
-		self.navigationController?.pushViewController(discoverVC)
+        if ClientConfig.shared.isIPad {
+            ClientConfig.shared.masterVC.changeViewController(to: 1)
+        }else{
+            ClientConfig.shared.tabbarVC.changeViewController(to: 1)
+        }
 	}
 	
 	@objc func reloadData(){
@@ -475,14 +478,13 @@ extension MainViewController {
         self.emptyView.snp.makeConstraints { (make) in
             make.centerX.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.topBgView.snp_bottom)
+            make.top.equalTo(self.guideView.snp_bottom)
         }
         
         self.emptyView.actionBlock = { [weak self] in
             self?.toDiscovery()
         }
-		
-
+    
 	}
 	
 }
