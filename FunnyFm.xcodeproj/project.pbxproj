@@ -49,6 +49,9 @@
 		74799F8E2424F65000265D3B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74799F8C2424F65000265D3B /* AboutViewController.swift */; };
 		74799F912425185D00265D3B /* UserLoginTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74799F902425185D00265D3B /* UserLoginTipView.swift */; };
 		74799F9524251CF000265D3B /* login_tip.json in Resources */ = {isa = PBXBuildFile; fileRef = 74799F9424251CF000265D3B /* login_tip.json */; };
+		7484373B244C834A0001451A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7484373A244C834A0001451A /* SearchViewModel.swift */; };
+		74843740244C850F0001451A /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7484373E244C850F0001451A /* SearchHistoryTableViewCell.swift */; };
+		74843741244C850F0001451A /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7484373F244C850F0001451A /* SearchHistoryTableViewCell.xib */; };
 		7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6702417ACA1007E5319 /* BaseJob.swift */; };
 		7493F6742417ACBF007E5319 /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6732417ACBF007E5319 /* JobQueue.swift */; };
 		7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6772417AD44007E5319 /* CloudParserJob.swift */; };
@@ -357,6 +360,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		74843608244C69980001451A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABE7661E21D7650E00470D8F /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,6 +455,9 @@
 		74799F8C2424F65000265D3B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = FunnyFM/Controllers/AboutViewController.swift; sourceTree = SOURCE_ROOT; };
 		74799F902425185D00265D3B /* UserLoginTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginTipView.swift; path = FunnyFM/Views/Custom/UserLoginTipView.swift; sourceTree = SOURCE_ROOT; };
 		74799F9424251CF000265D3B /* login_tip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login_tip.json; sourceTree = "<group>"; };
+		7484373A244C834A0001451A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewModel.swift; path = FunnyFM/ViewModel/SearchViewModel.swift; sourceTree = SOURCE_ROOT; };
+		7484373E244C850F0001451A /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchHistoryTableViewCell.swift; path = FunnyFM/Views/Cells/SearchHistoryTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		7484373F244C850F0001451A /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchHistoryTableViewCell.xib; path = FunnyFM/Views/Cells/SearchHistoryTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		7493F6702417ACA1007E5319 /* BaseJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseJob.swift; sourceTree = "<group>"; };
 		7493F6732417ACBF007E5319 /* JobQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
 		7493F6772417AD44007E5319 /* CloudParserJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudParserJob.swift; path = FunnyFM/Job/CloudParserJob.swift; sourceTree = SOURCE_ROOT; };
@@ -1234,6 +1250,7 @@
 				AB57D5BA22DDE95100979994 /* PodDetailViewModel.swift */,
 				AB441A352350222A00411359 /* GeneralViewModel.swift */,
 				ABDB9DE92394F45800539049 /* NoteViewModel.swift */,
+				7484373A244C834A0001451A /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1340,6 +1357,8 @@
 				741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */,
 				7446874C2428D3D60094843F /* AdTableViewCell.swift */,
 				7446874D2428D3D60094843F /* AdTableViewCell.xib */,
+				7484373E244C850F0001451A /* SearchHistoryTableViewCell.swift */,
+				7484373F244C850F0001451A /* SearchHistoryTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1689,6 +1708,7 @@
 				ABE7661E21D7650E00470D8F /* Embed App Extensions */,
 				16EF1320CCF93212ACE508BC /* [CP] Copy Pods Resources */,
 				55BEEE97A1DDA8ADD4ECD9A8 /* [CP] Embed Pods Frameworks */,
+				74843608244C69980001451A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -1705,7 +1725,7 @@
 		AB25797121945E6F004C5F5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Duke;
 				TargetAttributes = {
@@ -1818,6 +1838,7 @@
 				ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */,
 				74799F9524251CF000265D3B /* login_tip.json in Resources */,
 				AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */,
+				74843741244C850F0001451A /* SearchHistoryTableViewCell.xib in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 				743AC8FF242629FF001D252F /* RSSViewController.xib in Resources */,
 				AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */,
@@ -1936,6 +1957,7 @@
 				744239E52441E2BD0015DB21 /* BCQResourceLoaderManager.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
+				74843740244C850F0001451A /* SearchHistoryTableViewCell.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
 				AB57D5B922DDCD6F00979994 /* WelcomeViewController.swift in Sources */,
 				AB1E6D8721B9252500B85135 /* UISwitchExtensions.swift in Sources */,
@@ -2014,6 +2036,7 @@
 				AB1E6D9A21B9344B00B85135 /* HomePodListHeader.swift in Sources */,
 				AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */,
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
+				7484373B244C834A0001451A /* SearchViewModel.swift in Sources */,
 				AB1E6D7F21B9252500B85135 /* UISliderExtensions.swift in Sources */,
 				ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */,
 				AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */,
@@ -2502,7 +2525,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2516,7 +2539,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2542,8 +2565,6 @@
 					"\"CoreText\"",
 					"-framework",
 					"\"CoreVideo\"",
-					"-framework",
-					"\"EFIconFont\"",
 					"-framework",
 					"\"FeedKit\"",
 					"-framework",
@@ -2647,7 +2668,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2661,7 +2682,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

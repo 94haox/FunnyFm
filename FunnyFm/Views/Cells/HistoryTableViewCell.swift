@@ -10,21 +10,34 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
 
-	@IBOutlet weak var episodeLogoImgView: UIImageView!
+    @IBOutlet weak var playBtn: UIButton!
+    
+    @IBOutlet weak var episodeLogoImgView: UIImageView!
 	
 	@IBOutlet weak var titleLB: UILabel!
 	
 	@IBOutlet weak var lastTimeLB: UILabel!
 	
 	@IBOutlet weak var progressBar: HistoryProgressBar!
+    
+    var actionBlock: (()->Void)?
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
 		self.selectionStyle = .none
         self.contentView.backgroundColor = CommonColor.white.color
+        self.playBtn.isHidden = true
     }
 
-	
+    @IBAction func playAction(_ sender: Any) {
+        self.actionBlock?()
+    }
+    
+    func config(playItem: Episode) {
+        self.playBtn.isHidden = false
+        self.config(episode: playItem)
+    }
+    
 	func config(episode: Episode){
 		self.episodeLogoImgView.loadImage(url: episode.coverUrl)
 		self.titleLB.text = episode.title

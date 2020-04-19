@@ -11,8 +11,6 @@ import pop
 import Lottie
 import MediaPlayer
 import AVKit
-import EFIconFont
-import SwiftUI
 import SPLarkController
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
@@ -237,9 +235,7 @@ extension PlayerDetailViewController {
         
         let podcast = DatabaseManager.getPodcast(feedUrl: self.episode.podcastUrl)
         if podcast.isSome {
-            let author = NSMutableAttributedString.init(string: podcast!.trackName)
-            author.addAttributes([NSAttributedString.Key.foregroundColor : CommonColor.content.color, NSAttributedString.Key.font : pfont(fontsize2)], range: NSRange.init(location: 0, length: podcast!.trackName.length()))
-            self.subTitle.attributedText = author + NSMutableAttributedString.init(string: " ") + NSMutableAttributedString.init(attributedString: EFIconFont.antDesign.rightCircle.attributedString(size: fontsize2, foregroundColor: CommonColor.content.color, backgroundColor: nil)!)
+            self.subTitle.text = podcast!.trackName
         }
 
         
@@ -555,6 +551,7 @@ extension PlayerDetailViewController {
         self.view.addSubview(self.titleLB)
         self.subTitle = UILabel.init(text: self.episode.author)
         self.subTitle.isUserInteractionEnabled = true
+        self.subTitle.font = pfont(fontsize2)
         self.view.addSubview(self.subTitle)
         self.subTitle.addGestureRecognizer(self.tapGes)
         

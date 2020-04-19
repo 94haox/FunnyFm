@@ -76,8 +76,8 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
 		self.others.append(["title":"将 FunnyFM 推荐给好友".localized,"imageName":"share"])
 		self.others.append(["title":"查看开发者其他的 App".localized,"imageName":"github"])
-		self.others.append(["title":"关于".localized,"imageName":"about us"])
         self.others.append(["title":"使用指南".localized,"imageName":"guide"])
+        self.others.append(["title":"关于".localized,"imageName":"about us"])
         self.tableview.reloadData()
 	}
     
@@ -218,11 +218,11 @@ extension SettingViewController {
                 self.toAppStore()
             }
 			
-			if indexPath.row == 3{
+			if indexPath.row == 4{
 				self.toAboutUs()
 			}
             
-            if indexPath.row == 4 {
+            if indexPath.row == 3 {
                 let vc = SFSafariViewController.init(url: URL.init(string: "https://live.funnyfm.top/#/guide")!)
                 self.present(vc, animated: true, completion: nil)
             }

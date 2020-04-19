@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EFIconFont
 import AutoInch
 
 class PodDetailViewController: BaseViewController {

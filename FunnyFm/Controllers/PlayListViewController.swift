@@ -107,7 +107,14 @@ extension PlayListViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		let itemCell = cell as! HistoryTableViewCell
 		let episode = self.playlist[indexPath.row]
-		itemCell.config(episode: episode)
+        itemCell.actionBlock = { [weak self] in
+            guard let currentEpisode = FMToolBar.shared.currentEpisode, currentEpisode.trackUrl == episode.trackUrl else{
+                FMToolBar.shared.configToolBarAtHome(episode)
+                self?.refreshPlayQueue()
+                return
+            }
+        }
+		itemCell.config(playItem: episode)
 	}
 	
 	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

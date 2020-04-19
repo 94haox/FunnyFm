@@ -21,7 +21,7 @@ class EpisodeInfoViewController: UIViewController {
 	
 	var tipLB: UILabel = UILabel.init(text: "播放列表".localized)
 	
-	var loadingView : UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
+    var loadingView : UIActivityIndicatorView = UIActivityIndicatorView.init(style: .medium)
 	
 	var authorLB: UILabel!
 	

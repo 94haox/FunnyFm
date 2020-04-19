@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,16 +19,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-8g-g1M" customClass="FMTextField">
-                    <rect key="frame" x="29" y="94" width="356" height="50"/>
+                    <rect key="frame" x="24" y="94" width="366" height="40"/>
                     <color key="backgroundColor" red="0.88627450980392153" green="0.8901960784313725" blue="0.9137254901960784" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="q3P-72-W2X"/>
+                        <constraint firstAttribute="height" constant="40" id="q3P-72-W2X"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="25"/>
+                            <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
@@ -40,7 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bF1-5W-LKh">
-                    <rect key="frame" x="367" y="57" width="18" height="18"/>
+                    <rect key="frame" x="372" y="57" width="18" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="18" id="AP1-Wt-BeG"/>
                         <constraint firstAttribute="height" constant="18" id="JuV-Rc-4tg"/>
@@ -53,9 +52,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="eUc-8g-g1M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="29" id="LLU-zF-pq5"/>
+                <constraint firstItem="eUc-8g-g1M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="LLU-zF-pq5"/>
                 <constraint firstItem="bF1-5W-LKh" firstAttribute="trailing" secondItem="eUc-8g-g1M" secondAttribute="trailing" id="Zia-7c-8mL"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eUc-8g-g1M" secondAttribute="trailing" constant="29" id="m8E-6n-nsm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eUc-8g-g1M" secondAttribute="trailing" constant="24" id="m8E-6n-nsm"/>
                 <constraint firstItem="a7u-GF-5AE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="nn0-xD-P2w"/>
                 <constraint firstItem="eUc-8g-g1M" firstAttribute="top" secondItem="a7u-GF-5AE" secondAttribute="bottom" constant="16" id="ptg-Fs-PBW"/>
                 <constraint firstItem="bF1-5W-LKh" firstAttribute="centerY" secondItem="a7u-GF-5AE" secondAttribute="centerY" id="ufX-Jl-i85"/>

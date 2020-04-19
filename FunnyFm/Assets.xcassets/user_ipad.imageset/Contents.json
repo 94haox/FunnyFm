@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "user_ipad-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,11 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "user_ipad-3.png",
+      "filename" : "user_ipad_w-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "user_ipad-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "user_ipad-4.png",
+      "filename" : "user_ipad_w-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -42,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "user_ipad-5.png",
+      "filename" : "user_ipad_w.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -25,7 +25,6 @@ def layout
     pod 'lottie-ios', '3.1.1'
 		pod 'NVActivityIndicatorView'
 		pod 'JXSegmentedView'
-		pod 'LookinServer', :configurations => ['Debug']
 		pod 'DynamicColor', '~> 4.2.0'
 		pod 'AutoInch'
     pod 'YYKit'
@@ -36,7 +35,6 @@ end
 def lib
     pod 'KeychainAccess'
 		pod 'Nuke', '~> 8.0.1'
-		pod 'EFIconFont', :subspecs => ['Complete']
 		pod 'FeedKit', '~> 8.0'
 		pod 'JPush'
 		pod 'VIMediaCache'

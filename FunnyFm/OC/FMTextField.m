@@ -27,26 +27,28 @@
 //控制placeHolder的位置，左右缩20
 -(CGRect)placeholderRectForBounds:(CGRect)bounds
 {
-    return CGRectInset(bounds, 20, 4);
+    return CGRectInset(bounds, 30, 4);
 }
 
-//控制左视图位置
+////控制左视图位置
 - (CGRect)leftViewRectForBounds:(CGRect)bounds
 {
-    
-    return CGRectInset(bounds,0,0);
+
+    CGRect iconRect = [super leftViewRectForBounds:bounds];
+    iconRect.origin.x += 5; //像右边偏15
+    return iconRect;
 }
 
 //控制编辑文本的位置
 -(CGRect)editingRectForBounds:(CGRect)bounds
 {
-    return CGRectInset( bounds, 20, 0);
+    return CGRectInset( bounds, 30, 0);
 }
 
 //控制显示文本的位置
 -(CGRect)textRectForBounds:(CGRect)bounds
 {
-    return CGRectInset(bounds, 20, 0);
+    return CGRectInset(bounds, 30, 0);
 }
 
 
