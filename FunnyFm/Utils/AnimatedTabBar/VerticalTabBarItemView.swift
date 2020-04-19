@@ -21,6 +21,7 @@ class VerticalTabBarItemView: CommonUIView {
     internal var position : Int = -1
     
     internal weak var delegate: VerticalTabBarItemViewDelegate?
+    internal var associatedController: UIViewController?
     
     private var topConstraint: NSLayoutConstraint!
     internal var isSelected : Bool! {
@@ -89,7 +90,7 @@ class VerticalTabBarItemView: CommonUIView {
     }
 
     private func configureImageView() {
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .center
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
@@ -113,8 +114,9 @@ class VerticalTabBarItemView: CommonUIView {
     }
     
     func setupView(model: AnimatedTabBarItem) {
+        self.associatedController = model.controller
         labelAndDot.label.text = model.title
-        imageView.image = model.icon.imageWithInsets(insetDimen: 4)
+        imageView.image = model.icon
     }
     
     @objc private func itemTapped(_ sender: UITapGestureRecognizer) {

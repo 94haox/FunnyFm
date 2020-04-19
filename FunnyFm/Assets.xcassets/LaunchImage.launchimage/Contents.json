@@ -47,23 +47,6 @@
     },
     {
       "extent" : "full-screen",
-      "filename" : "4.7-1.png",
-      "idiom" : "iphone",
-      "minimum-system-version" : "7.0",
-      "orientation" : "portrait",
-      "scale" : "2x"
-    },
-    {
-      "extent" : "full-screen",
-      "filename" : "4.7-2.png",
-      "idiom" : "iphone",
-      "minimum-system-version" : "7.0",
-      "orientation" : "portrait",
-      "scale" : "2x",
-      "subtype" : "retina4"
-    },
-    {
-      "extent" : "full-screen",
       "filename" : "ipad.png",
       "idiom" : "ipad",
       "minimum-system-version" : "7.0",
