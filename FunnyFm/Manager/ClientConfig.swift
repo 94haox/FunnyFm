@@ -16,10 +16,10 @@ class ClientConfig: NSObject {
     
     var controllers: [UIViewController] = []
     
-    var items = [AnimatedTabBarItem(title: "New", controller: MainViewController(), iconName: "main_ipad"),
-                 AnimatedTabBarItem(title: "Discover", controller: DiscoveryViewController(),iconName: "rss_ipad"),
-                 AnimatedTabBarItem(title: "Playlist", controller: PlayListViewController(),iconName: "playlist"),
-                 AnimatedTabBarItem(title: "User", controller: UserCenterViewController(),iconName: "user_ipad")]
+    var items = [AnimatedTabBarItem(icon: R.image.main_ipad()!,title: "New", controller: MainViewController()),
+                 AnimatedTabBarItem(icon: R.image.rss_ipad()!, title: "Discover", controller: DiscoveryViewController()),
+                 AnimatedTabBarItem(icon: R.image.playlist_ipad()!, title: "Playlist", controller: PlayListViewController()),
+                 AnimatedTabBarItem(icon: R.image.user_ipad()!, title: "User", controller: UserCenterViewController())]
     
     let tabbarVC = BaseTabBarViewController()
     

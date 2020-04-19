@@ -88,7 +88,7 @@ class AnimatedTabBarView: CommonUIView {
     }
 
     private func configureImageView() {
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .center
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)

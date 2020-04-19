@@ -19,14 +19,12 @@ internal protocol AnimatedTabBarInternalDelegate : AnyObject {
 }
 
 public struct AnimatedTabBarItem {
-    public var iconName: String
     public var icon: UIImage
     public var title: String
     public var controller: UIViewController
     
-    public init(title: String, controller: UIViewController, iconName: String) {
-        self.iconName = iconName
-        self.icon = UIImage.init(named: iconName)!
+    public init(icon: UIImage, title: String, controller: UIViewController) {
+        self.icon = icon
         self.title = title
         self.controller = controller
     }

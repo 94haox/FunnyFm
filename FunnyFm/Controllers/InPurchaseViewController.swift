@@ -11,6 +11,7 @@ import Rswift
 
 class InPurchaseViewController: BaseViewController {
 
+    var infoBtn = UIButton.init(type: .custom)
     @IBOutlet weak var featureView: UIView!
     @IBOutlet weak var restoreBtn: RoundedButton!
     @IBOutlet weak var actionStackView: UIStackView!
@@ -33,6 +34,15 @@ class InPurchaseViewController: BaseViewController {
         infoHConstraint.constant = 150.auto()
         priceTopConstraint.constant = 100.auto()
         self.featureView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
+        self.topBgView.addSubview(infoBtn)
+        self.infoBtn.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-12.auto())
+            make.centerY.equalTo(self.titleLB)
+        }
+        self.infoBtn.setTitleForAllStates("协议与条款".localized)
+        self.infoBtn.setTitleColorForAllStates(R.color.mainRed()!)
+        self.infoBtn.titleLabel?.font = pfont(fontsize2)
+        self.infoBtn.addTarget(self, action: #selector(toAboutVC), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +55,11 @@ class InPurchaseViewController: BaseViewController {
         if FMToolBar.shared.currentEpisode.isSome {
             FMToolBar.shared.isHidden = false
         }
+    }
+    
+    @objc func toAboutVC() {
+        let vc = AboutViewController()
+        self.navigationController?.pushViewController(vc)
     }
 
     @IBAction func monthAction(_ sender: RoundedButton) {
