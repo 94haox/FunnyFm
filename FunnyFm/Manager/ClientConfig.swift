@@ -29,8 +29,8 @@ class ClientConfig: NSObject {
     
     func rootController() -> UIViewController{
         AnimatedTabBarAppearance.shared.animationDuration = 0.5
-        AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
-        AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
+        AnimatedTabBarAppearance.shared.dotColor = R.color.mainRed()!
+        AnimatedTabBarAppearance.shared.textColor = R.color.mainRed()!
         
         if isIPad {
             return self.rootControllerForIpad()
@@ -42,8 +42,8 @@ class ClientConfig: NSObject {
     
     func rootControllerForIpad() -> UIViewController{
         AnimatedTabBarAppearance.shared.animationDuration = 0.5
-        AnimatedTabBarAppearance.shared.dotColor = CommonColor.mainRed.color
-        AnimatedTabBarAppearance.shared.textColor = CommonColor.mainRed.color
+        AnimatedTabBarAppearance.shared.dotColor = R.color.mainRed()!
+        AnimatedTabBarAppearance.shared.textColor = R.color.mainRed()!
         AnimatedTabBarAppearance.shared.textFont = UIFont(name: "AppleSDGothicNeo-Bold", size: 12) ?? .boldSystemFont(ofSize: 12)
         
         let mainNavi = UINavigationController.init(rootViewController: MainViewController())

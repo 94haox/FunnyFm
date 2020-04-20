@@ -68,7 +68,7 @@ class GFLimitTextView: UIView, UITextViewDelegate {
 				make.right.equalToSuperview().offset(-14)
 			}
 			
-			self.layer.borderColor = CommonColor.mainRed.color.lighter().cgColor
+			self.layer.borderColor = R.color.mainRed()!.lighter().cgColor
 			self.layer.borderWidth = 1
 			
 			UIView.animate(withDuration: 0.05, animations: {
@@ -102,7 +102,7 @@ class GFLimitTextView: UIView, UITextViewDelegate {
         
         textView = UITextView.init(frame: CGRect.zero)
         textView.font = pfont(14)
-		textView.tintColor = CommonColor.mainRed.color
+		textView.tintColor = R.color.mainRed()!
 		textView.textColor = CommonColor.content.color
         textView.delegate = self
 		textView.backgroundColor = UIColor.clear
@@ -125,7 +125,7 @@ class GFLimitTextView: UIView, UITextViewDelegate {
 	
         limitLB.text = placeText
         limitLB.font = numFont(10)
-		limitLB.textColor = CommonColor.mainRed.color
+		limitLB.textColor = R.color.mainRed()!
 		limitLB.text = "0/\(limitTextNum)"
 		addSubview(limitLB)
 		limitLB.snp.makeConstraints { (make) in

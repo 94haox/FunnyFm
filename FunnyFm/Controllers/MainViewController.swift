@@ -29,8 +29,6 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	
     var emptyView: MainEmptyView = MainEmptyView.init(frame: CGRect.zero)
     
-	var searchBtn : UIButton = UIButton.init(type: .custom)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.view.backgroundColor = CommonColor.white.color
@@ -299,7 +297,7 @@ extension MainViewController{
 		}
 		
 		let line = UIView.init()
-		line.backgroundColor = CommonColor.mainRed.color
+		line.backgroundColor = R.color.mainRed()!
 		view.addSubview(line)
 		line.snp.makeConstraints { (make) in
 			make.centerX.equalTo(view)
@@ -412,15 +410,7 @@ extension MainViewController {
             make.size.equalTo(CGSize.init(width:30.auto(), height: 30.auto()))
 			make.centerY.equalTo(self.titleLB);
             make.left.equalTo(self.titleLB.snp.right).offset(20.auto())
-		}
-		
-		self.view.addSubview(self.searchBtn)
-		
-		self.searchBtn.snp.makeConstraints { (make) in
-		   make.size.equalTo(CGSize.init(width: 40, height: 40))
-		   make.right.equalToSuperview().offset(-16)
-		   make.centerY.equalTo(self.titleLB)
-		}
+		}		
     }
     
     func dw_addViews(){
@@ -457,10 +447,7 @@ extension MainViewController {
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
 		
-		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: CommonColor.mainRed.color, padding: 2);
-		
-		self.searchBtn.setBackgroundImage(UIImage.init(named: "search"), for: .normal)
-		self.searchBtn.addTarget(self, action: #selector(toSearch), for: .touchUpInside)
+		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: R.color.mainRed()!, padding: 2);
     }
     
 }

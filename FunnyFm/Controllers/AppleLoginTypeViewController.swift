@@ -35,7 +35,7 @@ class AppleLoginTypeViewController: UIViewController {
 		self.emailBtn.addTarget(self, action: #selector(loginWithEmail), for: .touchUpInside)
 		self.emailBtn.setTitle("邮箱登录".localized, for: .normal)
 		self.emailBtn.titleLabel?.font = p_bfont(12)
-		self.emailBtn.setTitleColor(CommonColor.mainRed.color, for: .normal)
+		self.emailBtn.setTitleColor(R.color.mainRed()!, for: .normal)
 		self.tipLB.font = pfont(10)
 		self.tipLB.textColor = CommonColor.content.color
 		

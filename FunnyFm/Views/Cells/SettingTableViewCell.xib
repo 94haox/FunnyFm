@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +28,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.12941176469999999" blue="0.3803921569" alpha="0.89830372431506844" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="mainRed"/>
                         <constraints>
                             <constraint firstItem="SsO-nH-Mqp" firstAttribute="centerY" secondItem="e7f-zc-q0o" secondAttribute="centerY" id="j93-0z-cmA"/>
                             <constraint firstItem="SsO-nH-Mqp" firstAttribute="centerX" secondItem="e7f-zc-q0o" secondAttribute="centerX" id="nZG-cr-M0d"/>
@@ -96,4 +97,9 @@
             <point key="canvasLocation" x="42" y="153"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="mainRed">
+            <color red="1" green="0.0" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

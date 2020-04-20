@@ -23,7 +23,7 @@ public func configureNavigationTabBar() {
 }
 
 public func configureTextfield(){
-	UITextField.appearance().tintColor = CommonColor.mainRed.color
+	UITextField.appearance().tintColor = R.color.mainRed()!
 }
 
 public func configPlayBackgroungMode(){

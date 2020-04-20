@@ -80,7 +80,7 @@ class NoteEditViewController: UIViewController {
 		}
 		self.selectedBtn = sender
 		self.selectedBtn!.isSelected = true
-		self.selectedBtn!.backgroundColor = CommonColor.mainRed.color
+		self.selectedBtn!.backgroundColor = R.color.mainRed()!
 	}
 
 

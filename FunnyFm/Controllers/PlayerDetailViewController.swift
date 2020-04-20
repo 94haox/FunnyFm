@@ -598,7 +598,7 @@ extension PlayerDetailViewController {
         self.playBtn.isSelected = FMPlayerManager.shared.isPlay
         self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
         self.playBtn.cornerRadius = 30.auto()
-        self.playBtn.addShadow(ofColor: CommonColor.mainRed.color, radius: 20.auto(), offset: CGSize.zero, opacity: 0.8)
+        self.playBtn.addShadow(ofColor: R.color.mainRed()!, radius: 20.auto(), offset: CGSize.zero, opacity: 0.8)
         self.view.addSubview(self.playBtn)
         
         self.rewindBtn = UIButton.init(type: .custom)

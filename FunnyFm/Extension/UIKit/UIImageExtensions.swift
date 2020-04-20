@@ -200,6 +200,11 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return tintedImage!
     }
+    
+    var tintImage : UIImage {
+        return self.withRenderingMode(.alwaysTemplate)
+    }
+    
 
     /// SwifterSwift: UIImage with rounded corners
     ///

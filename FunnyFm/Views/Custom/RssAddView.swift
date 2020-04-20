@@ -80,14 +80,14 @@ extension RssAddView {
 		self.addBtn.setTitleColorForAllStates(.white)
 		self.addBtn.titleLabel?.font = p_bfont(fontsize3)
 		self.addBtn.cornerRadius = 5
-		self.addBtn.backgroundColor = CommonColor.mainRed.color
+		self.addBtn.backgroundColor = R.color.mainRed()!
 		self.addBtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 30.auto())
 		self.addBtn.addTarget(self, action: #selector(addAction), for: .touchUpInside)
 		
 		self.inputTextField.attributedPlaceholder = FunnyFm.attributePlaceholder("输入 RSS 链接")
-		self.inputTextField.tintColor = CommonColor.mainRed.color
+		self.inputTextField.tintColor = R.color.mainRed()!
 		self.inputTextField.delegate = self
-		self.inputTextField.borderColor = CommonColor.mainRed.color
+		self.inputTextField.borderColor = R.color.mainRed()!
 		self.inputTextField.borderWidth = 0.5
 		self.inputTextField.cornerRadius = 5
 		self.inputTextField.textColor = CommonColor.content.color

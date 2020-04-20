@@ -21,7 +21,7 @@ class ProgressHUD: UIView {
 		super.init(frame: frame)
 		self.alpha = 0
 		self.layer.cornerRadius = 5
-		self.backgroundColor = CommonColor.mainRed.color
+		self.backgroundColor = R.color.mainRed()!
 		self.addSubview(self.titleLB)
 		self.titleLB.snp.makeConstraints { (make) in
 			make.center.equalToSuperview()

@@ -141,7 +141,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.mainScrollView.delegate = self
 		self.addSubview(self.mainScrollView)
 		
-		self.pageControl.currentPageIndicatorTintColor = CommonColor.mainRed.color
+		self.pageControl.currentPageIndicatorTintColor = R.color.mainRed()!
 		self.pageControl.pageIndicatorTintColor = UIColor.init(hex: "c1bdbe")
 		self.pageControl.numberOfPages = 1;
 		self.pageControl.currentPage = 0
@@ -176,11 +176,11 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		self.subBtn.setTitle("已订阅".localized, for: .normal)
 		self.subBtn.setTitleColor(.white, for: .normal)
 		self.subBtn.setTitle("订阅".localized, for: .selected)
-		self.subBtn.setTitleColor(CommonColor.mainRed.color, for: .selected)
-		self.subBtn.backgroundColor = CommonColor.mainRed.color
+		self.subBtn.setTitleColor(R.color.mainRed()!, for: .selected)
+		self.subBtn.backgroundColor = R.color.mainRed()!
 		self.subBtn.titleLabel?.font = p_bfont(10.auto())
 		self.subBtn.borderWidth = 1;
-		self.subBtn.borderColor = CommonColor.mainRed.color
+		self.subBtn.borderColor = R.color.mainRed()!
 		self.subBtn.cornerRadius = 5
 		self.subBtn.addTarget(self, action: #selector(subscribtionAction), for: .touchUpInside)
 		self.addSubview(self.subBtn)

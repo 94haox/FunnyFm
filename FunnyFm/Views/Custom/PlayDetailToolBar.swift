@@ -247,7 +247,7 @@ extension PlayDetailToolBar {
 	func dw_addSubviews(){
 		
 		self.airBtn = AVRoutePickerView.init(frame: CGRect.zero)
-		self.airBtn.activeTintColor = CommonColor.mainRed.color
+		self.airBtn.activeTintColor = R.color.mainRed()!
 		self.airBtn.tintColor = CommonColor.title.color
 		self.addSubview(self.airBtn)
 		
@@ -255,7 +255,7 @@ extension PlayDetailToolBar {
 		let bezier = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 45.auto(), height: 45.auto()))
 		self.downProgressLayer.path = bezier.cgPath
 		self.downProgressLayer.fillColor = UIColor.clear.cgColor;
-		self.downProgressLayer.strokeColor = CommonColor.mainRed.color.cgColor;
+		self.downProgressLayer.strokeColor = R.color.mainRed()!.cgColor;
 		self.downProgressLayer.strokeStart = 0
 		self.downProgressLayer.strokeEnd = 0
 		self.downProgressLayer.cornerRadius = 3

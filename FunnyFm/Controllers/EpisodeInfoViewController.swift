@@ -232,8 +232,8 @@ extension EpisodeInfoViewController {
 						}
 						
 						if key == .link {
-							attrStr?.addAttributes([.foregroundColor : CommonColor.mainRed.color], range: range)
-							attrStr?.addAttributes([.strokeColor : CommonColor.mainRed.color], range: range)
+							attrStr?.addAttributes([.foregroundColor : R.color.mainRed()!], range: range)
+							attrStr?.addAttributes([.strokeColor : R.color.mainRed()!], range: range)
 						}
 					})
 				}
@@ -407,18 +407,18 @@ extension EpisodeInfoViewController {
 		self.authorLB.textColor = CommonColor.content.color
 		self.authorLB.font = p_bfont(10)
 		
-		self.playBtn.backgroundColor = CommonColor.mainRed.color
+		self.playBtn.backgroundColor = R.color.mainRed()!
 		self.playBtn.cornerRadius = 8
 		self.playBtn.setTitle("播放".localized, for: .normal)
 		self.playBtn.setTitle("暂停".localized, for: .selected)
 		self.playBtn.titleLabel?.font = pfont(fontsize4)
 		self.playBtn.addTarget(self, action: #selector(playAction), for: .touchUpInside)
 		
-		self.tipLB.textColor = CommonColor.mainRed.color
+		self.tipLB.textColor = R.color.mainRed()!
 		self.tipLB.font = p_bfont(10)
 		
 		self.insertBtn.setTitleForAllStates("插播".localized)
-		self.insertBtn.setTitleColorForAllStates(CommonColor.mainRed.color)
+		self.insertBtn.setTitleColorForAllStates(R.color.mainRed()!)
 		self.insertBtn.setImageForAllStates(UIImage.init(named: "playlist_insert")!)
 		self.insertBtn.titleLabel?.font = pfont(fontsize4)
 		self.insertBtn.addTarget(self, action: #selector(insertAction), for: .touchUpInside)
@@ -429,7 +429,7 @@ extension EpisodeInfoViewController {
 
 		self.addBtn.setTitle("从待播中移出".localized, for: .selected)
 		self.addBtn.setTitle("待播".localized, for: .normal)
-		self.addBtn.setTitleColorForAllStates(CommonColor.mainRed.color)
+		self.addBtn.setTitleColorForAllStates(R.color.mainRed()!)
 		self.addBtn.setImageForAllStates(UIImage.init(named: "playlist_nor")!)
 		self.addBtn.titleLabel?.font = pfont(fontsize4)
 		self.addBtn.addTarget(self, action: #selector(addAction), for: .touchUpInside)

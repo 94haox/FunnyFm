@@ -84,7 +84,7 @@ class DownloadListViewController: BaseViewController {
 	lazy var deleteBtn: UIButton = {
 		let btn = UIButton.init(type: UIButton.ButtonType.custom)
 		btn.addTarget(self, action: #selector(deleteAll), for: UIControl.Event.touchUpInside)
-		btn.backgroundColor = CommonColor.mainRed.color
+		btn.backgroundColor = R.color.mainRed()!
 		btn.setTitle("删除全部".localized, for: UIControl.State.normal)
 		btn.titleLabel?.font = p_bfont(fontsize0)
 		btn.cornerRadius = 5

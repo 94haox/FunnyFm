@@ -23,7 +23,7 @@ class DWSegment: UIControl {
 	
 	var isOn: Bool = false
 	
-	var selectColor: UIColor = CommonColor.mainRed.color
+	var selectColor: UIColor = R.color.mainRed()!
 	
 	convenience init() {
 		self.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 40))
@@ -120,7 +120,7 @@ extension DWSegment {
 		self.rightBtn.setTitleColor(.white, for: .selected)
 		self.contaniner.cornerRadius = self.containerCornerRadius
 		self.contaniner.backgroundColor = CommonColor.whiteBackgroud.color
-		self.squareView.backgroundColor = CommonColor.mainRed.color
+		self.squareView.backgroundColor = R.color.mainRed()!
 		self.squareView.cornerRadius = self.containerCornerRadius;
 		
 		self.addSubview(self.contaniner)

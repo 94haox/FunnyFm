@@ -14,7 +14,7 @@ class HistoryProgressBar: UIView {
 	
 	let progressView = UIView()
 	
-	var progressColor = CommonColor.mainRed.color
+	var progressColor = R.color.mainRed()!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()

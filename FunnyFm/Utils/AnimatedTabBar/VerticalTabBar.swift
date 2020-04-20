@@ -22,6 +22,7 @@ protocol VerticalTabBarInternalDelegate : AnyObject {
 open class VerticalTabBar: CommonUIView {
     var itemViews = [VerticalTabBarItemView]()
     var contentView : UIView!
+    var leftView: UIView!
     var stackView: UIStackView!
     open weak var delegate: VerticalTabBarDelegate?
     weak var internalDelegate : VerticalTabBarInternalDelegate?
@@ -39,6 +40,7 @@ open class VerticalTabBar: CommonUIView {
         super.commonInit()
         contentView = UIView()
         stackView = UIStackView()
+        leftView = UIView()
         self.backgroundColor = CommonColor.white.color
     }
     
@@ -47,6 +49,7 @@ open class VerticalTabBar: CommonUIView {
         configureContentView()
         if delegate?.vNumberOfItems ?? 0 > 0 {
             configureStackView()
+            configureLeftView()
             fillStackView()
         }
     }
@@ -82,6 +85,17 @@ open class VerticalTabBar: CommonUIView {
         }
     }
     
+    func configureLeftView() {
+        leftView.backgroundColor = R.color.mainRed()
+        addSubview(leftView)
+        leftView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.height.equalTo(35.auto())
+            make.width.equalTo(6.auto())
+            make.centerY.equalToSuperview()
+        }
+    }
+    
     private func fillStackView() {
         for i in 0 ..< ( delegate?.vNumberOfItems ?? 0 ) {
             if let item = delegate?.vTabBar(self, itemFor: i) {
@@ -102,6 +116,12 @@ open class VerticalTabBar: CommonUIView {
             selected?.isSelected = false
             selected = stackView.arrangedSubviews[position] as? VerticalTabBarItemView
             selected?.isSelected = true
+            leftView.snp.remakeConstraints { (make) in
+                make.left.equalToSuperview()
+                make.height.equalTo(35.auto())
+                make.width.equalTo(6.auto())
+                make.centerY.equalTo(selected!)
+            }
         }
     }
 }

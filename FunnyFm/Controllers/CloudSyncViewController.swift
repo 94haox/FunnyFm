@@ -136,7 +136,7 @@ extension CloudSyncViewController {
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
 		self.syncBtn.animationType = 3
-		self.syncBtn.backgroundFillColor = CommonColor.mainRed.color
+		self.syncBtn.backgroundFillColor = R.color.mainRed()!
 		self.syncBtn.backgroundColor = .black
 		self.syncBtn.setTitleColor(.white, for: .normal)
 		self.syncBtn.setTitle("同步订阅".localized, for: .normal)

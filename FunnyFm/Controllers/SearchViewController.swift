@@ -187,7 +187,7 @@ extension SearchViewController {
 		self.searchTF.attributedPlaceholder = FunnyFm.attributePlaceholder("搜索播客".localized)
 		self.searchTF.font = pfont(14)
 		self.searchTF.textColor = CommonColor.title.color
-        let imageView = UIImageView.init(image: UIImage.init(systemName: "magnifyingglass"))
+        let imageView = UIImageView.init(image: UIImage.init(systemName: "magnifyingglass.circle.fill"))
         self.searchTF.leftView = imageView
         self.searchTF.leftViewMode = .always
         self.searchTF.clearButtonMode = .whileEditing

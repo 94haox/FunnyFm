@@ -38,7 +38,7 @@ class MainEmptyView: UIView {
         self.addBtn = UIButton.init(type: .custom)
         addBtn.setTitle("发现播客".localized, for: .normal)
         addBtn.setTitleColor(.white, for: .normal)
-        addBtn.backgroundColor = CommonColor.mainRed.color
+        addBtn.backgroundColor = R.color.mainRed()!
         addBtn.cornerRadius = 15.0
         addBtn.titleLabel?.font = p_bfont(14);
         addBtn.addTarget(self, action: #selector(btnAction), for: .touchUpInside)

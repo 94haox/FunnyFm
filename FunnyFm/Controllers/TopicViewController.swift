@@ -121,13 +121,13 @@ extension TopicViewController {
 		segmentedView = JXSegmentedView()
 		segmentedView.delegate = self
 		segmentedDataSource = JXSegmentedTitleDataSource()
-		segmentedDataSource.titleSelectedColor = CommonColor.mainRed.color
+		segmentedDataSource.titleSelectedColor = R.color.mainRed()!
 		segmentedDataSource.titleNormalColor = CommonColor.content.color
 		segmentedDataSource.isTitleColorGradientEnabled = true
 		segmentedDataSource.titles = self.vm.topics
 		segmentedView.dataSource = self.segmentedDataSource
 		let indicator = JXSegmentedIndicatorLineView()
-		indicator.indicatorColor = CommonColor.mainRed.color
+		indicator.indicatorColor = R.color.mainRed()!
 		segmentedView.indicators = [indicator]
 		view.addSubview(self.segmentedView)
 		

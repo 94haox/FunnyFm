@@ -68,7 +68,7 @@ class PodDetailViewController: BaseViewController {
 	@objc func subscribtionAction() {
 		ImpactManager.impact()
 		self.infoView.subBtn.isSelected = !self.infoView.subBtn.isSelected;
-		self.infoView.subBtn.backgroundColor = self.infoView.subBtn.isSelected ? .white : CommonColor.mainRed.color
+		self.infoView.subBtn.backgroundColor = self.infoView.subBtn.isSelected ? .white : R.color.mainRed()!
 	}
 	
 	func toDetail(episode: Episode) {
@@ -273,8 +273,9 @@ extension PodDetailViewController {
         self.loadingView = UIActivityIndicatorView.init(style: .medium)
 		self.loadingView.startAnimating()
 		
-        self.sortedBtn.setImage(UIImage.init(named: "sort_down"), for: .normal)
-        self.sortedBtn.setImage(UIImage.init(named: "sort_up"), for: .selected)
+        self.sortedBtn.setImage(UIImage.init(named: "sort_down")?.tintImage, for: .normal)
+        self.sortedBtn.setImage(UIImage.init(named: "sort_up")?.tintImage, for: .selected)
+        self.sortedBtn.tintColor = R.color.mainRed()
         self.sortedBtn.addTarget(self, action: #selector(sorted(btn:)), for: .touchUpInside)
         
         self.wallBtn.setImageForAllStates(UIImage.init(named: "greatwall")!)

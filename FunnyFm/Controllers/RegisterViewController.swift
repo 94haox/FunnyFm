@@ -120,7 +120,7 @@ extension RegisterViewController {
     func setupUI() {
         self.mailTF = FMTextField.init(frame: CGRect.zero)
         self.mailTF.cornerRadius = 15;
-        self.mailTF.tintColor = CommonColor.mainRed.color
+        self.mailTF.tintColor = R.color.mainRed()!
         self.mailTF.backgroundColor = CommonColor.cellbackgroud.color
         self.mailTF.attributedPlaceholder = FunnyFm.attributePlaceholder("邮箱".localized)
         self.mailTF.returnKeyType = .done
@@ -131,7 +131,7 @@ extension RegisterViewController {
         
         self.passTF = FMTextField.init(frame: CGRect.zero)
         self.passTF.cornerRadius = 15;
-        self.passTF.tintColor = CommonColor.mainRed.color
+        self.passTF.tintColor = R.color.mainRed()!
         self.passTF.backgroundColor = CommonColor.cellbackgroud.color
         self.passTF.attributedPlaceholder = FunnyFm.attributePlaceholder("密码（6位）".localized)
         self.passTF.returnKeyType = .done

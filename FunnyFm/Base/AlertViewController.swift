@@ -11,8 +11,8 @@ import UIKit
 class AlertViewController: CleanyAlertViewController {
 	
 	override init(config: CleanyAlertConfig) {
-		config.styleSettings[.tintColor] = CommonColor.mainRed.color
-		config.styleSettings[.destructiveColor] = CommonColor.mainRed.color
+        config.styleSettings[.tintColor] = R.color.mainRed()!
+		config.styleSettings[.destructiveColor] = R.color.mainRed()!
 		super.init(config: config)
 	}
 	required init?(coder aDecoder: NSCoder) {

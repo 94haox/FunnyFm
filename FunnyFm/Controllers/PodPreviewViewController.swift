@@ -197,7 +197,7 @@ extension PodPreviewViewController {
 		if !UIDevice.current.systemVersion.hasPrefix("13.") {
 			self.backBtn.setImageForAllStates(UIImage.init(named: "back-white")!)
 			self.backBtn.cornerRadius = 5
-			self.backBtn.backgroundColor = CommonColor.mainRed.color
+			self.backBtn.backgroundColor = R.color.mainRed()!
 			self.backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
 			self.view.addSubview(self.backBtn)
 			

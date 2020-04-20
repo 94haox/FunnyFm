@@ -24,7 +24,7 @@ class DWSwitch: UIControl {
 	
 	var isOn: Bool = false
 	
-	var selectColor: UIColor = CommonColor.mainRed.color
+	var selectColor: UIColor = R.color.mainRed()!
 	
 	convenience init() {
 		self.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 40))
@@ -106,7 +106,7 @@ extension DWSwitch {
 		
 		UIView.animate(withDuration: 0.2, animations: {
 			self.layoutIfNeeded()
-			self.graySquare.backgroundColor = CommonColor.mainRed.color
+			self.graySquare.backgroundColor = R.color.mainRed()!
 		}) { (complete) in
 			self.selectLayer.isHidden = false
 		}

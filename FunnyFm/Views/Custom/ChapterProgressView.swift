@@ -33,7 +33,7 @@ class ChapterProgressView: UIView {
     var cycleW: CGFloat = 20 {
         didSet{
             self.nowCycle.cornerRadius = cycleW/2.0
-            self.nowCycle.addShadow(ofColor: CommonColor.mainRed.color)
+            self.nowCycle.addShadow(ofColor: R.color.mainRed()!)
             self.nowCycle.snp.updateConstraints { (make) in
                 make.size.equalTo(CGSize.init(width: cycleW, height: cycleW))
             }
@@ -67,7 +67,7 @@ class ChapterProgressView: UIView {
         self.addSubview(self.allDot)
         self.addSubview(self.nowDot)
         self.addSubview(self.nowCycle)
-		self.currentProgress.addShadow(ofColor: CommonColor.mainRed.color, radius: 5, offset: CGSize.init(width: 2, height: 4), opacity: 0.6)
+		self.currentProgress.addShadow(ofColor: R.color.mainRed()!, radius: 5, offset: CGSize.init(width: 2, height: 4), opacity: 0.6)
         
         self.nowDot.snp.makeConstraints { (make) in
             make.top.equalTo(self.nowCycle.snp.bottom).offset(4)
@@ -104,7 +104,7 @@ class ChapterProgressView: UIView {
     
     lazy var nowCycle : UIView = {
         let view = UIView.init()
-        view.backgroundColor = CommonColor.mainRed.color
+        view.backgroundColor = R.color.mainRed()!
         view.borderWidth = 5
         view.borderColor = .white
         return view
@@ -135,7 +135,7 @@ class ChapterProgressView: UIView {
     
     lazy var currentProgress: UIView = {
         let view = UIView.init()
-        view.backgroundColor = CommonColor.mainRed.color
+        view.backgroundColor = R.color.mainRed()!
         view.cornerRadius = 3
         return view;
     }()

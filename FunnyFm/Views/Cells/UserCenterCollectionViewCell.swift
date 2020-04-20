@@ -23,12 +23,13 @@ class UserCenterCollectionViewCell: UICollectionViewCell {
         self.addShadow(ofColor: R.color.background()!, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.backgroundColor = R.color.whiteBackground()
         self.imageBackgroundView.backgroundColor = R.color.ffWhite()
+        self.logoImageView.tintColor = R.color.mainRed()!
     }
     
     func configCell(_ dic: [String:String]){
         self.titleLB.text = dic["title"]
         self.subtitleLB.text = dic["subtitle"]
-        self.logoImageView.image = UIImage.init(named: dic["imageName"]!)
+        self.logoImageView.image = UIImage.init(named: dic["imageName"]!)?.tintImage
     }
     
     

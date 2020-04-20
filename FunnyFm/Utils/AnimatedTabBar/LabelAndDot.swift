@@ -43,6 +43,7 @@ class LabelAndDot: CommonUIView {
     }
     
     private func configureDot() {
+        dot.isHidden = true
         dot.backgroundColor = AnimatedTabBarAppearance.shared.dotColor
         dot.layer.cornerRadius = 2
         

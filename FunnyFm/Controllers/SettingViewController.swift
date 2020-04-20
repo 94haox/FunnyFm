@@ -154,13 +154,10 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
     
     @objc func updateAccountStatus(){
-        guard !ClientConfig.shared.isIPad else {
-            return
-        }
         if UserCenter.shared.isLogin {
-            logoutBtn.setTitle("退出登录".localized, for: .normal)
+            logoutBtn.setTitleForAllStates("退出登录".localized)
         }else{
-            logoutBtn.setTitle("登录".localized, for: .normal)
+            logoutBtn.setTitleForAllStates("登录".localized)
         }
     }
     
@@ -364,7 +361,7 @@ extension SettingViewController {
 		self.versionLB.textColor = CommonColor.content.color
         
         self.logoutBtn = UIButton.init(type: .custom)
-        logoutBtn.setTitleColor(.white, for: .normal)
+        logoutBtn.setTitleColorForAllStates(.white)
         logoutBtn.backgroundColor = R.color.mainRed()
         logoutBtn.cornerRadius = 5.0
         logoutBtn.titleLabel?.font = p_bfont(12);

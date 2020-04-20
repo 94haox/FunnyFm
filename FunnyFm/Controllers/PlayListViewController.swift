@@ -140,7 +140,7 @@ extension PlayListViewController {
 		self.tipLB.textColor = CommonColor.content.color
 		self.tipLB.font = pfont(12)
 		
-		self.countLB.textColor = CommonColor.mainRed.color
+		self.countLB.textColor = R.color.mainRed()!
 		self.countLB.font = p_bfont(12)
 		
 		self.view.addSubview(self.tableview)
