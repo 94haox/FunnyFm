@@ -111,7 +111,7 @@ class AnimatedTabBarView: CommonUIView {
         labelAndDot.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
         labelAndDot.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
     }
-    
+        
     func setupView(model: AnimatedTabBarItem) {
         self.associatedController = model.controller
         labelAndDot.label.text = model.title

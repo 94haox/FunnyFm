@@ -14,7 +14,6 @@ protocol VerticalTabBarItemViewDelegate: AnyObject {
 
 
 class VerticalTabBarItemView: CommonUIView {
-
     private var contentView: UIView!
     private var imageView: UIImageView!
     private var labelAndDot : LabelAndDot!
@@ -112,6 +111,7 @@ class VerticalTabBarItemView: CommonUIView {
             make.top.equalTo(imageView.snp_bottom)
         }
     }
+
     
     func setupView(model: AnimatedTabBarItem) {
         self.associatedController = model.controller

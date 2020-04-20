@@ -29,9 +29,7 @@ class FeedManager: NSObject {
 		return DatabaseManager.allItunsPod()
 	}()
 	
-	lazy var episodeList : [[Any]] = {
-		return []
-	}()
+	var episodeList = [[Any]]()
     
     var waitingPodlist: [iTunsPod] = [iTunsPod]()
     
@@ -100,13 +98,11 @@ extension FeedManager {
 	
     func removeDonePodcast(noti: Notification) {
         let info = noti.userInfo!
-        let semp = DispatchSemaphore.init(value: 1)
-        if semp.wait(timeout: DispatchTime.distantFuture) == .success {
-            self.waitingPodlist.removeAll { (podcast) -> Bool in
-                return podcast.feedUrl == info["feedUrl"] as! String
-            }
-        }
-        semp.signal()
+        
+        objc_sync_enter(self)
+        self.waitingPodlist.removeAll { return $0.feedUrl == info["feedUrl"] as! String }
+        objc_sync_exit(self)
+        
         
         self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
         DispatchQueue.main.async {
@@ -249,7 +245,10 @@ extension FeedManager {
                 sortEpisodeList.append(list!)
             }
         }
-        self.episodeList = sortEpisodeList
+        let serialQueue = DispatchQueue(label: "com.sort.mySerialQueue")
+        serialQueue.sync {
+            self.episodeList = sortEpisodeList
+        }
 	}
 	
 }

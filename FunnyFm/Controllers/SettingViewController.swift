@@ -365,7 +365,7 @@ extension SettingViewController {
         
         self.logoutBtn = UIButton.init(type: .custom)
         logoutBtn.setTitleColor(.white, for: .normal)
-        logoutBtn.backgroundColor = CommonColor.mainRed.color
+        logoutBtn.backgroundColor = R.color.mainRed()
         logoutBtn.cornerRadius = 5.0
         logoutBtn.titleLabel?.font = p_bfont(12);
         logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
