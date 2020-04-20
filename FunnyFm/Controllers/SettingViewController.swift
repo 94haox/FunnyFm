@@ -154,9 +154,6 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     }
     
     @objc func updateAccountStatus(){
-        guard !ClientConfig.shared.isIPad else {
-            return
-        }
         if UserCenter.shared.isLogin {
             logoutBtn.setTitle("退出登录".localized, for: .normal)
         }else{
