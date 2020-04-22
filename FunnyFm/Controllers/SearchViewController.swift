@@ -33,6 +33,7 @@ class SearchViewController: UIViewController {
 
 
 extension SearchViewController : PodListViewModelDelegate {
+    
 	func didSyncSuccess(index: Int) {
 
 	}

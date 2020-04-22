@@ -199,7 +199,7 @@
         <image name="private" width="21.333333969116211" height="21.333333969116211"/>
         <image name="public" width="21.333333969116211" height="21.333333969116211"/>
         <namedColor name="mainRed">
-            <color red="1" green="0.0" blue="0.3059999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.0" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

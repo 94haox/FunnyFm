@@ -12,9 +12,15 @@ import pop
 
 let toolbarH: CGFloat = ClientConfig.shared.isIPad ? 80.auto() : 55
 
+let progressH = ClientConfig.shared.isIPad ? 10 : 4
+
+let shinkRect = CGRect.init(x: 0, y: kScreenHeight - toolbarH, width: kScreenWidth, height: toolbarH+bottomSafeAreaHeight)
+
+let explainRect = CGRect.init(x: 0, y: kScreenHeight - heightOfStackView - bottomSafeAreaHeight - toolbarH, width: kScreenWidth, height: toolbarH)
+
 class FMToolBar: UIView , FMPlayerManagerDelegate{
 
-    static let shared = ClientConfig.shared.isIPad ? FMToolBar(frame: CGRect.zero) : FMToolBar(frame: CGRect.init(x: 16, y: kScreenHeight-80, width: kScreenWidth-32 , height: toolbarH))
+    static let shared = ClientConfig.shared.isIPad ? FMToolBar(frame: CGRect.zero) : FMToolBar(frame: explainRect)
 
 	var isPlaying: Bool = false
 	
@@ -37,6 +43,8 @@ class FMToolBar: UIView , FMPlayerManagerDelegate{
     var containerView: UIView!
     
     var playBtn : UIButton!
+    
+    var explainBtn = UIButton.init(type: .custom)
     
     var titleLB : UILabel!
     
@@ -144,7 +152,6 @@ extension FMToolBar {
 	
 }
 
-
 // MARK: FMPlayerManagerDelegate
 extension FMToolBar {
     
@@ -231,7 +238,7 @@ extension FMToolBar{
             DatabaseManager.add(history: chapter)
             self.currentEpisode = chapter
         }
-		self.progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: self.height)
+        self.progressBg.frame = CGRect.init(x: 0, y: Int(toolbarH) - progressH, width: 0, height: progressH)
         self.titleLB.text = chapter.title
 		self.logoImageView.loadImage(url: (self.currentEpisode?.coverUrl)!, placeholder: nil) {[unowned self] (image) in
 			self.configShadowColor()
@@ -265,8 +272,6 @@ extension FMToolBar{
 
 extension FMToolBar {
     
-    
-    
     func shrink(){
         guard !ClientConfig.shared.isIPad else {
             return
@@ -275,7 +280,7 @@ extension FMToolBar {
         let animationTime = 0.3
 	
         UIView.animate(withDuration: animationTime, animations: {
-			self.frame = CGRect.init(x: 16, y: kScreenHeight - toolbarH - self.bottomInset, width: kScreenWidth - 32, height: toolbarH)
+			self.frame = shinkRect
         }) { (isComplete) in
             self.isShrink = true
         }
@@ -289,7 +294,7 @@ extension FMToolBar {
         let animationTime = 0.3
 		
         UIView.animate(withDuration: animationTime, animations: {
-			self.frame = CGRect.init(x: 16, y: kScreenHeight - toolbarH*2 - self.bottomInset - 12, width: kScreenWidth-24, height: toolbarH)
+			self.frame = explainRect
         }) { (isComplete) in
             self.containerView.isHidden = false
             self.isShrink = false
@@ -303,8 +308,6 @@ extension FMToolBar {
 extension FMToolBar {
     
     func addConstraints(){
-        self.backgroundColor = CommonColor.whiteBackgroud.color
-        self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
         if ClientConfig.shared.isIPad {
             self.addConstraintsForIPad()
         }else{
@@ -313,6 +316,9 @@ extension FMToolBar {
     }
     
     func addConstraintsForIPad() {
+        self.backgroundColor = CommonColor.whiteBackgroud.color
+        self.addShadow(ofColor: UIColor.lightGray, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 0.5)
+        self.playBtn.tintColor = R.color.mainRed()
         self.addSubview(self.containerView)
         self.addSubview(self.logoImageView)
         self.containerView.addSubview(self.titleLB)
@@ -347,19 +353,23 @@ extension FMToolBar {
     }
     
     func addConstraintsForIphone() {
-        self.cornerRadius = 8.0
+        self.titleLB.textColor = .white
         self.addSubview(self.containerView)
-        self.addSubview(self.logoImageView)
+        self.containerView.addSubview(self.logoImageView)
         self.containerView.addSubview(self.titleLB)
-        self.addSubview(self.playBtn)
-        self.addSubview(self.loadingView)
-
-        self.containerView.cornerRadius = 8.0
-        self.containerView.layer.masksToBounds = true
-		
+        self.containerView.addSubview(self.playBtn)
+        self.containerView.addSubview(self.loadingView)
+        self.containerView.addSubview(self.explainBtn)
+        
+        let path = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: .topLeft, cornerRadii: CGSize.init(width: 25, height: 25))
+        let maskLayer = CAShapeLayer.init()
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+        self.backgroundColor = R.color.mainRed()
 		
         self.containerView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.left.width.equalToSuperview()
+            make.height.equalTo(toolbarH)
         }
         
         self.titleLB.snp.makeConstraints { (make) in
@@ -368,9 +378,15 @@ extension FMToolBar {
 			make.centerY.equalToSuperview()
         }
         
+        self.explainBtn.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.size.equalTo(CGSize.init(width: 25, height: 25))
+        }
+        
         self.logoImageView.snp.makeConstraints { (make) in
 			make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(16)
+            make.left.equalTo(self.explainBtn.snp.right).offset(12.auto())
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         }
         
@@ -389,13 +405,12 @@ extension FMToolBar {
     }
 	
     func setUpUI() {
-		
 		self.containerView = UIView()
 		self.playBtn = UIButton.init(type: .custom)
-        self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
-        self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
-        self.playBtn.backgroundColor = .white
-        self.playBtn.cornerRadius = 15
+        let config = UIImage.SymbolConfiguration.init(pointSize: 60, weight: .medium)
+        self.playBtn.setImage(UIImage.init(systemName: "play.circle.fill", withConfiguration: config)?.tintImage, for: .normal)
+        self.playBtn.setImage(UIImage.init(systemName: "pause.circle.fill", withConfiguration: config)?.tintImage, for: .selected)
+        self.playBtn.tintColor = .white
         self.playBtn.isHidden = true
         self.playBtn.addTarget(self, action: #selector(didTapPlayBtnAction(btn:)), for: .touchUpInside)
                 
@@ -408,16 +423,18 @@ extension FMToolBar {
         self.logoImageView.layer.shadowOpacity = 0.5
         self.logoImageView.layer.shadowOffset = CGSize.init(width: 2, height: 10)
         self.logoImageView.layer.shadowRadius = 10
-        
-        self.loadingView = UIActivityIndicatorView.init(style: .medium)
+        self.loadingView = UIActivityIndicatorView.init(style: .white)
         self.loadingView.isHidden = true
         self.loadingView.startAnimating()
 		
         progressBg.backgroundColor = CommonColor.progress.color
-		progressBg.frame = CGRect.init(x: 0, y: 0, width: 0, height: 85)
+        progressBg.frame = CGRect.init(x: 0, y: Int(toolbarH)-progressH, width: 0, height: progressH)
 		self.containerView.addSubview(progressBg)
 		self.containerView.sendSubviewToBack(progressBg)
-		
+        
+        self.explainBtn.setImageForAllStates(UIImage.init(systemName: "chevron.up")!)
+        self.explainBtn.addTarget(self, action: #selector(toPlayDetailVC), for: .touchUpInside)
+        self.explainBtn.tintColor = .white
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

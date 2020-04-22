@@ -53,7 +53,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     
     var progressLine: ChapterProgressView!
     
-    var playBtn : AnimationButton!
+    var playBtn : UIButton!
     
     var viewModel: UserViewModel = UserViewModel()
 	
@@ -570,6 +570,7 @@ extension PlayerDetailViewController {
         
         self.coverBackView = UIView.init()
         self.coverBackView.cornerRadius = 15.auto()
+        self.coverBackView.contentMode = .scaleAspectFit
         self.infoScrollView.addSubview(self.coverBackView)
         
 		self.coverImageView = UIImageView.init()
@@ -591,10 +592,9 @@ extension PlayerDetailViewController {
 		self.progressLine.delegate = self;
         self.view.addSubview(self.progressLine)
         
-        self.playBtn = AnimationButton.init(type: .custom)
-        self.playBtn.setImage(UIImage.init(named: "play-red"), for: .normal)
-        self.playBtn.setImage(UIImage.init(named: "play-high"), for: .highlighted)
-        self.playBtn.setImage(UIImage.init(named: "pause-red"), for: .selected)
+        self.playBtn = UIButton.init(type: .custom)
+        self.playBtn.setImage(UIImage.init(named: "play-red")!, for: .normal)
+        self.playBtn.setImage(UIImage.init(named: "pause-red")!, for: .selected)
         self.playBtn.isSelected = FMPlayerManager.shared.isPlay
         self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
         self.playBtn.cornerRadius = 30.auto()
@@ -602,12 +602,14 @@ extension PlayerDetailViewController {
         self.view.addSubview(self.playBtn)
         
         self.rewindBtn = UIButton.init(type: .custom)
-        self.rewindBtn.setImage(UIImage.init(named: "rewind"), for: .normal)
+        self.rewindBtn.setImage(UIImage.init(named: "rewind")!.tintImage, for: .normal)
+        self.rewindBtn.tintColor = R.color.mainRed()
         self.rewindBtn.addTarget(self, action: #selector(rewindAction), for: .touchUpInside)
         self.view.addSubview(self.rewindBtn)
         
         self.forwardBtn = UIButton.init(type: .custom)
-        self.forwardBtn.setImage(UIImage.init(named: "forward"), for: .normal)
+        self.forwardBtn.setImage(UIImage.init(named: "forward")!.tintImage, for: .normal)
+        self.forwardBtn.tintColor = R.color.mainRed()
         self.forwardBtn.addTarget(self, action: #selector(forwardAction), for: .touchUpInside)
         self.view.addSubview(self.forwardBtn)
         
@@ -619,12 +621,14 @@ extension PlayerDetailViewController {
 		self.view.addSubview(self.hud)
 		
 		self.noteBtn = UIButton.init(type: .custom)
-		self.noteBtn.setImageForAllStates(UIImage.init(named: "filter-note-sel")!)
+        self.noteBtn.setImageForAllStates(UIImage.init(named: "filter-note-sel")!.tintImage)
+        self.noteBtn.tintColor = R.color.mainRed()
 		self.noteBtn.addTarget(self, action: #selector(editNote), for: .touchUpInside)
 		self.view.addSubview(self.noteBtn)
         
-        self.chaptersBtn.setImageForAllStates(UIImage.init(named: "chapters")!)
+        self.chaptersBtn.setImageForAllStates(UIImage.init(named: "chapters")!.tintImage)
         self.chaptersBtn.addTarget(self, action: #selector(showChapters), for: .touchUpInside)
+        self.chaptersBtn.tintColor = R.color.mainRed()
         self.chaptersBtn.isHidden = true
         self.view.addSubview(self.chaptersBtn)
         

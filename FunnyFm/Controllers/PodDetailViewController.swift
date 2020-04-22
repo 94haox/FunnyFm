@@ -197,6 +197,10 @@ extension PodDetailViewController: UITableViewDataSource {
 		cell.tranferNoParameterClosure { [weak self] in
 			self?.toDetail(episode: episode)
 		}
+        cell.addBlock = {
+            PlayListManager.shared.queueIn(episode: episode)
+            tableView.reloadData()
+        }
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -263,6 +267,7 @@ extension PodDetailViewController {
 		let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
 		self.tableview.sectionHeaderHeight = 36
 		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+        self.tableview.register(cellnib, forCellReuseIdentifier: "animationCell")
 		self.tableview.separatorStyle = .none
 		self.tableview.rowHeight = 85
 		self.tableview.delegate = self

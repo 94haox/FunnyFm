@@ -104,7 +104,7 @@ class VerticalTabBarItemView: CommonUIView {
     private func configureLabelAndDot() {
         labelAndDot.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(labelAndDot)
-        
+        labelAndDot.dot.isHidden = true
 
         labelAndDot.snp.makeConstraints { (make) in
             make.height.width.centerX.equalTo(imageView)

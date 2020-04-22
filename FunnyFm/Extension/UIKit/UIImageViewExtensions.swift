@@ -11,6 +11,19 @@ import UIKit
 
 // MARK: - Methods
 public extension UIImageView {
+    
+    @IBInspectable var needReColor: Bool{
+        get {
+            return true
+        }
+        set {
+            if newValue == true {
+                let image = self.image?.tintImage
+                self.image = image
+            }
+        }
+    }
+    
 
     /// SwifterSwift: Set image from a URL.
     ///

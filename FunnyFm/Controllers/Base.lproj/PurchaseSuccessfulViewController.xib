@@ -26,10 +26,14 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="R3w-Cd-faf">
                             <rect key="frame" x="152" y="12" width="50" height="50"/>
+                            <color key="tintColor" name="mainRed"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="snn-iY-nQu"/>
                                 <constraint firstAttribute="width" constant="50" id="wRI-dw-jq9"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="needReColor" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已成功订阅趣播客 Pro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfP-Fe-KsQ">
                             <rect key="frame" x="78.5" y="74" width="197.5" height="25.5"/>
@@ -71,9 +75,13 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="category" translatesAutoresizingMaskIntoConstraints="NO" id="bHq-SV-lbx">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                            <color key="tintColor" name="mainRed"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="7od-Pl-ypO"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="needReColor" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部功能解锁，无限制使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXl-l7-dkF">
                                             <rect key="frame" x="60" y="0.0" width="187" height="17"/>
@@ -95,9 +103,13 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud-sync" translatesAutoresizingMaskIntoConstraints="NO" id="Fgg-Dw-EUJ">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17.5"/>
+                                            <color key="tintColor" name="mainRed"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="eco-vY-iS4"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="needReColor" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多平台，多设备数据同步" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bE-xT-Fvz">
                                             <rect key="frame" x="60" y="0.0" width="187" height="17.5"/>
@@ -119,9 +131,13 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="Pfw-te-5Ow">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                            <color key="tintColor" name="mainRed"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="tcz-lk-nI1"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="needReColor" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单集更新及时通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZB-CC-RKF">
                                             <rect key="frame" x="60" y="0.0" width="187" height="17"/>
@@ -143,9 +159,13 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adblock" translatesAutoresizingMaskIntoConstraints="NO" id="7CC-yf-D1A">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17.5"/>
+                                            <color key="tintColor" name="mainRed"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="9QQ-d7-E7Z"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="needReColor" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全功能去除广告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovd-9p-1Wc">
                                             <rect key="frame" x="60" y="0.0" width="187" height="17.5"/>
@@ -167,9 +187,13 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VIP" translatesAutoresizingMaskIntoConstraints="NO" id="tch-hl-3y2">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                            <color key="tintColor" name="mainRed"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Jmj-OU-Hq0"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="needReColor" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多专属 Pro 用户的实用功能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cJ-uc-FTh">
                                             <rect key="frame" x="60" y="0.0" width="187" height="17"/>
@@ -247,6 +271,9 @@
         </namedColor>
         <namedColor name="ffWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mainRed">
+            <color red="1" green="0.0" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="title">
             <color red="0.27450980392156865" green="0.30196078431372547" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

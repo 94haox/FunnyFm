@@ -102,7 +102,7 @@
         <image name="close" width="33.333332061767578" height="33.333332061767578"/>
         <image name="logo_blue_round" width="1024" height="1024"/>
         <namedColor name="mainRed">
-            <color red="1" green="0.0" blue="0.3059999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.0" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -13,12 +13,12 @@ class AnimationButton: UIButton {
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
-        if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
-            anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
-            anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.2, y: 1.2))
-            anim.springBounciness = 20
-            self.layer.pop_add(anim, forKey: "size")
-        }
+//        if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
+//            anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
+//            anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.2, y: 1.2))
+//            anim.springBounciness = 20
+//            self.layer.pop_add(anim, forKey: "size")
+//        }
         return super.beginTracking(touch, with: event)
     }
     
