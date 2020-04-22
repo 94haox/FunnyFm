@@ -13,6 +13,7 @@ class PurchaseSuccessfulViewController: BaseViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var vaildTimeLB: UILabel!
     @IBOutlet weak var featureView: UIView!
+    var infoBtn = UIButton.init(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,15 @@ class PurchaseSuccessfulViewController: BaseViewController {
         }
         self.vaildTimeLB.text = "订阅截止日期：".localized + VipManager.shared.vipVaildDate!.string()
         self.backNaviBtn.addTarget(self, action: #selector(backToRoot), for: .touchUpInside)
+        self.topBgView.addSubview(infoBtn)
+         self.infoBtn.snp.makeConstraints { (make) in
+             make.right.equalToSuperview().offset(-12.auto())
+             make.centerY.equalTo(self.titleLB)
+         }
+        self.infoBtn.setTitleForAllStates("协议与条款".localized)
+        self.infoBtn.setTitleColorForAllStates(R.color.mainRed()!)
+        self.infoBtn.titleLabel?.font = pfont(fontsize2)
+        self.infoBtn.addTarget(self, action: #selector(toAboutVC), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +50,11 @@ class PurchaseSuccessfulViewController: BaseViewController {
         if FMToolBar.shared.currentEpisode.isSome {
             FMToolBar.shared.isHidden = false
         }
+    }
+    
+    @objc func toAboutVC() {
+        let vc = AboutViewController()
+        self.navigationController?.pushViewController(vc)
     }
     
     @objc func backToRoot() {
