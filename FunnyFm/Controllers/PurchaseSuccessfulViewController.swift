@@ -26,7 +26,11 @@ class PurchaseSuccessfulViewController: BaseViewController {
         }
         self.vaildTimeLB.text = "订阅截止日期：".localized + VipManager.shared.vipVaildDate!.string()
         self.backNaviBtn.addTarget(self, action: #selector(backToRoot), for: .touchUpInside)
-        self.infoBtn.setTitleForAllStates("协议与条款".localized)
+        self.topBgView.addSubview(infoBtn)
+         self.infoBtn.snp.makeConstraints { (make) in
+             make.right.equalToSuperview().offset(-12.auto())
+             make.centerY.equalTo(self.titleLB)
+         }
         self.infoBtn.setTitleForAllStates("协议与条款".localized)
         self.infoBtn.setTitleColorForAllStates(R.color.mainRed()!)
         self.infoBtn.titleLabel?.font = pfont(fontsize2)
