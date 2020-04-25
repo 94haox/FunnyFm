@@ -16,7 +16,7 @@ typealias SuccessParserClosure = ([Episode]) -> Void
 @objc protocol FeedManagerDelegate {
 	func feedManagerDidGetEpisodelistSuccess()
 	func feedManagerDidParserPodcasrSuccess()
-	
+    @objc optional func feedManagerDidDisSubscribeSuccess()
 }
 
 class FeedManager: NSObject {
@@ -164,22 +164,19 @@ extension FeedManager {
 		DatabaseManager.deleteItunesPod(feedUrl: podcastUrl)
 		DatabaseManager.deleteEpisode(podcastUrl: podcastUrl)
 		PushManager.shared.removeTags(tags: [podId])
-		DispatchQueue.main.async {
-			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-			self.podlist = DatabaseManager.allItunsPod()
-			self.delegate?.feedManagerDidGetEpisodelistSuccess()
-		}
-		
+        self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+        self.podlist = DatabaseManager.allItunsPod()
 		if podId.length() < 1 || !UserCenter.shared.isLogin{
+            self.delegate?.feedManagerDidDisSubscribeSuccess?()
 			return;
 		}
 		
 		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), { (_) in
 			DispatchQueue.main.async {
-				self.podlist = DatabaseManager.allItunsPod()
-				self.delegate?.feedManagerDidGetEpisodelistSuccess()
+				self.delegate?.feedManagerDidDisSubscribeSuccess?()
 			}
 		}) { (msg) in
+            
 		}
 	}
 }

@@ -404,14 +404,16 @@ extension FMPlayerManager {
 	}
 	
 	@objc func setBackground() {
-		let request = ImageRequest(url: URL.init(string: (self.currentModel?.coverUrl)!)!)
-		let image = ImageCache.shared[request]
 		var info = Dictionary<String, Any>()
 		info[MPMediaItemPropertyTitle] = self.currentModel?.title//歌名
 		info[MPMediaItemPropertyArtist] = self.currentModel?.author//作者
         info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: CGSize.init(width: 100, height: 100), requestHandler: { (size) -> UIImage in
-            if image.isSome{
-                return image!
+            if let coverUrl = self.currentModel?.coverUrl, let url = URL.init(string: coverUrl) {
+                let request = ImageRequest(url: url)
+                let image = ImageCache.shared[request]
+                if image.isSome{
+                    return image!
+                }
             }
             return UIImage.init(named: "ImagePlaceHolder")!
         })

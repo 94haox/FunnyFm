@@ -27,8 +27,8 @@ class BaseTabBarViewController: AnimatedTabBarController {
 		FMToolBar.shared.bottomInset = self.view.safeAreaInsets.bottom
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
 		AppDelegate.current.window.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
 	}

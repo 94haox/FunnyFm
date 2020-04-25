@@ -39,7 +39,7 @@ class PodDetailViewModel: NSObject {
 		self.pod = pod
 		self.episodeList = DatabaseManager.allEpisodes(pod: pod)
 		self.delegate?.podDetailParserSuccess()
-		FeedManager.shared.delegate = self
+//		FeedManager.shared.delegate = self
         if self.pod!.isNeedVpn {
             FeedManager.shared.parserByFeedKit(podcast: pod, complete: { isSuccess in
                 self.episodeList = DatabaseManager.allEpisodes(pod: pod)

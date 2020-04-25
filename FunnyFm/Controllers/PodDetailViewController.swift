@@ -33,12 +33,6 @@ class PodDetailViewController: BaseViewController {
 		self.vm.delegate = self
 	}
 	
-	deinit {
-		if self.infoView.subBtn.isSelected {
-            FeedManager.shared.deleteAllEpisode(podcastUrl: self.vm.pod!.feedUrl, podId: self.vm.pod!.podId)
-		}
-	}
-	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
@@ -69,6 +63,10 @@ class PodDetailViewController: BaseViewController {
 		ImpactManager.impact()
 		self.infoView.subBtn.isSelected = !self.infoView.subBtn.isSelected;
 		self.infoView.subBtn.backgroundColor = self.infoView.subBtn.isSelected ? .white : R.color.mainRed()!
+        if self.infoView.subBtn.isSelected {
+            showHud(style: .busy, text: "")
+            FeedManager.shared.deleteAllEpisode(podcastUrl: self.vm.pod!.feedUrl, podId: self.vm.pod!.podId)
+        }
 	}
 	
 	func toDetail(episode: Episode) {
@@ -154,7 +152,6 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 extension PodDetailViewController: FeedManagerDelegate {
 	
 	func feedManagerDidGetEpisodelistSuccess() {
-		self.tableview.refreshControl?.endRefreshing()
 		self.reload(needSorted: true)
 	}
 	
@@ -163,6 +160,10 @@ extension PodDetailViewController: FeedManagerDelegate {
 		
 	}
 	
+    func feedManagerDidDisSubscribeSuccess() {
+        Hud.shared.hide()
+        self.navigationController?.popViewController()
+    }
 }
 
 
