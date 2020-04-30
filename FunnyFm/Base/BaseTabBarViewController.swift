@@ -27,15 +27,25 @@ class BaseTabBarViewController: AnimatedTabBarController {
 		FMToolBar.shared.bottomInset = self.view.safeAreaInsets.bottom
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		AppDelegate.current.window.bringSubviewToFront(FMToolBar.shared)
 		FMToolBar.shared.explain()
+        UIView.animate(withDuration: 0.3) {
+            var frame = self.tabBar.frame;
+            frame.origin = CGPoint.init(x: 0, y: frame.origin.y - frame.size.height);
+            self.tabBar.frame = frame;
+        }
 	}
     
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		FMToolBar.shared.shrink()
+        UIView.animate(withDuration: 0.3) {
+            var frame = self.tabBar.frame;
+            frame.origin = CGPoint.init(x: 0, y: frame.size.height + frame.origin.y);
+            self.tabBar.frame = frame;
+        }
 	}
 	
 }

@@ -26,6 +26,7 @@ open class AnimatedTabBarController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .systemBackground
         addContentView()
         addTabBar()
         contentView.bottomAnchor.constraint(equalTo: tabBar.topAnchor).isActive = true
