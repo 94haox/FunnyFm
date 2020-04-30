@@ -32,6 +32,9 @@ class DownloadTableViewCell: UITableViewCell {
 		self.contentView.sendSubviewToBack(progressBg)
 		self.actionBtn.addShadow(ofColor: CommonColor.cellbackgroud.color, radius: 5, offset: CGSize.zero, opacity: 1)
         self.actionBtn.backgroundColor = R.color.button_background_disabled()
+        self.actionBtn.setImage(R.image.cancel()?.tintImage, for: .selected)
+        self.actionBtn.setImage(R.image.trash()?.tintImage, for: .normal)
+        self.actionBtn.tintColor = R.color.mainRed();
     }
 	
 	func config(task: DownloadTask){

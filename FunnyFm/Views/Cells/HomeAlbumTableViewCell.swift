@@ -33,6 +33,8 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapLogoAction(_:)))
 		self.logoImageView.addGestureRecognizer(tap)
         self.contentView.backgroundColor = CommonColor.white.color
+        self.wallBtn.setImage(R.image.greatwall()?.tintImage, for: .normal)
+        self.wallBtn.tintColor = R.color.mainRed()
     }
     
 	func tranferNoParameterClosure(callbackEnclosure:@escaping (() -> Void)) {

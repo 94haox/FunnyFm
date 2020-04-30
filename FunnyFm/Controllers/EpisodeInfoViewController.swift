@@ -156,7 +156,7 @@ extension EpisodeInfoViewController: DownloadManagerDelegate {
 			return
 		}
 		self.progressBar.isHidden = true
-		self.downloadBtn.setImage(UIImage.init(named: "trash"), for: .normal)
+        self.downloadBtn.setImage(UIImage.init(named: "trash")?.tintImage, for: .normal)
 		self.downloadBtn.isSelected = false
 	}
 	
@@ -185,7 +185,7 @@ extension EpisodeInfoViewController {
 		}
 		
 		if let _ = DatabaseManager.qureyDownload(title: self.episode.title) {
-			self.downloadBtn.setImage(UIImage.init(named: "trash"), for: .selected)
+            self.downloadBtn.setImage(UIImage.init(named: "trash")!.tintImage, for: .selected)
 			self.downloadBtn.isSelected = true
 		}
 		
@@ -443,8 +443,8 @@ extension EpisodeInfoViewController {
         self.downloadBtn.backgroundColor = CommonColor.whiteBackgroud.color
 		self.downloadBtn.cornerRadius = 8
         self.downloadBtn.setImage(UIImage.init(named: "download_icon")!.tintImage, for: .normal)
+        self.downloadBtn.setImage(UIImage.init(named: "cancel")!.tintImage, for: .selected)
         self.downloadBtn.tintColor = R.color.mainRed()
-		self.downloadBtn.setImage(UIImage.init(named: "cancel"), for: .selected)
 		self.downloadBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		self.downloadBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
 		

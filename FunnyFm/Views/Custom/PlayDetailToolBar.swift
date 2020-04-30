@@ -267,9 +267,10 @@ extension PlayDetailToolBar {
 		self.addSubview(self.downBackView)
 		
 		self.downBtn = UIButton.init(type: .custom)
-		self.downBtn.setImage(UIImage.init(named: "download-black"), for: .normal)
-		self.downBtn.setImage(UIImage.init(named: "download-red"), for: .selected)
+        self.downBtn.setImage(UIImage.init(named: "download-black"), for: .normal)
+        self.downBtn.setImage(UIImage.init(named: "download-red")!.tintImage, for: .selected)
 		self.downBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
+        self.downBtn.tintColor = R.color.mainRed()
 		self.addSubview(self.downBtn)		
 		
 		self.sleepBtn = UIButton.init(type: .custom)
