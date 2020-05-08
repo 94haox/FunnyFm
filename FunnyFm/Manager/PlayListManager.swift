@@ -55,6 +55,7 @@ class PlayListManager: NSObject {
 			queueIn(episode: episode)
 		}
 		queueOut(episode: episode)
+        playQueue.insert(episode, at: index)
 		for (index, item) in playQueue.enumerated() {
 			let playItem = PlayItem.init(episode: item, index: index)
 			DatabaseManager.add(item: playItem)
