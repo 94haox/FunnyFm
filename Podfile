@@ -27,7 +27,7 @@ def layout
 		pod 'JXSegmentedView'
 		pod 'DynamicColor', '~> 4.2.0'
 		pod 'AutoInch'
-    pod 'YYKit'
+    pod 'MPITextKit'
     pod 'SCLAlertView'
     pod 'SPLarkController'
 end
@@ -37,7 +37,6 @@ def lib
 		pod 'Nuke', '~> 8.0.1'
 		pod 'FeedKit', '~> 8.0'
 		pod 'JPush'
-		pod 'VIMediaCache'
     pod 'R.swift'
     pod 'SwiftyStoreKit'
     pod 'WCDB.swift'

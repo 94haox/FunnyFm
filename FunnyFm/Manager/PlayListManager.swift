@@ -34,7 +34,6 @@ class PlayListManager: NSObject {
 			}
 			return;
 		}
-		
 		playQueue.append(episode)
 		let playItem = PlayItem.init(episode: episode, index: playQueue.count)
 		DatabaseManager.add(item: playItem)
@@ -55,9 +54,7 @@ class PlayListManager: NSObject {
 		if !isAlreadyIn(episode: episode) {
 			queueIn(episode: episode)
 		}
-		
 		queueOut(episode: episode)
-		playQueue.insert(episode, at: index)
 		for (index, item) in playQueue.enumerated() {
 			let playItem = PlayItem.init(episode: item, index: index)
 			DatabaseManager.add(item: playItem)
@@ -69,6 +66,10 @@ class PlayListManager: NSObject {
 	}
 	
 	func queueInsertAffter(episode: Episode){
+        if self.playQueue.count < 2 {
+            self.queueIn(episode: episode)
+            return
+        }
 		self.promote(episode: episode, index: 1)
 	}
 	

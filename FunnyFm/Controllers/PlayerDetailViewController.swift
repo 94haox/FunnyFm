@@ -593,12 +593,12 @@ extension PlayerDetailViewController {
         self.view.addSubview(self.progressLine)
         
         self.playBtn = UIButton.init(type: .custom)
-        self.playBtn.setImage(UIImage.init(named: "play-red")!, for: .normal)
-        self.playBtn.setImage(UIImage.init(named: "pause-red")!, for: .selected)
+        let config = UIImage.SymbolConfiguration.init(pointSize: 350.auto(), weight: .medium)
+        self.playBtn.setImage(UIImage.init(systemName: "play.circle.fill", withConfiguration: config)?.tintImage, for: .normal)
+        self.playBtn.setImage(UIImage.init(systemName: "pause.circle.fill", withConfiguration: config)?.tintImage, for: .selected)
+        self.playBtn.tintColor = R.color.mainRed()
         self.playBtn.isSelected = FMPlayerManager.shared.isPlay
         self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
-        self.playBtn.cornerRadius = 30.auto()
-        self.playBtn.addShadow(ofColor: R.color.mainRed()!, radius: 20.auto(), offset: CGSize.zero, opacity: 0.8)
         self.view.addSubview(self.playBtn)
         
         self.rewindBtn = UIButton.init(type: .custom)

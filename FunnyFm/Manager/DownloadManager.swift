@@ -88,7 +88,7 @@ extension DownloadManager : DownloadTaskDelegate {
 			self.downloadQueue.remove(at: index!)
 			self.downloadKeys.remove(at: index!)
             if let episode = DatabaseManager.getEpisode(trackUrl: sourceUrl) {
-                PlayListManager.shared.queueInsert(episode: episode);
+                PlayListManager.shared.queueInsertAffter(episode: episode)
             }
 		}
 		

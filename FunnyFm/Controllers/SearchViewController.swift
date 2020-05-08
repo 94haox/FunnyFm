@@ -12,7 +12,9 @@ import Lottie
 
 class SearchViewController: UIViewController {
 
-	@IBOutlet weak var searchTF: UITextField!
+    @IBOutlet weak var categoryBtn: UIButton!
+    @IBOutlet weak var searchTF: UITextField!
+    
 	var tableview : UITableView!
 	
 	let vm = SearchViewModel()
@@ -101,7 +103,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
             searhCell?.removeBlock = { [weak self] in
                 self?.vm.removeHistory(index: indexPath.row)
                 if let count = self?.vm.seachHistories.count, count > 0 {
-                    tableView.reloadSection(0, with: .automatic)
+                    tableView.reloadData()
                 }else{
                     tableView.reloadData()
                 }
@@ -169,6 +171,10 @@ extension SearchViewController: DZNEmptyDataSetSource{
 
 extension SearchViewController {
 	func dw_addSubviews(){
+        
+        self.categoryBtn.setImageForAllStates(R.image.category()!.tintImage)
+        self.categoryBtn.tintColor = R.color.mainRed()
+        
         self.view.backgroundColor = CommonColor.white.color
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
 		let cellnib = UINib(nibName: String(describing: ItunsPodTableViewCell.self), bundle: nil)
@@ -191,6 +197,7 @@ extension SearchViewController {
         let imageView = UIImageView.init(image: UIImage.init(systemName: "magnifyingglass.circle.fill"))
         self.searchTF.leftView = imageView
         self.searchTF.leftViewMode = .always
+        self.searchTF.cornerRadius = 6.auto()
         self.searchTF.clearButtonMode = .whileEditing
         
 		self.view.addSubview(self.tableview)

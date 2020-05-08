@@ -284,7 +284,8 @@ extension PodDetailViewController {
         self.sortedBtn.tintColor = R.color.mainRed()
         self.sortedBtn.addTarget(self, action: #selector(sorted(btn:)), for: .touchUpInside)
         
-        self.wallBtn.setImageForAllStates(UIImage.init(named: "greatwall")!)
+        self.wallBtn.setImageForAllStates(UIImage.init(named: "greatwall")!.tintImage)
+        self.wallBtn.tintColor = R.color.mainRed()
         self.wallBtn.addTarget(self, action: #selector(showNeedVpnAlert), for: .touchUpInside)
         self.wallBtn.isHidden = true
 	}

@@ -99,7 +99,6 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 	
 	func cleanAllCache(){
         Hud.shared.show(on: self.view)
-		VICahcheHelper.init().cleanAllCache()
         BCQResourceUtils.shared.cleanAllCache()
         let cache = BCQResourceUtils.shared.getAllCacheSize()/1024/1024
 		if cache != 0 {

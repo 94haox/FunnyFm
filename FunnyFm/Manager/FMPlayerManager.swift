@@ -356,14 +356,6 @@ extension FMPlayerManager {
 	
 }
 
-
-extension FMPlayerManager: VIResourceLoaderManagerDelegate {
-	
-	func resourceLoaderManagerLoad(_ url: URL!, didFailWithError error: Error!) {
-		
-	}
-}
-
 extension FMPlayerManager: BCQResourceLoaderManagerDelegate {
     
     func resourceLoaderManager(_ manager: BCQResourceLoaderManager, didCompleteWithError error: Error?) {
