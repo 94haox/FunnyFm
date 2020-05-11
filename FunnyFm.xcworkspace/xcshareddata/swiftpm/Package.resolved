@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Tiercel",
+        "repositoryURL": "git@github.com:Danie1s/Tiercel.git",
+        "state": {
+          "branch": null,
+          "revision": "8cde56c05045c9d121b2901700dcb2d87f42ffec",
+          "version": "3.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

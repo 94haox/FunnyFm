@@ -28,6 +28,7 @@ import Bugly
         self.options = launchOptions
 		DatabaseManager.setupDefaultDatabase()
         VipManager.shared.completeTransactions()
+        DownloadManager.shared.configSession();
 		FirebaseApp.configure()
 		Bugly.start(withAppId: "fe63efca9b")
 		self.dw_addNotifies()
@@ -214,6 +215,13 @@ extension AppDelegate: JPUSHRegisterDelegate {
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         restorationHandler([FMToolBar.shared])
         return true
+    }
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+
+        if DownloadManager.shared.sessionManager.identifier == identifier {
+            DownloadManager.shared.sessionManager.completionHandler = completionHandler
+        }
     }
 	
 	

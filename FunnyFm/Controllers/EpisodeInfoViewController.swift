@@ -173,16 +173,19 @@ extension EpisodeInfoViewController {
 	
 	func config(content: Episode) {
 		
-		
+        guard let url = URL.init(string: self.episode.trackUrl) else {
+            return
+        }
 		if FMPlayerManager.shared.currentModel.isSome {
 			if FMPlayerManager.shared.currentModel!.title == self.episode.title && FMPlayerManager.shared.isPlay {
 				self.playBtn.isSelected = true
 			}
 		}
+        
+        if DownloadManager.shared.sessionManager.fetchTask(url).isSome {
+            self.downloadBtn.isSelected = true
+        }
 		
-		if DownloadManager.shared.downloadKeys.contains(self.episode.trackUrl) {
-			self.downloadBtn.isSelected = true
-		}
 		
 		if let _ = DatabaseManager.qureyDownload(title: self.episode.title) {
             self.downloadBtn.setImage(UIImage.init(named: "trash")!.tintImage, for: .selected)

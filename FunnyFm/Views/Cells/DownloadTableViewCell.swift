@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Tiercel
 
 class DownloadTableViewCell: UITableViewCell {
 
@@ -41,7 +42,7 @@ class DownloadTableViewCell: UITableViewCell {
 		self.dw_addNotifcations()
 		self.actionBtn.isSelected = true
 		self.titleLB.text = task.episode!.title
-		self.addTimeLB.text = task.addDate
+		self.addTimeLB.text = task.startDateString
 		self.logoImageView.loadImage(url: task.episode!.coverUrl)
 		self.task = task
 		self.progressBg.isHidden = false
@@ -80,10 +81,13 @@ class DownloadTableViewCell: UITableViewCell {
 	@IBAction func btnAction(_ sender: Any) {
 		
 		if self.actionBtn.isSelected {
-			if self.task.isNone {
-				return
-			}
-			DownloadManager.shared.stopDownload(self.task!)
+            guard self.task.isSome else {
+                return
+            }
+            guard let episode = task!.episode else {
+                return
+            }
+            DownloadManager.shared.stopDownload(episode: episode)
 		}else{
 			if self.task.isNone {
 				self.deleteClosure?()

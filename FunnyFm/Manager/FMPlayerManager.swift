@@ -279,6 +279,11 @@ extension FMPlayerManager {
     }
 	
 	func completePath(_ episode: Episode) -> URL {
+        
+        if episode.download_filpath.contains("com.Daniels.Tiercel") {
+            return URL.init(fileURLWithPath: episode.download_filpath)
+        }
+        
 		let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 		let mp3Path = documentURL.appendingPathComponent("mp3")
 		let url = mp3Path.appendingPathComponent(episode.download_filpath)

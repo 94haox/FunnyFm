@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Tiercel
 
 protocol DownloadManagerDelegate {
 	func downloadProgress(progress:Double, sourceUrl: String);
@@ -28,101 +29,73 @@ extension DownloadManagerDelegate {
 class DownloadManager: NSObject {
     
     static let shared = DownloadManager()
+    
+    var sessionManager = SessionManager("DownloadManager", configuration: SessionConfiguration())
 	
 	var delegate: DownloadManagerDelegate?
 	
-	var downloadQueue = [DownloadTask]()
+    var downloadQueue: [DownloadTask] {
+        get {
+            return sessionManager.tasks
+        }
+    }
 	
-	var downloadKeys = [String]()
+    
+    func configSession() {
+//        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        let mp3Path = documentURL.appendingPathComponent("mp3")
+//        let cache = Cache.init("funnyfm", downloadPath: nil, downloadTmpPath: nil, downloadFilePath: mp3Path.absoluteString)
+//        self.sessionManager = SessionManager.init("funnyfm", configuration: SessionConfiguration(), logger: nil, cache: cache, operationQueue: DispatchQueue.init(label: "download"))
+    }
 	
 	func beginDownload(_ episode: Episode) -> Bool{
-		if downloadKeys.contains(episode.trackUrl) {
-			return false
-		}
-		let task = DownloadTask.init(episode: episode)
-		task.beginDownload()
-		task.delegate = self
-		self.downloadQueue.append(task)
-		self.downloadKeys.append(episode.trackUrl)
+
+        guard let task = sessionManager.download(episode.trackUrl) else {
+            return false
+        }
+
+        task.success { (task) in
+            if var episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) {
+                episode.download_filpath = task.filePath
+                DatabaseManager.add(download: episode)
+                PlayListManager.shared.queueInsertAffter(episode: episode)
+            }
+            self.delegate?.didDownloadSuccess(fileUrl: task.filePath, sourceUrl: task.url.absoluteString)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": task.url.absoluteString])
+            }
+        }
+        
+        task.progress { (task) in
+            let progress = Double(task.progress.completedUnitCount) / Double(task.progress.totalUnitCount)
+            self.delegate?.downloadProgress(progress: progress, sourceUrl: task.url.absoluteString)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl":task.url.absoluteString])
+            }
+        }
+        
+        task.failure { (task) in
+            guard let episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) else {
+                return
+            }
+            let tip = String.init(format: "%@%@",  episode.title, "下载失败".localized)
+            self.delegate?.didDownloadFailure(sourceUrl: task.url.absoluteString)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": task.url.absoluteString])
+                
+            }
+            SwiftNotice.noticeOnStatusBar(tip, autoClear: true, autoClearTime: 1)
+        }
+        
 		return true
 	}
 	
 	func stopDownload(episode: Episode) {
-		let index = self.downloadKeys.firstIndex(of: episode.trackUrl)
-		if index.isSome {
-			let task = self.downloadQueue[index!]
-			self.stopDownload(task)
-		}
-	}
-	
-	func stopDownload(_ task: DownloadTask) {
-		task.stopDownload()
-		let index = self.downloadKeys.firstIndex(of: task.episode!.trackUrl)
-		if index.isSome {
-			self.downloadQueue.remove(at: index!)
-			self.downloadKeys.remove(at: index!)
-		}
-		self.delegate?.didDownloadCancel(sourceUrl: task.episode!.trackUrl)
+        guard let url = URL.init(string: episode.trackUrl) else {
+            return
+        }
+        sessionManager.cancel(url)
 	}
 	
 }
 
-
-extension DownloadManager : DownloadTaskDelegate {
-	
-	func downloadProgress(progress: Double, sourceUrl: String) {
-		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl":sourceUrl])
-		}
-		self.delegate?.downloadProgress(progress: progress, sourceUrl: sourceUrl)
-
-	}
-	
-	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
-		let index = self.downloadKeys.firstIndex(of: sourceUrl)
-		if index.isSome {
-			let task = self.downloadQueue[index!]
-			task.episode!.download_filpath = (fileUrl?.components(separatedBy: "/").last)!
-			task.episode!.downloadSize = "\(ceil(Double(fileUrl!.getFileSize()) / 1000.0/1000))M"
-			DatabaseManager.add(download: task.episode!)
-			self.downloadQueue.remove(at: index!)
-			self.downloadKeys.remove(at: index!)
-            if let episode = DatabaseManager.getEpisode(trackUrl: sourceUrl) {
-                PlayListManager.shared.queueInsertAffter(episode: episode)
-            }
-		}
-		
-		if fileUrl.isNone{
-			self.didDownloadFailure(sourceUrl: sourceUrl)
-			return;
-		}
-		
-		self.delegate?.didDownloadSuccess(fileUrl: fileUrl, sourceUrl: sourceUrl)
-		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": sourceUrl])
-		}
-
-		
-		
-	}
-	
-	func didDownloadFailure(sourceUrl: String) {
-		let index = self.downloadKeys.firstIndex(of: sourceUrl)
-		if index.isSome {
-			let task = self.downloadQueue[index!]
-			self.downloadQueue.remove(at: index!)
-			self.downloadKeys.remove(at: index!)
-			DispatchQueue.main.async {
-				let tip = String.init(format: "%@%@",  task.episode!.title, "下载失败".localized)
-				SwiftNotice.noticeOnStatusBar(tip, autoClear: true, autoClearTime: 1)
-			}
-		}
-
-		self.delegate?.didDownloadFailure(sourceUrl: sourceUrl)
-		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": sourceUrl])
-			
-		}
-	}
-	
-}
