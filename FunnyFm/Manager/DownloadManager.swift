@@ -42,10 +42,14 @@ class DownloadManager: NSObject {
 	
     
     func configSession() {
-//        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        let mp3Path = documentURL.appendingPathComponent("mp3")
-//        let cache = Cache.init("funnyfm", downloadPath: nil, downloadTmpPath: nil, downloadFilePath: mp3Path.absoluteString)
-//        self.sessionManager = SessionManager.init("funnyfm", configuration: SessionConfiguration(), logger: nil, cache: cache, operationQueue: DispatchQueue.init(label: "download"))
+        let documentURL = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let mp3Path = documentURL.appending("/mp3")
+        let cachePath =  Cache.defaultDiskCachePathClosure("mp3")
+        if !FileManager.default.fileExists(atPath: mp3Path) {
+            try? FileManager.default.createDirectory(atPath: mp3Path, withIntermediateDirectories: true, attributes: nil)
+        }
+        let cache = Cache.init("funnyfm", downloadPath: cachePath, downloadFilePath: mp3Path)
+        self.sessionManager = SessionManager.init("funnyfm", configuration: SessionConfiguration(), logger: nil, cache: cache, operationQueue: DispatchQueue.init(label: "download"))
     }
 	
 	func beginDownload(_ episode: Episode) -> Bool{
@@ -56,7 +60,7 @@ class DownloadManager: NSObject {
 
         task.success { (task) in
             if var episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) {
-                episode.download_filpath = task.filePath
+                episode.download_filpath = task.filePath.components(separatedBy: "/").last!
                 DatabaseManager.add(download: episode)
                 PlayListManager.shared.queueInsertAffter(episode: episode)
             }

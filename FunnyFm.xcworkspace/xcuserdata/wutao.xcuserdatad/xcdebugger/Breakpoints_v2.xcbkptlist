@@ -23,16 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D983CDC6-5A71-481E-B621-336018F04789"
+            uuid = "20F6643B-018C-4E8B-BB99-B9A0CA283BA0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FunnyFm/Manager/FMPlayerManager.swift"
+            filePath = "FunnyFm/Manager/DownloadManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "completePath(_:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "configSession()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
