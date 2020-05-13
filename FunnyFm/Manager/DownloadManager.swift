@@ -58,13 +58,14 @@ class DownloadManager: NSObject {
             return false
         }
 
-        task.success { (task) in
+        task.success { [weak self](task) in
             if var episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) {
                 episode.download_filpath = task.filePath.components(separatedBy: "/").last!
+                self?.sessionManager.remove(task)
                 DatabaseManager.add(download: episode)
                 PlayListManager.shared.queueInsertAffter(episode: episode)
             }
-            self.delegate?.didDownloadSuccess(fileUrl: task.filePath, sourceUrl: task.url.absoluteString)
+            self?.delegate?.didDownloadSuccess(fileUrl: task.filePath, sourceUrl: task.url.absoluteString)
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": task.url.absoluteString])
             }
@@ -82,6 +83,11 @@ class DownloadManager: NSObject {
             guard let episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) else {
                 return
             }
+            
+            if let item = DatabaseManager.qureyDownload(title: episode.title) {
+                return
+            }
+            
             let tip = String.init(format: "%@%@",  episode.title, "下载失败".localized)
             self.delegate?.didDownloadFailure(sourceUrl: task.url.absoluteString)
             DispatchQueue.main.async {
