@@ -79,22 +79,23 @@ class DownloadManager: NSObject {
             }
         }
         
-        task.failure { (task) in
+        task.failure { [weak self](task) in
             guard let episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) else {
                 return
             }
             
-            if let item = DatabaseManager.qureyDownload(title: episode.title) {
+            if let _ = DatabaseManager.qureyDownload(title: episode.title) {
                 return
             }
             
             let tip = String.init(format: "%@%@",  episode.title, "下载失败".localized)
-            self.delegate?.didDownloadFailure(sourceUrl: task.url.absoluteString)
+            self?.delegate?.didDownloadFailure(sourceUrl: task.url.absoluteString)
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": task.url.absoluteString])
                 
             }
             SwiftNotice.noticeOnStatusBar(tip, autoClear: true, autoClearTime: 1)
+            self?.sessionManager.remove(task)
         }
         
 		return true

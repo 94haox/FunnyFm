@@ -152,7 +152,8 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 				generator.impactOccurred()
 			}
 		}else if scrollView.contentOffset.x > 60{
-			self.noteImageView.image = UIImage.init(named: "note_sel")
+            self.noteImageView.image = UIImage.init(named: "note_sel")?.tintImage
+            self.noteImageView.tintColor = R.color.mainRed()
             self.noteImageView.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview()
                 make.size.equalTo(CGSize.init(width: 30, height: 30))
@@ -165,7 +166,8 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 			}
 		} else{
 			self.isImpact = false;
-            self.infoImageView.image = UIImage.init(named: "episode_info_nor")
+            self.infoImageView.image = UIImage.init(named: "episode_info_nor")?.tintImage
+            self.infoImageView.tintColor = R.color.mainRed()
             self.infoImageView.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview()
                 make.size.equalTo(CGSize.init(width: 50, height: 50))
