@@ -169,8 +169,10 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
         SwiftNotice.noticeOnStatusBar("请求失败".localized, autoClear: true, autoClearTime: 2)
     }
 	
-	func feedManagerDidGetEpisodelistSuccess() {
-        perform(#selector(reloadData))
+    func feedManagerDidGetEpisodelistSuccess(count: Int) {
+        if count > 0 {
+            perform(#selector(reloadData))
+        }
 	}
 	
 	func viewModelDidGetAdlistSuccess() {

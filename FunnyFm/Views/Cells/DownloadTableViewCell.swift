@@ -88,11 +88,8 @@ class DownloadTableViewCell: UITableViewCell {
                 return
             }
             DownloadManager.shared.stopDownload(episode: episode)
-		}else{
-			if self.task.isNone {
-				self.deleteClosure?()
-			}
 		}
+        self.deleteClosure?()
 		
 	}
 	

@@ -137,7 +137,7 @@ class PodDetailViewModel: NSObject {
 
 extension PodDetailViewModel : FeedManagerDelegate {
 	
-	func feedManagerDidGetEpisodelistSuccess() {
+    func feedManagerDidGetEpisodelistSuccess(count: Int) {
 		self.episodeList = DatabaseManager.allEpisodes(pod: self.pod!)
 		self.delegate?.podDetailParserSuccess()
 	}

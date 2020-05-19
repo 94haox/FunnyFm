@@ -27,7 +27,7 @@ class CloudParserJob: BaseJob {
             podcast.podId = item!.podId
             FeedManager.shared.addOrUpdate(itunesPod: podcast, episodelist: item!.items)
             DispatchQueue.global().async {
-                NotificationCenter.default.post(name: Notification.podcastParserSuccess, object: nil, userInfo: ["feedUrl": podcast.feedUrl])
+                NotificationCenter.default.post(name: Notification.podcastParserSuccess, object: nil, userInfo: ["feedUrl": podcast.feedUrl, "itemCount": item!.items.count])
             }
         }, { (error) in
             NotificationCenter.default.post(name: Notification.podcastParserFailure, object: nil, userInfo: ["feedUrl": podcast.feedUrl])

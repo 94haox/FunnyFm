@@ -151,7 +151,7 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 
 extension PodDetailViewController: FeedManagerDelegate {
 	
-	func feedManagerDidGetEpisodelistSuccess() {
+    func feedManagerDidGetEpisodelistSuccess(count: Int) {
 		self.reload(needSorted: true)
 	}
 	

@@ -12,7 +12,7 @@ import FeedKit
 typealias SuccessParserClosure = ([Episode]) -> Void
 
 @objc protocol FeedManagerDelegate {
-	func feedManagerDidGetEpisodelistSuccess()
+	func feedManagerDidGetEpisodelistSuccess(count: Int)
 	func feedManagerDidParserPodcasrSuccess()
     @objc optional func feedManagerDidDisSubscribeSuccess()
 }
@@ -53,7 +53,7 @@ extension FeedManager {
                 PushManager.shared.addTags(podcasts: cloudPodlist)
 				self.podlist = DatabaseManager.allItunsPod()
 				DispatchQueue.main.async {
-					self.delegate?.feedManagerDidGetEpisodelistSuccess()
+                    self.delegate?.feedManagerDidGetEpisodelistSuccess(count: 1)
 				}
                 self.getHomeChapters()
 			}){ msg in
@@ -64,7 +64,7 @@ extension FeedManager {
 		}else{
 			PushManager.shared.removeAllTages()
 			DispatchQueue.main.async {
-				self.delegate?.feedManagerDidGetEpisodelistSuccess()
+                self.delegate?.feedManagerDidGetEpisodelistSuccess(count: 1)
 			}
 		}
 	}
@@ -75,7 +75,7 @@ extension FeedManager {
 			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if self.episodeList.count > 0 {
 				DispatchQueue.main.async {
-					self.delegate?.feedManagerDidGetEpisodelistSuccess()
+                    self.delegate?.feedManagerDidGetEpisodelistSuccess(count: 1)
 				}
 			}
 		}
@@ -104,7 +104,7 @@ extension FeedManager {
         
         self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
         DispatchQueue.main.async {
-            self.delegate?.feedManagerDidGetEpisodelistSuccess()
+            self.delegate?.feedManagerDidGetEpisodelistSuccess(count: info["itemCount"] as! Int)
         }
         
         if self.waitingPodlist.count <= 0 {
@@ -124,7 +124,7 @@ extension FeedManager {
 			}
 			DispatchQueue.main.async {
 				self.podlist = DatabaseManager.allItunsPod()
-				self.delegate?.feedManagerDidGetEpisodelistSuccess()
+                self.delegate?.feedManagerDidGetEpisodelistSuccess(count: item!.items.count)
 			}
 		}, { (error) in
 			if(complete.isSome){

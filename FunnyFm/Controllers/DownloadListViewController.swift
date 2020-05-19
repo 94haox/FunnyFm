@@ -49,7 +49,7 @@ class DownloadListViewController: BaseViewController {
 		self.deleteBtn.isHidden = self.episodeList.count < 2
 		self.episodeList = DatabaseManager.allDownload()
 		self.tableview.reloadData()
-		self.sectionSegment.isHidden = self.episodeList.count < 1
+        self.sectionSegment.isHidden = self.episodeList.count < 1 || DownloadManager.shared.downloadQueue.count > 1
 	}
 	
 	@objc func changeSection(){
@@ -210,8 +210,11 @@ extension DownloadListViewController: UITableViewDataSource {
 				self?.showDeleteAction(indexPath: indexPath)
 			}
 			return cell
-		}
-		
+        }
+        
+        cell.deleteClosure = { [weak self] () -> Void in
+            self?.tableview.reloadData()
+        }
 		
 		let taskList = DownloadManager.shared.downloadQueue
 		let task = taskList[indexPath.row]
