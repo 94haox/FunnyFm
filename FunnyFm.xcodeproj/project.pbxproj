@@ -14,6 +14,7 @@
 		741F273124237A0B006F1DCE /* ChapterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */; };
 		741F2733242381B5006F1DCE /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F2732242381B5006F1DCE /* Chapter.swift */; };
 		741F27442423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */; };
+		7423FDD524742B53008F7BFD /* PolicyTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyTerm.swift */; };
 		742DD23C2430813E0010FBE3 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */; };
 		7438FF73243076D200A31FA9 /* notification_ad.json in Resources */ = {isa = PBXBuildFile; fileRef = 7438FF72243076D200A31FA9 /* notification_ad.json */; };
 		743A4C3C242759CF008E0086 /* RefreshJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A4C3B242759CF008E0086 /* RefreshJob.swift */; };
@@ -394,6 +395,7 @@
 		741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChapterCollectionViewCell.xib; path = FunnyFM/Views/Cells/ChapterCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		741F2732242381B5006F1DCE /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chapter.swift; path = FunnyFM/Models/Chapter.swift; sourceTree = SOURCE_ROOT; };
 		741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSuccessfulViewController.swift; path = FunnyFM/Controllers/PurchaseSuccessfulViewController.swift; sourceTree = SOURCE_ROOT; };
+		7423FDD424742B53008F7BFD /* PolicyTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PolicyTerm.swift; path = FunnyFM/SwiftUI/PolicyTerm.swift; sourceTree = SOURCE_ROOT; };
 		742DD23D2430813E0010FBE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PrivacyViewController.xib; sourceTree = "<group>"; };
 		742DD240243081440010FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../FunnyFM/Controllers/en.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
 		742DD242243081490010FBE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../../FunnyFM/Controllers/zh-Hans.lproj/PrivacyViewController.strings"; sourceTree = "<group>"; };
@@ -883,6 +885,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7423FDD324742B31008F7BFD /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				7423FDD424742B53008F7BFD /* PolicyTerm.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		744239D92441E2A50015DB21 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,6 +1071,7 @@
 		AB25797B21945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXGroup;
 			children = (
+				7423FDD324742B31008F7BFD /* SwiftUI */,
 				ABAFF26E21E22CA30009A3A2 /* Lotties */,
 				7455CD362415216E004886EF /* R.generated.swift */,
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
@@ -2131,6 +2142,7 @@
 				743AC8FD24262128001D252F /* RSSViewController.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
 				7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */,
+				7423FDD524742B53008F7BFD /* PolicyTerm.swift in Sources */,
 				AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
