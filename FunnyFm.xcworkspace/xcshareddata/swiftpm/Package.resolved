@@ -1,0 +1,106 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DynamicColor",
+        "repositoryURL": "https://gitee.com/duke_wt/DynamicColor",
+        "state": {
+          "branch": null,
+          "revision": "1e85f9461f44bbf8c3ffba9101b8d202f864cdc6",
+          "version": "5.0.0"
+        }
+      },
+      {
+        "package": "FeedKit",
+        "repositoryURL": "https://gitee.com/duke_wt/FeedKit",
+        "state": {
+          "branch": null,
+          "revision": "68493a33d862c33c9a9f67ec729b3b7df1b20ade",
+          "version": "9.1.2"
+        }
+      },
+      {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://gitee.com/duke_wt/KeychainAccess",
+        "state": {
+          "branch": null,
+          "revision": "b920ad7df3c73189dcdd4aa05c540849b2010dbf",
+          "version": "4.1.0"
+        }
+      },
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://gitee.com/duke_wt/lottie-ios",
+        "state": {
+          "branch": null,
+          "revision": "8f81de8d81da8631fd95ff81a9db133b76e13ea4",
+          "version": "3.1.6"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://gitee.com/duke_wt/Nuke",
+        "state": {
+          "branch": null,
+          "revision": "6001489d22e5f41a4956c1b6cd4cf7cbe8f44dff",
+          "version": "8.4.1"
+        }
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-cocoa",
+        "state": {
+          "branch": null,
+          "revision": "07734d6ee4b49b5656c51dab51c20a2d59b9de45",
+          "version": "4.4.0"
+        }
+      },
+      {
+        "package": "RealmCore",
+        "repositoryURL": "https://github.com/realm/realm-core",
+        "state": {
+          "branch": null,
+          "revision": "35662ff940e340bf630ad1d1d88acfc7af18bee6",
+          "version": "5.23.8"
+        }
+      },
+      {
+        "package": "Siren",
+        "repositoryURL": "https://gitee.com/duke_wt/Siren",
+        "state": {
+          "branch": null,
+          "revision": "7fc6777d3decf6747b56432efdaa3782a7dbfc58",
+          "version": "5.4.0"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://gitee.com/duke_wt/SnapKit",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://gitee.com/duke_wt/SwiftyJSON",
+        "state": {
+          "branch": null,
+          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
+          "version": "5.0.0"
+        }
+      },
+      {
+        "package": "SwiftyStoreKit",
+        "repositoryURL": "https://gitee.com/duke_wt/SwiftyStoreKit",
+        "state": {
+          "branch": null,
+          "revision": "6de7077c6cd15435c53d8ecfb1a09a371c83c4df",
+          "version": "0.15.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
