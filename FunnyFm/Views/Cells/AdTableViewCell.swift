@@ -17,7 +17,7 @@ class AdTableViewCell: UITableViewCell {
     }
     
     func render(ads: GDTNativeExpressAdView) {
-        self.contentView.removeAllSubviews()
+        self.contentView.removeSubviews()
         self.contentView.addSubview(ads)
         ads.backgroundColor = R.color.ffWhite()
         ads.snp.makeConstraints { (make) in

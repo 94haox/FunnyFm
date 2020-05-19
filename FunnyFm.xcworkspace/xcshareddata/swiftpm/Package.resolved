@@ -2,6 +2,7 @@
   "object": {
     "pins": [
       {
+<<<<<<< HEAD
         "package": "DynamicColor",
         "repositoryURL": "https://gitee.com/duke_wt/DynamicColor",
         "state": {
@@ -98,6 +99,15 @@
           "branch": null,
           "revision": "6de7077c6cd15435c53d8ecfb1a09a371c83c4df",
           "version": "0.15.1"
+        }
+      },
+      {
+        "package": "Tiercel",
+        "repositoryURL": "git@github.com:Danie1s/Tiercel.git",
+        "state": {
+          "branch": null,
+          "revision": "8cde56c05045c9d121b2901700dcb2d87f42ffec",
+          "version": "3.2.0"
         }
       }
     ]

@@ -76,7 +76,7 @@ public extension UITableView {
     /// SwifterSwift: Scroll to bottom of TableView.
     ///
     /// - Parameter animated: set true to animate scroll (default is true).
-	override func scrollToBottom(animated: Bool = true) {
+	func scrollToBottom(animated: Bool = true) {
         let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
         setContentOffset(bottomOffset, animated: animated)
     }
@@ -84,7 +84,7 @@ public extension UITableView {
     /// SwifterSwift: Scroll to top of TableView.
     ///
     /// - Parameter animated: set true to animate scroll (default is true).
-	override func scrollToTop(animated: Bool = true) {
+	func scrollToTop(animated: Bool = true) {
         setContentOffset(CGPoint.zero, animated: animated)
     }
 

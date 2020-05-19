@@ -275,7 +275,8 @@ extension PlayDetailToolBar {
 		
 		self.sleepBtn = UIButton.init(type: .custom)
 		self.sleepBtn.imageView?.contentMode = .scaleAspectFit
-		self.sleepBtn.setImage(UIImage.init(named: "timer-sleep"), for: .normal)
+        self.sleepBtn.setImageForAllStates(UIImage.init(named: "timer-sleep")!.tintImage)
+        self.sleepBtn.tintColor = CommonColor.title.color
 		self.sleepBtn.addTarget(self, action: #selector(setSleepTime), for: .touchUpInside)
 		self.addSubview(self.sleepBtn)
 		

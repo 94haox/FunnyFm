@@ -35,7 +35,7 @@ class EpisodeInfoViewController: UIViewController {
 	
 	var downloadBtn: UIButton = UIButton.init(type: .custom)
 	
-	var infoTextView: YYLabel!
+	var infoTextView: MPILabel!
 	
 	var episode: Episode!
 	
@@ -173,16 +173,19 @@ extension EpisodeInfoViewController {
 	
 	func config(content: Episode) {
 		
-		
+        guard let url = URL.init(string: self.episode.trackUrl) else {
+            return
+        }
 		if FMPlayerManager.shared.currentModel.isSome {
 			if FMPlayerManager.shared.currentModel!.title == self.episode.title && FMPlayerManager.shared.isPlay {
 				self.playBtn.isSelected = true
 			}
 		}
+        
+        if DownloadManager.shared.sessionManager.fetchTask(url).isSome {
+            self.downloadBtn.isSelected = true
+        }
 		
-		if DownloadManager.shared.downloadKeys.contains(self.episode.trackUrl) {
-			self.downloadBtn.isSelected = true
-		}
 		
 		if let _ = DatabaseManager.qureyDownload(title: self.episode.title) {
             self.downloadBtn.setImage(UIImage.init(named: "trash")!.tintImage, for: .selected)
@@ -195,17 +198,10 @@ extension EpisodeInfoViewController {
 		self.episode.intro = episode.title + "\n\n" + self.episode.intro
 		guard self.episode.intro.contains("<") else {
 			self.episode.intro = self.episode.intro.replacingOccurrences(of: "。", with: "。\n")
+            self.episode.intro = self.episode.intro.replacingOccurrences(of: "[", with: "\n[")
 			let content = NSAttributedString.init(string: self.episode.intro, attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
-			
-			let layout = YYTextLayout.init(containerSize: CGSize.init(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude), text: content)
-			
-			self.infoTextView.textLayout = layout
-			self.infoTextView.snp.remakeConstraints { (make) in
-				make.centerX.equalToSuperview()
-				make.width.equalToSuperview().offset(-16*2)
-				make.top.equalTo(self.addBtn.snp.bottom).offset(24)
-				make.height.equalTo(layout!.textBoundingSize.height+20)
-			}
+            self.infoTextView.attributedText = content
+            self.infoTextView.truncationAttributedToken = MPITextDefaultTruncationAttributedToken()
 			self.loadingView.removeSubviews()
 			self.view.layoutIfNeeded()
 			return
@@ -237,33 +233,36 @@ extension EpisodeInfoViewController {
 						}
 					})
 				}
-				let layout = YYTextLayout.init(containerSize: CGSize.init(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude), text: attrStr)!
 				DispatchQueue.main.async {
-					self.infoTextView.textLayout = layout;
+                    self.infoTextView.attributedText = attrStr
+					self.infoTextView.truncationAttributedToken = MPITextDefaultTruncationAttributedToken();
 					self.loadingView.removeSubviews()
 				}
 			}catch _ as NSError {
 				let content = NSAttributedString.init(string: (self.episode.title + "\n\n" + self.episode.intro), attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
-				let layout = YYTextLayout.init(containerSize: CGSize.init(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude), text: content)!
 				DispatchQueue.main.async {
-					self.infoTextView.textLayout = layout
+                    self.infoTextView.attributedText = content;
+                    self.infoTextView.truncationAttributedToken = MPITextDefaultTruncationAttributedToken()
 					self.loadingView.removeSubviews()
 				}
 			}
 			
 			DispatchQueue.main.async {
-				self.infoTextView.snp.remakeConstraints { (make) in
-					make.centerX.equalToSuperview()
-					make.width.equalToSuperview().offset(-16*2)
-					make.top.equalTo(self.addBtn.snp.bottom).offset(24)
-					make.height.equalTo(self.infoTextView.textLayout!.textBoundingSize.height+20)
-				}
 				self.view.layoutIfNeeded()
 			}
 		}
 	}
 	
 }
+
+extension EpisodeInfoViewController: MPILabelDelegate {
+    
+    func label(_ label: MPILabel, didInteractWith link: MPITextLink, forAttributedText attributedText: NSAttributedString, in characterRange: NSRange, interaction: MPITextItemInteraction) {
+        
+    }
+    
+}
+
 
 extension EpisodeInfoViewController: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -385,13 +384,10 @@ extension EpisodeInfoViewController {
 	
 	func dw_addSubviews(){
 		
-		self.infoTextView = YYLabel.init()
-		self.infoTextView.highlightTapAction = { (containerView, text, range, rect) in
-			
-		}
-//		self.infoTextView.bounces = false
-//		self.infoTextView.dataDetectorTypes = .all
-//		self.infoTextView.backgroundColor = UIColor.white
+		self.infoTextView = MPILabel.init()
+        self.infoTextView.numberOfLines = 0;
+        self.infoTextView.delegate = self;
+        self.infoTextView.isUserInteractionEnabled = true
 		
 		
 		self.scrollView.backgroundColor = CommonColor.white.color
@@ -460,6 +456,22 @@ extension EpisodeInfoViewController {
 		
 		self.loadingView.startAnimating()
 	}
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            self.downloadBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
+            self.noteListBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
+            self.addBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
+            self.insertBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
+        }else{
+            self.downloadBtn.cleanShadow()
+            self.insertBtn.cleanShadow()
+            self.noteListBtn.cleanShadow()
+            self.addBtn.cleanShadow()
+        }
+    }
 	
 }
 

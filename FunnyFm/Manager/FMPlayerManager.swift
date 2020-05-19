@@ -279,10 +279,10 @@ extension FMPlayerManager {
     }
 	
 	func completePath(_ episode: Episode) -> URL {
-		let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-		let mp3Path = documentURL.appendingPathComponent("mp3")
-		let url = mp3Path.appendingPathComponent(episode.download_filpath)
-		return url;
+        let documentURL = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let mp3Path = documentURL.appending("/mp3")
+		let url = mp3Path.appending("/\(episode.download_filpath)")
+        return URL.init(fileURLWithPath: url);
 	}
 	
 	func checkProgress(_ episode: Episode) -> Double {
@@ -354,14 +354,6 @@ extension FMPlayerManager {
         
     }
 	
-}
-
-
-extension FMPlayerManager: VIResourceLoaderManagerDelegate {
-	
-	func resourceLoaderManagerLoad(_ url: URL!, didFailWithError error: Error!) {
-		
-	}
 }
 
 extension FMPlayerManager: BCQResourceLoaderManagerDelegate {

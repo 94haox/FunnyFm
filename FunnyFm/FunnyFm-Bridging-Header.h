@@ -11,11 +11,10 @@
 #import "YBTaskScheduler.h"
 #import "UIButton+SomeMethods.h"
 #import "CropAudioManager.h"
-#import "VICahcheHelper.h"
 #import "MNAVChapterReader.h"
 #import "BHTimeProfiler.h"
 
-#import <YYKit.h>
+#import <MPITextKit.h>
 #import <GDTNativeExpressAdView.h>
 #import <GDTMobBannerView.h>
 #import <GDTMobInterstitial.h>

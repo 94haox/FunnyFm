@@ -152,7 +152,8 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 				generator.impactOccurred()
 			}
 		}else if scrollView.contentOffset.x > 60{
-			self.noteImageView.image = UIImage.init(named: "note_sel")
+            self.noteImageView.image = UIImage.init(named: "note_sel")?.tintImage
+            self.noteImageView.tintColor = R.color.mainRed()
             self.noteImageView.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview()
                 make.size.equalTo(CGSize.init(width: 30, height: 30))
@@ -165,7 +166,8 @@ extension PlayerDetailViewController : UIScrollViewDelegate {
 			}
 		} else{
 			self.isImpact = false;
-            self.infoImageView.image = UIImage.init(named: "episode_info_nor")
+            self.infoImageView.image = UIImage.init(named: "episode_info_nor")?.tintImage
+            self.infoImageView.tintColor = R.color.mainRed()
             self.infoImageView.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview()
                 make.size.equalTo(CGSize.init(width: 50, height: 50))
@@ -593,12 +595,12 @@ extension PlayerDetailViewController {
         self.view.addSubview(self.progressLine)
         
         self.playBtn = UIButton.init(type: .custom)
-        self.playBtn.setImage(UIImage.init(named: "play-red")!, for: .normal)
-        self.playBtn.setImage(UIImage.init(named: "pause-red")!, for: .selected)
+        let config = UIImage.SymbolConfiguration.init(pointSize: 350.auto(), weight: .medium)
+        self.playBtn.setImage(UIImage.init(systemName: "play.circle.fill", withConfiguration: config)?.tintImage, for: .normal)
+        self.playBtn.setImage(UIImage.init(systemName: "pause.circle.fill", withConfiguration: config)?.tintImage, for: .selected)
+        self.playBtn.tintColor = R.color.mainRed()
         self.playBtn.isSelected = FMPlayerManager.shared.isPlay
         self.playBtn.addTarget(self, action: #selector(tapPlayBtnAction(btn:)), for: .touchUpInside)
-        self.playBtn.cornerRadius = 30.auto()
-        self.playBtn.addShadow(ofColor: R.color.mainRed()!, radius: 20.auto(), offset: CGSize.zero, opacity: 0.8)
         self.view.addSubview(self.playBtn)
         
         self.rewindBtn = UIButton.init(type: .custom)
