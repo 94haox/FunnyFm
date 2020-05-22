@@ -82,10 +82,8 @@ extension AppleLoginTypeViewController {
 		request.requestedScopes = [.fullName, .email]
 
 		let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-
 		authorizationController.delegate = self
 		authorizationController.presentationContextProvider = self
-
 		authorizationController.performRequests()
 	}
 	

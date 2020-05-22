@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -109,7 +109,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qET-SQ-8z1">
-                    <rect key="frame" x="101" y="444.5" width="194" height="22"/>
+                    <rect key="frame" x="102" y="444.5" width="210" height="22"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzB-qD-mFL">
                             <rect key="frame" x="0.0" y="0.0" width="16" height="22"/>
@@ -123,16 +123,37 @@
                                 <action selector="checkPolicy:" destination="-1" eventType="touchUpInside" id="p52-Q7-dIo"/>
                             </connections>
                         </button>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意隐私条款和服务条款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPd-Wq-YQ2">
-                            <rect key="frame" x="18" y="0.0" width="176" height="22"/>
-                            <gestureRecognizers/>
-                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
-                            <color key="textColor" name="content"/>
-                            <nil key="highlightedColor"/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="UCv-V1-zwg" appends="YES" id="pO3-lA-uqD"/>
-                            </connections>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gcd-bG-dJB">
+                            <rect key="frame" x="18" y="0.0" width="192" height="22"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNg-kY-pIa">
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="22"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
+                                    <color key="textColor" name="content"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="隐私政策" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3B-6m-kKV">
+                                    <rect key="frame" x="84" y="0.0" width="48" height="22"/>
+                                    <gestureRecognizers/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
+                                    <color key="textColor" name="content"/>
+                                    <nil key="highlightedColor"/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="uoS-rc-O1E" appends="YES" id="2iD-Ji-HO7"/>
+                                    </connections>
+                                </label>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="和使用条款" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utK-NE-GEt">
+                                    <rect key="frame" x="132" y="0.0" width="60" height="22"/>
+                                    <gestureRecognizers/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
+                                    <color key="textColor" name="content"/>
+                                    <nil key="highlightedColor"/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="bPP-aa-tOP" appends="YES" id="6G8-Mh-CMf"/>
+                                    </connections>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="LoV-B2-eQi"/>
@@ -143,7 +164,6 @@
             <constraints>
                 <constraint firstItem="tBW-s2-ndt" firstAttribute="leading" secondItem="u3e-Ve-Eru" secondAttribute="leading" id="1kl-X6-LFF"/>
                 <constraint firstItem="mVe-CT-Iy5" firstAttribute="top" secondItem="iAu-R4-yOm" secondAttribute="bottom" constant="30" id="4VO-4z-GmI"/>
-                <constraint firstItem="CPd-Wq-YQ2" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="5U3-Pp-YMd"/>
                 <constraint firstItem="Lhs-KY-gi3" firstAttribute="top" secondItem="qET-SQ-8z1" secondAttribute="bottom" constant="88" id="Al4-lM-ohc"/>
                 <constraint firstItem="OQL-Js-yr8" firstAttribute="top" secondItem="bCl-Ey-pUm" secondAttribute="top" id="BCJ-U3-LsT"/>
                 <constraint firstItem="u3e-Ve-Eru" firstAttribute="top" secondItem="mVe-CT-Iy5" secondAttribute="top" id="BUE-cM-tvM"/>
@@ -168,6 +188,7 @@
                 <constraint firstItem="qET-SQ-8z1" firstAttribute="top" secondItem="OmZ-5H-Dz3" secondAttribute="bottom" constant="32" id="p8d-Sp-TS6"/>
                 <constraint firstItem="YGc-uq-mAR" firstAttribute="top" secondItem="yKe-5V-iKL" secondAttribute="bottom" constant="14" id="pKA-kd-GKT"/>
                 <constraint firstItem="PkT-qw-bdE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="pf2-tq-OJZ"/>
+                <constraint firstItem="qET-SQ-8z1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="qtJ-K4-sdC"/>
                 <constraint firstItem="iAu-R4-yOm" firstAttribute="leading" secondItem="X4e-Rq-ApN" secondAttribute="leading" id="r1N-C4-ZCS"/>
                 <constraint firstItem="PkT-qw-bdE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="sV0-Kp-aI7"/>
                 <constraint firstItem="OQL-Js-yr8" firstAttribute="leading" secondItem="u3e-Ve-Eru" secondAttribute="leading" id="tSp-HL-rvY"/>
@@ -176,15 +197,20 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="150"/>
         </view>
-        <tapGestureRecognizer id="UCv-V1-zwg">
+        <tapGestureRecognizer id="uoS-rc-O1E">
             <connections>
-                <action selector="showPolicyAndTerm:" destination="-1" id="9XM-yY-Z8X"/>
+                <action selector="showPolicy:" destination="-1" id="5LH-bl-ZT0"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="bPP-aa-tOP">
+            <connections>
+                <action selector="showTerm:" destination="-1" id="FAX-AN-qSr"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="checkmark.seal" catalog="system" width="128" height="122"/>
-        <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>
+        <image name="checkmark.seal" catalog="system" width="64" height="60"/>
+        <image name="checkmark.seal.fill" catalog="system" width="64" height="60"/>
         <image name="lemonade" width="512" height="512"/>
         <image name="mask" width="512" height="512"/>
         <image name="network" width="512" height="512"/>

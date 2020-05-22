@@ -41,6 +41,10 @@ class DownloadListViewController: BaseViewController {
 		}
 		
 		DownloadManager.shared.delegate = self
+		
+		NotificationCenter.default.addObserver(forName:  Notification.downloadChangeNotification, object: nil, queue: OperationQueue.main) { (noti) in
+			self.tableview.reloadData()
+		}
 	}
 	
 	
@@ -49,7 +53,7 @@ class DownloadListViewController: BaseViewController {
 		self.deleteBtn.isHidden = self.episodeList.count < 2
 		self.episodeList = DatabaseManager.allDownload()
 		self.tableview.reloadData()
-        self.sectionSegment.isHidden = self.episodeList.count < 1 || DownloadManager.shared.downloadQueue.count > 1
+        self.sectionSegment.isHidden = self.episodeList.count < 1 && DownloadManager.shared.downloadQueue.count < 1
 	}
 	
 	@objc func changeSection(){
@@ -118,7 +122,6 @@ extension DownloadListViewController: UITableViewDelegate {
 			let detailVC = EpisodeInfoViewController.init()
 			detailVC.episode = dowload
 			self.navigationController?.dw_presentAsStork(controller: detailVC, heigth: kScreenHeight * 0.6, delegate: self)
-//			FMToolBar.shared.configToolBar(dowload)
 		}
 	}
 	
@@ -210,10 +213,6 @@ extension DownloadListViewController: UITableViewDataSource {
 				self?.showDeleteAction(indexPath: indexPath)
 			}
 			return cell
-        }
-        
-        cell.deleteClosure = { [weak self] () -> Void in
-            self?.tableview.reloadData()
         }
 		
 		let taskList = DownloadManager.shared.downloadQueue

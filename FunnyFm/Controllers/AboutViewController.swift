@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import SwiftUI
 
 
 class AboutViewController: BaseViewController {
@@ -36,13 +37,15 @@ class AboutViewController: BaseViewController {
     }
 
     @IBAction func useInfoAction(_ sender: Any) {
-        let vc = SFSafariViewController.init(url: URL.init(string: "https://live.funnyfm.top/#/terms")!)
-        self.present(vc, animated: true, completion: nil)
+        let termView = TermView() // swiftUIView is View
+        let viewCtrl = UIHostingController(rootView: termView)
+		self.present(viewCtrl, animated: true, completion: nil)
     }
     
     @IBAction func privacyAction(_ sender: Any) {
-        let vc = SFSafariViewController.init(url: URL.init(string: "https://live.funnyfm.top/#/policy")!)
-        self.present(vc, animated: true, completion: nil)
+        let termView = PolicyView() // swiftUIView is View
+        let viewCtrl = UIHostingController(rootView: termView)
+		self.presentAsStork(viewCtrl, height: kScreenHeight/2.0)
     }
     /*
     // MARK: - Navigation

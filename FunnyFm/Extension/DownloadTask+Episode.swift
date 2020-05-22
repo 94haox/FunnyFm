@@ -12,7 +12,11 @@ import Tiercel
 extension DownloadTask {
     
     var episode: Episode? {
-        return DatabaseManager.getEpisode(trackUrl: self.url.absoluteString)
+		let opUrl = self.url.absoluteString.removingPercentEncoding;
+		guard let url = opUrl else {
+			return nil
+		}
+        return DatabaseManager.getEpisode(trackUrl: url)
     }
     
     

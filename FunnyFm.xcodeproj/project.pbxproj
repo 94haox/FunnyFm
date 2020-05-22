@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		3877FEB02468F6690096E2BD /* Tiercel in Frameworks */ = {isa = PBXBuildFile; productRef = 3877FEAF2468F6690096E2BD /* Tiercel */; };
 		3877FF46246941830096E2BD /* DownloadTask+Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877FF45246941830096E2BD /* DownloadTask+Episode.swift */; };
+		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
+		38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
 		741F272D242379EA006F1DCE /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F272C242379EA006F1DCE /* ChapterListViewController.swift */; };
 		741F273024237A0B006F1DCE /* ChapterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F272E24237A0B006F1DCE /* ChapterCollectionViewCell.swift */; };
 		741F273124237A0B006F1DCE /* ChapterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */; };
 		741F2733242381B5006F1DCE /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F2732242381B5006F1DCE /* Chapter.swift */; };
 		741F27442423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */; };
-		7423FDD524742B53008F7BFD /* PolicyTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyTerm.swift */; };
+		7423FDD524742B53008F7BFD /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyView.swift */; };
 		742DD23C2430813E0010FBE3 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */; };
 		7438FF73243076D200A31FA9 /* notification_ad.json in Resources */ = {isa = PBXBuildFile; fileRef = 7438FF72243076D200A31FA9 /* notification_ad.json */; };
 		743A4C3C242759CF008E0086 /* RefreshJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A4C3B242759CF008E0086 /* RefreshJob.swift */; };
@@ -387,6 +389,8 @@
 		022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		3877FF45246941830096E2BD /* DownloadTask+Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadTask+Episode.swift"; sourceTree = "<group>"; };
+		3898C7AE2474F1C200828A4A /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
+		38BC211124768999002B5CA4 /* SubscribtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionView.swift; sourceTree = "<group>"; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -395,7 +399,7 @@
 		741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChapterCollectionViewCell.xib; path = FunnyFM/Views/Cells/ChapterCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		741F2732242381B5006F1DCE /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chapter.swift; path = FunnyFM/Models/Chapter.swift; sourceTree = SOURCE_ROOT; };
 		741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSuccessfulViewController.swift; path = FunnyFM/Controllers/PurchaseSuccessfulViewController.swift; sourceTree = SOURCE_ROOT; };
-		7423FDD424742B53008F7BFD /* PolicyTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PolicyTerm.swift; path = FunnyFM/SwiftUI/PolicyTerm.swift; sourceTree = SOURCE_ROOT; };
+		7423FDD424742B53008F7BFD /* PolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PolicyView.swift; path = FunnyFM/SwiftUI/PolicyView.swift; sourceTree = SOURCE_ROOT; };
 		742DD23D2430813E0010FBE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PrivacyViewController.xib; sourceTree = "<group>"; };
 		742DD240243081440010FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../FunnyFM/Controllers/en.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
 		742DD242243081490010FBE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../../FunnyFM/Controllers/zh-Hans.lproj/PrivacyViewController.strings"; sourceTree = "<group>"; };
@@ -888,7 +892,9 @@
 		7423FDD324742B31008F7BFD /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				7423FDD424742B53008F7BFD /* PolicyTerm.swift */,
+				7423FDD424742B53008F7BFD /* PolicyView.swift */,
+				3898C7AE2474F1C200828A4A /* TermView.swift */,
+				38BC211124768999002B5CA4 /* SubscribtionView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -2099,6 +2105,7 @@
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
 				ABEE40D221E3246E00FCB16F /* MJRefreshBackStateFooter.m in Sources */,
 				ABE7660421D7196700470D8F /* URLRequestExtensions.swift in Sources */,
+				3898C7AF2474F1C200828A4A /* TermView.swift in Sources */,
 				AB32CF5522B38FA0007C9E41 /* iTunsPod.swift in Sources */,
 				ABE7ACBF21C2334000FC6B8E /* ChapterProgress.swift in Sources */,
 				AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */,
@@ -2142,7 +2149,7 @@
 				743AC8FD24262128001D252F /* RSSViewController.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
 				7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */,
-				7423FDD524742B53008F7BFD /* PolicyTerm.swift in Sources */,
+				7423FDD524742B53008F7BFD /* PolicyView.swift in Sources */,
 				AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
@@ -2210,6 +2217,7 @@
 				ABE7660621D7196700470D8F /* URLExtensions.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,
+				38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */,
 				745DE3082423607100EFFDA4 /* MNAVChapterReader.m in Sources */,
 				AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */,
 				ABEE40D121E3246E00FCB16F /* MJRefreshBackGifFooter.m in Sources */,
@@ -2531,7 +2539,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2674,7 +2682,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

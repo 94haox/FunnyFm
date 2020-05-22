@@ -41,7 +41,7 @@ class DownloadTableViewCell: UITableViewCell {
 	func config(task: DownloadTask){
 		self.dw_addNotifcations()
 		self.actionBtn.isSelected = true
-		self.titleLB.text = task.episode!.title
+		self.titleLB.text = task.episode?.title
 		self.addTimeLB.text = task.startDateString
 		self.logoImageView.loadImage(url: task.episode!.coverUrl)
 		self.task = task
@@ -88,6 +88,7 @@ class DownloadTableViewCell: UITableViewCell {
                 return
             }
             DownloadManager.shared.stopDownload(episode: episode)
+			return
 		}
         self.deleteClosure?()
 		

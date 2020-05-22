@@ -258,7 +258,7 @@ extension FMPlayerManager {
         self.currentModel = chapter
         configPlayBackgroungMode()
         self.setBackground()
-		var url = URL.init(string: chapter.trackUrl);
+		var url = URL.init(string: chapter.trackUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!);
 		var item : AVPlayerItem;
 		if let episode = DatabaseManager.qureyDownload(title: chapter.title) {
 			url = self.completePath(episode)

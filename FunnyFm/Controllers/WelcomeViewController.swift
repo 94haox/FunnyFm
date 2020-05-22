@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class WelcomeViewController: UIViewController {
     
@@ -27,7 +28,15 @@ class WelcomeViewController: UIViewController {
         sender.isSelected = !sender.isSelected
     }
     
-    @IBAction func showPolicyAndTerm(_ sender: Any) {
-        
+    @IBAction func showPolicy(_ sender: Any) {
+        let termView = PolicyView() // swiftUIView is View
+        let viewCtrl = UIHostingController(rootView: termView)
+		self.presentAsStork(viewCtrl, height: kScreenHeight/2.0)
+    }
+    
+    @IBAction func showTerm(_ sender: Any) {
+        let termView = TermView() // swiftUIView is View
+        let viewCtrl = UIHostingController(rootView: termView)
+        self.present(viewCtrl, animated: true, completion: nil)
     }
 }

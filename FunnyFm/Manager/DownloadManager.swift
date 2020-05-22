@@ -54,33 +54,48 @@ class DownloadManager: NSObject {
 	
 	func beginDownload(_ episode: Episode) -> Bool{
 
-        guard let task = sessionManager.download(episode.trackUrl) else {
+		guard let task = sessionManager.download(episode.trackUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else {
             return false
         }
 
         task.success { [weak self](task) in
-            if var episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) {
+			guard let url = task.url.absoluteString.removingPercentEncoding else {
+				return
+			}
+            if var episode = DatabaseManager.getEpisode(trackUrl: url) {
                 episode.download_filpath = task.filePath.components(separatedBy: "/").last!
                 self?.sessionManager.remove(task)
                 DatabaseManager.add(download: episode)
                 PlayListManager.shared.queueInsertAffter(episode: episode)
             }
-            self?.delegate?.didDownloadSuccess(fileUrl: task.filePath, sourceUrl: task.url.absoluteString)
+            self?.delegate?.didDownloadSuccess(fileUrl: task.filePath, sourceUrl: url)
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": task.url.absoluteString])
             }
         }
         
         task.progress { (task) in
+			guard let url = task.url.absoluteString.removingPercentEncoding else {
+				return
+			}
             let progress = Double(task.progress.completedUnitCount) / Double(task.progress.totalUnitCount)
-            self.delegate?.downloadProgress(progress: progress, sourceUrl: task.url.absoluteString)
+            self.delegate?.downloadProgress(progress: progress, sourceUrl: url)
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl":task.url.absoluteString])
+                NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl": url])
             }
         }
         
         task.failure { [weak self](task) in
-            guard let episode = DatabaseManager.getEpisode(trackUrl: task.url.absoluteString) else {
+			
+			DispatchQueue.main.async {
+				NotificationCenter.default.post(name: Notification.downloadChangeNotification, object: ["sourceUrl": task.url.absoluteString])
+			}
+			
+			guard let url = task.url.absoluteString.removingPercentEncoding, task.status == .failed else {
+				return
+			}
+			
+            guard let episode = DatabaseManager.getEpisode(trackUrl: url) else {
                 return
             }
             
@@ -89,7 +104,7 @@ class DownloadManager: NSObject {
             }
             
             let tip = String.init(format: "%@%@",  episode.title, "下载失败".localized)
-            self?.delegate?.didDownloadFailure(sourceUrl: task.url.absoluteString)
+            self?.delegate?.didDownloadFailure(sourceUrl: url)
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": task.url.absoluteString])
                 
@@ -102,10 +117,10 @@ class DownloadManager: NSObject {
 	}
 	
 	func stopDownload(episode: Episode) {
-        guard let url = URL.init(string: episode.trackUrl) else {
-            return
+		guard let task = sessionManager.download(episode.trackUrl.removingPercentEncoding!) else {
+			return
         }
-        sessionManager.cancel(url)
+		sessionManager.remove(task, completely: true)
 	}
 	
 }

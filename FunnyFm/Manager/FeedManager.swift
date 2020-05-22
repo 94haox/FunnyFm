@@ -104,7 +104,9 @@ extension FeedManager {
         
         self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
         DispatchQueue.main.async {
-            self.delegate?.feedManagerDidGetEpisodelistSuccess(count: info["itemCount"] as! Int)
+			if let itemCount = info["itemCount"] {
+				self.delegate?.feedManagerDidGetEpisodelistSuccess(count: itemCount as! Int)
+			}
         }
         
         if self.waitingPodlist.count <= 0 {
