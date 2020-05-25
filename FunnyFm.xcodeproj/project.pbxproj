@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3858F068247B637500FD72DB /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3858F067247B637500FD72DB /* SwipeCellKit */; };
 		3877FEB02468F6690096E2BD /* Tiercel in Frameworks */ = {isa = PBXBuildFile; productRef = 3877FEAF2468F6690096E2BD /* Tiercel */; };
 		3877FF46246941830096E2BD /* DownloadTask+Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877FF45246941830096E2BD /* DownloadTask+Episode.swift */; };
 		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
@@ -862,6 +863,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B695110D868CD0326F60A963 /* Pods_FunnyFm.framework in Frameworks */,
+				3858F068247B637500FD72DB /* SwipeCellKit in Frameworks */,
 				3877FEB02468F6690096E2BD /* Tiercel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1723,6 +1725,7 @@
 			name = FunnyFm;
 			packageProductDependencies = (
 				3877FEAF2468F6690096E2BD /* Tiercel */,
+				3858F067247B637500FD72DB /* SwipeCellKit */,
 			);
 			productName = FunnyFm;
 			productReference = AB25797921945E6F004C5F5D /* FunnyFm.app */;
@@ -1773,6 +1776,7 @@
 			mainGroup = AB25797021945E6F004C5F5D;
 			packageReferences = (
 				3877FEAE2468F6690096E2BD /* XCRemoteSwiftPackageReference "Tiercel" */,
+				3858F066247B637500FD72DB /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
 			);
 			productRefGroup = AB25797A21945E6F004C5F5D /* Products */;
 			projectDirPath = "";
@@ -2732,6 +2736,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3858F066247B637500FD72DB /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
 		3877FEAE2468F6690096E2BD /* XCRemoteSwiftPackageReference "Tiercel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Danie1s/Tiercel.git";
@@ -2743,6 +2755,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3858F067247B637500FD72DB /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3858F066247B637500FD72DB /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
 		3877FEAF2468F6690096E2BD /* Tiercel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3877FEAE2468F6690096E2BD /* XCRemoteSwiftPackageReference "Tiercel" */;

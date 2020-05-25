@@ -25,6 +25,7 @@ class PlayListViewController: BaseViewController {
 		self.titleLB.text = "播放列表".localized
 		self.view.backgroundColor = CommonColor.background.color
 		self.setupUI()
+		
     }
     	
 	override func viewWillAppear(_ animated: Bool) {

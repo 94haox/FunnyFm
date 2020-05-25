@@ -8,6 +8,7 @@
 
 import UIKit
 import AutoInch
+import SwipeCellKit
 
 class PodDetailViewController: BaseViewController {
 	
@@ -193,6 +194,8 @@ extension PodDetailViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		guard let cell = cell as? HomeAlbumTableViewCell else { return }
+		let swipeCell = cell as! SwipeTableViewCell
+		swipeCell.delegate = self;
 		let episode = self.vm.episodeList[indexPath.row]
         cell.configCell(episode)
 		cell.tranferNoParameterClosure { [weak self] in
@@ -234,6 +237,37 @@ extension PodDetailViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 50
+	}
+}
+
+extension PodDetailViewController: SwipeTableViewCellDelegate {
+	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+		let episode = self.vm.episodeList[indexPath.row]
+		
+		guard orientation == .right else {
+			self.navigationController?.popViewController()
+			return nil
+		}
+		
+		if PlayListManager.shared.isAlreadyIn(episode: episode) {
+			let deleteAction = SwipeAction(style: .default, title: "remove from list") { action, indexPath in
+				PlayListManager.shared.queueOut(episode: episode)
+				self.tableview .reloadData()
+			}
+			deleteAction.backgroundColor = R.color.mainRed()
+			deleteAction.font = p_bfont(12)
+			deleteAction.image = UIImage(systemName: "minus.circle")
+			return [deleteAction]
+		}
+	
+		let addAction = SwipeAction(style: .default, title: "add to list") { action, indexPath in
+			PlayListManager.shared.queueIn(episode: episode)
+			self.tableview .reloadData()
+		}
+		addAction.backgroundColor = R.color.mainRed()
+		addAction.font = p_bfont(12)
+		addAction.image = UIImage(systemName: "plus.circle")
+		return [addAction]
 	}
 }
 

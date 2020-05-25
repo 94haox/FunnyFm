@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import pop
-import Lottie
+import SwipeCellKit
 
-class HomeAlbumTableViewCell: UITableViewCell {
+class HomeAlbumTableViewCell: SwipeTableViewCell {
 
-    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var backBgView: UIView!
     @IBOutlet weak var wallBtn: UIButton!
     @IBOutlet weak var shadowBgView: UIView!
@@ -82,7 +80,6 @@ class HomeAlbumTableViewCell: UITableViewCell {
     }
     
     func configCell(_ episode: Episode){
-        self.addBtn.isHidden = PlayListManager.shared.isAlreadyIn(episode: episode)
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
 		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
@@ -111,11 +108,6 @@ class HomeAlbumTableViewCell: UITableViewCell {
 		self.configCell(episode)
 	}
     
-    @IBAction func addToListAction(_ sender: Any) {
-        let generator = UIImpactFeedbackGenerator.init(style: .medium)
-        generator.impactOccurred()
-        self.addBlock?()
-    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         UIView.animate(withDuration: 0.1) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -92,14 +92,6 @@
                             <action selector="tapAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yQp-pb-ugl"/>
                         </connections>
                     </button>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEn-QO-JmX">
-                        <rect key="frame" x="321" y="30" width="46" height="30"/>
-                        <color key="tintColor" name="mainRed"/>
-                        <state key="normal" image="text.badge.plus" catalog="system"/>
-                        <connections>
-                            <action selector="addToListAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Kbl-jC-aoi"/>
-                        </connections>
-                    </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efl-oy-J03">
                         <rect key="frame" x="334" y="35" width="20" height="20"/>
                         <constraints>
@@ -131,7 +123,6 @@
                     <constraint firstItem="iDd-zJ-gei" firstAttribute="bottom" secondItem="SRA-sb-TP5" secondAttribute="bottom" id="JQw-cI-3WS"/>
                     <constraint firstItem="Azq-lx-OWs" firstAttribute="height" secondItem="SRA-sb-TP5" secondAttribute="height" id="LH2-Oj-P7I"/>
                     <constraint firstItem="Zj1-Jf-osQ" firstAttribute="leading" secondItem="SRA-sb-TP5" secondAttribute="trailing" constant="18" id="LLO-qw-iTq"/>
-                    <constraint firstItem="zEn-QO-JmX" firstAttribute="width" secondItem="efl-oy-J03" secondAttribute="width" multiplier="2.3" id="LLo-e7-R4b"/>
                     <constraint firstItem="7nh-eV-IoS" firstAttribute="bottom" secondItem="SRA-sb-TP5" secondAttribute="bottom" constant="12" id="O30-Uc-g1O"/>
                     <constraint firstItem="SRA-sb-TP5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Qx5-VV-pIj"/>
                     <constraint firstItem="Ypi-GG-83U" firstAttribute="firstBaseline" secondItem="IEv-QG-ewQ" secondAttribute="firstBaseline" id="S56-Wt-Pt9"/>
@@ -139,18 +130,14 @@
                     <constraint firstAttribute="trailing" secondItem="Ypi-GG-83U" secondAttribute="trailing" constant="16" id="W27-at-WgR"/>
                     <constraint firstItem="Azq-lx-OWs" firstAttribute="width" secondItem="SRA-sb-TP5" secondAttribute="width" id="XTg-ra-8Qj"/>
                     <constraint firstItem="Zj1-Jf-osQ" firstAttribute="top" secondItem="SRA-sb-TP5" secondAttribute="top" id="bXh-1V-6Bl"/>
-                    <constraint firstItem="zEn-QO-JmX" firstAttribute="centerY" secondItem="efl-oy-J03" secondAttribute="centerY" id="cid-Au-1pf"/>
-                    <constraint firstItem="zEn-QO-JmX" firstAttribute="height" secondItem="efl-oy-J03" secondAttribute="height" multiplier="1.5" id="el1-Ws-2Rm"/>
                     <constraint firstItem="iDd-zJ-gei" firstAttribute="leading" secondItem="Zj1-Jf-osQ" secondAttribute="leading" id="iDf-Km-fWf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Zj1-Jf-osQ" secondAttribute="trailing" constant="23" id="l4Z-vd-vSK"/>
                     <constraint firstItem="IEv-QG-ewQ" firstAttribute="bottom" secondItem="iDd-zJ-gei" secondAttribute="bottom" id="lbu-f9-TYc"/>
-                    <constraint firstItem="zEn-QO-JmX" firstAttribute="centerX" secondItem="efl-oy-J03" secondAttribute="centerX" id="tZy-uX-jQM"/>
                     <constraint firstItem="Azq-lx-OWs" firstAttribute="centerX" secondItem="SRA-sb-TP5" secondAttribute="centerX" id="zF1-wx-JnS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addBtn" destination="zEn-QO-JmX" id="okv-xC-v6X"/>
                 <outlet property="backBgView" destination="7nh-eV-IoS" id="Y6c-SH-BhD"/>
                 <outlet property="logoImageView" destination="SRA-sb-TP5" id="7Y8-dj-syz"/>
                 <outlet property="moreBtn" destination="Ypi-GG-83U" id="sMc-DV-3yb"/>
@@ -165,7 +152,6 @@
     </objects>
     <resources>
         <image name="greatwall" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="text.badge.plus" catalog="system" width="128" height="109"/>
         <namedColor name="mainRed">
             <color red="1" green="0.0" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

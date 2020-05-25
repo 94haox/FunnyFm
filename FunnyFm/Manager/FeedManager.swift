@@ -72,7 +72,7 @@ extension FeedManager {
 	func getHomeChapters() {
 		
 		DispatchQueue.global().async {
-			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if self.episodeList.count > 0 {
 				DispatchQueue.main.async {
                     self.delegate?.feedManagerDidGetEpisodelistSuccess(count: 1)
@@ -102,7 +102,7 @@ extension FeedManager {
         objc_sync_exit(self)
         
         
-        self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+        self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
         DispatchQueue.main.async {
 			if let itemCount = info["itemCount"] {
 				self.delegate?.feedManagerDidGetEpisodelistSuccess(count: itemCount as! Int)
@@ -120,7 +120,7 @@ extension FeedManager {
 			pod = iTunsPod.init(pod: item!)
 			pod?.collectionId = collectionId
 			self.addOrUpdate(itunesPod: pod!, episodelist: item!.items)
-			self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if(complete.isSome){
 				complete!(item)
 			}
@@ -164,7 +164,7 @@ extension FeedManager {
 		DatabaseManager.deleteItunesPod(feedUrl: podcastUrl)
 		DatabaseManager.deleteEpisode(podcastUrl: podcastUrl)
 		PushManager.shared.removeTags(tags: [podId])
-        self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+		self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
         self.podlist = DatabaseManager.allItunsPod()
 		if podId.length() < 1 || !UserCenter.shared.isLogin{
             self.delegate?.feedManagerDidDisSubscribeSuccess?()
@@ -218,7 +218,7 @@ extension FeedManager {
 // MARK: - 排序
 extension FeedManager {
 	
-	func sortEpisodeToGroup(_ episodeList: [Episode]) {
+	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]] {
 		var sortEpisodeList = [[Episode]]()
         var episodes = episodeList.suffix(100)
         episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
@@ -242,10 +242,7 @@ extension FeedManager {
                 sortEpisodeList.append(list!)
             }
         }
-        let serialQueue = DispatchQueue(label: "com.sort.mySerialQueue")
-        serialQueue.sync {
-            self.episodeList = sortEpisodeList
-        }
+		return sortEpisodeList;
 	}
 	
 }

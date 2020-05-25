@@ -173,7 +173,6 @@ extension AppDelegate: JPUSHRegisterDelegate {
 		entity.types = Int(JPAuthorizationOptions.alert.rawValue | JPAuthorizationOptions.badge.rawValue | JPAuthorizationOptions.sound.rawValue | JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
 		JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
 		JPUSHService.setup(withOption: self.options, appKey: "96982e6dbcb84da30216bdb1", channel: "app store", apsForProduction: true)
-		print(JPUSHService.registrationID())
 	}
 	
 	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
