@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "SwipeCellKit",
-        "repositoryURL": "https://github.com/SwipeCellKit/SwipeCellKit",
-        "state": {
-          "branch": null,
-          "revision": "7219cad3098637176ace311510d11467dbfb9bb0",
-          "version": "2.7.1"
-        }
-      },
-      {
         "package": "Tiercel",
         "repositoryURL": "git@github.com:Danie1s/Tiercel.git",
         "state": {

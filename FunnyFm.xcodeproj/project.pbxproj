@@ -45,6 +45,8 @@
 		7446860F2428C3D40094843F /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446860E2428C3D40094843F /* AdsManager.swift */; };
 		7446874E2428D3D60094843F /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446874C2428D3D60094843F /* AdTableViewCell.swift */; };
 		7446874F2428D3D60094843F /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7446874D2428D3D60094843F /* AdTableViewCell.xib */; };
+		74470631247D4F9A0031D356 /* HomeEpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447062F247D4F9A0031D356 /* HomeEpisodeCell.swift */; };
+		74470632247D4F9A0031D356 /* HomeEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74470630247D4F9A0031D356 /* HomeEpisodeCell.xib */; };
 		7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */; };
 		7455CD3024152030004886EF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2F24152030004886EF /* RoundedButton.swift */; };
 		7455CD342415209C004886EF /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
@@ -452,6 +454,8 @@
 		7446860E2428C3D40094843F /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdsManager.swift; path = FunnyFM/Manager/AdsManager.swift; sourceTree = SOURCE_ROOT; };
 		7446874C2428D3D60094843F /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdTableViewCell.swift; path = FunnyFM/Views/Cells/AdTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7446874D2428D3D60094843F /* AdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdTableViewCell.xib; path = FunnyFM/Views/Cells/AdTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		7447062F247D4F9A0031D356 /* HomeEpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeEpisodeCell.swift; path = FunnyFM/Views/Cells/HomeEpisodeCell.swift; sourceTree = SOURCE_ROOT; };
+		74470630247D4F9A0031D356 /* HomeEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeEpisodeCell.xib; path = FunnyFM/Views/Cells/HomeEpisodeCell.xib; sourceTree = SOURCE_ROOT; };
 		7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InPurchaseViewController.swift; path = FunnyFM/Controllers/InPurchaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		7455CD2F24152030004886EF /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = FunnyFM/Views/Custom/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
 		7455CD332415209C004886EF /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorView.swift; path = FunnyFM/Views/Custom/ActivityIndicatorView.swift; sourceTree = SOURCE_ROOT; };
@@ -1337,6 +1341,8 @@
 				AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */,
 				AB1E6D9C21B9388800B85135 /* HomeAlbumTableViewCell.swift */,
 				AB1E6D9D21B9388800B85135 /* HomeAlbumTableViewCell.xib */,
+				7447062F247D4F9A0031D356 /* HomeEpisodeCell.swift */,
+				74470630247D4F9A0031D356 /* HomeEpisodeCell.xib */,
 				ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */,
 				ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */,
 				AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */,
@@ -1843,6 +1849,7 @@
 				AB7E188B238ABCBC00D1C8AD /* SuportLocalList.plist in Resources */,
 				743AC8EE24261343001D252F /* InPurchaseViewController.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
+				74470632247D4F9A0031D356 /* HomeEpisodeCell.xib in Resources */,
 				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
 				74E92F832430842A00A0F64A /* first_ads.json in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
@@ -2003,6 +2010,7 @@
 				743AC8FA24261CCC001D252F /* MainEmptyView.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
+				74470631247D4F9A0031D356 /* HomeEpisodeCell.swift in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
 				AB7E1885238AB0C200D1C8AD /* CropAudioManager.m in Sources */,
 				AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */,

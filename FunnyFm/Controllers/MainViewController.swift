@@ -264,20 +264,20 @@ extension MainViewController{
 		}
 		
 		if item is Episode{
-			guard let cell = cell as? HomeAlbumTableViewCell else { return }
+			guard let cell = cell as? HomeEpisodeCell else { return }
 			let episode = item as! Episode
 			cell.configHomeCell(episode)
-			cell.tranferNoParameterClosure { [weak self] in
-				self?.toDetail(episode: episode)
-			}
-			
-			cell.tapLogoGesAction { [weak self] in
-				let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
-				if pod.isSome {
-					let vc = PodDetailViewController.init(pod: pod!)
-					self?.navigationController?.pushViewController(vc)
-				}
-			}
+//			cell.tranferNoParameterClosure { [weak self] in
+//				self?.toDetail(episode: episode)
+//			}
+//
+//			cell.tapLogoGesAction { [weak self] in
+//				let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
+//				if pod.isSome {
+//					let vc = PodDetailViewController.init(pod: pod!)
+//					self?.navigationController?.pushViewController(vc)
+//				}
+//			}
 		}
 		
     }
@@ -315,7 +315,7 @@ extension MainViewController{
 	}
 	
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
+        return 200
     }
 }
 
@@ -431,7 +431,7 @@ extension MainViewController {
         
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
-        let cellnib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)
+        let cellnib = UINib(nibName: String(describing: HomeEpisodeCell.self), bundle: nil)
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
         self.tableview.register(UINib.init(nibName: "AdTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "adCell")
