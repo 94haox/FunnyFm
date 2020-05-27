@@ -40,6 +40,8 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
     var forwardBtn: UIButton!
 	
 	var noteBtn: UIButton!
+	
+	var functionsBtn: UIButton!
     
     var infoImageView: UIImageView!
 	
@@ -279,6 +281,10 @@ extension PlayerDetailViewController {
 		let noteVC = NoteEditViewController.init()
 		noteVC.episode = self.episode
 		self.navigationController?.present(noteVC, animated: true, completion: nil)
+	}
+	
+	@objc func showFunctions() {
+		// TODO  添加全功能下拉页面
 	}
     
     @objc func showChapters() {
@@ -523,10 +529,15 @@ extension PlayerDetailViewController {
 			make.top.equalTo(self.progressLine.snp.bottom).offset(24)
 			make.size.equalTo(CGSize.init(width: 25, height: 25))
 		}
+		
+		self.functionsBtn.snp.makeConstraints { (make) in
+			make.left.equalTo(self.progressLine).offset(10)
+			make.size.centerY.equalTo(self.noteBtn)
+		}
         
         self.chaptersBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(self.progressLine).offset(10)
             make.size.centerY.equalTo(self.noteBtn)
+			make.centerX.equalToSuperview()
         }
         
         self.chapterCountLB.snp.makeConstraints { (make) in
@@ -627,6 +638,12 @@ extension PlayerDetailViewController {
         self.noteBtn.tintColor = R.color.mainRed()
 		self.noteBtn.addTarget(self, action: #selector(editNote), for: .touchUpInside)
 		self.view.addSubview(self.noteBtn)
+		
+		self.functionsBtn = UIButton.init(type: .custom)
+		self.functionsBtn.tintColor = R.color.mainRed()
+        self.functionsBtn.setImageForAllStates(UIImage.init(systemName: "slider.horizontal.3")!)
+		self.functionsBtn.addTarget(self, action: #selector(showFunctions), for: .touchUpInside)
+		self.view.addSubview(self.functionsBtn)
         
         self.chaptersBtn.setImageForAllStates(UIImage.init(named: "chapters")!.tintImage)
         self.chaptersBtn.addTarget(self, action: #selector(showChapters), for: .touchUpInside)

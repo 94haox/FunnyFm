@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */; };
+		380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */; };
 		3858F068247B637500FD72DB /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3858F067247B637500FD72DB /* SwipeCellKit */; };
 		3877FEB02468F6690096E2BD /* Tiercel in Frameworks */ = {isa = PBXBuildFile; productRef = 3877FEAF2468F6690096E2BD /* Tiercel */; };
 		3877FF46246941830096E2BD /* DownloadTask+Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877FF45246941830096E2BD /* DownloadTask+Episode.swift */; };
@@ -45,8 +47,6 @@
 		7446860F2428C3D40094843F /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446860E2428C3D40094843F /* AdsManager.swift */; };
 		7446874E2428D3D60094843F /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446874C2428D3D60094843F /* AdTableViewCell.swift */; };
 		7446874F2428D3D60094843F /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7446874D2428D3D60094843F /* AdTableViewCell.xib */; };
-		74470631247D4F9A0031D356 /* HomeEpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447062F247D4F9A0031D356 /* HomeEpisodeCell.swift */; };
-		74470632247D4F9A0031D356 /* HomeEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74470630247D4F9A0031D356 /* HomeEpisodeCell.xib */; };
 		7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */; };
 		7455CD3024152030004886EF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD2F24152030004886EF /* RoundedButton.swift */; };
 		7455CD342415209C004886EF /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
@@ -391,6 +391,8 @@
 /* Begin PBXFileReference section */
 		022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardTableViewCell.swift; sourceTree = "<group>"; };
+		380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCardTableViewCell.xib; sourceTree = "<group>"; };
 		3877FF45246941830096E2BD /* DownloadTask+Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadTask+Episode.swift"; sourceTree = "<group>"; };
 		3898C7AE2474F1C200828A4A /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 		38BC211124768999002B5CA4 /* SubscribtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionView.swift; sourceTree = "<group>"; };
@@ -454,8 +456,6 @@
 		7446860E2428C3D40094843F /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdsManager.swift; path = FunnyFM/Manager/AdsManager.swift; sourceTree = SOURCE_ROOT; };
 		7446874C2428D3D60094843F /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdTableViewCell.swift; path = FunnyFM/Views/Cells/AdTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7446874D2428D3D60094843F /* AdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdTableViewCell.xib; path = FunnyFM/Views/Cells/AdTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		7447062F247D4F9A0031D356 /* HomeEpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeEpisodeCell.swift; path = FunnyFM/Views/Cells/HomeEpisodeCell.swift; sourceTree = SOURCE_ROOT; };
-		74470630247D4F9A0031D356 /* HomeEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeEpisodeCell.xib; path = FunnyFM/Views/Cells/HomeEpisodeCell.xib; sourceTree = SOURCE_ROOT; };
 		7455CD2C24151FFB004886EF /* InPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InPurchaseViewController.swift; path = FunnyFM/Controllers/InPurchaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		7455CD2F24152030004886EF /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = FunnyFM/Views/Custom/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
 		7455CD332415209C004886EF /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorView.swift; path = FunnyFM/Views/Custom/ActivityIndicatorView.swift; sourceTree = SOURCE_ROOT; };
@@ -1341,8 +1341,8 @@
 				AB1E6D4721B923BD00B85135 /* HomePodCollectionViewCell.xib */,
 				AB1E6D9C21B9388800B85135 /* HomeAlbumTableViewCell.swift */,
 				AB1E6D9D21B9388800B85135 /* HomeAlbumTableViewCell.xib */,
-				7447062F247D4F9A0031D356 /* HomeEpisodeCell.swift */,
-				74470630247D4F9A0031D356 /* HomeEpisodeCell.xib */,
+				380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */,
+				380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */,
 				ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */,
 				ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */,
 				AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */,
@@ -1819,6 +1819,7 @@
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
 				743AC8E524261148001D252F /* PurchaseSuccessfulViewController.xib in Resources */,
 				AB9E426823951DB500232EE8 /* NoteCollectionViewCell.xib in Resources */,
+				380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */,
 				AB9E426423951BD500232EE8 /* NoteListViewController.xib in Resources */,
 				AB441A3923502B3B00411359 /* MessageCollectionViewCell.xib in Resources */,
 				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
@@ -1849,7 +1850,6 @@
 				AB7E188B238ABCBC00D1C8AD /* SuportLocalList.plist in Resources */,
 				743AC8EE24261343001D252F /* InPurchaseViewController.xib in Resources */,
 				AB25798421945E70004C5F5D /* Assets.xcassets in Resources */,
-				74470632247D4F9A0031D356 /* HomeEpisodeCell.xib in Resources */,
 				ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */,
 				74E92F832430842A00A0F64A /* first_ads.json in Resources */,
 				AB7B1AE922F9237700790787 /* GoogleService-Info.plist in Resources */,
@@ -2010,7 +2010,6 @@
 				743AC8FA24261CCC001D252F /* MainEmptyView.swift in Sources */,
 				AB1E6DB621BA771C00B85135 /* ChapterListViewModel.swift in Sources */,
 				ABEE40DD21E3246E00FCB16F /* MJRefreshAutoFooter.m in Sources */,
-				74470631247D4F9A0031D356 /* HomeEpisodeCell.swift in Sources */,
 				AB41AAE52195333000260851 /* FmHttp.swift in Sources */,
 				AB7E1885238AB0C200D1C8AD /* CropAudioManager.m in Sources */,
 				AB4578C8233B5112001DF1D1 /* PlayItem.swift in Sources */,
@@ -2100,6 +2099,7 @@
 				AB5828B3233C92080072F03B /* YBTSQueue.mm in Sources */,
 				AB8DAB91233A08DF00407FCB /* AppleLoginTypeViewController.swift in Sources */,
 				ABEE40D921E3246E00FCB16F /* MJRefreshGifHeader.m in Sources */,
+				380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */,
 				ABEE40D321E3246E00FCB16F /* MJRefreshBackNormalFooter.m in Sources */,
 				AB8BD8E1236E7574006FEFF3 /* SPStorkCloseView.swift in Sources */,
 				ABE7ACBD21C22B9400FC6B8E /* DatabaseManager.swift in Sources */,

@@ -211,9 +211,9 @@ extension MainViewController{
 		guard item is Episode else {
 			return;
 		}
-
-		FMToolBar.shared.isHidden = false
-		FMToolBar.shared.configToolBarAtHome(item as! Episode)
+		self.toDetail(episode: item as! Episode)
+//		FMToolBar.shared.isHidden = false
+//		FMToolBar.shared.configToolBarAtHome(item as! Episode)
     }
 }
 
@@ -243,7 +243,7 @@ extension MainViewController{
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EpisodeCardTableViewCell
 		return cell
     }
     
@@ -264,20 +264,16 @@ extension MainViewController{
 		}
 		
 		if item is Episode{
-			guard let cell = cell as? HomeEpisodeCell else { return }
+			guard let cell = cell as? EpisodeCardTableViewCell else { return }
 			let episode = item as! Episode
 			cell.configHomeCell(episode)
-//			cell.tranferNoParameterClosure { [weak self] in
-//				self?.toDetail(episode: episode)
-//			}
-//
-//			cell.tapLogoGesAction { [weak self] in
-//				let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
-//				if pod.isSome {
-//					let vc = PodDetailViewController.init(pod: pod!)
-//					self?.navigationController?.pushViewController(vc)
-//				}
-//			}
+			cell.tapLogoClosure = { [weak self] in
+				let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
+				if pod.isSome {
+					let vc = PodDetailViewController.init(pod: pod!)
+					self?.navigationController?.pushViewController(vc)
+				}
+			}
 		}
 		
     }
@@ -431,9 +427,9 @@ extension MainViewController {
         
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
-        let cellnib = UINib(nibName: String(describing: HomeEpisodeCell.self), bundle: nil)
+        let cellnib = UINib(nibName: "EpisodeCardTableViewCell", bundle: Bundle.main)
         self.tableview.sectionHeaderHeight = 36
-        self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
+        self.tableview.register(cellnib, forCellReuseIdentifier: "cell")
         self.tableview.register(UINib.init(nibName: "AdTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "adCell")
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
