@@ -284,7 +284,7 @@ extension PlayerDetailViewController {
 	}
 	
 	@objc func showFunctions() {
-		// TODO  添加全功能下拉页面
+		// TODO: iOS 播放详情页面添加全功能下拉页面
 	}
     
     @objc func showChapters() {
