@@ -1,0 +1,33 @@
+name: Swift
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  login_jira:
+      runs-on: ubuntu-latest
+      name: Jira
+      steps:
+      - name: Setup
+        uses: atlassian/gajira-cli@master
+        with:
+          version: 1.0.20
+        
+      - name: Login
+        uses: atlassian/gajira-login@master
+        env:
+          JIRA_BASE_URL: 'https://funnyfm.atlassian.net'
+          JIRA_USER_EMAIL: 'www.wutaonslog@gmail.com'
+          JIRA_API_TOKEN: 'FYJsUgpXXm5AjUWCbRtj03E9'
+
+      - name: Jira TODO
+        uses: atlassian/gajira-todo@master
+        with:
+          project: FUN
+          issuetype: Task
+          description: iOS-feature from github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
