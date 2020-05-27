@@ -31,3 +31,9 @@ jobs:
           description: iOS-feature from github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: notify
+        uses: atlassian/gajira-comment@master
+        with:
+          issue: FUN-2
+          comment: ios jira action done
