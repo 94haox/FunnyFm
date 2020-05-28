@@ -12,17 +12,19 @@ public struct Item: Hashable {
     public var title: String?
     public var summary: String?
     public var xmlURL: String?
+	public var htmlUrl: String?
     public var tags: [String]
 
     fileprivate func isValidItem() -> Bool {
         return xmlURL != nil
     }
 
-    public init(title: String?, summary: String?, xmlURL: String?, query: String?, tags: [String]) {
+	public init(title: String?, summary: String?, xmlURL: String?, query: String?, htmlUrl: String?, tags: [String]) {
         self.title = title
         self.summary = summary
         self.xmlURL = xmlURL
         self.tags = tags
+		self.htmlUrl = htmlUrl
     }
 }
 
@@ -66,7 +68,7 @@ public final class Parser: Operation, XMLParserDelegate {
         stopParsing()
     }
 
-    private func parse() {
+    func parse() {
         items = []
         if let text = content {
             xmlParser = XMLParser(data: text.data(using: String.Encoding.utf8, allowLossyConversion: false)!)
@@ -99,7 +101,7 @@ public final class Parser: Operation, XMLParserDelegate {
             if (!isOPML) { return }
 
             if elementName.lowercased().hasPrefix("outline") {
-                var item = Item(title: nil, summary: nil, xmlURL: nil, query: nil, tags: [])
+                var item = Item(title: nil, summary: nil, xmlURL: nil, query: nil, htmlUrl: nil, tags: [])
                 let whitespaceSet = CharacterSet.whitespacesAndNewlines
                 for (k, value) in attributeDict {
                     let key = k.lowercased()
@@ -109,6 +111,9 @@ public final class Parser: Operation, XMLParserDelegate {
                     if key == "xmlurl" {
                         item.xmlURL = value
                     }
+					if key == "htmlUrl" {
+						item.htmlUrl = value
+					}
                     if key == "tags" {
                         let comps = value.components(separatedBy: ",") as [String]
                         item.tags = comps.map({(str: String) in

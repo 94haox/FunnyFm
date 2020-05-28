@@ -641,7 +641,8 @@ extension PlayerDetailViewController {
 		
 		self.functionsBtn = UIButton.init(type: .custom)
 		self.functionsBtn.tintColor = R.color.mainRed()
-        self.functionsBtn.setImageForAllStates(UIImage.init(systemName: "slider.horizontal.3")!)
+		let funcConfig = UIImage.SymbolConfiguration.init(pointSize: 20.auto(), weight: .medium)
+        self.functionsBtn.setImageForAllStates(UIImage.init(systemName: "slider.horizontal.3", withConfiguration: funcConfig)!)
 		self.functionsBtn.addTarget(self, action: #selector(showFunctions), for: .touchUpInside)
 		self.view.addSubview(self.functionsBtn)
         

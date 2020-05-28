@@ -11,7 +11,6 @@ import UIKit
 class ChapterCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var durationLB: UILabel!
-    @IBOutlet weak var skipBtn: UIButton!
     @IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var chapterIndexLB: UILabel!
@@ -23,9 +22,6 @@ class ChapterCollectionViewCell: UICollectionViewCell {
         self.cornerRadius = 12.auto()
         self.titleLB.numberOfLines = 2
         self.chapterIndexLB.font = m_mfont(16)
-        self.titleLB.snp.makeConstraints { (make) in
-            make.right.equalTo(self.skipBtn.snp_left).offset(-4.auto())
-        }
     }
     
     func config(chapter: Chapter, index: Int) {

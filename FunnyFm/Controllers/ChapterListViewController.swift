@@ -51,6 +51,7 @@ class ChapterListViewController: UIViewController {
         layout.itemSize = CGSize.init(width: self.view.width-36.auto(), height: 80.auto())
         self.chapterListView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         self.chapterListView.dataSource = self
+		self.chapterListView.delegate = self
         self.chapterListView.backgroundColor = CommonColor.white.color
         self.chapterListView.register(UINib.init(nibName: "ChapterCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "cell")
         self.view.addSubview(self.chapterListView)

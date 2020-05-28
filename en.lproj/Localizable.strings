@@ -118,6 +118,7 @@
 "解锁 Pro 功能" = "Unlock PRO features";
 "想同步云端数据？快来登录吧!" = "Want to sync data?";
 "输入 RSS 订阅源地址" = "Enter an RSS feed address";
+"输入 OPML 订阅源地址" = "Enter an OPML feed address";
 "确认"="Confirm";
 "此功能仅向 Pro 用户开放 \n 请先解锁 Pro 功能"= "This feature is only available to Pro users \ n Please unlock Pro features first";
 "提示"="Tips";
@@ -129,3 +130,6 @@
 "使用指南" = "User Guide";
 "通过使用指南了解『趣播客』的特色功能。" = "Learn about the features of FunnyFm through the User Guide.";
 "协议与条款"="Terms&Policy";
+"通过 RSS 链接订阅播客"="Subscribe with RSS";
+"通过 OPMML 链接订阅播客"="Subscribe with OPMML";
+

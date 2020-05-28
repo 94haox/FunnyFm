@@ -54,22 +54,6 @@ extension DiscoveryViewController {
     @objc func toSearch() {
 		let search = SearchViewController.init()
 		self.navigationController?.pushViewController(search);
-        
-//        let queue = MPMediaQuery.podcasts()
-//
-//        if let items = queue.items {
-//            for item in items {
-//                if item.mediaType == .podcast {
-//                    print(item.podcastTitle, item.assetURL?.absoluteString)
-//                }
-//            }
-//        }
-//
-//        if let collections = queue.collections {
-//            for item in collections {
-//
-//            }
-//        }
 	}
     
     @objc func showAdd() {
@@ -161,7 +145,6 @@ extension DiscoveryViewController: UITableViewDelegate {
 extension DiscoveryViewController {
 	
 	func dw_addConstraints(){
-//		self.view.addSubview(self.rssAddView)
 		self.view.addSubview(self.searchBtn)
         self.view.addSubview(self.addBtn)
 		self.view.addSubview(self.tableview)
