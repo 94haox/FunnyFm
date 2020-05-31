@@ -174,8 +174,8 @@ extension DiscoveryViewController {
 	}
 	
 	func setupUI(){
-		
-        self.searchBtn.setImageForAllStates(UIImage.init(systemName: "magnifyingglass")!)
+		let config = UIImage.SymbolConfiguration.init(pointSize: 20, weight: .medium)
+        self.searchBtn.setImageForAllStates(UIImage.init(systemName: "magnifyingglass", withConfiguration: config)!)
         self.searchBtn.addTarget(self, action: #selector(toSearch), for:.touchUpInside)
         self.searchBtn.tintColor = R.color.mainRed()
         

@@ -12,9 +12,12 @@ import Lottie
 import MediaPlayer
 import AVKit
 import SPLarkController
+import Panels
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
-    
+	
+    lazy var panelManager = Panels(target: self)
+	
     var episode: Episode! {
         didSet {
             configEpisode()
@@ -77,6 +80,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
         self.configEpisode()
+		self.showFunctions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -284,7 +288,16 @@ extension PlayerDetailViewController {
 	}
 	
 	@objc func showFunctions() {
-		// TODO: iOS 播放详情页面添加全功能下拉页面
+		self.functionsBtn.isSelected = !self.functionsBtn.isSelected
+		if self.functionsBtn.isSelected {
+			let functionsVC = FunctionsViewController()
+			var panelConfiguration = PanelConfiguration(size: .custom(300.auto()))
+			panelConfiguration.animateEntry = true
+			functionsVC.episode = self.episode
+			panelManager.show(panel: functionsVC, config: panelConfiguration)
+		}else{
+			panelManager.dismiss()
+		}
 	}
     
     @objc func showChapters() {
@@ -397,24 +410,24 @@ extension PlayerDetailViewController: PlayDetailToolBarDelegate {
 }
 
 // MARK: - Touch
-extension PlayerDetailViewController {
+//extension PlayerDetailViewController {
 	
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		let touch = touches.randomElement()
-		let point = touch?.location(in: self.view)
-		self.startPoint = point
-	}
+//	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//		let touch = touches.randomElement()
+//		let point = touch?.location(in: self.view)
+//		self.startPoint = point
+//	}
+//	
+//	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//		let touch = touches.randomElement()
+//		let point = touch?.location(in: self.view)
+//		if (point!.y - self.startPoint.y > 100) {
+//			self.back()
+//		}
+//		
+//	}
 	
-	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-		let touch = touches.randomElement()
-		let point = touch?.location(in: self.view)
-		if (point!.y - self.startPoint.y > 100) {
-			self.back()
-		}
-		
-	}
-	
-}
+//}
 
 // MARK:  UI
 extension PlayerDetailViewController {

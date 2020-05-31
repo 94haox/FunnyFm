@@ -30,6 +30,9 @@ def layout
     pod 'MPITextKit'
     pod 'SCLAlertView'
     pod 'SPLarkController'
+		pod 'DNSPageView'
+		pod 'Panels'
+		pod 'Arrows'
 end
 
 def lib

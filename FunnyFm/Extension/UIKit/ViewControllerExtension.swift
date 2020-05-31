@@ -36,6 +36,16 @@ extension UIViewController {
 		self.present(controller, animated: true, completion: nil)
 	}
 	
+	func curveTopCorners() {
+        let path = UIBezierPath(roundedRect: view.bounds,
+                                byRoundingCorners: [.topLeft, .topRight],
+                                cornerRadii: CGSize(width: 30, height: 0))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = view.bounds
+        maskLayer.path = path.cgPath
+        view.layer.mask = maskLayer
+    }
+	
 }
 
 

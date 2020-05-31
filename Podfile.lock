@@ -5,8 +5,10 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.3.0)
   - AppAuth/Core (1.3.0)
   - AppAuth/ExternalUserAgent (1.3.0)
+  - Arrows (1.0.0)
   - AutoInch (1.3.1)
   - Bugly (2.5.2)
+  - DNSPageView (1.2.1)
   - DynamicColor (4.2.0)
   - FeedKit (8.1.1)
   - Firebase/Auth (6.17.0):
@@ -94,6 +96,7 @@ PODS:
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
+  - Panels (2.1.0)
   - pop (1.0.12)
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
@@ -114,8 +117,10 @@ PODS:
   - WhatsNewKit (1.3.1)
 
 DEPENDENCIES:
+  - Arrows
   - AutoInch
   - Bugly
+  - DNSPageView
   - DynamicColor (~> 4.2.0)
   - FeedKit (~> 8.0)
   - FirebaseUI/Auth
@@ -129,6 +134,7 @@ DEPENDENCIES:
   - MPITextKit
   - Nuke (~> 8.0.1)
   - NVActivityIndicatorView
+  - Panels
   - pop (~> 1.0)
   - R.swift
   - SCLAlertView
@@ -145,8 +151,10 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AppAuth
+    - Arrows
     - AutoInch
     - Bugly
+    - DNSPageView
     - DynamicColor
     - FeedKit
     - Firebase
@@ -173,6 +181,7 @@ SPEC REPOS:
     - nanopb
     - Nuke
     - NVActivityIndicatorView
+    - Panels
     - pop
     - R.swift
     - R.swift.Library
@@ -191,8 +200,10 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
+  Arrows: 5256fcdc123a17a0852a4348f73c1fb0a9c3de07
   AutoInch: f70a38b393dc2ce21e7f0bbceb5b2a0abe898575
   Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
+  DNSPageView: 1a1972df33a08dbad8e43188da97b31997e1d109
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
   FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
   Firebase: 2672e5636b42f977177716317e68346ae5e9de25
@@ -219,6 +230,7 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  Panels: cfafe2d0f92387f393a3b5e827af9ffffe46b073
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
@@ -234,6 +246,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
 
-PODFILE CHECKSUM: 743276657b378b7cf6b4c877940e1ab9f03a162a
+PODFILE CHECKSUM: 5766f24ab3ec1391bc79d3c2a9c6376a5e58d9a5
 
 COCOAPODS: 1.9.1

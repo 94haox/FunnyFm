@@ -601,4 +601,46 @@ extension UIView {
     }
 
 }
+
+extension UIView {
+	
+	func addBlurBackground() {
+        backgroundColor = .clear
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        insertSubview(blurView, at: 0)
+        NSLayoutConstraint.activate([
+            blurView.heightAnchor.constraint(equalTo: heightAnchor),
+            blurView.widthAnchor.constraint(equalTo: widthAnchor),
+        ])
+    }
+	
+}
+
+
+extension UIApplication {
+	class func safeAreaBottom() -> CGFloat {
+	   let window = UIApplication.shared.keyWindow ?? UIApplication.shared.windows.first
+	   let bottomPadding: CGFloat
+	   if #available(iOS 11.0, *) {
+		   bottomPadding = window?.safeAreaInsets.bottom ?? 0.0
+	   } else {
+		   bottomPadding = 0.0
+	   }
+	   return bottomPadding
+	}
+
+	class func safeAreaTop() -> CGFloat {
+	   let window = UIApplication.shared.keyWindow ?? UIApplication.shared.windows.first
+	   let bottomPadding: CGFloat
+	   if #available(iOS 11.0, *) {
+		   bottomPadding = window?.safeAreaInsets.top ?? 0.0
+	   } else {
+		   bottomPadding = 0.0
+	   }
+	   return bottomPadding
+	}
+}
+
 #endif
