@@ -615,32 +615,17 @@ extension UIView {
             blurView.widthAnchor.constraint(equalTo: widthAnchor),
         ])
     }
+    
+    func curveCorners(_ corners: UIRectCorner = [.topLeft, .topRight], cornerRadii: CGSize = CGSize(width: 30, height: 0)) {
+        let path = UIBezierPath(roundedRect: self.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: cornerRadii)
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+    }
 	
-}
-
-
-extension UIApplication {
-	class func safeAreaBottom() -> CGFloat {
-	   let window = UIApplication.shared.keyWindow ?? UIApplication.shared.windows.first
-	   let bottomPadding: CGFloat
-	   if #available(iOS 11.0, *) {
-		   bottomPadding = window?.safeAreaInsets.bottom ?? 0.0
-	   } else {
-		   bottomPadding = 0.0
-	   }
-	   return bottomPadding
-	}
-
-	class func safeAreaTop() -> CGFloat {
-	   let window = UIApplication.shared.keyWindow ?? UIApplication.shared.windows.first
-	   let bottomPadding: CGFloat
-	   if #available(iOS 11.0, *) {
-		   bottomPadding = window?.safeAreaInsets.top ?? 0.0
-	   } else {
-		   bottomPadding = 0.0
-	   }
-	   return bottomPadding
-	}
 }
 
 #endif
