@@ -47,7 +47,7 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		}
 		
 		FeedManager.shared.delegate = self;
-		FeedManager.shared.getAllPods()
+		FeedManager.shared.launchParser()
         AdsManager.shared.loadAds(viewController: self)
     }
 	
@@ -154,7 +154,7 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	}
 	
 	func feedManagerDidParserPodcasrSuccess() {
-        
+        perform(#selector(reloadData))
 	}
 	
     

@@ -31,6 +31,18 @@ class FunnyFm: NSObject {
     static func sharedDatabaseUrl() -> URL{
         return self.sharedUrl()!.appendingPathComponent("FunnyFM.db")
     }
+    
+    static func needParser() -> Bool {
+        guard let lastParserTime = UserDefaults.standard.object(forKey: "lastParserTime") as? Date else {
+            return true
+        }
+        
+        if NSDate.minuteOffsetBetweenStart(lastParserTime, end: Date.init(timeIntervalSince1970: 1)) > 5 {
+            return true
+        }
+        
+        return false
+    }
 	
 	static func convertDuration(to Interval: String) -> Double {
 		let timeComponets = Interval.components(separatedBy: ":")
@@ -101,7 +113,6 @@ class FunnyFm: NSObject {
         
         return hourStr + minStr + secStr
     }
-	
 	
 	static func formatIntervalToString(_ second:NSInteger) -> String {
 		

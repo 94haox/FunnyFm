@@ -45,6 +45,16 @@ class FeedManager: NSObject {
 }
 
 extension FeedManager {
+    
+    func launchParser() {
+        if FunnyFm.needParser() {
+            self.getAllPods()
+            UserDefaults.standard.set(Date(), forKey: "lastParserTime")
+        }else{
+            self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+            self.delegate?.feedManagerDidParserPodcasrSuccess()
+        }
+    }
 	
 	func getAllPods() {
         self.getHomeChapters()
@@ -87,7 +97,7 @@ extension FeedManager {
 		NotificationCenter.default.post(name: Notification.Name.init("homechapterParserBegin"), object: nil)
         
 		DatabaseManager.allItunsPod().forEach { (podcast) in
-            let job = CloudParserJob(podcast: podcast)
+            let job = FeedParserJob(podcast: podcast)
             if ConcurrentJobQueue.shared.addJob(job: job) {
                 self.waitingPodlist.append(podcast)
             }
