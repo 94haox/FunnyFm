@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */; };
 		380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */; };
-		3858F068247B637500FD72DB /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3858F067247B637500FD72DB /* SwipeCellKit */; };
 		386B063A2480E4490095C7AB /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B06392480E4490095C7AB /* Preference.swift */; };
 		386B063C2480E6240095C7AB /* SnappingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063B2480E6230095C7AB /* SnappingSlider.swift */; };
 		386B063F2480E67A0095C7AB /* PerferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063D2480E67A0095C7AB /* PerferenceViewController.swift */; };
@@ -17,16 +16,24 @@
 		386B06D82480F2060095C7AB /* JellySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B06D72480F2060095C7AB /* JellySlider.swift */; };
 		386B076F2480F40E0095C7AB /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 386B076D2480F40D0095C7AB /* spark.png */; };
 		386B07702480F40E0095C7AB /* SplashParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 386B076E2480F40E0095C7AB /* SplashParticle.sks */; };
-		3877FEB02468F6690096E2BD /* Tiercel in Frameworks */ = {isa = PBXBuildFile; productRef = 3877FEAF2468F6690096E2BD /* Tiercel */; };
 		3877FF46246941830096E2BD /* DownloadTask+Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877FF45246941830096E2BD /* DownloadTask+Episode.swift */; };
 		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
 		38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
 		38E2723F248106DE00DC4BBA /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */; };
+		741C21D72483AF550030F6D3 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C21D62483AF550030F6D3 /* ArrowView.swift */; };
+		741C22832483B0AB0030F6D3 /* Panelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227B2483B0AB0030F6D3 /* Panelable.swift */; };
+		741C22842483B0AB0030F6D3 /* Panels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227C2483B0AB0030F6D3 /* Panels.swift */; };
+		741C22852483B0AB0030F6D3 /* PanelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227D2483B0AB0030F6D3 /* PanelConfiguration.swift */; };
+		741C22862483B0AB0030F6D3 /* UIStoryBoard+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227F2483B0AB0030F6D3 /* UIStoryBoard+Utils.swift */; };
+		741C22872483B0AB0030F6D3 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C22802483B0AB0030F6D3 /* UIView+Utils.swift */; };
+		741C22882483B0AB0030F6D3 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C22812483B0AB0030F6D3 /* UIViewController+Utils.swift */; };
+		741C22892483B0AB0030F6D3 /* PanelDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C22822483B0AB0030F6D3 /* PanelDimensions.swift */; };
 		741F272D242379EA006F1DCE /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F272C242379EA006F1DCE /* ChapterListViewController.swift */; };
 		741F273024237A0B006F1DCE /* ChapterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F272E24237A0B006F1DCE /* ChapterCollectionViewCell.swift */; };
 		741F273124237A0B006F1DCE /* ChapterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */; };
 		741F2733242381B5006F1DCE /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F2732242381B5006F1DCE /* Chapter.swift */; };
 		741F27442423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */; };
+		7423ED51248390CC006586C0 /* FeedParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423ED50248390CC006586C0 /* FeedParserJob.swift */; };
 		7423FDD524742B53008F7BFD /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyView.swift */; };
 		742DD23C2430813E0010FBE3 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */; };
 		7438FF73243076D200A31FA9 /* notification_ad.json in Resources */ = {isa = PBXBuildFile; fileRef = 7438FF72243076D200A31FA9 /* notification_ad.json */; };
@@ -415,11 +422,20 @@
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		741C21D62483AF550030F6D3 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArrowView.swift; path = FunnyFM/Views/Custom/ArrowView.swift; sourceTree = SOURCE_ROOT; };
+		741C227B2483B0AB0030F6D3 /* Panelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panelable.swift; sourceTree = "<group>"; };
+		741C227C2483B0AB0030F6D3 /* Panels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panels.swift; sourceTree = "<group>"; };
+		741C227D2483B0AB0030F6D3 /* PanelConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelConfiguration.swift; sourceTree = "<group>"; };
+		741C227F2483B0AB0030F6D3 /* UIStoryBoard+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Utils.swift"; sourceTree = "<group>"; };
+		741C22802483B0AB0030F6D3 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		741C22812483B0AB0030F6D3 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		741C22822483B0AB0030F6D3 /* PanelDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelDimensions.swift; sourceTree = "<group>"; };
 		741F272C242379EA006F1DCE /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChapterListViewController.swift; path = FunnyFM/Controllers/ChapterListViewController.swift; sourceTree = SOURCE_ROOT; };
 		741F272E24237A0B006F1DCE /* ChapterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChapterCollectionViewCell.swift; path = FunnyFM/Views/Cells/ChapterCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		741F272F24237A0B006F1DCE /* ChapterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChapterCollectionViewCell.xib; path = FunnyFM/Views/Cells/ChapterCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		741F2732242381B5006F1DCE /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Chapter.swift; path = FunnyFM/Models/Chapter.swift; sourceTree = SOURCE_ROOT; };
 		741F27422423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseSuccessfulViewController.swift; path = FunnyFM/Controllers/PurchaseSuccessfulViewController.swift; sourceTree = SOURCE_ROOT; };
+		7423ED50248390CC006586C0 /* FeedParserJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedParserJob.swift; path = FunnyFM/Job/FeedParserJob.swift; sourceTree = SOURCE_ROOT; };
 		7423FDD424742B53008F7BFD /* PolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PolicyView.swift; path = FunnyFM/SwiftUI/PolicyView.swift; sourceTree = SOURCE_ROOT; };
 		742DD23D2430813E0010FBE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PrivacyViewController.xib; sourceTree = "<group>"; };
 		742DD240243081440010FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../../FunnyFM/Controllers/en.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
@@ -883,8 +899,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B695110D868CD0326F60A963 /* Pods_FunnyFm.framework in Frameworks */,
-				3858F068247B637500FD72DB /* SwipeCellKit in Frameworks */,
-				3877FEB02468F6690096E2BD /* Tiercel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,6 +923,28 @@
 				862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		741C22702483B08C0030F6D3 /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				741C227B2483B0AB0030F6D3 /* Panelable.swift */,
+				741C227D2483B0AB0030F6D3 /* PanelConfiguration.swift */,
+				741C22822483B0AB0030F6D3 /* PanelDimensions.swift */,
+				741C227C2483B0AB0030F6D3 /* Panels.swift */,
+				741C227E2483B0AB0030F6D3 /* Utils */,
+			);
+			path = Panels;
+			sourceTree = "<group>";
+		};
+		741C227E2483B0AB0030F6D3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				741C227F2483B0AB0030F6D3 /* UIStoryBoard+Utils.swift */,
+				741C22802483B0AB0030F6D3 /* UIView+Utils.swift */,
+				741C22812483B0AB0030F6D3 /* UIViewController+Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		7423FDD324742B31008F7BFD /* SwiftUI */ = {
@@ -950,8 +986,9 @@
 			isa = PBXGroup;
 			children = (
 				7493F6722417ACAB007E5319 /* Queue */,
-				7493F6772417AD44007E5319 /* CloudParserJob.swift */,
 				743A4C3B242759CF008E0086 /* RefreshJob.swift */,
+				7423ED50248390CC006586C0 /* FeedParserJob.swift */,
+				7493F6772417AD44007E5319 /* CloudParserJob.swift */,
 			);
 			path = Job;
 			sourceTree = "<group>";
@@ -1073,6 +1110,7 @@
 				743AC8F924261CCC001D252F /* MainEmptyView.swift */,
 				74C9DF75243E01DC000B1745 /* GuideTipView.swift */,
 				386B06D72480F2060095C7AB /* JellySlider.swift */,
+				741C21D62483AF550030F6D3 /* ArrowView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1141,6 +1179,7 @@
 		AB41AAD7219529DB00260851 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				741C22702483B08C0030F6D3 /* Panels */,
 				744239D92441E2A50015DB21 /* Cache */,
 				745DE3052423606900EFFDA4 /* MNAVChapters */,
 				AB77890823EC5BE400DF8447 /* AnimatedTabBar */,
@@ -1754,8 +1793,6 @@
 			);
 			name = FunnyFm;
 			packageProductDependencies = (
-				3877FEAF2468F6690096E2BD /* Tiercel */,
-				3858F067247B637500FD72DB /* SwipeCellKit */,
 			);
 			productName = FunnyFm;
 			productReference = AB25797921945E6F004C5F5D /* FunnyFm.app */;
@@ -1805,8 +1842,6 @@
 			);
 			mainGroup = AB25797021945E6F004C5F5D;
 			packageReferences = (
-				3877FEAE2468F6690096E2BD /* XCRemoteSwiftPackageReference "Tiercel" */,
-				3858F066247B637500FD72DB /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
 			);
 			productRefGroup = AB25797A21945E6F004C5F5D /* Products */;
 			projectDirPath = "";
@@ -2088,6 +2123,8 @@
 				AB74FB7122F7DD7A00A00706 /* TopicTableViewCell.swift in Sources */,
 				AB1E6D8521B9252500B85135 /* UIWindowExtensions.swift in Sources */,
 				7484373B244C834A0001451A /* SearchViewModel.swift in Sources */,
+				741C22892483B0AB0030F6D3 /* PanelDimensions.swift in Sources */,
+				741C22862483B0AB0030F6D3 /* UIStoryBoard+Utils.swift in Sources */,
 				AB1E6D7F21B9252500B85135 /* UISliderExtensions.swift in Sources */,
 				ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */,
 				AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */,
@@ -2160,10 +2197,12 @@
 				AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */,
 				7455CD3024152030004886EF /* RoundedButton.swift in Sources */,
 				AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */,
+				741C22882483B0AB0030F6D3 /* UIViewController+Utils.swift in Sources */,
 				ABE57E2A21EA06BF00F90EED /* HorizonHUD.swift in Sources */,
 				AB8BD8E2236E7574006FEFF3 /* SPStorkCloseButton.swift in Sources */,
 				ABEE40CB21E3246E00FCB16F /* UIScrollView+MJRefresh.m in Sources */,
 				AB8BD8DD236E7574006FEFF3 /* SPStorkViewControllerExtenshion.swift in Sources */,
+				741C22872483B0AB0030F6D3 /* UIView+Utils.swift in Sources */,
 				AB41AAEC2195394C00260851 /* MainViewModel.swift in Sources */,
 				AB2A372A2328ADDE0097DAF7 /* Loady+NVActivityIndicatorView.swift in Sources */,
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,
@@ -2187,7 +2226,9 @@
 				AB1E6D7D21B9252500B85135 /* UINavigationBarExtensions.swift in Sources */,
 				74777A6B241E284400BAE34B /* ConcurrentJobQueue.swift in Sources */,
 				AB1E6D8B21B9252500B85135 /* UIAlertControllerExtensions.swift in Sources */,
+				741C22842483B0AB0030F6D3 /* Panels.swift in Sources */,
 				AB1E6D7121B9252500B85135 /* UIEdgeInsetsExtensions.swift in Sources */,
+				741C21D72483AF550030F6D3 /* ArrowView.swift in Sources */,
 				7455CD2E24151FFB004886EF /* InPurchaseViewController.swift in Sources */,
 				743AC8FD24262128001D252F /* RSSViewController.swift in Sources */,
 				ABA6642C22D5CDCE00AFAEE6 /* AlertViewController.swift in Sources */,
@@ -2229,8 +2270,10 @@
 				AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */,
 				AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */,
 				AB8BD8E4236E7574006FEFF3 /* SPStorkCodeDraw.swift in Sources */,
+				7423ED51248390CC006586C0 /* FeedParserJob.swift in Sources */,
 				ABEE40D621E3246E00FCB16F /* MJRefreshAutoNormalFooter.m in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
+				741C22832483B0AB0030F6D3 /* Panelable.swift in Sources */,
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
 				AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */,
@@ -2258,6 +2301,7 @@
 				743AC911242649B8001D252F /* BHTimeProfiler.m in Sources */,
 				ABEE40CF21E3246E00FCB16F /* NSBundle+MJRefresh.m in Sources */,
 				ABDC4D2822CC9AF900EF31C0 /* PushManager.swift in Sources */,
+				741C22852483B0AB0030F6D3 /* PanelConfiguration.swift in Sources */,
 				ABE7660621D7196700470D8F /* URLExtensions.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,
@@ -2782,38 +2826,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3858F066247B637500FD72DB /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.1;
-			};
-		};
-		3877FEAE2468F6690096E2BD /* XCRemoteSwiftPackageReference "Tiercel" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Danie1s/Tiercel.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3858F067247B637500FD72DB /* SwipeCellKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3858F066247B637500FD72DB /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
-			productName = SwipeCellKit;
-		};
-		3877FEAF2468F6690096E2BD /* Tiercel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3877FEAE2468F6690096E2BD /* XCRemoteSwiftPackageReference "Tiercel" */;
-			productName = Tiercel;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB25797121945E6F004C5F5D /* Project object */;
 }

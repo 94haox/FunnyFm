@@ -31,8 +31,6 @@ def layout
     pod 'SCLAlertView'
     pod 'SPLarkController'
 		pod 'DNSPageView'
-		pod 'Panels'
-		pod 'Arrows'
 end
 
 def lib
@@ -49,6 +47,8 @@ def network
   
   pod 'SwiftyJSON'
   pod 'Moya'
+  pod 'Tiercel'
+  pod 'SwipeCellKit'
   
 end
 
