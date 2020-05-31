@@ -8,9 +8,12 @@
 
 import UIKit
 import DNSPageView
-import Panels
 
 class FunctionsViewController: UIViewController, Panelable {
+    
+    var panel: Panels?
+    
+    var arrow: ArrowView! = ArrowView.init(frame: CGRect(x: 0, y: 0, width: 25.auto(), height: 25.auto()))
 	
 	var playToolbar: PlayDetailToolBar!
 	
@@ -22,13 +25,69 @@ class FunctionsViewController: UIViewController, Panelable {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		self.view.addBlurBackground()
+		self.view.addBlurBackground()
 		self.curveTopCorners()
+        self.setUpHeaderView()
 		self.setUpPlayToolbar()
 		self.setUpPageViews()
+        self.arrow.update(to: .up, animated: true)
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.playToolbar.downBtn.isSelected = DatabaseManager.qureyDownload(title: self.episode.title).isSome
+    }
 	
 }
+
+
+extension FunctionsViewController: PanelNotifications {
+    
+    func panelChanging() {
+        self.arrow.update(to: .middle, animated: true)
+    }
+    
+    func panelDidPresented() {
+        
+    }
+    
+    func panelDidCollapse() {
+        self.arrow.update(to: .up, animated: true)
+    }
+    
+    func panelDidOpen() {
+        self.arrow.update(to: .down, animated: true)
+    }
+    
+}
+
+//extension FunctionsViewController {
+//    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let point = touches.first!.location(in: self.view)
+//        print("start-----\(point.y)")
+//    }
+//    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let point = touches.first!.location(in: self.view)
+//        let prePoint = touches.first!.preciseLocation(in: self.view)
+//        let y = point.y - prePoint.y
+//        self.panel!.movePanelHeader(value: y)
+//        print("moved-----\(y)")
+//    }
+//    
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let point = touches.first!.location(in: self.view)
+//        print("cancel-----\(point.y)")
+//    }
+//    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let point = touches.first!.location(in: self.view)
+//        print("end-----\(point.y)")
+//    }
+//    
+//    
+//}
 
 extension FunctionsViewController: PlayDetailToolBarDelegate {
 	
@@ -70,23 +129,41 @@ extension FunctionsViewController: PlayDetailToolBarDelegate {
 
 
 extension FunctionsViewController {
+    
+    func setUpHeaderView() {
+        let view = UIView()
+        self.view.addSubview(view)
+        self.headerPanel = view
+        view.snp.makeConstraints { (make) in
+            make.top.leading.width.equalToSuperview()
+            make.height.equalTo(80.auto())
+        }
+        self.view.layoutIfNeeded()
+        self.headerHeight = view.constraints.filter({ (constraint) -> Bool in
+            return constraint.constant == 80.auto()
+        }).first!
+    }
 	
 	func setUpPlayToolbar() {
-		self.view.backgroundColor = R.color.background()!
 		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
 		self.playToolbar.delegate = self
-		self.view.addSubview(self.playToolbar)
-		self.headerPanel = self.playToolbar
+		self.headerPanel.addSubview(self.playToolbar)
+        self.headerPanel.addSubview(self.arrow)
+        self.arrow.arrowColor = .white
+        
+        self.arrow.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(4.auto())
+            make.width.equalTo(25.auto())
+            make.height.equalTo(25.auto())
+        }
+        
 		self.playToolbar.snp_makeConstraints { (make) in
-            make.top.equalToSuperview()
-			make.centerX.equalToSuperview()
-			make.width.equalToSuperview()
-			make.height.equalTo(80.auto())
+			make.center.equalToSuperview()
+            make.width.equalToSuperview().offset(-30.auto())
+			make.height.equalTo(60.auto())
 		}
-		self.view.layoutIfNeeded()
-		self.headerHeight = self.playToolbar.constraints.filter({ (constraint) -> Bool in
-			return constraint.constant == 80.auto()
-		}).first!
+
 	}
 	
 	func setUpPageViews() {
@@ -97,15 +174,19 @@ extension FunctionsViewController {
 		style.titleColor = R.color.subtitle()!
 		style.titleFont = p_bfont(18)
 		style.titleMaximumScaleFactor = 1.2
-		style.contentViewBackgroundColor = .clear
-		style.titleViewBackgroundColor = .clear
-
+        style.titleViewBackgroundColor = .clear
+        style.contentViewBackgroundColor = .clear
+        
 		let titles = ["偏好", "均衡器"]
 		let childViewControllers: [UIViewController] = [PerferenceViewController(), UIViewController()]
 		var frame = self.view.frame
-		frame.origin.y = self.headerHeight.constant + UIApplication.safeAreaBottom()
+        frame.origin.y = self.headerHeight.constant + 12.auto()
+        frame.origin.x = 30.auto()/2.0
+        frame.size.width = kScreenWidth - 30.auto()
+        frame.size.height = 400.auto() - self.headerHeight.constant - 12.auto()
 		let pageView = PageView(frame: frame, style: style, titles: titles, childViewControllers: childViewControllers)
 		view.addSubview(pageView)
+        pageView.curveCorners(.allCorners, cornerRadii: CGSize(width: 15.auto(), height: 15.auto()))
 	}
 	
 }

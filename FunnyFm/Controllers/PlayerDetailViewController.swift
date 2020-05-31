@@ -12,7 +12,6 @@ import Lottie
 import MediaPlayer
 import AVKit
 import SPLarkController
-import Panels
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	
@@ -36,7 +35,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	
 	var swipeAniView: AnimationView!
 	
-	var playToolbar : PlayDetailToolBar!
+//	var playToolbar : PlayDetailToolBar!
     
     var rewindBtn: UIButton!
     
@@ -92,7 +91,6 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 			self.swipeAniView.pause()
 			self.swipeAniView.isHidden = true
 		}
-		self.playToolbar.downBtn.isSelected = DatabaseManager.qureyDownload(title: self.episode.title).isSome
 		FMToolBar.shared.isHidden = true
     }
 	
@@ -291,9 +289,10 @@ extension PlayerDetailViewController {
 		self.functionsBtn.isSelected = !self.functionsBtn.isSelected
 		if self.functionsBtn.isSelected {
 			let functionsVC = FunctionsViewController()
-			var panelConfiguration = PanelConfiguration(size: .custom(300.auto()))
+            var panelConfiguration = PanelConfiguration(size: .custom(400.auto()), visibleArea: 50.auto())
 			panelConfiguration.animateEntry = true
 			functionsVC.episode = self.episode
+            panelManager.delegate = functionsVC
 			panelManager.show(panel: functionsVC, config: panelConfiguration)
 		}else{
 			panelManager.dismiss()
@@ -450,8 +449,8 @@ extension PlayerDetailViewController {
                 make.left.equalToSuperview().offset(18.auto())
                 make.centerY.equalTo(self.titleLB)
             }else{
-                make.top.equalTo(self.playToolbar.snp_bottom).offset(8.auto())
-                make.centerX.equalToSuperview()
+                make.top.equalTo(self.playBtn.snp_bottom).offset(8.auto())
+                make.right.equalToSuperview().offset(-8.auto())
             }
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
         })
@@ -513,12 +512,12 @@ extension PlayerDetailViewController {
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
         })
 		
-		self.playToolbar.snp_makeConstraints { (make) in
-            make.bottom.equalTo(self.view.snp_bottomMargin).offset(-40.auto())
-			make.centerX.equalToSuperview()
-			make.width.equalToSuperview()
-			make.height.equalTo(48.auto())
-		}
+//		self.playToolbar.snp_makeConstraints { (make) in
+//            make.bottom.equalTo(self.view.snp_bottomMargin).offset(-40.auto())
+//			make.centerX.equalToSuperview()
+//			make.width.equalToSuperview()
+//			make.height.equalTo(48.auto())
+//		}
 		
 //		self.likeAniView.snp.makeConstraints { (make) in
 //			make.center.equalTo(self.likeBtn)
@@ -606,11 +605,11 @@ extension PlayerDetailViewController {
 		self.coverImageView.cornerRadius = 15.auto()
 		self.coverBackView.addSubview(self.coverImageView)
 		
-		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
-//		self.playToolbar.layer.cornerRadius = 24.auto()
-		self.playToolbar.delegate = self
-		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.zero, opacity: 0.6)
-		self.view.addSubview(self.playToolbar)
+//		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
+////		self.playToolbar.layer.cornerRadius = 24.auto()
+//		self.playToolbar.delegate = self
+//		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.zero, opacity: 0.6)
+//		self.view.addSubview(self.playToolbar)
         
         self.progressLine = ChapterProgressView()
         self.progressLine.cycleW = 20.auto()
@@ -675,3 +674,4 @@ extension PlayerDetailViewController {
 
     
 }
+
