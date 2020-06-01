@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FeedKit
 
 class PodcastInfoView: UIView {
 	
@@ -60,6 +61,35 @@ class PodcastInfoView: UIView {
 			self.subBtn.isSelected = true
 			self.subBtn.backgroundColor = CommonColor.white.color
 		}
+		
+	}
+	
+	func config(rss: RSSFeed) {
+		self.podNameLB.text = rss.title
+		self.authorLB.text = rss.iTunes!.iTunesAuthor
+		self.countLB.text = "by-" + rss.iTunes!.iTunesAuthor!
+		self.desLB.text = rss.description
+		if let url = rss.iTunes!.iTunesImage?.attributes?.href {
+			self.podImageView.loadImage(url: url)
+		}
+	
+		if let des = rss.iTunes?.iTunesSummary, des.length() > 0{
+            self.mainScrollView.contentSize = CGSize.init(width: self.width*2, height: 0)
+			self.pageControl.numberOfPages = 2
+		}
+		
+		if let feed = rss.iTunes?.iTunesNewFeedURL {
+			if DatabaseManager.getPodcast(feedUrl: feed).isSome {
+				self.subBtn.isSelected = false
+			}else{
+				self.subBtn.isSelected = true
+				self.subBtn.backgroundColor = CommonColor.white.color
+			}
+		}else{
+			self.subBtn.isSelected = true
+			self.subBtn.backgroundColor = CommonColor.white.color
+		}
+		
 		
 	}
 	

@@ -72,6 +72,13 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 		}else{
             self.functions.append(["title":"清除缓存".localized,"imageName":"cache"])
 		}
+		
+		if FunnyFm.isAutoCacheInWIFI() {
+			self.functions.append(["title":"WIFI 下自动缓存".localized,"imageName":"notify","rightImage":"icon_correct"])
+		}else{
+			self.functions.append(["title":"WIFI 下自动缓存".localized,"imageName":"notify"])
+		}
+
 		self.feedbacks.append(["title":"Feedback","imageName":"github"])
 		self.others.append(["title":"给 FunnyFM 评分".localized,"imageName":"rate"])
 		self.others.append(["title":"将 FunnyFM 推荐给好友".localized,"imageName":"share"])
@@ -109,6 +116,16 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
         Hud.shared.hide()
 		self.tableview.reloadData()
 		SwiftNotice.showText("缓存清除成功🎉")
+	}
+	
+	func setupIsAutoCache() {
+		UserDefaults.standard.set(!FunnyFm.isAutoCacheInWIFI(), forKey: "isAutoCacheInWIFI")
+		if FunnyFm.isAutoCacheInWIFI() {
+			self.functions[1] = ["title":"WIFI 下自动缓存".localized,"imageName":"notify","rightImage":"icon_correct"]
+		}else{
+			self.functions[1] = ["title":"WIFI 下自动缓存".localized,"imageName":"notify"]
+		}
+		self.tableview.reloadData()
 	}
 	
 	func toAboutUs(){
@@ -169,7 +186,11 @@ extension SettingViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 		if indexPath.section == 0{
-			self.cleanAllCache()
+			if indexPath.row == 1 {
+				self.setupIsAutoCache()
+			}else{
+				self.cleanAllCache()
+			}
 		}
 		
 		if indexPath.section == 1{

@@ -264,8 +264,10 @@ extension FMPlayerManager {
 			url = self.completePath(episode)
 			let asset = AVAsset.init(url: url!)
 			item = AVPlayerItem.init(asset: asset)
-		}else{
+		}else if FunnyFm.reachability.connection == .wifi && FunnyFm.isAutoCacheInWIFI(){
 			item = self.resourceLoaderManager.playerItem(with: url)!
+		}else{
+			item = AVPlayerItem.init(url: url!)
 		}
     
 		self.lastTime = self.checkProgress(chapter)

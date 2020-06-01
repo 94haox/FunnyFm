@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import FeedKit
 
 class PodPreviewViewController: BaseViewController {
 	
@@ -54,8 +55,12 @@ class PodPreviewViewController: BaseViewController {
 //		self.podImageView.loadImage(url: pod.image)
 	}
 	
-	func configWithPod(pod :iTunsPod){
+	func configWithPod(pod : iTunsPod){
 		self.infoView.config(pod: pod)
+	}
+	
+	func configWithRss(rss : RSSFeed){
+		self.infoView.config(rss: rss)
 	}
 	
 	@objc func addPodToLibary(){
@@ -72,7 +77,7 @@ class PodPreviewViewController: BaseViewController {
 			Hud.shared.hide()
             showAutoHiddenHud(style: .notification, text: "添加成功，正在获取所有节目单，请稍候查看".localized)
 			NotificationCenter.default.post(Notification.init(name: Notification.willAddPrevPodcast))
-			FeedManager.shared.parserForSingle(feedUrl: self!.itunsPod.feedUrl, collectionId: self!.itunsPod.collectionId,complete: nil)
+			FeedManager.shared.parserByFeedKit(podcast: self!.itunsPod, complete: nil)
 			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
 			Hud.shared.hide()
@@ -101,13 +106,12 @@ extension PodPreviewViewController : PodDetailViewModelDelegate {
 	
 	func podDetailParserSuccess() {
 		DispatchQueue.main.async {
-            if let podcast = self.viewModel.pod, podcast.trackName.length() > 1{
-				self.configWithPod(pod: podcast)
-				self.tableview.reloadData()
-				self.loadingView.removeFromSuperview()
-            }else{
-                self.viewModel.getPodcastPrev(pod: self.itunsPod)
-            }
+			guard let rss = self.viewModel.rss else {
+				return
+			}
+			self.configWithRss(rss: rss)
+			self.tableview.reloadData()
+			self.loadingView.removeFromSuperview()
 		}
 	}
 	

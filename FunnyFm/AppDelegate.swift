@@ -26,6 +26,7 @@ import Bugly
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		UIApplication.shared.applicationIconBadgeNumber = 0
         self.options = launchOptions
+		FunnyFm.startReach()
 		DatabaseManager.setupDefaultDatabase()
         VipManager.shared.completeTransactions()
         DownloadManager.shared.configSession();
@@ -222,8 +223,6 @@ extension AppDelegate: JPUSHRegisterDelegate {
             DownloadManager.shared.sessionManager.completionHandler = completionHandler
         }
     }
-	
-	
 }
 
 

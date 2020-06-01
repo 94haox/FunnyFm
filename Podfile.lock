@@ -99,6 +99,7 @@ PODS:
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
+  - ReachabilitySwift (5.0.0)
   - SCLAlertView (0.8)
   - SHFullscreenPopGestureSwift (1.2.1)
   - Siren (5.4.0)
@@ -135,6 +136,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - pop (~> 1.0)
   - R.swift
+  - ReachabilitySwift
   - SCLAlertView
   - SHFullscreenPopGestureSwift
   - Siren
@@ -183,6 +185,7 @@ SPEC REPOS:
     - pop
     - R.swift
     - R.swift.Library
+    - ReachabilitySwift
     - SCLAlertView
     - SHFullscreenPopGestureSwift
     - Siren
@@ -232,6 +235,7 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   Siren: 9df16ed5278cfaad7ea034f3d2206e4f6983e9b8
@@ -246,6 +250,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
 
-PODFILE CHECKSUM: 96d95f60a7226f420d5a432e74d8d32c92329cb1
+PODFILE CHECKSUM: 0ac14be78563039c56436f9b58d7a1ee958ad492
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

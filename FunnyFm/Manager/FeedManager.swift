@@ -95,13 +95,26 @@ extension FeedManager {
         }
 		
 		NotificationCenter.default.post(name: Notification.Name.init("homechapterParserBegin"), object: nil)
-        
-		DatabaseManager.allItunsPod().forEach { (podcast) in
+		let normalList = DatabaseManager.allItunsPod().filter { (podcast) -> Bool in
+			UserDefaults.standard.bool(forKey: "ParserFailure-\(podcast.feedUrl)")
+		}
+		
+		let abnormalList = DatabaseManager.allItunsPod().filter { (podcast) -> Bool in
+			!UserDefaults.standard.bool(forKey: "ParserFailure-\(podcast.feedUrl)")
+		}
+		normalList.forEach { (podcast) in
             let job = FeedParserJob(podcast: podcast)
             if ConcurrentJobQueue.shared.addJob(job: job) {
                 self.waitingPodlist.append(podcast)
             }
         }
+		
+		abnormalList.forEach { (podcast) in
+			let job = FeedParserJob(podcast: podcast)
+            if ConcurrentJobQueue.shared.addJob(job: job) {
+                self.waitingPodlist.append(podcast)
+            }
+		}
 	}
 	
     func removeDonePodcast(noti: Notification) {
@@ -145,9 +158,9 @@ extension FeedManager {
 		})
 	}
 	
-    func parserByFeedKit(podcast: iTunsPod, complete:@escaping ((Bool)->Void)) {
+	func parserByFeedKit(podcast: iTunsPod, complete:((Bool)->Void)?) {
         guard let url = URL.init(string: podcast.feedUrl) else {
-            complete(false)
+            complete?(false)
             return
         }
         var pod = podcast
@@ -161,7 +174,24 @@ extension FeedManager {
                 }
                 self.addOrUpdate(itunesPod: pod, episodelist: episodes)
             }
-            complete(result.error != nil)
+            complete?(result.error != nil)
+        }
+    }
+	
+	func parserPrevByFeedKit(podcast: iTunsPod, complete:((Bool,(RSSFeed, [Episode])?)->Void)?) {
+        guard let url = URL.init(string: podcast.feedUrl) else {
+            complete?(false, nil)
+            return
+        }
+        FeedParser.init(URL: url).parseAsync { (result) in
+            if let rss = result.rssFeed, let items = rss.items {
+                let episodes = items.map { (item) -> Episode in
+                    return Episode.init(feedItem: item)
+                }
+				complete?(result.error != nil, (rss, episodes))
+				return
+            }
+			complete?(result.error != nil, nil)
         }
     }
 	

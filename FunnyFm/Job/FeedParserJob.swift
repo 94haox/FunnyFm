@@ -48,11 +48,13 @@ class FeedParserJob: BaseJob {
         if let des = rss.description {
             pod.podDes = des
         }
+		UserDefaults.standard.set(false, forKey: "ParserFailure-\(podcast.feedUrl)")
         FeedManager.shared.addOrUpdate(itunesPod: pod, episodelist: episodes)
         NotificationCenter.default.post(name: Notification.podcastParserSuccess, object: nil, userInfo: ["feedUrl": pod.feedUrl, "itemCount": items.count])
     }
     
     private func sendFailure() {
+		UserDefaults.standard.set(true, forKey: "ParserFailure-\(podcast.feedUrl)")
         NotificationCenter.default.post(name: Notification.podcastParserFailure, object: nil, userInfo: ["feedUrl": podcast.feedUrl])
         print("fetch_failure_\(podcast.feedUrl)")
     }

@@ -44,7 +44,8 @@ def lib
 end
 
 def network
-  
+	
+  pod 'ReachabilitySwift'
   pod 'SwiftyJSON'
   pod 'Moya'
   pod 'Tiercel'
