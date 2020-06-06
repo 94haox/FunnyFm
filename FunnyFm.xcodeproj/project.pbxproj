@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */; };
 		380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */; };
+		3806C366248BC4960034F340 /* OpmlListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C364248BC4960034F340 /* OpmlListViewController.swift */; };
+		3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
+		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
 		386B063A2480E4490095C7AB /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B06392480E4490095C7AB /* Preference.swift */; };
 		386B063C2480E6240095C7AB /* SnappingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063B2480E6230095C7AB /* SnappingSlider.swift */; };
 		386B063F2480E67A0095C7AB /* PerferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063D2480E67A0095C7AB /* PerferenceViewController.swift */; };
@@ -20,8 +23,6 @@
 		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
 		38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
 		38E2723F248106DE00DC4BBA /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */; };
-		38F97750248507E2002F9846 /* EpisodeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9774E248507E2002F9846 /* EpisodeCardCollectionViewCell.swift */; };
-		38F97751248507E2002F9846 /* EpisodeCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F9774F248507E2002F9846 /* EpisodeCardCollectionViewCell.xib */; };
 		741C21D72483AF550030F6D3 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C21D62483AF550030F6D3 /* ArrowView.swift */; };
 		741C22832483B0AB0030F6D3 /* Panelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227B2483B0AB0030F6D3 /* Panelable.swift */; };
 		741C22842483B0AB0030F6D3 /* Panels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227C2483B0AB0030F6D3 /* Panels.swift */; };
@@ -410,6 +411,9 @@
 		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardTableViewCell.swift; sourceTree = "<group>"; };
 		380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCardTableViewCell.xib; sourceTree = "<group>"; };
+		3806C364248BC4960034F340 /* OpmlListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlListViewController.swift; sourceTree = "<group>"; };
+		3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlTableViewCell.swift; sourceTree = "<group>"; };
+		3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpmlTableViewCell.xib; sourceTree = "<group>"; };
 		386B06392480E4490095C7AB /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		386B063B2480E6230095C7AB /* SnappingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnappingSlider.swift; sourceTree = "<group>"; };
 		386B063D2480E67A0095C7AB /* PerferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerferenceViewController.swift; sourceTree = "<group>"; };
@@ -421,8 +425,6 @@
 		3898C7AE2474F1C200828A4A /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 		38BC211124768999002B5CA4 /* SubscribtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionView.swift; sourceTree = "<group>"; };
 		38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
-		38F9774E248507E2002F9846 /* EpisodeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardCollectionViewCell.swift; sourceTree = "<group>"; };
-		38F9774F248507E2002F9846 /* EpisodeCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
@@ -1267,6 +1269,7 @@
 				38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */,
 				386B063D2480E67A0095C7AB /* PerferenceViewController.swift */,
 				386B063E2480E67A0095C7AB /* PerferenceViewController.xib */,
+				3806C364248BC4960034F340 /* OpmlListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1408,8 +1411,6 @@
 				AB1E6D9D21B9388800B85135 /* HomeAlbumTableViewCell.xib */,
 				380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */,
 				380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */,
-				38F9774E248507E2002F9846 /* EpisodeCardCollectionViewCell.swift */,
-				38F9774F248507E2002F9846 /* EpisodeCardCollectionViewCell.xib */,
 				ABF5118721BF6A0C0083A81B /* PodListCollectionViewCell.swift */,
 				ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */,
 				AB31E9C521C1FC7E005E80FC /* UserCenterCollectionViewCell.swift */,
@@ -1440,6 +1441,8 @@
 				7446874D2428D3D60094843F /* AdTableViewCell.xib */,
 				7484373E244C850F0001451A /* SearchHistoryTableViewCell.swift */,
 				7484373F244C850F0001451A /* SearchHistoryTableViewCell.xib */,
+				3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */,
+				3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1884,6 +1887,7 @@
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
 				AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
+				3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */,
 				743AC8E524261148001D252F /* PurchaseSuccessfulViewController.xib in Resources */,
 				AB9E426823951DB500232EE8 /* NoteCollectionViewCell.xib in Resources */,
 				380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */,
@@ -1894,7 +1898,6 @@
 				AB9817F72397FDDE003E008E /* NoteDetailViewController.xib in Resources */,
 				AB74FB7622F7F33E00A00706 /* Localizable.strings in Resources */,
 				ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */,
-				38F97751248507E2002F9846 /* EpisodeCardCollectionViewCell.xib in Resources */,
 				AB6CE3422330DA6A006D8D11 /* DownloadTableViewCell.xib in Resources */,
 				AB1E6D4921B923BD00B85135 /* HomePodCollectionViewCell.xib in Resources */,
 				AB57FE3B22CEE63400BABEF2 /* normal_empty.json in Resources */,
@@ -2138,9 +2141,9 @@
 				AB9E426523951BD500232EE8 /* NoteListViewController.swift in Sources */,
 				386B06D82480F2060095C7AB /* JellySlider.swift in Sources */,
 				ABEE40DA21E3246E00FCB16F /* MJRefreshFooter.m in Sources */,
+				3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				ABEE40E721E35C3800FCB16F /* UserAPI.swift in Sources */,
-				38F97750248507E2002F9846 /* EpisodeCardCollectionViewCell.swift in Sources */,
 				AB34C4FC2331DFDA007FC0EC /* ArrayExtension.swift in Sources */,
 				AB8BD8D6236E7574006FEFF3 /* SPStorkPresentingAnimationController.swift in Sources */,
 				ABEE40DB21E3246E00FCB16F /* MJRefreshHeader.m in Sources */,
@@ -2174,6 +2177,7 @@
 				AB5828B3233C92080072F03B /* YBTSQueue.mm in Sources */,
 				AB8DAB91233A08DF00407FCB /* AppleLoginTypeViewController.swift in Sources */,
 				ABEE40D921E3246E00FCB16F /* MJRefreshGifHeader.m in Sources */,
+				3806C366248BC4960034F340 /* OpmlListViewController.swift in Sources */,
 				380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */,
 				ABEE40D321E3246E00FCB16F /* MJRefreshBackNormalFooter.m in Sources */,
 				AB8BD8E1236E7574006FEFF3 /* SPStorkCloseView.swift in Sources */,

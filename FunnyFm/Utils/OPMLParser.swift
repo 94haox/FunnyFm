@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Item: Hashable {
+public struct OPMLItem: Hashable {
     public var title: String?
     public var summary: String?
     public var xmlURL: String?
@@ -29,15 +29,15 @@ public struct Item: Hashable {
 }
 
 public final class Parser: Operation, XMLParserDelegate {
-    var callback: ([Item]) -> Void = {(_) in }
+    var callback: ([OPMLItem]) -> Void = {(_) in }
     var onFailure: (NSError) -> Void = {(_) in }
 
     private var content: String? = nil
     private var xmlParser: XMLParser? = nil
-    private var items: [Item] = []
+    private var items: [OPMLItem] = []
     private var isOPML = false
 
-    public func success(_ onSuccess: @escaping ([Item]) -> Void) -> Parser {
+    public func success(_ onSuccess: @escaping ([OPMLItem]) -> Void) -> Parser {
         callback = onSuccess
         return self
     }
@@ -101,7 +101,7 @@ public final class Parser: Operation, XMLParserDelegate {
             if (!isOPML) { return }
 
             if elementName.lowercased().hasPrefix("outline") {
-                var item = Item(title: nil, summary: nil, xmlURL: nil, query: nil, htmlUrl: nil, tags: [])
+                var item = OPMLItem(title: nil, summary: nil, xmlURL: nil, query: nil, htmlUrl: nil, tags: [])
                 let whitespaceSet = CharacterSet.whitespacesAndNewlines
                 for (k, value) in attributeDict {
                     let key = k.lowercased()

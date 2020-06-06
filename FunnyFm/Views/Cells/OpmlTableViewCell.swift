@@ -10,10 +10,25 @@ import UIKit
 
 class OpmlTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+	@IBOutlet weak var nameLB: UILabel!
+	@IBOutlet weak var logoImageView: UIImageView!
+	@IBOutlet weak var titleLB: UILabel!
+	var subscribeBlock: (() -> Void)?
+	
+	override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+		self.selectionStyle = .none
     }
+	
+	func config(item: OPMLItem) {
+		self.titleLB.text = item.title
+		if let title = item.title, let firstLetter = title.first {
+			nameLB.text = String([firstLetter]).uppercased()
+		} else {
+			nameLB.text = nil
+		}
+		item.htmlUrl
+	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -21,4 +36,7 @@ class OpmlTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+	@IBAction func subscribeAction(_ sender: Any) {
+		self.subscribeBlock?()
+	}
 }

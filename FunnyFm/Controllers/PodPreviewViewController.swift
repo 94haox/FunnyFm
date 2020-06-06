@@ -19,6 +19,8 @@ class PodPreviewViewController: BaseViewController {
 	var viewModel: PodDetailViewModel!
 	var tableview : UITableView! = UITableView.init(frame: CGRect.zero, style: .plain)
 	var backBtn: UIButton = UIButton.init(type: .custom)
+	var subscribeBlock: ((String) -> Void)?
+	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +80,7 @@ class PodPreviewViewController: BaseViewController {
             showAutoHiddenHud(style: .notification, text: "添加成功，正在获取所有节目单，请稍候查看".localized)
 			NotificationCenter.default.post(Notification.init(name: Notification.willAddPrevPodcast))
 			FeedManager.shared.parserByFeedKit(podcast: self!.itunsPod, complete: nil)
+			self?.subscribeBlock?(self!.itunsPod.feedUrl)
 			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in
 			Hud.shared.hide()

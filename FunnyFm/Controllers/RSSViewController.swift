@@ -21,7 +21,7 @@ class RSSViewController: UIViewController {
     
     var actionBlock: ((String)->Void)?
 	
-	var opmlBlock: ((String)->Void)?
+	var opmlBlock: (([OPMLItem])->Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +43,6 @@ class RSSViewController: UIViewController {
 			return
         }
 		
-//		if opmlBlock.isSome && opmlBtn.isSelected {
-//            self.actionBlock!(self.rssTextView.textView.text)
-//        }
 		parserOPML()
     }
 	
@@ -55,15 +52,18 @@ class RSSViewController: UIViewController {
 			showAutoHiddenHud(style: .error, text: "OPML 链接格式错误")
 			return
 		}
+		Hud.shared.show()
 		let opmlData = try? Data(contentsOf: url)
 		guard let data = opmlData, let opmlString = String.init(data: data, encoding: .utf8) else {
 			showAutoHiddenHud(style: .error, text: "OPML 内容格式错误")
+			Hud.shared.hide()
 			return
 		}
 		let parser = Parser(text: opmlString)
 		let _ = parser.success { (items) in
-			// TODO: 添加 OPML 播客列表展示
-			print(items)
+			Hud.shared.hide()
+			self.dismiss(animated: true, completion: nil)
+			self.opmlBlock?(items)
 		}
 		
 		let _ = parser.failure { (error) in

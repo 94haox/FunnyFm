@@ -29,10 +29,12 @@ class DiscoveryViewController: BaseViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		self.navigationController?.setNavigationBarHidden(true, animated: false)
 		if self.vm.collectionList.count < 1 {
 			self.vm.getAllRecommends()
 		}
 	}
+	
 
 }
 
@@ -62,6 +64,13 @@ extension DiscoveryViewController {
             Hud.shared.show()
             self?.vm.getPrev(feedUrl: rss)
         }
+		
+		rssVc.opmlBlock = { [weak self] (items) in
+			let opmlVC = OpmlListViewController()
+			opmlVC.items = items
+			self?.navigationController?.pushViewController(opmlVC)
+		}
+		
         self.present(rssVc, animated: true, completion: nil)
     }
 	
