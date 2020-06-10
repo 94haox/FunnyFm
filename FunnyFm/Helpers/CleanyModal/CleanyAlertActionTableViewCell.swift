@@ -9,7 +9,8 @@ import UIKit
 
 class CleanyAlertActionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var textLB: UILabel!
+	@IBOutlet weak var bgView: UIView!
+	@IBOutlet weak var textLB: UILabel!
     @IBOutlet weak private var iv: UIImageView!
     
     var title: String? {

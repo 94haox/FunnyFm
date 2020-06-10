@@ -10,41 +10,25 @@ import UIKit
 
 class DownloadListViewController: BaseViewController {
 	
-	var isDownloaded: Bool = true
-	
-	var sectionSegment: DWSegment = DWSegment()
+	var segment: UISegmentedControl = UISegmentedControl(items: ["已下载".localized,"下载中".localized])
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.titleLB.text = "我的下载".localized
-		self.view.addSubview(self.tableview)
-		self.topBgView.addSubview(self.deleteBtn)
-		self.view.addSubview(self.sectionSegment)
-		sectionSegment.config(titles: ["已下载".localized,"正在下载".localized])
-		self.view.insertSubview(self.tableview, at: 0)
-		sectionSegment.addTarget(self, action: #selector(changeSection), for: .valueChanged)
-		self.sectionSegment.snp.makeConstraints { (make) in
-			make.top.equalTo(self.titleLB.snp.bottom).offset(10)
-			make.size.equalTo(CGSize.init(width: 200, height: 40))
-			make.centerX.equalToSuperview()
-		}
-		self.tableview.snp.makeConstraints { (make) in
-			make.left.width.equalToSuperview()
-			make.bottom.equalToSuperview()
-			make.top.equalTo(self.topBgView.snp.bottom)
-		}
-		
-		self.deleteBtn.snp.makeConstraints { (make) in
-			make.right.equalTo(self.topBgView).offset(-16)
-			make.bottom.equalTo(self.titleLB)
-			make.size.equalTo(CGSize.init(width: 60, height: 25))
-		}
-		
+		self.title = "已下载".localized
 		DownloadManager.shared.delegate = self
+		self.view.addSubview(self.tableview)
+		self.segment.addTarget(self, action: #selector(changeSection), for: .valueChanged)
+		self.segment.tintColor = R.color.mainRed()
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: self.deleteBtn)
+		self.navigationItem.titleView = self.segment
+		self.tableview.snp.makeConstraints { (make) in
+			make.edges.equalToSuperview()
+		}
 		
 		NotificationCenter.default.addObserver(forName:  Notification.downloadChangeNotification, object: nil, queue: OperationQueue.main) { (noti) in
 			self.tableview.reloadData()
 		}
+		self.segment.selectedSegmentIndex = 0;
 	}
 	
 	
@@ -53,17 +37,17 @@ class DownloadListViewController: BaseViewController {
 		self.deleteBtn.isHidden = self.episodeList.count < 2
 		self.episodeList = DatabaseManager.allDownload()
 		self.tableview.reloadData()
-        self.sectionSegment.isHidden = self.episodeList.count < 1 && DownloadManager.shared.downloadQueue.count < 1
+        self.segment.isHidden = self.episodeList.count < 1 && DownloadManager.shared.downloadQueue.count < 1
 	}
 	
 	@objc func changeSection(){
-		self.isDownloaded = !self.isDownloaded
 		self.tableview.reloadData()
-		if self.isDownloaded && self.episodeList.count >= 2{
-			self.deleteBtn.isHidden = false
+		if self.segment.selectedSegmentIndex == 1 {
+			self.title = "下载中".localized
 		}else{
-			self.deleteBtn.isHidden = true
+			self.title = "已下载".localized
 		}
+		self.deleteBtn.isHidden = self.episodeList.count < 2
 	}
 	
 	lazy var tableview : UITableView = {
@@ -71,8 +55,6 @@ class DownloadListViewController: BaseViewController {
 		let nib = UINib(nibName: String(describing: DownloadTableViewCell.self), bundle: nil)
 		table.register(nib, forCellReuseIdentifier: "tablecell")
         table.separatorStyle = .none
-		table.separatorInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 0)
-		table.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 100, right: 0)
 		table.rowHeight = 85
 		table.delegate = self
 		table.dataSource = self
@@ -86,12 +68,14 @@ class DownloadListViewController: BaseViewController {
 	var episodeList : [Episode] = DatabaseManager.allDownload()
 	
 	lazy var deleteBtn: UIButton = {
-		let btn = UIButton.init(type: UIButton.ButtonType.custom)
+		let btn = UIButton.init(type: .custom)
 		btn.addTarget(self, action: #selector(deleteAll), for: UIControl.Event.touchUpInside)
 		btn.backgroundColor = R.color.mainRed()!
-		btn.setTitle("删除全部".localized, for: UIControl.State.normal)
+		btn.setTitle("删除全部".localized, for: .normal)
 		btn.titleLabel?.font = p_bfont(fontsize0)
 		btn.cornerRadius = 5
+		btn.frame = CGRect(x: 0, y: 0, width: 60, height: 25)
+		btn.isHidden = true
 		return btn
 	}()
 
@@ -117,7 +101,7 @@ extension DownloadListViewController: DownloadManagerDelegate {
 extension DownloadListViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if isDownloaded {
+		if self.segment.selectedSegmentIndex == 0 {
 			let dowload = self.episodeList[indexPath.row]
 			let detailVC = EpisodeInfoViewController.init()
 			detailVC.episode = dowload
@@ -183,6 +167,7 @@ extension DownloadListViewController {
 			DatabaseManager.deleteDownload(title: episode.title);
 			self.episodeList = DatabaseManager.allDownload()
 			self.tableview.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+			self.tableview.reloadData()
 		}
 		alert.addAction(title: "取消".localized, style: .cancel)
 		self.present(alert, animated: true, completion: nil)
@@ -196,7 +181,7 @@ extension DownloadListViewController {
 extension DownloadListViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if isDownloaded {
+		if self.segment.selectedSegmentIndex == 0 {
 			return self.episodeList.count
 		}
 		return DownloadManager.shared.downloadQueue.count
@@ -206,7 +191,7 @@ extension DownloadListViewController: UITableViewDataSource {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as! DownloadTableViewCell
 		
-		if isDownloaded {
+		if self.segment.selectedSegmentIndex == 0 {
 			let episode = self.episodeList[indexPath.row]
 			cell.config(episode: episode)
 			cell.deleteClosure = { [weak self] () -> Void in
@@ -222,7 +207,7 @@ extension DownloadListViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-		return isDownloaded
+		return self.segment.selectedSegmentIndex == 0
 	}
 	
 	func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

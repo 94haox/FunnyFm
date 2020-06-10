@@ -9,7 +9,7 @@
 import UIKit
 
 
-class PlayListViewController: BaseViewController {
+class PlayListViewController: FirstViewController {
 	var tipLB: UILabel = UILabel.init(text: "待播:".localized)
 	var countLB: UILabel = UILabel.init(text: "0")
 	var playlist: [Episode] = {
@@ -30,6 +30,8 @@ class PlayListViewController: BaseViewController {
     	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
+		ClientConfig.shared.tabbarVC.title = "播放列表".localized
 		self.refreshPlayQueue()
 	}
 	
@@ -145,15 +147,14 @@ extension PlayListViewController {
 		self.countLB.font = p_bfont(12)
 		
 		self.view.addSubview(self.tableview)
-		self.topBgView.addSubview(self.countLB)
-		self.topBgView.addSubview(self.tipLB)
-		self.view.bringSubviewToFront(self.topBgView)
+		self.view.addSubview(self.countLB)
+		self.view.addSubview(self.tipLB)
 		
 		self.tipLB.snp.makeConstraints { (make) in
 			make.right.equalTo(self.countLB.snp.left).offset(-5.adapt())
 			make.baseline.equalTo(self.titleLB)
 		}
-		
+
 		self.countLB.snp.makeConstraints { (make) in
 			make.right.equalTo(self.view).offset(-16)
 			make.baseline.equalTo(self.titleLB)
@@ -162,21 +163,14 @@ extension PlayListViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalTo(self.view)
 			make.bottom.equalTo(self.view)
-            make.top.equalTo(self.topBgView.snp.bottom)
+			make.top.equalTo(self.topBgView.snp.bottom)
         }
 	}
 }
 
 extension PlayListViewController: UIScrollViewDelegate {
 	
-	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		
-		if scrollView.contentOffset.y > 0 {
-			self.topBgView.addShadow(ofColor: CommonColor.subtitle.color, radius: 2, offset: CGSize.init(width: 0, height: 2), opacity: 0.8)
-		}else{
-			self.topBgView.addShadow(ofColor: .clear, radius: 0, offset: CGSize.init(width: 0, height: 0), opacity: 0.8)
-		}
-	}
+	
 }
 
 extension PlayListViewController : DZNEmptyDataSetSource {

@@ -85,7 +85,7 @@
 "播放"="Play";
 "暂停"="Pause";
 "下载失败"="Download failure";
-"正在下载"="Downloading";
+"下载中"="Downloading";
 "已下载"="Downloaded";
 "删除已缓存单集？"="Delete this Episode?";
 "删除"="Delete";

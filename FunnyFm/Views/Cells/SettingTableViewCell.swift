@@ -19,7 +19,7 @@ class SettingTableViewCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        self.contentView.backgroundColor = CommonColor.white.color
+		self.contentView.backgroundColor = R.color.cellbackgroud()
 		self.contentView.addSubview(self.rightLB)
 		self.rightLB.textColor = CommonColor.content.color
 		self.rightLB.font = pfont(fontsize2)

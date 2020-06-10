@@ -81,6 +81,20 @@ PODS:
   - JXSegmentedView (1.0.4)
   - KeychainAccess (4.1.0)
   - lottie-ios (3.1.1)
+  - mopub-ios-sdk (5.12.1):
+    - mopub-ios-sdk/MoPubSDK (= 5.12.1)
+  - mopub-ios-sdk/Avid (5.12.1):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/Core (5.12.1)
+  - mopub-ios-sdk/Moat (5.12.1):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/MoPubSDK (5.12.1):
+    - mopub-ios-sdk/Avid
+    - mopub-ios-sdk/Core
+    - mopub-ios-sdk/Moat
+    - mopub-ios-sdk/NativeAds
+  - mopub-ios-sdk/NativeAds (5.12.1):
+    - mopub-ios-sdk/Core
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -130,6 +144,7 @@ DEPENDENCIES:
   - JXSegmentedView
   - KeychainAccess
   - lottie-ios (= 3.1.1)
+  - mopub-ios-sdk
   - Moya
   - MPITextKit
   - Nuke (~> 8.0.1)
@@ -177,6 +192,7 @@ SPEC REPOS:
     - JXSegmentedView
     - KeychainAccess
     - lottie-ios
+    - mopub-ios-sdk
     - Moya
     - MPITextKit
     - nanopb
@@ -227,6 +243,7 @@ SPEC CHECKSUMS:
   JXSegmentedView: b278b4c5d4c4c2982b4e084cef76ff1ddd37c6a5
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
+  mopub-ios-sdk: d1640225b34ad74700e2acddb116cac634fc45d8
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   MPITextKit: f8a93b31125d806e47628ede973334065234ead5
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
@@ -250,6 +267,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
 
-PODFILE CHECKSUM: 0ac14be78563039c56436f9b58d7a1ee958ad492
+PODFILE CHECKSUM: 07d24bbd4d8864dc8eb3927abc590c7d70194749
 
 COCOAPODS: 1.9.1

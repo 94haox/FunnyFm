@@ -52,28 +52,10 @@ extension UIViewController {
 extension UIViewController : SPStorkControllerDelegate {
 
 	public func didDismissStorkByTap() {
-        guard !ClientConfig.shared.isIPad else {
-            return
-        }
-		let navi = AppDelegate.current.window.rootViewController! as! UINavigationController
-		if navi.viewControllers.count < 2  {
-			FMToolBar.shared.explain()
-		}else{
-			FMToolBar.shared.shrink()
-		}
 		self.viewWillAppear(true)
 	}
 	
 	public func didDismissStorkBySwipe() {
-        guard !ClientConfig.shared.isIPad else {
-            return
-        }
-        let navi = AppDelegate.current.window.rootViewController! as! UINavigationController
-		if navi.viewControllers.count < 2  {
-			FMToolBar.shared.explain()
-		}else{
-			FMToolBar.shared.shrink()
-		}
 		self.viewWillAppear(true)
 	}
 	

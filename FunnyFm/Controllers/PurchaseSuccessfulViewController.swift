@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PurchaseSuccessfulViewController: BaseViewController {
+class PurchaseSuccessfulViewController: FirstViewController {
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var vaildTimeLB: UILabel!
@@ -19,7 +19,7 @@ class PurchaseSuccessfulViewController: BaseViewController {
         super.viewDidLoad()
         self.topView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
         self.featureView.addShadow(ofColor: CommonColor.background.color, radius: 10, offset: CGSize.init(width: 0, height: 1), opacity: 1)
-        self.titleLB.text = "订阅详情".localized
+        self.title = "订阅详情".localized
         self.view.backgroundColor = R.color.ffWhite()
         if self.navigationController!.viewControllers.count > 2 {
             self.backNaviBtn.isHidden = false
@@ -39,16 +39,9 @@ class PurchaseSuccessfulViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        FMToolBar.shared.isHidden = true
+		self.navigationController?.setNavigationBarHidden(true, animated: false)
         if self.navigationController!.viewControllers.count > 2 {
             self.navigationController?.sh_fullscreenPopGestureRecognizer.isEnabled = false
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if FMToolBar.shared.currentEpisode.isSome {
-            FMToolBar.shared.isHidden = false
         }
     }
     

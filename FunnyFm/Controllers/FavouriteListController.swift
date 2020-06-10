@@ -92,18 +92,18 @@ extension FavouriteListController{
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.titleLB.snp.bottom)
+            make.top.equalTo(self.view)
         }
         
-        self.syncAniView.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-16)
-            make.centerY.equalTo(self.titleLB).offset(8.7)
-            make.size.equalTo(CGSize.init(width: 70, height: 70))
-        }
+//        self.syncAniView.snp.makeConstraints { (make) in
+//            make.right.equalToSuperview().offset(-16)
+//            make.centerY.equalTo(self.titleLB).offset(8.7)
+//            make.size.equalTo(CGSize.init(width: 70, height: 70))
+//        }
     }
     
     func setupUI() {
-        self.titleLB.text = "我的收藏".localized
+        self.title = "我的收藏".localized
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let nib = UINib(nibName: String(describing: HomeAlbumTableViewCell.self), bundle: nil)

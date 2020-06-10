@@ -91,12 +91,10 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 			self.swipeAniView.pause()
 			self.swipeAniView.isHidden = true
 		}
-		FMToolBar.shared.isHidden = true
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		FMToolBar.shared.isHidden = false
 	}
 	
 	

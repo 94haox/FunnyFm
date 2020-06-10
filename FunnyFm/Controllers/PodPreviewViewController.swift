@@ -35,7 +35,6 @@ class PodPreviewViewController: BaseViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		FMToolBar.shared.isHidden = true
 		DispatchQueue.global(qos: .background).async {
 			self.viewModel.delegate = self;
 			self.viewModel.getPodcastPrev(pod: self.itunsPod)
@@ -44,9 +43,6 @@ class PodPreviewViewController: BaseViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-		if FMPlayerManager.shared.currentModel.isSome {
-			FMToolBar.shared.isHidden = false
-		}
 	}
 	
 	func config(pod :Pod){

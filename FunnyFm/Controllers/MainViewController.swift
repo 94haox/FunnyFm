@@ -13,7 +13,7 @@ import NVActivityIndicatorView
 import SafariServices
 
 
-class MainViewController:  BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
+class MainViewController:  FirstViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
 	
     var vm = MainViewModel.init()
     
@@ -28,6 +28,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	var fetchLoadingView : NVActivityIndicatorView!
 	
     var emptyView: MainEmptyView = MainEmptyView.init(frame: CGRect.zero)
+	
+	var headers = [Int: UIView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +41,8 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 		self.vm.delegate = self
 		self.addEmptyViews()
         self.guideActions()
-		
-		if !UserDefaults.standard.bool(forKey: "kisFirstMain") {
-			let emptyVC = EmptyMainViewController.init()
-			self.navigationController?.pushViewController(emptyVC, animated: false)
-			UserDefaults.standard.set(true, forKey: "kisFirstMain")
-		}
-		
+		vm.getDatasource(tableView: self.tableview)
+				
 		FeedManager.shared.delegate = self;
 		FeedManager.shared.launchParser()
         AdsManager.shared.loadAds(viewController: self)
@@ -53,12 +50,14 @@ class MainViewController:  BaseViewController,UICollectionViewDataSource,UIColle
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		ClientConfig.shared.tabbarVC.title = "最近更新".localized
         if DatabaseManager.allItunsPod().count < 1 {
             self.loadAnimationView.play()
             self.emptyView.emptyAnimationView.play()
             self.addEmptyViews()
         }
-		FeedManager.shared.delegate = self;   
+		FeedManager.shared.delegate = self;
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
 }
@@ -122,7 +121,7 @@ extension MainViewController{
 		if self.tableview.refreshControl!.isRefreshing {
 			self.tableview.refreshControl?.endRefreshing()
 		}
-		self.tableview.reloadData()
+		self.vm.updateData(FeedManager.shared.episodeList)
 		self.collectionView.reloadData()
 		self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
 	}
@@ -170,9 +169,7 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
     }
 	
     func feedManagerDidGetEpisodelistSuccess(count: Int) {
-        if count > 0 {
-            perform(#selector(reloadData))
-        }
+		self.reloadData()
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
@@ -196,22 +193,10 @@ extension MainViewController{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section)
-		if episodeList.isNone {
-			tableView.reloadData()
+		guard let item = self.vm.dataSource.itemIdentifier(for: indexPath) else {
 			return
 		}
-		let list = episodeList as! [Episode]
-		let item = list.safeObj(index: indexPath.row)
-		if  item.isNone {
-			tableView.reloadData()
-			return
-		}
-
-		guard item is Episode else {
-			return;
-		}
-		self.toDetail(episode: item as! Episode)
+		self.toDetail(episode: item)
 //		FMToolBar.shared.isHidden = false
 //		FMToolBar.shared.configToolBarAtHome(item as! Episode)
     }
@@ -279,40 +264,63 @@ extension MainViewController{
     }
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		if FeedManager.shared.episodeList.count-1 < section {
-			return nil;
-		}
-		let episodeList = FeedManager.shared.episodeList[section]
-		let view = UIView.init()
-		view.backgroundColor = CommonColor.white.color
-		let episode = episodeList.first! as! Episode
-		let titleLB = UILabel.init(text: episode.pubDate)
-		titleLB.textColor = CommonColor.content.color
-		titleLB.font = p_bfont(12)
-		view.addSubview(titleLB)
-		titleLB.snp.makeConstraints { (make) in
-			make.center.equalTo(view)
-		}
-		
-		let line = UIView.init()
-		line.backgroundColor = R.color.mainRed()!
-		view.addSubview(line)
-		line.snp.makeConstraints { (make) in
-			make.centerX.equalTo(view)
-			make.top.equalTo(titleLB.snp.bottom).offset(2)
-			make.height.equalTo(3)
-			make.width.equalTo(10)
-		}
-		return view
+		return getHeader(section: section)
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 30
+		return 5
 	}
 	
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		guard let cell = self.tableview.visibleCells.first, let index = self.tableview.indexPath(for: cell) else {
+			self.titleLB.text = "Today"
+			return
+		}
+		let episodeList = self.vm.episodeList[index.section]
+		let episode = episodeList.first!
+		self.titleLB.text = episode.pubDate
+		let date = Date.from(string: episode.pubDate)
+		if date.isInToday {
+			self.titleLB.text = "Today"
+			if self.titleLB.textColor == R.color.content() {
+				return
+			}
+			UIView.animate(withDuration: 0.2) {
+				self.titleLB.textColor = R.color.content()
+			}
+			return
+		}else if date.isInCurrentYear {
+			self.titleLB.text = "\(date.day) " + date.monthName()
+		}
+		if self.titleLB.textColor == R.color.mainRed() {
+			return
+		}
+		UIView.animate(withDuration: 0.2) {
+			self.titleLB.textColor = R.color.mainRed()
+		}
+	}
+	
+	func getHeader(section: Int) -> UIView {
+		guard headers[section] == nil else {
+			return headers[section]!
+		}
+		let view = UIView()
+		let cornerView = UIView()
+		view.backgroundColor = R.color.ffWhite()
+		cornerView.backgroundColor = R.color.mainRed()
+		cornerView.cornerRadius = 3/2.0
+		view.addSubview(cornerView)
+		cornerView.snp.makeConstraints { (make) in
+			make.center.equalToSuperview()
+			make.size.equalTo(CGSize(width: 10, height: 3))
+		}
+		headers[section] = view
+		return view
+	}
 }
 
 
@@ -434,14 +442,13 @@ extension MainViewController {
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
         self.tableview.delegate = self
-        self.tableview.dataSource = self
+//        self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
         self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
 		
 		self.titleLB.text = "最近更新".localized
-		
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
 		

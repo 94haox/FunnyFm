@@ -14,7 +14,7 @@ class MessageDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.titleLB.text = "详情".localized
+		self.title = "详情".localized
 		self.view.backgroundColor = CommonColor.white.color
 		self.detailInfoTextView.isEditable = false
 		self.detailInfoTextView.backgroundColor = CommonColor.white.color
@@ -23,7 +23,7 @@ class MessageDetailViewController: BaseViewController {
 		self.view.addSubview(self.detailInfoTextView)
 		self.detailInfoTextView.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview()
-			make.top.equalTo(self.topBgView.snp_bottom)
+			make.top.equalTo(self.view.snp_topMargin)
 		}
     }
     

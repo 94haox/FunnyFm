@@ -56,7 +56,7 @@ class PodDetailViewController: BaseViewController {
 	}
 
 	func config(){
-		self.title = "detail"
+		self.title = "Podcast"
         self.infoView.config(pod: self.vm.pod!)
 	}
 	
@@ -172,7 +172,6 @@ extension PodDetailViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let episode = self.vm.episodeList[indexPath.row]
-		FMToolBar.shared.isHidden = false
 		FMToolBar.shared.configToolBar(episode)
 	}
 	

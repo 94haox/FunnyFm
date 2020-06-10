@@ -18,7 +18,7 @@ class MessageViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.titleLB.text = "服务消息".localized
+		self.title = "服务消息".localized
 		self.vm.delegate = self
 		self.setupUI()
 		self.vm.getAllMessageList()
@@ -91,7 +91,7 @@ extension MessageViewController {
 		self.view.addSubview(self.collectionView)
 		self.collectionView.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview()
-			make.top.equalTo(self.topBgView.snp.bottom)
+			make.top.equalToSuperview()
 		}
 	}
 	

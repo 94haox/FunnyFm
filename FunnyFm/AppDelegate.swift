@@ -11,6 +11,7 @@ import Firebase
 import FirebaseUI
 import Siren
 import Bugly
+import MoPub
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -36,6 +37,10 @@ import Bugly
         configureNavigationTabBar()
 		configureTextfield()
 		VersionManager.setupSiren()
+		
+		let config = MPMoPubConfiguration.init(adUnitIdForAppInitialization: "513cebe42e774a029dab367069ab52e2")
+		MoPub.sharedInstance().initializeSdk(with: config, completion: nil)
+		
         self.window.rootViewController = self.configRootVC()
 		self.window.makeKeyAndVisible()
         return true
@@ -70,13 +75,31 @@ extension AppDelegate {
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(toMainVC), name: Notification.toMainNotification, object: nil)
 		
+		NotificationCenter.default.addObserver(self, selector: #selector(toDiscovery), name: Notification.toDiscoveryNotification, object: nil)
+		
 		NotificationCenter.default.addObserver(self, selector: #selector(episodeUpdate(noti:)), name: Notification.podcastUpdateNewEpisode, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(appUpdate), name: Notification.appHasNewVersionReleased, object: nil)
 
 	}
 	
+	@objc func toDiscovery() {
+		DispatchQueue.main.async {
+			self.window.rootViewController = ClientConfig.shared.rootController()
+			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+				if ClientConfig.shared.isIPad {
+					ClientConfig.shared.masterVC.changeViewController(to: 1)
+				}else{
+					ClientConfig.shared.tabbarVC.changeViewController(to: 1)
+				}
+			}
+		}
+	}
+	
 	@objc func toLoginVC(){
+		DispatchQueue.main.async {
+            self.window.rootViewController = ClientConfig.shared.rootController()
+		}
 		DispatchQueue.main.async {
 			let loginNavi = UINavigationController.init(rootViewController: AppleLoginTypeViewController.init())
             loginNavi.navigationBar.isHidden = true

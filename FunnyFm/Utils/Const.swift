@@ -243,6 +243,8 @@ let kNeedLoginAction = "NeedLoginAction"
 
 let kToMainAction = "ToMainAction"
 
+let kToDiscovery = "toDiscoveryAction"
+
 let kSetupNotification = "setupNotification"
 
 let kParserNotification = "ParserNotification"

@@ -72,6 +72,7 @@ end
 # 广告
 def ads
 #	pod 'Google-Mobile-Ads-SDK'
+	pod 'mopub-ios-sdk'
 	pod 'GDTMobSDK', '~> 4.10.5'
   
 end

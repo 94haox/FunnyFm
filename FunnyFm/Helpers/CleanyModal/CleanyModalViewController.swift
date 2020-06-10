@@ -21,12 +21,15 @@ open class CleanyModalViewController: UIViewController {
     @IBOutlet public var widthConstraint: NSLayoutConstraint!
 
     private var gestureRecognizer: UIPanGestureRecognizer!
+	private var tapGes: UITapGestureRecognizer!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
         gestureRecognizer = UIPanGestureRecognizer(target: self, action: .handleGesture)
         alertView.addGestureRecognizer(gestureRecognizer)
+		tapGes = UITapGestureRecognizer(target: self, action: .tapGesture)
+		view.addGestureRecognizer(tapGes)
       
         transitioningDelegate = modalTransition
       
@@ -65,6 +68,10 @@ open class CleanyModalViewController: UIViewController {
             interactor.shouldFinish ? interactor.finish() : interactor.cancel()
         }
     }
+	
+	@objc func handleTapGesture() {
+		self.dismiss(animated: true, completion: nil)
+	}
     
     // MARK: - Handle Keyboard/TextField notifification
     
@@ -105,4 +112,6 @@ open class CleanyModalViewController: UIViewController {
 
 fileprivate extension Selector {
     static let handleGesture = #selector(CleanyModalViewController.handleGesture(_:))
+	
+	static let tapGesture = #selector(CleanyModalViewController.handleTapGesture)
 }

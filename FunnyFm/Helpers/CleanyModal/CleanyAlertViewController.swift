@@ -55,7 +55,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
         view.frame = UIScreen.main.bounds
         view.layoutIfNeeded()
         
@@ -81,6 +81,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         
         actionsTV.separatorColor = UIColor.black.withAlphaComponent(0.08)
 		actionsTV.backgroundColor = .white
+		actionsTV.separatorStyle = .none
         handleTableViewActions()
         applyStyle()
         
@@ -202,7 +203,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
             }
             
             let count = _actions?.count ?? 0
-            actionsTV.separatorStyle = _actions != nil && count > 1 ? .singleLine : .none
+//            actionsTV.separatorStyle = _actions != nil && count > 1 ? .singleLine : .none
             
             actionsTVHeight.constant = (config.styleSettings[.actionCellHeight] ?? 60.0) * CGFloat(count) + kFooterMargin
             
@@ -257,11 +258,11 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
             actionColor = config.styleSettings[.defaultActionColor] ?? UIColor.black
         }
         
-        cell.textLB?.textColor = actionColor
-		
-        let selectedBackgroundView = UIView()
-        selectedBackgroundView.backgroundColor = actionColor.withAlphaComponent(0.1)
-        cell.selectedBackgroundView = selectedBackgroundView
+//        cell.textLB?.textColor = actionColor
+		cell.bgView.backgroundColor = actionColor
+//        let selectedBackgroundView = UIView()
+//        selectedBackgroundView.backgroundColor = actionColor.withAlphaComponent(0.1)
+//        cell.selectedBackgroundView = selectedBackgroundView
 		cell.backgroundColor = .white
         return cell
     }

@@ -738,6 +738,16 @@ extension Date {
         dateFormatter.dateStyle = style
         return dateFormatter.string(from: self)
     }
+	
+	static func from(string: String, style: DateFormatter.Style = .medium) -> Date {
+		let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = style
+		if let date = dateFormatter.date(from: string) {
+			return date
+		}
+		return Date()
+	}
 
     /// SwifterSwift: Date and time string from date.
     ///
@@ -807,6 +817,7 @@ extension Date {
     func monthName(ofStyle style: MonthNameStyle = .full) -> String {
         // http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         let dateFormatter = DateFormatter()
+		dateFormatter.locale = Locale.init(identifier: "en_us")
         var format: String {
             switch style {
             case .oneLetter:

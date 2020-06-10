@@ -13,15 +13,11 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 
 	var logoutBtn: UIButton!
     
-	var versionLB: UILabel!
-    
     var tableview : UITableView!
-
-    var naviBar: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.titleLB.text = "设置".localized
+		self.title = "设置".localized
         self.setupUI()
         self.dw_addsubviews()
         self.setUpImmutableData()
@@ -33,15 +29,11 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.setUpDataSource()
-		FMToolBar.shared.isHidden = true
         self.updateAccountStatus()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		if FMToolBar.shared.currentEpisode.isSome {
-			FMToolBar.shared.isHidden = false
-		}
 	}
     
     lazy var datasource : Array = {return []}()
@@ -325,60 +317,21 @@ extension SettingViewController {
 extension SettingViewController {
     
     func dw_addsubviews(){
-        self.view.addSubview(self.naviBar)
         self.view.addSubview(self.tableview)
-		self.view.addSubview(self.versionLB)
-        self.view.addSubview(self.logoutBtn)
-		self.view.sendSubviewToBack(self.naviBar)
-        
-        self.naviBar.snp.makeConstraints { (make) in
-            make.left.width.equalToSuperview()
-            make.top.equalTo(self.view.snp_topMargin)
-            make.height.equalTo(44)
-        }
 		
         self.tableview.snp.makeConstraints { (make) in
-            make.left.width.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.top.equalTo(self.naviBar.snp.bottom)
+			make.left.width.equalToSuperview()
+			make.top.height.equalToSuperview()
         }
 		
-		self.versionLB.snp.makeConstraints { (make) in
-			make.centerX.equalToSuperview()
-			make.bottom.equalTo(self.view.snp.bottomMargin).offset(-15)
-		}
-        
-        self.logoutBtn.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.versionLB.snp_top).offset(-40.auto())
-            make.centerX.equalToSuperview()
-            make.width.equalTo(200.auto())
-            make.height.equalTo(40.auto())
-        }
+//		self.logoutBtn.snp.makeConstraints { (make) in
+//			make.centerX.equalToSuperview()
+//		}
     }
     
     func setupUI(){
-        self.view.backgroundColor = R.color.background()
-        self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
-        let nib = UINib(nibName: String(describing: SettingTableViewCell.self), bundle: nil)
-        self.tableview.register(nib, forCellReuseIdentifier: "cell")
-        self.tableview.separatorStyle = .none
-        self.tableview.rowHeight = 50
-        self.tableview.sectionHeaderHeight = 30
-        self.tableview.delegate = self
-        self.tableview.dataSource = self
-        self.tableview.tableFooterView = UIView()
-        self.tableview.showsVerticalScrollIndicator = false
-        self.tableview.backgroundColor = R.color.ffWhite()
-        
-        self.naviBar = UIView.init()
-        self.naviBar.backgroundColor = R.color.ffWhite()
 		
-		let infoDic = Bundle.main.infoDictionary
-		let appVersion = infoDic?["CFBundleShortVersionString"]
-		let appBuildVersion = infoDic?["CFBundleVersion"]
-		self.versionLB = UILabel.init(text: "Version: " + (appVersion as! String) + "(\((appBuildVersion as! String)))")
-		self.versionLB.font = p_bfont(12)
-		self.versionLB.textColor = CommonColor.content.color
+		let footView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 40.auto()))
         
         self.logoutBtn = UIButton.init(type: .custom)
         logoutBtn.setTitleColorForAllStates(.white)
@@ -386,6 +339,24 @@ extension SettingViewController {
         logoutBtn.cornerRadius = 5.0
         logoutBtn.titleLabel?.font = p_bfont(12);
         logoutBtn.addTarget(self, action: #selector(toLogoutAction), for: .touchUpInside)
+		logoutBtn.frame = CGRect(x: (kScreenWidth -  200.auto())/2.0, y: 0, width: 200.auto(), height: 40.auto())
+		
+		footView.addSubview(logoutBtn)
+		
+        self.view.backgroundColor = R.color.background()
+        self.tableview = UITableView.init(frame: CGRect.zero, style: .insetGrouped)
+        let nib = UINib(nibName: String(describing: SettingTableViewCell.self), bundle: nil)
+        self.tableview.register(nib, forCellReuseIdentifier: "cell")
+        self.tableview.separatorStyle = .none
+        self.tableview.rowHeight = 50
+        self.tableview.sectionHeaderHeight = 30
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
+		self.tableview.tableFooterView = footView
+        self.tableview.showsVerticalScrollIndicator = false
+        self.tableview.backgroundColor = R.color.ffWhite()
+		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 150.auto(), right: 0)
+	
         
     }
 }

@@ -44,9 +44,7 @@ class EmptyMainViewController: UIViewController {
  	}
 
 	@IBAction func toSeatchVC(_ sender: Any) {
-		let search = DiscoveryViewController.init()
-		self.navigationController?.pushViewController(search);
-		self.navigationController?.viewControllers .remove(at: 1)
+		NotificationCenter.default.post(name: Notification.toDiscoveryNotification, object: nil)
 	}
 	
 	@IBAction func toLoginVC(_ sender: Any) {
@@ -54,7 +52,6 @@ class EmptyMainViewController: UIViewController {
             self.alertVip()
             return
         }
-		self.navigationController?.popViewController()
 		NotificationCenter.default.post(name: Notification.needLoginNotification, object: nil)
 	}
 

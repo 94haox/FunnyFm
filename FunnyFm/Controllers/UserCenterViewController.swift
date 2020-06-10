@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class UserCenterViewController: FirstViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
     var loginTipView: UserLoginTipView = UserLoginTipView.init(frame: CGRect.zero)
     
@@ -32,8 +32,14 @@ class UserCenterViewController: BaseViewController,UICollectionViewDataSource,UI
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		ClientConfig.shared.tabbarVC.title = "Hi"
 		self.updateAccountStatus()
         self.loginTipView.animationView.play()
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
 	}
 	
 	@objc func updateAccountStatus(){
@@ -121,11 +127,13 @@ extension UserCenterViewController {
 		}
 		
 		if indexPath.row == 3 {
-            var vipVC: BaseViewController = InPurchaseViewController()
             if VipManager.shared.isVip {
-                vipVC = PurchaseSuccessfulViewController()
-            }
-			self.navigationController?.pushViewController(vipVC)
+                let vipVC = PurchaseSuccessfulViewController()
+				self.navigationController?.pushViewController(vipVC)
+			}else{
+				let vipVC = InPurchaseViewController()
+				self.navigationController?.pushViewController(vipVC)
+			}
 			return
 		}
 		

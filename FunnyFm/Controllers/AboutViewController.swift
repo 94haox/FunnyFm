@@ -17,23 +17,11 @@ class AboutViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleLB.text = "关于".localized
+        self.title = "关于".localized
         let infoDic = Bundle.main.infoDictionary
         let appVersion = infoDic?["CFBundleShortVersionString"]
         let appBuildVersion = infoDic?["CFBundleVersion"]
         self.versionLB.text = "Version: " + (appVersion as! String) + "(\((appBuildVersion as! String)))"
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        FMToolBar.shared.isHidden = true
-    }
-       
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        if FMToolBar.shared.currentEpisode.isSome {
-            FMToolBar.shared.isHidden = false
-        }
     }
 
     @IBAction func useInfoAction(_ sender: Any) {

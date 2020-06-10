@@ -10,7 +10,7 @@ import UIKit
 import SCLAlertView
 import MediaPlayer.MPMediaPickerController
 
-class DiscoveryViewController: BaseViewController {
+class DiscoveryViewController: FirstViewController {
 
 	let vm: PodDetailViewModel = PodDetailViewModel()
 	var tableview: UITableView = UITableView.init(frame: CGRect.zero, style: .grouped)
@@ -29,7 +29,8 @@ class DiscoveryViewController: BaseViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.navigationController?.setNavigationBarHidden(true, animated: false)
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
+		ClientConfig.shared.tabbarVC.title = "为您推荐".localized
 		if self.vm.collectionList.count < 1 {
 			self.vm.getAllRecommends()
 		}

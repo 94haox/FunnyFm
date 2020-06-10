@@ -15,11 +15,11 @@ class FeedbackViewController: BaseViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.titleLB.text = "Feedback"
+		self.title = "Feedback"
 		self.view.addSubview(webview)
 		webview.snp.makeConstraints { (make) in
 			make.left.bottom.width.equalToSuperview()
-			make.top.equalTo(self.topBgView.snp_bottom)
+			make.top.equalTo(self.view)
 		}
         
 		let requst = NSMutableURLRequest.init(url: URL.init(string: "https://support.qq.com/products/119714")!)
@@ -28,12 +28,10 @@ class FeedbackViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        FMToolBar.shared.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        FMToolBar.shared.isHidden = false
     }
     
 }

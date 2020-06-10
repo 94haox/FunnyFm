@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MoPub
 
 //8020580224686001
 
@@ -16,38 +17,37 @@ import UIKit
 
 class AdShowViewController: UIViewController {
 	
-	var topAd : GDTUnifiedBannerView!
+	var topAd : MPAdView!
 	
-	var bottomAd : GDTUnifiedBannerView!
+	var bottomAd : MPAdView!
 	
-	private var interstitial: GDTMobInterstitial?
+	private var interstitial: MPInterstitialAdController?
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
         self.view.backgroundColor = R.color.background()
-		let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-		topAd = GDTUnifiedBannerView.init(frame: CGRect.init(x: 0, y: statusBarHeight, width: kScreenWidth, height: 100), appId: "1109760306", placementId: "8020580224686001", viewController: self)
-		bottomAd = GDTUnifiedBannerView.init(frame: CGRect.init(x: 0, y: kScreenHeight-100, width: kScreenWidth, height: 100), appId: "1109760306", placementId: "7050583255877020", viewController: self)
-		self.view.addSubview(topAd)
-		self.view.addSubview(bottomAd)
-		topAd.delegate = self;
-		bottomAd.delegate = self;
-		topAd.loadAdAndShow()
-		bottomAd.loadAdAndShow()
+		topAd = MPAdView.init(adUnitId: "513cebe42e774a029dab367069ab52e2")
+		topAd.delegate = self
+		topAd.frame = CGRect(x: 0, y: 64, width: kMPPresetMaxAdSize50Height.width, height: kMPPresetMaxAdSize50Height.height)
+		view.addSubview(topAd)
+		topAd.loadAd(withMaxAdSize: kMPPresetMaxAdSizeMatchFrame)
+		
+//		bottomAd = MPAdView.init(adUnitId: "458a22fc08574ae98065ed2fe78de927")
+//		bottomAd.delegate = self
+//		bottomAd.frame = CGRect(x: 0, y: kScreenHeight-kMPPresetMaxAdSize50Height.height, width: kMPPresetMaxAdSize50Height.width, height: kMPPresetMaxAdSize50Height.height)
+//		view.addSubview(bottomAd)
+//		bottomAd.loadAd(withMaxAdSize: kMPPresetMaxAdSizeMatchFrame)
+//
 		self.loadInsertAd()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		FMToolBar.shared.isHidden = true
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		if FMToolBar.shared.currentEpisode.isSome {
-			FMToolBar.shared.isHidden = false
-		}
 	}
 	
 	
@@ -56,7 +56,7 @@ class AdShowViewController: UIViewController {
 			interstitial?.delegate = nil
 			interstitial = nil
 		}
-		interstitial = GDTMobInterstitial.init(appId: "1109760306", placementId: "4010384935083869")
+		interstitial = MPInterstitialAdController.init(forAdUnitId: "113f6153df1d4d6e8526fa18add6c730")
 		interstitial?.delegate = self
 
 		interstitial?.loadAd()
@@ -64,7 +64,7 @@ class AdShowViewController: UIViewController {
 	
 	@IBAction func showFullScreenAd(_ sender: Any) {
 		
-		interstitial?.present(fromRootViewController: self)
+		interstitial?.show(from: self)
 	}
 	
 	@IBAction func backAction(_ sender: Any) {
@@ -72,26 +72,25 @@ class AdShowViewController: UIViewController {
 	}
 }
 
-extension AdShowViewController: GDTUnifiedBannerViewDelegate{
+
+extension AdShowViewController: MPAdViewDelegate {
 	
-	func unifiedBannerViewDidLoad(_ unifiedBannerView: GDTUnifiedBannerView) {
-		
+	func viewControllerForPresentingModalView() -> UIViewController! {
+		return self
 	}
 	
-	func unifiedBannerViewFailed(toLoad unifiedBannerView: GDTUnifiedBannerView, error: Error) {
+	func adView(_ view: MPAdView!, didFailToLoadAdWithError error: Error!) {
 		print(error.localizedDescription)
 	}
 	
 }
 
-extension AdShowViewController: GDTMobInterstitialDelegate{
-	func interstitialSuccess(toLoadAd interstitial: GDTMobInterstitial!) {
-		
-	}
+extension AdShowViewController: MPInterstitialAdControllerDelegate {
 	
-	func interstitialFail(toLoadAd interstitial: GDTMobInterstitial!, error: Error!) {
+	func interstitialDidFail(toLoadAd interstitial: MPInterstitialAdController!, withError error: Error!) {
 		print(error.localizedDescription)
 	}
+	
 }
 
 

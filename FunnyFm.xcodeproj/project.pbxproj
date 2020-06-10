@@ -12,6 +12,7 @@
 		3806C366248BC4960034F340 /* OpmlListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C364248BC4960034F340 /* OpmlListViewController.swift */; };
 		3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
 		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
+		386078B8248F64BE00A67F6E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386078B7248F64BE00A67F6E /* FirstViewController.swift */; };
 		386B063A2480E4490095C7AB /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B06392480E4490095C7AB /* Preference.swift */; };
 		386B063C2480E6240095C7AB /* SnappingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063B2480E6230095C7AB /* SnappingSlider.swift */; };
 		386B063F2480E67A0095C7AB /* PerferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063D2480E67A0095C7AB /* PerferenceViewController.swift */; };
@@ -414,6 +415,7 @@
 		3806C364248BC4960034F340 /* OpmlListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlListViewController.swift; sourceTree = "<group>"; };
 		3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlTableViewCell.swift; sourceTree = "<group>"; };
 		3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpmlTableViewCell.xib; sourceTree = "<group>"; };
+		386078B7248F64BE00A67F6E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		386B06392480E4490095C7AB /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		386B063B2480E6230095C7AB /* SnappingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnappingSlider.swift; sourceTree = "<group>"; };
 		386B063D2480E67A0095C7AB /* PerferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerferenceViewController.swift; sourceTree = "<group>"; };
@@ -1161,13 +1163,13 @@
 				AB1E6DA221BA01C500B85135 /* OC */,
 				ABB57AAF22FD07F8000593F2 /* Source */,
 				AB1E6D4A21B9243000B85135 /* Extension */,
+				AB41AAF9219564F000260851 /* Helpers */,
 				AB25798321945E70004C5F5D /* Assets.xcassets */,
 				7455CD38241521E3004886EF /* colors.xcassets */,
 				AB14E02A23E7202100E0FA38 /* sound.caf */,
 				AB4E145B22C63F8F0053BE00 /* sound.wav */,
 				AB25798521945E70004C5F5D /* LaunchScreen.storyboard */,
 				AB25798821945E70004C5F5D /* Info.plist */,
-				AB41AAF9219564F000260851 /* Helpers */,
 				ABDB6D992197CFA0002A8264 /* FunnyFm-Bridging-Header.h */,
 			);
 			path = FunnyFm;
@@ -1485,6 +1487,7 @@
 				ABA6642B22D5CDCE00AFAEE6 /* AlertViewController.swift */,
 				AB09DE1A2340AD5F002A9384 /* BaseTabBarViewController.swift */,
 				AB77890023EC53EA00DF8447 /* MasterViewController.swift */,
+				386078B7248F64BE00A67F6E /* FirstViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2247,6 +2250,7 @@
 				7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */,
 				7423FDD524742B53008F7BFD /* PolicyView.swift in Sources */,
 				AB5828B2233C92080072F03B /* YBTaskScheduler.m in Sources */,
+				386078B8248F64BE00A67F6E /* FirstViewController.swift in Sources */,
 				AB25797D21945E6F004C5F5D /* AppDelegate.swift in Sources */,
 				AB41AB06219564F000260851 /* ConstraintsHelper.swift in Sources */,
 				AB7822F423D9B3C2006BD595 /* FeedbackViewController.swift in Sources */,
@@ -2639,7 +2643,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2786,7 +2790,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

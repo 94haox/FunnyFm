@@ -27,7 +27,7 @@ class FeedManager: NSObject {
 		return DatabaseManager.allItunsPod()
 	}()
 	
-	var episodeList = [[Any]]()
+	var episodeList = [[Episode]]()
     
     var waitingPodlist: [iTunsPod] = [iTunsPod]()
     

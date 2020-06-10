@@ -8,11 +8,18 @@
 
 import UIKit
 
-class PodListViewController: BaseViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class PodListViewController: BaseViewController {
 
     var vm = PodListViewModel.init()
 	
-	var syncBtn = UIButton.init(type: .custom)
+	lazy var syncBtn: UIButton = {
+		let btn = UIButton.init(type: .custom)
+		btn.setImage(UIImage.init(systemName: "arrow.clockwise.icloud.fill"), for: .normal)
+		btn.tintColor = R.color.mainRed()
+		btn.addTarget(self, action: #selector(toSyncSubscribe), for: .touchUpInside)
+		btn.frame = CGRect(x: kScreenWidth - 30, y: 0, width: 30, height: 30)
+		return btn
+	}()
     var segment = UISegmentedControl.init(items: ["已同步".localized,"未同步".localized])
 	
 	deinit {
@@ -21,7 +28,7 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.titleLB.text = "我的订阅".localized
+		self.title = "我的订阅".localized
 		self.setupUI()
 		self.vm.delegate = self
 		Hud.shared.show(style: .busy, on: self.view)
@@ -29,7 +36,12 @@ class PodListViewController: BaseViewController , UICollectionViewDelegate, UICo
     }
 	
 	@objc func changeSegment(){
-		self.collectionView .reloadData()
+		if (segment.selectedSegmentIndex == 1) {
+			self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.syncBtn)
+		}else{
+			self.navigationItem.rightBarButtonItem = nil
+		}
+		self.collectionView.reloadData()
 	}
 	
 	@objc func toSyncSubscribe(){
@@ -89,7 +101,7 @@ extension PodListViewController: PodListViewModelDelegate{
 
 // MARK: UICollectionViewDelegate
 
-extension PodListViewController{
+extension PodListViewController: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		var pod: iTunsPod? = nil
@@ -111,7 +123,7 @@ extension PodListViewController{
 
 // MARK: UICollectionViewDataSource
 
-extension PodListViewController{
+extension PodListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
 		if self.segment.selectedSegmentIndex == 0 && UserCenter.shared.isLogin{
@@ -139,9 +151,9 @@ extension PodListViewController{
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		if UserCenter.shared.isLogin {
-			return UIEdgeInsets.init(top: 85, left: 32, bottom: 0, right: 32)
+			return UIEdgeInsets.init(top: 0, left: 32, bottom: 0, right: 32)
 		}else{
-			return UIEdgeInsets.init(top: 30, left: 32, bottom: 0, right: 32)
+			return UIEdgeInsets.init(top: 0, left: 32, bottom: 0, right: 32)
 		}
 	}
 	
@@ -171,35 +183,14 @@ extension PodListViewController {
 		self.view.addSubview(self.collectionView)
 		
 		self.collectionView.snp.makeConstraints { (make) in
-			make.top.equalTo(self.titleLB.snp.bottom)
-			make.left.width.bottom.equalToSuperview()
+			make.edges.equalToSuperview()
 		}
 		
 		if UserCenter.shared.isLogin {
-		
-            self.view.addSubview(self.segment)
             self.segment.tintColor = R.color.mainRed()
             self.segment.selectedSegmentIndex = 0
             self.segment.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
-			
-			self.syncBtn.setImage(UIImage.init(named: "cloud-sync"), for: .normal)
-			self.syncBtn.isHidden = true
-			
-			self.syncBtn.addTarget(self, action: #selector(toSyncSubscribe), for: .touchUpInside)
-			
-			self.view.addSubview(self.syncBtn)
-			
-			self.syncBtn.snp.makeConstraints { (make) in
-				make.right.equalToSuperview().offset(-16.adapt())
-				make.centerY.equalTo(self.titleLB)
-				make.size.equalTo(CGSize.init(width: 30, height: 30))
-			}
-			
-			self.segment.snp.makeConstraints { (make) in
-				make.top.equalTo(self.topBgView.snp.bottom).offset(10)
-				make.size.equalTo(CGSize.init(width: 180, height: 40))
-				make.centerX.equalToSuperview()
-			}
+			self.navigationItem.titleView = self.segment
 		}
 	}
 }

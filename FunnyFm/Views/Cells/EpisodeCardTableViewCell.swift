@@ -63,7 +63,6 @@ class EpisodeCardTableViewCell: UITableViewCell {
 		}
 		sender.isSelected = !sender.isSelected
 		if sender.isSelected {
-			FMToolBar.shared.isHidden = false
 			FMToolBar.shared.configToolBarAtHome(episode)
 		}else{
 			FMToolBar.shared.toobarPause()

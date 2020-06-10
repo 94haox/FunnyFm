@@ -13,13 +13,25 @@ import SHFullscreenPopGestureSwift
 
 public func configureNavigationTabBar() {
 	SHFullscreenPopGesture.configure()
-    UINavigationBar.appearance().titleTextAttributes = [
+	let navBarAppearance = UINavigationBarAppearance()
+    navBarAppearance.configureWithTransparentBackground()
+    navBarAppearance.backgroundColor = R.color.ffWhite()
+	navBarAppearance.shadowImage = UIImage()
+    navBarAppearance.titleTextAttributes = [
         NSAttributedString.Key.foregroundColor: CommonColor.title.color,
 		NSAttributedString.Key.font: p_bfont(14)
     ]
-	UINavigationBar.appearance().largeTitleTextAttributes = [
-		 NSAttributedString.Key.foregroundColor: CommonColor.title.color
+	navBarAppearance.largeTitleTextAttributes = [
+		 NSAttributedString.Key.foregroundColor: CommonColor.title.color,
+		 NSAttributedString.Key.font: p_bfont(subtitleFontSize)
 	]
+	UINavigationBar.appearance().tintColor = R.color.ffWhite()
+	UINavigationBar.appearance().isTranslucent = false
+	UINavigationBar.appearance().shadowImage = UIImage()
+	UINavigationBar.appearance().standardAppearance = navBarAppearance
+	UINavigationBar.appearance().compactAppearance = navBarAppearance
+    UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+	
 }
 
 public func configureTextfield(){

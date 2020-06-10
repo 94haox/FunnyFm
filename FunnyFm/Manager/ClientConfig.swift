@@ -82,8 +82,8 @@ class ClientConfig: NSObject {
     
     func rootControllerForIphone() -> UINavigationController{
         tabbarVC.delegate = self
-        var navi = UINavigationController.init(rootViewController:tabbarVC)
-        navi.navigationBar.isHidden = true
+        var navi = UINavigationController.init(rootViewController: tabbarVC)
+		navi.navigationBar.isHidden = true
         if !UserDefaults.standard.bool(forKey: "isFirst") {
             navi = UINavigationController.init(rootViewController: WelcomeViewController.init())
             navi.navigationBar.isHidden = true

@@ -40,8 +40,10 @@ class PrivacyViewController: UIViewController {
     }
     
     @IBAction func toMainAction(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name.init(kToMainAction), object: nil)
+		let emptyVC = EmptyMainViewController.init()
+		self.navigationController?.pushViewController(emptyVC, animated: true)
     }
+	
     @IBAction func authorAction(_ sender: Any) {
         self.authorBtn.isBusy = true
         NotificationCenter.default.post(name: Notification.setupNotification, object: nil)

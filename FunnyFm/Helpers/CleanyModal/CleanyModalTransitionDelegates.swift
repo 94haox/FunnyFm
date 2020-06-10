@@ -168,7 +168,7 @@ public class CleanyModalPresenter: NSObject, UIViewControllerAnimatedTransitioni
         targetViewController.alertViewCenterY.constant += targetViewController.alertView.center.y + (targetViewController.alertView.frame.height / 2)
         targetViewController.view.layoutIfNeeded()
         targetViewController.view.alpha = 0
-        
+		
         CATransaction.begin()
         CATransaction.setAnimationDuration(transitionDuration(using: transitionContext))
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(controlPoints: 1, 0, 0, 1))
@@ -182,11 +182,10 @@ public class CleanyModalPresenter: NSObject, UIViewControllerAnimatedTransitioni
                 UIApplication.shared.keyWindow?.addSubview(targetViewController.view)
             }
         }
-        
+
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
             targetViewController.view.alpha = 1
         }
-        
         targetViewController.alertView.layer.add(
             self.animation(
                 for: "position",

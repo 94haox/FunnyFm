@@ -22,7 +22,7 @@ class TopicViewController: BaseViewController {
    	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.dw_addSubviews()
-		self.titleLB.text = "播客分类"
+		self.title = "播客分类"
 		self.vm.delegate = self
 	}
 	
@@ -140,7 +140,7 @@ extension TopicViewController {
 		
 		self.segmentedView.snp.makeConstraints { (make) in
 			make.left.width.equalTo(self.view);
-			make.top.equalTo(self.topBgView.snp.bottom);
+			make.top.equalTo(self.view);
 			make.height.equalTo(40)
 		}
 		

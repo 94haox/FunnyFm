@@ -12,7 +12,7 @@ import WCDBSwift
 import FeedKit
 
 
-struct Episode : TableCodable,Mapable{
+struct Episode : TableCodable,Mapable, Hashable{
 	var collectionId:		  	String
     var title:                  String
     var intro:                  String
@@ -26,6 +26,7 @@ struct Episode : TableCodable,Mapable{
 	var pubDateSecond:         	Int
     var download_filpath:       String
 	var downloadSize: 			String
+	var id = UUID().uuidString
 	
 	init?(jsonData:JSON) {
 		let time = jsonData["created"].intValue / 1000
@@ -134,6 +135,7 @@ struct Episode : TableCodable,Mapable{
 		case collectionId
         case download_filpath
 		case downloadSize
+		case id
     }
 	
 	func isFavor(trackUrl:String) -> Bool{
