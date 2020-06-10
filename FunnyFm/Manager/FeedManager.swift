@@ -23,11 +23,13 @@ class FeedManager: NSObject {
 	
 	weak var delegate: FeedManagerDelegate?
     
-	lazy var podlist : [iTunsPod] = {
-		return DatabaseManager.allItunsPod()
-	}()
+	var podlist : [iTunsPod] {
+		DatabaseManager.allItunsPod()
+	}
 	
-	var episodeList = [[Episode]]()
+	var episodeList: [[Episode]] {
+		self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+	}
     
     var waitingPodlist: [iTunsPod] = [iTunsPod]()
     
@@ -51,7 +53,6 @@ extension FeedManager {
             self.getAllPods()
             UserDefaults.standard.set(Date(), forKey: "lastParserTime")
         }else{
-            self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
             self.delegate?.feedManagerDidParserPodcasrSuccess()
         }
     }
@@ -61,7 +62,6 @@ extension FeedManager {
 		if UserCenter.shared.isLogin {
 			FmHttp<iTunsPod>().requestForArray(PodAPI.getPodList, { (cloudPodlist) in
                 PushManager.shared.addTags(podcasts: cloudPodlist)
-				self.podlist = DatabaseManager.allItunsPod()
 				DispatchQueue.main.async {
                     self.delegate?.feedManagerDidGetEpisodelistSuccess(count: 1)
 				}
@@ -82,7 +82,6 @@ extension FeedManager {
 	func getHomeChapters() {
 		
 		DispatchQueue.global().async {
-			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if self.episodeList.count > 0 {
 				DispatchQueue.main.async {
                     self.delegate?.feedManagerDidGetEpisodelistSuccess(count: 1)
@@ -118,14 +117,14 @@ extension FeedManager {
 	}
 	
     func removeDonePodcast(noti: Notification) {
-        let info = noti.userInfo!
+		guard let info =  noti.userInfo else {
+			return
+		}
         
         objc_sync_enter(self)
         self.waitingPodlist.removeAll { return $0.feedUrl == info["feedUrl"] as! String }
         objc_sync_exit(self)
         
-        
-        self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
         DispatchQueue.main.async {
 			if let itemCount = info["itemCount"] {
 				self.delegate?.feedManagerDidGetEpisodelistSuccess(count: itemCount as! Int)
@@ -143,12 +142,11 @@ extension FeedManager {
 			pod = iTunsPod.init(pod: item!)
 			pod?.collectionId = collectionId
 			self.addOrUpdate(itunesPod: pod!, episodelist: item!.items)
-			self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
 			if(complete.isSome){
 				complete!(item)
 			}
 			DispatchQueue.main.async {
-				self.podlist = DatabaseManager.allItunsPod()
+				NotificationCenter.default.post(name: Notification.singleParserSuccess, object: nil)
                 self.delegate?.feedManagerDidGetEpisodelistSuccess(count: item!.items.count)
 			}
 		}, { (error) in
@@ -173,6 +171,7 @@ extension FeedManager {
                     pod.podDes = des
                 }
                 self.addOrUpdate(itunesPod: pod, episodelist: episodes)
+				NotificationCenter.default.post(name: Notification.singleParserSuccess, object: nil)
             }
             complete?(result.error != nil)
         }
@@ -204,8 +203,6 @@ extension FeedManager {
 		DatabaseManager.deleteItunesPod(feedUrl: podcastUrl)
 		DatabaseManager.deleteEpisode(podcastUrl: podcastUrl)
 		PushManager.shared.removeTags(tags: [podId])
-		self.episodeList = self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
-        self.podlist = DatabaseManager.allItunsPod()
 		if podId.length() < 1 || !UserCenter.shared.isLogin{
             self.delegate?.feedManagerDidDisSubscribeSuccess?()
 			return;

@@ -74,8 +74,8 @@ class PodPreviewViewController: BaseViewController {
 		PodListViewModel.init().registerPod(params: params, success: { [weak self] (msg) in
 			Hud.shared.hide()
             showAutoHiddenHud(style: .notification, text: "添加成功，正在获取所有节目单，请稍候查看".localized)
-			NotificationCenter.default.post(Notification.init(name: Notification.willAddPrevPodcast))
 			FeedManager.shared.parserByFeedKit(podcast: self!.itunsPod, complete: nil)
+			NotificationCenter.default.post(Notification.init(name: Notification.willAddPrevPodcast))
 			self?.subscribeBlock?(self!.itunsPod.feedUrl)
 			self!.dismiss(animated: true, completion: nil)
 		}) { (msg) in

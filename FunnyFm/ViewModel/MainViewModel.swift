@@ -25,10 +25,6 @@ class MainViewModel: NSObject {
     weak var delegate : MainViewModelDelegate?
 	
 	var episodeList = [[Episode]]()
-    
-    override init() {
-        super.init()
-    }
 	
 	func getAd(vc: UIViewController){
 //		let options = GADMultipleAdsAdLoaderOptions()

@@ -123,7 +123,7 @@ extension MainViewController{
 		}
 		self.vm.updateData(FeedManager.shared.episodeList)
 		self.collectionView.reloadData()
-		self.emptyView.isHidden = FeedManager.shared.podlist.count > 0
+		self.emptyView.isHidden = DatabaseManager.allItunsPod().count > 0
 	}
 	
 	func dw_addNofications(){
@@ -140,7 +140,11 @@ extension MainViewController{
 		}
 		
 		NotificationCenter.default.addObserver(forName: Notification.willAddPrevPodcast, object: nibName, queue: OperationQueue.main) { (notify) in
-			FeedManager.shared.delegate = self
+			self.reloadData()
+		}
+		
+		NotificationCenter.default.addObserver(forName: Notification.singleParserSuccess, object: nibName, queue: OperationQueue.main) { (notify) in
+			self.reloadData()
 		}
 	}
 }
@@ -153,7 +157,7 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 	}
 	
 	func feedManagerDidParserPodcasrSuccess() {
-        perform(#selector(reloadData))
+        reloadData()
 	}
 	
     
