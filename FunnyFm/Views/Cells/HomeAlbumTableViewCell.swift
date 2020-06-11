@@ -19,8 +19,8 @@ class HomeAlbumTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var updateLB: UILabel!
-	private var tapClosure: (() -> Void)?
-	private var tapLogoClosure: (() -> Void)?
+	var tapClosure: (() -> Void)?
+	var tapLogoClosure: (() -> Void)?
     var addBlock: (() -> Void)?
 	
     override func awakeFromNib() {

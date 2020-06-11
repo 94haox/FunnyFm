@@ -15,7 +15,7 @@ import SafariServices
 
 class MainViewController:  FirstViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate{
 	
-    var vm = MainViewModel.init()
+    var vm = MainViewModel()
     
     let guideView = GuideTipView.init(frame: CGRect.zero)
 	
@@ -167,6 +167,10 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
 		self.navigationController?.pushViewController(vc)
 	}
 	
+	func toEpisodeDetail(episode: Episode) {
+		self.toDetail(episode: episode)
+	}
+	
 	func viewModelDidGetChapterlistSuccess() {
 		
 	}
@@ -218,9 +222,9 @@ extension MainViewController{
 		guard let item = self.vm.dataSource.itemIdentifier(for: indexPath) else {
 			return
 		}
-		self.toDetail(episode: item)
-//		FMToolBar.shared.isHidden = false
-//		FMToolBar.shared.configToolBarAtHome(item as! Episode)
+//		self.toDetail(episode: item)
+		FMToolBar.shared.isHidden = false
+		FMToolBar.shared.configToolBarAtHome(item)
     }
 }
 
@@ -237,7 +241,7 @@ extension MainViewController{
 	}
 	
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 100
     }
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -388,8 +392,10 @@ extension MainViewController {
         
         self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
         let cellnib = UINib(nibName: "EpisodeCardTableViewCell", bundle: Bundle.main)
+		let normalnib = UINib(nibName: "HomeAlbumTableViewCell", bundle: Bundle.main)
         self.tableview.sectionHeaderHeight = 36
         self.tableview.register(cellnib, forCellReuseIdentifier: "cell")
+		self.tableview.register(normalnib, forCellReuseIdentifier: "normal")
         self.tableview.register(UINib.init(nibName: "AdTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "adCell")
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none

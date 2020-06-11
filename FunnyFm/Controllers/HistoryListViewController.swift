@@ -51,6 +51,7 @@ extension HistoryListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let history = self.historyList[indexPath.row]
         FMToolBar.shared.configToolBar(history)
+		self.navigationController?.popViewController()
 //		 FMToolBar.shared.toPlayDetailView()
     }
     

@@ -13,6 +13,7 @@ protocol MainViewModelDelegate: ViewModelDelegate {
 	func viewModelDidGetChapterlistSuccess()
 	func viewModelDidGetAdlistSuccess()
 	func toPodcastDetail(podcast: iTunsPod)
+	func toEpisodeDetail(episode: Episode)
 }
 
 struct MainSection: Hashable {
@@ -55,14 +56,18 @@ class MainViewModel: NSObject {
 	}
     
 	func getDatasource(tableView: UITableView) {
-		self.dataSource = UITableViewDiffableDataSource(tableView: tableView) { (tableView, indexPath, episode) -> EpisodeCardTableViewCell? in
-			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EpisodeCardTableViewCell
+		self.dataSource = UITableViewDiffableDataSource(tableView: tableView) { (tableView, indexPath, episode) -> UITableViewCell? in
+//			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EpisodeCardTableViewCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: "normal", for: indexPath) as! HomeAlbumTableViewCell
 			cell.configHomeCell(episode)
 			cell.tapLogoClosure = { [weak self] in
 				guard let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl) else {
 					return
 				}
 				self?.delegate?.toPodcastDetail(podcast: pod)
+			}
+			cell.tapClosure = {
+				self.delegate?.toEpisodeDetail(episode: episode)
 			}
 
             return cell

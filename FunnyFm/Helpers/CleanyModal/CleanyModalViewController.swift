@@ -29,7 +29,7 @@ open class CleanyModalViewController: UIViewController {
         gestureRecognizer = UIPanGestureRecognizer(target: self, action: .handleGesture)
         alertView.addGestureRecognizer(gestureRecognizer)
 		tapGes = UITapGestureRecognizer(target: self, action: .tapGesture)
-		view.addGestureRecognizer(tapGes)
+//		view.addGestureRecognizer(tapGes)
       
         transitioningDelegate = modalTransition
       
