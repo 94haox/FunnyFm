@@ -35,7 +35,7 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	
 	var swipeAniView: AnimationView!
 	
-//	var playToolbar : PlayDetailToolBar!
+	var playToolbar : PlayDetailToolBar!
     
     var rewindBtn: UIButton!
     
@@ -79,7 +79,8 @@ class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
         self.sh_interactivePopDisabled = true
 		FMPlayerManager.shared.playerDelegate = self
         self.configEpisode()
-		self.showFunctions()
+//		self.showFunctions()
+		self.playToolbar.downBtn.isSelected = DatabaseManager.qureyDownload(title: self.episode.title).isSome
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -447,8 +448,8 @@ extension PlayerDetailViewController {
                 make.left.equalToSuperview().offset(18.auto())
                 make.centerY.equalTo(self.titleLB)
             }else{
-                make.top.equalTo(self.playBtn.snp_bottom).offset(8.auto())
-                make.right.equalToSuperview().offset(-8.auto())
+				make.bottom.equalTo(self.view).offset(-8.auto())
+                make.centerX.equalToSuperview()
             }
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
         })
@@ -510,12 +511,12 @@ extension PlayerDetailViewController {
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
         })
 		
-//		self.playToolbar.snp_makeConstraints { (make) in
-//            make.bottom.equalTo(self.view.snp_bottomMargin).offset(-40.auto())
-//			make.centerX.equalToSuperview()
-//			make.width.equalToSuperview()
-//			make.height.equalTo(48.auto())
-//		}
+		self.playToolbar.snp_makeConstraints { (make) in
+            make.bottom.equalTo(self.view.snp_bottomMargin).offset(-40.auto())
+			make.centerX.equalToSuperview()
+			make.width.equalToSuperview()
+			make.height.equalTo(48.auto())
+		}
 		
 //		self.likeAniView.snp.makeConstraints { (make) in
 //			make.center.equalTo(self.likeBtn)
@@ -554,6 +555,8 @@ extension PlayerDetailViewController {
             make.left.equalTo(self.chaptersBtn.snp_right).offset(4)
             make.centerY.equalTo(self.chaptersBtn)
         }
+		
+		self.functionsBtn.isHidden = true
         
     }
     
@@ -603,11 +606,11 @@ extension PlayerDetailViewController {
 		self.coverImageView.cornerRadius = 15.auto()
 		self.coverBackView.addSubview(self.coverImageView)
 		
-//		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
-////		self.playToolbar.layer.cornerRadius = 24.auto()
-//		self.playToolbar.delegate = self
-//		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.zero, opacity: 0.6)
-//		self.view.addSubview(self.playToolbar)
+		self.playToolbar = PlayDetailToolBar.init(episode: self.episode)
+//		self.playToolbar.layer.cornerRadius = 24.auto()
+		self.playToolbar.delegate = self
+		self.playToolbar.addShadow(ofColor: CommonColor.content.color, radius: 15, offset: CGSize.zero, opacity: 0.6)
+		self.view.addSubview(self.playToolbar)
         
         self.progressLine = ChapterProgressView()
         self.progressLine.cycleW = 20.auto()

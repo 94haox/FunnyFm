@@ -9,13 +9,21 @@
 import UIKit
 
 
-@objc protocol MainViewModelDelegate: ViewModelDelegate {
+protocol MainViewModelDelegate: ViewModelDelegate {
 	func viewModelDidGetChapterlistSuccess()
 	func viewModelDidGetAdlistSuccess()
+	func toPodcastDetail(podcast: iTunsPod)
 }
 
 struct MainSection: Hashable {
+	
 	var date: String
+	
+	
+	func hash(into hasher: inout Hasher) {
+	   hasher.combine(date)
+	}
+
 }
 
 class MainViewModel: NSObject {	
@@ -50,6 +58,13 @@ class MainViewModel: NSObject {
 		self.dataSource = UITableViewDiffableDataSource(tableView: tableView) { (tableView, indexPath, episode) -> EpisodeCardTableViewCell? in
 			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EpisodeCardTableViewCell
 			cell.configHomeCell(episode)
+			cell.tapLogoClosure = { [weak self] in
+				guard let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl) else {
+					return
+				}
+				self?.delegate?.toPodcastDetail(podcast: pod)
+			}
+
             return cell
         }
 		self.dataSource.defaultRowAnimation = .none

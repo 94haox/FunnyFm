@@ -39,7 +39,7 @@ class PurchaseSuccessfulViewController: FirstViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-		self.navigationController?.setNavigationBarHidden(true, animated: false)
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
         if self.navigationController!.viewControllers.count > 2 {
             self.navigationController?.sh_fullscreenPopGestureRecognizer.isEnabled = false
         }

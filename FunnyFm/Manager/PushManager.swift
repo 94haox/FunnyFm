@@ -69,10 +69,6 @@ class PushManager: NSObject {
 			NotificationCenter.default.post(name: Notification.podcastUpdateNewEpisode, object: nil, userInfo: userInfo)
 		}
 		
-		if type! == "appUpdate" {
-			NotificationCenter.default.post(name: Notification.appHasNewVersionReleased, object: nil, userInfo: nil)
-		}
-		
 		if type! == "h5" {
 			NotificationCenter.default.post(name: Notification.appWillOpenH5, object: nil, userInfo: userInfo)
 		}

@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3803B3072492343F00A681E2 /* AppDelegate+notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */; };
+		3803B309249234AB00A681E2 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803B308249234AA00A681E2 /* AppDelegate+Push.swift */; };
 		380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */; };
 		380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */; };
 		3806C366248BC4960034F340 /* OpmlListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C364248BC4960034F340 /* OpmlListViewController.swift */; };
 		3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
 		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
 		386078B8248F64BE00A67F6E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386078B7248F64BE00A67F6E /* FirstViewController.swift */; };
+		38691A8B2491D61700C9D843 /* CalendarCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38691A8A2491D61700C9D843 /* CalendarCard.swift */; };
+		38691A8D2491F12E00C9D843 /* three_cycle.json in Resources */ = {isa = PBXBuildFile; fileRef = 38691A8C2491F12E00C9D843 /* three_cycle.json */; };
 		386B063A2480E4490095C7AB /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B06392480E4490095C7AB /* Preference.swift */; };
 		386B063C2480E6240095C7AB /* SnappingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063B2480E6230095C7AB /* SnappingSlider.swift */; };
 		386B063F2480E67A0095C7AB /* PerferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B063D2480E67A0095C7AB /* PerferenceViewController.swift */; };
@@ -41,7 +45,6 @@
 		7423FDD524742B53008F7BFD /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyView.swift */; };
 		742DD23C2430813E0010FBE3 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */; };
 		7438FF73243076D200A31FA9 /* notification_ad.json in Resources */ = {isa = PBXBuildFile; fileRef = 7438FF72243076D200A31FA9 /* notification_ad.json */; };
-		743A4C3C242759CF008E0086 /* RefreshJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A4C3B242759CF008E0086 /* RefreshJob.swift */; };
 		743AC8DA2426109F001D252F /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8DC2426109F001D252F /* AboutViewController.xib */; };
 		743AC8E524261148001D252F /* PurchaseSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8E724261148001D252F /* PurchaseSuccessfulViewController.xib */; };
 		743AC8EE24261343001D252F /* InPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC8F024261343001D252F /* InPurchaseViewController.xib */; };
@@ -410,12 +413,16 @@
 /* Begin PBXFileReference section */
 		022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+notifications.swift"; sourceTree = "<group>"; };
+		3803B308249234AA00A681E2 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
 		380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardTableViewCell.swift; sourceTree = "<group>"; };
 		380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCardTableViewCell.xib; sourceTree = "<group>"; };
 		3806C364248BC4960034F340 /* OpmlListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlListViewController.swift; sourceTree = "<group>"; };
 		3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlTableViewCell.swift; sourceTree = "<group>"; };
 		3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpmlTableViewCell.xib; sourceTree = "<group>"; };
 		386078B7248F64BE00A67F6E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		38691A8A2491D61700C9D843 /* CalendarCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCard.swift; sourceTree = "<group>"; };
+		38691A8C2491F12E00C9D843 /* three_cycle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = three_cycle.json; sourceTree = "<group>"; };
 		386B06392480E4490095C7AB /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		386B063B2480E6230095C7AB /* SnappingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnappingSlider.swift; sourceTree = "<group>"; };
 		386B063D2480E67A0095C7AB /* PerferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerferenceViewController.swift; sourceTree = "<group>"; };
@@ -451,7 +458,6 @@
 		742DD2442430814C0010FBE3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../../FunnyFM/Controllers/fr.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
 		742DD2462430814D0010FBE3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../../FunnyFM/Controllers/ja.lproj/PrivacyViewController.strings; sourceTree = "<group>"; };
 		7438FF72243076D200A31FA9 /* notification_ad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification_ad.json; sourceTree = "<group>"; };
-		743A4C3B242759CF008E0086 /* RefreshJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshJob.swift; path = FunnyFM/Job/RefreshJob.swift; sourceTree = SOURCE_ROOT; };
 		743AC8DB2426109F001D252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutViewController.xib; sourceTree = "<group>"; };
 		743AC8DE242610A9001D252F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AboutViewController.strings; sourceTree = "<group>"; };
 		743AC8E2242610AD001D252F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AboutViewController.strings; sourceTree = "<group>"; };
@@ -994,7 +1000,6 @@
 			isa = PBXGroup;
 			children = (
 				7493F6722417ACAB007E5319 /* Queue */,
-				743A4C3B242759CF008E0086 /* RefreshJob.swift */,
 				7423ED50248390CC006586C0 /* FeedParserJob.swift */,
 				7493F6772417AD44007E5319 /* CloudParserJob.swift */,
 			);
@@ -1119,6 +1124,7 @@
 				74C9DF75243E01DC000B1745 /* GuideTipView.swift */,
 				386B06D72480F2060095C7AB /* JellySlider.swift */,
 				741C21D62483AF550030F6D3 /* ArrowView.swift */,
+				38691A8A2491D61700C9D843 /* CalendarCard.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1150,6 +1156,8 @@
 				ABAFF26E21E22CA30009A3A2 /* Lotties */,
 				7455CD362415216E004886EF /* R.generated.swift */,
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
+				3803B308249234AA00A681E2 /* AppDelegate+Push.swift */,
+				3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */,
 				74A5CD75241239A200705E75 /* FunnyFm.entitlements */,
 				AB62C46A21BB92F0008D6BA6 /* Base */,
 				7493F66F2417AC97007E5319 /* Job */,
@@ -1595,6 +1603,7 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				38691A8C2491F12E00C9D843 /* three_cycle.json */,
 				74E92F822430842A00A0F64A /* first_ads.json */,
 				7438FF72243076D200A31FA9 /* notification_ad.json */,
 				AB57FE3A22CEE63400BABEF2 /* normal_empty.json */,
@@ -1872,6 +1881,7 @@
 				ABF4989E2303B88A00441DAF /* RegisterViewController.xib in Resources */,
 				386B076F2480F40E0095C7AB /* spark.png in Resources */,
 				741F273124237A0B006F1DCE /* ChapterCollectionViewCell.xib in Resources */,
+				38691A8D2491F12E00C9D843 /* three_cycle.json in Resources */,
 				ABD3EDB9220F2B2600D5BA5C /* ProfileFillViewController.xib in Resources */,
 				ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */,
 				AB441B1223507B0F00411359 /* vipAd.png in Resources */,
@@ -2188,6 +2198,7 @@
 				AB8BD8DE236E7574006FEFF3 /* SPStorkController.swift in Sources */,
 				AB1E6DB021BA5B4500B85135 /* OptionalExtension.swift in Sources */,
 				ABEE40E921E35DC300FCB16F /* LoginViewModel.swift in Sources */,
+				38691A8B2491D61700C9D843 /* CalendarCard.swift in Sources */,
 				AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */,
 				AB09DE1B2340AD5F002A9384 /* BaseTabBarViewController.swift in Sources */,
 				AB1E93092211B39900A8F07B /* PodPreviewViewController.swift in Sources */,
@@ -2197,6 +2208,7 @@
 				7440B1C5242257F200543AFD /* UIViewControllerExtension.swift in Sources */,
 				AB6F0CCC23279BEB00ED8B47 /* DWSwitch.swift in Sources */,
 				AB1E6D8421B9252500B85135 /* UIGestureRecognizerExtensions.swift in Sources */,
+				3803B3072492343F00A681E2 /* AppDelegate+notifications.swift in Sources */,
 				ABEE40D221E3246E00FCB16F /* MJRefreshBackStateFooter.m in Sources */,
 				ABE7660421D7196700470D8F /* URLRequestExtensions.swift in Sources */,
 				3898C7AF2474F1C200828A4A /* TermView.swift in Sources */,
@@ -2278,7 +2290,6 @@
 				743B0BAD2424DE8500E42A16 /* BouncingButton.swift in Sources */,
 				AB77891323EC5BE400DF8447 /* AnimatedTabBarView.swift in Sources */,
 				ABE7660821D7196700470D8F /* DateExtensions.swift in Sources */,
-				743A4C3C242759CF008E0086 /* RefreshJob.swift in Sources */,
 				AB41AB05219564F000260851 /* ScreenShotHelper.swift in Sources */,
 				ABE7660721D7196700470D8F /* LocaleExtensions.swift in Sources */,
 				ABE7ACAE21C20E1400FC6B8E /* SubscribListController.swift in Sources */,
@@ -2293,6 +2304,7 @@
 				AB41AAEE21955ECF00260851 /* Protocol.swift in Sources */,
 				AB1E6D8A21B9252500B85135 /* UIRefreshControlExtensions.swift in Sources */,
 				AB2D266321DF5B4F00BF3391 /* PrivacyManager.swift in Sources */,
+				3803B309249234AB00A681E2 /* AppDelegate+Push.swift in Sources */,
 				741F2733242381B5006F1DCE /* Chapter.swift in Sources */,
 				AB77891523EC5BE400DF8447 /* CommonUIView.swift in Sources */,
 				AB41AAD921952A1300260851 /* FunnyFm.swift in Sources */,
@@ -2643,7 +2655,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2790,7 +2802,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

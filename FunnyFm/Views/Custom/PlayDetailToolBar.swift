@@ -254,7 +254,7 @@ extension PlayDetailToolBar {
 		
 		self.airBtn = AVRoutePickerView.init(frame: CGRect.zero)
 		self.airBtn.activeTintColor = R.color.mainRed()!
-//        self.airBtn.tintColor = .white
+		self.airBtn.tintColor = R.color.content()
 		self.addSubview(self.airBtn)
 		
 		self.downProgressLayer = CAShapeLayer.init()
@@ -273,14 +273,14 @@ extension PlayDetailToolBar {
 		self.addSubview(self.downBackView)
 		
 		self.downBtn = UIButton.init(type: .custom)
-        self.downBtn.setImage(UIImage.init(named: "download-black")!.filled(withColor: .white), for: .normal)
+        self.downBtn.setImage(UIImage.init(named: "download-black")!.filled(withColor: R.color.content()!), for: .normal)
         self.downBtn.setImage(UIImage.init(named: "download-red")!.tintImage, for: .selected)
 		self.downBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
         self.downBtn.tintColor = R.color.mainRed()
 		self.addSubview(self.downBtn)		
 		
 		self.sleepBtn = UIButton.init(type: .custom)
-        self.sleepBtn.setImageForAllStates(UIImage.init(systemName: "zzz")!.filled(withColor: .white))
+        self.sleepBtn.setImageForAllStates(UIImage.init(systemName: "zzz")!.filled(withColor: R.color.content()!))
         self.sleepBtn.tintColor = CommonColor.title.color
 		self.sleepBtn.addTarget(self, action: #selector(setSleepTime), for: .touchUpInside)
 		self.addSubview(self.sleepBtn)
@@ -289,7 +289,7 @@ extension PlayDetailToolBar {
 		self.rateBtn.setTitle("1x", for: .normal)
 		self.rateBtn.titleLabel?.sizeThatFits(CGSize.init(width: 40.auto(), height: 25.auto()))
 		self.rateBtn.titleLabel?.font = h_bfont(fontsize6.auto())
-        self.rateBtn.setTitleColor(.white, for: .normal)
+        self.rateBtn.setTitleColor(R.color.content(), for: .normal)
 		self.rateBtn.addTarget(self, action: #selector(changeRateAction(btn:)), for: .touchUpInside)
 		self.addSubview(self.rateBtn)
 		
@@ -297,7 +297,7 @@ extension PlayDetailToolBar {
 		self.sttBtn.setTitleForAllStates("T")
 		self.sttBtn.addTarget(self, action: #selector(speechToTextAction), for: .touchUpInside)
 		self.sttBtn.titleLabel?.font = h_bfont(fontsize6.auto())
-        self.sttBtn.setTitleColor(.white, for: .normal)
+        self.sttBtn.setTitleColor(R.color.content(), for: .normal)
 		self.addSubview(self.sttBtn)
 	}
 	

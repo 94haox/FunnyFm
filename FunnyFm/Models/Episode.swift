@@ -12,7 +12,7 @@ import WCDBSwift
 import FeedKit
 
 
-struct Episode : TableCodable,Mapable, Hashable{
+struct Episode : TableCodable,Mapable {
 	var collectionId:		  	String
     var title:                  String
     var intro:                  String
@@ -152,6 +152,20 @@ struct Episode : TableCodable,Mapable, Hashable{
     }
 
     
+}
+
+extension Episode: Hashable {
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(trackUrl)
+		hasher.combine(pubDate)
+		hasher.combine(podcastUrl)
+	}
+	
+	static func == (lhs: Episode, rhs: Episode) -> Bool {
+		return lhs.trackUrl == rhs.trackUrl && lhs.podcastUrl == rhs.podcastUrl
+	}
+
 }
 
 

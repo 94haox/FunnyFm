@@ -48,12 +48,14 @@ class FeedManager: NSObject {
 
 extension FeedManager {
     
-    func launchParser() {
+    func launchParser() -> Bool{
         if FunnyFm.needParser() {
             self.getAllPods()
             UserDefaults.standard.set(Date(), forKey: "lastParserTime")
+			return true
         }else{
             self.delegate?.feedManagerDidParserPodcasrSuccess()
+			return false
         }
     }
 	
@@ -257,7 +259,7 @@ extension FeedManager {
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]] {
 		var sortEpisodeList = [[Episode]]()
-        var episodes = episodeList.suffix(100)
+        var episodes = episodeList.suffix(50)
         episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
         
         var dic : [String: [Episode]] = [:]

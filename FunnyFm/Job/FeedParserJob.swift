@@ -49,8 +49,10 @@ class FeedParserJob: BaseJob {
             pod.podDes = des
         }
 		UserDefaults.standard.set(false, forKey: "ParserFailure-\(podcast.feedUrl)")
+		var count = DatabaseManager.allEpisodes(pod: pod).count
         FeedManager.shared.addOrUpdate(itunesPod: pod, episodelist: episodes)
-        NotificationCenter.default.post(name: Notification.podcastParserSuccess, object: nil, userInfo: ["feedUrl": pod.feedUrl, "itemCount": items.count])
+		count = items.count - count
+        NotificationCenter.default.post(name: Notification.podcastParserSuccess, object: nil, userInfo: ["feedUrl": pod.feedUrl, "itemCount": count])
     }
     
     private func sendFailure() {

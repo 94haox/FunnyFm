@@ -100,6 +100,7 @@ PODS:
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - MPITextKit (0.1.6)
+  - Muon (1.2.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -147,6 +148,7 @@ DEPENDENCIES:
   - mopub-ios-sdk
   - Moya
   - MPITextKit
+  - Muon (from `https://github.com/younata/Muon.git`)
   - Nuke (~> 8.0.1)
   - NVActivityIndicatorView
   - pop (~> 1.0)
@@ -216,6 +218,15 @@ SPEC REPOS:
     - WCDBOptimizedSQLCipher
     - WhatsNewKit
 
+EXTERNAL SOURCES:
+  Muon:
+    :git: https://github.com/younata/Muon.git
+
+CHECKOUT OPTIONS:
+  Muon:
+    :commit: e015f0777c3f980123e392cecb390ae9314656e8
+    :git: https://github.com/younata/Muon.git
+
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
@@ -246,6 +257,7 @@ SPEC CHECKSUMS:
   mopub-ios-sdk: d1640225b34ad74700e2acddb116cac634fc45d8
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   MPITextKit: f8a93b31125d806e47628ede973334065234ead5
+  Muon: 02f9bd227e79b79822645bbd55ee40bedb414e36
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
@@ -267,6 +279,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WhatsNewKit: fc8ca82510148c030d66b3bb9b937175f8dcb3fd
 
-PODFILE CHECKSUM: 07d24bbd4d8864dc8eb3927abc590c7d70194749
+PODFILE CHECKSUM: 14886666c8684652d2386cd488043eb2bb2b5bd1
 
 COCOAPODS: 1.9.1

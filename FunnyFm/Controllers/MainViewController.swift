@@ -13,11 +13,13 @@ import NVActivityIndicatorView
 import SafariServices
 
 
-class MainViewController:  FirstViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
+class MainViewController:  FirstViewController,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate{
 	
     var vm = MainViewModel.init()
     
     let guideView = GuideTipView.init(frame: CGRect.zero)
+	
+	let calendarCard = CalendarCard(frame: CGRect.zero)
     
     var collectionView : UICollectionView!
     
@@ -25,7 +27,7 @@ class MainViewController:  FirstViewController,UICollectionViewDataSource,UIColl
 	
 	var loadAnimationView : AnimationView!
 	
-	var fetchLoadingView : NVActivityIndicatorView!
+	var fetchLoadingView : AnimationView!
 	
     var emptyView: MainEmptyView = MainEmptyView.init(frame: CGRect.zero)
 	
@@ -36,7 +38,8 @@ class MainViewController:  FirstViewController,UICollectionViewDataSource,UIColl
 		self.view.backgroundColor = CommonColor.white.color
 		self.dw_addViews()
 		self.addConstrains()
-		self.addHeader();
+		self.addHeader()
+		self.addFooter()
 		self.dw_addNofications()
 		self.vm.delegate = self
 		self.addEmptyViews()
@@ -44,7 +47,7 @@ class MainViewController:  FirstViewController,UICollectionViewDataSource,UIColl
 		vm.getDatasource(tableView: self.tableview)
 				
 		FeedManager.shared.delegate = self;
-		FeedManager.shared.launchParser()
+		self.fetchLoadingView.isHidden = !FeedManager.shared.launchParser()
         AdsManager.shared.loadAds(viewController: self)
     }
 	
@@ -56,6 +59,10 @@ class MainViewController:  FirstViewController,UICollectionViewDataSource,UIColl
             self.emptyView.emptyAnimationView.play()
             self.addEmptyViews()
         }
+		
+		if !self.fetchLoadingView.isHidden {
+			self.fetchLoadingView.play()
+		}
 		FeedManager.shared.delegate = self;
 		self.navigationController?.setNavigationBarHidden(true, animated: true)
 	}
@@ -101,7 +108,8 @@ extension MainViewController{
 	}
     
     @objc func refreshData(){
-		self.fetchLoadingView.startAnimating()
+		self.fetchLoadingView.isHidden = false
+		self.fetchLoadingView.play()
         let feedBackGenertor = UIImpactFeedbackGenerator.init(style: .medium)
         feedBackGenertor.impactOccurred()
         self.vm.refresh()
@@ -128,11 +136,12 @@ extension MainViewController{
 	
 	func dw_addNofications(){
 		NotificationCenter.default.addObserver(forName: Notification.homeParserSuccess, object: nil, queue: OperationQueue.main) { (notify) in
-			self.fetchLoadingView.stopAnimating()
+			self.fetchLoadingView.isHidden = true
 		}
 		
 		NotificationCenter.default.addObserver(forName: NSNotification.Name.init("homechapterParserBegin"), object: nil, queue: OperationQueue.main) { (notify) in
-			self.fetchLoadingView.startAnimating()
+			self.fetchLoadingView.isHidden = false
+			self.fetchLoadingView.play()
 		}
 		
 		NotificationCenter.default.addObserver(forName: Notification.Name.init(kParserNotification), object: nil, queue: OperationQueue.main) { (notify) in
@@ -152,12 +161,18 @@ extension MainViewController{
 
 // MARK: - ViewModelDelegate
 extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
+	
+	func toPodcastDetail(podcast: iTunsPod) {
+		let vc = PodDetailViewController.init(pod: podcast)
+		self.navigationController?.pushViewController(vc)
+	}
+	
 	func viewModelDidGetChapterlistSuccess() {
 		
 	}
 	
 	func feedManagerDidParserPodcasrSuccess() {
-        reloadData()
+		perform(#selector(reloadData))
 	}
 	
     
@@ -166,14 +181,17 @@ extension MainViewController : MainViewModelDelegate, FeedManagerDelegate {
     }
     
     func viewModelDidGetDataFailture(msg: String?) {
-		self.fetchLoadingView.stopAnimating()
+		self.fetchLoadingView.isHidden = true
 		self.loadAnimationView.removeFromSuperview()
         self.tableview.refreshControl?.endRefreshing()
         SwiftNotice.noticeOnStatusBar("请求失败".localized, autoClear: true, autoClearTime: 2)
     }
 	
     func feedManagerDidGetEpisodelistSuccess(count: Int) {
-		self.reloadData()
+		guard count > 0 else {
+			return
+		}
+		perform(#selector(reloadData))
 	}
 	
 	func viewModelDidGetAdlistSuccess() {
@@ -209,64 +227,7 @@ extension MainViewController{
 
 // MARK: - TablviewDataSource
 extension MainViewController{
-	
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return FeedManager.shared.episodeList.count
-	}
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let episodeList = FeedManager.shared.episodeList[section]
-        if AdsManager.shared.expressAdViews.count > 0{
-            return episodeList.count + 1
-        }
-        return episodeList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section)
-        let list = episodeList as! [Episode]
-        if indexPath.row > list.count - 1, AdsManager.shared.expressAdViews.count > indexPath.section{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "adCell", for: indexPath) as! AdTableViewCell
-            let ads = AdsManager.shared.expressAdViews[indexPath.section]
-            cell.render(ads: ads)
-            return cell
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EpisodeCardTableViewCell
-		return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		
-		let episodeList = FeedManager.shared.episodeList.safeObj(index: indexPath.section) as? [Episode]
-		guard let list = episodeList else {
-			return
-		}
-        
-        if indexPath.row > list.count {
-            return
-        }
-        
-		let item = list.safeObj(index: indexPath.row)
-		if item.isNone {
-			return
-		}
-		
-		if item is Episode{
-			guard let cell = cell as? EpisodeCardTableViewCell else { return }
-			let episode = item as! Episode
-			cell.configHomeCell(episode)
-			cell.tapLogoClosure = { [weak self] in
-				let pod = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
-				if pod.isSome {
-					let vc = PodDetailViewController.init(pod: pod!)
-					self?.navigationController?.pushViewController(vc)
-				}
-			}
-		}
-		
-    }
-	
+	    
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return getHeader(section: section)
 	}
@@ -281,31 +242,11 @@ extension MainViewController{
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		guard let cell = self.tableview.visibleCells.first, let index = self.tableview.indexPath(for: cell) else {
-			self.titleLB.text = "Today"
 			return
 		}
 		let episodeList = self.vm.episodeList[index.section]
 		let episode = episodeList.first!
-		self.titleLB.text = episode.pubDate
-		let date = Date.from(string: episode.pubDate)
-		if date.isInToday {
-			self.titleLB.text = "Today"
-			if self.titleLB.textColor == R.color.content() {
-				return
-			}
-			UIView.animate(withDuration: 0.2) {
-				self.titleLB.textColor = R.color.content()
-			}
-			return
-		}else if date.isInCurrentYear {
-			self.titleLB.text = "\(date.day) " + date.monthName()
-		}
-		if self.titleLB.textColor == R.color.mainRed() {
-			return
-		}
-		UIView.animate(withDuration: 0.2) {
-			self.titleLB.textColor = R.color.mainRed()
-		}
+		self.calendarCard.config(dateString: episode.pubDate)
 	}
 	
 	func getHeader(section: Int) -> UIView {
@@ -368,12 +309,12 @@ extension MainViewController{
 extension MainViewController {
 	
 	func addFooter(){
-		let label = UILabel.init(text: "- only last 15 -")
-		label.textColor = UIColor.init(hex: "e0e2e6")
+		let label = UILabel.init(text: "- only last 50 -")
+		label.textColor = R.color.subtitle()
 		label.textAlignment = .center
 		label.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 36);
 		label.font = h_bfont(14)
-		label.backgroundColor = CommonColor.white.color
+//		label.backgroundColor = CommonColor.white.color
 		self.tableview.tableFooterView = label
 	}
     
@@ -392,6 +333,7 @@ extension MainViewController {
 		self.view.sendSubviewToBack(self.tableview)
 		self.view.addSubview(self.fetchLoadingView);
         self.view.addSubview(self.guideView)
+		self.topBgView.addSubview(self.calendarCard)
         
         self.guideView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
@@ -404,6 +346,12 @@ extension MainViewController {
                 make.height.equalTo(130.auto())
             }
         }
+		
+		self.calendarCard.snp.makeConstraints { (make) in
+			make.leading.equalTo(self.titleLB)
+			make.bottom.equalToSuperview().offset(-2.auto())
+			make.size.equalTo(CGSize(width: 35.auto(), height: 40.auto()))
+		}
                 
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
@@ -418,8 +366,8 @@ extension MainViewController {
 		
 		self.fetchLoadingView.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width:30.auto(), height: 30.auto()))
-			make.centerY.equalTo(self.titleLB);
-            make.left.equalTo(self.titleLB.snp.right).offset(20.auto())
+			make.centerY.equalTo(self.calendarCard);
+			make.left.equalTo(self.calendarCard.snp_rightMargin).offset(20.auto())
 		}		
     }
     
@@ -446,17 +394,17 @@ extension MainViewController {
 		self.tableview.backgroundColor = .clear
         self.tableview.separatorStyle = .none
         self.tableview.delegate = self
-//        self.tableview.dataSource = self
         self.tableview.showsVerticalScrollIndicator = false
         self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
         self.tableview.tableHeaderView = self.collectionView;
 		self.tableview.isHidden = true
 		
-		self.titleLB.text = "最近更新".localized
+		self.titleLB.isHidden = true
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
 		
-		self.fetchLoadingView = NVActivityIndicatorView.init(frame: CGRect.zero, type: NVActivityIndicatorType.pacman, color: R.color.mainRed()!, padding: 2);
+		self.fetchLoadingView = AnimationView(name: "three_cycle")
+		self.fetchLoadingView.loopMode = .loop;
     }
     
 }

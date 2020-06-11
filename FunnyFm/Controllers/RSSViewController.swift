@@ -53,43 +53,32 @@ class RSSViewController: UIViewController {
 			return
 		}
 		Hud.shared.show()
-		let opmlData = try? Data(contentsOf: url)
-		guard let data = opmlData, let opmlString = String.init(data: data, encoding: .utf8) else {
-			showAutoHiddenHud(style: .error, text: "OPML 内容格式错误")
-			Hud.shared.hide()
-			return
+		DispatchQueue.global().async {
+			let opmlData = try? Data(contentsOf: url)
+			guard let data = opmlData, let opmlString = String.init(data: data, encoding: .utf8) else {
+				DispatchQueue.main.async {
+					showAutoHiddenHud(style: .error, text: "OPML 内容格式错误")
+					Hud.shared.hide()
+				}
+				return
+			}
+			let parser = Parser(text: opmlString)
+			let _ = parser.success { (items) in
+				DispatchQueue.main.async {
+					Hud.shared.hide()
+					self.dismiss(animated: true, completion: nil)
+					self.opmlBlock?(items)
+				}
+			}
+			
+			let _ = parser.failure { (error) in
+				DispatchQueue.global().async {
+					showAutoHiddenHud(style: .error, text: "OPML 内容解析失败")
+				}
+				print(error)
+			}
+			parser.main()
 		}
-		let parser = Parser(text: opmlString)
-		let _ = parser.success { (items) in
-			Hud.shared.hide()
-			self.dismiss(animated: true, completion: nil)
-			self.opmlBlock?(items)
-		}
-		
-		let _ = parser.failure { (error) in
-			showAutoHiddenHud(style: .error, text: "OPML 内容解析失败")
-			print(error)
-		}
-		
-		parser.main()
-		
-//		do{
-////			let opmlFile = try String(contentsOfFile: self.rssTextView.textView.text, encoding: String.Encoding.utf8)
-//			let parser = Parser(text: self.rssTextView.textView.text)
-//
-//			parser.success { (items) in
-//				print(items)
-//			}
-//
-//			parser.failure { (error) in
-//				print(error)
-//			}
-//
-//		}catch {
-//			showAutoHiddenHud(style: .error, text: "OPML 链接格式错误")
-//		}
-		
-		
 	}
 	
 	@IBAction func rssAction(_ sender: UIButton) {

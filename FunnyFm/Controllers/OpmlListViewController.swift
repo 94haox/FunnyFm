@@ -8,20 +8,17 @@
 
 import UIKit
 
-class OpmlListViewController: UIViewController {
+class OpmlListViewController: BaseViewController {
 	
 	let vm: PodDetailViewModel = PodDetailViewModel()
 	
 	let tableview = UITableView.init(frame: CGRect.zero, style: .plain)
-	
+
 	var items: [OPMLItem]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		view.backgroundColor = R.color.background()
-		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.largeTitleDisplayMode = .automatic
-		navigationItem.hidesBackButton = true
 		self.title = "OPML"
 		self.setupUI()
 		self.vm.delegate = self
@@ -33,11 +30,6 @@ class OpmlListViewController: UIViewController {
 			feedurls.contains(item.xmlURL!)
 		})
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		self.navigationController?.setNavigationBarHidden(false, animated: true)
-	}
 
 }
 
