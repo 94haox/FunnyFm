@@ -58,6 +58,7 @@ class MainViewController:  FirstViewController,UICollectionViewDataSource,UIColl
             self.loadAnimationView.play()
             self.emptyView.emptyAnimationView.play()
             self.addEmptyViews()
+			self.fetchLoadingView.isHidden = true
         }
 		
 		if !self.fetchLoadingView.isHidden {

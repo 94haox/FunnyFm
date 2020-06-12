@@ -71,6 +71,7 @@
             <connections>
                 <outlet property="logoImageView" destination="Yul-8l-OfH" id="3RA-xL-ofI"/>
                 <outlet property="nameLB" destination="7La-Ps-izt" id="a4Y-kT-2jD"/>
+                <outlet property="subscribeBtn" destination="NLB-4f-L5n" id="Mhz-bB-3L8"/>
                 <outlet property="titleLB" destination="bQ0-64-yBF" id="6sn-DL-ISa"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="113.16964285714285"/>

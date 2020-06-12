@@ -15,6 +15,15 @@
 		3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
 		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
 		3816117C24925362006222EF /* lf30_editor_aDuarQ.json in Resources */ = {isa = PBXBuildFile; fileRef = 3816117B24925362006222EF /* lf30_editor_aDuarQ.json */; };
+		38332A5E24936A34009AC1A7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38332A5D24936A34009AC1A7 /* Media.xcassets */; };
+		38332A6024936A34009AC1A7 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38332A5F24936A34009AC1A7 /* ActionViewController.swift */; };
+		38332A6324936A34009AC1A7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38332A6124936A34009AC1A7 /* MainInterface.storyboard */; };
+		38332A6724936A34009AC1A7 /* FunnyFmImport.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		38332A6B24936B07009AC1A7 /* OPMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239EC2441F32A0015DB21 /* OPMLParser.swift */; };
+		38332BAA24937D75009AC1A7 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BA92424DE7800E42A16 /* Hud.swift */; };
+		38332BAB24937D75009AC1A7 /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B0BA82424DE7800E42A16 /* HudView.xib */; };
+		38332BAD24937E59009AC1A7 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
+		38332BAE24937E59009AC1A7 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
 		386078B8248F64BE00A67F6E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386078B7248F64BE00A67F6E /* FirstViewController.swift */; };
 		38691A8B2491D61700C9D843 /* CalendarCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38691A8A2491D61700C9D843 /* CalendarCard.swift */; };
 		38691A8D2491F12E00C9D843 /* three_cycle.json in Resources */ = {isa = PBXBuildFile; fileRef = 38691A8C2491F12E00C9D843 /* three_cycle.json */; };
@@ -53,8 +62,6 @@
 		743AC8FD24262128001D252F /* RSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743AC8FB24262128001D252F /* RSSViewController.swift */; };
 		743AC8FF242629FF001D252F /* RSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743AC901242629FF001D252F /* RSSViewController.xib */; };
 		743AC911242649B8001D252F /* BHTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 743AC90F242649B8001D252F /* BHTimeProfiler.m */; };
-		743B0BAA2424DE7800E42A16 /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B0BA82424DE7800E42A16 /* HudView.xib */; };
-		743B0BAB2424DE7800E42A16 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BA92424DE7800E42A16 /* Hud.swift */; };
 		743B0BAD2424DE8500E42A16 /* BouncingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BAC2424DE8500E42A16 /* BouncingButton.swift */; };
 		7440B1C5242257F200543AFD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */; };
 		744239E32441E2BD0015DB21 /* BCQResourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239DA2441E2BD0015DB21 /* BCQResourceUtils.swift */; };
@@ -385,7 +392,18 @@
 		ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */; };
 		ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */; };
 		B695110D868CD0326F60A963 /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */; };
+		E7105D8ED1F6CE666AEBCA69 /* Pods_FunnyFmImport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E57E88F5B842DCDE115E903 /* Pods_FunnyFmImport.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38332A6524936A34009AC1A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38332A5A24936A34009AC1A7;
+			remoteInfo = FunnyFmImport;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		74843608244C69980001451A /* Embed Watch Content */ = {
@@ -404,6 +422,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				38332A6724936A34009AC1A7 /* FunnyFmImport.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +432,7 @@
 /* Begin PBXFileReference section */
 		022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		2E57E88F5B842DCDE115E903 /* Pods_FunnyFmImport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFmImport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+notifications.swift"; sourceTree = "<group>"; };
 		3803B308249234AA00A681E2 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
 		380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -421,6 +441,11 @@
 		3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlTableViewCell.swift; sourceTree = "<group>"; };
 		3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpmlTableViewCell.xib; sourceTree = "<group>"; };
 		3816117B24925362006222EF /* lf30_editor_aDuarQ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_aDuarQ.json; sourceTree = "<group>"; };
+		38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFmImport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		38332A5D24936A34009AC1A7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		38332A5F24936A34009AC1A7 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		38332A6224936A34009AC1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		38332A6424936A34009AC1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		386078B7248F64BE00A67F6E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		38691A8A2491D61700C9D843 /* CalendarCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCard.swift; sourceTree = "<group>"; };
 		38691A8C2491F12E00C9D843 /* three_cycle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = three_cycle.json; sourceTree = "<group>"; };
@@ -524,6 +549,7 @@
 		74C9DF75243E01DC000B1745 /* GuideTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuideTipView.swift; path = FunnyFM/Views/Custom/GuideTipView.swift; sourceTree = SOURCE_ROOT; };
 		74E92F822430842A00A0F64A /* first_ads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = first_ads.json; sourceTree = "<group>"; };
 		862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E4771165B2D746BEC77D59B /* Pods-FunnyFmImport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmImport.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmImport/Pods-FunnyFmImport.release.xcconfig"; sourceTree = "<group>"; };
 		AB00BC312394A87900893325 /* NoteEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditViewController.xib; sourceTree = "<group>"; };
 		AB00BC322394A87900893325 /* NoteEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
 		AB08F097233DEE0000B93D31 /* UIButton+SomeMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SomeMethods.h"; sourceTree = "<group>"; };
@@ -900,9 +926,18 @@
 		ABF5118821BF6A0C0083A81B /* PodListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodListCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABF5118B21BF6BDB0083A81B /* PodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodListViewModel.swift; sourceTree = "<group>"; };
 		ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeLoginViewController.swift; sourceTree = "<group>"; };
+		B1A47249948312F87FB53D11 /* Pods-FunnyFmImport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmImport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmImport/Pods-FunnyFmImport.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		38332A5824936A34009AC1A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7105D8ED1F6CE666AEBCA69 /* Pods_FunnyFmImport.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB25797621945E6F004C5F5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -930,8 +965,20 @@
 				ABDEFA262317D186001FFFC5 /* WebKit.framework */,
 				022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */,
 				862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */,
+				2E57E88F5B842DCDE115E903 /* Pods_FunnyFmImport.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38332A5C24936A34009AC1A7 /* FunnyFmImport */ = {
+			isa = PBXGroup;
+			children = (
+				38332A5D24936A34009AC1A7 /* Media.xcassets */,
+				38332A5F24936A34009AC1A7 /* ActionViewController.swift */,
+				38332A6124936A34009AC1A7 /* MainInterface.storyboard */,
+				38332A6424936A34009AC1A7 /* Info.plist */,
+			);
+			path = FunnyFmImport;
 			sourceTree = "<group>";
 		};
 		741C22702483B08C0030F6D3 /* Panels */ = {
@@ -1130,6 +1177,7 @@
 				AB7B1AE822F9237700790787 /* GoogleService-Info.plist */,
 				AB74FB7822F7F33E00A00706 /* Localizable.strings */,
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
+				38332A5C24936A34009AC1A7 /* FunnyFmImport */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -1140,6 +1188,7 @@
 			isa = PBXGroup;
 			children = (
 				AB25797921945E6F004C5F5D /* FunnyFm.app */,
+				38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1782,6 +1831,8 @@
 				66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */,
 				14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
 				6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				B1A47249948312F87FB53D11 /* Pods-FunnyFmImport.debug.xcconfig */,
+				9E4771165B2D746BEC77D59B /* Pods-FunnyFmImport.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1789,6 +1840,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		38332A5A24936A34009AC1A7 /* FunnyFmImport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38332A6A24936A34009AC1A7 /* Build configuration list for PBXNativeTarget "FunnyFmImport" */;
+			buildPhases = (
+				666FB849633B07B97846E521 /* [CP] Check Pods Manifest.lock */,
+				38332A5724936A34009AC1A7 /* Sources */,
+				38332A5824936A34009AC1A7 /* Frameworks */,
+				38332A5924936A34009AC1A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FunnyFmImport;
+			productName = FunnyFmImport;
+			productReference = 38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		AB25797821945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB25798B21945E70004C5F5D /* Build configuration list for PBXNativeTarget "FunnyFm" */;
@@ -1806,10 +1875,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				38332A6624936A34009AC1A7 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
-			packageProductDependencies = (
-			);
 			productName = FunnyFm;
 			productReference = AB25797921945E6F004C5F5D /* FunnyFm.app */;
 			productType = "com.apple.product-type.application";
@@ -1820,10 +1888,13 @@
 		AB25797121945E6F004C5F5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Duke;
 				TargetAttributes = {
+					38332A5A24936A34009AC1A7 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					AB25797821945E6F004C5F5D = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -1857,18 +1928,27 @@
 				fr,
 			);
 			mainGroup = AB25797021945E6F004C5F5D;
-			packageReferences = (
-			);
 			productRefGroup = AB25797A21945E6F004C5F5D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				AB25797821945E6F004C5F5D /* FunnyFm */,
+				38332A5A24936A34009AC1A7 /* FunnyFmImport */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38332A5924936A34009AC1A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38332A5E24936A34009AC1A7 /* Media.xcassets in Resources */,
+				38332A6324936A34009AC1A7 /* MainInterface.storyboard in Resources */,
+				38332BAE24937E59009AC1A7 /* OpmlTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB25797721945E6F004C5F5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1915,13 +1995,13 @@
 				ABE7ACB821C2177400FC6B8E /* SettingTableViewCell.xib in Resources */,
 				7446874F2428D3D60094843F /* AdTableViewCell.xib in Resources */,
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
-				743B0BAA2424DE7800E42A16 /* HudView.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
 				3816117C24925362006222EF /* lf30_editor_aDuarQ.json in Resources */,
 				AB14E02B23E7202200E0FA38 /* sound.caf in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				AB2A37252328A7C10097DAF7 /* CloudSyncViewController.xib in Resources */,
 				ABF5118A21BF6A0C0083A81B /* PodListCollectionViewCell.xib in Resources */,
+				38332BAB24937D75009AC1A7 /* HudView.xib in Resources */,
 				ABF498742303B45600441DAF /* WelcomeViewController.xib in Resources */,
 				AB1E6D9F21B9388800B85135 /* HomeAlbumTableViewCell.xib in Resources */,
 				386B07702480F40E0095C7AB /* SplashParticle.sks in Resources */,
@@ -2005,6 +2085,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		666FB849633B07B97846E521 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FunnyFmImport-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7455CD3524152100004886EF /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2028,6 +2130,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		38332A5724936A34009AC1A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38332BAD24937E59009AC1A7 /* OpmlTableViewCell.swift in Sources */,
+				38332A6B24936B07009AC1A7 /* OPMLParser.swift in Sources */,
+				38332A6024936A34009AC1A7 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB25797521945E6F004C5F5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2277,6 +2389,7 @@
 				AB731740239E4944000E1588 /* VersionManager.swift in Sources */,
 				744239EB2441E2BD0015DB21 /* BCQResourceFragmentDownloader.swift in Sources */,
 				AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */,
+				38332BAA24937D75009AC1A7 /* Hud.swift in Sources */,
 				AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */,
 				AB441A322350208700411359 /* GeneralAPI.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
@@ -2314,7 +2427,6 @@
 				AB7789E823EC68E100DF8447 /* VerticalTabBarItemView.swift in Sources */,
 				744239E62441E2BD0015DB21 /* String+Extension.swift in Sources */,
 				386B063C2480E6240095C7AB /* SnappingSlider.swift in Sources */,
-				743B0BAB2424DE7800E42A16 /* Hud.swift in Sources */,
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				741F273024237A0B006F1DCE /* ChapterCollectionViewCell.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
@@ -2340,7 +2452,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		38332A6624936A34009AC1A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38332A5A24936A34009AC1A7 /* FunnyFmImport */;
+			targetProxy = 38332A6524936A34009AC1A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		38332A6124936A34009AC1A7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38332A6224936A34009AC1A7 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		742DD23E2430813E0010FBE3 /* PrivacyViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2507,6 +2635,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		38332A6824936A34009AC1A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1A47249948312F87FB53D11 /* Pods-FunnyFmImport.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyFmImport/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmImport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		38332A6924936A34009AC1A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E4771165B2D746BEC77D59B /* Pods-FunnyFmImport.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyFmImport/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmImport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AB25798921945E70004C5F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2637,7 +2813,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2784,7 +2960,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2817,6 +2993,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		38332A6A24936A34009AC1A7 /* Build configuration list for PBXNativeTarget "FunnyFmImport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38332A6824936A34009AC1A7 /* Debug */,
+				38332A6924936A34009AC1A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AB25797421945E6F004C5F5D /* Build configuration list for PBXProject "FunnyFm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

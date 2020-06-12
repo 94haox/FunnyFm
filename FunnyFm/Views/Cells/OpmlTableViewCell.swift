@@ -10,6 +10,7 @@ import UIKit
 
 class OpmlTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var subscribeBtn: UIButton!
 	@IBOutlet weak var nameLB: UILabel!
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var titleLB: UILabel!
@@ -27,7 +28,16 @@ class OpmlTableViewCell: UITableViewCell {
 		} else {
 			nameLB.text = nil
 		}
-		item.htmlUrl
+	}
+	
+	func config(forImpot item: OPMLItem) {
+		self.titleLB.text = item.title
+		if let title = item.title, let firstLetter = title.first {
+			nameLB.text = String([firstLetter]).uppercased()
+		} else {
+			nameLB.text = nil
+		}
+		self.subscribeBtn.isHidden = true
 	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {

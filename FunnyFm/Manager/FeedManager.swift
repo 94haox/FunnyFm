@@ -206,13 +206,18 @@ extension FeedManager {
 		DatabaseManager.deleteEpisode(podcastUrl: podcastUrl)
 		PushManager.shared.removeTags(tags: [podId])
 		if podId.length() < 1 || !UserCenter.shared.isLogin{
-			NotificationCenter.default.post(name: Notification.didUnSubscribe, object: nil)
+			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+				NotificationCenter.default.post(name: Notification.didUnSubscribe, object: nil)
+			}
+			self.delegate?.feedManagerDidDisSubscribeSuccess?()
 			return;
 		}
 		
 		FmHttp<User>().requestForSingle(UserAPI.disSubscribe(podId), { (_) in
 			DispatchQueue.main.async {
-				NotificationCenter.default.post(name: Notification.didUnSubscribe, object: nil)
+				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+					NotificationCenter.default.post(name: Notification.didUnSubscribe, object: nil)
+				}
 				self.delegate?.feedManagerDidDisSubscribeSuccess?()
 			}
 		}) { (msg) in

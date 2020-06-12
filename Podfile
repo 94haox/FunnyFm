@@ -18,6 +18,12 @@ install! 'cocoapods', generate_multiple_pod_projects: true
 #  end
 #end
 
+def shared
+
+	pod 'ApplicationGroupKit'
+	
+end
+
 def layout
     pod 'SnapKit', '~> 4.0.0'
     pod 'pop', '~> 1.0'
@@ -92,5 +98,12 @@ target "FunnyFm" do
     version
     authoration
     network
+		shared
+end
+
+target "FunnyFmImport" do
+	pod 'SnapKit', '~> 4.0.0'
+	pod 'AutoInch'
+	shared
 end
 

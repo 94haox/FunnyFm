@@ -67,8 +67,6 @@ class PodDetailViewController: BaseViewController {
         if self.infoView.subBtn.isSelected {
             showHud(style: .busy, text: "")
             FeedManager.shared.deleteAllEpisode(podcastUrl: self.vm.pod!.feedUrl, podId: self.vm.pod!.podId)
-			Hud.shared.hide()
-			self.navigationController?.popViewController()
         }
 	}
 	
@@ -143,7 +141,9 @@ extension PodDetailViewController: PodDetailViewModelDelegate{
 		DispatchQueue.main.async {
 			self.tableview.refreshControl?.endRefreshing()
 			self.reload(needSorted: true)
-			self.infoView.config(pod: self.vm.pod!)
+			if let pod = self.vm.pod {
+				self.infoView.config(pod: pod)
+			}
 		}
 	}
 	

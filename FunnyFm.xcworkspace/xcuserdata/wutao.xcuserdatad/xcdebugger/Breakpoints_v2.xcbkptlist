@@ -34,38 +34,22 @@
             endingLineNumber = "25"
             landmarkName = "run()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7FA127CC-85EE-4D40-9085-3C27BBEED7E7 - 9a8b230a203cd5d1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FunnyFm.CloudParserJob.run() throws -&gt; ()"
-                  moduleName = "FunnyFm"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wutao/FunnyFm/FunnyFM/Job/CloudParserJob.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "540">
-               </Location>
-               <Location
-                  uuid = "7FA127CC-85EE-4D40-9085-3C27BBEED7E7 - 352dbbb655a67d87"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;FunnyFm.Pod&gt;) -&gt; () in FunnyFm.CloudParserJob.run() throws -&gt; ()"
-                  moduleName = "FunnyFm"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wutao/FunnyFm/FunnyFM/Job/CloudParserJob.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "228">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A51DB5B-1183-4A45-BA81-5EE3C22A63F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FunnyFm/API/FmHttp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "requestForSingle(_:_:_:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
