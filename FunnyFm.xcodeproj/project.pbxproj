@@ -14,6 +14,7 @@
 		3806C366248BC4960034F340 /* OpmlListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C364248BC4960034F340 /* OpmlListViewController.swift */; };
 		3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
 		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
+		3816117C24925362006222EF /* lf30_editor_aDuarQ.json in Resources */ = {isa = PBXBuildFile; fileRef = 3816117B24925362006222EF /* lf30_editor_aDuarQ.json */; };
 		386078B8248F64BE00A67F6E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386078B7248F64BE00A67F6E /* FirstViewController.swift */; };
 		38691A8B2491D61700C9D843 /* CalendarCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38691A8A2491D61700C9D843 /* CalendarCard.swift */; };
 		38691A8D2491F12E00C9D843 /* three_cycle.json in Resources */ = {isa = PBXBuildFile; fileRef = 38691A8C2491F12E00C9D843 /* three_cycle.json */; };
@@ -374,7 +375,6 @@
 		ABF498672303B33300441DAF /* AdShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498692303B33300441DAF /* AdShowViewController.xib */; };
 		ABF498742303B45600441DAF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498762303B45600441DAF /* WelcomeViewController.xib */; };
 		ABF498812303B61100441DAF /* EmptyMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498832303B61100441DAF /* EmptyMainViewController.xib */; };
-		ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF4988E2303B6D100441DAF /* SearchViewController.xib */; };
 		ABF498952303B71A00441DAF /* NeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498972303B71A00441DAF /* NeLoginViewController.xib */; };
 		ABF4989E2303B88A00441DAF /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF498A02303B88A00441DAF /* RegisterViewController.xib */; };
 		ABF5118021BE8A7C0083A81B /* FMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF5117F21BE8A7C0083A81B /* FMTextField.m */; };
@@ -420,6 +420,7 @@
 		3806C364248BC4960034F340 /* OpmlListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlListViewController.swift; sourceTree = "<group>"; };
 		3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlTableViewCell.swift; sourceTree = "<group>"; };
 		3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpmlTableViewCell.xib; sourceTree = "<group>"; };
+		3816117B24925362006222EF /* lf30_editor_aDuarQ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_aDuarQ.json; sourceTree = "<group>"; };
 		386078B7248F64BE00A67F6E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		38691A8A2491D61700C9D843 /* CalendarCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCard.swift; sourceTree = "<group>"; };
 		38691A8C2491F12E00C9D843 /* three_cycle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = three_cycle.json; sourceTree = "<group>"; };
@@ -670,8 +671,6 @@
 		AB5828B5233CBA6B0072F03B /* PlayItemEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayItemEditViewController.swift; sourceTree = "<group>"; };
 		AB62530A2306570000301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WelcomeViewController.strings"; sourceTree = "<group>"; };
 		AB62530C2306570500301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/EmptyMainViewController.strings"; sourceTree = "<group>"; };
-		AB62530E2306570A00301113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
-		AB6253102306570B00301113 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
 		AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB62DE63239F9BF40004BF6B /* PodcastDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailHeader.swift; sourceTree = "<group>"; };
 		AB62DF1F239FB0450004BF6B /* SearchTopicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTopicCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -885,10 +884,6 @@
 		ABF498872303B61500441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/EmptyMainViewController.strings; sourceTree = "<group>"; };
 		ABF498892303B61700441DAF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/EmptyMainViewController.strings"; sourceTree = "<group>"; };
 		ABF4988B2303B61800441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/EmptyMainViewController.strings; sourceTree = "<group>"; };
-		ABF4988D2303B6D100441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchViewController.xib; sourceTree = "<group>"; };
-		ABF498902303B6D600441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SearchViewController.strings; sourceTree = "<group>"; };
-		ABF498922303B6D700441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchViewController.strings; sourceTree = "<group>"; };
-		ABF498942303B6D800441DAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SearchViewController.strings; sourceTree = "<group>"; };
 		ABF498962303B71A00441DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NeLoginViewController.xib; sourceTree = "<group>"; };
 		ABF498992303B71D00441DAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NeLoginViewController.strings; sourceTree = "<group>"; };
 		ABF4989B2303B71E00441DAF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/NeLoginViewController.strings; sourceTree = "<group>"; };
@@ -1244,7 +1239,6 @@
 				ABF498972303B71A00441DAF /* NeLoginViewController.xib */,
 				ABD3EDB8220F2B2600D5BA5C /* ProfileFillViewController.swift */,
 				ABD3EDB7220F2B2600D5BA5C /* ProfileFillViewController.xib */,
-				ABF4988E2303B6D100441DAF /* SearchViewController.xib */,
 				AB32CF5122B38400007C9E41 /* SearchViewController.swift */,
 				ABB4E54B23A3B30000CFF37A /* TopicViewController.swift */,
 				ABF498832303B61100441DAF /* EmptyMainViewController.xib */,
@@ -1603,6 +1597,7 @@
 		ABAFF26E21E22CA30009A3A2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				3816117B24925362006222EF /* lf30_editor_aDuarQ.json */,
 				38691A8C2491F12E00C9D843 /* three_cycle.json */,
 				74E92F822430842A00A0F64A /* first_ads.json */,
 				7438FF72243076D200A31FA9 /* notification_ad.json */,
@@ -1922,6 +1917,7 @@
 				AB32CF5822B39376007C9E41 /* ItunsPodTableViewCell.xib in Resources */,
 				743B0BAA2424DE7800E42A16 /* HudView.xib in Resources */,
 				AB57FE2922CDDF9200BABEF2 /* firework_2.json in Resources */,
+				3816117C24925362006222EF /* lf30_editor_aDuarQ.json in Resources */,
 				AB14E02B23E7202200E0FA38 /* sound.caf in Resources */,
 				AB25798721945E70004C5F5D /* LaunchScreen.storyboard in Resources */,
 				AB2A37252328A7C10097DAF7 /* CloudSyncViewController.xib in Resources */,
@@ -1943,7 +1939,6 @@
 				AB7E1886238AB0C200D1C8AD /* SpeechViewController.xib in Resources */,
 				AB4E145C22C63F8F0053BE00 /* sound.wav in Resources */,
 				ABEF471621EAF9DF00212DCA /* cloud_sync.json in Resources */,
-				ABF4988C2303B6D100441DAF /* SearchViewController.xib in Resources */,
 				74799F9524251CF000265D3B /* login_tip.json in Resources */,
 				AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */,
 				74843741244C850F0001451A /* SearchHistoryTableViewCell.xib in Resources */,
@@ -2485,19 +2480,6 @@
 			name = EmptyMainViewController.xib;
 			sourceTree = "<group>";
 		};
-		ABF4988E2303B6D100441DAF /* SearchViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABF4988D2303B6D100441DAF /* Base */,
-				ABF498902303B6D600441DAF /* en */,
-				ABF498922303B6D700441DAF /* ja */,
-				ABF498942303B6D800441DAF /* fr */,
-				AB62530E2306570A00301113 /* zh-Hans */,
-				AB6253102306570B00301113 /* zh-Hant */,
-			);
-			name = SearchViewController.xib;
-			sourceTree = "<group>";
-		};
 		ABF498972303B71A00441DAF /* NeLoginViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2655,7 +2637,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2673,7 +2655,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.5.0;
+				MARKETING_VERSION = 2.5.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2786,7 +2768,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FunnyFm/FunnyFm-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2802,7 +2784,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2820,7 +2802,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.5.0;
+				MARKETING_VERSION = 2.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2828,7 +2810,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "FunnyFm/FunnyFm-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

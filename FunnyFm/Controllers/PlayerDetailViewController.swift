@@ -448,7 +448,7 @@ extension PlayerDetailViewController {
                 make.left.equalToSuperview().offset(18.auto())
                 make.centerY.equalTo(self.titleLB)
             }else{
-				make.bottom.equalTo(self.view).offset(-8.auto())
+				make.bottom.equalTo(self.view.snp_bottomMargin).offset(-8.auto())
                 make.centerX.equalToSuperview()
             }
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))

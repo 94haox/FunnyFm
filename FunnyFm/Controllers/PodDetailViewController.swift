@@ -67,6 +67,8 @@ class PodDetailViewController: BaseViewController {
         if self.infoView.subBtn.isSelected {
             showHud(style: .busy, text: "")
             FeedManager.shared.deleteAllEpisode(podcastUrl: self.vm.pod!.feedUrl, podId: self.vm.pod!.podId)
+			Hud.shared.hide()
+			self.navigationController?.popViewController()
         }
 	}
 	
@@ -173,6 +175,7 @@ extension PodDetailViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let episode = self.vm.episodeList[indexPath.row]
 		FMToolBar.shared.configToolBar(episode)
+		self.navigationController?.popViewController()
 	}
 	
 }
@@ -193,7 +196,7 @@ extension PodDetailViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		guard let cell = cell as? HomeAlbumTableViewCell else { return }
-		let swipeCell = cell as! SwipeTableViewCell
+		let swipeCell = cell as SwipeTableViewCell
 		swipeCell.delegate = self;
 		let episode = self.vm.episodeList[indexPath.row]
         cell.configCell(episode)

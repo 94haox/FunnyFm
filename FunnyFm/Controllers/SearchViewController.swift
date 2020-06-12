@@ -10,10 +10,11 @@ import UIKit
 import Lottie
 
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
 
-    @IBOutlet weak var categoryBtn: UIButton!
-    @IBOutlet weak var searchTF: UITextField!
+	var categoryBtn = UIButton(type: .custom)
+	
+	var searchTF: UITextField = UITextField(frame: CGRect.zero)
     
 	var tableview : UITableView!
 	
@@ -24,9 +25,10 @@ class SearchViewController: UIViewController {
 		self.dw_addSubviews()
 		self.searchTF.delegate = self;
 		self.vm.delegate = self
+		self.title = "Search"
     }
 		
-	@IBAction func toTopicVC(_ sender: Any) {
+	@objc func toTopicVC(_ sender: Any) {
 		let topicVC = TopicViewController.init()
 		self.navigationController?.pushViewController(topicVC)
 	}
@@ -132,6 +134,26 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         }
 		return 100
 	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let view = UIView()
+		if section == 0 {
+			view.addSubview(self.searchTF)
+			self.searchTF.snp.makeConstraints { (make) in
+				make.centerX.equalToSuperview()
+				make.height.equalToSuperview()
+				make.width.equalTo(kScreenWidth*0.9)
+			}
+		}
+		return view
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		if section == 0 {
+			return 40
+		}
+		return CGFloat.leastNonzeroMagnitude
+	}
 }
 
 extension SearchViewController : UITextFieldDelegate {
@@ -172,11 +194,13 @@ extension SearchViewController: DZNEmptyDataSetSource{
 extension SearchViewController {
 	func dw_addSubviews(){
         
-        self.categoryBtn.setImageForAllStates(R.image.category()!.tintImage)
+		self.categoryBtn.addTarget(self, action: #selector(toTopicVC(_:)), for: .touchUpInside)
+		self.categoryBtn.setImageForAllStates(UIImage(systemName: "circle.grid.2x2")!)
         self.categoryBtn.tintColor = R.color.mainRed()
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.categoryBtn)
         
         self.view.backgroundColor = CommonColor.white.color
-		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
+		self.tableview = UITableView.init(frame: CGRect.zero, style: .grouped)
 		let cellnib = UINib(nibName: String(describing: ItunsPodTableViewCell.self), bundle: nil)
         let searchCellnib = UINib(nibName: String(describing: SearchHistoryTableViewCell.self), bundle: nil)
 		self.tableview.register(cellnib, forCellReuseIdentifier: "tablecell")
@@ -189,21 +213,25 @@ extension SearchViewController {
 		self.tableview.showsVerticalScrollIndicator = false
 		self.tableview.keyboardDismissMode = .onDrag
 		self.tableview.emptyDataSetSource = self
-		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
+		self.view.addSubview(self.tableview)
 
 		self.searchTF.attributedPlaceholder = FunnyFm.attributePlaceholder("搜索播客".localized)
 		self.searchTF.font = pfont(14)
 		self.searchTF.textColor = CommonColor.title.color
         let imageView = UIImageView.init(image: UIImage.init(systemName: "magnifyingglass.circle.fill"))
-        self.searchTF.leftView = imageView
+		let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 40.auto(), height: 40.auto()))
+		imageView.center = leftView.center
+		leftView.addSubview(imageView)
+		self.searchTF.backgroundColor = R.color.background()
+        self.searchTF.leftView = leftView
         self.searchTF.leftViewMode = .always
         self.searchTF.cornerRadius = 6.auto()
         self.searchTF.clearButtonMode = .whileEditing
-        
-		self.view.addSubview(self.tableview)
+		self.searchTF.leftViewTintColor = R.color.mainRed()
+		
 		self.tableview.snp.makeConstraints { (make) in
-			make.left.bottom.width.equalTo(self.view);
-			make.top.equalTo(self.searchTF.snp.bottom).offset(12);
+			make.leading.width.bottom.equalToSuperview()
+			make.top.equalToSuperview()
 		}
 		
 	}

@@ -155,6 +155,10 @@ extension MainViewController{
 		NotificationCenter.default.addObserver(forName: Notification.singleParserSuccess, object: nibName, queue: OperationQueue.main) { (notify) in
 			self.reloadData()
 		}
+		
+		NotificationCenter.default.addObserver(forName: Notification.didUnSubscribe, object: nil, queue: OperationQueue.main) { (notify) in
+			self.reloadData()
+		}
 	}
 }
 
@@ -369,7 +373,7 @@ extension MainViewController {
 		}
 		
 		self.fetchLoadingView.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize.init(width:30.auto(), height: 30.auto()))
+            make.size.equalTo(CGSize(width: 40.auto(), height: 40.auto()))
 			make.centerY.equalTo(self.calendarCard);
 			make.left.equalTo(self.calendarCard.snp_rightMargin).offset(20.auto())
 		}		
@@ -409,8 +413,9 @@ extension MainViewController {
 		self.loadAnimationView = AnimationView(name: "refresh")
 		self.loadAnimationView.loopMode = .loop;
 		
-		self.fetchLoadingView = AnimationView(name: "three_cycle")
+		self.fetchLoadingView = AnimationView(name: "lf30_editor_aDuarQ")
 		self.fetchLoadingView.loopMode = .loop;
+		self.fetchLoadingView.tintColor = R.color.mainRed()
     }
     
 }

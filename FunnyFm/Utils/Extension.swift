@@ -105,6 +105,7 @@ extension Notification {
 	static let downloadChangeNotification = Notification.Name.init("download_change")
 	static let podcastUpdateNewEpisode = Notification.Name.init("podcast_newEpisode_update")
 	static let appWillOpenH5 = Notification.Name.init("app_willOpenH5")
+	static let didUnSubscribe = Notification.Name.init("app_didUnSubscribe")
 	static let homeParserSuccess = Notification.Name.init("homechapterParserSuccess")
     static let podcastParserSuccess = Notification.Name.init("podcastParserSuccess")
 	static let singleParserSuccess = Notification.Name.init("singleParserSuccess")
