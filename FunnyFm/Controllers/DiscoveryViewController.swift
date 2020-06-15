@@ -25,6 +25,19 @@ class DiscoveryViewController: FirstViewController {
 		self.dw_addConstraints()
 		self.vm.delegate = self
         self.view.backgroundColor = CommonColor.white.color
+		NotificationCenter.default.addObserver(forName: Notification.Name.init(rawValue: "ImportGetPrev"), object: nil, queue: OperationQueue.main) { (notify) in
+			guard let userInfo = notify.userInfo, let rssUrl = userInfo["rssUrl"] as? String else {
+				return
+			}
+			let pod = DatabaseManager.getPodcast(feedUrl: rssUrl)
+            if pod.isSome {
+                let podvc = PodDetailViewController.init(pod: pod!)
+                self.navigationController?.pushViewController(podvc)
+                return
+            }
+			Hud.shared.show(style: .busy, on: self.view)
+			self.vm.getPrev(feedUrl: rssUrl)
+		}
     }
 	
 	override func viewWillAppear(_ animated: Bool) {

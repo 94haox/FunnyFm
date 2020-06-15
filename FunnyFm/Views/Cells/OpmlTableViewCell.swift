@@ -18,6 +18,7 @@ class OpmlTableViewCell: UITableViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
+		self.contentView.backgroundColor = CommonColor.white.color
 		self.selectionStyle = .none
     }
 	

@@ -61,9 +61,7 @@ class MainViewController:  FirstViewController,UICollectionViewDataSource,UIColl
 			self.fetchLoadingView.isHidden = true
         }
 		
-		if !self.fetchLoadingView.isHidden {
-			self.fetchLoadingView.play()
-		}
+		self.fetchLoadingView.play()
 		FeedManager.shared.delegate = self;
 		self.navigationController?.setNavigationBarHidden(true, animated: true)
 	}

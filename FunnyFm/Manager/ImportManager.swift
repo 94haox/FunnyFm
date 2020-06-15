@@ -47,7 +47,32 @@ class ImportManager: NSObject {
 	}
 	
 	static func showRss(url: URL) {
-
+		guard let rssUrl = url.absoluteString.components(separatedBy: "?").last else {
+			return
+		}
+		if rssUrl.contains("https://podcasts.apple.com") {
+			return
+		}
+		
+		if rssUrl.contains("opml") {
+			self.showOpmlList(url: url)
+			return
+		}
+		
+		self.getPrev(url: rssUrl)
+	}
+	
+	static func searchPodcast() {
+		
+	}
+	
+	static func getPrev(url: String) {
+		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+			ClientConfig.shared.tabbarVC.changeViewController(to: 1)
+			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+				NotificationCenter.default.post(name: Notification.Name.init(rawValue: "ImportGetPrev"), object: nil, userInfo: ["rssUrl": url])
+			}
+		}
 	}
 	
 	
@@ -77,11 +102,22 @@ extension ImportManager {
 	static func parserOPML(url: String, complete: @escaping (([OPMLItem]) -> Void)) {
 		Hud.shared.show()
 		DispatchQueue.global().async {
-			let shared = UserDefaults.init(suiteName: "group.com.duke.Pine")
-			guard let data = shared?.data(forKey: url) else {
-				return
+			var opmlData = Data()
+			if url.hasPrefix("file") {
+				let shared = UserDefaults.init(suiteName: "group.com.duke.Pine")
+				guard let data = shared?.data(forKey: url) else {
+					return
+				}
+				shared?.set(nil, forKey: url)
+				opmlData = data
+			}else{
+				guard let opmlUrl = URL(string: url), let data = try? Data(contentsOf: opmlUrl) else {
+					return
+				}
+				opmlData = data
 			}
-			guard let opmlString = String.init(data: data, encoding: .utf8) else {
+			
+			guard let opmlString = String.init(data: opmlData, encoding: .utf8) else {
 				DispatchQueue.main.async {
 					showAutoHiddenHud(style: .error, text: "OPML 内容格式错误")
 					Hud.shared.hide()
@@ -94,14 +130,12 @@ extension ImportManager {
 					Hud.shared.hide()
 					complete(items)
 				}
-				shared?.set(nil, forKey: url)
 			}
 			
 			let _ = parser.failure { (error) in
 				DispatchQueue.global().async {
 					showAutoHiddenHud(style: .error, text: "OPML 内容解析失败")
 				}
-				shared?.set(nil, forKey: url)
 				print(error)
 			}
 			parser.main()

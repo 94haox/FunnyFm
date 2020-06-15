@@ -16,16 +16,10 @@ class ShareViewController: SLComposeServiceViewController {
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! {
                 if provider.hasItemConformingToTypeIdentifier(kUTTypeXML as String) {
-                    provider.loadItem(forTypeIdentifier: kUTTypeXML as String, options: nil, completionHandler: { (xmlUrl, error) in
-						print("-----------\(String(describing: xmlUrl))")
-                    })
 					return true
                 }
 				
 				if provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
-                    provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { (url, error) in
-						print("++++++++++\(String(describing: url))")
-                    })
 					return true
                 }
             }
@@ -33,6 +27,19 @@ class ShareViewController: SLComposeServiceViewController {
 		self.alert("错误", message: "不支持的分享类型")
         return false
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		ExtensionItemHandler.handleInputItem(items: self.extensionContext!.inputItems, firstResponder: self) { (isSupport) in
+			if !isSupport {
+				self.alert("错误", message: "不支持的导入类型") { [weak self] action in
+					self?.extensionContext!.completeRequest(returningItems: nil, completionHandler: nil)
+				}
+			}else{
+				self.extensionContext!.completeRequest(returningItems: nil, completionHandler: nil)
+			}
+		}
+	}
 
     override func didSelectPost() {
         // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
