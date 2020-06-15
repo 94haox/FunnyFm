@@ -1,28 +1,5 @@
 import UIKit
 
-func showAutoHiddenHud(style: Hud.Style, text: String) {
-    guard Thread.isMainThread else {
-        DispatchQueue.main.async {
-            showAutoHiddenHud(style: style, text: text)
-        }
-        return
-    }
-    let hud = Hud()
-    hud.show(style: style, text: text, on: AppDelegate.current.window)
-    hud.scheduleAutoHidden()
-}
-
-func showHud(style: Hud.Style, text: String) {
-    guard Thread.isMainThread else {
-        DispatchQueue.main.async {
-            showHud(style: style, text: text)
-        }
-        return
-    }
-    let hud = Hud.shared
-    hud.show(style: style, text: text, on: AppDelegate.current.window)
-}
-
 final class Hud: NSObject {
     
     static let shared = Hud()

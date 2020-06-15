@@ -96,19 +96,8 @@ extension AppDelegate {
 		if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
 			return true
 		}
-		let urlString = url.absoluteString
-		if urlString.hasPrefix("funnyfm://podcast") {
-			let params = urlString.components(separatedBy: "=")
-			if params.count > 0{
-				let podId = params.last!
-				let pod = DatabaseManager.getPodcast(podId: podId)
-				if pod.isNone {
-					return false
-				}
-				let vc = PodDetailViewController.init(pod: pod!)
-				let navi = self.window.rootViewController as! UINavigationController
-				navi.pushViewController(vc)
-			}
+		
+		if ImportManager.handler(url: url) {
 			return true
 		}
 		

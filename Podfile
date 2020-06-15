@@ -1,26 +1,17 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '13.0'
-use_frameworks!
+use_frameworks! :linkage => :static
 inhibit_all_warnings!
 install! 'cocoapods', generate_multiple_pod_projects: true
 
-#keep_dynamically_linked = ['GDTMobSDK','VIMediaCache']
-#pre_install do |installer|
-#  puts "Make pods linked statically except reserved pods"
-#  installer.pod_targets.each do |pod|
-#    if !keep_dynamically_linked.include?(pod.name)
-#      puts "Override the static_framework? method for #{pod.name}"
-#      def pod.build_type;
-#        Pod::Target::BuildType.static_framework
-#      end
-#    end
-#  end
-#end
-
 def shared
 
-	pod 'ApplicationGroupKit'
+#	pod 'ApplicationGroupKit'
+
+	pod 'SnapKit', '~> 4.0.0'
+	pod 'AutoInch'
+#	pod 'MicrosoftFluentUI'
 	
 end
 
@@ -102,8 +93,10 @@ target "FunnyFm" do
 end
 
 target "FunnyFmImport" do
-	pod 'SnapKit', '~> 4.0.0'
-	pod 'AutoInch'
+	shared
+end
+
+target "FunnyFmShare" do
 	shared
 end
 

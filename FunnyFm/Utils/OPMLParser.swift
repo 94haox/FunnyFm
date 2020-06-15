@@ -105,6 +105,7 @@ public final class Parser: Operation, XMLParserDelegate {
                 let whitespaceSet = CharacterSet.whitespacesAndNewlines
                 for (k, value) in attributeDict {
                     let key = k.lowercased()
+										
                     if value == "" {
                         continue
                     }
@@ -120,7 +121,7 @@ public final class Parser: Operation, XMLParserDelegate {
                             return str.trimmingCharacters(in: whitespaceSet)
                         })
                     }
-                    if key == "title" {
+                    if key == "title" || key == "text" {
                         item.title = value
                     }
                     if key == "summary" || key == "description" {

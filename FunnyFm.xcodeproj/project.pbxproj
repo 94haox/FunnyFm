@@ -16,7 +16,6 @@
 		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
 		3816117C24925362006222EF /* lf30_editor_aDuarQ.json in Resources */ = {isa = PBXBuildFile; fileRef = 3816117B24925362006222EF /* lf30_editor_aDuarQ.json */; };
 		38332A5E24936A34009AC1A7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38332A5D24936A34009AC1A7 /* Media.xcassets */; };
-		38332A6024936A34009AC1A7 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38332A5F24936A34009AC1A7 /* ActionViewController.swift */; };
 		38332A6324936A34009AC1A7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38332A6124936A34009AC1A7 /* MainInterface.storyboard */; };
 		38332A6724936A34009AC1A7 /* FunnyFmImport.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		38332A6B24936B07009AC1A7 /* OPMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239EC2441F32A0015DB21 /* OPMLParser.swift */; };
@@ -35,9 +34,21 @@
 		386B076F2480F40E0095C7AB /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 386B076D2480F40D0095C7AB /* spark.png */; };
 		386B07702480F40E0095C7AB /* SplashParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 386B076E2480F40E0095C7AB /* SplashParticle.sks */; };
 		3877FF46246941830096E2BD /* DownloadTask+Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877FF45246941830096E2BD /* DownloadTask+Episode.swift */; };
+		387E7D642497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */; };
+		387E7D652497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */; };
+		387E7E06249759DB00F9D2C1 /* OPMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239EC2441F32A0015DB21 /* OPMLParser.swift */; };
+		387E7E082497742600F9D2C1 /* ImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7E072497742600F9D2C1 /* ImportManager.swift */; };
 		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
 		38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
+		38C2118424970FE10022ECE6 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
+		38C21231249717EF0022ECE6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C21230249717EF0022ECE6 /* ShareViewController.swift */; };
+		38C21234249717F00022ECE6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C21232249717EF0022ECE6 /* MainInterface.storyboard */; };
+		38C21238249717F00022ECE6 /* FunnyFmShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		38C2123C249718500022ECE6 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38332A5F24936A34009AC1A7 /* ActionViewController.swift */; };
+		38C212DD24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
+		38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
 		38E2723F248106DE00DC4BBA /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */; };
+		4F769A8080176C40D0A432D6 /* Pods_FunnyFmShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */; };
 		741C21D72483AF550030F6D3 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C21D62483AF550030F6D3 /* ArrowView.swift */; };
 		741C22832483B0AB0030F6D3 /* Panelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227B2483B0AB0030F6D3 /* Panelable.swift */; };
 		741C22842483B0AB0030F6D3 /* Panels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227C2483B0AB0030F6D3 /* Panels.swift */; };
@@ -403,6 +414,13 @@
 			remoteGlobalIDString = 38332A5A24936A34009AC1A7;
 			remoteInfo = FunnyFmImport;
 		};
+		38C21236249717F00022ECE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38C2122D249717EF0022ECE6;
+			remoteInfo = FunnyFmShare;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -422,6 +440,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				38C21238249717F00022ECE6 /* FunnyFmShare.appex in Embed App Extensions */,
 				38332A6724936A34009AC1A7 /* FunnyFmImport.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -457,10 +476,19 @@
 		386B076D2480F40D0095C7AB /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		386B076E2480F40E0095C7AB /* SplashParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SplashParticle.sks; sourceTree = "<group>"; };
 		3877FF45246941830096E2BD /* DownloadTask+Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadTask+Episode.swift"; sourceTree = "<group>"; };
+		387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionItemHandler.swift; sourceTree = "<group>"; };
+		387E7E072497742600F9D2C1 /* ImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportManager.swift; sourceTree = "<group>"; };
 		3898C7AE2474F1C200828A4A /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
+		389B8A0D24977E5300F0F64A /* FunnyFmImport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFmImport.entitlements; sourceTree = "<group>"; };
+		389B8A0E24977E5D00F0F64A /* FunnyFmShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFmShare.entitlements; sourceTree = "<group>"; };
 		38BC211124768999002B5CA4 /* SubscribtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionView.swift; sourceTree = "<group>"; };
+		38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFmShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C21230249717EF0022ECE6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		38C21233249717EF0022ECE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		38C21235249717F00022ECE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
+		529B89C150EEC126FA5C4156 /* Pods-FunnyFmShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmShare/Pods-FunnyFmShare.release.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		741C21D62483AF550030F6D3 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArrowView.swift; path = FunnyFM/Views/Custom/ArrowView.swift; sourceTree = SOURCE_ROOT; };
@@ -549,7 +577,9 @@
 		74C9DF75243E01DC000B1745 /* GuideTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuideTipView.swift; path = FunnyFM/Views/Custom/GuideTipView.swift; sourceTree = SOURCE_ROOT; };
 		74E92F822430842A00A0F64A /* first_ads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = first_ads.json; sourceTree = "<group>"; };
 		862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFmShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4771165B2D746BEC77D59B /* Pods-FunnyFmImport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmImport.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmImport/Pods-FunnyFmImport.release.xcconfig"; sourceTree = "<group>"; };
+		A9A2102A7EC993118BC4C89B /* Pods-FunnyFmShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmShare/Pods-FunnyFmShare.debug.xcconfig"; sourceTree = "<group>"; };
 		AB00BC312394A87900893325 /* NoteEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditViewController.xib; sourceTree = "<group>"; };
 		AB00BC322394A87900893325 /* NoteEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
 		AB08F097233DEE0000B93D31 /* UIButton+SomeMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SomeMethods.h"; sourceTree = "<group>"; };
@@ -938,6 +968,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		38C2122B249717EF0022ECE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F769A8080176C40D0A432D6 /* Pods_FunnyFmShare.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB25797621945E6F004C5F5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -966,6 +1004,7 @@
 				022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */,
 				862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */,
 				2E57E88F5B842DCDE115E903 /* Pods_FunnyFmImport.framework */,
+				9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -973,12 +1012,25 @@
 		38332A5C24936A34009AC1A7 /* FunnyFmImport */ = {
 			isa = PBXGroup;
 			children = (
+				389B8A0D24977E5300F0F64A /* FunnyFmImport.entitlements */,
 				38332A5D24936A34009AC1A7 /* Media.xcassets */,
 				38332A5F24936A34009AC1A7 /* ActionViewController.swift */,
+				387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */,
 				38332A6124936A34009AC1A7 /* MainInterface.storyboard */,
 				38332A6424936A34009AC1A7 /* Info.plist */,
 			);
 			path = FunnyFmImport;
+			sourceTree = "<group>";
+		};
+		38C2122F249717EF0022ECE6 /* FunnyFmShare */ = {
+			isa = PBXGroup;
+			children = (
+				389B8A0E24977E5D00F0F64A /* FunnyFmShare.entitlements */,
+				38C21230249717EF0022ECE6 /* ShareViewController.swift */,
+				38C21232249717EF0022ECE6 /* MainInterface.storyboard */,
+				38C21235249717F00022ECE6 /* Info.plist */,
+			);
+			path = FunnyFmShare;
 			sourceTree = "<group>";
 		};
 		741C22702483B08C0030F6D3 /* Panels */ = {
@@ -1178,6 +1230,7 @@
 				AB74FB7822F7F33E00A00706 /* Localizable.strings */,
 				AB25797B21945E6F004C5F5D /* FunnyFm */,
 				38332A5C24936A34009AC1A7 /* FunnyFmImport */,
+				38C2122F249717EF0022ECE6 /* FunnyFmShare */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -1189,6 +1242,7 @@
 			children = (
 				AB25797921945E6F004C5F5D /* FunnyFm.app */,
 				38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */,
+				38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1725,6 +1779,7 @@
 				AB73173F239E4944000E1588 /* VersionManager.swift */,
 				AB14E1D823E803EA00E0FA38 /* ClientConfig.swift */,
 				7446860E2428C3D40094843F /* AdsManager.swift */,
+				387E7E072497742600F9D2C1 /* ImportManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1833,6 +1888,8 @@
 				6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 				B1A47249948312F87FB53D11 /* Pods-FunnyFmImport.debug.xcconfig */,
 				9E4771165B2D746BEC77D59B /* Pods-FunnyFmImport.release.xcconfig */,
+				A9A2102A7EC993118BC4C89B /* Pods-FunnyFmShare.debug.xcconfig */,
+				529B89C150EEC126FA5C4156 /* Pods-FunnyFmShare.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1858,6 +1915,24 @@
 			productReference = 38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		38C2122D249717EF0022ECE6 /* FunnyFmShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38C21239249717F00022ECE6 /* Build configuration list for PBXNativeTarget "FunnyFmShare" */;
+			buildPhases = (
+				E68795BA86A50169587D3F85 /* [CP] Check Pods Manifest.lock */,
+				38C2122A249717EF0022ECE6 /* Sources */,
+				38C2122B249717EF0022ECE6 /* Frameworks */,
+				38C2122C249717EF0022ECE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FunnyFmShare;
+			productName = FunnyFmShare;
+			productReference = 38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		AB25797821945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB25798B21945E70004C5F5D /* Build configuration list for PBXNativeTarget "FunnyFm" */;
@@ -1869,13 +1944,13 @@
 				AB25797721945E6F004C5F5D /* Resources */,
 				ABE7661E21D7650E00470D8F /* Embed App Extensions */,
 				16EF1320CCF93212ACE508BC /* [CP] Copy Pods Resources */,
-				55BEEE97A1DDA8ADD4ECD9A8 /* [CP] Embed Pods Frameworks */,
 				74843608244C69980001451A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				38332A6624936A34009AC1A7 /* PBXTargetDependency */,
+				38C21237249717F00022ECE6 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
@@ -1893,6 +1968,9 @@
 				ORGANIZATIONNAME = Duke;
 				TargetAttributes = {
 					38332A5A24936A34009AC1A7 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					38C2122D249717EF0022ECE6 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 					AB25797821945E6F004C5F5D = {
@@ -1934,6 +2012,7 @@
 			targets = (
 				AB25797821945E6F004C5F5D /* FunnyFm */,
 				38332A5A24936A34009AC1A7 /* FunnyFmImport */,
+				38C2122D249717EF0022ECE6 /* FunnyFmShare */,
 			);
 		};
 /* End PBXProject section */
@@ -1946,6 +2025,14 @@
 				38332A5E24936A34009AC1A7 /* Media.xcassets in Resources */,
 				38332A6324936A34009AC1A7 /* MainInterface.storyboard in Resources */,
 				38332BAE24937E59009AC1A7 /* OpmlTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C2122C249717EF0022ECE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C21234249717F00022ECE6 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2068,23 +2155,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		55BEEE97A1DDA8ADD4ECD9A8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FunnyFm/Pods-FunnyFm-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		666FB849633B07B97846E521 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2127,6 +2197,28 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
+		E68795BA86A50169587D3F85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FunnyFmShare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2135,8 +2227,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				38332BAD24937E59009AC1A7 /* OpmlTableViewCell.swift in Sources */,
+				387E7D642497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */,
+				38C2123C249718500022ECE6 /* ActionViewController.swift in Sources */,
+				38C212DD24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */,
 				38332A6B24936B07009AC1A7 /* OPMLParser.swift in Sources */,
-				38332A6024936A34009AC1A7 /* ActionViewController.swift in Sources */,
+				38C2118424970FE10022ECE6 /* ActivityIndicatorView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38C2122A249717EF0022ECE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				387E7E06249759DB00F9D2C1 /* OPMLParser.swift in Sources */,
+				38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */,
+				387E7D652497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */,
+				38C21231249717EF0022ECE6 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2420,6 +2526,7 @@
 				ABEE40D421E3246E00FCB16F /* MJRefreshAutoStateFooter.m in Sources */,
 				ABD3EDBA220F2B2600D5BA5C /* ProfileFillViewController.swift in Sources */,
 				AB0B2BB521E8797A00B2A9CF /* BaseViewModel.swift in Sources */,
+				387E7E082497742600F9D2C1 /* ImportManager.swift in Sources */,
 				74C9DF76243E01DC000B1745 /* GuideTipView.swift in Sources */,
 				AB77891423EC5BE400DF8447 /* AnimatedTabBar.swift in Sources */,
 				AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */,
@@ -2458,6 +2565,11 @@
 			target = 38332A5A24936A34009AC1A7 /* FunnyFmImport */;
 			targetProxy = 38332A6524936A34009AC1A7 /* PBXContainerItemProxy */;
 		};
+		38C21237249717F00022ECE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38C2122D249717EF0022ECE6 /* FunnyFmShare */;
+			targetProxy = 38C21236249717F00022ECE6 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -2465,6 +2577,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				38332A6224936A34009AC1A7 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		38C21232249717EF0022ECE6 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38C21233249717EF0022ECE6 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -2640,12 +2760,13 @@
 			baseConfigurationReference = B1A47249948312F87FB53D11 /* Pods-FunnyFmImport.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FunnyFmImport/FunnyFmImport.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2664,18 +2785,67 @@
 			baseConfigurationReference = 9E4771165B2D746BEC77D59B /* Pods-FunnyFmImport.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FunnyFmImport/FunnyFmImport.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmImport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		38C2123A249717F00022ECE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9A2102A7EC993118BC4C89B /* Pods-FunnyFmShare.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FunnyFmShare/FunnyFmShare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyFmShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		38C2123B249717F00022ECE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 529B89C150EEC126FA5C4156 /* Pods-FunnyFmShare.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FunnyFmShare/FunnyFmShare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyFmShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -2735,7 +2905,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2791,7 +2961,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2813,7 +2983,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2831,7 +3001,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.5.1;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2960,7 +3130,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2978,7 +3148,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.5.1;
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2998,6 +3168,15 @@
 			buildConfigurations = (
 				38332A6824936A34009AC1A7 /* Debug */,
 				38332A6924936A34009AC1A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38C21239249717F00022ECE6 /* Build configuration list for PBXNativeTarget "FunnyFmShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38C2123A249717F00022ECE6 /* Debug */,
+				38C2123B249717F00022ECE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
