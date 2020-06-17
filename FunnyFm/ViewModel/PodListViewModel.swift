@@ -68,7 +68,7 @@ extension PodListViewModel {
 				
 				podlist!.forEach({ (pod) in
 					if idList.contains(pod.feedUrl) {
-						let index = idList.index(of: pod.feedUrl)
+						let index = idList.firstIndex(of: pod.feedUrl)
 						if index.isSome {
 							self.podlist.remove(at: index!)
 							idList.remove(at: index!)
@@ -119,8 +119,8 @@ extension PodListViewModel {
 		}
 	}
 	
-	func searchTopic(keyword:String){
-		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword), { (podlist) in
+	func searchTopic(keyword:String, regionCode: String? = Locale.current.regionCode){
+		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword, regionCode), { (podlist) in
 			if let list = podlist {
 				self.itunsPodlist = list
 				self.delegate?.viewModelDidGetDataSuccess()

@@ -26,7 +26,6 @@ public func configureNavigationTabBar() {
 		 NSAttributedString.Key.font: p_bfont(subtitleFontSize)
 	]
 	UINavigationBar.appearance().tintColor = R.color.ffWhite()
-	UINavigationBar.appearance().isTranslucent = false
 	UINavigationBar.appearance().shadowImage = UIImage()
 	UINavigationBar.appearance().standardAppearance = navBarAppearance
 	UINavigationBar.appearance().compactAppearance = navBarAppearance

@@ -12,7 +12,6 @@ class BaseViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-//		self.view.backgroundColor = .systemBackground
 		self.view.backgroundColor = R.color.ffWhite()
     }
 	
@@ -24,12 +23,7 @@ class BaseViewController: UIViewController {
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self.navigationController, action: #selector(UINavigationController.popViewController(animated:)))
 		navigationItem.leftBarButtonItem?.tintColor = R.color.mainRed()
 	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
 		
-	}
-	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
         Hud.shared.hide()

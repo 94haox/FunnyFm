@@ -30,7 +30,7 @@ public enum PodAPI {
 	case checkPodSource(String, String)
 	case addPodSource(String, String, String)
 	case searchPod(String)
-	case searchTopic(String)
+	case searchTopic(String, String?)
 	case parserRss(Dictionary<String, String>)
 	case registerPod(Dictionary<String, String>)
 	case getPodcastPrev(String)
@@ -57,11 +57,11 @@ extension PodAPI : TargetType {
 			params["term"] = keyWord
 			params["limit"] = "20"
 			params["media"] = "podcast"
-		case .searchTopic(let keyWord):
+		case .searchTopic(let keyWord, let regionCode):
 			params["term"] = "podcast"
 			params["genreId"] = keyWord
 			params["limit"] = "50"
-			params["country"] = Locale.current.regionCode
+			params["country"] = regionCode
 		case .registerPod(let param):
 			params = param
 			if UserCenter.shared.isLogin {
@@ -97,7 +97,7 @@ extension PodAPI : TargetType {
 			return kCheckPodSourceUrl
 		case .addPodSource(_, _, _):
 			return kAddPodSourceUrl
-		case .searchPod(_), .searchTopic(_):
+		case .searchPod(_), .searchTopic(_, _):
 			return kSearchPodUrl;
 		case .registerPod(_):
 			return kRegisterPodUrl

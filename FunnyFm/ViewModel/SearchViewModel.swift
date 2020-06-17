@@ -54,8 +54,8 @@ class SearchViewModel: NSObject {
         }
     }
     
-    func searchTopic(keyword:String){
-        FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword), { (podlist) in
+	func searchTopic(keyword:String, regionCode: String? = Locale.current.regionCode){
+        FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword, regionCode), { (podlist) in
             if let list = podlist {
                 self.itunsPodlist = list
                 self.delegate?.viewModelDidGetDataSuccess()

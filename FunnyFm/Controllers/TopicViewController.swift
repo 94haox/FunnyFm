@@ -10,27 +10,45 @@ import UIKit
 import JXSegmentedView
 
 
+
 class TopicViewController: BaseViewController {
 
 	var segmentedView: JXSegmentedView!
 	var segmentedDataSource: JXSegmentedTitleDataSource!
 	var tableview: UITableView!
+	var changeBtn: UIButton = {
+		let button = UIButton(type: .custom)
+		button.tintColor = R.color.mainRed()
+		button.setImage(UIImage(systemName: "arrow.right.arrow.left.circle"), for: .normal)
+		return button
+	}()
+	
 	let vm : PodListViewModel = {
 		return PodListViewModel.init()
 	}()
+	
+	var country = CountryCodeLibrary.shared.deviceCountry
 
    	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.dw_addSubviews()
-		self.title = "播客分类"
+		self.title = "播客分类".localized
 		self.vm.delegate = self
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.changeBtn)
+		self.changeBtn.addTarget(self, action: #selector(changeCountry), for: .touchUpInside)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.vm.searchTopic(keyword: self.vm.topicIDs[0])
+		self.vm.searchTopic(keyword: self.vm.topicIDs[0], regionCode: country.isoRegionCode)
 		Hud.shared.show(on: self.view)
         
+	}
+	
+	@objc func changeCountry() {
+		let countryVC = SelectCountryViewController()
+		countryVC.delegate = self
+		self.navigationController?.pushViewController(countryVC)
 	}
 }
 
@@ -98,8 +116,17 @@ extension TopicViewController : UITableViewDelegate, UITableViewDataSource {
 extension TopicViewController: JXSegmentedViewDelegate {
 	
 	func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
-		self.vm.searchTopic(keyword: self.vm.topicIDs[index])
+		self.vm.searchTopic(keyword: self.vm.topicIDs[index], regionCode: country.isoRegionCode)
 		Hud.shared.show(on: self.view)
+	}
+	
+}
+
+extension TopicViewController: SelectCountryViewControllerDelegate {
+	
+	func selectCountryViewController(_ viewController: SelectCountryViewController, didSelectCountry country: Country) {
+		self.country = country
+		viewController.navigationController?.popViewController()
 	}
 	
 }

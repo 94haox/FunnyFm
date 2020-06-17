@@ -38,6 +38,11 @@
 		387E7E06249759DB00F9D2C1 /* OPMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239EC2441F32A0015DB21 /* OPMLParser.swift */; };
 		387E7E082497742600F9D2C1 /* ImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7E072497742600F9D2C1 /* ImportManager.swift */; };
 		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
+		389B8AC62499DCD400F0F64A /* SheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8AC32499DCD400F0F64A /* SheetPresenter.swift */; };
+		389B8AC72499DCD400F0F64A /* SheetPresentationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8AC42499DCD400F0F64A /* SheetPresentationWindow.swift */; };
+		389B8AC82499DCD400F0F64A /* SheetContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8AC52499DCD400F0F64A /* SheetContainerViewController.swift */; };
+		389B8ACA2499DCDC00F0F64A /* FluidTimingCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8AC92499DCDC00F0F64A /* FluidTimingCurve.swift */; };
+		389B8ACC2499DD1F00F0F64A /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8ACB2499DD1F00F0F64A /* SheetViewController.swift */; };
 		38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
 		38C2118424970FE10022ECE6 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
 		38C21231249717EF0022ECE6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C21230249717EF0022ECE6 /* ShareViewController.swift */; };
@@ -46,6 +51,13 @@
 		38C2123C249718500022ECE6 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38332A5F24936A34009AC1A7 /* ActionViewController.swift */; };
 		38C212DD24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
 		38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
+		38DD7BAD2499E1050070F56D /* CountryCode.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BAA2499E1050070F56D /* CountryCode.xcassets */; };
+		38DD7BAE2499E1060070F56D /* CountryCodeLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BAB2499E1050070F56D /* CountryCodeLibrary.swift */; };
+		38DD7BAF2499E1060070F56D /* CountryCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BAC2499E1050070F56D /* CountryCode.plist */; };
+		38DD7BB12499E1AD0070F56D /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BB02499E1AD0070F56D /* SelectCountryViewController.swift */; };
+		38DD7BB32499E3720070F56D /* UILocalizedIndexedCollation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BB22499E3720070F56D /* UILocalizedIndexedCollation.swift */; };
+		38DD7BB62499E3CE0070F56D /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BB42499E3CE0070F56D /* CountryCell.swift */; };
+		38DD7BB72499E3CE0070F56D /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BB52499E3CE0070F56D /* CountryCell.xib */; };
 		38E2723F248106DE00DC4BBA /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */; };
 		4F769A8080176C40D0A432D6 /* Pods_FunnyFmShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */; };
 		741C21D72483AF550030F6D3 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C21D62483AF550030F6D3 /* ArrowView.swift */; };
@@ -480,11 +492,23 @@
 		3898C7AE2474F1C200828A4A /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 		389B8A0D24977E5300F0F64A /* FunnyFmImport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFmImport.entitlements; sourceTree = "<group>"; };
 		389B8A0E24977E5D00F0F64A /* FunnyFmShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFmShare.entitlements; sourceTree = "<group>"; };
+		389B8AC32499DCD400F0F64A /* SheetPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetPresenter.swift; sourceTree = "<group>"; };
+		389B8AC42499DCD400F0F64A /* SheetPresentationWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetPresentationWindow.swift; sourceTree = "<group>"; };
+		389B8AC52499DCD400F0F64A /* SheetContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetContainerViewController.swift; sourceTree = "<group>"; };
+		389B8AC92499DCDC00F0F64A /* FluidTimingCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTimingCurve.swift; sourceTree = "<group>"; };
+		389B8ACB2499DD1F00F0F64A /* SheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
 		38BC211124768999002B5CA4 /* SubscribtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionView.swift; sourceTree = "<group>"; };
 		38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFmShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C21230249717EF0022ECE6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		38C21233249717EF0022ECE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		38C21235249717F00022ECE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38DD7BAA2499E1050070F56D /* CountryCode.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CountryCode.xcassets; sourceTree = "<group>"; };
+		38DD7BAB2499E1050070F56D /* CountryCodeLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeLibrary.swift; sourceTree = "<group>"; };
+		38DD7BAC2499E1050070F56D /* CountryCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryCode.plist; sourceTree = "<group>"; };
+		38DD7BB02499E1AD0070F56D /* SelectCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
+		38DD7BB22499E3720070F56D /* UILocalizedIndexedCollation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILocalizedIndexedCollation.swift; sourceTree = "<group>"; };
+		38DD7BB42499E3CE0070F56D /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		38DD7BB52499E3CE0070F56D /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
 		38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		529B89C150EEC126FA5C4156 /* Pods-FunnyFmShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmShare/Pods-FunnyFmShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -1021,6 +1045,18 @@
 			path = FunnyFmImport;
 			sourceTree = "<group>";
 		};
+		389B8AC22499DCD400F0F64A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				389B8ACB2499DD1F00F0F64A /* SheetViewController.swift */,
+				389B8AC92499DCDC00F0F64A /* FluidTimingCurve.swift */,
+				389B8AC32499DCD400F0F64A /* SheetPresenter.swift */,
+				389B8AC42499DCD400F0F64A /* SheetPresentationWindow.swift */,
+				389B8AC52499DCD400F0F64A /* SheetContainerViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		38C2122F249717EF0022ECE6 /* FunnyFmShare */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,6 +1066,19 @@
 				38C21235249717F00022ECE6 /* Info.plist */,
 			);
 			path = FunnyFmShare;
+			sourceTree = "<group>";
+		};
+		38DD7BA92499E1050070F56D /* CountryCode */ = {
+			isa = PBXGroup;
+			children = (
+				38DD7BB02499E1AD0070F56D /* SelectCountryViewController.swift */,
+				38DD7BAA2499E1050070F56D /* CountryCode.xcassets */,
+				38DD7BAB2499E1050070F56D /* CountryCodeLibrary.swift */,
+				38DD7BAC2499E1050070F56D /* CountryCode.plist */,
+				38DD7BB42499E3CE0070F56D /* CountryCell.swift */,
+				38DD7BB52499E3CE0070F56D /* CountryCell.xib */,
+			);
+			path = CountryCode;
 			sourceTree = "<group>";
 		};
 		741C22702483B08C0030F6D3 /* Panels */ = {
@@ -1292,6 +1341,8 @@
 		AB41AAD7219529DB00260851 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				38DD7BA92499E1050070F56D /* CountryCode */,
+				389B8AC22499DCD400F0F64A /* Presentation */,
 				741C22702483B08C0030F6D3 /* Panels */,
 				744239D92441E2A50015DB21 /* Cache */,
 				745DE3052423606900EFFDA4 /* MNAVChapters */,
@@ -1751,6 +1802,7 @@
 				ABEE40E121E32C1700FCB16F /* StringExtension.swift */,
 				AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */,
 				7440B1C4242257F200543AFD /* UIViewControllerExtension.swift */,
+				38DD7BB22499E3720070F56D /* UILocalizedIndexedCollation.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -2061,10 +2113,12 @@
 				ABDC4D3022CCD7AB00EF31C0 /* firework.json in Resources */,
 				AB57FE3122CDF1D600BABEF2 /* login_anim.json in Resources */,
 				AB31E9C821C1FC7E005E80FC /* UserCenterCollectionViewCell.xib in Resources */,
+				38DD7BAD2499E1050070F56D /* CountryCode.xcassets in Resources */,
 				3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */,
 				743AC8E524261148001D252F /* PurchaseSuccessfulViewController.xib in Resources */,
 				AB9E426823951DB500232EE8 /* NoteCollectionViewCell.xib in Resources */,
 				380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */,
+				38DD7BB72499E3CE0070F56D /* CountryCell.xib in Resources */,
 				AB9E426423951BD500232EE8 /* NoteListViewController.xib in Resources */,
 				AB441A3923502B3B00411359 /* MessageCollectionViewCell.xib in Resources */,
 				AB57FE2B22CDE16A00BABEF2 /* boom.json in Resources */,
@@ -2108,6 +2162,7 @@
 				74799F9524251CF000265D3B /* login_tip.json in Resources */,
 				AB8DA7432338F38000407FCB /* CleanyAlertViewController.xib in Resources */,
 				74843741244C850F0001451A /* SearchHistoryTableViewCell.xib in Resources */,
+				38DD7BAF2499E1060070F56D /* CountryCode.plist in Resources */,
 				ABAFF27221E22E440009A3A2 /* like_button.json in Resources */,
 				743AC8FF242629FF001D252F /* RSSViewController.xib in Resources */,
 				AB97EE922333330000127C37 /* HistoryTableViewCell.xib in Resources */,
@@ -2275,6 +2330,7 @@
 				AB8BD8D9236E7574006FEFF3 /* SPStorkDismissingAnimationController.swift in Sources */,
 				744239E52441E2BD0015DB21 /* BCQResourceLoaderManager.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
+				389B8ACC2499DD1F00F0F64A /* SheetViewController.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				74843740244C850F0001451A /* SearchHistoryTableViewCell.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
@@ -2362,9 +2418,11 @@
 				AB1E6D7F21B9252500B85135 /* UISliderExtensions.swift in Sources */,
 				ABEE4B6821D0D42A008016A0 /* ChapterProgressView.swift in Sources */,
 				AB57FE3D22CF346900BABEF2 /* Favor.swift in Sources */,
+				389B8AC82499DCD400F0F64A /* SheetContainerViewController.swift in Sources */,
 				AB9E426523951BD500232EE8 /* NoteListViewController.swift in Sources */,
 				386B06D82480F2060095C7AB /* JellySlider.swift in Sources */,
 				ABEE40DA21E3246E00FCB16F /* MJRefreshFooter.m in Sources */,
+				389B8ACA2499DCDC00F0F64A /* FluidTimingCurve.swift in Sources */,
 				3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				ABEE40E721E35C3800FCB16F /* UserAPI.swift in Sources */,
@@ -2390,6 +2448,7 @@
 				ABA077A8231BB926006B2779 /* ImpactManager.swift in Sources */,
 				AB8BD8DF236E7574006FEFF3 /* SPStorkHaptic.swift in Sources */,
 				AB1E6DAA21BA256100B85135 /* AnimationRectAngle.swift in Sources */,
+				389B8AC62499DCD400F0F64A /* SheetPresenter.swift in Sources */,
 				AB441A362350222A00411359 /* GeneralViewModel.swift in Sources */,
 				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
@@ -2412,6 +2471,7 @@
 				38691A8B2491D61700C9D843 /* CalendarCard.swift in Sources */,
 				AB1E6D6F21B9252500B85135 /* UISearchBarExtensions.swift in Sources */,
 				AB09DE1B2340AD5F002A9384 /* BaseTabBarViewController.swift in Sources */,
+				38DD7BB62499E3CE0070F56D /* CountryCell.swift in Sources */,
 				AB1E93092211B39900A8F07B /* PodPreviewViewController.swift in Sources */,
 				AB1E6D7421B9252500B85135 /* UILayoutPriorityExtensions.swift in Sources */,
 				ABEF471421EAF7EE00212DCA /* UserCenter.swift in Sources */,
@@ -2449,6 +2509,7 @@
 				AB7789E623EC5CB300DF8447 /* VerticalTabBar.swift in Sources */,
 				AB2A372B2328ADDE0097DAF7 /* Loady.swift in Sources */,
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
+				38DD7BB32499E3720070F56D /* UILocalizedIndexedCollation.swift in Sources */,
 				ABB4E54C23A3B30000CFF37A /* TopicViewController.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
 				AB4578C6233B4905001DF1D1 /* PlayListManager.swift in Sources */,
@@ -2491,6 +2552,7 @@
 				ABDB9DE82394F36B00539049 /* Note.swift in Sources */,
 				ABEE40D821E3246E00FCB16F /* MJRefreshStateHeader.m in Sources */,
 				AB731740239E4944000E1588 /* VersionManager.swift in Sources */,
+				38DD7BB12499E1AD0070F56D /* SelectCountryViewController.swift in Sources */,
 				744239EB2441E2BD0015DB21 /* BCQResourceFragmentDownloader.swift in Sources */,
 				AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */,
 				38332BAA24937D75009AC1A7 /* Hud.swift in Sources */,
@@ -2535,6 +2597,7 @@
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				741F273024237A0B006F1DCE /* ChapterCollectionViewCell.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
+				38DD7BAE2499E1060070F56D /* CountryCodeLibrary.swift in Sources */,
 				AB41AAEA219537B400260851 /* Const.swift in Sources */,
 				741F27442423B6D7006F1DCE /* PurchaseSuccessfulViewController.swift in Sources */,
 				ABEE40D021E3246E00FCB16F /* UIView+MJExtension.m in Sources */,
@@ -2544,6 +2607,7 @@
 				741C22852483B0AB0030F6D3 /* PanelConfiguration.swift in Sources */,
 				ABE7660621D7196700470D8F /* URLExtensions.swift in Sources */,
 				AB1E6D7E21B9252500B85135 /* UIActivityExtensions.swift in Sources */,
+				389B8AC72499DCD400F0F64A /* SheetPresentationWindow.swift in Sources */,
 				AB1E6D7821B9252500B85135 /* UITextViewExtensions.swift in Sources */,
 				38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */,
 				745DE3082423607100EFFDA4 /* MNAVChapterReader.m in Sources */,
@@ -2999,7 +3063,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.5.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3146,7 +3210,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

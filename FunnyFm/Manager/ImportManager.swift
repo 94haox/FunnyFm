@@ -51,6 +51,7 @@ class ImportManager: NSObject {
 			return
 		}
 		if rssUrl.contains("https://podcasts.apple.com") {
+			self.searchPodcast(url: rssUrl)
 			return
 		}
 		
@@ -62,8 +63,21 @@ class ImportManager: NSObject {
 		self.getPrev(url: rssUrl)
 	}
 	
-	static func searchPodcast() {
+	static func searchPodcast(url: String) {
 		
+		guard let id = url.components(separatedBy: "/").last, id.hasPrefix("id") else {
+			return
+		}
+		
+		let searchVC = SearchViewController()
+		guard let navi = AppDelegate.current.window.rootViewController as? UINavigationController else {
+			return
+		}
+		navi.pushViewController(searchVC){
+			let keyId = id.subString(from: 2)
+			searchVC.searchTF.text = keyId
+			searchVC.vm.searchPod(keyword: keyId)
+		}
 	}
 	
 	static func getPrev(url: String) {

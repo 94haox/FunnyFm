@@ -228,6 +228,7 @@ extension SearchViewController {
         self.searchTF.cornerRadius = 6.auto()
         self.searchTF.clearButtonMode = .whileEditing
 		self.searchTF.leftViewTintColor = R.color.mainRed()
+		self.searchTF.returnKeyType = .search
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.leading.width.bottom.equalToSuperview()
