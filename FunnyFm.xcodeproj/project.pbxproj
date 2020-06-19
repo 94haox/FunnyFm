@@ -37,6 +37,7 @@
 		387E7D652497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */; };
 		387E7E06249759DB00F9D2C1 /* OPMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239EC2441F32A0015DB21 /* OPMLParser.swift */; };
 		387E7E082497742600F9D2C1 /* ImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7E072497742600F9D2C1 /* ImportManager.swift */; };
+		38909F1A249C611700731587 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38909F19249C611700731587 /* CloudKit.framework */; };
 		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
 		389B8AC62499DCD400F0F64A /* SheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8AC32499DCD400F0F64A /* SheetPresenter.swift */; };
 		389B8AC72499DCD400F0F64A /* SheetPresentationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8AC42499DCD400F0F64A /* SheetPresentationWindow.swift */; };
@@ -489,6 +490,7 @@
 		3877FF45246941830096E2BD /* DownloadTask+Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadTask+Episode.swift"; sourceTree = "<group>"; };
 		387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionItemHandler.swift; sourceTree = "<group>"; };
 		387E7E072497742600F9D2C1 /* ImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportManager.swift; sourceTree = "<group>"; };
+		38909F19249C611700731587 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3898C7AE2474F1C200828A4A /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 		389B8A0D24977E5300F0F64A /* FunnyFmImport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFmImport.entitlements; sourceTree = "<group>"; };
 		389B8A0E24977E5D00F0F64A /* FunnyFmShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFmShare.entitlements; sourceTree = "<group>"; };
@@ -1004,6 +1006,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B695110D868CD0326F60A963 /* Pods_FunnyFm.framework in Frameworks */,
+				38909F1A249C611700731587 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,6 +1016,7 @@
 		35ADAC79336120144B49975D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38909F19249C611700731587 /* CloudKit.framework */,
 				ABDEFA3A2317D1E9001FFFC5 /* AdSupport.framework */,
 				ABDEFA382317D1E4001FFFC5 /* CoreLocation.framework */,
 				ABDEFA362317D1D7001FFFC5 /* QuartzCore.framework */,
@@ -1141,6 +1145,7 @@
 		7493F66F2417AC97007E5319 /* Job */ = {
 			isa = PBXGroup;
 			children = (
+				7493F6702417ACA1007E5319 /* BaseJob.swift */,
 				7493F6722417ACAB007E5319 /* Queue */,
 				7423ED50248390CC006586C0 /* FeedParserJob.swift */,
 				7493F6772417AD44007E5319 /* CloudParserJob.swift */,
@@ -1151,6 +1156,7 @@
 		7493F6722417ACAB007E5319 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
+				7493F6732417ACBF007E5319 /* JobQueue.swift */,
 				74777A6A241E284400BAE34B /* ConcurrentJobQueue.swift */,
 			);
 			path = Queue;
@@ -1633,8 +1639,6 @@
 		AB62C46A21BB92F0008D6BA6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				7493F6732417ACBF007E5319 /* JobQueue.swift */,
-				7493F6702417ACA1007E5319 /* BaseJob.swift */,
 				AB62C46E21BB9330008D6BA6 /* BaseViewController.swift */,
 				ABE7ACA921C20D7300FC6B8E /* BaseCollectionViewCell.swift */,
 				ABE7ACB921C21C1A00FC6B8E /* BaseTableViewCell.swift */,
