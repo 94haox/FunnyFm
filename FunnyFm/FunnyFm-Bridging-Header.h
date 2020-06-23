@@ -15,12 +15,4 @@
 #import "BHTimeProfiler.h"
 
 #import <MPITextKit.h>
-#import <GDTNativeExpressAdView.h>
-#import <GDTMobBannerView.h>
-#import <GDTMobInterstitial.h>
-#import <GDTNativeExpressAd.h>
-#import <GDTNativeAd.h>
-#import <GDTSplashAd.h>
-#import <GDTSDKConfig.h>
-#import "GDTUnifiedBannerView.h"
 #import "JPUSHService.h"

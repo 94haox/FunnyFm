@@ -7,39 +7,33 @@
 //
 
 import UIKit
-import MoPub
-
-//8020580224686001
-
-//7050583255877020
-
-//1109760306
+import FBAudienceNetwork
+import AdSupport
 
 class AdShowViewController: UIViewController {
 	
-	var topAd : MPAdView!
+	var topAd : FBAdView!
 	
-	var bottomAd : MPAdView!
+	var bottomAd : FBAdView!
 	
-	private var interstitial: MPInterstitialAdController?
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        self.view.backgroundColor = R.color.background()
-		topAd = MPAdView.init(adUnitId: "513cebe42e774a029dab367069ab52e2")
-		topAd.delegate = self
-		topAd.frame = CGRect(x: 0, y: 64, width: kMPPresetMaxAdSize50Height.width, height: kMPPresetMaxAdSize50Height.height)
-		view.addSubview(topAd)
-		topAd.loadAd(withMaxAdSize: kMPPresetMaxAdSizeMatchFrame)
 		
-//		bottomAd = MPAdView.init(adUnitId: "458a22fc08574ae98065ed2fe78de927")
-//		bottomAd.delegate = self
-//		bottomAd.frame = CGRect(x: 0, y: kScreenHeight-kMPPresetMaxAdSize50Height.height, width: kMPPresetMaxAdSize50Height.width, height: kMPPresetMaxAdSize50Height.height)
-//		view.addSubview(bottomAd)
-//		bottomAd.loadAd(withMaxAdSize: kMPPresetMaxAdSizeMatchFrame)
-//
-		self.loadInsertAd()
+		
+		self.navigationController?.setNavigationBarHidden(true, animated: true)
+		topAd = FBAdView(placementID: "2429648340658960_2452422801714847", adSize: kFBAdSizeHeight250Rectangle, rootViewController: self)
+		topAd.delegate = self
+		topAd.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 250)
+		view.addSubview(topAd)
+		topAd.loadAd()
+		//2429648340658960_2453422351614892
+		bottomAd = FBAdView(placementID: "2429648340658960_2453422351614892", adSize: kFBAdSizeHeight250Rectangle, rootViewController: self)
+		bottomAd.delegate = self
+		bottomAd.frame = CGRect(x: 0, y: kScreenHeight-250, width: kScreenWidth, height: 250)
+		view.addSubview(bottomAd)
+		bottomAd.loadAd()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,19 +46,12 @@ class AdShowViewController: UIViewController {
 	
 	
 	func loadInsertAd(){
-		if (interstitial != nil) {
-			interstitial?.delegate = nil
-			interstitial = nil
-		}
-		interstitial = MPInterstitialAdController.init(forAdUnitId: "113f6153df1d4d6e8526fa18add6c730")
-		interstitial?.delegate = self
-
-		interstitial?.loadAd()
+		
 	}
 	
 	@IBAction func showFullScreenAd(_ sender: Any) {
 		
-		interstitial?.show(from: self)
+
 	}
 	
 	@IBAction func backAction(_ sender: Any) {
@@ -73,23 +60,16 @@ class AdShowViewController: UIViewController {
 }
 
 
-extension AdShowViewController: MPAdViewDelegate {
+extension AdShowViewController: FBAdViewDelegate {
 	
-	func viewControllerForPresentingModalView() -> UIViewController! {
-		return self
+	func adViewDidLoad(_ adView: FBAdView) {
+		
 	}
 	
-	func adView(_ view: MPAdView!, didFailToLoadAdWithError error: Error!) {
-		print(error.localizedDescription)
+	func adView(_ adView: FBAdView, didFailWithError error: Error) {
+		print(error)
 	}
 	
-}
-
-extension AdShowViewController: MPInterstitialAdControllerDelegate {
-	
-	func interstitialDidFail(toLoadAd interstitial: MPInterstitialAdController!, withError error: Error!) {
-		print(error.localizedDescription)
-	}
 	
 }
 

@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import Lottie
-import NVActivityIndicatorView
 import SafariServices
 
 

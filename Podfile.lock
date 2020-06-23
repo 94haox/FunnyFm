@@ -9,6 +9,9 @@ PODS:
   - Bugly (2.5.5)
   - DNSPageView (1.4.0)
   - DynamicColor (4.2.0)
+  - FBAudienceNetwork (5.9.0):
+    - FBSDKCoreKit/Basics (>= 5.6.0)
+  - FBSDKCoreKit/Basics (7.0.1)
   - FeedKit (8.1.1)
   - Firebase/Auth (6.26.0):
     - Firebase/CoreOnly
@@ -40,9 +43,6 @@ PODS:
   - FirebaseUI/Google (8.4.2):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 5.0)
-  - GDTMobSDK (4.10.19):
-    - GDTMobSDK/GDTMobSDK (= 4.10.19)
-  - GDTMobSDK/GDTMobSDK (4.10.19)
   - GoogleDataTransport (6.2.1)
   - GoogleDataTransportCCTSupport (3.1.0):
     - GoogleDataTransport (~> 6.1)
@@ -82,20 +82,6 @@ PODS:
   - JXSegmentedView (1.1.0)
   - KeychainAccess (4.2.0)
   - lottie-ios (3.1.1)
-  - mopub-ios-sdk (5.12.1):
-    - mopub-ios-sdk/MoPubSDK (= 5.12.1)
-  - mopub-ios-sdk/Avid (5.12.1):
-    - mopub-ios-sdk/Core
-  - mopub-ios-sdk/Core (5.12.1)
-  - mopub-ios-sdk/Moat (5.12.1):
-    - mopub-ios-sdk/Core
-  - mopub-ios-sdk/MoPubSDK (5.12.1):
-    - mopub-ios-sdk/Avid
-    - mopub-ios-sdk/Core
-    - mopub-ios-sdk/Moat
-    - mopub-ios-sdk/NativeAds
-  - mopub-ios-sdk/NativeAds (5.12.1):
-    - mopub-ios-sdk/Core
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -107,9 +93,6 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - Nuke (8.0.1)
-  - NVActivityIndicatorView (4.8.0):
-    - NVActivityIndicatorView/Presenter (= 4.8.0)
-  - NVActivityIndicatorView/Presenter (4.8.0)
   - pop (1.0.12)
   - PromisesObjC (1.2.9)
   - R.swift (5.2.2):
@@ -131,26 +114,23 @@ PODS:
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
-  - WhatsNewKit (1.3.3)
 
 DEPENDENCIES:
   - AutoInch
   - Bugly
   - DNSPageView
   - DynamicColor (~> 4.2.0)
+  - FBAudienceNetwork
   - FeedKit (~> 8.0)
   - FirebaseUI/Auth
   - FirebaseUI/Google
-  - GDTMobSDK (~> 4.10.5)
   - JPush
   - JXSegmentedView
   - KeychainAccess
   - lottie-ios (= 3.1.1)
-  - mopub-ios-sdk
   - Moya
   - MPITextKit
   - Nuke (~> 8.0.1)
-  - NVActivityIndicatorView
   - pop (~> 1.0)
   - R.swift
   - ReachabilitySwift
@@ -164,7 +144,6 @@ DEPENDENCIES:
   - SwipeCellKit
   - Tiercel
   - WCDB.swift
-  - WhatsNewKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -174,6 +153,8 @@ SPEC REPOS:
     - Bugly
     - DNSPageView
     - DynamicColor
+    - FBAudienceNetwork
+    - FBSDKCoreKit
     - FeedKit
     - Firebase
     - FirebaseAuth
@@ -182,7 +163,6 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
     - FirebaseUI
-    - GDTMobSDK
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleSignIn
@@ -194,12 +174,10 @@ SPEC REPOS:
     - JXSegmentedView
     - KeychainAccess
     - lottie-ios
-    - mopub-ios-sdk
     - Moya
     - MPITextKit
     - nanopb
     - Nuke
-    - NVActivityIndicatorView
     - pop
     - PromisesObjC
     - R.swift
@@ -217,7 +195,6 @@ SPEC REPOS:
     - Tiercel
     - WCDB.swift
     - WCDBOptimizedSQLCipher
-    - WhatsNewKit
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
@@ -226,6 +203,8 @@ SPEC CHECKSUMS:
   Bugly: eded937bbb1f731cacf689c2d934ddbd9ab34f83
   DNSPageView: 6d91e91a220a286010efa51710cd5df6675efe77
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
+  FBAudienceNetwork: 648648b13d8ea3d39676542dece2b04dbe867497
+  FBSDKCoreKit: 9cc05bec0568a5955c82eb59ae95da0fe125b88d
   FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
   Firebase: 7cf5f9c67f03cb3b606d1d6535286e1080e57eb6
   FirebaseAuth: 7047aec89c0b17ecd924a550c853f0c27ac6015e
@@ -234,7 +213,6 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 4a773a47bd83bbd5a9b1ccf1ce7caa8b2d535e67
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
   FirebaseUI: e57e9b9c4340631151fbe67a14206d23d0974f37
-  GDTMobSDK: 7cadef357ef98125c5fb4e3cb9e50f3afe7801f4
   GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
   GoogleDataTransportCCTSupport: d70a561f7d236af529fee598835caad5e25f6d3d
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
@@ -246,12 +224,10 @@ SPEC CHECKSUMS:
   JXSegmentedView: 072a2979323f98fc5d0e0e5dc2342549ae8a5c8f
   KeychainAccess: 3f760109aa99b05d0f231e28b22642da7153e38a
   lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
-  mopub-ios-sdk: d1640225b34ad74700e2acddb116cac634fc45d8
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   MPITextKit: f8a93b31125d806e47628ede973334065234ead5
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
-  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
@@ -269,8 +245,7 @@ SPEC CHECKSUMS:
   Tiercel: 37c00d3d309657951d00ae68dcb6ce8c7dccf584
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
-  WhatsNewKit: 3cbe30a202cc387086a977deba52af50f61c656f
 
-PODFILE CHECKSUM: 603f0159788dbd49df5309ced03b195e6cd48097
+PODFILE CHECKSUM: 1f287bcb27059608e796f2d27d40106f673af7c7
 
 COCOAPODS: 1.9.1

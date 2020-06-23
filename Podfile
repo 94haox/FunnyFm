@@ -20,7 +20,6 @@ def layout
     pod 'pop', '~> 1.0'
     pod 'SHFullscreenPopGestureSwift'
     pod 'lottie-ios', '3.1.1'
-		pod 'NVActivityIndicatorView'
 		pod 'JXSegmentedView'
 		pod 'DynamicColor', '~> 4.2.0'
 		pod 'AutoInch'
@@ -61,7 +60,6 @@ end
 #版本管理
 def version
   
-  pod 'WhatsNewKit'
   pod 'Siren'
   
 end
@@ -69,9 +67,8 @@ end
 # 广告
 def ads
 #	pod 'Google-Mobile-Ads-SDK'
-	pod 'mopub-ios-sdk'
-	pod 'GDTMobSDK', '~> 4.10.5'
-  
+#	pod 'mopub-ios-sdk'
+	pod 'FBAudienceNetwork'
 end
 
 # 性能和崩溃分析

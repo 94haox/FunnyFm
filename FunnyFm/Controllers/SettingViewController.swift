@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import StoreKit
 
 class SettingViewController: BaseViewController, UITableViewDataSource,UITableViewDelegate {
 

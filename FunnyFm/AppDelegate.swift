@@ -11,7 +11,9 @@ import Firebase
 import FirebaseUI
 import Siren
 import Bugly
-import MoPub
+
+
+
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -38,8 +40,13 @@ import MoPub
 		configureTextfield()
 		VersionManager.setupSiren()
 		
-		let config = MPMoPubConfiguration.init(adUnitIdForAppInitialization: "513cebe42e774a029dab367069ab52e2")
-		MoPub.sharedInstance().initializeSdk(with: config, completion: nil)
+//		MoPub.sharedInstance().clearCachedNetworks()
+//		let config = MPMoPubConfiguration.init(adUnitIdForAppInitialization: "513cebe42e774a029dab367069ab52e2")
+//		config.globalMediationSettings = []
+//		config.loggingLevel = .info
+//		MoPub.sharedInstance().initializeSdk(with: config){
+//			print("SDK initialization complete")
+//		}
 		
         self.window.rootViewController = self.configRootVC()
 		self.window.makeKeyAndVisible()

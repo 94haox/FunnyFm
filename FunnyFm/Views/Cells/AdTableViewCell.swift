@@ -16,14 +16,14 @@ class AdTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = R.color.ffWhite()
     }
     
-    func render(ads: GDTNativeExpressAdView) {
-        self.contentView.removeSubviews()
-        self.contentView.addSubview(ads)
-        ads.backgroundColor = R.color.ffWhite()
-        ads.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-    }
+//    func render(ads: GDTNativeExpressAdView) {
+//        self.contentView.removeSubviews()
+//        self.contentView.addSubview(ads)
+//        ads.backgroundColor = R.color.ffWhite()
+//        ads.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

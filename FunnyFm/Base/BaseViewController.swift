@@ -19,7 +19,7 @@ class BaseViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.navigationController?.navigationBar.prefersLargeTitles = true
-		self.navigationItem.largeTitleDisplayMode = .always
+		self.navigationItem.largeTitleDisplayMode = .automatic
 		let image = UIImage.init(systemName: "chevron.left.square.fill")
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self.navigationController, action: #selector(UINavigationController.popViewController(animated:)))
 		navigationItem.leftBarButtonItem?.tintColor = R.color.mainRed()
