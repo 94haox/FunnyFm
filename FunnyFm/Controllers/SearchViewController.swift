@@ -231,8 +231,7 @@ extension SearchViewController {
 		self.searchTF.returnKeyType = .search
 		
 		self.tableview.snp.makeConstraints { (make) in
-			make.leading.width.bottom.equalToSuperview()
-			make.top.equalToSuperview()
+			make.edges.equalToSuperview()
 		}
 		
 	}
