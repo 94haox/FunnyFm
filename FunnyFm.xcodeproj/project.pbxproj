@@ -3129,8 +3129,6 @@
 					"-framework",
 					"\"GoogleDataTransport\"",
 					"-framework",
-					"\"GoogleDataTransportCCTSupport\"",
-					"-framework",
 					"\"GoogleSignIn\"",
 					"-framework",
 					"\"GoogleUtilities\"",

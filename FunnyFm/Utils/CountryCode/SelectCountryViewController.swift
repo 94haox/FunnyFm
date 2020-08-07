@@ -107,7 +107,7 @@ extension SelectCountryViewController: UITableViewDelegate {
         if indexPath.section == 0 {
 			delegate?.selectCountryViewController(self, didSelectCountry: CountryCodeLibrary.shared.deviceCountry)
 		} else {
-			delegate?.selectCountryViewController(self, didSelectCountry: sections[indexPath.section - 2][indexPath.row])
+			delegate?.selectCountryViewController(self, didSelectCountry: sections[indexPath.section - 1][indexPath.row])
 		}
     }
 

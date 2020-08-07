@@ -197,18 +197,20 @@ extension PodPreviewViewController {
 		self.loadingView.startAnimating()
 		self.view.addSubview(self.loadingView)
 		
-		if !UIDevice.current.systemVersion.hasPrefix("13.") {
-			self.backBtn.setImageForAllStates(UIImage.init(named: "back-white")!)
-			self.backBtn.cornerRadius = 5
-			self.backBtn.backgroundColor = R.color.mainRed()!
-			self.backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-			self.view.addSubview(self.backBtn)
-			
-			self.backBtn.snp.makeConstraints { (make) in
-				make.size.equalTo(CGSize.init(width: 25, height: 25))
-				make.left.equalTo(self.view).offset(18)
-				make.top.equalTo(self.view.snp_topMargin)
-			}
+		if #available(iOS 13, *) {
+			return
+		}
+		
+		self.backBtn.setImageForAllStates(UIImage.init(named: "back-white")!)
+		self.backBtn.cornerRadius = 5
+		self.backBtn.backgroundColor = R.color.mainRed()!
+		self.backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+		self.view.addSubview(self.backBtn)
+		
+		self.backBtn.snp.makeConstraints { (make) in
+			make.size.equalTo(CGSize.init(width: 25, height: 25))
+			make.left.equalTo(self.view).offset(18)
+			make.top.equalTo(self.view.snp_topMargin)
 		}
 	}
 	

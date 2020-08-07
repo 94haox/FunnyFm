@@ -74,7 +74,7 @@ class MainViewModel: NSObject {
         }
 		self.dataSource.defaultRowAnimation = .none
 		tableView.dataSource = self.dataSource
-		let list = FeedManager.shared.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+		let list = FeedManager.shared.sortEpisodeToGroup(DatabaseManager.allEpisodes(limit: 50))
 		self.updateData(list)
 	}
 	

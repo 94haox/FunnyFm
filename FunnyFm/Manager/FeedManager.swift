@@ -28,7 +28,7 @@ class FeedManager: NSObject {
 	}
 	
 	var episodeList: [[Episode]] {
-		self.sortEpisodeToGroup(DatabaseManager.allEpisodes())
+		self.sortEpisodeToGroup(DatabaseManager.allEpisodes(limit: 50))
 	}
     
     var waitingPodlist: [iTunsPod] = [iTunsPod]()
@@ -265,7 +265,7 @@ extension FeedManager {
 	
 	func sortEpisodeToGroup(_ episodeList: [Episode]) -> [[Episode]] {
 		var sortEpisodeList = [[Episode]]()
-        var episodes = episodeList.suffix(50)
+        var episodes = episodeList
         episodes.sort(){$0.pubDateSecond < $1.pubDateSecond}
         
         var dic : [String: [Episode]] = [:]

@@ -72,8 +72,6 @@ startTime:(NSInteger)startTime
 		complete(NO,@"");
 		return NO;
 	}
-	//获取第一个对象
-    AVAssetTrack *track = [tracks objectAtIndex:0];
     //创建导出会话
     AVAssetExportSession *exportSession = [AVAssetExportSession
                                            exportSessionWithAsset:avAsset

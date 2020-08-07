@@ -230,8 +230,8 @@ extension DatabaseManager {
 extension DatabaseManager {
 	
 	/// 所有 episode 缓存
-	static public func allEpisodes() -> [Episode] {
-		let episodeList : [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable).sorted(by: { (obj1, obj2) -> Bool in
+	static public func allEpisodes(limit: Int) -> [Episode] {
+		let episodeList : [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable, orderBy: [Episode.Properties.pubDateSecond], limit: limit, offset: 0).sorted(by: { (obj1, obj2) -> Bool in
 			let second1 = obj1.pubDateSecond
 			let second2 = obj2.pubDateSecond
 			return second1 >= second2
