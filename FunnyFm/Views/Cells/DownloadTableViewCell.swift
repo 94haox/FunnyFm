@@ -19,10 +19,6 @@ class DownloadTableViewCell: UITableViewCell {
 	let progressBg = UIView()
 	var deleteClosure : (()->Void)?
 	
-	deinit {
-		self.dw_removeNotifications()
-	}
-	
 	override func awakeFromNib() {
         super.awakeFromNib()
 		self.contentView.backgroundColor = CommonColor.white.color
@@ -39,7 +35,7 @@ class DownloadTableViewCell: UITableViewCell {
     }
 	
 	func config(task: DownloadTask){
-		self.dw_addNotifcations()
+		DownloadManager.shared.delegate = self
 		self.actionBtn.isSelected = true
 		self.titleLB.text = task.episode?.title
 		self.addTimeLB.text = task.startDateString
@@ -50,7 +46,6 @@ class DownloadTableViewCell: UITableViewCell {
 	
 	func config(episode: Episode) {
 		self.task = nil
-		self.dw_removeNotifications()
 		self.actionBtn.isSelected = false
 		self.titleLB.text = episode.title
 		if episode.downloadSize.length() < 1 {
@@ -63,16 +58,6 @@ class DownloadTableViewCell: UITableViewCell {
 		self.progressBg.isHidden = true
 	}
 	
-	
-	func dw_addNotifcations(){
-		NotificationCenter.default.addObserver(self, selector: #selector(updateProgress(noti:)), name: Notification.downloadProgressNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadFailure(noti:)), name: Notification.downloadFailureNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(didDownloadSuccess(noti:)), name: Notification.downloadSuccessNotification, object: nil)
-	}
-	
-	func dw_removeNotifications(){
-		NotificationCenter.default.removeObserver(self)
-	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -96,49 +81,47 @@ class DownloadTableViewCell: UITableViewCell {
 	
 }
 
-extension DownloadTableViewCell{
+extension DownloadTableViewCell: DownloadManagerDelegate{
 	
-	@objc func updateProgress(noti: Notification){
-		if !isCurrentTask(noti: noti){
+	func downloadProgress(progress: Double, sourceUrl: String) {
+		if !isCurrentTask(sourceUrl){
 			return
 		}
-		let param = noti.object as! [String: Any]
+		
 		self.actionBtn.isSelected = true
 		var frame = self.progressBg.frame
-		frame.size.width = self.contentView.width * CGFloat((param["progress"]! as! Double))
-		UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIView.KeyframeAnimationOptions.calculationModeDiscrete, animations: {
-			self.progressBg.frame = frame
-		}, completion: nil)
+		DispatchQueue.main.async {
+			frame.size.width = self.contentView.width * CGFloat(progress)
+			UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIView.KeyframeAnimationOptions.calculationModeDiscrete, animations: {
+				self.progressBg.frame = frame
+			}, completion: nil )
+		}
 	}
 	
-	@objc func didDownloadSuccess(noti: Notification) {
-		if !isCurrentTask(noti: noti) {
+	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
+		if !isCurrentTask(sourceUrl) {
+			return
+		}
+		DispatchQueue.main.async {
+			self.actionBtn.isSelected = false
+		}
+	}
+	
+	func didDownloadFailure(sourceUrl: String) {
+		if !isCurrentTask(sourceUrl) {
 			return
 		}
 		self.actionBtn.isSelected = false
 	}
 	
 	
-	
-	@objc func didDownloadFailure(noti: Notification) {
-		if !isCurrentTask(noti: noti) {
-			return
-		}
-		self.actionBtn.isSelected = false
-	}
-	
-	func isCurrentTask(noti: Notification) -> Bool{
-		if noti.object.isNone {
-			return false
-		}
-		let param = noti.object as! [String: Any]
-		let url = param["sourceUrl"] as! String
+	func isCurrentTask(_ sourceUrl: String) -> Bool{
 		
 		if self.task.isNone {
 			return false
 		}
 		
-		if url != self.task!.episode!.trackUrl {
+		if sourceUrl != self.task!.episode!.trackUrl {
 			return false
 		}
 		

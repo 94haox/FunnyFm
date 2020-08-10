@@ -148,12 +148,14 @@ extension PlayDetailToolBar {
 		}
 		let param = noti.object as! [String: Any]
 		
-		if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
-			anim.fromValue = self.downProgressLayer.strokeEnd
-			anim.toValue = CGFloat((param["progress"]! as! Double))
-			anim.duration = 0.2
-			anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-			self.downProgressLayer.pop_add(anim, forKey: "image_rotaion")
+		DispatchQueue.main.async {
+			if let anim = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeEnd){
+				anim.fromValue = self.downProgressLayer.strokeEnd
+				anim.toValue = CGFloat((param["progress"]! as! Double))
+				anim.duration = 0.2
+				anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+				self.downProgressLayer.pop_add(anim, forKey: "image_rotaion")
+			}
 		}
 
 	}
@@ -163,14 +165,16 @@ extension PlayDetailToolBar {
 			return
 		}
 
-		self.downBtn.isSelected = true
-		self.downProgressLayer.isHidden = true
-		SwiftNotice.showText("下载成功，您可以在个人中心-我的下载查看")
-		if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
-			anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
-			anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.5, y: 1.5))
-			anim.springBounciness = 20
-			self.downBtn!.layer.pop_add(anim, forKey: "size")
+		DispatchQueue.main.async {
+			self.downBtn.isSelected = true
+			self.downProgressLayer.isHidden = true
+			SwiftNotice.showText("下载成功，您可以在个人中心-我的下载查看")
+			if let anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY) {
+				anim.toValue = NSValue.init(cgPoint: CGPoint.init(x: 1, y: 1))
+				anim.fromValue = NSValue.init(cgPoint: CGPoint.init(x: 1.5, y: 1.5))
+				anim.springBounciness = 20
+				self.downBtn!.layer.pop_add(anim, forKey: "size")
+			}
 		}
 	}
 	

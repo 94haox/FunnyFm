@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Tiercel
 
 class DownloadListViewController: BaseViewController {
 	
@@ -40,14 +41,20 @@ class DownloadListViewController: BaseViewController {
         self.segment.isHidden = self.episodeList.count < 1 && DownloadManager.shared.downloadQueue.count < 1
 	}
 	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		NotificationCenter.default.removeObserver(self, name: Notification.downloadChangeNotification, object: nil)
+	}
+	
 	@objc func changeSection(){
 		self.tableview.reloadData()
 		if self.segment.selectedSegmentIndex == 1 {
 			self.title = "下载中".localized
+			self.deleteBtn.isHidden = true
 		}else{
 			self.title = "已下载".localized
+			self.deleteBtn.isHidden = self.episodeList.count < 2
 		}
-		self.deleteBtn.isHidden = self.episodeList.count < 2
 	}
 	
 	lazy var tableview : UITableView = {
@@ -66,6 +73,14 @@ class DownloadListViewController: BaseViewController {
 	}()
 	
 	var episodeList : [Episode] = DatabaseManager.allDownload()
+	
+	var downloadTasks: [DownloadTask] {
+		get {
+			DownloadManager.shared.sessionManager.tasks.filter { (task) -> Bool in
+				task.status != .succeeded
+			}
+		}
+	}
 	
 	lazy var deleteBtn: UIButton = {
 		let btn = UIButton.init(type: .custom)
@@ -184,7 +199,7 @@ extension DownloadListViewController: UITableViewDataSource {
 		if self.segment.selectedSegmentIndex == 0 {
 			return self.episodeList.count
 		}
-		return DownloadManager.shared.downloadQueue.count
+		return self.downloadTasks.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -200,8 +215,7 @@ extension DownloadListViewController: UITableViewDataSource {
 			return cell
         }
 		
-		let taskList = DownloadManager.shared.downloadQueue
-		let task = taskList[indexPath.row]
+		let task = self.downloadTasks[indexPath.row]
 		cell.config(task: task)
 		return cell
 	}

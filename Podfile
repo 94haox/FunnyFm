@@ -73,7 +73,7 @@ end
 
 # 性能和崩溃分析
 def performance
-  
+#	pod 'MLeaksFinder'
 	pod 'Bugly'
   
 end

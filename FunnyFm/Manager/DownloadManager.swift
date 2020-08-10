@@ -59,37 +59,26 @@ class DownloadManager: NSObject {
         }
 
         task.success { [weak self](task) in
-			guard let url = task.url.absoluteString.removingPercentEncoding else {
-				return
-			}
-            if var episode = DatabaseManager.getEpisode(trackUrl: url) {
-                episode.download_filpath = task.filePath.components(separatedBy: "/").last!
-                self?.sessionManager.remove(task)
-                DatabaseManager.add(download: episode)
-                PlayListManager.shared.queueInsertAffter(episode: episode)
-            }
-            self?.delegate?.didDownloadSuccess(fileUrl: task.filePath, sourceUrl: url)
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": task.url.absoluteString])
-            }
-        }
+			self?.successHandler(task: task)
+		}
         
-        task.progress { (task) in
+        task.progress { [weak self](task) in
 			guard let url = task.url.absoluteString.removingPercentEncoding else {
 				return
 			}
             let progress = Double(task.progress.completedUnitCount) / Double(task.progress.totalUnitCount)
-            self.delegate?.downloadProgress(progress: progress, sourceUrl: url)
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl": url])
-            }
+            self?.delegate?.downloadProgress(progress: progress, sourceUrl: url)
+            
+			if progress == 1 {
+				self?.successHandler(task: task)
+			}else{
+				NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl": url])
+			}
         }
         
         task.failure { [weak self](task) in
 			
-			DispatchQueue.main.async {
-				NotificationCenter.default.post(name: Notification.downloadChangeNotification, object: ["sourceUrl": task.url.absoluteString])
-			}
+			NotificationCenter.default.post(name: Notification.downloadChangeNotification, object: ["sourceUrl": task.url.absoluteString])
 			
 			guard let url = task.url.absoluteString.removingPercentEncoding, task.status == .failed else {
 				return
@@ -105,10 +94,7 @@ class DownloadManager: NSObject {
             
             let tip = String.init(format: "%@%@",  episode.title, "下载失败".localized)
             self?.delegate?.didDownloadFailure(sourceUrl: url)
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": task.url.absoluteString])
-                
-            }
+             NotificationCenter.default.post(name: Notification.downloadFailureNotification, object: ["sourceUrl": task.url.absoluteString])
             SwiftNotice.noticeOnStatusBar(tip, autoClear: true, autoClearTime: 1)
             self?.sessionManager.remove(task)
         }
@@ -116,11 +102,35 @@ class DownloadManager: NSObject {
 		return true
 	}
 	
+	func successHandler(task: DownloadTask) {
+		guard let url = task.url.absoluteString.removingPercentEncoding else {
+			return
+		}
+		if var episode = DatabaseManager.getEpisode(trackUrl: url) {
+			episode.download_filpath = task.filePath.components(separatedBy: "/").last!
+			self.sessionManager.remove(task)
+			DatabaseManager.add(download: episode)
+			PlayListManager.shared.queueInsertAffter(episode: episode)
+		}
+		self.delegate?.didDownloadSuccess(fileUrl: task.filePath, sourceUrl: url)
+		 NotificationCenter.default.post(name: Notification.downloadSuccessNotification, object: ["sourceUrl": task.url.absoluteString])
+
+	}
+	
 	func stopDownload(episode: Episode) {
 		guard let task = sessionManager.download(episode.trackUrl.removingPercentEncoding!) else {
 			return
         }
 		sessionManager.remove(task, completely: true)
+	}
+	
+	func resumeAllTask() {
+		sessionManager.totalStart()
+		for task in sessionManager.tasks {
+			if task.status == .succeeded {
+				self.successHandler(task: task)
+			}
+		}
 	}
 	
 }

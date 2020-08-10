@@ -113,7 +113,7 @@ extension AppDelegate {
 	
 	
 	func applicationDidBecomeActive(_ application: UIApplication) {
-		
+		DownloadManager.shared.resumeAllTask()
 	}
 }
 
