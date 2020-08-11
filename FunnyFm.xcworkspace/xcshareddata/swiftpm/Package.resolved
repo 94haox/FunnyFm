@@ -2,21 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "SwipeCellKit",
-        "repositoryURL": "https://github.com/SwipeCellKit/SwipeCellKit",
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
         "state": {
           "branch": null,
-          "revision": "7219cad3098637176ace311510d11467dbfb9bb0",
-          "version": "2.7.1"
-        }
-      },
-      {
-        "package": "Tiercel",
-        "repositoryURL": "git@github.com:Danie1s/Tiercel.git",
-        "state": {
-          "branch": null,
-          "revision": "8cde56c05045c9d121b2901700dcb2d87f42ffec",
-          "version": "3.2.0"
+          "revision": "1339ebea9498ef6c3fc75cc195d7163d7c7167f9",
+          "version": "5.14.1"
         }
       }
     ]

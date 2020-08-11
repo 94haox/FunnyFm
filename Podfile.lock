@@ -5,14 +5,14 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - AutoInch (1.3.1)
+  - AutoInch (1.3.2)
   - Bugly (2.5.71)
   - DNSPageView (1.5.0)
   - DynamicColor (4.2.0)
   - FBAudienceNetwork (5.10.1):
     - FBSDKCoreKit/Basics (>= 5.6.0)
   - FBSDKCoreKit/Basics (7.1.1)
-  - FeedKit (8.1.1)
+  - FeedKit (9.1.2)
   - Firebase/Auth (6.29.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.7.1)
@@ -85,7 +85,7 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - Nuke (8.0.1)
+  - Nuke (9.1.1)
   - pop (1.0.12)
   - PromisesObjC (1.2.9)
   - R.swift (5.2.2):
@@ -114,7 +114,7 @@ DEPENDENCIES:
   - DNSPageView
   - DynamicColor (~> 4.2.0)
   - FBAudienceNetwork
-  - FeedKit (~> 8.0)
+  - FeedKit
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - JPush
@@ -123,14 +123,14 @@ DEPENDENCIES:
   - lottie-ios (= 3.1.1)
   - Moya
   - MPITextKit
-  - Nuke (~> 8.0.1)
+  - Nuke
   - pop (~> 1.0)
   - R.swift
   - ReachabilitySwift
   - SCLAlertView
   - SHFullscreenPopGestureSwift
   - Siren
-  - SnapKit (~> 4.0.0)
+  - SnapKit
   - SPLarkController
   - SwiftyJSON
   - SwiftyStoreKit
@@ -189,13 +189,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  AutoInch: f70a38b393dc2ce21e7f0bbceb5b2a0abe898575
+  AutoInch: beaafbcef5f075d34b57bddd6b1893cb19d0f0de
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   DNSPageView: e3dc48f07c40f061d285150ab0cdc466f913230d
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
   FBAudienceNetwork: 6cdcc40aa475e8045ab14398e181a3dc90a5014e
   FBSDKCoreKit: b46507dc8b8cefed31d644e74d7cc30e2a715ef8
-  FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
+  FeedKit: 71653273ab08e618cd6fd1301ca08fc02dca6a9e
   Firebase: 57957c8d6eb3d8b80a560b1dc58be24724b89ff2
   FirebaseAuth: a818d73466d51db897d3bf3c0f3baa3dae7fd4c0
   FirebaseCore: 7930a1946517d94256d857f97371ed993b55f7bd
@@ -214,7 +214,7 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   MPITextKit: 475a22b8df57c42c8c040bf95df47427642199ad
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
+  Nuke: af4301b154d3afd8a3b045a5194a9a773a00b7a8
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
@@ -233,6 +233,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 2cd2b39e6658708bd6999f6addd3a7f389e355ce
+PODFILE CHECKSUM: 66a238fd6417811b4d639b2cdab28cfeaf889768
 
 COCOAPODS: 1.9.3

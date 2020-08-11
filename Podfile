@@ -1,6 +1,4 @@
 source 'https://github.com/CocoaPods/Specs.git'
-
-platform :ios, '13.0'
 use_frameworks! :linkage => :static
 inhibit_all_warnings!
 install! 'cocoapods', generate_multiple_pod_projects: true
@@ -9,20 +7,18 @@ def shared
 
 #	pod 'ApplicationGroupKit'
 
-	pod 'SnapKit', '~> 4.0.0'
+	pod 'SnapKit'
 	pod 'AutoInch'
 #	pod 'MicrosoftFluentUI'
 	
 end
 
 def layout
-    pod 'SnapKit', '~> 4.0.0'
     pod 'pop', '~> 1.0'
     pod 'SHFullscreenPopGestureSwift'
     pod 'lottie-ios', '3.1.1'
 		pod 'JXSegmentedView'
 		pod 'DynamicColor', '~> 4.2.0'
-		pod 'AutoInch'
     pod 'MPITextKit'
     pod 'SCLAlertView'
     pod 'SPLarkController'
@@ -31,8 +27,8 @@ end
 
 def lib
     pod 'KeychainAccess'
-		pod 'Nuke', '~> 8.0.1'
-		pod 'FeedKit', '~> 8.0'
+		pod 'Nuke'
+		pod 'FeedKit'
 		pod 'JPush'
     pod 'R.swift'
     pod 'SwiftyStoreKit'
@@ -79,6 +75,8 @@ def performance
 end
 
 target "FunnyFm" do
+		platform :ios, '13.0'
+	
 		ads
 		performance
     layout
@@ -89,11 +87,33 @@ target "FunnyFm" do
 		shared
 end
 
+target "MenuBar" do
+	platform :macos, '11'
+	
+	pod 'Moya'
+#	pod 'Kingfisher/SwiftUI'
+	pod 'SwiftyJSON'
+	pod 'WCDB.swift'
+	pod 'FeedKit'
+	
+end
+
+
+
+
 target "FunnyFmImport" do
+	
+	platform :ios, '13.0'
+	
 	shared
+	
 end
 
 target "FunnyFmShare" do
+	
+	platform :ios, '13.0'
+	
 	shared
+	
 end
 

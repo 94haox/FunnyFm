@@ -55,6 +55,8 @@ struct iTunsPod : Mapable, TableCodable {
         }
 	}
 	
+	#if os(iOS)
+	
 	init(pod: Pod) {
 		feedUrl = pod.url
 		trackName = pod.title
@@ -72,6 +74,8 @@ struct iTunsPod : Mapable, TableCodable {
             isNeedVpn = false
         }
 	}
+	
+	#endif
 	
 	init(dic:NSDictionary) {
 		let rss_url = dic["rss_url"] as! String

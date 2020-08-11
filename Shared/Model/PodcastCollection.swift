@@ -6,7 +6,6 @@
 //  Copyright © 2020 Duke. All rights reserved.
 //
 
-import UIKit
 import SwiftyJSON
 
 struct PodcastCollection: Mapable {

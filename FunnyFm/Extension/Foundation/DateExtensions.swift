@@ -1023,4 +1023,120 @@ extension Date {
     }
 
 }
+
+extension Date {
+	static func convertDuration(to Interval: String) -> Double {
+		let timeComponets = Interval.components(separatedBy: ":")
+		var totalTime = 0
+		if timeComponets.count > 2 {
+			var hour = 0
+			if let _ = Int(timeComponets[0]) {
+				hour = Int(timeComponets[0])! * 3600
+			}
+			
+			var min = 0
+			if let _ = Int(timeComponets[1]) {
+				min = Int(timeComponets[1])! * 60
+			}
+			
+			var sec = 0
+			if let _ = Int(timeComponets[2]) {
+				sec = Int(timeComponets[2])!
+			}
+			totalTime = hour + min + sec
+		}
+		
+		if timeComponets.count < 3 {
+			var min = 0
+			if let _ = Int(timeComponets[0]) {
+				min = Int(timeComponets[0])! * 60
+			}
+			
+			var sec = 0
+			if let _ = Int(timeComponets[1]) {
+				sec = Int(timeComponets[1])!
+			}
+			totalTime = min + sec
+		}
+		
+		return Double(totalTime)
+	}
+	
+	static func formatIntervalToMM(_ second:NSInteger) -> String {
+		
+		let hour = second/3600
+		let min = second%3600/60
+		let sec = second%3600%60
+		
+		var hourStr = ""
+		if  hour > 0 {
+			hourStr = "0" + String(hour) + ":"
+		}
+		
+		var minStr = "00:"
+		if  min > 0 {
+			if min > 9 {
+				minStr = String(min)
+			}else{
+				minStr = "0" + String(min)
+			}
+			minStr = minStr + ":"
+		}
+		
+		var secStr = "00"
+		if  sec > 0 {
+			if  sec > 9 {
+				secStr = String(sec)
+			}else{
+				secStr = "0" + String(sec)
+			}
+		}
+		
+		return hourStr + minStr + secStr
+	}
+	
+	static func formatIntervalToString(_ second:NSInteger) -> String {
+		
+		let hour = second/3600
+		let min = second%3600/60
+		
+		var hourStr = ""
+		if  hour > 0 {
+			hourStr = String(hour) + " Hr"
+		}
+		
+		var minStr = ""
+		if  min > 0 {
+			minStr = String(min) + " Min"
+		}
+		
+		return hourStr + " " + minStr
+	}
+	
+	static func formatIntervalToHMS(_ second: NSInteger) -> String {
+		let string = self.formatIntervalToString(second)
+		
+		if string.trim().length() > 0{
+			return string;
+		}
+		
+		let sec = second%3600%60
+		
+		var secStr = ""
+		if sec > 0 {
+			secStr = String(sec) + " Sec"
+		}
+		
+		return secStr
+	}
+	
+	static func minuteOffsetBetweenStartDate(startDate: Date, endDate: Date) -> Int? {
+		let gregorian = Calendar.init(identifier: Calendar.Identifier.gregorian)
+		let comps = gregorian.dateComponents([Calendar.Component.minute], from: startDate, to: endDate)
+		let minute = comps.minute
+		return minute
+	}
+
+}
+
 #endif

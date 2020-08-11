@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import Moya
 import SwiftyJSON
 //import Result
@@ -89,7 +88,9 @@ public class FmHttp<T> where T: Mapable{
 									  _ failure: @escaping FailClosure){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
+			#if os(iOS)
 			Hud.shared.hide()
+			#endif
             switch result {
             case .success(let response):
                 do{
@@ -129,7 +130,9 @@ public class FmHttp<T> where T: Mapable{
 									   _ failure: @escaping FailClosure){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
+			#if os(iOS)
 			Hud.shared.hide()
+			#endif
             switch result {
             case .success(let data):
                 do{
@@ -164,7 +167,9 @@ public class FmHttp<T> where T: Mapable{
 									   _ failure: FailClosure?){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
+			#if os(iOS)
 			Hud.shared.hide()
+			#endif
             switch result {
             case .success(let data):
                 do{
@@ -176,7 +181,9 @@ public class FmHttp<T> where T: Mapable{
 						if failure.isSome{
 							failure!(json["message"].string)
 						}else{
+							#if os(iOS)
 							SwiftNotice.showText(json["message"].stringValue)
+							#endif
 						}
                         return
                     }
@@ -185,7 +192,9 @@ public class FmHttp<T> where T: Mapable{
 					if failure.isSome {
 						failure!("数据解析失败")
 					}else{
+						#if os(iOS)
 						SwiftNotice.showText("数据解析失败")
+						#endif
 					}
                 }
             case .failure(_):
@@ -193,7 +202,9 @@ public class FmHttp<T> where T: Mapable{
 				if failure.isSome {
 					failure!("未连接到服务器")
 				}else{
+					#if os(iOS)
 					SwiftNotice.showText("网络貌似有些问题，请稍候重试")
+					#endif
 				}
             }
         }

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Duke. All rights reserved.
 //
 
-import UIKit
 import SwiftyJSON
 
 struct User: Mapable {

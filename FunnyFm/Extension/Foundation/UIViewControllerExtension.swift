@@ -1,3 +1,5 @@
+
+#if canImport(UIKit)
 import UIKit
 import SCLAlertView
 
@@ -52,3 +54,5 @@ extension UIViewController {
     }
  
 }
+
+#endif

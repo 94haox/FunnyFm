@@ -6,6 +6,8 @@
 //  Copyright © 2020 Duke. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 extension UILocalizedIndexedCollation {
@@ -30,3 +32,5 @@ extension UILocalizedIndexedCollation {
     }
 
 }
+
+#endif

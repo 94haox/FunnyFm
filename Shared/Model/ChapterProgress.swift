@@ -6,7 +6,6 @@
 //  Copyright © 2018 Duke. All rights reserved.
 //
 
-import UIKit
 import WCDBSwift
 
 class ChapterProgress: TableCodable {

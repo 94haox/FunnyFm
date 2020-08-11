@@ -11,5 +11,7 @@ import Foundation
 struct Chapter {
     var title: String
     var id: String
+	#if os(iOS)
     var time: CMTime
+	#endif
 }

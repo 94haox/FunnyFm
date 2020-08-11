@@ -9,21 +9,26 @@
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
-			<integer>50</integer>
+			<integer>0</integer>
 		</dict>
 		<key>FunnyFmImport.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
-			<integer>51</integer>
+			<integer>1</integer>
 		</dict>
 		<key>FunnyFmShare.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
-			<integer>52</integer>
+			<integer>2</integer>
+		</dict>
+		<key>MenuBar.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>61</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

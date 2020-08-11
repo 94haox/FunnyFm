@@ -6,7 +6,7 @@
 //  Copyright © 2019 Duke. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class UserCenter: NSObject {
     
