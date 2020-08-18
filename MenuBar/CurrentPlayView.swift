@@ -15,10 +15,30 @@ struct CurrentPlayView: View {
 	
     var body: some View {
 		HStack {
+			leftView
+			Spacer()
+			HStack {
+				Image(systemName: "play.fill")
+					.font(.title2)
+					.foregroundColor(Color.accentColor)
+					.onTapGesture {
+						print("播放")
+					}
+				Text(Date.formatIntervalToHMS(Int(episode?.duration ?? 0)))
+					.font(.callout)
+			}
+			.frame(width: 40, height: 40)
+			.cornerRadius(15)
+		}
+		.padding(.horizontal, 12)
+    }
+	
+	var leftView: some View {
+		HStack {
 			HStack {
 				KFImage(URL(string: episode?.coverUrl ?? ""))
 					.resizable()
-					.frame(width: 50, height: 50)
+					.frame(width: 70, height: 70)
 			}
 			.background(Color.gray.opacity(0.2))
 			.cornerRadius(15)
@@ -28,26 +48,16 @@ struct CurrentPlayView: View {
 					.font(.headline)
 					.foregroundColor(Color.black.opacity(0.8))
 					.lineLimit(2)
-				Text(episode?.author ?? "")
-					.font(.subheadline)
-					.foregroundColor(Color.gray.opacity(0.8))
+				HStack {
+					Text(episode?.author ?? "")
+						.foregroundColor(Color.gray.opacity(0.8))
+					Text(episode?.pubDate ?? "")
+						.foregroundColor(Color.gray.opacity(0.8))
+				}
+				.font(.subheadline)
 			}
-			Spacer()
-			HStack {
-				Image(systemName: "play.fill")
-					.font(.title2)
-					.foregroundColor(Color.accentColor)
-					.onTapGesture {
-						let player = AudioPlayer()
-						let item = AudioItem(mediumQualitySoundURL: URL.init(string: "https://a.anw.red/audio/anyway-112.mp3")!)
-						player.play(item: item!)
-					}
-			}
-			.frame(width: 40, height: 40)
-			.cornerRadius(15)
 		}
-		.background(Color.white)
-		.padding(.vertical, 6)
-		.padding(.horizontal, 12)
-    }
+	}
 }
+
+

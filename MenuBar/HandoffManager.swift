@@ -31,14 +31,3 @@ class HandoffManager: ObservableObject {
 	
 }
 
-extension HandoffManager: AudioPlayerDelegate {
-	
-	func audioPlayer(_ audioPlayer: AudioPlayer, willStartPlaying item: AudioItem) {
-		
-	}
-	
-	func audioPlayer(_ audioPlayer: AudioPlayer, didLoad range: TimeRange, for item: AudioItem) {
-		
-	}
-	
-}
