@@ -8,6 +8,7 @@
 
 import SwiftUI
 import KingfisherSwiftUI
+import AVFoundation
 
 struct CurrentPlayView: View {
 	
@@ -22,7 +23,8 @@ struct CurrentPlayView: View {
 					.font(.title2)
 					.foregroundColor(Color.accentColor)
 					.onTapGesture {
-						print("播放")
+                        let player = AVPlayer.init(url: URL(string: "https://a.anw.red/audio/anyway-113.mp3")!)
+                        player.playImmediately(atRate: 1)
 					}
 				Text(Date.formatIntervalToHMS(Int(episode?.duration ?? 0)))
 					.font(.callout)

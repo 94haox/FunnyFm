@@ -406,7 +406,7 @@ extension FMPlayerManager {
                 let request = ImageRequest(url: url)
                 let image = ImageCache.shared[request]
                 if image.isSome{
-                    return image!
+                    return image!.image
                 }
             }
             return UIImage.init(named: "ImagePlaceHolder")!

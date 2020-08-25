@@ -165,17 +165,24 @@ extension FeedManager {
         }
         var pod = podcast
         FeedParser.init(URL: url).parseAsync { (result) in
-            if let rss = result.rssFeed, let items = rss.items {
-                let episodes = items.map { (item) -> Episode in
-                    return Episode.init(feedItem: item)
-                }
-                if let des = rss.description {
-                    pod.podDes = des
-                }
-                self.addOrUpdate(itunesPod: pod, episodelist: episodes)
-				NotificationCenter.default.post(name: Notification.singleParserSuccess, object: nil)
+            
+            switch result {
+                case .success(let feed):
+                    if let rss = feed.rssFeed, let items = rss.items {
+                        let episodes = items.map { (item) -> Episode in
+                            return Episode.init(feedItem: item)
+                        }
+                        if let des = rss.description {
+                            pod.podDes = des
+                        }
+                        self.addOrUpdate(itunesPod: pod, episodelist: episodes)
+                        NotificationCenter.default.post(name: Notification.singleParserSuccess, object: nil)
+                    }
+                    complete?(true)
+                case .failure(_):
+                    complete?(false)
+                    break
             }
-            complete?(result.error != nil)
         }
     }
 	
@@ -184,15 +191,20 @@ extension FeedManager {
             complete?(false, nil)
             return
         }
-        FeedParser.init(URL: url).parseAsync { (result) in
-            if let rss = result.rssFeed, let items = rss.items {
-                let episodes = items.map { (item) -> Episode in
-                    return Episode.init(feedItem: item)
-                }
-				complete?(result.error != nil, (rss, episodes))
-				return
+        FeedParser(URL: url).parseAsync { (result) in
+            switch result {
+                case .success(let feed):
+                    if let rss = feed.rssFeed, let items = rss.items {
+                        let episodes = items.map { (item) -> Episode in
+                            return Episode.init(feedItem: item)
+                        }
+                        complete?(true, (rss, episodes))
+                        return
+                    }
+                case .failure(_):
+                    complete?(false, nil)
+                    break
             }
-			complete?(result.error != nil, nil)
         }
     }
 	

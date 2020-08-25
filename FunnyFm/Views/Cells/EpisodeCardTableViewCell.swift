@@ -36,7 +36,7 @@ class EpisodeCardTableViewCell: UITableViewCell {
 		_episode = episode;
 		self.titleLB.text = episode.title
 		self.sumryLB.text = episode.intro
-		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
+		self.timeLB.text = Date.formatIntervalToString(NSInteger(episode.duration))
 		if episode.podCoverUrl.length() > 0 {
 			self.iconImageView.loadImage(url: episode.podCoverUrl)
 		}else{

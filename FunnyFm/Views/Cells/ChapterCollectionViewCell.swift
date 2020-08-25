@@ -28,8 +28,8 @@ class ChapterCollectionViewCell: UICollectionViewCell {
         self.chapter = chapter
         self.titleLB.text = chapter.title
         self.chapterIndexLB.text = "\(index)"
-        self.timeLB.text = FunnyFm.formatIntervalToMM(NSInteger(chapter.time.seconds))
-        self.durationLB.text = FunnyFm.formatIntervalToString(NSInteger(chapter.time.seconds))
+        self.timeLB.text = Date.formatIntervalToMM(NSInteger(chapter.time.seconds))
+        self.durationLB.text = Date.formatIntervalToString(NSInteger(chapter.time.seconds))
     }
 
     @IBAction func skipAction(_ sender: Any) {
