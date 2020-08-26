@@ -23,10 +23,11 @@ def layout
 		pod 'JXSegmentedView'
 		pod 'DynamicColor', '~> 4.2.0'
 		pod 'AutoInch'
-    pod 'MPITextKit'
+#    pod 'MPITextKit'
     pod 'SCLAlertView'
     pod 'SPLarkController'
 		pod 'DNSPageView'
+    pod 'BSText'
 end
 
 def lib

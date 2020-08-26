@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import BSText
 
 class EpisodeInfoViewController: UIViewController {
 
@@ -35,7 +35,7 @@ class EpisodeInfoViewController: UIViewController {
 	
 	var downloadBtn: UIButton = UIButton.init(type: .custom)
 	
-	var infoTextView: MPILabel!
+	var infoTextView: BSLabel!
 	
 	var episode: Episode!
 	
@@ -190,7 +190,11 @@ extension EpisodeInfoViewController {
             self.downloadBtn.setImage(UIImage.init(named: "trash")!.tintImage, for: .selected)
 			self.downloadBtn.isSelected = true
 		}
-		
+        
+        let container = TextContainer()
+        container.size = CGSize(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude);
+        container.maximumNumberOfRows = 0;
+        
 		self.episodeImageView.loadImage(url: episode.coverUrl)
 		self.titleLB.text = episode.title
 		self.authorLB.text = episode.author
@@ -199,8 +203,8 @@ extension EpisodeInfoViewController {
 			self.episode.intro = self.episode.intro.replacingOccurrences(of: "。", with: "。\n")
             self.episode.intro = self.episode.intro.replacingOccurrences(of: "[", with: "\n[")
 			let content = NSAttributedString.init(string: self.episode.intro, attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
-            self.infoTextView.attributedText = content
-            self.infoTextView.truncationAttributedToken = MPITextDefaultTruncationAttributedToken()
+            let layout = TextLayout(container: container, text: content)
+            self.infoTextView.textLayout = layout
 			self.loadingView.removeSubviews()
 			self.view.layoutIfNeeded()
 			return
@@ -212,36 +216,43 @@ extension EpisodeInfoViewController {
 				let srtData = self.episode.intro.data(using: String.Encoding.unicode, allowLossyConversion: true)!
 				let attrStr = try NSMutableAttributedString(data: srtData, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
 				
-				attrStr.enumerateAttributes(in: NSRange.init(location: 0, length: attrStr.length), options: NSAttributedString.EnumerationOptions.reverse) {[weak attrStr] (attr, range, lef) in
-					attr.keys.forEach({ (key) in
-						if key == .font {
-							let font = attr[key] as! UIFont
-							var replaceFont = pfont(font.pointSize)
-							if font.pointSize < 14 {
-								replaceFont = pfont(14)
-							}
-							attrStr?.addAttributes([NSAttributedString.Key.font : replaceFont], range: range)
-						}
-						if key == .foregroundColor {
-							attrStr?.addAttributes([NSAttributedString.Key.foregroundColor: CommonColor.content.color], range: range)
-						}
-						
-						if key == .link {
-							attrStr?.addAttributes([.foregroundColor : R.color.mainRed()!], range: range)
-							attrStr?.addAttributes([.strokeColor : R.color.mainRed()!], range: range)
-						}
-					})
+				attrStr.enumerateAttributes(in: NSRange(location: 0, length: attrStr.length), options: NSAttributedString.EnumerationOptions.reverse) {[weak attrStr] (attr, range, lef) in
+                    for key in attr.keys {
+                        if key == .link {
+                            let highLight = TextHighlight.highlight(with: [.foregroundColor : R.color.mainRed()!, .strokeColor: R.color.mainRed()!])
+                            highLight.tapAction = { (container, text, range, rect) in
+                                let unit = text!.attributedSubstring(from: range).attributes[.link]
+                                if let url = unit as? URL {
+                                    UIApplication.shared.openURL(url)
+                                }
+                            }
+                            highLight.longPressAction = { (container, text, range, rect) in
+                                let unit = text!.attributedSubstring(from: range).attributes[.link]
+                                if let url = unit as? URL {
+                                    UIPasteboard.general.string = url.absoluteString
+                                    showAutoHiddenHud(style: .notification, text: "Copy success")
+                                }
+                            }
+                            attrStr?.bs_set(textHighlight: highLight, range: range)
+                            attrStr?.bs_set(underlineColor: R.color.mainRed()!, range: range)
+//                            attrStr?.setAttributes([.foregroundColor : R.color.mainRed()!], range: range)
+                            continue
+                        }else {
+                            attrStr?.bs_set(color: CommonColor.content.color, range: range)
+                        }
+                    }
 				}
+                attrStr.bs_font = pfont(14)
+                let layout = TextLayout(container: container, text: attrStr)
 				DispatchQueue.main.async {
-                    self.infoTextView.attributedText = attrStr
-					self.infoTextView.truncationAttributedToken = MPITextDefaultTruncationAttributedToken();
+                    self.infoTextView.textLayout = layout
 					self.loadingView.removeSubviews()
 				}
 			}catch _ as NSError {
 				let content = NSAttributedString.init(string: (self.episode.title + "\n\n" + self.episode.intro), attributes: [NSAttributedString.Key.font : pfont(14), NSAttributedString.Key.foregroundColor: CommonColor.content.color])
+                let layout = TextLayout(container: container, text: content)
 				DispatchQueue.main.async {
-                    self.infoTextView.attributedText = content;
-                    self.infoTextView.truncationAttributedToken = MPITextDefaultTruncationAttributedToken()
+                    self.infoTextView.textLayout = layout
 					self.loadingView.removeSubviews()
 				}
 			}
@@ -252,14 +263,6 @@ extension EpisodeInfoViewController {
 		}
 	}
 	
-}
-
-extension EpisodeInfoViewController: MPILabelDelegate {
-    
-    func label(_ label: MPILabel, didInteractWith link: MPITextLink, forAttributedText attributedText: NSAttributedString, in characterRange: NSRange, interaction: MPITextItemInteraction) {
-        
-    }
-    
 }
 
 
@@ -383,12 +386,9 @@ extension EpisodeInfoViewController {
 	
 	func dw_addSubviews(){
 		
-		self.infoTextView = MPILabel.init()
-        self.infoTextView.numberOfLines = 0;
-        self.infoTextView.delegate = self;
-        self.infoTextView.isUserInteractionEnabled = true
-		
-		
+		self.infoTextView = BSLabel()
+        self.infoTextView.displaysAsynchronously = true
+        
 		self.scrollView.backgroundColor = CommonColor.white.color
 		self.scrollView.delegate = self
 		self.episodeImageView.cornerRadius = 5;
