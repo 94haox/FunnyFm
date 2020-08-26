@@ -22,6 +22,7 @@
 		38332BAA24937D75009AC1A7 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BA92424DE7800E42A16 /* Hud.swift */; };
 		38332BAB24937D75009AC1A7 /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B0BA82424DE7800E42A16 /* HudView.xib */; };
 		38332BAE24937E59009AC1A7 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
+		384DD9D124F637DF001CF23E /* WelcomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384DD9D024F637DF001CF23E /* WelcomView.swift */; };
 		386078B8248F64BE00A67F6E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386078B7248F64BE00A67F6E /* FirstViewController.swift */; };
 		38691A8B2491D61700C9D843 /* CalendarCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38691A8A2491D61700C9D843 /* CalendarCard.swift */; };
 		38691A8D2491F12E00C9D843 /* three_cycle.json in Resources */ = {isa = PBXBuildFile; fileRef = 38691A8C2491F12E00C9D843 /* three_cycle.json */; };
@@ -488,6 +489,7 @@
 		38332A5F24936A34009AC1A7 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		38332A6224936A34009AC1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		38332A6424936A34009AC1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		384DD9D024F637DF001CF23E /* WelcomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomView.swift; sourceTree = "<group>"; };
 		386078B7248F64BE00A67F6E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		38691A8A2491D61700C9D843 /* CalendarCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCard.swift; sourceTree = "<group>"; };
 		38691A8C2491F12E00C9D843 /* three_cycle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = three_cycle.json; sourceTree = "<group>"; };
@@ -1125,6 +1127,7 @@
 				7423FDD424742B53008F7BFD /* PolicyView.swift */,
 				3898C7AE2474F1C200828A4A /* TermView.swift */,
 				38BC211124768999002B5CA4 /* SubscribtionView.swift */,
+				384DD9D024F637DF001CF23E /* WelcomView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -2524,6 +2527,7 @@
 				AB1E6D4821B923BD00B85135 /* HomePodCollectionViewCell.swift in Sources */,
 				AB41AB09219564F000260851 /* CornerAnimatable.swift in Sources */,
 				AB1E6D8321B9252500B85135 /* UIViewExtensions.swift in Sources */,
+				384DD9D124F637DF001CF23E /* WelcomView.swift in Sources */,
 				AB7789E623EC5CB300DF8447 /* VerticalTabBar.swift in Sources */,
 				AB2A372B2328ADDE0097DAF7 /* Loady.swift in Sources */,
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,

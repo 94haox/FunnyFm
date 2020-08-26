@@ -7,6 +7,22 @@
 //
 
 import UIKit
+import SwiftUI
+
+struct BaseTabbarView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> BaseTabBarViewController {
+        return BaseTabBarViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: BaseTabBarViewController, context: Context) {
+        
+    }
+    
+    typealias UIViewControllerType = BaseTabBarViewController
+    
+    
+}
+
 
 class BaseTabBarViewController: AnimatedTabBarController {
 
