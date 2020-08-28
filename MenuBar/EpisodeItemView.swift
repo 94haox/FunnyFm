@@ -38,11 +38,13 @@ struct EpisodeItemView: View {
 					.font(.title2)
 					.foregroundColor(Color.accentColor)
 					.onTapGesture {
-
+                        FMPlayerManager.shared.config(episode)
+                        FMPlayerManager.shared.play()
 					}
 			}
 			.frame(width: 40, height: 40)
 			.cornerRadius(15)
+            Spacer()
 		}
 		.background(Color.white)
 		.padding(.vertical, 6)

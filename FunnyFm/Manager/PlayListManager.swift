@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import SwiftUI
 
-class PlayListManager: NSObject {
+class PlayListManager: ObservableObject {
 	
 	static let shared = PlayListManager()
 	
-	var playQueue: [Episode] = [Episode]()
+	@Published var playQueue: [Episode] = [Episode]()
 	
 	func updatePlayQueue(){
 		let playlist = DatabaseManager.allPlayItem()
@@ -30,7 +31,9 @@ class PlayListManager: NSObject {
 	func queueIn(episode: Episode) {
 		if isAlreadyIn(episode: episode) {
 			DispatchQueue.main.async {
+                #if canImport(UIKit)
 				SwiftNotice.noticeOnStatusBar("已在播放列表中".localized, autoClear: true, autoClearTime: 1)
+                #endif
 			}
 			return;
 		}

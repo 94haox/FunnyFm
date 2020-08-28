@@ -16,15 +16,23 @@ struct MenuBarView: View {
 	
 	@StateObject var manager: HandoffManager = HandoffManager.shared
 	
+    
+    
     var body: some View {
 		VStack {
 			CurrentPlayView(episode: manager.currentEpisode)
-			Group{
-				Divider()
-				List{
-					
-				}
-			}
+                .padding(.vertical, 12)
+            if PlayListManager.shared.playQueue.count > 1 {
+                Divider()
+                List{
+                    ForEach.init(PlayListManager.shared.playQueue) { item in
+                        if item.id != FMPlayerManager.shared.currentModel?.id {
+                            EpisodeItemView(episode: item)
+                                .frame(height: 60)
+                        }
+                    }
+                }
+            }
 		}
 		
     }

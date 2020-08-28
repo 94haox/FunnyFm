@@ -20,14 +20,5 @@ class HandoffManager: ObservableObject {
 	@Published var episodes = [Episode]()
 	
 	
-	func play() {
-		DispatchQueue.main.async {
-//			let player = AudioPlayer()
-//			player.delegate = self
-//			let item = AudioItem(mediumQualitySoundURL: URL.init(string: "https://a.anw.red/audio/anyway-112.mp3")!)
-//			player.play(item: item!)
-		}
-	}
-	
 }
 

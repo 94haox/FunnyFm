@@ -6,9 +6,13 @@
 //  Copyright © 2018 Duke. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
-import MediaPlayer
 import Nuke
+#endif
+
+import MediaPlayer
+
 
 enum MAudioPlayState {
     case playing
@@ -31,9 +35,10 @@ class FMPlayerManager: NSObject {
     var delegate: FMPlayerManagerDelegate?
 	
 	var playerDelegate: FMPlayerManagerDelegate?
-	
-//	var resourceLoaderManager: VIResourceLoaderManager = VIResourceLoaderManager()
+    
+    #if canImport(UIKit)
     var resourceLoaderManager = BCQResourceLoaderManager()
+    #endif
     /// 事件观察者
     var timerObserver: Any?
     
@@ -73,9 +78,11 @@ class FMPlayerManager: NSObject {
     
     override init() {
         super.init()
-		self.resourceLoaderManager.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(recivEndNotification(_:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        #if canImport(UIKit)
+        self.resourceLoaderManager.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(audioInterruptionAction), name: AVAudioSession.interruptionNotification, object: nil)
+        #endif
 		self.addRemoteCommand()
     }
     
@@ -85,6 +92,7 @@ class FMPlayerManager: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
 	
+    #if canImport(UIKit)
     func getChapters(completed: @escaping (([MNAVChapter]?)->Void)){
         DispatchQueue.global().async {
             guard let episode = self.currentModel else {
@@ -97,6 +105,7 @@ class FMPlayerManager: NSObject {
             completed(chapters)
         }
     }
+    #endif
 
 }
 
@@ -114,7 +123,9 @@ extension FMPlayerManager {
 			self.playerDelegate?.playerDidPlay()
             self.player?.rate = self.playRate
         }else{
+            #if canImport(UIKit)
             SwiftNotice.noticeOnStatusBar("暂时无法播放".localized, autoClear: true, autoClearTime: 1)
+            #endif
         }
     }
     
@@ -199,11 +210,13 @@ extension FMPlayerManager {
 		
         self.pause()
 		if self.currentModel.isSome {
+            #if canImport(UIKit)
 			PlayListManager.shared.queueOut(episode: self.currentModel!)
 			if PlayListManager.shared.playQueue.count > 0 {
 				let episode = PlayListManager.shared.playQueue.first!
 				FMToolBar.shared.configToolBarAtHome(episode)
 			}
+            #endif
 		}
     }
     
@@ -256,10 +269,13 @@ extension FMPlayerManager {
     func config(_ chapter:Episode) {
         if(self.currentModel != nil){ self.isFirst = false}
         self.currentModel = chapter
+        #if canImport(UIKit)
         configPlayBackgroungMode()
+        #endif
         self.setBackground()
 		var url = URL.init(string: chapter.trackUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!);
 		var item : AVPlayerItem;
+        #if canImport(UIKit)
 		if let episode = DatabaseManager.qureyDownload(title: chapter.title) {
 			url = self.completePath(episode)
 			let asset = AVAsset.init(url: url!)
@@ -269,6 +285,9 @@ extension FMPlayerManager {
 		}else{
 			item = AVPlayerItem.init(url: url!)
 		}
+        #else
+        item = AVPlayerItem.init(url: url!)
+        #endif
     
 		self.lastTime = self.checkProgress(chapter)
         self.changePlayItem(item)
@@ -358,6 +377,8 @@ extension FMPlayerManager {
 	
 }
 
+#if canImport(UIKit)
+
 extension FMPlayerManager: BCQResourceLoaderManagerDelegate {
     
     func resourceLoaderManager(_ manager: BCQResourceLoaderManager, didCompleteWithError error: Error?) {
@@ -365,6 +386,7 @@ extension FMPlayerManager: BCQResourceLoaderManagerDelegate {
     }
     
 }
+#endif
 
 
 
@@ -397,7 +419,9 @@ extension FMPlayerManager {
 		}
 	}
 	
+    
 	@objc func setBackground() {
+        #if canImport(UIKit)
 		var info = Dictionary<String, Any>()
 		info[MPMediaItemPropertyTitle] = self.currentModel?.title//歌名
 		info[MPMediaItemPropertyArtist] = self.currentModel?.author//作者
@@ -418,8 +442,7 @@ extension FMPlayerManager {
 		info[MPMediaItemPropertySkipCount] = NSNumber.init(value: 15)
 		MPNowPlayingInfoCenter.default().nowPlayingInfo = info
         UIApplication.shared.registerForRemoteNotifications()
-		
+        #endif
 	}
-    
     
 }

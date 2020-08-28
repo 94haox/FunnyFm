@@ -23,8 +23,11 @@ struct CurrentPlayView: View {
 					.font(.title2)
 					.foregroundColor(Color.accentColor)
 					.onTapGesture {
-                        let player = AVPlayer.init(url: URL(string: "https://a.anw.red/audio/anyway-113.mp3")!)
-                        player.playImmediately(atRate: 1)
+                        guard let item = episode else {
+                            return
+                        }
+                        FMPlayerManager.shared.config(item)
+                        FMPlayerManager.shared.play()
 					}
 				Text(Date.formatIntervalToHMS(Int(episode?.duration ?? 0)))
 					.font(.callout)

@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 
-struct Episode: Encodable {
+struct Episode: Encodable, Identifiable {
 	var collectionId:		  	String
     var title:                  String
     var intro:                  String

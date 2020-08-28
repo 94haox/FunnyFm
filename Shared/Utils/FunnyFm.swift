@@ -59,7 +59,11 @@ class FunnyFm: NSObject {
 	#endif
 	
     static func sharedUrl() -> URL?{
+        #if os(macOS)
+        return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
+        #else
         return try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        #endif
     }
     
     static func sharedDatabaseUrl() -> URL{

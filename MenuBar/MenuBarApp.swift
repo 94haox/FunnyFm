@@ -14,6 +14,9 @@ struct MenuBarApp: App {
     var body: some Scene {
 		WindowGroup {
 			MenuBarView()
+                .onAppear(perform: {
+                    DatabaseManager.setupDefaultDatabase()
+                })
 				.onContinueUserActivity("com.duke.www.FunnyFm", perform: handleContinue )
 				.onContinueUserActivity(CSSearchableItemActionType, perform: handleSpotlight)
 				.frame(width: 300, alignment: .leading)
@@ -29,6 +32,7 @@ struct MenuBarApp: App {
 		
 		if let data = userInfo["episode"] as? Data {
 			let episode = Episode.init(data: data)
+            PlayListManager.shared.queueIn(episode: episode)
 			HandoffManager.shared.currentEpisode = episode
 		}
 	}
