@@ -66,6 +66,7 @@
 		38DD7BB32499E3720070F56D /* UILocalizedIndexedCollation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BB22499E3720070F56D /* UILocalizedIndexedCollation.swift */; };
 		38DD7BB62499E3CE0070F56D /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BB42499E3CE0070F56D /* CountryCell.swift */; };
 		38DD7BB72499E3CE0070F56D /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BB52499E3CE0070F56D /* CountryCell.xib */; };
+		38DF10B824F670A8006E6D3C /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF10B724F670A8006E6D3C /* AVPlayerView.swift */; };
 		38E2723F248106DE00DC4BBA /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */; };
 		4F769A8080176C40D0A432D6 /* Pods_FunnyFmShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */; };
 		741C21D72483AF550030F6D3 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C21D62483AF550030F6D3 /* ArrowView.swift */; };
@@ -545,6 +546,7 @@
 		38DD7BB22499E3720070F56D /* UILocalizedIndexedCollation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILocalizedIndexedCollation.swift; sourceTree = "<group>"; };
 		38DD7BB42499E3CE0070F56D /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		38DD7BB52499E3CE0070F56D /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
+		38DF10B724F670A8006E6D3C /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		529B89C150EEC126FA5C4156 /* Pods-FunnyFmShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmShare/Pods-FunnyFmShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -1096,6 +1098,7 @@
 				3839E84B24EBAC3F00D38171 /* ClipApp.swift */,
 				38B65EAE24EE836B000637FF /* Channel.swift */,
 				3839E84D24EBAC3F00D38171 /* ContentView.swift */,
+				38DF10B724F670A8006E6D3C /* AVPlayerView.swift */,
 				3839E84F24EBAC8F00D38171 /* Assets.xcassets */,
 				3839E85424EBAC8F00D38171 /* Info.plist */,
 				3839E85524EBAC8F00D38171 /* Clip.entitlements */,
@@ -2394,6 +2397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38DF10B824F670A8006E6D3C /* AVPlayerView.swift in Sources */,
 				3839E84E24EBAC3F00D38171 /* ContentView.swift in Sources */,
 				38B65EAF24EE836B000637FF /* Channel.swift in Sources */,
 				3839E84C24EBAC3F00D38171 /* ClipApp.swift in Sources */,
