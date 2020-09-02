@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1E2EC24AACEB51930F0C1851 /* Pods_MenuBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C1F3AA0C9E3C29C32458F9 /* Pods_MenuBar.framework */; };
+		2B8E8D6524FFD6B300B5C228 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */; };
+		2B8E8D6724FFD87C00B5C228 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6624FFD87C00B5C228 /* SettingView.swift */; };
+		2B8E8D6924FFDA5D00B5C228 /* PlayerToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */; };
 		3803B3072492343F00A681E2 /* AppDelegate+notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */; };
 		3803B309249234AB00A681E2 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803B308249234AA00A681E2 /* AppDelegate+Push.swift */; };
 		380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */; };
@@ -519,6 +522,9 @@
 		022FBACF12FBB53BAE6A3BD7 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		225028D23A32C7657DDD1A52 /* Pods-MenuBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-MenuBar/Pods-MenuBar.release.xcconfig"; sourceTree = "<group>"; };
+		2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		2B8E8D6624FFD87C00B5C228 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerToolBarView.swift; sourceTree = "<group>"; };
 		2E57E88F5B842DCDE115E903 /* Pods_FunnyFmImport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFmImport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+notifications.swift"; sourceTree = "<group>"; };
 		3803B308249234AA00A681E2 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
@@ -1152,13 +1158,16 @@
 			children = (
 				38C1ABDE24E12A6D00097CFD /* MenuBarApp.swift */,
 				38C1ABEC24E12B2000097CFD /* MenuBarView.swift */,
+				2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */,
 				38D1132924E2438400EBE3ED /* EpisodeItemView.swift */,
+				2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */,
 				38D1132B24E2439E00EBE3ED /* CurrentPlayView.swift */,
 				38C1ABE224E12A7A00097CFD /* Assets.xcassets */,
 				38C1ABE724E12A7B00097CFD /* Info.plist */,
 				38C1ABE824E12A7B00097CFD /* MenuBar.entitlements */,
-				38C1ABE424E12A7B00097CFD /* Preview Content */,
 				38C1AC0724E13B8800097CFD /* HandoffManager.swift */,
+				2B8E8D6624FFD87C00B5C228 /* SettingView.swift */,
+				38C1ABE424E12A7B00097CFD /* Preview Content */,
 			);
 			path = MenuBar;
 			sourceTree = "<group>";
@@ -2511,9 +2520,11 @@
 				38C1ABFC24E1381200097CFD /* URLRequestExtensions.swift in Sources */,
 				38C1ABF524E135AB00097CFD /* Episode.swift in Sources */,
 				38D1132624E237D600EBE3ED /* PolicyView.swift in Sources */,
+				2B8E8D6724FFD87C00B5C228 /* SettingView.swift in Sources */,
 				38C1ABFA24E1381200097CFD /* NSPredicateExtensions.swift in Sources */,
 				38C1AC0224E1381200097CFD /* LocaleExtensions.swift in Sources */,
 				38C1ABFE24E1381200097CFD /* ArrayExtension.swift in Sources */,
+				2B8E8D6524FFD6B300B5C228 /* EmptyView.swift in Sources */,
 				38C1AC0124E1381200097CFD /* CalendarExtensions.swift in Sources */,
 				3856523E24F908D2002D56C1 /* PlayListManager.swift in Sources */,
 				38D11B2324E2637200EBE3ED /* PodAPI.swift in Sources */,
@@ -2523,6 +2534,7 @@
 				38C1ABFB24E1381200097CFD /* DataExtensions.swift in Sources */,
 				38D11B2524E263EA00EBE3ED /* UserCenter.swift in Sources */,
 				38D11B2424E2637200EBE3ED /* UserAPI.swift in Sources */,
+				2B8E8D6924FFDA5D00B5C228 /* PlayerToolBarView.swift in Sources */,
 				38D1132A24E2438400EBE3ED /* EpisodeItemView.swift in Sources */,
 				38D11B3224E265AB00EBE3ED /* ChapterProgress.swift in Sources */,
 				38D11B2D24E265AB00EBE3ED /* Message.swift in Sources */,

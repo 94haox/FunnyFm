@@ -18,11 +18,15 @@ struct MenuBarApp: App {
                     DatabaseManager.setupDefaultDatabase()
                 })
 				.onContinueUserActivity("com.duke.www.FunnyFm", perform: handleContinue )
-				.onContinueUserActivity(CSSearchableItemActionType, perform: handleSpotlight)
-				.frame(width: 300, alignment: .leading)
+				.frame(width: 400, alignment: .leading)
 				.background(Color.white)
-				
 		}
+        WindowGroup{
+            
+        }
+        Settings {
+            SettingView()
+        }
     }
 	
 	func handleContinue(_ activity: NSUserActivity) {

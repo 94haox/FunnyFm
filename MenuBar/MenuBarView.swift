@@ -14,13 +14,11 @@ var audioPlayer: AVAudioPlayer!
 
 struct MenuBarView: View {
 	
-	@StateObject var manager: HandoffManager = HandoffManager.shared
-	
-    
-    
     var body: some View {
 		VStack {
-			CurrentPlayView(episode: manager.currentEpisode)
+            PlayerToolBarView()
+                .frame(height: 60)
+            CurrentPlayView(episode: HandoffManager.shared.currentEpisode)
                 .padding(.vertical, 12)
             if PlayListManager.shared.playQueue.count > 1 {
                 Divider()
