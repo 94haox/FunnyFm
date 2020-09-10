@@ -28,11 +28,13 @@ class FeedParserJob: BaseJob {
         }
         let result = FeedParser.init(URL: url).parse()
         switch result {
-        case .rss(let rss):
-            self.formatResult(rss: rss)
+        case .success(let feed):
+            if let rss = feed.rssFeed {
+                self.formatResult(rss: rss)
+            }
+            break
         default:
             self.sendFailure()
-            return;
         }
     }
     

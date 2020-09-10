@@ -36,7 +36,7 @@ class CalendarCard: UIView {
 	
 	func config(dateString: String) {
 		let date = Date.from(string: dateString)
-		monthLB.text = date.monthName()
+        monthLB.text = date.monthName(ofStyle: Date.MonthNameStyle.threeLetters)
 		dayLB.text = "\(date.day)"
 	}
 	
