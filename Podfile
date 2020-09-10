@@ -3,14 +3,18 @@ use_frameworks! :linkage => :static
 inhibit_all_warnings!
 install! 'cocoapods', generate_multiple_pod_projects: true
 
-def shared
-
-#	pod 'ApplicationGroupKit'
-
+def ios_shared
 	pod 'SnapKit'
 	pod 'AutoInch'
-#	pod 'MicrosoftFluentUI'
-	
+end
+
+def apple_shared
+  
+  pod 'FeedKit'
+  pod 'WCDB.swift'
+  pod 'Moya'
+  pod 'SwiftyJSON'
+  
 end
 
 def layout
@@ -28,18 +32,14 @@ end
 def lib
     pod 'KeychainAccess'
 		pod 'Nuke'
-		pod 'FeedKit'
 		pod 'JPush'
     pod 'R.swift'
     pod 'SwiftyStoreKit'
-    pod 'WCDB.swift'
 end
 
 def network
 	
   pod 'ReachabilitySwift'
-  pod 'SwiftyJSON'
-  pod 'Moya'
   pod 'Tiercel'
   pod 'SwipeCellKit'
   
@@ -84,17 +84,15 @@ target "FunnyFm" do
     version
     authoration
     network
-		shared
+		ios_shared
+    apple_shared
 end
 
 target "MenuBar" do
+  
 	platform :macos, '11'
-	
-	pod 'Moya'
-#	pod 'Kingfisher/SwiftUI'
-	pod 'SwiftyJSON'
-	pod 'WCDB.swift'
-	pod 'FeedKit'
+  
+  apple_shared
 	
 end
 
@@ -105,7 +103,7 @@ target "FunnyFmImport" do
 	
 	platform :ios, '13.0'
 	
-	shared
+	ios_shared
 	
 end
 
@@ -113,7 +111,7 @@ target "FunnyFmShare" do
 	
 	platform :ios, '13.0'
 	
-	shared
+	ios_shared
 	
 end
 
