@@ -33,7 +33,7 @@ import Bugly
 		DatabaseManager.setupDefaultDatabase()
         VipManager.shared.completeTransactions()
         DownloadManager.shared.configSession();
-		FirebaseApp.configure()
+//		FirebaseApp.configure()
 		Bugly.start(withAppId: "fe63efca9b")
 		self.dw_addNotifies()
         configureNavigationTabBar()

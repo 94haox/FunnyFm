@@ -75,33 +75,33 @@ struct WelcomView: View {
                         .font(.callout)
                         .foregroundColor(Color(checkStatus))
                         .onTapGesture {
-                            if checkStatus == R.color.mainRed() {
-                                checkStatus = R.color.content()!
+                            if self.checkStatus == R.color.mainRed() {
+                                self.checkStatus = R.color.content()!
                             }else {
-                                checkStatus = R.color.mainRed()!
+                                self.checkStatus = R.color.mainRed()!
                             }
                         }
                     HStack{
                         Text("我已阅读并同意".localized)
                         Text("隐私政策".localized)
                             .onTapGesture {
-                                showPolicy = true
-                                showSheet = true
+                                self.showPolicy = true
+                                self.showSheet = true
                             }
                         Text("和".localized)
                         Text("使用条款".localized)
                             .onTapGesture {
-                                showPolicy = false
-                                showSheet = true
+                                self.showPolicy = false
+                                self.showSheet = true
                             }
                     }
                     .font(.caption)
                     .foregroundColor(Color(R.color.content()!))
                     .sheet(isPresented: $showSheet, onDismiss: {
-                        showPolicy = false
-                        showSheet = false
+                        self.showPolicy = false
+                        self.showSheet = false
                     }, content: {
-                        if showPolicy {
+                        if self.showPolicy {
                             PolicyView()
                         }else{
                             TermView()
