@@ -192,7 +192,8 @@ extension EpisodeInfoViewController {
 		}
         
         let container = TextContainer()
-        container.size = CGSize(width: kScreenWidth-16*2, height: CGFloat.greatestFiniteMagnitude);
+        container.size = CGSize(width: kScreenWidth, height: CGFloat.greatestFiniteMagnitude)
+        container.insets = UIEdgeInsets.init(horizontal: 16, vertical: 20)
         container.maximumNumberOfRows = 0;
         
 		self.episodeImageView.loadImage(url: episode.coverUrl)
@@ -246,6 +247,11 @@ extension EpisodeInfoViewController {
                 let layout = TextLayout(container: container, text: attrStr)
 				DispatchQueue.main.async {
                     self.infoTextView.textLayout = layout
+                    if let _ = layout {
+                        self.infoTextView.snp_makeConstraints { (make) in
+                            make.height.equalTo(layout!.textBoundingSize.height)
+                        }
+                    }
 					self.loadingView.removeSubviews()
 				}
 			}catch _ as NSError {
@@ -253,6 +259,11 @@ extension EpisodeInfoViewController {
                 let layout = TextLayout(container: container, text: content)
 				DispatchQueue.main.async {
                     self.infoTextView.textLayout = layout
+                    if let _ = layout {
+                        self.infoTextView.snp_makeConstraints { (make) in
+                            make.height.equalTo(layout!.textBoundingSize.height)
+                        }
+                    }
 					self.loadingView.removeSubviews()
 				}
 			}
@@ -371,7 +382,7 @@ extension EpisodeInfoViewController {
 		}
 		
 		self.containerView.snp.makeConstraints { (make) in
-			make.bottom.equalTo(self.infoTextView).offset(50)
+			make.bottom.equalTo(self.infoTextView).offset(10)
 		}
 		
 		self.loadingView.snp.makeConstraints { (make) in
