@@ -9,29 +9,17 @@
 import SwiftUI
 import AVFoundation
 
-
-var audioPlayer: AVAudioPlayer!
-
 struct MenuBarView: View {
-	
+    
+    @EnvironmentObject var playlistManager: PlayListManager
+    
     var body: some View {
 		VStack {
             PlayerToolBarView()
-                .frame(height: 60)
-            CurrentPlayView(episode: HandoffManager.shared.currentEpisode)
                 .padding(.vertical, 12)
-            if PlayListManager.shared.playQueue.count > 1 {
-                Divider()
-                List{
-                    ForEach.init(PlayListManager.shared.playQueue) { item in
-                        if item.id != FMPlayerManager.shared.currentModel?.id {
-                            EpisodeItemView(episode: item)
-                                .frame(height: 60)
-                        }
-                    }
-                }
-            }
-		}
+            PlayListView(playlist: playlistManager.playQueue)
+        }
+        
 		
     }
 }

@@ -21,6 +21,7 @@ class DatabaseManager: NSObject {
     static public var database : Database = Database(withFileURL: FunnyFm.sharedDatabaseUrl())
     
     static func setupDefaultDatabase(){
+        print(FunnyFm.sharedDatabaseUrl())
 		try! database.create(table: exsitPodTable, of: iTunsPod.self)
 		try! database.create(table: exsitEpisodeTable, of: Episode.self)
         try! database.create(table: historyTable, of: Episode.self)

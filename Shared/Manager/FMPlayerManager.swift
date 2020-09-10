@@ -10,7 +10,7 @@
 import UIKit
 import Nuke
 #endif
-
+import SwiftUI
 import MediaPlayer
 
 
@@ -28,7 +28,7 @@ protocol FMPlayerManagerDelegate {
     func managerDidChangeProgress(progess:Double, currentTime: Double, totalTime: Double)
 }
 
-class FMPlayerManager: NSObject {
+class FMPlayerManager: NSObject, ObservableObject {
     
     static let shared = FMPlayerManager()
     
@@ -43,12 +43,12 @@ class FMPlayerManager: NSObject {
     var timerObserver: Any?
     
     /// 是否在播放状态
-    var isPlay: Bool = false
+    @Published var isPlay: Bool = false
     
     var isFirst: Bool = true
     
     /// 资源是否成功加载
-    var isCanPlay: Bool = false
+    @Published var isCanPlay: Bool = false
 	
 	/// 播放倍速
 	var playRate: Float = 1
@@ -60,7 +60,7 @@ class FMPlayerManager: NSObject {
     var playerItem: AVPlayerItem?
     
     /// 当前时长
-    var currentTime: NSInteger = 0
+    @Published var currentTime: NSInteger = 0
     
     /// 总时长
     var totalTime: Double = 0
@@ -70,7 +70,7 @@ class FMPlayerManager: NSObject {
 	var lastTime: Double = 0
     
     /// 当前资源文件
-    var currentModel: Episode?
+    @Published var currentModel: Episode?
 	
 	var sleepTimer: Timer? = nil
 	

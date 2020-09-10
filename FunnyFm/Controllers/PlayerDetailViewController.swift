@@ -10,8 +10,6 @@ import UIKit
 import pop
 import Lottie
 import MediaPlayer
-import AVKit
-import SPLarkController
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	

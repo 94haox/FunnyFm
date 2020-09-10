@@ -43,6 +43,7 @@
 		387E7D652497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */; };
 		387E7E06249759DB00F9D2C1 /* OPMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744239EC2441F32A0015DB21 /* OPMLParser.swift */; };
 		387E7E082497742600F9D2C1 /* ImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7E072497742600F9D2C1 /* ImportManager.swift */; };
+		387F13312502576B0071799E /* PlayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F13302502576B0071799E /* PlayListView.swift */; };
 		38909F1A249C611700731587 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38909F19249C611700731587 /* CloudKit.framework */; };
 		38909F1C249C689F00731587 /* ListenTimeAnalystManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38909F1B249C689F00731587 /* ListenTimeAnalystManager.swift */; };
 		3898C7AF2474F1C200828A4A /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
@@ -553,6 +554,7 @@
 		3877FF45246941830096E2BD /* DownloadTask+Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadTask+Episode.swift"; sourceTree = "<group>"; };
 		387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionItemHandler.swift; sourceTree = "<group>"; };
 		387E7E072497742600F9D2C1 /* ImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportManager.swift; sourceTree = "<group>"; };
+		387F13302502576B0071799E /* PlayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListView.swift; sourceTree = "<group>"; };
 		38909F19249C611700731587 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		38909F1B249C689F00731587 /* ListenTimeAnalystManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenTimeAnalystManager.swift; sourceTree = "<group>"; };
 		3898C7AE2474F1C200828A4A /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
@@ -1158,6 +1160,7 @@
 			children = (
 				38C1ABDE24E12A6D00097CFD /* MenuBarApp.swift */,
 				38C1ABEC24E12B2000097CFD /* MenuBarView.swift */,
+				387F13302502576B0071799E /* PlayListView.swift */,
 				2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */,
 				38D1132924E2438400EBE3ED /* EpisodeItemView.swift */,
 				2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */,
@@ -1255,6 +1258,9 @@
 			isa = PBXGroup;
 			children = (
 				ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */,
+				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
+				AB4578C5233B4905001DF1D1 /* PlayListManager.swift */,
+				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1959,7 +1965,6 @@
 				AB7E1881238AB0C100D1C8AD /* CropAudioManager.h */,
 				AB7E1880238AB0C100D1C8AD /* CropAudioManager.m */,
 				AB7E187F238AB0C100D1C8AD /* SpeechManager.swift */,
-				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
 				AB2D266221DF5B4F00BF3391 /* PrivacyManager.swift */,
 				ABE765F021D6414C00470D8F /* PopManager.swift */,
 				AB09A53D21DDBACB00CB621C /* DownloadManager.swift */,
@@ -1968,9 +1973,7 @@
 				AB571D8C22B209E80021236C /* FeedManager.swift */,
 				ABDC4D2722CC9AF900EF31C0 /* PushManager.swift */,
 				ABA077A7231BB926006B2779 /* ImpactManager.swift */,
-				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
 				ABE9F4142329D45B000BED40 /* PreferenceCenter.swift */,
-				AB4578C5233B4905001DF1D1 /* PlayListManager.swift */,
 				AB287BD9234F4E1500ED5448 /* VipManager.swift */,
 				AB73173F239E4944000E1588 /* VersionManager.swift */,
 				AB14E1D823E803EA00E0FA38 /* ClientConfig.swift */,
@@ -2506,6 +2509,7 @@
 				38D11B3524E2667B00EBE3ED /* DatabaseManager.swift in Sources */,
 				38C1AC0424E1381200097CFD /* NSAttributedStringExtensions.swift in Sources */,
 				38C1AC0024E1381200097CFD /* UILocalizedIndexedCollation.swift in Sources */,
+				387F13312502576B0071799E /* PlayListView.swift in Sources */,
 				38D1132524E237D600EBE3ED /* SubscribtionView.swift in Sources */,
 				38D11B2E24E265AB00EBE3ED /* PlayItem.swift in Sources */,
 				38D1132C24E2439E00EBE3ED /* CurrentPlayView.swift in Sources */,

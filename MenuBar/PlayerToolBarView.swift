@@ -12,40 +12,28 @@ struct PlayerToolBarView: View {
     var body: some View {
         VStack {
             HStack {
-                HStack {
-                    HStack {
-                        Image(systemName: "shuffle")
-                            .resizable()
-                    }
-                    
-                    HStack {
-                        Image(systemName: "repeat")
-                            .resizable()
-                    }
+                HStack(spacing: 12){
+                    Image(systemName: "shuffle")
+                    Image(systemName: "repeat")
                 }
+                .font(.title2)
+                .padding(.leading, 16)
                 Spacer()
-                HStack {
-                    HStack {
-                        Image(systemName: "gobackward.10")
-                            .resizable()
-                    }
-                    HStack {
-                        Image(systemName: "play.fill")
-                            .resizable()
-                    }
-                    HStack {
-                        Image(systemName: "goforward.15")
-                            .resizable()
-                    }
+                HStack(spacing: 18){
+                    Image(systemName: "gobackward.10")
+                        .foregroundColor(Color.gray)
+                    Image(systemName: "play.fill")
+                    Image(systemName: "goforward.15")
+                        .foregroundColor(Color.gray)
                 }
+                .font(.title2)
                 Spacer()
                 HStack {
                     Text("72%")
-                    HStack {
-                        Image(systemName: "speaker.3.fill")
-                            .resizable()
-                    }
+                    Image(systemName: "speaker.3.fill")
+                        .font(.title2)
                 }
+                .padding(.trailing, 16)
             }
         }
     }

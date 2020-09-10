@@ -9,21 +9,26 @@
 import SwiftUI
 import CoreSpotlight
 
+
 @main
 struct MenuBarApp: App {
+        
+    var playlistManager: PlayListManager = PlayListManager()
+    
     var body: some Scene {
 		WindowGroup {
-			MenuBarView()
+            MenuBarView()
+                .environmentObject(playlistManager)
                 .onAppear(perform: {
                     DatabaseManager.setupDefaultDatabase()
+                    playlistManager.updatePlayQueue()
                 })
 				.onContinueUserActivity("com.duke.www.FunnyFm", perform: handleContinue )
-				.frame(width: 400, alignment: .leading)
-				.background(Color.white)
+                .onContinueUserActivity(CSSearchableItemActionType, perform: handleSpotlight)
+				.frame(width: 300, alignment: .leading)
+                .background(Color.white.opacity(0.9))
 		}
-        WindowGroup{
-            
-        }
+        .windowStyle(HiddenTitleBarWindowStyle())
         Settings {
             SettingView()
         }
@@ -36,7 +41,7 @@ struct MenuBarApp: App {
 		
 		if let data = userInfo["episode"] as? Data {
 			let episode = Episode.init(data: data)
-            PlayListManager.shared.queueIn(episode: episode)
+            playlistManager.queueIn(episode: episode)
 			HandoffManager.shared.currentEpisode = episode
 		}
 	}

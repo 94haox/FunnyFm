@@ -35,7 +35,6 @@ struct CurrentPlayView: View {
 			.frame(width: 40, height: 40)
 			.cornerRadius(15)
 		}
-		.padding(.horizontal, 12)
     }
 	
 	var leftView: some View {
