@@ -12,44 +12,49 @@ import KingfisherSwiftUI
 struct EpisodeItemView: View {
 	
 	var episode: Episode
-	
+    
+    @State var isHover: Bool = false
+    
+    @State var isShow: Bool = false
+    
+    @ObservedObject var playManager: FMPlayerManager
+    
     var body: some View {
-		HStack {
-			HStack {
-				KFImage(URL(string: episode.coverUrl))
-					.resizable()
-					.frame(width: 50, height: 50)
-			}
-			.background(Color.gray.opacity(0.2))
-			.cornerRadius(15)
-			
-			VStack(alignment:HorizontalAlignment.leading){
-				Text(episode.title)
-					.font(.headline)
-					.foregroundColor(Color.black.opacity(0.8))
-					.lineLimit(2)
-				Text(episode.author)
-					.font(.subheadline)
-					.foregroundColor(Color.gray.opacity(0.8))
-			}
-			Spacer()
-			HStack {
-				Image(systemName: "play.fill")
-					.font(.title2)
-					.foregroundColor(Color.accentColor)
-					.onTapGesture {
-                        FMPlayerManager.shared.config(episode)
-                        FMPlayerManager.shared.play()
-					}
-			}
-			.frame(width: 40, height: 40)
-			.cornerRadius(15)
-            Spacer()
-		}
+        VStack {
+            HStack {
+                HStack {
+                    KFImage(URL(string: episode.coverUrl))
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(15)
+                VStack(alignment:HorizontalAlignment.leading, spacing: 8){
+                    Text(episode.title)
+                        .font(.headline)
+                        .foregroundColor(Color.black.opacity(0.8))
+                        .lineLimit(2)
+                    HStack (spacing: 8){
+                        Text(episode.author)
+                        Text(Date.formatIntervalToString(NSInteger(episode.duration)))
+                        Spacer()
+                        Image(systemName: "doc.plaintext")
+                            .onTapGesture {
+                                
+                            }
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray.opacity(0.8))
+                }
+            }
+            if playManager.currentModel == episode {
+                PlayerToolBarView(playManager: playManager)
+            }
+        }
 		.background(Color.white)
 		.padding(.vertical, 6)
-		.padding(.horizontal, 12)
-
+        .cornerRadius(12)
+        .shadow(color: playManager.currentModel == episode ? Color.gray.opacity(0.1): .clear, radius: 12.0, x: 0, y: 0)
     }
 }
 

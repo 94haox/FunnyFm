@@ -90,7 +90,7 @@ import WCDBSwift
 
 extension Episode: TableCodable {
 	
-	enum CodingKeys : String ,CodingTableKey {
+	enum CodingKeys : String, CodingKey,CodingTableKey {
 		typealias Root = Episode
 		static let objectRelationalMapping = TableBinding(CodingKeys.self)
 		case title

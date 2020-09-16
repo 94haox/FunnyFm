@@ -10,14 +10,22 @@ import SwiftUI
 
 struct PlayListView: View {
     
-    @State var playlist: [Episode]
+    @Binding var playlist: [Episode]
     
     var body: some View {
-        ForEach(playlist) { item in
-            if item.id != FMPlayerManager.shared.currentModel?.id {
-                EpisodeItemView(episode: item)
+        List {
+            ForEach(playlist) { item in
+                if item.id != FMPlayerManager.shared.currentModel?.id {
+                    EpisodeItemView(episode: item, playManager: FMPlayerManager.shared)
+                        .onTapGesture {
+                            if FMPlayerManager.shared.currentModel != item {
+                                FMPlayerManager.shared.config(item)
+                            }
+                        }
+                }
             }
         }
+        .listStyle(PlainListStyle())
     }
 }
 

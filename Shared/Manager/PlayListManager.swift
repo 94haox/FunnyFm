@@ -11,9 +11,7 @@ import SwiftUI
 
 class PlayListManager: ObservableObject {
     
-    #if canImport(UIKit)
 	static let shared = PlayListManager()
-    #endif
     
 	@Published var playQueue: [Episode] = [Episode]()
 	

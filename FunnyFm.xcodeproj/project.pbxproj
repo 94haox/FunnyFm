@@ -56,7 +56,7 @@
 		38C1ABDF24E12A6D00097CFD /* MenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1ABDE24E12A6D00097CFD /* MenuBarApp.swift */; };
 		38C1ABE324E12A7B00097CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C1ABE224E12A7A00097CFD /* Assets.xcassets */; };
 		38C1ABE624E12A7B00097CFD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C1ABE524E12A7B00097CFD /* Preview Assets.xcassets */; };
-		38C1ABED24E12B2000097CFD /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1ABEC24E12B2000097CFD /* MenuBarView.swift */; };
+		38C1ABED24E12B2000097CFD /* PlayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1ABEC24E12B2000097CFD /* PlayContentView.swift */; };
 		38C1ABF524E135AB00097CFD /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE121952EAA00260851 /* Episode.swift */; };
 		38C1ABF924E1381200097CFD /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F921D7196700470D8F /* FileManagerExtensions.swift */; };
 		38C1ABFA24E1381200097CFD /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F521D7196700470D8F /* NSPredicateExtensions.swift */; };
@@ -79,6 +79,7 @@
 		38C2123C249718500022ECE6 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38332A5F24936A34009AC1A7 /* ActionViewController.swift */; };
 		38C212DD24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
 		38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
+		38CB77362511F9DA00FECB0D /* EpisodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB77352511F9DA00FECB0D /* EpisodeInfoView.swift */; };
 		38D1132424E237D600EBE3ED /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
 		38D1132524E237D600EBE3ED /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
 		38D1132624E237D600EBE3ED /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyView.swift */; };
@@ -572,12 +573,13 @@
 		38C1ABE524E12A7B00097CFD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		38C1ABE724E12A7B00097CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38C1ABE824E12A7B00097CFD /* MenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBar.entitlements; sourceTree = "<group>"; };
-		38C1ABEC24E12B2000097CFD /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		38C1ABEC24E12B2000097CFD /* PlayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayContentView.swift; sourceTree = "<group>"; };
 		38C1AC0724E13B8800097CFD /* HandoffManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandoffManager.swift; sourceTree = "<group>"; };
 		38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFmShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C21230249717EF0022ECE6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		38C21233249717EF0022ECE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		38C21235249717F00022ECE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38CB77352511F9DA00FECB0D /* EpisodeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoView.swift; sourceTree = "<group>"; };
 		38D1132924E2438400EBE3ED /* EpisodeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeItemView.swift; sourceTree = "<group>"; };
 		38D1132B24E2439E00EBE3ED /* CurrentPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlayView.swift; sourceTree = "<group>"; };
 		38DD7BAA2499E1050070F56D /* CountryCode.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CountryCode.xcassets; sourceTree = "<group>"; };
@@ -1159,7 +1161,7 @@
 			isa = PBXGroup;
 			children = (
 				38C1ABDE24E12A6D00097CFD /* MenuBarApp.swift */,
-				38C1ABEC24E12B2000097CFD /* MenuBarView.swift */,
+				38C1ABEC24E12B2000097CFD /* PlayContentView.swift */,
 				387F13302502576B0071799E /* PlayListView.swift */,
 				2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */,
 				38D1132924E2438400EBE3ED /* EpisodeItemView.swift */,
@@ -1170,6 +1172,7 @@
 				38C1ABE824E12A7B00097CFD /* MenuBar.entitlements */,
 				38C1AC0724E13B8800097CFD /* HandoffManager.swift */,
 				2B8E8D6624FFD87C00B5C228 /* SettingView.swift */,
+				38CB77352511F9DA00FECB0D /* EpisodeInfoView.swift */,
 				38C1ABE424E12A7B00097CFD /* Preview Content */,
 			);
 			path = MenuBar;
@@ -2503,7 +2506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D1132424E237D600EBE3ED /* TermView.swift in Sources */,
-				38C1ABED24E12B2000097CFD /* MenuBarView.swift in Sources */,
+				38C1ABED24E12B2000097CFD /* PlayContentView.swift in Sources */,
 				38D11B2A24E265A500EBE3ED /* iTunsPod.swift in Sources */,
 				38D11B2F24E265AB00EBE3ED /* Note.swift in Sources */,
 				38D11B3524E2667B00EBE3ED /* DatabaseManager.swift in Sources */,
@@ -2518,6 +2521,7 @@
 				38D11B2624E2640100EBE3ED /* OptionalExtension.swift in Sources */,
 				38D11B3024E265AB00EBE3ED /* Chapter.swift in Sources */,
 				38D11B2124E2637200EBE3ED /* FmHttp.swift in Sources */,
+				38CB77362511F9DA00FECB0D /* EpisodeInfoView.swift in Sources */,
 				38C1AC0824E13B8800097CFD /* HandoffManager.swift in Sources */,
 				38D11B3424E265AB00EBE3ED /* Favor.swift in Sources */,
 				385651A324F90367002D56C1 /* FMPlayerManager.swift in Sources */,

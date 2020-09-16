@@ -17,12 +17,11 @@ struct PlayContentView: View {
     @State var playQueue: [Episode] = DatabaseManager.allEpisodes(limit: 50)
     
     var body: some View {
-		VStack {
-            PlayerToolBarView()
-            PlayListView(playlist: $playQueue)
-        }.onAppear(){
-            self.playQueue = DatabaseManager.allEpisodes(limit: 50)
-        }
+        PlayListView(playlist: $playQueue)
+            .frame(minHeight: 200)
+            .onAppear(){
+                self.playQueue = DatabaseManager.allEpisodes(limit: 50)
+            }
     }
 }
 
