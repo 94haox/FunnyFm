@@ -38,10 +38,10 @@ struct EpisodeItemView: View {
                         Text(episode.author)
                         Text(Date.formatIntervalToString(NSInteger(episode.duration)))
                         Spacer()
-                        Image(systemName: "doc.plaintext")
-                            .onTapGesture {
-                                
-                            }
+                        NavigationLink(destination: EpisodeInfoView(info: episode.intro)){
+                            Image(systemName: "doc.plaintext")
+                                .frame(width: 25, height: 25)
+                        }
                     }
                     .font(.subheadline)
                     .foregroundColor(Color.gray.opacity(0.8))

@@ -80,6 +80,13 @@
 		38C212DD24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
 		38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
 		38CB77362511F9DA00FECB0D /* EpisodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB77352511F9DA00FECB0D /* EpisodeInfoView.swift */; };
+		38CB773A2512109200FECB0D /* SULottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB77392512109200FECB0D /* SULottieView.swift */; };
+		38CB77CB2512116800FECB0D /* SULottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB77392512109200FECB0D /* SULottieView.swift */; };
+		38CB77CD2512122900FECB0D /* empty.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38CB77CC2512122900FECB0D /* empty.gif */; };
+		38CB785F2512182800FECB0D /* SlideItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB785E2512182800FECB0D /* SlideItemsView.swift */; };
+		38CB7861251218F300FECB0D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB7860251218F300FECB0D /* LoginView.swift */; };
+		38CB786325121D6B00FECB0D /* FunnyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB786225121D6B00FECB0D /* FunnyMenu.swift */; };
+		38CB786425121E4D00FECB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		38D1132424E237D600EBE3ED /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
 		38D1132524E237D600EBE3ED /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
 		38D1132624E237D600EBE3ED /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyView.swift */; };
@@ -580,6 +587,11 @@
 		38C21233249717EF0022ECE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		38C21235249717F00022ECE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CB77352511F9DA00FECB0D /* EpisodeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoView.swift; sourceTree = "<group>"; };
+		38CB77392512109200FECB0D /* SULottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SULottieView.swift; sourceTree = "<group>"; };
+		38CB77CC2512122900FECB0D /* empty.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = empty.gif; sourceTree = "<group>"; };
+		38CB785E2512182800FECB0D /* SlideItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideItemsView.swift; sourceTree = "<group>"; };
+		38CB7860251218F300FECB0D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		38CB786225121D6B00FECB0D /* FunnyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyMenu.swift; sourceTree = "<group>"; };
 		38D1132924E2438400EBE3ED /* EpisodeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeItemView.swift; sourceTree = "<group>"; };
 		38D1132B24E2439E00EBE3ED /* CurrentPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlayView.swift; sourceTree = "<group>"; };
 		38DD7BAA2499E1050070F56D /* CountryCode.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CountryCode.xcassets; sourceTree = "<group>"; };
@@ -1160,6 +1172,7 @@
 		38C1ABDD24E12A6D00097CFD /* MenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				38CB77CC2512122900FECB0D /* empty.gif */,
 				38C1ABDE24E12A6D00097CFD /* MenuBarApp.swift */,
 				38C1ABEC24E12B2000097CFD /* PlayContentView.swift */,
 				387F13302502576B0071799E /* PlayListView.swift */,
@@ -1167,13 +1180,15 @@
 				38D1132924E2438400EBE3ED /* EpisodeItemView.swift */,
 				2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */,
 				38D1132B24E2439E00EBE3ED /* CurrentPlayView.swift */,
-				38C1ABE224E12A7A00097CFD /* Assets.xcassets */,
 				38C1ABE724E12A7B00097CFD /* Info.plist */,
 				38C1ABE824E12A7B00097CFD /* MenuBar.entitlements */,
 				38C1AC0724E13B8800097CFD /* HandoffManager.swift */,
 				2B8E8D6624FFD87C00B5C228 /* SettingView.swift */,
 				38CB77352511F9DA00FECB0D /* EpisodeInfoView.swift */,
 				38C1ABE424E12A7B00097CFD /* Preview Content */,
+				38CB785E2512182800FECB0D /* SlideItemsView.swift */,
+				38C1ABE224E12A7A00097CFD /* Assets.xcassets */,
+				38CB7860251218F300FECB0D /* LoginView.swift */,
 			);
 			path = MenuBar;
 			sourceTree = "<group>";
@@ -1222,6 +1237,7 @@
 				AB14DE9023E3286700E0FA38 /* PodcastCollection.swift */,
 				741F2732242381B5006F1DCE /* Chapter.swift */,
 				AB41AAE121952EAA00260851 /* Episode.swift */,
+				38CB786225121D6B00FECB0D /* FunnyMenu.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1232,6 +1248,7 @@
 				7423FDD424742B53008F7BFD /* PolicyView.swift */,
 				3898C7AE2474F1C200828A4A /* TermView.swift */,
 				38BC211124768999002B5CA4 /* SubscribtionView.swift */,
+				38CB77392512109200FECB0D /* SULottieView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2267,6 +2284,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C1ABE624E12A7B00097CFD /* Preview Assets.xcassets in Resources */,
+				38CB77CD2512122900FECB0D /* empty.gif in Resources */,
+				38CB786425121E4D00FECB0D /* Assets.xcassets in Resources */,
 				38C1ABE324E12A7B00097CFD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2506,6 +2525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D1132424E237D600EBE3ED /* TermView.swift in Sources */,
+				38CB773A2512109200FECB0D /* SULottieView.swift in Sources */,
 				38C1ABED24E12B2000097CFD /* PlayContentView.swift in Sources */,
 				38D11B2A24E265A500EBE3ED /* iTunsPod.swift in Sources */,
 				38D11B2F24E265AB00EBE3ED /* Note.swift in Sources */,
@@ -2519,9 +2539,11 @@
 				38C1AC0324E1381200097CFD /* StringExtension.swift in Sources */,
 				38C1AC0524E1381200097CFD /* UIViewControllerExtension.swift in Sources */,
 				38D11B2624E2640100EBE3ED /* OptionalExtension.swift in Sources */,
+				38CB785F2512182800FECB0D /* SlideItemsView.swift in Sources */,
 				38D11B3024E265AB00EBE3ED /* Chapter.swift in Sources */,
 				38D11B2124E2637200EBE3ED /* FmHttp.swift in Sources */,
 				38CB77362511F9DA00FECB0D /* EpisodeInfoView.swift in Sources */,
+				38CB786325121D6B00FECB0D /* FunnyMenu.swift in Sources */,
 				38C1AC0824E13B8800097CFD /* HandoffManager.swift in Sources */,
 				38D11B3424E265AB00EBE3ED /* Favor.swift in Sources */,
 				385651A324F90367002D56C1 /* FMPlayerManager.swift in Sources */,
@@ -2530,6 +2552,7 @@
 				38D1132624E237D600EBE3ED /* PolicyView.swift in Sources */,
 				2B8E8D6724FFD87C00B5C228 /* SettingView.swift in Sources */,
 				38C1ABFA24E1381200097CFD /* NSPredicateExtensions.swift in Sources */,
+				38CB7861251218F300FECB0D /* LoginView.swift in Sources */,
 				38C1AC0224E1381200097CFD /* LocaleExtensions.swift in Sources */,
 				38C1ABFE24E1381200097CFD /* ArrayExtension.swift in Sources */,
 				2B8E8D6524FFD6B300B5C228 /* EmptyView.swift in Sources */,
@@ -2759,6 +2782,7 @@
 				AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */,
 				AB7E1884238AB0C200D1C8AD /* SpeechManager.swift in Sources */,
 				ABEE40CC21E3246E00FCB16F /* MJRefreshConst.m in Sources */,
+				38CB77CB2512116800FECB0D /* SULottieView.swift in Sources */,
 				AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */,
 				7455CD3024152030004886EF /* RoundedButton.swift in Sources */,
 				AB63D9832316A98100F76F8E /* EpisodeInfoViewController.swift in Sources */,

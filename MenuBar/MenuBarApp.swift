@@ -15,20 +15,36 @@ struct MenuBarApp: App {
         
     var playlistManager: PlayListManager = PlayListManager.shared
     
-    @SceneBuilder var body: some Scene {
-		WindowGroup {
-            PlayContentView()
-                .environmentObject(playlistManager)
-				.onContinueUserActivity("com.duke.www.FunnyFm", perform: handleContinue )
-                .onContinueUserActivity(CSSearchableItemActionType, perform: handleSpotlight)
-				.frame(width: 400, alignment: .leading)
-                .background(Color.white.opacity(0.9))
-		}
-        .windowStyle(HiddenTitleBarWindowStyle())
+    @State var selected: FunnyMenu = FunnyMenu.now
+    
+    @State var isEmpty: Bool = true
+    
+    var body: some Scene {
         WindowGroup {
-            EpisodeInfoView()
+            
+            NavigationView{
+                    SlideItemsView(selected: $selected)
+                        .frame(minWidth: 120, minHeight: 300)
+                    Group{
+                        
+                        if selected == FunnyMenu.playList {
+                            PlayContentView()
+                                .environmentObject(playlistManager)
+                        }else if selected == FunnyMenu.discovery {
+                            EmptyView()
+                                .onAppear(){
+                                    isEmpty = DatabaseManager.allEpisodes(limit: 1).count < 1
+                                }
+                        }
+                    }
+                    .onContinueUserActivity("com.duke.www.FunnyFm", perform: handleContinue )
+                    .onContinueUserActivity(CSSearchableItemActionType, perform: handleSpotlight)
+                    .frame(minWidth:400)
+                }
+                .background(Color.white.opacity(0.9))
         }
         .windowStyle(HiddenTitleBarWindowStyle())
+
         Settings {
             SettingView()
         }

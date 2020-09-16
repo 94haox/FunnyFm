@@ -93,7 +93,6 @@ target "MenuBar" do
 	platform :macos, '11'
   
   apple_shared
-	
 end
 
 

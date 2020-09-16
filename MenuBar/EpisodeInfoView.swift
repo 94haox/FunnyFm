@@ -9,13 +9,10 @@
 import SwiftUI
 
 struct EpisodeInfoView: View {
+    var info: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(info)
     }
 }
 
-struct EpisodeInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        EpisodeInfoView()
-    }
-}
