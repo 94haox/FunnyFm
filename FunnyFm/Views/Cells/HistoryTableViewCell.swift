@@ -49,7 +49,7 @@ class HistoryTableViewCell: UITableViewCell {
 			self.lastTimeLB.text = "尚未播放".localized
 		}else if differ > 10{
 			self.progressBar.isHidden = false
-			self.lastTimeLB.text = FunnyFm.formatIntervalToHMS(NSInteger(differ)) + " " + "未播".localized
+			self.lastTimeLB.text = Date.formatIntervalToHMS(NSInteger(differ)) + " " + "未播".localized
 		}else{
 			self.lastTimeLB.text = "Finsh"
 		}

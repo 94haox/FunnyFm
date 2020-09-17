@@ -20,7 +20,7 @@ class NoteDetailViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.timeLB.text = FunnyFm.formatIntervalToMM(note!.noteMoment)
+		self.timeLB.text = Date.formatIntervalToMM(note!.noteMoment)
 		self.dateLB.text = note!.createTime
 		self.contentLB.text = note!.noteDesc
         switch note!.noteType {

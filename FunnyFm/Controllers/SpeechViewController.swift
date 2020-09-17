@@ -160,7 +160,7 @@ extension SpeechViewController {
         self.view.backgroundColor = CommonColor.white.color
 		self.convertTextView.isEditable = false
 		
-		self.rangeLB.text = "\(FunnyFm.formatIntervalToMM(startTime)) - \(FunnyFm.formatIntervalToMM(startTime+60))"
+		self.rangeLB.text = "\(Date.formatIntervalToMM(startTime)) - \(Date.formatIntervalToMM(startTime+60))"
 		
 		self.topView.layer.cornerRadius = 5
 		self.topView.layer.masksToBounds = true

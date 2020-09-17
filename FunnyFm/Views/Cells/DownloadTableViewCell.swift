@@ -49,7 +49,7 @@ class DownloadTableViewCell: UITableViewCell {
 		self.actionBtn.isSelected = false
 		self.titleLB.text = episode.title
 		if episode.downloadSize.length() < 1 {
-			self.addTimeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
+			self.addTimeLB.text = Date.formatIntervalToString(NSInteger(episode.duration))
 		}else{
 			self.addTimeLB.text = episode.downloadSize
 		}

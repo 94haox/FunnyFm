@@ -24,7 +24,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
 	
 	func config(note: Note){
 		self.descLB.text = note.noteDesc
-		self.timeLB.text = FunnyFm.formatIntervalToMM(note.noteMoment)
+		self.timeLB.text = Date.formatIntervalToMM(note.noteMoment)
 		
 		self.youImage.isHidden =  !(note.userId == UserCenter.shared.userId)
 		

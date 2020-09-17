@@ -10,8 +10,6 @@ import UIKit
 import pop
 import Lottie
 import MediaPlayer
-import AVKit
-import SPLarkController
 
 class PlayerDetailViewController: UIViewController,FMPlayerManagerDelegate {
 	
@@ -132,7 +130,7 @@ extension PlayerDetailViewController {
     }
     
     func managerDidChangeProgress(progess: Double, currentTime: Double, totalTime: Double) {
-        self.progressLine!.changeProgress(progress: progess, current: FunnyFm.formatIntervalToMM(NSInteger(currentTime)), total: FunnyFm.formatIntervalToMM(NSInteger(totalTime)-NSInteger(currentTime)))
+        self.progressLine!.changeProgress(progress: progess, current: Date.formatIntervalToMM(NSInteger(currentTime)), total: Date.formatIntervalToMM(NSInteger(totalTime)-NSInteger(currentTime)))
     }
     
 }
@@ -210,7 +208,7 @@ extension PlayerDetailViewController : ChapterProgressDelegate {
 			return
 		}
 		
-		let time = FunnyFm.formatIntervalToMM(NSInteger(FMPlayerManager.shared.totalTime * Double(progress)))
+		let time = Date.formatIntervalToMM(NSInteger(FMPlayerManager.shared.totalTime * Double(progress)))
 		self.hud.show(title: time)
 	}
 	
@@ -233,7 +231,7 @@ extension PlayerDetailViewController {
         }
         
         self.titleLB.text = self.episode.title.trim()
-        self.progressLine.allDot.text = "-" + FunnyFm.formatIntervalToMM(NSInteger(self.episode.duration))
+        self.progressLine.allDot.text = "-" + Date.formatIntervalToMM(NSInteger(self.episode.duration))
         self.coverImageView.loadImage(url: (self.episode?.coverUrl)!, placeholder: nil) { [weak self] (image) in
             self?.coverBackView.addShadow(ofColor: image.mostColor(), radius: 10, offset: CGSize.zero, opacity: 0.7)
         }

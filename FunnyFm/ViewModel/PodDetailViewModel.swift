@@ -47,45 +47,9 @@ class PodDetailViewModel: NSObject {
 			self.pod?.trackCount = "\(self.episodeList.count)"
 			self.delegate?.podDetailParserSuccess()
 		})
-//		FeedManager.shared.delegate = self
-//        if self.pod!.isNeedVpn {
-//            FeedManager.shared.parserByFeedKit(podcast: pod, complete: { isSuccess in
-//                self.episodeList = DatabaseManager.allEpisodes(pod: pod)
-//                self.pod = DatabaseManager.getPodcast(feedUrl: pod.feedUrl)
-//                self.pod?.trackCount = "\(self.episodeList.count)"
-//                self.delegate?.podDetailParserSuccess()
-//            })
-//        }else{
-//            FeedManager.shared.parserForSingle(feedUrl: pod.feedUrl, collectionId: pod.collectionId) { (podcast) in
-//                if let podcast_receive = podcast, podcast_receive.podId.length() > 0 {
-//                    self.pod = DatabaseManager.getPodcast(feedUrl:pod.feedUrl)
-//                    self.pod?.podDes = podcast!.description
-//                    self.pod?.trackCount = "\(self.episodeList.count)"
-//                    self.pod!.isNeedVpn = false
-//                }else{
-//                    self.pod!.isNeedVpn = true
-//                    self.parserNewChapter(pod: self.pod!)
-//                }
-//                DatabaseManager.updateItunsPod(pod: self.pod!)
-//                self.delegate?.podDetailParserSuccess()
-//            }
-//        }
 	}
 	
 	func getPodcastPrev(pod: iTunsPod){
-//		self.pod = pod
-//		FmHttp<iTunsPod>().requestForSingle(PodAPI.getPodcastPrev(pod.feedUrl), { (json) in
-//			var data = json["data"]
-//			if data["detail"]["rss_url"].stringValue.length() < 1{
-//				data["detail"]["rss_url"].stringValue = pod.feedUrl
-//			}
-//			self.pod = iTunsPod.init(jsonData: data["detail"])
-//			data["detail"]["items"].arrayValue.forEach({ (item) in
-//				let t = Episode.init(jsonData:item)!
-//				self.episodeList.append(t)
-//			})
-//			self.delegate?.podDetailParserSuccess()
-//		},nil)
 		FeedManager.shared.parserPrevByFeedKit(podcast: pod, complete: { (success, result) in
 			guard let tuple = result else {
 				return

@@ -190,7 +190,7 @@ extension FeedManager {
             complete?(false, nil)
             return
         }
-        FeedParser.init(URL: url).parseAsync { (result) in
+        FeedParser(URL: url).parseAsync { (result) in
             switch result {
                 case .success(let feed):
                     if let rss = feed.rssFeed, let items = rss.items {
@@ -203,7 +203,6 @@ extension FeedManager {
                 case .failure(_):
                     complete?(false, nil)
                     break
-
             }
         }
     }

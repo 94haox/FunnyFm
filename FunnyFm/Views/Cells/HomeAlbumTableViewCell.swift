@@ -66,7 +66,7 @@ class HomeAlbumTableViewCell: SwipeTableViewCell {
     func configHomeCell(_ episode:Episode){
         self.titleLB.text = episode.title
         self.updateLB.text = episode.pubDate
-		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
+		self.timeLB.text = Date.formatIntervalToString(NSInteger(episode.duration))
 		if episode.podCoverUrl.length() > 0 {
 			self.logoImageView.loadImage(url: episode.podCoverUrl)
 		}else{
@@ -82,7 +82,7 @@ class HomeAlbumTableViewCell: SwipeTableViewCell {
     func configCell(_ episode: Episode){
         self.titleLB.text = episode.title
 		self.updateLB.text = episode.pubDate
-		self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
+		self.timeLB.text = Date.formatIntervalToString(NSInteger(episode.duration))
 		if episode.coverUrl.length() > 0 {
 			self.logoImageView.loadImage(url: episode.coverUrl)
 		}else{
@@ -93,7 +93,7 @@ class HomeAlbumTableViewCell: SwipeTableViewCell {
     func configCell(animation episode: Episode) {
         self.titleLB.text = episode.title
         self.updateLB.text = episode.pubDate
-        self.timeLB.text = FunnyFm.formatIntervalToString(NSInteger(episode.duration))
+        self.timeLB.text = Date.formatIntervalToString(NSInteger(episode.duration))
         if episode.coverUrl.length() > 0 {
             self.logoImageView.loadImage(url: episode.coverUrl)
         }else{
