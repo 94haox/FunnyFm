@@ -24,7 +24,6 @@ def layout
     pod 'JXSegmentedView'
     pod 'DynamicColor', '~> 4.2.0'
     pod 'AutoInch'
-    pod 'MPITextKit'
     pod 'SCLAlertView'
     pod 'SPLarkController'
 		pod 'DNSPageView'
