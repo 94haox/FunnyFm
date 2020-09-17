@@ -7,25 +7,32 @@
 //
 
 import Foundation
+
+#if canImport(SwiftyJSON)
 import SwiftyJSON
+#endif
 
-
-struct Episode: Encodable, Identifiable {
-	var collectionId:		  	String
+struct Episode: Identifiable{
+    var collectionId:              String
     var title:                  String
     var intro:                  String
-	var author:                 String
-	var duration:               Double
-    var trackUrl:          	    String
-    var coverUrl:         		String
-	var podcastUrl: 			String
-	var podCoverUrl:         	String
-    var pubDate:         		String
-	var pubDateSecond:         	Int
+    var author:                 String
+    var duration:               Double
+    var trackUrl:                  String
+    var coverUrl:                 String
+    var podcastUrl:             String
+    var podCoverUrl:             String
+    var pubDate:                 String
+    var pubDateSecond:             Int
     var download_filpath:       String
-	var downloadSize: 			String
-	var id = UUID().uuidString
+    var downloadSize:             String
+    var id = UUID().uuidString
+}
+
+
+extension Episode: Codable {
 	
+    #if canImport(SwiftyJSON)
 	init?(jsonData:JSON) {
 		let time = jsonData["created"].intValue / 1000
 		title = jsonData["title"].stringValue
@@ -67,7 +74,7 @@ struct Episode: Encodable, Identifiable {
         collectionId = ""
         downloadSize = ""
     }
-    
+    #endif
         	
 	func isFavor(trackUrl:String) -> Bool{
 		return self.trackUrl == trackUrl
@@ -85,6 +92,7 @@ struct Episode: Encodable, Identifiable {
     
 }
 
+#if canImport(WCDBSwift)
 
 import WCDBSwift
 
@@ -110,6 +118,7 @@ extension Episode: TableCodable {
 	}
 
 }
+#endif
 
 
 import FeedKit

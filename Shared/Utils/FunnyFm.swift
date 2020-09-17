@@ -51,7 +51,7 @@ class FunnyFm: NSObject {
 	}
 	#endif
     
-	#if canImport(UIKit)
+	#if canImport(UIKit) && canImport(WCDBSwift)
 	static func attributePlaceholder(_ placeHolder:String)-> NSAttributedString{
 		let attr = NSAttributedString.init(string: placeHolder, attributes: [NSAttributedString.Key.font : pfont(12),NSAttributedString.Key.foregroundColor:CommonColor.content.color])
 		return attr

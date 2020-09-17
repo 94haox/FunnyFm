@@ -94,8 +94,17 @@ target "MenuBar" do
 	platform :macos, '11'
   
   apple_shared
+  
 end
 
+target "Clips" do
+  
+  platform :ios, '14'
+  
+  pod 'FeedKit'
+  pod 'Moya'
+  pod 'SwiftyJSON'
+end
 
 
 

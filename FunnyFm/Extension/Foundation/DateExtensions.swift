@@ -1114,9 +1114,9 @@ extension Date {
 	}
 	
 	static func formatIntervalToHMS(_ second: NSInteger) -> String {
-		let string = self.formatIntervalToString(second)
+        let string = self.formatIntervalToString(second).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 		
-		if string.trim().length() > 0{
+        if string.count > 0{
 			return string;
 		}
 		

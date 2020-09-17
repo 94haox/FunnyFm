@@ -19,7 +19,7 @@ class UserCenter: NSObject {
         }
         get {
             let userId = UserDefaults.standard.string(forKey: "userId")
-            if userId.isSome {
+            if userId != nil {
                 return userId!
             }
             return ""
@@ -33,7 +33,7 @@ class UserCenter: NSObject {
 		}
 		get {
 			let name = UserDefaults.standard.string(forKey: "name")
-			if name.isSome {
+			if name != nil {
 				return name!
 			}
 			return ""
@@ -47,7 +47,7 @@ class UserCenter: NSObject {
 		}
 		get {
 			let avatar = UserDefaults.standard.string(forKey: "avatar")
-			if avatar.isSome {
+			if avatar != nil {
 				return avatar!
 			}
 			return ""

@@ -88,7 +88,7 @@ public class FmHttp<T> where T: Mapable{
 									  _ failure: @escaping FailClosure){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
-			#if os(iOS)
+			#if os(iOS) && canImport(WCDBSwift)
 			Hud.shared.hide()
 			#endif
             switch result {
@@ -130,7 +130,7 @@ public class FmHttp<T> where T: Mapable{
 									   _ failure: @escaping FailClosure){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
-			#if os(iOS)
+			#if os(iOS) && canImport(WCDBSwift)
 			Hud.shared.hide()
 			#endif
             switch result {
@@ -167,7 +167,7 @@ public class FmHttp<T> where T: Mapable{
 									   _ failure: FailClosure?){
 		let provider = MoyaProvider<R>()
         provider.request(type) { (result) in
-			#if os(iOS)
+			#if os(iOS) && canImport(WCDBSwift)
 			Hud.shared.hide()
 			#endif
             switch result {
@@ -178,10 +178,10 @@ public class FmHttp<T> where T: Mapable{
                     let code = json["code"]
 					let resultCode = json["result"]
                     if code.intValue != 0 || resultCode.intValue != 1 {
-						if failure.isSome{
+						if failure != nil {
 							failure!(json["message"].string)
 						}else{
-							#if os(iOS)
+							#if os(iOS) && canImport(WCDBSwift)
 							SwiftNotice.showText(json["message"].stringValue)
 							#endif
 						}
@@ -189,20 +189,20 @@ public class FmHttp<T> where T: Mapable{
                     }
 					success(json)
                 }catch{
-					if failure.isSome {
+					if failure != nil {
 						failure!("数据解析失败")
 					}else{
-						#if os(iOS)
+						#if os(iOS) && canImport(WCDBSwift)
 						SwiftNotice.showText("数据解析失败")
 						#endif
 					}
                 }
             case .failure(_):
                 print("error")
-				if failure.isSome {
+				if failure != nil {
 					failure!("未连接到服务器")
 				}else{
-					#if os(iOS)
+					#if os(iOS) && canImport(WCDBSwift)
 					SwiftNotice.showText("网络貌似有些问题，请稍候重试")
 					#endif
 				}

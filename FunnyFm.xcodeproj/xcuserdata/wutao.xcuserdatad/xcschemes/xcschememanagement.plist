@@ -4,10 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Clip.xcscheme_^#shared#^_</key>
+		<key>Clips.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>63</integer>
 		</dict>
 		<key>FunnyFm.xcscheme_^#shared#^_</key>
 		<dict>
@@ -33,7 +33,7 @@
 		<key>MenuBar.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>62</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -54,6 +54,11 @@
 			<true/>
 		</dict>
 		<key>38C2122D249717EF0022ECE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>38F0266125135879002F6F28</key>
 		<dict>
 			<key>primary</key>
 			<true/>
