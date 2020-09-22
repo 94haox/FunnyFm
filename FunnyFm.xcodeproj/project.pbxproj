@@ -38,12 +38,6 @@
 		386B06D82480F2060095C7AB /* JellySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386B06D72480F2060095C7AB /* JellySlider.swift */; };
 		386B076F2480F40E0095C7AB /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 386B076D2480F40D0095C7AB /* spark.png */; };
 		386B07702480F40E0095C7AB /* SplashParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 386B076E2480F40E0095C7AB /* SplashParticle.sks */; };
-		386C932325136C9F00173B7F /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
-		386C940525136D7300173B7F /* FmHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE42195333000260851 /* FmHttp.swift */; };
-		386C940B25136D7700173B7F /* PodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE72195343200260851 /* PodAPI.swift */; };
-		386C95C625136FAF00173B7F /* UserCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471321EAF7EE00212DCA /* UserCenter.swift */; };
-		386C95EE2513736100173B7F /* EpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386C95ED2513736100173B7F /* EpisodeListView.swift */; };
-		386C9600251377EA00173B7F /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386C95FF251377EA00173B7F /* FeedManager.swift */; };
 		3877FF46246941830096E2BD /* DownloadTask+Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877FF45246941830096E2BD /* DownloadTask+Episode.swift */; };
 		387E7D642497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */; };
 		387E7D652497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */; };
@@ -126,18 +120,6 @@
 		38DD7BB62499E3CE0070F56D /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BB42499E3CE0070F56D /* CountryCell.swift */; };
 		38DD7BB72499E3CE0070F56D /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BB52499E3CE0070F56D /* CountryCell.xib */; };
 		38E2723F248106DE00DC4BBA /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */; };
-		38F0266525135879002F6F28 /* ClipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F0266425135879002F6F28 /* ClipsApp.swift */; };
-		38F0266725135879002F6F28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F0266625135879002F6F28 /* ContentView.swift */; };
-		38F026692513587A002F6F28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F026682513587A002F6F28 /* Assets.xcassets */; };
-		38F0266C2513587A002F6F28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F0266B2513587A002F6F28 /* Preview Assets.xcassets */; };
-		38F026712513587A002F6F28 /* Clips.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 38F0266225135879002F6F28 /* Clips.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		38F0267B251359CF002F6F28 /* EpisodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F0267A251359CF002F6F28 /* EpisodeInfoView.swift */; };
-		38F02682251359E6002F6F28 /* PodcastDetaliView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F02681251359E6002F6F28 /* PodcastDetaliView.swift */; };
-		38F02689251359FA002F6F28 /* EpisodeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F02688251359FA002F6F28 /* EpisodeItemView.swift */; };
-		38F0284225135E1B002F6F28 /* PodcastHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F0284125135E1B002F6F28 /* PodcastHeaderView.swift */; };
-		38F0284D25135FBA002F6F28 /* iTunsPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */; };
-		38F0292B2513643B002F6F28 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE121952EAA00260851 /* Episode.swift */; };
-		38F02A0A25136513002F6F28 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FC21D7196700470D8F /* DateExtensions.swift */; };
 		4F769A8080176C40D0A432D6 /* Pods_FunnyFmShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */; };
 		741C21D72483AF550030F6D3 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C21D62483AF550030F6D3 /* ArrowView.swift */; };
 		741C22832483B0AB0030F6D3 /* Panelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C227B2483B0AB0030F6D3 /* Panelable.swift */; };
@@ -195,7 +177,6 @@
 		7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6772417AD44007E5319 /* CloudParserJob.swift */; };
 		74C9DF76243E01DC000B1745 /* GuideTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DF75243E01DC000B1745 /* GuideTipView.swift */; };
 		74E92F832430842A00A0F64A /* first_ads.json in Resources */ = {isa = PBXBuildFile; fileRef = 74E92F822430842A00A0F64A /* first_ads.json */; };
-		82384FD779A3FF046293F621 /* Pods_Clips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDF8940DF00C37D59020312 /* Pods_Clips.framework */; };
 		AB00BC332394A87900893325 /* NoteEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB00BC312394A87900893325 /* NoteEditViewController.xib */; };
 		AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00BC322394A87900893325 /* NoteEditViewController.swift */; };
 		AB08F099233DEE0000B93D31 /* UIButton+SomeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */; };
@@ -509,13 +490,6 @@
 			remoteGlobalIDString = 38C2122D249717EF0022ECE6;
 			remoteInfo = FunnyFmShare;
 		};
-		38F0266F2513587A002F6F28 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 38F0266125135879002F6F28;
-			remoteInfo = Clips;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -525,7 +499,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
 			dstSubfolderSpec = 16;
 			files = (
-				38F026712513587A002F6F28 /* Clips.app in Embed App Clips */,
 			);
 			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,8 +560,6 @@
 		386B06D72480F2060095C7AB /* JellySlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellySlider.swift; sourceTree = "<group>"; };
 		386B076D2480F40D0095C7AB /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		386B076E2480F40E0095C7AB /* SplashParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SplashParticle.sks; sourceTree = "<group>"; };
-		386C95ED2513736100173B7F /* EpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
-		386C95FF251377EA00173B7F /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		3877FF45246941830096E2BD /* DownloadTask+Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadTask+Episode.swift"; sourceTree = "<group>"; };
 		387E7D632497252700F9D2C1 /* ExtensionItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionItemHandler.swift; sourceTree = "<group>"; };
 		387E7E072497742600F9D2C1 /* ImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportManager.swift; sourceTree = "<group>"; };
@@ -632,17 +603,6 @@
 		38DD7BB42499E3CE0070F56D /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		38DD7BB52499E3CE0070F56D /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
 		38E2723D248106DE00DC4BBA /* FunctionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
-		38F0266225135879002F6F28 /* Clips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clips.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		38F0266425135879002F6F28 /* ClipsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipsApp.swift; sourceTree = "<group>"; };
-		38F0266625135879002F6F28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		38F026682513587A002F6F28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		38F0266B2513587A002F6F28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		38F0266D2513587A002F6F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38F0266E2513587A002F6F28 /* Clips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clips.entitlements; sourceTree = "<group>"; };
-		38F0267A251359CF002F6F28 /* EpisodeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoView.swift; sourceTree = "<group>"; };
-		38F02681251359E6002F6F28 /* PodcastDetaliView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetaliView.swift; sourceTree = "<group>"; };
-		38F02688251359FA002F6F28 /* EpisodeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeItemView.swift; sourceTree = "<group>"; };
-		38F0284125135E1B002F6F28 /* PodcastHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastHeaderView.swift; sourceTree = "<group>"; };
 		47C1F3AA0C9E3C29C32458F9 /* Pods_MenuBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MenuBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		529B89C150EEC126FA5C4156 /* Pods-FunnyFmShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmShare/Pods-FunnyFmShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -1141,14 +1101,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		38F0265F25135879002F6F28 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82384FD779A3FF046293F621 /* Pods_Clips.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AB25797621945E6F004C5F5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1350,33 +1302,6 @@
 			path = CountryCode;
 			sourceTree = "<group>";
 		};
-		38F0266325135879002F6F28 /* Clips */ = {
-			isa = PBXGroup;
-			children = (
-				38F0266425135879002F6F28 /* ClipsApp.swift */,
-				38F0284125135E1B002F6F28 /* PodcastHeaderView.swift */,
-				38F02681251359E6002F6F28 /* PodcastDetaliView.swift */,
-				38F0267A251359CF002F6F28 /* EpisodeInfoView.swift */,
-				38F02688251359FA002F6F28 /* EpisodeItemView.swift */,
-				38F0266625135879002F6F28 /* ContentView.swift */,
-				38F026682513587A002F6F28 /* Assets.xcassets */,
-				38F0266D2513587A002F6F28 /* Info.plist */,
-				38F0266E2513587A002F6F28 /* Clips.entitlements */,
-				38F0266A2513587A002F6F28 /* Preview Content */,
-				386C95ED2513736100173B7F /* EpisodeListView.swift */,
-				386C95FF251377EA00173B7F /* FeedManager.swift */,
-			);
-			path = Clips;
-			sourceTree = "<group>";
-		};
-		38F0266A2513587A002F6F28 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				38F0266B2513587A002F6F28 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		741C22702483B08C0030F6D3 /* Panels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1560,7 +1485,6 @@
 				38332A5C24936A34009AC1A7 /* FunnyFmImport */,
 				38C2122F249717EF0022ECE6 /* FunnyFmShare */,
 				38C1ABDD24E12A6D00097CFD /* MenuBar */,
-				38F0266325135879002F6F28 /* Clips */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -1574,7 +1498,6 @@
 				38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */,
 				38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */,
 				38C1ABDC24E12A6D00097CFD /* MenuBar.app */,
-				38F0266225135879002F6F28 /* Clips.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2259,24 +2182,6 @@
 			productReference = 38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		38F0266125135879002F6F28 /* Clips */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 38F026722513587B002F6F28 /* Build configuration list for PBXNativeTarget "Clips" */;
-			buildPhases = (
-				8911F9D75A1B83C41F02E87C /* [CP] Check Pods Manifest.lock */,
-				38F0265E25135879002F6F28 /* Sources */,
-				38F0265F25135879002F6F28 /* Frameworks */,
-				38F0266025135879002F6F28 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Clips;
-			productName = Clips;
-			productReference = 38F0266225135879002F6F28 /* Clips.app */;
-			productType = "com.apple.product-type.application.on-demand-install-capable";
-		};
 		AB25797821945E6F004C5F5D /* FunnyFm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB25798B21945E70004C5F5D /* Build configuration list for PBXNativeTarget "FunnyFm" */;
@@ -2296,7 +2201,6 @@
 			dependencies = (
 				38332A6624936A34009AC1A7 /* PBXTargetDependency */,
 				38C21237249717F00022ECE6 /* PBXTargetDependency */,
-				38F026702513587A002F6F28 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
@@ -2321,9 +2225,6 @@
 					};
 					38C2122D249717EF0022ECE6 = {
 						CreatedOnToolsVersion = 11.3.1;
-					};
-					38F0266125135879002F6F28 = {
-						CreatedOnToolsVersion = 12.0;
 					};
 					AB25797821945E6F004C5F5D = {
 						CreatedOnToolsVersion = 10.1;
@@ -2369,7 +2270,6 @@
 				38332A5A24936A34009AC1A7 /* FunnyFmImport */,
 				38C2122D249717EF0022ECE6 /* FunnyFmShare */,
 				38C1ABDB24E12A6C00097CFD /* MenuBar */,
-				38F0266125135879002F6F28 /* Clips */,
 			);
 		};
 /* End PBXProject section */
@@ -2401,15 +2301,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C21234249717F00022ECE6 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38F0266025135879002F6F28 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38F0266C2513587A002F6F28 /* Preview Assets.xcassets in Resources */,
-				38F026692513587A002F6F28 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2598,28 +2489,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
-		8911F9D75A1B83C41F02E87C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Clips-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E68795BA86A50169587D3F85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2724,28 +2593,6 @@
 				38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */,
 				387E7D652497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */,
 				38C21231249717EF0022ECE6 /* ShareViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38F0265E25135879002F6F28 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38F0284225135E1B002F6F28 /* PodcastHeaderView.swift in Sources */,
-				386C95C625136FAF00173B7F /* UserCenter.swift in Sources */,
-				38F0292B2513643B002F6F28 /* Episode.swift in Sources */,
-				38F0266725135879002F6F28 /* ContentView.swift in Sources */,
-				38F0284D25135FBA002F6F28 /* iTunsPod.swift in Sources */,
-				386C940B25136D7700173B7F /* PodAPI.swift in Sources */,
-				386C9600251377EA00173B7F /* FeedManager.swift in Sources */,
-				38F0267B251359CF002F6F28 /* EpisodeInfoView.swift in Sources */,
-				386C940525136D7300173B7F /* FmHttp.swift in Sources */,
-				38F02A0A25136513002F6F28 /* DateExtensions.swift in Sources */,
-				38F02682251359E6002F6F28 /* PodcastDetaliView.swift in Sources */,
-				386C95EE2513736100173B7F /* EpisodeListView.swift in Sources */,
-				38F0266525135879002F6F28 /* ClipsApp.swift in Sources */,
-				38F02689251359FA002F6F28 /* EpisodeItemView.swift in Sources */,
-				386C932325136C9F00173B7F /* FunnyFm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3081,11 +2928,6 @@
 			isa = PBXTargetDependency;
 			target = 38C2122D249717EF0022ECE6 /* FunnyFmShare */;
 			targetProxy = 38C21236249717F00022ECE6 /* PBXContainerItemProxy */;
-		};
-		38F026702513587A002F6F28 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 38F0266125135879002F6F28 /* Clips */;
-			targetProxy = 38F0266F2513587A002F6F28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3428,64 +3270,6 @@
 			};
 			name = Release;
 		};
-		38F026732513587B002F6F28 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C6682CB4BEBA0B925446DED /* Pods-Clips.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = Clips/Clips.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Clips/Preview Content\"";
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Clips/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 2.5.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.Clip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		38F026742513587B002F6F28 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9700F3B756405F3DCD07756 /* Pods-Clips.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = Clips/Clips.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Clips/Preview Content\"";
-				DEVELOPMENT_TEAM = F3PARDF2VE;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Clips/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 2.5.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.Clip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		AB25798921945E70004C5F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3815,15 +3599,6 @@
 			buildConfigurations = (
 				38C2123A249717F00022ECE6 /* Debug */,
 				38C2123B249717F00022ECE6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		38F026722513587B002F6F28 /* Build configuration list for PBXNativeTarget "Clips" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				38F026732513587B002F6F28 /* Debug */,
-				38F026742513587B002F6F28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

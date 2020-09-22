@@ -64,7 +64,7 @@ struct iTunsPod: Mapable, Identifiable {
 #if canImport(WCDBSwift)
 import WCDBSwift
 
-extension iTunsPod: Mapable, TableCodable {
+extension iTunsPod: TableCodable {
     
     #if os(iOS)
     
