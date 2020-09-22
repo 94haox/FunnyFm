@@ -18,6 +18,7 @@ class DownloadTableViewCell: UITableViewCell {
 	var task: DownloadTask?
 	let progressBg = UIView()
 	var deleteClosure : (()->Void)?
+    var downloadSuccess : (()->Void)?
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -105,6 +106,7 @@ extension DownloadTableViewCell: DownloadManagerDelegate{
 		DispatchQueue.main.async {
 			self.actionBtn.isSelected = false
 		}
+        self.downloadSuccess?()
 	}
 	
 	func didDownloadFailure(sourceUrl: String) {

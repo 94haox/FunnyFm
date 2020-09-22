@@ -68,7 +68,7 @@ class GFLimitTextView: UIView, UITextViewDelegate {
 				make.right.equalToSuperview().offset(-14)
 			}
 			
-			self.layer.borderColor = R.color.mainRed()!.lighter().cgColor
+            self.layer.borderColor = R.color.mainRed()!.cgColor
 			self.layer.borderWidth = 1
 			
 			UIView.animate(withDuration: 0.05, animations: {

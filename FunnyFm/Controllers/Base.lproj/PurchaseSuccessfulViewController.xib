@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -68,10 +69,10 @@
                     <rect key="frame" x="30" y="276" width="354" height="240"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WHP-Fp-5Q4">
-                            <rect key="frame" x="53.5" y="45" width="247" height="150"/>
+                            <rect key="frame" x="54" y="45" width="246.5" height="150"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rNZ-Jn-uZk">
-                                    <rect key="frame" x="0.0" y="0.0" width="247" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="246.5" height="17"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="category" translatesAutoresizingMaskIntoConstraints="NO" id="bHq-SV-lbx">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
@@ -84,7 +85,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部功能解锁，无限制使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXl-l7-dkF">
-                                            <rect key="frame" x="60" y="0.0" width="187" height="17"/>
+                                            <rect key="frame" x="60" y="0.0" width="186.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" name="title"/>
                                             <nil key="highlightedColor"/>
@@ -99,7 +100,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ti6-1o-mAm">
-                                    <rect key="frame" x="0.0" y="33" width="247" height="17.5"/>
+                                    <rect key="frame" x="0.0" y="33" width="246.5" height="17.5"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud-sync" translatesAutoresizingMaskIntoConstraints="NO" id="Fgg-Dw-EUJ">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17.5"/>
@@ -112,7 +113,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多平台，多设备数据同步" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bE-xT-Fvz">
-                                            <rect key="frame" x="60" y="0.0" width="187" height="17.5"/>
+                                            <rect key="frame" x="60" y="0.0" width="186.5" height="17.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" name="title"/>
                                             <nil key="highlightedColor"/>
@@ -127,7 +128,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Pf-t1-QH5">
-                                    <rect key="frame" x="0.0" y="66.5" width="247" height="17"/>
+                                    <rect key="frame" x="0.0" y="66.5" width="246.5" height="17"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="Pfw-te-5Ow">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
@@ -140,7 +141,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单集更新及时通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZB-CC-RKF">
-                                            <rect key="frame" x="60" y="0.0" width="187" height="17"/>
+                                            <rect key="frame" x="60" y="0.0" width="186.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" name="title"/>
                                             <nil key="highlightedColor"/>
@@ -155,7 +156,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vbn-5D-YN1">
-                                    <rect key="frame" x="0.0" y="99.5" width="247" height="17.5"/>
+                                    <rect key="frame" x="0.0" y="99.5" width="246.5" height="17.5"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adblock" translatesAutoresizingMaskIntoConstraints="NO" id="7CC-yf-D1A">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17.5"/>
@@ -168,7 +169,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全功能去除广告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovd-9p-1Wc">
-                                            <rect key="frame" x="60" y="0.0" width="187" height="17.5"/>
+                                            <rect key="frame" x="60" y="0.0" width="186.5" height="17.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" name="title"/>
                                             <nil key="highlightedColor"/>
@@ -183,7 +184,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sfA-YW-sbs">
-                                    <rect key="frame" x="0.0" y="133" width="247" height="17"/>
+                                    <rect key="frame" x="0.0" y="133" width="246.5" height="17"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VIP" translatesAutoresizingMaskIntoConstraints="NO" id="tch-hl-3y2">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
@@ -196,7 +197,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多专属 Pro 用户的实用功能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cJ-uc-FTh">
-                                            <rect key="frame" x="60" y="0.0" width="187" height="17"/>
+                                            <rect key="frame" x="60" y="0.0" width="186.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" name="title"/>
                                             <nil key="highlightedColor"/>
@@ -211,7 +212,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" name="background"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="VRc-U4-Qb3"/>
                             </constraints>
@@ -239,6 +240,7 @@
                     <rect key="frame" x="130.5" y="705" width="153" height="177"/>
                 </imageView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="ffWhite"/>
             <constraints>
                 <constraint firstItem="DbP-Gb-pMy" firstAttribute="width" secondItem="wYy-2b-RJO" secondAttribute="width" id="UIG-Sg-YCp"/>
@@ -251,7 +253,6 @@
                 <constraint firstItem="wYy-2b-RJO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="uLD-Jd-qOp"/>
                 <constraint firstItem="pV1-kG-EWw" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="x4u-7w-4g0"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="757" y="84"/>
         </view>
     </objects>
@@ -263,9 +264,6 @@
         <image name="message" width="66.666664123535156" height="66.666664123535156"/>
         <image name="purchase_success" width="153" height="177"/>
         <image name="success" width="33.333332061767578" height="33.333332061767578"/>
-        <namedColor name="background">
-            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="content">
             <color red="0.72549019607843135" green="0.73333333333333328" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

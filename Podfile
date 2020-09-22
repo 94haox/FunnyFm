@@ -18,14 +18,12 @@ def apple_shared
 end
 
 def layout
-    pod 'pop', '~> 1.0'
+    pod 'pop'
     pod 'SHFullscreenPopGestureSwift'
-    pod 'lottie-ios', '3.1.1'
+    pod 'lottie-ios'
     pod 'JXSegmentedView'
-    pod 'DynamicColor', '~> 4.2.0'
     pod 'AutoInch'
     pod 'SCLAlertView'
-    pod 'SPLarkController'
 		pod 'DNSPageView'
     pod 'BSText'
 end
@@ -36,11 +34,10 @@ def lib
 		pod 'JPush'
     pod 'R.swift'
     pod 'SwiftyStoreKit'
+    pod 'ReachabilitySwift'
 end
 
 def network
-	
-  pod 'ReachabilitySwift'
   pod 'Tiercel'
   pod 'SwipeCellKit'
   
@@ -65,7 +62,7 @@ end
 def ads
 #	pod 'Google-Mobile-Ads-SDK'
 #	pod 'mopub-ios-sdk'
-	pod 'FBAudienceNetwork'
+#	pod 'FBAudienceNetwork'
 end
 
 # 性能和崩溃分析
@@ -76,7 +73,7 @@ def performance
 end
 
 target "FunnyFm" do
-		platform :ios, '13.0'
+		platform :ios, '14.0'
 	
 		ads
 		performance
@@ -97,20 +94,20 @@ target "MenuBar" do
   
 end
 
-target "Clips" do
-  
-  platform :ios, '14'
-  
-  pod 'FeedKit'
-  pod 'Moya'
-  pod 'SwiftyJSON'
-end
+#target "Clips" do
+#  
+#  platform :ios, '14'
+#  
+#  pod 'FeedKit'
+#  pod 'Moya'
+#  pod 'SwiftyJSON'
+#end
 
 
 
 target "FunnyFmImport" do
 	
-	platform :ios, '13.0'
+	platform :ios, '14.0'
 	
 	ios_shared
 	
@@ -118,7 +115,7 @@ end
 
 target "FunnyFmShare" do
 	
-	platform :ios, '13.0'
+	platform :ios, '14.0'
 	
 	ios_shared
 	

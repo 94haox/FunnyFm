@@ -8,7 +8,6 @@
 
 import UIKit
 import AutoInch
-import DynamicColor
 
 
 class NoteEditViewController: UIViewController {

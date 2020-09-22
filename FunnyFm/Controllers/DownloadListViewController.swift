@@ -16,7 +16,6 @@ class DownloadListViewController: BaseViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "已下载".localized
-		DownloadManager.shared.delegate = self
 		self.view.addSubview(self.tableview)
 		self.segment.addTarget(self, action: #selector(changeSection), for: .valueChanged)
 		self.segment.tintColor = R.color.mainRed()
@@ -25,29 +24,18 @@ class DownloadListViewController: BaseViewController {
 		self.tableview.snp.makeConstraints { (make) in
 			make.edges.equalToSuperview()
 		}
-		
-		NotificationCenter.default.addObserver(forName:  Notification.downloadChangeNotification, object: nil, queue: OperationQueue.main) { (noti) in
-			self.tableview.reloadData()
-		}
-		self.segment.selectedSegmentIndex = 0;
+        self.segment.selectedSegmentIndex = 0;
 	}
 	
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.deleteBtn.isHidden = self.episodeList.count < 2
-		self.episodeList = DatabaseManager.allDownload()
 		self.tableview.reloadData()
         self.segment.isHidden = self.episodeList.count < 1 && DownloadManager.shared.downloadQueue.count < 1
 	}
 	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewDidDisappear(animated)
-		NotificationCenter.default.removeObserver(self, name: Notification.downloadChangeNotification, object: nil)
-	}
-	
 	@objc func changeSection(){
-		self.tableview.reloadData()
 		if self.segment.selectedSegmentIndex == 1 {
 			self.title = "下载中".localized
 			self.deleteBtn.isHidden = true
@@ -55,6 +43,7 @@ class DownloadListViewController: BaseViewController {
 			self.title = "已下载".localized
 			self.deleteBtn.isHidden = self.episodeList.count < 2
 		}
+        self.tableview.reloadData()
 	}
 	
 	lazy var tableview : UITableView = {
@@ -72,7 +61,11 @@ class DownloadListViewController: BaseViewController {
 		return table
 	}()
 	
-	var episodeList : [Episode] = DatabaseManager.allDownload()
+    var episodeList : [Episode] {
+        get {
+            return DatabaseManager.allDownload().reversed()
+        }
+    }
 	
 	var downloadTasks: [DownloadTask] {
 		get {
@@ -96,22 +89,6 @@ class DownloadListViewController: BaseViewController {
 
 	
 }
-
-
-
-extension DownloadListViewController: DownloadManagerDelegate {
-	
-	func didDownloadCancel(sourceUrl: String) {
-		self.tableview.reloadData()
-	}
-	
-	func didDownloadSuccess(fileUrl: String?, sourceUrl: String) {
-		self.episodeList = DatabaseManager.allDownload()
-		self.tableview.reloadData()
-	}
-	
-}
-
 
 extension DownloadListViewController: UITableViewDelegate {
 	
@@ -150,8 +127,6 @@ extension DownloadListViewController {
 				}
 				DatabaseManager.deleteDownload(title: episode.title);
 			})
-			
-			self.episodeList.removeAll()
 			self.tableview.reloadData()
 			self.deleteBtn.isHidden = true
 		}
@@ -180,7 +155,6 @@ extension DownloadListViewController {
 			}
 			
 			DatabaseManager.deleteDownload(title: episode.title);
-			self.episodeList = DatabaseManager.allDownload()
 			self.tableview.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
 			self.tableview.reloadData()
 		}
@@ -212,6 +186,11 @@ extension DownloadListViewController: UITableViewDataSource {
 			cell.deleteClosure = { [weak self] () -> Void in
 				self?.showDeleteAction(indexPath: indexPath)
 			}
+            cell.downloadSuccess = { [weak self] in
+                if let self = self {
+                    self.tableview.reloadData()
+                }
+            }
 			return cell
         }
 		

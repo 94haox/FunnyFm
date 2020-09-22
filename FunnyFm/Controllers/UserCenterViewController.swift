@@ -52,8 +52,8 @@ class UserCenterViewController: FirstViewController,UICollectionViewDataSource,U
         }else{
             self.dw_addLoginTipView()
             self.collectionView.snp.remakeConstraints { (make) in
-                make.top.equalTo(self.loginTipView.snp.bottom).priorityHigh()
-                make.top.equalTo(self.topBgView.snp.bottom).priorityMedium()
+                make.top.equalTo(self.loginTipView.snp.bottom).priority(.high)
+                make.top.equalTo(self.topBgView.snp.bottom).priority(.medium)
                 make.left.width.bottom.equalToSuperview()
             }
         }
@@ -63,15 +63,15 @@ class UserCenterViewController: FirstViewController,UICollectionViewDataSource,U
         self.dw_addLoginTipView()
         self.view.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.loginTipView.snp.bottom).priorityHigh()
-            make.top.equalTo(self.topBgView.snp.bottom).priorityMedium()
+            make.top.equalTo(self.loginTipView.snp.bottom).priority(.high)
+            make.top.equalTo(self.topBgView.snp.bottom).priority(.medium)
             make.left.width.bottom.equalToSuperview()
         }
     }
     
     func dw_addLoginTipView() {
         self.view.addSubview(self.loginTipView)
-        self.loginTipView.snp_makeConstraints { (make) in
+        self.loginTipView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.topBgView.snp.bottom).offset(6.auto())
             make.width.equalToSuperview().offset(-60.auto())
@@ -101,7 +101,7 @@ class UserCenterViewController: FirstViewController,UICollectionViewDataSource,U
                                            ["title":"Pro","subtitle":"解锁 Pro 功能".localized, "imageName":"VIP.png"],
                                            ["title":"消息".localized,"subtitle":"服务消息".localized,"imageName":"message"],
                                            ["title":"设置".localized,"subtitle":"","imageName":"setting"],
-										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
+//										["title":"Ad".localized,"subtitle":"看个广告激励作者".localized,"imageName":"Ad"],
                                            ]
 }
 
