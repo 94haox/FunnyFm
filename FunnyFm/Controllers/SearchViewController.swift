@@ -45,9 +45,6 @@ extension SearchViewController : PodListViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
 		Hud.shared.hide()
 		self.tableview.reloadData()
-		DispatchQueue.main.asyncAfter(deadline: .init(uptimeNanoseconds: UInt64(0.2))) {
-			self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
-		}
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
@@ -157,11 +154,6 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SearchViewController : UITextFieldDelegate {
-	
-	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-		self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
-		return true
-	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		self.view.endEditing(true)
