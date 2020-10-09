@@ -121,6 +121,7 @@ extension Episode: TableCodable {
 #endif
 
 
+#if canImport(FeedKit)
 import FeedKit
 
 extension Episode {
@@ -179,7 +180,7 @@ extension Episode {
 	}
 }
 
-
+#endif
 
 extension Episode: Hashable {
 	

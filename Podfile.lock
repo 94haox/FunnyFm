@@ -11,32 +11,32 @@ PODS:
   - Bugly (2.5.71)
   - DNSPageView (2.1.0)
   - FeedKit (9.1.2)
-  - Firebase/Auth (6.32.2):
+  - Firebase/Auth (6.34.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 6.9.1)
-  - Firebase/CoreOnly (6.32.2):
-    - FirebaseCore (= 6.10.2)
-  - FirebaseAuth (6.9.1):
+    - FirebaseAuth (~> 6.9.2)
+  - Firebase/CoreOnly (6.34.0):
+    - FirebaseCore (= 6.10.4)
+  - FirebaseAuth (6.9.2):
     - FirebaseCore (~> 6.10)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/Environment (~> 6.7)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (6.10.2):
+  - FirebaseCore (6.10.4):
     - FirebaseCoreDiagnostics (~> 1.6)
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
-  - FirebaseCoreDiagnostics (1.6.0):
-    - GoogleDataTransport (~> 7.2)
+  - FirebaseCoreDiagnostics (1.7.0):
+    - GoogleDataTransport (~> 7.4)
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
     - nanopb (~> 1.30906.0)
-  - FirebaseUI/Auth (8.4.2):
+  - FirebaseUI/Auth (8.5.1):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
-  - FirebaseUI/Google (8.4.2):
+  - FirebaseUI/Google (8.5.1):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 5.0)
-  - GoogleDataTransport (7.3.0):
+  - GoogleDataTransport (7.5.1):
     - nanopb (~> 1.30906.0)
   - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
@@ -59,9 +59,9 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
-  - GTMAppAuth (1.0.0):
-    - AppAuth/Core (~> 1.0)
-    - GTMSessionFetcher (~> 1.1)
+  - GTMAppAuth (1.1.0):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher (~> 1.4)
   - GTMSessionFetcher (1.4.0):
     - GTMSessionFetcher/Full (= 1.4.0)
   - GTMSessionFetcher/Core (1.4.0)
@@ -84,7 +84,7 @@ PODS:
   - nanopb/encode (1.30906.0)
   - Nuke (9.1.2)
   - pop (1.0.12)
-  - PromisesObjC (1.2.10)
+  - PromisesObjC (1.2.11)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
@@ -187,15 +187,15 @@ SPEC CHECKSUMS:
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   DNSPageView: 4d77a61f49a5668ec330fb7bd620d81354371ea7
   FeedKit: 71653273ab08e618cd6fd1301ca08fc02dca6a9e
-  Firebase: 47176280bfba198e531f909cfb1612dad216cb96
-  FirebaseAuth: f7b269b33c1e842a35400ddc9bbc8b03cdc47ba3
-  FirebaseCore: 1d697bb944bf2af5fc248f1a66e165c9dd88bf97
-  FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
-  FirebaseUI: e57e9b9c4340631151fbe67a14206d23d0974f37
-  GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
+  Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
+  FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
+  FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
+  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
+  FirebaseUI: 9df84336a56f1d755ae4c37d5885c237d3084b6b
+  GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
-  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
+  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   JCore: 06a5c80c176c5e46e8698eec3c780e1abb0bf180
   JPush: a401b946dcc76b37335422487201bc1ecc8dd296
@@ -206,7 +206,7 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   Nuke: dd2e6be6a34c042a7861e190632781d11f253026
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -223,6 +223,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 6566fbc0a4ae73cfe358531d0bcf7c86f6f18042
+PODFILE CHECKSUM: a424071d9f5d087f70230b1fd5ea87f19f4b6919
 
 COCOAPODS: 1.9.3

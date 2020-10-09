@@ -119,6 +119,8 @@ public extension UIImageView {
 			switch result {
 			case .success(let value):
 				if complete.isSome{
+					let request = ImageRequest(url: URL.init(string: url)!)
+					ImageCache.shared[request] = ImageContainer(image: value.image)
 					complete!(value.image)
 				}
 			case .failure(let error):

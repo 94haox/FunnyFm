@@ -43,7 +43,11 @@ class FMPlayerManager: NSObject, ObservableObject {
     var timerObserver: Any?
     
     /// 是否在播放状态
-    @Published var isPlay: Bool = false
+	@Published var isPlay: Bool = false {
+		didSet {
+			PlayStateObserver.shared.isPlay = isPlay
+		}
+	}
     
     var isFirst: Bool = true
     
@@ -70,7 +74,14 @@ class FMPlayerManager: NSObject, ObservableObject {
 	var lastTime: Double = 0
     
     /// 当前资源文件
-    @Published var currentModel: Episode?
+	@Published var currentModel: Episode? {
+		didSet{
+			if currentModel.isSome {
+				PlayStateObserver.shared.title = currentModel!.title
+				PlayStateObserver.shared.coverUrl = currentModel!.coverUrl
+			}
+		}
+	}
 	
 	var sleepTimer: Timer? = nil
 	
@@ -344,6 +355,7 @@ extension FMPlayerManager {
         if value.isNone {
             return
         }
+		
 		if keyPath == "status"{
 			if self.playerItem.isNone {
 				return

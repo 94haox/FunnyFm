@@ -72,6 +72,7 @@
 	<string>将使用语音识别功能为您提供文本转录功能</string>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>ConfigurationIntent</string>
 		<string>com.duke.www.FunnyFm</string>
 	</array>
 	<key>UIAppFonts</key>

@@ -26,6 +26,7 @@ def layout
     pod 'SCLAlertView'
 		pod 'DNSPageView'
     pod 'BSText'
+		pod 'SwipeCellKit'
 end
 
 def lib
@@ -39,8 +40,6 @@ end
 
 def network
   pod 'Tiercel'
-  pod 'SwipeCellKit'
-  
 end
 
 # 授权
@@ -84,6 +83,11 @@ target "FunnyFm" do
     network
 		ios_shared
     apple_shared
+end
+
+target "NowExtension" do
+	platform :ios, '14.0'
+	pod 'Nuke'
 end
 
 target "MenuBar" do

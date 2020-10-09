@@ -33,7 +33,7 @@ import Bugly
 		DatabaseManager.setupDefaultDatabase()
         VipManager.shared.completeTransactions()
         DownloadManager.shared.configSession();
-//		FirebaseApp.configure()
+		FirebaseApp.configure()
 		Bugly.start(withAppId: "fe63efca9b")
 		self.dw_addNotifies()
         configureNavigationTabBar()
@@ -100,6 +100,15 @@ extension AppDelegate {
 		print(url.absoluteString)
 		
 		let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+		
+		if url.absoluteString == "funnyfm://open/now" {
+			if FMPlayerManager.shared.currentModel.isNone {
+				return false
+			}
+			FMToolBar.shared.toPlayDetailView()
+			return true
+		}
+		
 		if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
 			return true
 		}
