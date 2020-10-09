@@ -12,6 +12,7 @@ import Nuke
 #endif
 import SwiftUI
 import MediaPlayer
+import WidgetKit
 
 
 enum MAudioPlayState {
@@ -46,6 +47,7 @@ class FMPlayerManager: NSObject, ObservableObject {
 	@Published var isPlay: Bool = false {
 		didSet {
 			PlayStateObserver.shared.isPlay = isPlay
+			WidgetCenter.shared.reloadTimelines(ofKind: "Now")
 		}
 	}
     
@@ -78,7 +80,8 @@ class FMPlayerManager: NSObject, ObservableObject {
 		didSet{
 			if currentModel.isSome {
 				PlayStateObserver.shared.title = currentModel!.title
-				PlayStateObserver.shared.coverUrl = currentModel!.coverUrl
+				PlayStateObserver.shared.coverUrl = currentModel!.podCoverUrl
+				WidgetCenter.shared.reloadTimelines(ofKind: "Now")
 			}
 		}
 	}

@@ -28,26 +28,25 @@ struct Provider: TimelineProvider {
         var entries: [SimpleEntry] = []
 
         let currentDate = Date()
-		var image: UIImage? = nil
+		var image: UIImage? = UIImage(named: "logo-white")
 		if let coverUrl = observer.coverUrl {
 			if let imageData = try? Data(contentsOf: URL(string: coverUrl)!) {
 				image = UIImage(data: imageData)
-				let entry = SimpleEntry(date: currentDate,
-										title: observer.title,
-										image: image,
-										isPlay: observer.isPlay)
-				entries.append(entry)
 			}
-			
+			let entry = SimpleEntry(date: currentDate,
+									title: observer.title,
+									image: image,
+									isPlay: observer.isPlay)
+			entries.append(entry)
 		}else{
 			let entry = SimpleEntry(date: currentDate,
 									title: observer.title,
-									image: UIImage(),
+									image: image,
 									isPlay: observer.isPlay)
 			entries.append(entry)
 		}
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
 }
@@ -58,14 +57,6 @@ struct SimpleEntry: TimelineEntry {
 	let title: String?
 	var image: UIImage?
 	var isPlay: Bool
-	
-	mutating func update(image: UIImage){
-		self.image = image
-	}
-	
-	mutating func update(isPlay: Bool){
-		self.isPlay = isPlay
-	}
 }
 
 struct NowEntryView : View {
@@ -116,6 +107,7 @@ struct NowEntryView : View {
 					Text(entry.title == nil ? "" : entry.title!)
 						.font(.footnote)
 						.bold()
+						.lineLimit(2)
 				}
 			}
 		}
@@ -123,7 +115,7 @@ struct NowEntryView : View {
 		.onAppear(){
 			self.startObsever()
 		}
-		.padding(.all, 10)
+		.padding(.all, 12)
     }
 	
 	func startObsever() {

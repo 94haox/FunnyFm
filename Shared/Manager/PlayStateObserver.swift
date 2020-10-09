@@ -21,7 +21,7 @@ class PlayStateObserver: NSObject {
 		}
 		
 		set {
-			defaults?.setValue(newValue, forKey: "isPlay")
+			defaults!.setValue(newValue, forKey: "isPlay")
 		}
 	}
 	
@@ -32,7 +32,7 @@ class PlayStateObserver: NSObject {
 		}
 		
 		set {
-			defaults?.setValue(newValue, forKey: "currentPlay_title")
+			defaults!.setValue(newValue, forKey: "currentPlay_title")
 		}
 	}
 	
@@ -42,7 +42,7 @@ class PlayStateObserver: NSObject {
 		}
 		
 		set {
-			defaults?.setValue(newValue, forKey: "currentPlay_coverUrl")
+			defaults!.setValue(newValue, forKey: "currentPlay_coverUrl")
 		}
 	}
 	

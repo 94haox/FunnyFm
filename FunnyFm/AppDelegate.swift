@@ -11,7 +11,7 @@ import Firebase
 import FirebaseUI
 import Siren
 import Bugly
-
+import WidgetKit
 
 
 
@@ -56,6 +56,7 @@ import Bugly
     func applicationWillTerminate(_ application: UIApplication) {
         NotificationCenter.default.removeObserver(self)
 		FMToolBar.shared.toobarPause()
+		WidgetCenter.shared.reloadAllTimelines()
     }
 	
 	func configRootVC() -> UIViewController{
@@ -124,6 +125,17 @@ extension AppDelegate {
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		DownloadManager.shared.resumeAllTask()
 	}
+	
+	func applicationWillEnterForeground(_ application: UIApplication) {
+		WidgetCenter.shared.reloadAllTimelines()
+	}
+	
+	func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+		WidgetCenter.shared.reloadAllTimelines()
+	}
+	
+
+	
 }
 
 

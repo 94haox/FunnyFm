@@ -100,7 +100,7 @@
 		38D1132624E237D600EBE3ED /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyView.swift */; };
 		38D1132A24E2438400EBE3ED /* EpisodeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1132924E2438400EBE3ED /* EpisodeItemView.swift */; };
 		38D1132C24E2439E00EBE3ED /* CurrentPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1132B24E2439E00EBE3ED /* CurrentPlayView.swift */; };
-		38D119FD24E24EFD00EBE3ED /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 38D119FC24E24EFD00EBE3ED /* SwiftPackageProductDependency */; };
+		38D119FD24E24EFD00EBE3ED /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 38D119FC24E24EFD00EBE3ED /* KingfisherSwiftUI */; };
 		38D11B1F24E2637200EBE3ED /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB441A312350208700411359 /* GeneralAPI.swift */; };
 		38D11B2024E2637200EBE3ED /* NoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB9DE52394F04A00539049 /* NoteAPI.swift */; };
 		38D11B2124E2637200EBE3ED /* FmHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE42195333000260851 /* FmHttp.swift */; };
@@ -1129,7 +1129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38D119FD24E24EFD00EBE3ED /* BuildFile in Frameworks */,
+				38D119FD24E24EFD00EBE3ED /* KingfisherSwiftUI in Frameworks */,
 				1E2EC24AACEB51930F0C1851 /* Pods_MenuBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2239,7 +2239,7 @@
 			);
 			name = MenuBar;
 			packageProductDependencies = (
-				38D119FC24E24EFD00EBE3ED /* SwiftPackageProductDependency */,
+				38D119FC24E24EFD00EBE3ED /* KingfisherSwiftUI */,
 			);
 			productName = MenuBar;
 			productReference = 38C1ABDC24E12A6D00097CFD /* MenuBar.app */;
@@ -2345,7 +2345,7 @@
 			);
 			mainGroup = AB25797021945E6F004C5F5D;
 			packageReferences = (
-				38D119FB24E24EFD00EBE3ED /* RemoteSwiftPackageReference */,
+				38D119FB24E24EFD00EBE3ED /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = AB25797A21945E6F004C5F5D /* Products */;
 			projectDirPath = "";
@@ -2577,7 +2577,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3258,7 +3258,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3286,7 +3286,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3421,7 +3421,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmShare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3448,7 +3448,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmShare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3516,7 +3516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3572,7 +3572,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -3601,7 +3601,7 @@
 					"$(PROJECT_DIR)/FunnyFm",
 				);
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3742,7 +3742,7 @@
 					"$(PROJECT_DIR)/FunnyFm",
 				);
 				INFOPLIST_FILE = FunnyFm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3825,7 +3825,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		38D119FB24E24EFD00EBE3ED /* RemoteSwiftPackageReference */ = {
+		38D119FB24E24EFD00EBE3ED /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -3836,9 +3836,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		38D119FC24E24EFD00EBE3ED /* SwiftPackageProductDependency */ = {
+		38D119FC24E24EFD00EBE3ED /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 38D119FB24E24EFD00EBE3ED /* RemoteSwiftPackageReference */;
+			package = 38D119FB24E24EFD00EBE3ED /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
