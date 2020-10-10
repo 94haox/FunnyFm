@@ -15,6 +15,7 @@
 		3803B309249234AB00A681E2 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803B308249234AA00A681E2 /* AppDelegate+Push.swift */; };
 		380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380434E6247DFC5500402AFA /* EpisodeCardTableViewCell.swift */; };
 		380434E9247DFC5500402AFA /* EpisodeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380434E7247DFC5500402AFA /* EpisodeCardTableViewCell.xib */; };
+		380464732531508D00DFBEAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		3806C366248BC4960034F340 /* OpmlListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C364248BC4960034F340 /* OpmlListViewController.swift */; };
 		3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
 		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
@@ -2375,6 +2376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380464732531508D00DFBEAD /* Assets.xcassets in Resources */,
 				3869B3702530303300420E36 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3264,7 +3266,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.5.6;
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3292,7 +3294,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.5.6;
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3321,6 +3323,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.Now;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3348,6 +3351,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.Now;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3427,7 +3431,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.5.6;
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3454,7 +3458,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.5.6;
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3612,7 +3616,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.5.6;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3753,7 +3757,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.5.6;
+				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -68,7 +68,7 @@ struct NowEntryView : View {
 			VStack(alignment: .leading) {
 				VStack (alignment: .leading){
 					HStack {
-						if entry.image == nil {
+						if entry.image == nil || entry.title == nil {
 							Image("logo-white")
 								.resizable()
 								.frame(width: 45, height: 45)
@@ -99,15 +99,25 @@ struct NowEntryView : View {
 							.clipShape(Circle())
 						}
 					}
-					Text(entry.isPlay ? "正在播放":"等待播放")
-						.font(.caption)
-						.bold()
-						.foregroundColor(.gray)
-						.padding(.vertical, 4)
-					Text(entry.title == nil ? "" : entry.title!)
-						.font(.footnote)
-						.bold()
-						.lineLimit(2)
+					if entry.title == nil {
+						Text("xxxxx")
+							.redacted(reason: .placeholder)
+					}else{
+						Text(entry.isPlay ? "正在播放":"等待播放")
+							.font(.caption)
+							.bold()
+							.foregroundColor(.gray)
+							.padding(.vertical, 4)
+					}
+					if entry.title == nil {
+						Text("xxxxxxxxxxxx")
+							.redacted(reason: .placeholder)
+					}else{
+						Text(entry.title!)
+							.font(.footnote)
+							.bold()
+							.lineLimit(2)
+					}
 				}
 			}
 		}
