@@ -122,15 +122,8 @@ struct NowEntryView : View {
 			}
 		}
 		.widgetURL(URL(string: entry.widgetUrl))
-		.onAppear(){
-			self.startObsever()
-		}
 		.padding(.all, 12)
     }
-	
-	func startObsever() {
-		
-	}
 }
 
 @main
@@ -142,7 +135,7 @@ struct Now: Widget {
             NowEntryView(entry: entry)
         }
         .configurationDisplayName("正在播放")
-        .description("正在播放的 Episode 组件")
+		.supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 

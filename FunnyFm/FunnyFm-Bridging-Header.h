@@ -5,7 +5,6 @@
 #import "UIImage+someMethods.h"
 #import "FMTextField.h"
 #import "UIScrollView+EmptyDataSet.h"
-#import "MJRefresh.h"
 #import "NSDate+Utils.h"
 #import "StaticMethods.h"
 #import "YBTaskScheduler.h"
