@@ -6,7 +6,6 @@ install! 'cocoapods', generate_multiple_pod_projects: true
 def ios_shared
 	pod 'SnapKit'
 	pod 'AutoInch'
-	pod ''
 end
 
 def apple_shared
