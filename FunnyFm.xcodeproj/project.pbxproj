@@ -20,6 +20,11 @@
 		3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */; };
 		3806C36B248BC4BB0034F340 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
 		3816117C24925362006222EF /* lf30_editor_aDuarQ.json in Resources */ = {isa = PBXBuildFile; fileRef = 3816117B24925362006222EF /* lf30_editor_aDuarQ.json */; };
+		382627CA2531873300902D55 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3869AE6A253001B400420E36 /* WidgetKit.framework */; };
+		382627CB2531873300902D55 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3869AE6C253001B400420E36 /* SwiftUI.framework */; };
+		382627CE2531873300902D55 /* PerhapsRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382627CD2531873300902D55 /* PerhapsRefresh.swift */; };
+		382627D02531873400902D55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 382627CF2531873400902D55 /* Assets.xcassets */; };
+		382627D42531873400902D55 /* PerhapsRefreshExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 382627C92531873300902D55 /* PerhapsRefreshExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		38332A5E24936A34009AC1A7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38332A5D24936A34009AC1A7 /* Media.xcassets */; };
 		38332A6324936A34009AC1A7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38332A6124936A34009AC1A7 /* MainInterface.storyboard */; };
 		38332A6724936A34009AC1A7 /* FunnyFmImport.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -466,6 +471,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		382627D22531873400902D55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 382627C82531873300902D55;
+			remoteInfo = PerhapsRefreshExtension;
+		};
 		38332A6524936A34009AC1A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
@@ -516,6 +528,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				382627D42531873400902D55 /* PerhapsRefreshExtension.appex in Embed App Extensions */,
 				3869B3742530303300420E36 /* NowExtension.appex in Embed App Extensions */,
 				38C21238249717F00022ECE6 /* FunnyFmShare.appex in Embed App Extensions */,
 				38332A6724936A34009AC1A7 /* FunnyFmImport.appex in Embed App Extensions */,
@@ -544,6 +557,10 @@
 		3806C368248BC4BB0034F340 /* OpmlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpmlTableViewCell.swift; sourceTree = "<group>"; };
 		3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpmlTableViewCell.xib; sourceTree = "<group>"; };
 		3816117B24925362006222EF /* lf30_editor_aDuarQ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_aDuarQ.json; sourceTree = "<group>"; };
+		382627C92531873300902D55 /* PerhapsRefreshExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PerhapsRefreshExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		382627CD2531873300902D55 /* PerhapsRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerhapsRefresh.swift; sourceTree = "<group>"; };
+		382627CF2531873400902D55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		382627D12531873400902D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38332A5B24936A34009AC1A7 /* FunnyFmImport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFmImport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		38332A5D24936A34009AC1A7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		38332A5F24936A34009AC1A7 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -1048,6 +1065,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		382627C62531873300902D55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				382627CB2531873300902D55 /* SwiftUI.framework in Frameworks */,
+				382627CA2531873300902D55 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38332A5824936A34009AC1A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1122,6 +1148,16 @@
 				C6904179FFA243441A410F97 /* Pods_NowExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		382627CC2531873300902D55 /* PerhapsRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				382627CD2531873300902D55 /* PerhapsRefresh.swift */,
+				382627CF2531873400902D55 /* Assets.xcassets */,
+				382627D12531873400902D55 /* Info.plist */,
+			);
+			path = PerhapsRefresh;
 			sourceTree = "<group>";
 		};
 		38332A5C24936A34009AC1A7 /* FunnyFmImport */ = {
@@ -1483,6 +1519,7 @@
 				38C2122F249717EF0022ECE6 /* FunnyFmShare */,
 				38C1ABDD24E12A6D00097CFD /* MenuBar */,
 				3869B36C2530303200420E36 /* Now */,
+				382627CC2531873300902D55 /* PerhapsRefresh */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -1497,6 +1534,7 @@
 				38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */,
 				38C1ABDC24E12A6D00097CFD /* MenuBar.app */,
 				3869B3692530303200420E36 /* NowExtension.appex */,
+				382627C92531873300902D55 /* PerhapsRefreshExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2033,6 +2071,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		382627C82531873300902D55 /* PerhapsRefreshExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 382627D72531873400902D55 /* Build configuration list for PBXNativeTarget "PerhapsRefreshExtension" */;
+			buildPhases = (
+				382627C52531873300902D55 /* Sources */,
+				382627C62531873300902D55 /* Frameworks */,
+				382627C72531873300902D55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PerhapsRefreshExtension;
+			productName = PerhapsRefreshExtension;
+			productReference = 382627C92531873300902D55 /* PerhapsRefreshExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		38332A5A24936A34009AC1A7 /* FunnyFmImport */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38332A6A24936A34009AC1A7 /* Build configuration list for PBXNativeTarget "FunnyFmImport" */;
@@ -2128,6 +2183,7 @@
 				38332A6624936A34009AC1A7 /* PBXTargetDependency */,
 				38C21237249717F00022ECE6 /* PBXTargetDependency */,
 				3869B3732530303300420E36 /* PBXTargetDependency */,
+				382627D32531873400902D55 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
@@ -2144,6 +2200,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Duke;
 				TargetAttributes = {
+					382627C82531873300902D55 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
 					38332A5A24936A34009AC1A7 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -2201,11 +2260,20 @@
 				38C2122D249717EF0022ECE6 /* FunnyFmShare */,
 				38C1ABDB24E12A6C00097CFD /* MenuBar */,
 				3869B3682530303200420E36 /* NowExtension */,
+				382627C82531873300902D55 /* PerhapsRefreshExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		382627C72531873300902D55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				382627D02531873400902D55 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38332A5924936A34009AC1A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2475,6 +2543,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		382627C52531873300902D55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				382627CE2531873300902D55 /* PerhapsRefresh.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38332A5724936A34009AC1A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2872,6 +2948,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		382627D32531873400902D55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 382627C82531873300902D55 /* PerhapsRefreshExtension */;
+			targetProxy = 382627D22531873400902D55 /* PBXContainerItemProxy */;
+		};
 		38332A6624936A34009AC1A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 38332A5A24936A34009AC1A7 /* FunnyFmImport */;
@@ -3072,6 +3153,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		382627D52531873400902D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = PerhapsRefresh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.PerhapsRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		382627D62531873400902D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = PerhapsRefresh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.PerhapsRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		38332A6824936A34009AC1A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1A47249948312F87FB53D11 /* Pods-FunnyFmImport.debug.xcconfig */;
@@ -3598,6 +3727,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		382627D72531873400902D55 /* Build configuration list for PBXNativeTarget "PerhapsRefreshExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				382627D52531873400902D55 /* Debug */,
+				382627D62531873400902D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		38332A6A24936A34009AC1A7 /* Build configuration list for PBXNativeTarget "FunnyFmImport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
