@@ -15,37 +15,41 @@ struct Provider: TimelineProvider {
 	let observer = PlayStateObserver.shared
 	
     func placeholder(in context: Context) -> SimpleEntry {
-		
-		SimpleEntry(date: Date(), title: observer.title, image: UIImage(), isPlay: observer.isPlay)
+		SimpleEntry(date: Date(),
+					title: observer.title,
+					image: UIImage(),
+					isPlay: observer.isPlay,
+					size: context.family)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), title: observer.title, image: UIImage(), isPlay: observer.isPlay)
+        let entry = SimpleEntry(date: Date(),
+								title: observer.title,
+								image: UIImage(),
+								isPlay: observer.isPlay,
+								size: context.family)
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         var entries: [SimpleEntry] = []
 
         let currentDate = Date()
-		var image: UIImage? = UIImage(named: "logo-white")
-		if let coverUrl = observer.coverUrl {
-			if let imageData = try? Data(contentsOf: URL(string: coverUrl)!) {
-				image = UIImage(data: imageData)
+		for hourOffset in 0 ..< 12 {
+			let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset*2, to: currentDate)!
+			var image: UIImage? = UIImage(named: "logo-white")
+			if let coverUrl = observer.coverUrl {
+				if let imageData = try? Data(contentsOf: URL(string: coverUrl)!) {
+					image = UIImage(data: imageData)
+				}
 			}
-			let entry = SimpleEntry(date: currentDate,
+			let entry = SimpleEntry(date: entryDate,
 									title: observer.title,
 									image: image,
-									isPlay: observer.isPlay)
-			entries.append(entry)
-		}else{
-			let entry = SimpleEntry(date: currentDate,
-									title: observer.title,
-									image: image,
-									isPlay: observer.isPlay)
+									isPlay: observer.isPlay,
+									size: context.family)
 			entries.append(entry)
 		}
-
         let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
@@ -57,6 +61,7 @@ struct SimpleEntry: TimelineEntry {
 	let title: String?
 	var image: UIImage?
 	var isPlay: Bool
+	var size: WidgetFamily
 }
 
 struct NowEntryView : View {
@@ -64,72 +69,17 @@ struct NowEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-		HStack{
-			VStack(alignment: .leading) {
-				VStack (alignment: .leading){
-					HStack {
-						if entry.image == nil || entry.title == nil {
-							Image("logo-white")
-								.resizable()
-								.frame(width: 45, height: 45)
-						}else{
-							Image(uiImage: entry.image!)
-								.resizable()
-								.frame(width: 45, height: 45)
-								.cornerRadius(15)
-						}
-						Spacer()
-						ZStack {
-							HStack {
-								Spacer()
-								Text("")
-								Spacer()
-							}
-							.frame(width: 15, height: 15)
-							.background(entry.isPlay ? Color.green.opacity(0.05) : Color.gray.opacity(0.05))
-							.clipShape(Circle())
-							HStack {
-								Spacer()
-								Text("")
-									.font(Font.system(size: 8))
-								Spacer()
-							}
-							.frame(width: 5, height: 5)
-							.background(entry.isPlay ? Color.green.opacity(0.5) : Color.gray.opacity(0.5))
-							.clipShape(Circle())
-						}
-					}
-					if entry.title == nil {
-						Text("xxxxx")
-							.redacted(reason: .placeholder)
-					}else{
-						Text(entry.isPlay ? "正在播放":"等待播放")
-							.font(.caption)
-							.bold()
-							.foregroundColor(.gray)
-							.padding(.vertical, 4)
-					}
-					if entry.title == nil {
-						Text("xxxxxxxxxxxx")
-							.redacted(reason: .placeholder)
-					}else{
-						Text(entry.title!)
-							.font(.footnote)
-							.bold()
-							.lineLimit(2)
-					}
-				}
-			}
+		if entry.size == WidgetFamily.systemSmall {
+			NowSmallView(entry: entry)
+		}else{
+			NowMediumView(entry: entry)
 		}
-		.widgetURL(URL(string: entry.widgetUrl))
-		.padding(.all, 12)
     }
 }
 
 @main
 struct Now: Widget {
     let kind: String = "Now"
-
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             NowEntryView(entry: entry)
