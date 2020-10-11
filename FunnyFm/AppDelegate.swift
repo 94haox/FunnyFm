@@ -39,7 +39,7 @@ import WidgetKit
         configureNavigationTabBar()
 		configureTextfield()
 		VersionManager.setupSiren()
-		
+		donateAll()
 //		MoPub.sharedInstance().clearCachedNetworks()
 //		let config = MPMoPubConfiguration.init(adUnitIdForAppInitialization: "513cebe42e774a029dab367069ab52e2")
 //		config.globalMediationSettings = []

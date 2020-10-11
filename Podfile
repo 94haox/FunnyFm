@@ -107,6 +107,13 @@ end
 #  pod 'SwiftyJSON'
 #end
 
+target "FunnyIntent" do
+	
+	platform :ios, '14.0'
+	
+	apple_shared
+	
+end
 
 
 target "FunnyFmImport" do

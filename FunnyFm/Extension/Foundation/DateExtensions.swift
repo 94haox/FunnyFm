@@ -1129,13 +1129,6 @@ extension Date {
 		
 		return secStr
 	}
-	
-	static func minuteOffsetBetweenStartDate(startDate: Date, endDate: Date) -> Int? {
-		let gregorian = Calendar.init(identifier: Calendar.Identifier.gregorian)
-		let comps = gregorian.dateComponents([Calendar.Component.minute], from: startDate, to: endDate)
-		let minute = comps.minute
-		return minute
-	}
 
 }
 

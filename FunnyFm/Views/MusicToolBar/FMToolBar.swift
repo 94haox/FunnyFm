@@ -238,6 +238,7 @@ extension FMToolBar{
             DatabaseManager.add(history: chapter)
             self.currentEpisode = chapter
         }
+		chapter.donateEpisode()
         self.progressBg.frame = CGRect.init(x: 0, y: Int(toolbarH) - progressH, width: 0, height: progressH)
         self.titleLB.text = chapter.title
 		self.logoImageView.loadImage(url: (self.currentEpisode?.coverUrl)!, placeholder: nil) {[unowned self] (image) in

@@ -56,6 +56,9 @@ extension AppDelegate: JPUSHRegisterDelegate {
 	}
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+		if handlePlayIntent(userActivity: userActivity) {
+			return true
+		}
         restorationHandler([FMToolBar.shared])
         return true
     }

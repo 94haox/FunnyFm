@@ -19,6 +19,8 @@ import Reachability
 class FunnyFm: NSObject {
 
 	static let baseurl = "https://api.funnyfm.top/api/"
+	
+	static let groupId = "group.com.duke.Pine"
     
 	#if canImport(KeychainAccess)
 	static let keychain = Keychain(service: "com.duke.www.FunnyFm")
@@ -59,11 +61,7 @@ class FunnyFm: NSObject {
 	#endif
 	
     static func sharedUrl() -> URL?{
-        #if os(macOS)
-        return FileManager.default.urls(for: .documentationDirectory, in: .userDomainMask).first
-        #else
-        return try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        #endif
+		return FileManager.group
     }
     
     static func sharedDatabaseUrl() -> URL{
@@ -86,3 +84,28 @@ class FunnyFm: NSObject {
 		UserDefaults.standard.bool(forKey: "isAutoCacheInWIFI")
     }    
 }
+
+
+extension Date {
+	
+	static func minuteOffsetBetweenStartDate(startDate: Date, endDate: Date) -> Int? {
+		let gregorian = Calendar.init(identifier: Calendar.Identifier.gregorian)
+		let comps = gregorian.dateComponents([Calendar.Component.minute], from: startDate, to: endDate)
+		let minute = comps.minute
+		return minute
+	}
+	
+}
+
+extension UserDefaults {
+
+	static let group = UserDefaults.init(suiteName: FunnyFm.groupId)
+	
+}
+
+extension FileManager {
+	
+	static let group = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: FunnyFm.groupId)
+	
+}
+

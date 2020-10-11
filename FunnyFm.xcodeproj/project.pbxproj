@@ -12,6 +12,57 @@
 		2B1E843F2531FAEB00BC2A77 /* NowMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E843D2531FAEB00BC2A77 /* NowMediumView.swift */; };
 		2B1E844C2531FB4300BC2A77 /* PlayStateDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E844A2531FB4300BC2A77 /* PlayStateDotView.swift */; };
 		2B1E849E2531FF4100BC2A77 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FC21D7196700470D8F /* DateExtensions.swift */; };
+		2B1E84B125320D5500BC2A77 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84B025320D5500BC2A77 /* IntentHandler.swift */; };
+		2B1E84C625320D5500BC2A77 /* FunnyIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B1E84AE25320D5500BC2A77 /* FunnyIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2B1E84E225320DE000BC2A77 /* PlayEpisodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84E125320DE000BC2A77 /* PlayEpisodeHandler.swift */; };
+		2B1E84F12532742400BC2A77 /* SoundLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84EA2532742300BC2A77 /* SoundLibrary.swift */; };
+		2B1E84F22532742400BC2A77 /* SoundLibraryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84EB2532742300BC2A77 /* SoundLibraryDataManager.swift */; };
+		2B1E84F32532742400BC2A77 /* AudioPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84EC2532742300BC2A77 /* AudioPlaybackManager.swift */; };
+		2B1E84F42532742400BC2A77 /* DataTypes+Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84ED2532742300BC2A77 /* DataTypes+Intents.swift */; };
+		2B1E84F52532742400BC2A77 /* PlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84EE2532742300BC2A77 /* PlayRequest.swift */; };
+		2B1E84F62532742400BC2A77 /* LibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84EF2532742300BC2A77 /* LibraryItem.swift */; };
+		2B1E84F72532742400BC2A77 /* SoundLibraryDataManager+Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84F02532742400BC2A77 /* SoundLibraryDataManager+Intents.swift */; };
+		2B1E84FE2532769800BC2A77 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE121952EAA00260851 /* Episode.swift */; };
+		2B1E850D253278D200BC2A77 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
+		2B1E8514253278D300BC2A77 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
+		2B1E8515253278D500BC2A77 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
+		2B1E851C253278D600BC2A77 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
+		2B1E85682532854100BC2A77 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */; };
+		2B1E8571253285A400BC2A77 /* Database.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E8570253285A400BC2A77 /* Database.Episode.swift */; };
+		2B1E8572253285A400BC2A77 /* Database.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E8570253285A400BC2A77 /* Database.Episode.swift */; };
+		2B1E864F2533389F00BC2A77 /* Episode.NowPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E864E2533389F00BC2A77 /* Episode.NowPlay.swift */; };
+		2B1E86502533389F00BC2A77 /* Episode.NowPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E864E2533389F00BC2A77 /* Episode.NowPlay.swift */; };
+		2B1E865E253338BF00BC2A77 /* Episode.NowPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E864E2533389F00BC2A77 /* Episode.NowPlay.swift */; };
+		2B1E866625333BC900BC2A77 /* Episode.Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E866525333BC900BC2A77 /* Episode.Intent.swift */; };
+		2B1E866725333BC900BC2A77 /* Episode.Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E866525333BC900BC2A77 /* Episode.Intent.swift */; };
+		2B1E867525333BD000BC2A77 /* Episode.Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E866525333BC900BC2A77 /* Episode.Intent.swift */; };
+		2B1E867D25333CC700BC2A77 /* AppDelegate.Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E867C25333CC700BC2A77 /* AppDelegate.Shortcut.swift */; };
+		2B1E868B2533444800BC2A77 /* ChapterProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */; };
+		2B1E86922533445100BC2A77 /* PlayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C7233B5112001DF1D1 /* PlayItem.swift */; };
+		2B1E882B253344EC00BC2A77 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
+		2B1E88322533450800BC2A77 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FD21D7196700470D8F /* NSAttributedStringExtensions.swift */; };
+		2B1E88332533450800BC2A77 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE40E121E32C1700FCB16F /* StringExtension.swift */; };
+		2B1E88342533450800BC2A77 /* UILocalizedIndexedCollation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BB22499E3720070F56D /* UILocalizedIndexedCollation.swift */; };
+		2B1E88352533450800BC2A77 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34C4FB2331DFDA007FC0EC /* ArrayExtension.swift */; };
+		2B1E88362533450800BC2A77 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FE21D7196700470D8F /* CalendarExtensions.swift */; };
+		2B1E88372533450800BC2A77 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F721D7196700470D8F /* DataExtensions.swift */; };
+		2B1E88382533450800BC2A77 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FA21D7196700470D8F /* URLExtensions.swift */; };
+		2B1E88392533450800BC2A77 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F921D7196700470D8F /* FileManagerExtensions.swift */; };
+		2B1E883A2533450800BC2A77 /* LocaleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FB21D7196700470D8F /* LocaleExtensions.swift */; };
+		2B1E883B2533450800BC2A77 /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F521D7196700470D8F /* NSPredicateExtensions.swift */; };
+		2B1E883C2533450800BC2A77 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FC21D7196700470D8F /* DateExtensions.swift */; };
+		2B1E883D2533450800BC2A77 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765F821D7196700470D8F /* URLRequestExtensions.swift */; };
+		2B1E884B2533455100BC2A77 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE9219537B400260851 /* Const.swift */; };
+		2B1E8860253345AC00BC2A77 /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B0BA82424DE7800E42A16 /* HudView.xib */; };
+		2B1E8867253345BF00BC2A77 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
+		2B1E887D2533463700BC2A77 /* ShareProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E887C2533463700BC2A77 /* ShareProtocol.swift */; };
+		2B1E887E2533463700BC2A77 /* ShareProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E887C2533463700BC2A77 /* ShareProtocol.swift */; };
+		2B1E88972533469B00BC2A77 /* iTunsPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */; };
+		2B1E889E253346C900BC2A77 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AADF21952D2200260851 /* Pod.swift */; };
+		2B1E88A52533470400BC2A77 /* IntentUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E8505253276CA00BC2A77 /* IntentUtil.swift */; };
+		2B1E88BF2533478200BC2A77 /* IntentUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E8505253276CA00BC2A77 /* IntentUtil.swift */; };
+		2B1E88C7253352FD00BC2A77 /* Intent.Funnyfm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E88C6253352FD00BC2A77 /* Intent.Funnyfm.swift */; };
+		2B1E88C8253352FD00BC2A77 /* Intent.Funnyfm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E88C6253352FD00BC2A77 /* Intent.Funnyfm.swift */; };
 		2B8E8D6524FFD6B300B5C228 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */; };
 		2B8E8D6724FFD87C00B5C228 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6624FFD87C00B5C228 /* SettingView.swift */; };
 		2B8E8D6924FFDA5D00B5C228 /* PlayerToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */; };
@@ -124,7 +175,6 @@
 		38D11B3224E265AB00EBE3ED /* ChapterProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */; };
 		38D11B3324E265AB00EBE3ED /* PodcastCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DE9023E3286700E0FA38 /* PodcastCollection.swift */; };
 		38D11B3424E265AB00EBE3ED /* Favor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57FE3C22CF346900BABEF2 /* Favor.swift */; };
-		38D11B3524E2667B00EBE3ED /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */; };
 		38DD7BAD2499E1050070F56D /* CountryCode.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BAA2499E1050070F56D /* CountryCode.xcassets */; };
 		38DD7BAE2499E1060070F56D /* CountryCodeLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BAB2499E1050070F56D /* CountryCodeLibrary.swift */; };
 		38DD7BAF2499E1060070F56D /* CountryCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BAC2499E1050070F56D /* CountryCode.plist */; };
@@ -191,6 +241,7 @@
 		7493F6782417AD44007E5319 /* CloudParserJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F6772417AD44007E5319 /* CloudParserJob.swift */; };
 		74C9DF76243E01DC000B1745 /* GuideTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DF75243E01DC000B1745 /* GuideTipView.swift */; };
 		74E92F832430842A00A0F64A /* first_ads.json in Resources */ = {isa = PBXBuildFile; fileRef = 74E92F822430842A00A0F64A /* first_ads.json */; };
+		7D8B941E694E274F04F77730 /* Pods_FunnyIntent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7862F3E3460DCF3792C7128F /* Pods_FunnyIntent.framework */; };
 		AB00BC332394A87900893325 /* NoteEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB00BC312394A87900893325 /* NoteEditViewController.xib */; };
 		AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00BC322394A87900893325 /* NoteEditViewController.swift */; };
 		AB08F099233DEE0000B93D31 /* UIButton+SomeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08F098233DEE0000B93D31 /* UIButton+SomeMethods.m */; };
@@ -470,6 +521,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2B1E84C425320D5500BC2A77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B1E84AD25320D5500BC2A77;
+			remoteInfo = FunnyIntent;
+		};
 		38332A6524936A34009AC1A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AB25797121945E6F004C5F5D /* Project object */;
@@ -523,6 +581,7 @@
 				3869B3742530303300420E36 /* NowExtension.appex in Embed App Extensions */,
 				38C21238249717F00022ECE6 /* FunnyFmShare.appex in Embed App Extensions */,
 				38332A6724936A34009AC1A7 /* FunnyFmImport.appex in Embed App Extensions */,
+				2B1E84C625320D5500BC2A77 /* FunnyIntent.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,9 +598,30 @@
 		2B1E84352531F8A500BC2A77 /* NowSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowSmallView.swift; sourceTree = "<group>"; };
 		2B1E843D2531FAEB00BC2A77 /* NowMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowMediumView.swift; sourceTree = "<group>"; };
 		2B1E844A2531FB4300BC2A77 /* PlayStateDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStateDotView.swift; sourceTree = "<group>"; };
+		2B1E84AE25320D5500BC2A77 /* FunnyIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B1E84B025320D5500BC2A77 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		2B1E84B225320D5500BC2A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B1E84B825320D5500BC2A77 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		2B1E84E125320DE000BC2A77 /* PlayEpisodeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayEpisodeHandler.swift; sourceTree = "<group>"; };
+		2B1E84EA2532742300BC2A77 /* SoundLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundLibrary.swift; sourceTree = "<group>"; };
+		2B1E84EB2532742300BC2A77 /* SoundLibraryDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundLibraryDataManager.swift; sourceTree = "<group>"; };
+		2B1E84EC2532742300BC2A77 /* AudioPlaybackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlaybackManager.swift; sourceTree = "<group>"; };
+		2B1E84ED2532742300BC2A77 /* DataTypes+Intents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataTypes+Intents.swift"; sourceTree = "<group>"; };
+		2B1E84EE2532742300BC2A77 /* PlayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayRequest.swift; sourceTree = "<group>"; };
+		2B1E84EF2532742300BC2A77 /* LibraryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryItem.swift; sourceTree = "<group>"; };
+		2B1E84F02532742400BC2A77 /* SoundLibraryDataManager+Intents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SoundLibraryDataManager+Intents.swift"; sourceTree = "<group>"; };
+		2B1E8505253276CA00BC2A77 /* IntentUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentUtil.swift; sourceTree = "<group>"; };
+		2B1E8561253283C600BC2A77 /* FunnyIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyIntent.entitlements; sourceTree = "<group>"; };
+		2B1E8570253285A400BC2A77 /* Database.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.Episode.swift; sourceTree = "<group>"; };
+		2B1E864E2533389F00BC2A77 /* Episode.NowPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.NowPlay.swift; sourceTree = "<group>"; };
+		2B1E866525333BC900BC2A77 /* Episode.Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.Intent.swift; sourceTree = "<group>"; };
+		2B1E867C25333CC700BC2A77 /* AppDelegate.Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.Shortcut.swift; sourceTree = "<group>"; };
+		2B1E887C2533463700BC2A77 /* ShareProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareProtocol.swift; sourceTree = "<group>"; };
+		2B1E88C6253352FD00BC2A77 /* Intent.Funnyfm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intent.Funnyfm.swift; sourceTree = "<group>"; };
 		2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		2B8E8D6624FFD87C00B5C228 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerToolBarView.swift; sourceTree = "<group>"; };
+		2D4CEFF9FB9D1E1639B188D4 /* Pods-FunnyIntent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyIntent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyIntent/Pods-FunnyIntent.debug.xcconfig"; sourceTree = "<group>"; };
 		2E57E88F5B842DCDE115E903 /* Pods_FunnyFmImport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFmImport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+notifications.swift"; sourceTree = "<group>"; };
 		3803B308249234AA00A681E2 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
@@ -622,6 +702,7 @@
 		496C011BBF92C69B1B9DD5D5 /* Pods-FunnyFm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.debug.xcconfig"; sourceTree = "<group>"; };
 		529B89C150EEC126FA5C4156 /* Pods-FunnyFmShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFmShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFmShare/Pods-FunnyFmShare.release.xcconfig"; sourceTree = "<group>"; };
 		5CDF8940DF00C37D59020312 /* Pods_Clips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		624AF4397FE19241C413B458 /* Pods-FunnyIntent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyIntent.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyIntent/Pods-FunnyIntent.release.xcconfig"; sourceTree = "<group>"; };
 		66E3F9DC162BE6BC8AE1AA7E /* Pods-FunnyFm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnyFm.release.xcconfig"; path = "Pods/Target Support Files/Pods-FunnyFm/Pods-FunnyFm.release.xcconfig"; sourceTree = "<group>"; };
 		6CC51165B14467DC87B0DFAD /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		741C21D62483AF550030F6D3 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArrowView.swift; path = FunnyFM/Views/Custom/ArrowView.swift; sourceTree = SOURCE_ROOT; };
@@ -707,6 +788,7 @@
 		74A5CD75241239A200705E75 /* FunnyFm.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		74C9DF75243E01DC000B1745 /* GuideTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuideTipView.swift; path = FunnyFM/Views/Custom/GuideTipView.swift; sourceTree = SOURCE_ROOT; };
 		74E92F822430842A00A0F64A /* first_ads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = first_ads.json; sourceTree = "<group>"; };
+		7862F3E3460DCF3792C7128F /* Pods_FunnyIntent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyIntent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865F7415AB12C936FA5FD118 /* Pods-NowExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-NowExtension/Pods-NowExtension.release.xcconfig"; sourceTree = "<group>"; };
 		9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFmShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1055,6 +1137,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2B1E84AB25320D5500BC2A77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D8B941E694E274F04F77730 /* Pods_FunnyIntent.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38332A5824936A34009AC1A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1102,6 +1192,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1E84AF25320D5500BC2A77 /* FunnyIntent */ = {
+			isa = PBXGroup;
+			children = (
+				2B1E8561253283C600BC2A77 /* FunnyIntent.entitlements */,
+				2B1E84E9253273FE00BC2A77 /* IntentKit */,
+				2B1E84B025320D5500BC2A77 /* IntentHandler.swift */,
+				2B1E84E125320DE000BC2A77 /* PlayEpisodeHandler.swift */,
+				2B1E84B225320D5500BC2A77 /* Info.plist */,
+				2B1E8505253276CA00BC2A77 /* IntentUtil.swift */,
+			);
+			path = FunnyIntent;
+			sourceTree = "<group>";
+		};
+		2B1E84E9253273FE00BC2A77 /* IntentKit */ = {
+			isa = PBXGroup;
+			children = (
+				2B1E84EC2532742300BC2A77 /* AudioPlaybackManager.swift */,
+				2B1E84ED2532742300BC2A77 /* DataTypes+Intents.swift */,
+				2B1E84EF2532742300BC2A77 /* LibraryItem.swift */,
+				2B1E84EE2532742300BC2A77 /* PlayRequest.swift */,
+				2B1E84EA2532742300BC2A77 /* SoundLibrary.swift */,
+				2B1E84EB2532742300BC2A77 /* SoundLibraryDataManager.swift */,
+				2B1E84F02532742400BC2A77 /* SoundLibraryDataManager+Intents.swift */,
+			);
+			name = IntentKit;
+			sourceTree = "<group>";
+		};
+		2B1E856F2532858500BC2A77 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */,
+				2B1E8570253285A400BC2A77 /* Database.Episode.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		2B1E887B2533461B00BC2A77 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2B1E887C2533463700BC2A77 /* ShareProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		35ADAC79336120144B49975D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1127,6 +1261,8 @@
 				3869AE6C253001B400420E36 /* SwiftUI.framework */,
 				0F57F64A07E826B0C2E85296 /* Pods_NowWidgetExtension.framework */,
 				C6904179FFA243441A410F97 /* Pods_NowExtension.framework */,
+				2B1E84B825320D5500BC2A77 /* IntentsUI.framework */,
+				7862F3E3460DCF3792C7128F /* Pods_FunnyIntent.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1225,6 +1361,8 @@
 		38D1132124E2377A00EBE3ED /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2B1E887B2533461B00BC2A77 /* Protocol */,
+				2B1E856F2532858500BC2A77 /* Database */,
 				38D11B3624E2668900EBE3ED /* Manager */,
 				38D11B2924E2657C00EBE3ED /* API */,
 				38D1132324E237CC00EBE3ED /* View */,
@@ -1248,6 +1386,9 @@
 				741F2732242381B5006F1DCE /* Chapter.swift */,
 				AB41AAE121952EAA00260851 /* Episode.swift */,
 				38CB786225121D6B00FECB0D /* FunnyMenu.swift */,
+				2B1E864E2533389F00BC2A77 /* Episode.NowPlay.swift */,
+				2B1E866525333BC900BC2A77 /* Episode.Intent.swift */,
+				2B1E88C6253352FD00BC2A77 /* Intent.Funnyfm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1287,7 +1428,6 @@
 		38D11B3624E2668900EBE3ED /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */,
 				AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */,
 				AB4578C5233B4905001DF1D1 /* PlayListManager.swift */,
 				ABEF471321EAF7EE00212DCA /* UserCenter.swift */,
@@ -1493,6 +1633,7 @@
 				38C2122F249717EF0022ECE6 /* FunnyFmShare */,
 				38C1ABDD24E12A6D00097CFD /* MenuBar */,
 				3869B36C2530303200420E36 /* Now */,
+				2B1E84AF25320D5500BC2A77 /* FunnyIntent */,
 				AB25797A21945E6F004C5F5D /* Products */,
 				F9DE604A996C7DC4220A9259 /* Pods */,
 				35ADAC79336120144B49975D /* Frameworks */,
@@ -1507,6 +1648,7 @@
 				38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */,
 				38C1ABDC24E12A6D00097CFD /* MenuBar.app */,
 				3869B3692530303200420E36 /* NowExtension.appex */,
+				2B1E84AE25320D5500BC2A77 /* FunnyIntent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1518,6 +1660,7 @@
 				7455CD362415216E004886EF /* R.generated.swift */,
 				AB25797C21945E6F004C5F5D /* AppDelegate.swift */,
 				3803B308249234AA00A681E2 /* AppDelegate+Push.swift */,
+				2B1E867C25333CC700BC2A77 /* AppDelegate.Shortcut.swift */,
 				3803B3062492343F00A681E2 /* AppDelegate+notifications.swift */,
 				74A5CD75241239A200705E75 /* FunnyFm.entitlements */,
 				AB62C46A21BB92F0008D6BA6 /* Base */,
@@ -2036,6 +2179,8 @@
 				DD8C0047D3F04EDDADECEA89 /* Pods-NowWidgetExtension.release.xcconfig */,
 				13FEE85046F3D0E227746F5A /* Pods-NowExtension.debug.xcconfig */,
 				865F7415AB12C936FA5FD118 /* Pods-NowExtension.release.xcconfig */,
+				2D4CEFF9FB9D1E1639B188D4 /* Pods-FunnyIntent.debug.xcconfig */,
+				624AF4397FE19241C413B458 /* Pods-FunnyIntent.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2043,6 +2188,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2B1E84AD25320D5500BC2A77 /* FunnyIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B1E84CA25320D5500BC2A77 /* Build configuration list for PBXNativeTarget "FunnyIntent" */;
+			buildPhases = (
+				B71E0C7326817E92B8F35DA6 /* [CP] Check Pods Manifest.lock */,
+				2B1E84AA25320D5500BC2A77 /* Sources */,
+				2B1E84AB25320D5500BC2A77 /* Frameworks */,
+				2B1E84AC25320D5500BC2A77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FunnyIntent;
+			productName = FunnyIntent;
+			productReference = 2B1E84AE25320D5500BC2A77 /* FunnyIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		38332A5A24936A34009AC1A7 /* FunnyFmImport */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38332A6A24936A34009AC1A7 /* Build configuration list for PBXNativeTarget "FunnyFmImport" */;
@@ -2138,6 +2301,7 @@
 				38332A6624936A34009AC1A7 /* PBXTargetDependency */,
 				38C21237249717F00022ECE6 /* PBXTargetDependency */,
 				3869B3732530303300420E36 /* PBXTargetDependency */,
+				2B1E84C525320D5500BC2A77 /* PBXTargetDependency */,
 			);
 			name = FunnyFm;
 			productName = FunnyFm;
@@ -2154,6 +2318,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Duke;
 				TargetAttributes = {
+					2B1E84AD25320D5500BC2A77 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
 					38332A5A24936A34009AC1A7 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -2211,11 +2378,20 @@
 				38C2122D249717EF0022ECE6 /* FunnyFmShare */,
 				38C1ABDB24E12A6C00097CFD /* MenuBar */,
 				3869B3682530303200420E36 /* NowExtension */,
+				2B1E84AD25320D5500BC2A77 /* FunnyIntent */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2B1E84AC25320D5500BC2A77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B1E8860253345AC00BC2A77 /* HudView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38332A5924936A34009AC1A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2460,6 +2636,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B71E0C7326817E92B8F35DA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FunnyIntent-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E68795BA86A50169587D3F85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2485,6 +2683,50 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2B1E84AA25320D5500BC2A77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B1E88362533450800BC2A77 /* CalendarExtensions.swift in Sources */,
+				2B1E883D2533450800BC2A77 /* URLRequestExtensions.swift in Sources */,
+				2B1E88392533450800BC2A77 /* FileManagerExtensions.swift in Sources */,
+				2B1E889E253346C900BC2A77 /* Pod.swift in Sources */,
+				2B1E84F62532742400BC2A77 /* LibraryItem.swift in Sources */,
+				2B1E883C2533450800BC2A77 /* DateExtensions.swift in Sources */,
+				2B1E8867253345BF00BC2A77 /* ActivityIndicatorView.swift in Sources */,
+				2B1E887E2533463700BC2A77 /* ShareProtocol.swift in Sources */,
+				2B1E88322533450800BC2A77 /* NSAttributedStringExtensions.swift in Sources */,
+				2B1E88382533450800BC2A77 /* URLExtensions.swift in Sources */,
+				2B1E88352533450800BC2A77 /* ArrayExtension.swift in Sources */,
+				2B1E868B2533444800BC2A77 /* ChapterProgress.swift in Sources */,
+				2B1E84F12532742400BC2A77 /* SoundLibrary.swift in Sources */,
+				2B1E85682532854100BC2A77 /* DatabaseManager.swift in Sources */,
+				2B1E882B253344EC00BC2A77 /* OptionalExtension.swift in Sources */,
+				2B1E865E253338BF00BC2A77 /* Episode.NowPlay.swift in Sources */,
+				2B1E84E225320DE000BC2A77 /* PlayEpisodeHandler.swift in Sources */,
+				2B1E84FE2532769800BC2A77 /* Episode.swift in Sources */,
+				2B1E84F52532742400BC2A77 /* PlayRequest.swift in Sources */,
+				2B1E84F32532742400BC2A77 /* AudioPlaybackManager.swift in Sources */,
+				2B1E867525333BD000BC2A77 /* Episode.Intent.swift in Sources */,
+				2B1E883A2533450800BC2A77 /* LocaleExtensions.swift in Sources */,
+				2B1E84F72532742400BC2A77 /* SoundLibraryDataManager+Intents.swift in Sources */,
+				2B1E88972533469B00BC2A77 /* iTunsPod.swift in Sources */,
+				2B1E84F42532742400BC2A77 /* DataTypes+Intents.swift in Sources */,
+				2B1E88C8253352FD00BC2A77 /* Intent.Funnyfm.swift in Sources */,
+				2B1E84B125320D5500BC2A77 /* IntentHandler.swift in Sources */,
+				2B1E84F22532742400BC2A77 /* SoundLibraryDataManager.swift in Sources */,
+				2B1E88342533450800BC2A77 /* UILocalizedIndexedCollation.swift in Sources */,
+				2B1E851C253278D600BC2A77 /* FunnyFm.swift in Sources */,
+				2B1E8572253285A400BC2A77 /* Database.Episode.swift in Sources */,
+				2B1E883B2533450800BC2A77 /* NSPredicateExtensions.swift in Sources */,
+				2B1E88372533450800BC2A77 /* DataExtensions.swift in Sources */,
+				2B1E88332533450800BC2A77 /* StringExtension.swift in Sources */,
+				2B1E86922533445100BC2A77 /* PlayItem.swift in Sources */,
+				2B1E884B2533455100BC2A77 /* Const.swift in Sources */,
+				2B1E88BF2533478200BC2A77 /* IntentUtil.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38332A5724936A34009AC1A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2494,6 +2736,7 @@
 				38C212DD24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */,
 				38332A6B24936B07009AC1A7 /* OPMLParser.swift in Sources */,
 				38C2118424970FE10022ECE6 /* ActivityIndicatorView.swift in Sources */,
+				2B1E850D253278D200BC2A77 /* FunnyFm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2506,6 +2749,7 @@
 				2B1E843F2531FAEB00BC2A77 /* NowMediumView.swift in Sources */,
 				3869B383253030B100420E36 /* PlayStateObserver.swift in Sources */,
 				2B1E844C2531FB4300BC2A77 /* PlayStateDotView.swift in Sources */,
+				2B1E8515253278D500BC2A77 /* FunnyFm.swift in Sources */,
 				2B1E849E2531FF4100BC2A77 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2520,7 +2764,6 @@
 				3869B1B12530082A00420E36 /* PlayStateObserver.swift in Sources */,
 				38D11B2A24E265A500EBE3ED /* iTunsPod.swift in Sources */,
 				38D11B2F24E265AB00EBE3ED /* Note.swift in Sources */,
-				38D11B3524E2667B00EBE3ED /* DatabaseManager.swift in Sources */,
 				38C1AC0424E1381200097CFD /* NSAttributedStringExtensions.swift in Sources */,
 				38C1AC0024E1381200097CFD /* UILocalizedIndexedCollation.swift in Sources */,
 				387F13312502576B0071799E /* PlayListView.swift in Sources */,
@@ -2559,12 +2802,14 @@
 				2B8E8D6924FFDA5D00B5C228 /* PlayerToolBarView.swift in Sources */,
 				38D1132A24E2438400EBE3ED /* EpisodeItemView.swift in Sources */,
 				38D11B3224E265AB00EBE3ED /* ChapterProgress.swift in Sources */,
+				2B1E866725333BC900BC2A77 /* Episode.Intent.swift in Sources */,
 				38D11B2D24E265AB00EBE3ED /* Message.swift in Sources */,
 				38D11B2B24E265AB00EBE3ED /* User.swift in Sources */,
 				38C1ABFF24E1381200097CFD /* URLExtensions.swift in Sources */,
 				38D11B1F24E2637200EBE3ED /* GeneralAPI.swift in Sources */,
 				38C1ABF924E1381200097CFD /* FileManagerExtensions.swift in Sources */,
 				38D11B2024E2637200EBE3ED /* NoteAPI.swift in Sources */,
+				2B1E86502533389F00BC2A77 /* Episode.NowPlay.swift in Sources */,
 				38C1ABDF24E12A6D00097CFD /* MenuBarApp.swift in Sources */,
 				38D11B2824E2644A00EBE3ED /* FunnyFm.swift in Sources */,
 			);
@@ -2578,6 +2823,7 @@
 				38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */,
 				387E7D652497252700F9D2C1 /* ExtensionItemHandler.swift in Sources */,
 				38C21231249717EF0022ECE6 /* ShareViewController.swift in Sources */,
+				2B1E8514253278D300BC2A77 /* FunnyFm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2585,6 +2831,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1E866625333BC900BC2A77 /* Episode.Intent.swift in Sources */,
 				AB8BD8DA236E7574006FEFF3 /* SPStorkControllerConfirmDelegate.swift in Sources */,
 				AB76EF67239C993E0096020B /* PodcastInfoView.swift in Sources */,
 				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
@@ -2614,6 +2861,7 @@
 				744239E52441E2BD0015DB21 /* BCQResourceLoaderManager.swift in Sources */,
 				ABE7ACB721C2177400FC6B8E /* SettingTableViewCell.swift in Sources */,
 				389B8ACC2499DD1F00F0F64A /* SheetViewController.swift in Sources */,
+				2B1E867D25333CC700BC2A77 /* AppDelegate.Shortcut.swift in Sources */,
 				AB8DA7472338F38000407FCB /* CleanyModalViewController.swift in Sources */,
 				74843740244C850F0001451A /* SearchHistoryTableViewCell.swift in Sources */,
 				AB2A37262328A7C10097DAF7 /* CloudSyncViewController.swift in Sources */,
@@ -2662,6 +2910,7 @@
 				AB76EF69239CCD8E0096020B /* GFLimitTextView.swift in Sources */,
 				744239E92441E2BD0015DB21 /* BCQResourceFragment.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
+				2B1E887D2533463700BC2A77 /* ShareProtocol.swift in Sources */,
 				ABEE40EB21E35EF800FCB16F /* VaildManager.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
 				AB1E6D8D21B9252500B85135 /* UIDatePickerExtensions.swift in Sources */,
@@ -2758,6 +3007,7 @@
 				3803B3072492343F00A681E2 /* AppDelegate+notifications.swift in Sources */,
 				ABE7660421D7196700470D8F /* URLRequestExtensions.swift in Sources */,
 				3898C7AF2474F1C200828A4A /* TermView.swift in Sources */,
+				2B1E8571253285A400BC2A77 /* Database.Episode.swift in Sources */,
 				AB32CF5522B38FA0007C9E41 /* iTunsPod.swift in Sources */,
 				ABE7ACBF21C2334000FC6B8E /* ChapterProgress.swift in Sources */,
 				AB1E6DA521BA01E800B85135 /* UIImage+someMethods.m in Sources */,
@@ -2784,6 +3034,7 @@
 				AB1E6D8821B9252500B85135 /* UIButtonExtensions.swift in Sources */,
 				38DD7BB32499E3720070F56D /* UILocalizedIndexedCollation.swift in Sources */,
 				ABB4E54C23A3B30000CFF37A /* TopicViewController.swift in Sources */,
+				2B1E88A52533470400BC2A77 /* IntentUtil.swift in Sources */,
 				AB1E6D8221B9252500B85135 /* UINavigationControllerExtensions.swift in Sources */,
 				AB4578C6233B4905001DF1D1 /* PlayListManager.swift in Sources */,
 				AB441A3A23502B3B00411359 /* MessageCollectionViewCell.swift in Sources */,
@@ -2826,6 +3077,7 @@
 				AB14DE9923E3FD5400E0FA38 /* DiscoverListTableViewCell.swift in Sources */,
 				38332BAA24937D75009AC1A7 /* Hud.swift in Sources */,
 				AB1E6DBA21BA877D00B85135 /* PlayerDetailViewController.swift in Sources */,
+				2B1E88C7253352FD00BC2A77 /* Intent.Funnyfm.swift in Sources */,
 				AB441A322350208700411359 /* GeneralAPI.swift in Sources */,
 				AB1E6DA121B943A100B85135 /* ChapterAPI.swift in Sources */,
 				AB5828B4233C92080072F03B /* YBTSPriorityQueue.mm in Sources */,
@@ -2839,6 +3091,7 @@
 				38909F1C249C689F00731587 /* ListenTimeAnalystManager.swift in Sources */,
 				AB57FE3822CEE2AC00BABEF2 /* ViewControllerExtension.swift in Sources */,
 				AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */,
+				2B1E864F2533389F00BC2A77 /* Episode.NowPlay.swift in Sources */,
 				AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */,
 				AB8BD8E4236E7574006FEFF3 /* SPStorkCodeDraw.swift in Sources */,
 				7423ED51248390CC006586C0 /* FeedParserJob.swift in Sources */,
@@ -2886,6 +3139,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2B1E84C525320D5500BC2A77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B1E84AD25320D5500BC2A77 /* FunnyIntent */;
+			targetProxy = 2B1E84C425320D5500BC2A77 /* PBXContainerItemProxy */;
+		};
 		38332A6624936A34009AC1A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 38332A5A24936A34009AC1A7 /* FunnyFmImport */;
@@ -3086,6 +3344,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2B1E84CB25320D5500BC2A77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D4CEFF9FB9D1E1639B188D4 /* Pods-FunnyIntent.debug.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = FunnyIntent/FunnyIntent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B1E84CC25320D5500BC2A77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 624AF4397FE19241C413B458 /* Pods-FunnyIntent.release.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = FunnyIntent/FunnyIntent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3PARDF2VE;
+				INFOPLIST_FILE = FunnyIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		38332A6824936A34009AC1A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1A47249948312F87FB53D11 /* Pods-FunnyFmImport.debug.xcconfig */;
@@ -3612,6 +3918,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2B1E84CA25320D5500BC2A77 /* Build configuration list for PBXNativeTarget "FunnyIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B1E84CB25320D5500BC2A77 /* Debug */,
+				2B1E84CC25320D5500BC2A77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		38332A6A24936A34009AC1A7 /* Build configuration list for PBXNativeTarget "FunnyFmImport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

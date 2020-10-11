@@ -12,37 +12,35 @@ class PlayStateObserver: NSObject {
 	
 	static let shared = PlayStateObserver()
 	
-	let defaults = UserDefaults.init(suiteName: "group.com.duke.Pine")
-	
 	/// 是否在播放状态
 	var isPlay: Bool {
 		get {
-			defaults!.bool(forKey: "isPlay")
+			UserDefaults.group!.bool(forKey: "isPlay")
 		}
 		
 		set {
-			defaults!.setValue(newValue, forKey: "isPlay")
+			UserDefaults.group!.setValue(newValue, forKey: "isPlay")
 		}
 	}
 	
 	/// 当前资源文件
 	var title: String? {
 		get {
-			defaults!.string(forKey: "currentPlay_title")
+			UserDefaults.group!.string(forKey: "currentPlay_title")
 		}
 		
 		set {
-			defaults!.setValue(newValue, forKey: "currentPlay_title")
+			UserDefaults.group!.setValue(newValue, forKey: "currentPlay_title")
 		}
 	}
 	
 	var coverUrl: String? {
 		get {
-			defaults!.string(forKey: "currentPlay_coverUrl")
+			UserDefaults.group!.string(forKey: "currentPlay_coverUrl")
 		}
 		
 		set {
-			defaults!.setValue(newValue, forKey: "currentPlay_coverUrl")
+			UserDefaults.group!.setValue(newValue, forKey: "currentPlay_coverUrl")
 		}
 	}
 	
