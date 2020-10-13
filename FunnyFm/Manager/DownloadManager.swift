@@ -69,7 +69,7 @@ class DownloadManager: NSObject {
             let progress = Double(task.progress.completedUnitCount) / Double(task.progress.totalUnitCount)
             self?.delegate?.downloadProgress(progress: progress, sourceUrl: url)
             
-			if progress == 1 {
+            if progress == 1 || task.status == .succeeded {
 				self?.successHandler(task: task)
 			}else{
 				NotificationCenter.default.post(name: Notification.downloadProgressNotification, object: ["progress":progress,"sourceUrl": url])
@@ -108,7 +108,9 @@ class DownloadManager: NSObject {
 		}
 		if var episode = DatabaseManager.getEpisode(trackUrl: url) {
 			episode.download_filpath = task.filePath.components(separatedBy: "/").last!
-			self.sessionManager.remove(task)
+            if task.status == .succeeded {
+                self.sessionManager.remove(task)
+            }
 			DatabaseManager.add(download: episode)
 			PlayListManager.shared.queueInsertAffter(episode: episode)
 		}
@@ -122,6 +124,7 @@ class DownloadManager: NSObject {
 			return
         }
 		sessionManager.remove(task, completely: true)
+        self.delegate?.didDownloadCancel(sourceUrl: episode.trackUrl)
 	}
 	
 	func resumeAllTask() {
@@ -132,6 +135,20 @@ class DownloadManager: NSObject {
 			}
 		}
 	}
+    
+    @discardableResult
+    func deleteDownloaded(episode: Episode) -> Bool {
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let mp3Path = documentURL.appendingPathComponent("mp3").appendingPathComponent(episode.download_filpath)
+        do {
+            try FileManager.default.removeItem(at: mp3Path)
+        }catch{
+            return false
+        }
+        
+        DatabaseManager.deleteDownload(title: episode.title);
+        return true
+    }
 	
 }
 

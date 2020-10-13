@@ -35,8 +35,8 @@ struct Provider: TimelineProvider {
         var entries: [SimpleEntry] = []
 
         let currentDate = Date()
-		for hourOffset in 0 ..< 12 {
-			let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset*2, to: currentDate)!
+		for hourOffset in 0 ..< 24 {
+			let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset*1, to: currentDate)!
 			var image: UIImage? = UIImage(named: "logo-white")
 			if let coverUrl = observer.coverUrl {
 				if let imageData = try? Data(contentsOf: URL(string: coverUrl)!) {
@@ -50,7 +50,7 @@ struct Provider: TimelineProvider {
 									size: context.family)
 			entries.append(entry)
 		}
-        let timeline = Timeline(entries: entries, policy: .never)
+        let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
 }

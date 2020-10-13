@@ -3095,7 +3095,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3123,7 +3123,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3153,7 +3153,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = Now/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3182,7 +3182,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = Now/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3262,7 +3262,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3289,7 +3289,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3438,7 +3438,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3579,7 +3579,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

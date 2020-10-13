@@ -372,6 +372,7 @@ extension FMPlayerManager {
 				print("音频初始化失败，请重试")
 				self.isCanPlay = false
 				self.playerDelegate?.playerStatusDidFailure()
+                DownloadManager.shared.deleteDownloaded(episode: self.currentModel!)
 			}else{
 				self.isCanPlay = true
 				self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)

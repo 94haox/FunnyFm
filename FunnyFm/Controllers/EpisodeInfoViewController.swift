@@ -87,19 +87,20 @@ extension EpisodeInfoViewController {
 	@objc func downloadAction(){
 		ImpactManager.impact()
 		if !self.downloadBtn.isSelected {
-			let _ = DownloadManager.shared.beginDownload(self.episode)
-			self.progressBar.isHidden = false
+            if self.progressBar.isHidden {
+                let _ = DownloadManager.shared.beginDownload(self.episode)
+                self.progressBar.isHidden = false
+            }else{
+                self.downloadBtn.setImage(UIImage.init(named: "download_icon"), for: .normal)
+                DownloadManager.shared.stopDownload(episode: self.episode)
+            }
 		}else{
-			if let _ = DatabaseManager.qureyDownload(title: self.episode.title) {
-				DatabaseManager.deleteDownload(title: self.episode.title);
-				self.downloadBtn.setImage(UIImage.init(named: "download_icon"), for: .normal)
-				self.downloadBtn.isSelected = false
-				return
-			}else{
-				DownloadManager.shared.stopDownload(episode: self.episode)
-			}
+            guard DownloadManager.shared.deleteDownloaded(episode: episode) else {
+                return
+            }
+            self.downloadBtn.setImage(UIImage.init(named: "download_icon"), for: .normal)
+            self.downloadBtn.isSelected = !self.downloadBtn.isSelected;
 		}
-		self.downloadBtn.isSelected = !self.downloadBtn.isSelected;
 	}
 	
 	@objc func addAction(){
@@ -145,7 +146,8 @@ extension EpisodeInfoViewController: DownloadManagerDelegate {
 		if self.episode.trackUrl != sourceUrl {
 			return
 		}
-		self.downloadBtn.isSelected = true
+        self.downloadBtn.setImage(UIImage(named: "cancel")!.tintImage, for: .normal)
+        self.downloadBtn.isSelected = false
 		self.progressBar.isHidden = false
 		self.progressBar.update(with: progress)
 	}
@@ -155,17 +157,23 @@ extension EpisodeInfoViewController: DownloadManagerDelegate {
 			return
 		}
 		self.progressBar.isHidden = true
-        self.downloadBtn.setImage(UIImage.init(named: "trash")?.tintImage, for: .normal)
-		self.downloadBtn.isSelected = false
+		self.downloadBtn.isSelected = true
+        self.progressBar.update(with: 0)
 	}
 	
 	func didDownloadFailure(sourceUrl: String) {
 		if self.episode.trackUrl != sourceUrl {
 			return
 		}
+        self.downloadBtn.setImage(UIImage(named: "download_icon")!.tintImage, for: .normal)
 		self.progressBar.isHidden = true
 		self.downloadBtn.isSelected = false
+        self.progressBar.update(with: 0)
 	}
+    
+    func didDownloadCancel(sourceUrl: String) {
+        self.didDownloadFailure(sourceUrl: sourceUrl)
+    }
 }
 
 extension EpisodeInfoViewController {
@@ -182,12 +190,11 @@ extension EpisodeInfoViewController {
 		}
         
         if DownloadManager.shared.sessionManager.fetchTask(url).isSome {
-            self.downloadBtn.isSelected = true
+            self.downloadBtn.setImage(UIImage.init(named: "cancel")!.tintImage, for: .normal)
         }
 		
 		
 		if let _ = DatabaseManager.qureyDownload(title: self.episode.title) {
-            self.downloadBtn.setImage(UIImage.init(named: "trash")!.tintImage, for: .selected)
 			self.downloadBtn.isSelected = true
 		}
         
@@ -248,7 +255,7 @@ extension EpisodeInfoViewController {
 				DispatchQueue.main.async {
                     self.infoTextView.textLayout = layout
                     if let _ = layout {
-                        self.infoTextView.snp_makeConstraints { (make) in
+                        self.infoTextView.snp.makeConstraints { (make) in
                             make.height.equalTo(layout!.textBoundingSize.height)
                         }
                     }
@@ -260,7 +267,7 @@ extension EpisodeInfoViewController {
 				DispatchQueue.main.async {
                     self.infoTextView.textLayout = layout
                     if let _ = layout {
-                        self.infoTextView.snp_makeConstraints { (make) in
+                        self.infoTextView.snp.makeConstraints { (make) in
                             make.height.equalTo(layout!.textBoundingSize.height)
                         }
                     }
@@ -331,13 +338,13 @@ extension EpisodeInfoViewController {
 		self.playBtn.snp.makeConstraints { (make) in
 			make.left.equalTo(self.episodeImageView)
 			make.top.equalTo(self.episodeImageView.snp.bottom).offset(16)
-			make.right.equalTo(self.noteListBtn.snp_left).offset(-24)
+            make.right.equalTo(self.noteListBtn.snp.left).offset(-24)
 			make.height.equalTo(40)
 		}
 		
 		self.noteListBtn.snp.makeConstraints { (make) in
 			make.centerY.equalTo(self.playBtn)
-			make.right.equalTo(self.downloadBtn.snp_left).offset(-16)
+            make.right.equalTo(self.downloadBtn.snp.left).offset(-16)
 			make.height.equalTo(self.playBtn)
 			make.width.equalTo(50)
 		}
@@ -449,7 +456,7 @@ extension EpisodeInfoViewController {
         self.downloadBtn.backgroundColor = CommonColor.whiteBackgroud.color
 		self.downloadBtn.cornerRadius = 8
         self.downloadBtn.setImage(UIImage.init(named: "download_icon")!.tintImage, for: .normal)
-        self.downloadBtn.setImage(UIImage.init(named: "cancel")!.tintImage, for: .selected)
+        self.downloadBtn.setImage(UIImage.init(named: "trash")!.tintImage, for: .selected)
         self.downloadBtn.tintColor = R.color.mainRed()
 		self.downloadBtn.addShadow(ofColor: CommonColor.background.color, radius: 5, offset: CGSize.init(width: 0, height: 0), opacity: 1)
 		self.downloadBtn.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
