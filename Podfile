@@ -6,7 +6,6 @@ install! 'cocoapods', generate_multiple_pod_projects: true
 def ios_shared
 	pod 'SnapKit'
 	pod 'AutoInch'
-	pod ''
 end
 
 def apple_shared
@@ -89,6 +88,12 @@ end
 target "NowExtension" do
 	platform :ios, '14.0'
 	pod 'Nuke'
+end
+
+target "PerhapsRefreshExtension" do
+  platform :ios, '14.0'
+  pod 'Nuke'
+  apple_shared
 end
 
 target "MenuBar" do

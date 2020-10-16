@@ -258,26 +258,30 @@ extension DatabaseManager {
         #endif
         return episodeList
 	}
+    
+    static public func allEpisodes(rss: String) -> [Episode] {
+        let objects: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
+                                                        where: Episode.Properties.podcastUrl == rss)
+        let episodeList = objects.sorted(by: { (obj1, obj2) -> Bool in
+            let second1 = obj1.pubDateSecond
+            let second2 = obj2.pubDateSecond
+            return second1 <= second2
+        })
+        
+        var listDic = [String:Episode]()
+        var list = [Episode]()
+        episodeList.forEach { (episode) in
+            if listDic[episode.title] == nil {
+                listDic[episode.title] = episode
+                list.append(episode)
+            }
+        }
+        return list
+    }
 	
 	/// 指定 Pod 下的所有 Episode
 	static public func allEpisodes(pod: iTunsPod) -> [Episode] {
-		let objects: [Episode] = try! database.getObjects(fromTable: exsitEpisodeTable,
-														where: Episode.Properties.podcastUrl == pod.feedUrl)
-		let episodeList = objects.sorted(by: { (obj1, obj2) -> Bool in
-			let second1 = obj1.pubDateSecond
-			let second2 = obj2.pubDateSecond
-			return second1 <= second2
-		})
-		
-		var listDic = [String:Episode]()
-		var list = [Episode]()
-		episodeList.forEach { (episode) in
-			if listDic[episode.title] == nil {
-				listDic[episode.title] = episode
-				list.append(episode)
-			}
-		}
-		return list
+        allEpisodes(rss: pod.feedUrl)
 	}
 	
 	
@@ -297,7 +301,7 @@ extension DatabaseManager {
                                                                where: (Episode.Properties.trackUrl == episode.trackUrl && Episode.Properties.podcastUrl == episode.podcastUrl))
 		if exsitEpisode.count > 0 {
 			let oldEpisode = exsitEpisode.first!
-			if oldEpisode.podcastUrl.length() < 1 {
+			if oldEpisode.podcastUrl.count < 1 {
 				try! self.database.update(table: exsitEpisodeTable, on: Episode.Properties.all, with: episode, where: (Episode.Properties.trackUrl == episode.trackUrl && Episode.Properties.podcastUrl == episode.podcastUrl))
 			}
 			return

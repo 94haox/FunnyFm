@@ -210,7 +210,7 @@ extension PodPreviewViewController {
 		self.backBtn.snp.makeConstraints { (make) in
 			make.size.equalTo(CGSize.init(width: 25, height: 25))
 			make.left.equalTo(self.view).offset(18)
-			make.top.equalTo(self.view.snp_topMargin)
+			make.top.equalTo(self.view.snp.topMargin)
 		}
 	}
 	

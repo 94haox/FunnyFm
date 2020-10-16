@@ -65,32 +65,11 @@ struct iTunsPod: Mapable, Identifiable {
 import WCDBSwift
 
 extension iTunsPod: TableCodable {
-    
-    #if os(iOS)
-    
-    init(pod: Pod) {
-        feedUrl = pod.url
-        trackName = pod.title
-        collectionId = ""
-        artworkUrl600 = pod.image
-        trackCount = String(pod.items.count)
-        releaseDate = pod.updateTime
-        podId = ""
-        podAuthor = pod.author
-        copyRight = pod.copyright
-        podDes = pod.description
-        if let podcast = DatabaseManager.getPodcast(feedUrl: feedUrl) {
-            isNeedVpn = podcast.isNeedVpn
-        }else{
-            isNeedVpn = false
-        }
-    }
-    
-    #endif
+
     
     init(dic:NSDictionary) {
         let rss_url = dic["rss_url"] as! String
-        if rss_url.length() > 0 {
+        if rss_url.count > 0 {
             feedUrl = dic["rss_url"] as! String
             trackName = dic["track_name"] as! String
             collectionId = dic["collection_id"] as! String

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1E2EC24AACEB51930F0C1851 /* Pods_MenuBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C1F3AA0C9E3C29C32458F9 /* Pods_MenuBar.framework */; };
+		2B1E84372531F8A500BC2A77 /* NowSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E84352531F8A500BC2A77 /* NowSmallView.swift */; };
+		2B1E843F2531FAEB00BC2A77 /* NowMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E843D2531FAEB00BC2A77 /* NowMediumView.swift */; };
+		2B1E844C2531FB4300BC2A77 /* PlayStateDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1E844A2531FB4300BC2A77 /* PlayStateDotView.swift */; };
+		2B1E849E2531FF4100BC2A77 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FC21D7196700470D8F /* DateExtensions.swift */; };
 		2B8E8D6524FFD6B300B5C228 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */; };
 		2B8E8D6724FFD87C00B5C228 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6624FFD87C00B5C228 /* SettingView.swift */; };
 		2B8E8D6924FFDA5D00B5C228 /* PlayerToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */; };
@@ -32,6 +36,22 @@
 		38332BAA24937D75009AC1A7 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B0BA92424DE7800E42A16 /* Hud.swift */; };
 		38332BAB24937D75009AC1A7 /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B0BA82424DE7800E42A16 /* HudView.xib */; };
 		38332BAE24937E59009AC1A7 /* OpmlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3806C369248BC4BB0034F340 /* OpmlTableViewCell.xib */; };
+		3852BC9525397B97004123C5 /* UpdatePrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3852BC9425397B97004123C5 /* UpdatePrediction.swift */; };
+		3852BC9C25398506004123C5 /* iTunsPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32CF5422B38FA0007C9E41 /* iTunsPod.swift */; };
+		3852BE75253986A1004123C5 /* SharedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3852BE74253986A1004123C5 /* SharedProtocol.swift */; };
+		3852BE76253986A1004123C5 /* SharedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3852BE74253986A1004123C5 /* SharedProtocol.swift */; };
+		3852BE78253986A1004123C5 /* SharedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3852BE74253986A1004123C5 /* SharedProtocol.swift */; };
+		3852BE85253986E7004123C5 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBC21C22B9300FC6B8E /* DatabaseManager.swift */; };
+		3852BE8D25398722004123C5 /* iTunesPod.Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3852BE8C25398722004123C5 /* iTunesPod.Pod.swift */; };
+		3852BEA925398772004123C5 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
+		3852BEB02539877E004123C5 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE121952EAA00260851 /* Episode.swift */; };
+		3852BEB7253987A9004123C5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FC21D7196700470D8F /* DateExtensions.swift */; };
+		3852BEBE253987DD004123C5 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE9219537B400260851 /* Const.swift */; };
+		3852BEC5253987E4004123C5 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE9219537B400260851 /* Const.swift */; };
+		3852BECC2539880D004123C5 /* ChapterProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7ACBE21C2334000FC6B8E /* ChapterProgress.swift */; };
+		3852BED325398812004123C5 /* PlayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C7233B5112001DF1D1 /* PlayItem.swift */; };
+		3852BEDA2539881F004123C5 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAF21BA5B4500B85135 /* OptionalExtension.swift */; };
+		3852BEE125398833004123C5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE40E121E32C1700FCB16F /* StringExtension.swift */; };
 		385651A324F90367002D56C1 /* FMPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6DAB21BA2FE000B85135 /* FMPlayerManager.swift */; };
 		3856523C24F907AB002D56C1 /* MNAVChapterReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3856523B24F907AB002D56C1 /* MNAVChapterReader.m */; };
 		3856523E24F908D2002D56C1 /* PlayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4578C5233B4905001DF1D1 /* PlayListManager.swift */; };
@@ -468,6 +488,7 @@
 		ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9EC1321E1BE95001C94CF /* NeLoginViewController.swift */; };
 		B695110D868CD0326F60A963 /* Pods_FunnyFm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */; };
 		E7105D8ED1F6CE666AEBCA69 /* Pods_FunnyFmImport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E57E88F5B842DCDE115E903 /* Pods_FunnyFmImport.framework */; };
+		F4B1E57D17BA7DBBDC4C89B5 /* Pods_PerhapsRefreshExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20916D362C0DAF5BB730CB65 /* Pods_PerhapsRefreshExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -544,7 +565,11 @@
 		0F57F64A07E826B0C2E85296 /* Pods_NowWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NowWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13FEE85046F3D0E227746F5A /* Pods-NowExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NowExtension/Pods-NowExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		14B9E9FD352B43EA5B194292 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		20916D362C0DAF5BB730CB65 /* Pods_PerhapsRefreshExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerhapsRefreshExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		225028D23A32C7657DDD1A52 /* Pods-MenuBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-MenuBar/Pods-MenuBar.release.xcconfig"; sourceTree = "<group>"; };
+		2B1E84352531F8A500BC2A77 /* NowSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowSmallView.swift; sourceTree = "<group>"; };
+		2B1E843D2531FAEB00BC2A77 /* NowMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowMediumView.swift; sourceTree = "<group>"; };
+		2B1E844A2531FB4300BC2A77 /* PlayStateDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStateDotView.swift; sourceTree = "<group>"; };
 		2B8E8D6424FFD6B300B5C228 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		2B8E8D6624FFD87C00B5C228 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		2B8E8D6824FFDA5D00B5C228 /* PlayerToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerToolBarView.swift; sourceTree = "<group>"; };
@@ -566,6 +591,10 @@
 		38332A5F24936A34009AC1A7 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		38332A6224936A34009AC1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		38332A6424936A34009AC1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3852BC8D25397B70004123C5 /* PerhapsRefreshExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerhapsRefreshExtension.entitlements; sourceTree = "<group>"; };
+		3852BC9425397B97004123C5 /* UpdatePrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePrediction.swift; sourceTree = "<group>"; };
+		3852BE74253986A1004123C5 /* SharedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProtocol.swift; sourceTree = "<group>"; };
+		3852BE8C25398722004123C5 /* iTunesPod.Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPod.Pod.swift; sourceTree = "<group>"; };
 		3856523A24F907AB002D56C1 /* MNAVChapterReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNAVChapterReader.h; sourceTree = "<group>"; };
 		3856523B24F907AB002D56C1 /* MNAVChapterReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNAVChapterReader.m; sourceTree = "<group>"; };
 		386078B7248F64BE00A67F6E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -717,6 +746,7 @@
 		74A5CD75241239A200705E75 /* FunnyFm.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FunnyFm.entitlements; sourceTree = "<group>"; };
 		74C9DF75243E01DC000B1745 /* GuideTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuideTipView.swift; path = FunnyFM/Views/Custom/GuideTipView.swift; sourceTree = SOURCE_ROOT; };
 		74E92F822430842A00A0F64A /* first_ads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = first_ads.json; sourceTree = "<group>"; };
+		7FD229365A143FC186ABEC78 /* Pods-PerhapsRefreshExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerhapsRefreshExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerhapsRefreshExtension/Pods-PerhapsRefreshExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		862CA69E34A064AD03798AD7 /* Pods_FunnyFm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865F7415AB12C936FA5FD118 /* Pods-NowExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-NowExtension/Pods-NowExtension.release.xcconfig"; sourceTree = "<group>"; };
 		9027E8313902ED68EF8EEDB4 /* Pods_FunnyFmShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnyFmShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1062,6 +1092,7 @@
 		D9700F3B756405F3DCD07756 /* Pods-Clips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clips.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clips/Pods-Clips.release.xcconfig"; sourceTree = "<group>"; };
 		DD8C0047D3F04EDDADECEA89 /* Pods-NowWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NowWidgetExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-NowWidgetExtension/Pods-NowWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		DF31BC4CB56D50BC7E3DA39E /* Pods-MenuBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuBar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MenuBar/Pods-MenuBar.debug.xcconfig"; sourceTree = "<group>"; };
+		F3ABE71495A80B7134D97E56 /* Pods-PerhapsRefreshExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerhapsRefreshExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PerhapsRefreshExtension/Pods-PerhapsRefreshExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1071,6 +1102,7 @@
 			files = (
 				382627CB2531873300902D55 /* SwiftUI.framework in Frameworks */,
 				382627CA2531873300902D55 /* WidgetKit.framework in Frameworks */,
+				F4B1E57D17BA7DBBDC4C89B5 /* Pods_PerhapsRefreshExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,6 +1178,7 @@
 				3869AE6C253001B400420E36 /* SwiftUI.framework */,
 				0F57F64A07E826B0C2E85296 /* Pods_NowWidgetExtension.framework */,
 				C6904179FFA243441A410F97 /* Pods_NowExtension.framework */,
+				20916D362C0DAF5BB730CB65 /* Pods_PerhapsRefreshExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1156,6 +1189,7 @@
 				382627CD2531873300902D55 /* PerhapsRefresh.swift */,
 				382627CF2531873400902D55 /* Assets.xcassets */,
 				382627D12531873400902D55 /* Info.plist */,
+				3852BC9425397B97004123C5 /* UpdatePrediction.swift */,
 			);
 			path = PerhapsRefresh;
 			sourceTree = "<group>";
@@ -1173,6 +1207,14 @@
 			path = FunnyFmImport;
 			sourceTree = "<group>";
 		};
+		3852BE7325398680004123C5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3852BE74253986A1004123C5 /* SharedProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		3856523924F907AB002D56C1 /* MNAVChapters */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1229,9 @@
 			isa = PBXGroup;
 			children = (
 				3869B36D2530303200420E36 /* Now.swift */,
+				2B1E843D2531FAEB00BC2A77 /* NowMediumView.swift */,
+				2B1E84352531F8A500BC2A77 /* NowSmallView.swift */,
+				2B1E844A2531FB4300BC2A77 /* PlayStateDotView.swift */,
 				3869B36F2530303300420E36 /* Assets.xcassets */,
 				3869B3712530303300420E36 /* Info.plist */,
 			);
@@ -1251,6 +1296,7 @@
 		38D1132124E2377A00EBE3ED /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3852BE7325398680004123C5 /* Protocol */,
 				38D11B3624E2668900EBE3ED /* Manager */,
 				38D11B2924E2657C00EBE3ED /* API */,
 				38D1132324E237CC00EBE3ED /* View */,
@@ -1510,6 +1556,7 @@
 		AB25797021945E6F004C5F5D = {
 			isa = PBXGroup;
 			children = (
+				3852BC8D25397B70004123C5 /* PerhapsRefreshExtension.entitlements */,
 				3869B37D2530303B00420E36 /* NowExtension.entitlements */,
 				38D1132124E2377A00EBE3ED /* Shared */,
 				AB7B1AE822F9237700790787 /* GoogleService-Info.plist */,
@@ -1675,6 +1722,7 @@
 		AB41AADB21952A7C00260851 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3852BE8C25398722004123C5 /* iTunesPod.Pod.swift */,
 				AB41AADF21952D2200260851 /* Pod.swift */,
 			);
 			path = Models;
@@ -2064,6 +2112,8 @@
 				DD8C0047D3F04EDDADECEA89 /* Pods-NowWidgetExtension.release.xcconfig */,
 				13FEE85046F3D0E227746F5A /* Pods-NowExtension.debug.xcconfig */,
 				865F7415AB12C936FA5FD118 /* Pods-NowExtension.release.xcconfig */,
+				7FD229365A143FC186ABEC78 /* Pods-PerhapsRefreshExtension.debug.xcconfig */,
+				F3ABE71495A80B7134D97E56 /* Pods-PerhapsRefreshExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2075,6 +2125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 382627D72531873400902D55 /* Build configuration list for PBXNativeTarget "PerhapsRefreshExtension" */;
 			buildPhases = (
+				5CEEB1E3D17F59B944E5590D /* [CP] Check Pods Manifest.lock */,
 				382627C52531873300902D55 /* Sources */,
 				382627C62531873300902D55 /* Frameworks */,
 				382627C72531873300902D55 /* Resources */,
@@ -2454,6 +2505,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5CEEB1E3D17F59B944E5590D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PerhapsRefreshExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		666FB849633B07B97846E521 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2547,7 +2620,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3852BEB7253987A9004123C5 /* DateExtensions.swift in Sources */,
+				3852BE85253986E7004123C5 /* DatabaseManager.swift in Sources */,
+				3852BECC2539880D004123C5 /* ChapterProgress.swift in Sources */,
+				3852BEB02539877E004123C5 /* Episode.swift in Sources */,
+				3852BE78253986A1004123C5 /* SharedProtocol.swift in Sources */,
 				382627CE2531873300902D55 /* PerhapsRefresh.swift in Sources */,
+				3852BED325398812004123C5 /* PlayItem.swift in Sources */,
+				3852BEDA2539881F004123C5 /* OptionalExtension.swift in Sources */,
+				3852BEE125398833004123C5 /* StringExtension.swift in Sources */,
+				3852BEBE253987DD004123C5 /* Const.swift in Sources */,
+				3852BC9C25398506004123C5 /* iTunsPod.swift in Sources */,
+				3852BEA925398772004123C5 /* FunnyFm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2568,7 +2652,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3869B36E2530303200420E36 /* Now.swift in Sources */,
+				2B1E84372531F8A500BC2A77 /* NowSmallView.swift in Sources */,
+				2B1E843F2531FAEB00BC2A77 /* NowMediumView.swift in Sources */,
 				3869B383253030B100420E36 /* PlayStateObserver.swift in Sources */,
+				2B1E844C2531FB4300BC2A77 /* PlayStateDotView.swift in Sources */,
+				2B1E849E2531FF4100BC2A77 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2594,6 +2682,7 @@
 				38D11B2624E2640100EBE3ED /* OptionalExtension.swift in Sources */,
 				38CB785F2512182800FECB0D /* SlideItemsView.swift in Sources */,
 				38D11B3024E265AB00EBE3ED /* Chapter.swift in Sources */,
+				3852BE76253986A1004123C5 /* SharedProtocol.swift in Sources */,
 				38D11B2124E2637200EBE3ED /* FmHttp.swift in Sources */,
 				38CB77362511F9DA00FECB0D /* EpisodeInfoView.swift in Sources */,
 				38CB786325121D6B00FECB0D /* FunnyMenu.swift in Sources */,
@@ -2629,6 +2718,7 @@
 				38D11B2024E2637200EBE3ED /* NoteAPI.swift in Sources */,
 				38C1ABDF24E12A6D00097CFD /* MenuBarApp.swift in Sources */,
 				38D11B2824E2644A00EBE3ED /* FunnyFm.swift in Sources */,
+				3852BEC5253987E4004123C5 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2659,6 +2749,7 @@
 				AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
 				ABDB9DEA2394F45800539049 /* NoteViewModel.swift in Sources */,
+				3852BE8D25398722004123C5 /* iTunesPod.Pod.swift in Sources */,
 				AB1E6D7721B9252500B85135 /* UICollectionViewExtensions.swift in Sources */,
 				3856523C24F907AB002D56C1 /* MNAVChapterReader.m in Sources */,
 				AB1E6D7B21B9252500B85135 /* UITabBarExtensions.swift in Sources */,
@@ -2773,6 +2864,7 @@
 				AB34C4FC2331DFDA007FC0EC /* ArrayExtension.swift in Sources */,
 				AB8BD8D6236E7574006FEFF3 /* SPStorkPresentingAnimationController.swift in Sources */,
 				AB6990B42315248E003AC187 /* ProgressHUD.swift in Sources */,
+				3852BE75253986A1004123C5 /* SharedProtocol.swift in Sources */,
 				AB2A3722232888FA0097DAF7 /* DWSegment.swift in Sources */,
 				744239E72441E2BD0015DB21 /* BCQResourceInfo.swift in Sources */,
 				AB1E6D7621B9252500B85135 /* UIStackViewExtensions.swift in Sources */,
@@ -2940,6 +3032,7 @@
 				38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */,
 				AB872C55232A993300FF3757 /* DownloadListViewController.swift in Sources */,
 				ABEF471221E8B6E400212DCA /* User.swift in Sources */,
+				3852BC9525397B97004123C5 /* UpdatePrediction.swift in Sources */,
 				AB9E426923951DB500232EE8 /* NoteCollectionViewCell.swift in Sources */,
 				ABDC4D2C22CCAAB700EF31C0 /* EmptyMainViewController.swift in Sources */,
 			);
@@ -3155,10 +3248,12 @@
 /* Begin XCBuildConfiguration section */
 		382627D52531873400902D55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FD229365A143FC186ABEC78 /* Pods-PerhapsRefreshExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = PerhapsRefreshExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -3179,10 +3274,12 @@
 		};
 		382627D62531873400902D55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3ABE71495A80B7134D97E56 /* Pods-PerhapsRefreshExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = PerhapsRefreshExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -3210,7 +3307,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3238,7 +3335,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmImport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3268,7 +3365,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = Now/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3297,7 +3394,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = Now/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3377,7 +3474,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3404,7 +3501,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				INFOPLIST_FILE = FunnyFmShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3553,7 +3650,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3694,7 +3791,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = F3PARDF2VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

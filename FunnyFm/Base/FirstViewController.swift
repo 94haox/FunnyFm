@@ -19,7 +19,7 @@ class FirstViewController: UIViewController {
 		self.titleLB.snp.makeConstraints { (make) in
 			make.top.equalTo(self.view.snp.topMargin)
             make.left.equalToSuperview().offset(16).priorityMedium()
-            make.left.equalTo(self.backNaviBtn.snp_right).offset(10).priorityHigh()
+            make.left.equalTo(self.backNaviBtn.snp.right).offset(10).priorityHigh()
 		}
 		
 		self.topBgView.snp.makeConstraints { (make) in

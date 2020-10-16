@@ -11,11 +11,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), podcastList: nil)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
+        let entry = SimpleEntry(date: Date(), podcastList: nil)
         completion(entry)
     }
 
@@ -24,9 +24,9 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
+        for dayOffset in 0 ..< 7 {
+            let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
+            let entry = SimpleEntry(date: entryDate, podcastList: nil)
             entries.append(entry)
         }
 
@@ -37,13 +37,25 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    let widgetUrl: String = "funnyfm://open/prediction"
+    let podcastList: [iTunsPod]?
 }
 
 struct PerhapsRefreshEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        HStack{
+            VStack(alignment: .leading) {
+                VStack (alignment: .leading){
+                    HStack {
+                        
+                    }
+                }
+            }
+        }
+//        .widgetURL(URL(string: entry.widgetUrl))
+        .padding(.all, 12)
     }
 }
 
@@ -56,6 +68,6 @@ struct PerhapsRefresh: Widget {
             PerhapsRefreshEntryView(entry: entry)
         }
         .configurationDisplayName("即将更新")
-		.supportedFamilies([.systemMedium, .systemLarge])
+		.supportedFamilies([.systemMedium])
     }
 }

@@ -14,10 +14,10 @@
             filePath = "FunnyFm/Controllers/EpisodeInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "EpisodeInfoViewController"
-            landmarkType = "21">
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "config(content:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -34,6 +34,38 @@
             endingLineNumber = "25"
             landmarkName = "run()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7FA127CC-85EE-4D40-9085-3C27BBEED7E7 - 5529e225ef12a6c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FunnyFm.CloudParserJob.run() throws -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wutao/Tao/FunnyFm/FunnyFM/Job/CloudParserJob.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "632">
+               </Location>
+               <Location
+                  uuid = "7FA127CC-85EE-4D40-9085-3C27BBEED7E7 - fa8f7a999a880e91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;FunnyFm.Pod&gt;) -&gt; () in FunnyFm.CloudParserJob.run() throws -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wutao/Tao/FunnyFm/FunnyFM/Job/CloudParserJob.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "348">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,6 +98,38 @@
             endingLineNumber = "151"
             landmarkName = "updateProgress(noti:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F27F948-2E53-403A-B2ED-E52BB54265A5 - 296d3bcd7069da78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FunnyFm.PlayDetailToolBar.updateProgress(noti: Foundation.Notification) -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wutao/Tao/FunnyFm/FunnyFm/Views/Custom/PlayDetailToolBar.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "728">
+               </Location>
+               <Location
+                  uuid = "9F27F948-2E53-403A-B2ED-E52BB54265A5 - 51459a6904ec875"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in FunnyFm.PlayDetailToolBar.updateProgress(noti: Foundation.Notification) -&gt; ()"
+                  moduleName = "FunnyFm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wutao/Tao/FunnyFm/FunnyFm/Views/Custom/PlayDetailToolBar.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,8 +142,8 @@
             filePath = "Podfile"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>

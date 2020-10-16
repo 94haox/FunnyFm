@@ -23,7 +23,7 @@ class MessageDetailViewController: BaseViewController {
 		self.view.addSubview(self.detailInfoTextView)
 		self.detailInfoTextView.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview()
-			make.top.equalTo(self.view.snp_topMargin)
+			make.top.equalTo(self.view.snp.topMargin)
 		}
     }
     

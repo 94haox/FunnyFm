@@ -158,7 +158,7 @@ extension FunctionsViewController {
             make.height.equalTo(25.auto())
         }
         
-		self.playToolbar.snp_makeConstraints { (make) in
+		self.playToolbar.snp.makeConstraints { (make) in
 			make.center.equalToSuperview()
             make.width.equalToSuperview().offset(-30.auto())
 			make.height.equalTo(60.auto())
