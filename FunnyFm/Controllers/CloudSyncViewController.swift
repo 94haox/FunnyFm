@@ -157,7 +157,7 @@ extension CloudSyncViewController {
 			make.left.equalTo(self.syncBtn)
 		}
 		
-		self.syncSwitch.snp_makeConstraints { (make) in
+		self.syncSwitch.snp.makeConstraints { (make) in
 			make.centerY.equalTo(self.syncLB)
 			make.right.equalTo(self.syncBtn)
 			make.size.equalTo(CGSize.init(width: 45, height: 25));

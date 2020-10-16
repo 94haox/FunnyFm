@@ -52,18 +52,18 @@ extension DiscoverPodcastViewCell {
 		
 		self.imageView.snp.makeConstraints { (make) in
 			make.left.top.width.equalToSuperview()
-			make.height.equalTo(self.snp_width)
+			make.height.equalTo(self.snp.width)
 		}
 		
 		self.titleLB.snp.makeConstraints { (make) in
 			make.left.equalToSuperview().offset(6.auto())
 			make.right.equalToSuperview().offset(-6.auto())
-			make.top.equalTo(self.imageView.snp_bottom).offset(12.auto())
+			make.top.equalTo(self.imageView.snp.bottom).offset(12.auto())
 		}
 		
 		self.subtitleLB.snp.makeConstraints { (make) in
 			make.left.right.equalTo(self.titleLB)
-			make.top.equalTo(self.titleLB.snp_bottom).offset(8.auto())
+			make.top.equalTo(self.titleLB.snp.bottom).offset(8.auto())
 		}
 	}
 	

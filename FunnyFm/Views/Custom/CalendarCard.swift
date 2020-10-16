@@ -54,7 +54,7 @@ extension CalendarCard {
 		
 		cornerView.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
-			make.bottom.equalTo(dayLB.snp_top).offset(2)
+			make.bottom.equalTo(dayLB.snp.top).offset(2)
 			make.size.equalTo(CGSize(width: 10, height: 1))
 		}
 		
@@ -63,7 +63,7 @@ extension CalendarCard {
 			make.top.equalToSuperview().offset(3.auto())
 		}
 		
-		dayLB.snp_makeConstraints { (make) in
+		dayLB.snp.makeConstraints { (make) in
 			make.centerX.equalToSuperview()
 			make.centerY.equalToSuperview().offset(8.auto())
 		}

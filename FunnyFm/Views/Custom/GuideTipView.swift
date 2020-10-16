@@ -73,7 +73,7 @@ class GuideTipView: UIView {
         
         sumLB.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(tipLB.snp_bottom).offset(8.auto())
+            make.top.equalTo(tipLB.snp.bottom).offset(8.auto())
         }
         
         showBtn.snp.makeConstraints { (make) in

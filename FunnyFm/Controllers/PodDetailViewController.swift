@@ -230,7 +230,7 @@ extension PodDetailViewController: UITableViewDataSource {
         
         self.wallBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalTo(self.sortedBtn.snp_left).offset(-16.auto())
+            make.right.equalTo(self.sortedBtn.snp.left).offset(-16.auto())
             make.size.equalTo(CGSize.init(width: 25, height: 25))
         }
         self.wallBtn.isHidden = !self.vm.pod!.isNeedVpn
@@ -287,7 +287,7 @@ extension PodDetailViewController {
 		
 		self.tableview.snp.makeConstraints { (make) in
 			make.left.width.bottom.equalToSuperview();
-			make.top.equalTo(self.view.snp_topMargin)
+			make.top.equalTo(self.view.snp.topMargin)
 		}
 		
 		self.loadingView.snp.makeConstraints { (make) in

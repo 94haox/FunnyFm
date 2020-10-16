@@ -57,7 +57,7 @@ class ChapterListViewController: UIViewController {
         self.view.addSubview(self.chapterListView)
         self.chapterListView.snp.makeConstraints { (make) in
             make.left.width.bottom.equalToSuperview()
-            make.top.equalTo(self.titleLB.snp_bottom).offset(32.auto())
+            make.top.equalTo(self.titleLB.snp.bottom).offset(32.auto())
         }
     }
 

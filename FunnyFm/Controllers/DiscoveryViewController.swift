@@ -182,7 +182,7 @@ extension DiscoveryViewController {
         
         self.addBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize.init(width: 25.auto(), height: 25.auto()))
-            make.right.equalTo(self.searchBtn.snp_left).offset(-4.auto())
+            make.right.equalTo(self.searchBtn.snp.left).offset(-4.auto())
             make.centerY.equalTo(self.titleLB)
         }
 		
