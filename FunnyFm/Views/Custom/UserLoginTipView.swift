@@ -58,7 +58,7 @@ extension UserLoginTipView {
         self.btn.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
         
         self.contentView.addSubviews([self.animationView, self.tipLB, self.btn])
-        self.contentView.snp_makeConstraints { (make) in
+        self.contentView.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
             make.height.equalToSuperview()
             make.leading.equalTo(self.animationView)
@@ -72,12 +72,12 @@ extension UserLoginTipView {
         
         self.tipLB.snp.makeConstraints { (make) in
             make.left.equalTo(self.animationView.snp.right).offset(12.auto())
-            make.bottom.equalTo(self.snp_centerY).offset(-6.auto())
+            make.bottom.equalTo(self.snp.centerY).offset(-6.auto())
         }
         
         self.btn.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.tipLB)
-            make.top.equalTo(self.snp_centerY).offset(6.auto())
+            make.top.equalTo(self.snp.centerY).offset(6.auto())
             make.size.equalTo(CGSize.init(width: 100.auto(), height: 30.auto()))
         }
         

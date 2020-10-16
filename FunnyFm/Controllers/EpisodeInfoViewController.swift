@@ -248,7 +248,7 @@ extension EpisodeInfoViewController {
 				DispatchQueue.main.async {
                     self.infoTextView.textLayout = layout
                     if let _ = layout {
-                        self.infoTextView.snp_makeConstraints { (make) in
+                        self.infoTextView.snp.makeConstraints { (make) in
                             make.height.equalTo(layout!.textBoundingSize.height)
                         }
                     }
@@ -260,7 +260,7 @@ extension EpisodeInfoViewController {
 				DispatchQueue.main.async {
                     self.infoTextView.textLayout = layout
                     if let _ = layout {
-                        self.infoTextView.snp_makeConstraints { (make) in
+                        self.infoTextView.snp.makeConstraints { (make) in
                             make.height.equalTo(layout!.textBoundingSize.height)
                         }
                     }
@@ -331,13 +331,13 @@ extension EpisodeInfoViewController {
 		self.playBtn.snp.makeConstraints { (make) in
 			make.left.equalTo(self.episodeImageView)
 			make.top.equalTo(self.episodeImageView.snp.bottom).offset(16)
-			make.right.equalTo(self.noteListBtn.snp_left).offset(-24)
+			make.right.equalTo(self.noteListBtn.snp.left).offset(-24)
 			make.height.equalTo(40)
 		}
 		
 		self.noteListBtn.snp.makeConstraints { (make) in
 			make.centerY.equalTo(self.playBtn)
-			make.right.equalTo(self.downloadBtn.snp_left).offset(-16)
+			make.right.equalTo(self.downloadBtn.snp.left).offset(-16)
 			make.height.equalTo(self.playBtn)
 			make.width.equalTo(50)
 		}

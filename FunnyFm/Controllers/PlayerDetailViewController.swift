@@ -432,7 +432,7 @@ extension PlayerDetailViewController {
         
         self.titleLB.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.view.snp_topMargin).offset(32.auto())
+            make.top.equalTo(self.view.snp.topMargin).offset(32.auto())
             make.width.equalToSuperview().offset(-30.auto())
         })
         
@@ -446,7 +446,7 @@ extension PlayerDetailViewController {
                 make.left.equalToSuperview().offset(18.auto())
                 make.centerY.equalTo(self.titleLB)
             }else{
-				make.bottom.equalTo(self.view.snp_bottomMargin).offset(-8.auto())
+				make.bottom.equalTo(self.view.snp.bottomMargin).offset(-8.auto())
                 make.centerX.equalToSuperview()
             }
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
@@ -509,8 +509,8 @@ extension PlayerDetailViewController {
             make.size.equalTo(CGSize.init(width: 30.auto(), height: 30.auto()))
         })
 		
-		self.playToolbar.snp_makeConstraints { (make) in
-            make.bottom.equalTo(self.view.snp_bottomMargin).offset(-40.auto())
+		self.playToolbar.snp.makeConstraints { (make) in
+            make.bottom.equalTo(self.view.snp.bottomMargin).offset(-40.auto())
 			make.centerX.equalToSuperview()
 			make.width.equalToSuperview()
 			make.height.equalTo(48.auto())
@@ -550,7 +550,7 @@ extension PlayerDetailViewController {
         }
         
         self.chapterCountLB.snp.makeConstraints { (make) in
-            make.left.equalTo(self.chaptersBtn.snp_right).offset(4)
+            make.left.equalTo(self.chaptersBtn.snp.right).offset(4)
             make.centerY.equalTo(self.chaptersBtn)
         }
 		

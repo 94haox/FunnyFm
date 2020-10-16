@@ -108,7 +108,7 @@ class VerticalTabBarItemView: CommonUIView {
 
         labelAndDot.snp.makeConstraints { (make) in
             make.height.width.centerX.equalTo(imageView)
-            make.top.equalTo(imageView.snp_bottom)
+            make.top.equalTo(imageView.snp.bottom)
         }
     }
 

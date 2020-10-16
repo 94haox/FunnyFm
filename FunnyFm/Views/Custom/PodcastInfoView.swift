@@ -127,7 +127,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		}
 		
 		self.podNameLB.snp.makeConstraints { (make) in
-			make.top.equalTo(self.podImageView.snp_bottom).offset(8);
+			make.top.equalTo(self.podImageView.snp.bottom).offset(8);
 			make.width.equalToSuperview().offset(-20.auto())
 			make.centerX.equalToSuperview();
 		}
@@ -137,7 +137,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 			make.centerX.equalToSuperview();
 		}
 		
-		self.stackView.snp_makeConstraints { (make) in
+		self.stackView.snp.makeConstraints { (make) in
             if ClientConfig.shared.isIPad {
                 self.stackView.isHidden = true
                 make.centerX.equalTo(self);
@@ -151,7 +151,7 @@ extension PodcastInfoView : UIScrollViewDelegate{
 		
 		self.pageControl.snp.makeConstraints { (make) in
 			make.centerX.equalTo(self)
-			make.bottom.equalTo(self.subBtn.snp_top).offset(-8)
+			make.bottom.equalTo(self.subBtn.snp.top).offset(-8)
 			make.height.equalTo(10)
 		}
 		

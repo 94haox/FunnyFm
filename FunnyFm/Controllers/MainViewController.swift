@@ -344,7 +344,7 @@ extension MainViewController {
         self.guideView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-20.auto())
-            make.top.equalTo(self.topBgView.snp_bottom)
+            make.top.equalTo(self.topBgView.snp.bottom)
             if UserDefaults.standard.bool(forKey: "GuideisShowed") {
                 guideView.isHidden = true
                 make.height.equalTo(0)
@@ -362,7 +362,7 @@ extension MainViewController {
         self.tableview.snp.makeConstraints { (make) in
             make.left.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.guideView.snp_bottom)
+            make.top.equalTo(self.guideView.snp.bottom)
         }
 		
 		self.loadAnimationView.snp.makeConstraints { (make) in
@@ -373,7 +373,7 @@ extension MainViewController {
 		self.fetchLoadingView.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 40.auto(), height: 40.auto()))
 			make.centerY.equalTo(self.calendarCard);
-			make.left.equalTo(self.calendarCard.snp_rightMargin).offset(20.auto())
+			make.left.equalTo(self.calendarCard.snp.rightMargin).offset(20.auto())
 		}		
     }
     
@@ -431,7 +431,7 @@ extension MainViewController {
         self.emptyView.snp.makeConstraints { (make) in
             make.centerX.width.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(self.guideView.snp_bottom)
+            make.top.equalTo(self.guideView.snp.bottom)
         }
         
         self.emptyView.actionBlock = { [weak self] in
