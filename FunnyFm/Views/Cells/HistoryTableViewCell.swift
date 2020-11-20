@@ -53,6 +53,9 @@ class HistoryTableViewCell: UITableViewCell {
 		}else{
 			self.lastTimeLB.text = "Finsh"
 		}
+        guard total > 0 else {
+            return
+        }
 		self.progressBar.update(with: progress/total)
 	}
 	

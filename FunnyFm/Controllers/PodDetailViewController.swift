@@ -48,6 +48,13 @@ class PodDetailViewController: BaseViewController {
 		self.infoView.subscribeClosure = { [weak self] in
 			self?.subscribtionAction()
 		}
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareAction))
+    }
+    
+    @objc func shareAction() {
+        let qrcodeVC = QRCodeViewController()
+        qrcodeVC.podcast = self.vm.pod
+        navigationController?.pushViewController(qrcodeVC, animated: true)
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -100,6 +107,7 @@ class PodDetailViewController: BaseViewController {
         guard self.vm.episodeList.count > 0 else {
             return
         }
+        ImpactManager.impact(.light)
         btn.isSelected = !btn.isSelected
         self.reload(needSorted: true)
     }

@@ -23,6 +23,7 @@ class BaseViewController: UIViewController {
 		let image = UIImage.init(systemName: "chevron.left.square.fill")
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self.navigationController, action: #selector(UINavigationController.popViewController(animated:)))
 		navigationItem.leftBarButtonItem?.tintColor = R.color.mainRed()
+        navigationItem.rightBarButtonItem?.tintColor = R.color.mainRed()
 	}
 		
 	override func viewDidDisappear(_ animated: Bool) {

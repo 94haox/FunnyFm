@@ -84,4 +84,54 @@
   return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];
   
 }
+
++ (UIImage *)qrCodeImageEncoderWithStr:(NSString *)urlStr imageSize:(CGFloat)size {
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [filter setDefaults];
+    NSData *data = [urlStr dataUsingEncoding:NSUTF8StringEncoding];
+    [filter setValue:data forKey:@"inputMessage"];
+    CIImage *outputImage = [filter outputImage];
+    return [UIImage createNonInterpolatedUIImageFormCIImage:outputImage withSize:size];
+}
+
+/**
+ * 根据CIImage生成指定大小的UIImage
+ *
+ * @param image CIImage
+ * @param size 图片宽度
+ */
++ (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size {
+    CGRect extent = CGRectIntegral(image.extent);
+    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
+    // 1.创建bitmap;
+    size_t width = CGRectGetWidth(extent) * scale;
+    size_t height = CGRectGetHeight(extent) * scale;
+    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
+    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
+    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
+    CGContextScaleCTM(bitmapRef, scale, scale);
+    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+    // 2.保存bitmap到图片
+    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
+    UIImage *scaleImage = [UIImage imageWithCGImage:scaledImage];
+    CGContextRelease(bitmapRef);
+    CGColorSpaceRelease(cs);
+    CGImageRelease(bitmapImage);
+    CGImageRelease(scaledImage);
+    return scaleImage;
+}
+
+- (UIImage *)roundRectImageWithCornerRadius:(CGFloat)radius {
+    CGRect imageRect = CGRectMake(0, 0, self.size.width, self.size.height);
+    CGFloat scale = [UIScreen mainScreen].scale;
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, scale);
+    [[UIBezierPath bezierPathWithRoundedRect:imageRect cornerRadius:radius] addClip];
+    [self drawInRect:imageRect];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
 @end

@@ -146,15 +146,9 @@ extension DownloadListViewController {
 		
 		alert.addAction(title: "删除".localized, style: .default) { (action) in
 			let episode = self.episodeList[indexPath.row]
-			let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-			let mp3Path = documentURL.appendingPathComponent("mp3").appendingPathComponent(episode.download_filpath)
-			
-			do {
-				try FileManager.default.removeItem(at: mp3Path)
-			}catch{
-			}
-			
-			DatabaseManager.deleteDownload(title: episode.title);
+            guard DownloadManager.shared.deleteDownloaded(episode: episode) else {
+                return
+            }
 			self.tableview.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
 			self.tableview.reloadData()
 		}
