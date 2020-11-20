@@ -36,6 +36,7 @@ def lib
     pod 'R.swift'
     pod 'SwiftyStoreKit'
     pod 'ReachabilitySwift'
+    pod 'EFQRCode', '~> 6.0.0'
 end
 
 def network

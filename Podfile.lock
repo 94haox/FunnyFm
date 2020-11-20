@@ -10,6 +10,8 @@ PODS:
     - YYImage
   - Bugly (2.5.71)
   - DNSPageView (2.1.0)
+  - EFQRCode (6.0.0):
+    - swift_qrcodejs (~> 1.2.0)
   - FeedKit (9.1.2)
   - Firebase/Auth (6.34.0):
     - Firebase/CoreOnly
@@ -112,6 +114,7 @@ DEPENDENCIES:
   - BSText
   - Bugly
   - DNSPageView
+  - EFQRCode (~> 6.0.0)
   - FeedKit
   - FirebaseUI/Auth
   - FirebaseUI/Google
@@ -142,6 +145,7 @@ SPEC REPOS:
     - BSText
     - Bugly
     - DNSPageView
+    - EFQRCode
     - FeedKit
     - Firebase
     - FirebaseAuth
@@ -186,6 +190,7 @@ SPEC CHECKSUMS:
   BSText: 5357d843a350852bbbcbad704e73af43a9ae3efd
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   DNSPageView: 4d77a61f49a5668ec330fb7bd620d81354371ea7
+  EFQRCode: 27f7ef4382159d79d583d839cdfc596b5ac98c9f
   FeedKit: 71653273ab08e618cd6fd1301ca08fc02dca6a9e
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
@@ -223,6 +228,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: a424071d9f5d087f70230b1fd5ea87f19f4b6919
+PODFILE CHECKSUM: 4af70f0f81bce3760a7ec170a903886917d5031c
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

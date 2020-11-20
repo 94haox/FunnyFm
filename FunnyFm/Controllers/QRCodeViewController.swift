@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EFQRCode
 
 class QRCodeViewController: UIViewController {
     
@@ -33,7 +34,8 @@ class QRCodeViewController: UIViewController {
         DispatchQueue.main.async {
             self.qrBoundingBox.borderColor = R.color.mainRed()!
             self.qrBoundingBox.backgroundOpacity = 0
-            self.qrBoundingBox.frame = self.qrCodeImage.frame
+            let frame = CGRect(x: self.qrCodeImage.frame.minX - 10, y: self.qrCodeImage.frame.minY - 10, width:  self.qrCodeImage.frame.width + 20, height:  self.qrCodeImage.frame.height + 20)
+            self.qrBoundingBox.frame = frame
             self.qrBoundingBox.perform(transition: .fadeIn, duration: 0.1)
         }
     }
@@ -57,7 +59,7 @@ class QRCodeViewController: UIViewController {
             let episodes = DatabaseManager.allEpisodes(pod: podcast)
             self.imageView.loadImage(url: podcast.artworkUrl600)
             self.titleLB.text = podcast.trackName
-            self.subtitleLB.text = "单集数: \(episodes.count)"
+            self.subtitleLB.text = "共有: \(episodes.count) 集"
             if let episode = episodes.first {
                 self.noteLB.text = "最新更新: \(episode.pubDate)"
             }else{
@@ -67,7 +69,12 @@ class QRCodeViewController: UIViewController {
         }
         
         if let string = generalQRCodeData() {
-            qrCodeImage.image = UIImage.qrCodeImageEncoder(withStr: string, imageSize: qrCodeImage.width)
+            if let image = EFQRCode.generate(
+                content: string,
+                watermark: imageView.image!.cgImage
+            ){
+                qrCodeImage.image = UIImage(cgImage: image)
+            }
         }
     }
     
