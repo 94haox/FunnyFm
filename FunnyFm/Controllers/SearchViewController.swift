@@ -28,9 +28,9 @@ class SearchViewController: BaseViewController {
 		self.title = "Search"
     }
 		
-	@objc func toTopicVC(_ sender: Any) {
-		let topicVC = TopicViewController.init()
-		self.navigationController?.pushViewController(topicVC)
+	@objc func toCategoryValley(_ sender: Any) {
+		let valley = CategoryValleyViewController(options: FFPagerOption())
+		self.navigationController?.pushViewController(valley)
 	}
 	
 }
@@ -186,7 +186,7 @@ extension SearchViewController: DZNEmptyDataSetSource{
 extension SearchViewController {
 	func dw_addSubviews(){
         
-		self.categoryBtn.addTarget(self, action: #selector(toTopicVC(_:)), for: .touchUpInside)
+		self.categoryBtn.addTarget(self, action: #selector(toCategoryValley(_:)), for: .touchUpInside)
 		self.categoryBtn.setImageForAllStates(UIImage(systemName: "circle.grid.2x2")!)
         self.categoryBtn.tintColor = R.color.mainRed()
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.categoryBtn)

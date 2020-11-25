@@ -7,48 +7,35 @@
 //
 
 import UIKit
-import JXSegmentedView
 
+class TopicViewController: UIViewController {
 
-
-class TopicViewController: BaseViewController {
-
-	var segmentedView: JXSegmentedView!
-	var segmentedDataSource: JXSegmentedTitleDataSource!
 	var tableview: UITableView!
-	var changeBtn: UIButton = {
-		let button = UIButton(type: .custom)
-		button.tintColor = R.color.mainRed()
-		button.setImage(UIImage(systemName: "arrow.right.arrow.left.circle"), for: .normal)
-		return button
-	}()
+    
+    var topicId: String!
 	
-	let vm : PodListViewModel = {
-		return PodListViewModel.init()
-	}()
-	
-	var country = CountryCodeLibrary.shared.deviceCountry
-
+	var vm : PodListViewModel!
+    
+    init(topicId: String, vm: PodListViewModel) {
+        self.topicId = topicId
+        self.vm = vm
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
    	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.dw_addSubviews()
-		self.title = "播客分类".localized
-		self.vm.delegate = self
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.changeBtn)
-		self.changeBtn.addTarget(self, action: #selector(changeCountry), for: .touchUpInside)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.vm.searchTopic(keyword: self.vm.topicIDs[0], regionCode: country.isoRegionCode)
+        self.vm.delegate = self
+        self.vm.searchTopic(keyword: self.topicId)
 		Hud.shared.show(on: self.view)
-        
-	}
-	
-	@objc func changeCountry() {
-		let countryVC = SelectCountryViewController()
-		countryVC.delegate = self
-		self.navigationController?.pushViewController(countryVC)
 	}
 }
 
@@ -61,9 +48,6 @@ extension TopicViewController : PodListViewModelDelegate {
 	func viewModelDidGetDataSuccess() {
 		Hud.shared.hide()
 		self.tableview.reloadData()
-		DispatchQueue.main.asyncAfter(deadline: .init(uptimeNanoseconds: UInt64(0.2))) {
-			self.tableview.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
-		}
 	}
 	
 	func viewModelDidGetDataFailture(msg: String?) {
@@ -74,7 +58,6 @@ extension TopicViewController : PodListViewModelDelegate {
 }
 
 extension TopicViewController : UITableViewDelegate, UITableViewDataSource {
-	
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let pod = self.vm.itunsPodlist[indexPath.row]
@@ -113,24 +96,6 @@ extension TopicViewController : UITableViewDelegate, UITableViewDataSource {
 	}
 }
 
-extension TopicViewController: JXSegmentedViewDelegate {
-	
-	func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
-		self.vm.searchTopic(keyword: self.vm.topicIDs[index], regionCode: country.isoRegionCode)
-		Hud.shared.show(on: self.view)
-	}
-	
-}
-
-extension TopicViewController: SelectCountryViewControllerDelegate {
-	
-	func selectCountryViewController(_ viewController: SelectCountryViewController, didSelectCountry country: Country) {
-		self.country = country
-		viewController.navigationController?.popViewController()
-	}
-	
-}
-
 extension TopicViewController {
 	func dw_addSubviews(){
 		self.tableview = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -145,30 +110,9 @@ extension TopicViewController {
 		self.tableview.keyboardDismissMode = .onDrag
 		self.tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: toolbarH*2, right: 0)
 		
-		segmentedView = JXSegmentedView()
-		segmentedView.delegate = self
-		segmentedDataSource = JXSegmentedTitleDataSource()
-		segmentedDataSource.titleSelectedColor = R.color.mainRed()!
-		segmentedDataSource.titleNormalColor = CommonColor.content.color
-		segmentedDataSource.isTitleColorGradientEnabled = true
-		segmentedDataSource.titles = self.vm.topics
-		segmentedView.dataSource = self.segmentedDataSource
-		let indicator = JXSegmentedIndicatorLineView()
-		indicator.indicatorColor = R.color.mainRed()!
-		segmentedView.indicators = [indicator]
-		view.addSubview(self.segmentedView)
-		
-		self.view.addSubview(self.segmentedView)
 		self.view.addSubview(self.tableview)
 		self.tableview.snp.makeConstraints { (make) in
-			make.left.bottom.width.equalTo(self.view);
-			make.top.equalTo(self.segmentedView.snp.bottom).offset(12);
-		}
-		
-		self.segmentedView.snp.makeConstraints { (make) in
-			make.left.width.equalTo(self.view);
-			make.top.equalTo(self.view);
-			make.height.equalTo(40)
+            make.edges.equalToSuperview()
 		}
 		
 	}

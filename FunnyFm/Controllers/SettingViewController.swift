@@ -83,8 +83,8 @@ class SettingViewController: BaseViewController, UITableViewDataSource,UITableVi
     
     func toShare(){
         let textToShare = "嘿，我发现了一个好用的播客 APP， 你也来试试吧".localized
-        let imageToShare = UIImage.init(named: "logo-white")
-        let urlToShare = NSURL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
+        let imageToShare = UIImage(named: "logo-white")
+        let urlToShare = NSURL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1447922692")
         var items = [textToShare,imageToShare!] as [Any]
         if urlToShare != nil {
             items.append(urlToShare!)

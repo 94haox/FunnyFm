@@ -1,102 +1,102 @@
 PODS:
-  - Alamofire (5.2.2)
+  - Alamofire (5.4.0)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - AutoInch (1.3.2)
-  - BSText (1.1.0):
+  - AutoInch (2.1.0)
+  - BSText (1.1.2):
     - YYImage
   - Bugly (2.5.71)
   - DNSPageView (2.1.0)
   - EFQRCode (6.0.0):
     - swift_qrcodejs (~> 1.2.0)
   - FeedKit (9.1.2)
-  - Firebase/Auth (6.34.0):
+  - Firebase/Auth (7.1.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 6.9.2)
-  - Firebase/CoreOnly (6.34.0):
-    - FirebaseCore (= 6.10.4)
-  - FirebaseAuth (6.9.2):
-    - FirebaseCore (~> 6.10)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (6.10.4):
-    - FirebaseCoreDiagnostics (~> 1.6)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-  - FirebaseCoreDiagnostics (1.7.0):
-    - GoogleDataTransport (~> 7.4)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-    - nanopb (~> 1.30906.0)
-  - FirebaseUI/Auth (8.5.1):
-    - Firebase/Auth (~> 6.0)
+    - FirebaseAuth (~> 7.1.0)
+  - Firebase/CoreOnly (7.1.0):
+    - FirebaseCore (= 7.1.0)
+  - FirebaseAuth (7.1.0):
+    - FirebaseCore (~> 7.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GTMSessionFetcher/Core (~> 1.4)
+  - FirebaseCore (7.1.0):
+    - FirebaseCoreDiagnostics (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+  - FirebaseCoreDiagnostics (7.1.0):
+    - GoogleDataTransport (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+    - nanopb (~> 2.30906.0)
+  - FirebaseUI/Auth (9.0.0):
+    - Firebase/Auth
     - GoogleUtilities/UserDefaults
-  - FirebaseUI/Google (8.5.1):
+  - FirebaseUI/Google (9.0.0):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 5.0)
-  - GoogleDataTransport (7.5.1):
-    - nanopb (~> 1.30906.0)
+  - GoogleDataTransport (8.0.1):
+    - nanopb (~> 2.30906.0)
   - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
+  - GoogleUtilities/AppDelegateSwizzler (7.1.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.7.2):
+  - GoogleUtilities/Environment (7.1.0):
     - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (6.7.2):
+  - GoogleUtilities/Logger (7.1.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/Network (6.7.2):
+  - GoogleUtilities/Network (7.1.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.7.2)"
-  - GoogleUtilities/Reachability (6.7.2):
+  - "GoogleUtilities/NSData+zlib (7.1.0)"
+  - GoogleUtilities/Reachability (7.1.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.7.2):
+  - GoogleUtilities/UserDefaults (7.1.0):
     - GoogleUtilities/Logger
   - GTMAppAuth (1.1.0):
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher (~> 1.4)
-  - GTMSessionFetcher (1.4.0):
-    - GTMSessionFetcher/Full (= 1.4.0)
-  - GTMSessionFetcher/Core (1.4.0)
-  - GTMSessionFetcher/Full (1.4.0):
-    - GTMSessionFetcher/Core (= 1.4.0)
-  - JCore (2.3.6)
+  - GTMSessionFetcher (1.5.0):
+    - GTMSessionFetcher/Full (= 1.5.0)
+  - GTMSessionFetcher/Core (1.5.0)
+  - GTMSessionFetcher/Full (1.5.0):
+    - GTMSessionFetcher/Core (= 1.5.0)
+  - JCore (2.4.0)
   - JPush (3.3.6):
     - JCore (< 3.0.0, >= 2.0.0)
-  - JXSegmentedView (1.2.7)
   - KeychainAccess (4.2.1)
-  - lottie-ios (3.1.8)
+  - lottie-ios (3.1.9)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
-  - nanopb (1.30906.0):
-    - nanopb/decode (= 1.30906.0)
-    - nanopb/encode (= 1.30906.0)
-  - nanopb/decode (1.30906.0)
-  - nanopb/encode (1.30906.0)
+  - nanopb (2.30906.0):
+    - nanopb/decode (= 2.30906.0)
+    - nanopb/encode (= 2.30906.0)
+  - nanopb/decode (2.30906.0)
+  - nanopb/encode (2.30906.0)
   - Nuke (9.1.2)
   - pop (1.0.12)
   - PromisesObjC (1.2.11)
-  - R.swift (5.2.2):
-    - R.swift.Library (~> 5.2.0)
-  - R.swift.Library (5.2.0)
+  - R.swift (5.3.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
   - ReachabilitySwift (5.0.0)
   - SCLAlertView (0.8)
   - SHFullscreenPopGestureSwift (1.2.1)
-  - Siren (5.5.0)
+  - Siren (5.5.1)
   - SnapKit (5.0.1)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - Swift_PageMenu (1.4.2)
   - SwiftyJSON (5.0.0)
   - SwiftyStoreKit (0.16.1)
   - SwipeCellKit (2.7.1)
@@ -119,7 +119,6 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - JPush
-  - JXSegmentedView
   - KeychainAccess
   - lottie-ios
   - Moya
@@ -131,6 +130,7 @@ DEPENDENCIES:
   - SHFullscreenPopGestureSwift
   - Siren
   - SnapKit
+  - Swift_PageMenu (~> 1.4)
   - SwiftyJSON
   - SwiftyStoreKit
   - SwipeCellKit
@@ -159,7 +159,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - JCore
     - JPush
-    - JXSegmentedView
     - KeychainAccess
     - lottie-ios
     - Moya
@@ -175,6 +174,7 @@ SPEC REPOS:
     - Siren
     - SnapKit
     - SQLiteRepairKit
+    - Swift_PageMenu
     - SwiftyJSON
     - SwiftyStoreKit
     - SwipeCellKit
@@ -184,42 +184,42 @@ SPEC REPOS:
     - YYImage
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  AutoInch: beaafbcef5f075d34b57bddd6b1893cb19d0f0de
-  BSText: 5357d843a350852bbbcbad704e73af43a9ae3efd
+  AutoInch: f2468bf8e33f7642699296db30240d3b3631ba33
+  BSText: 70f0da93875c5f1dd6ab9e27fc22b1e50a41b66c
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   DNSPageView: 4d77a61f49a5668ec330fb7bd620d81354371ea7
   EFQRCode: 27f7ef4382159d79d583d839cdfc596b5ac98c9f
   FeedKit: 71653273ab08e618cd6fd1301ca08fc02dca6a9e
-  Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
-  FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
-  FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
-  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
-  FirebaseUI: 9df84336a56f1d755ae4c37d5885c237d3084b6b
-  GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
+  Firebase: 78e8dd2e39d653de6270432ad84fe8b59f7bf4e8
+  FirebaseAuth: f82c2cfcc1c107bb0a97735cdbce4eb2a601f710
+  FirebaseCore: 20046127eef0fcb8fa25df7fc12f7b97d4e48611
+  FirebaseCoreDiagnostics: 872cdb9b749b23346dddd5c1014d1babd2257de3
+  FirebaseUI: f0677a1cc235f6da602cbd5c9b5fbbd24544a6b3
+  GoogleDataTransport: e4085e6762f36a6141738f46b0153473ce57fb18
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
-  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  GoogleUtilities: f734da554aade8cc7928a31c2f3311897933a1bd
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
-  GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
-  JCore: 06a5c80c176c5e46e8698eec3c780e1abb0bf180
+  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  JCore: a29e4b0ee54e1301446dc02d8e1c350404108b34
   JPush: a401b946dcc76b37335422487201bc1ecc8dd296
-  JXSegmentedView: eb1cad21f57c2543c00c3e08b8fd3c7ca54f5acd
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
-  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   Nuke: dd2e6be6a34c042a7861e190632781d11f253026
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
-  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
+  R.swift: 4170fb7161c67be3bc1a847040b79367d69c419f
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
-  Siren: 5083b9ed37ce83e7e5dced736b97215e76d12d82
+  Siren: 645909bdb55ace938ea73a85942acb5a88494284
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
+  Swift_PageMenu: 6cc3e92540729606bd66c9b35a0886ed6c8ed899
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
@@ -228,6 +228,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 4af70f0f81bce3760a7ec170a903886917d5031c
+PODFILE CHECKSUM: cf04bb205116fe4733b63cc99294040e2e4fd565
 
 COCOAPODS: 1.10.0

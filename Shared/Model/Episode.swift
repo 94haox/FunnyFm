@@ -131,6 +131,9 @@ extension Episode {
 		if let pub = feedItem.pubDate {
 			pubDate = pub.dateString()
 			pubDateSecond = Date.minuteOffsetBetweenStartDate(startDate: pub, endDate: Date.init(timeIntervalSince1970: 1))!
+            if pubDateSecond > Int(Date().timeIntervalSince1970) {
+                pubDateSecond = Int(Date().timeIntervalSince1970)
+            }
 		}else{
 			pubDate = Date().dateString()
 			pubDateSecond = Date.minuteOffsetBetweenStartDate(startDate: Date(), endDate: Date.init(timeIntervalSince1970: 1))!

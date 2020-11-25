@@ -15,6 +15,8 @@ import UIKit
 class PodListViewModel: NSObject {
 	
 	weak var delegate: PodListViewModelDelegate?
+    
+    var countryCode: String? = Locale.current.regionCode
 
     var podlist : [iTunsPod] = []
 	
@@ -119,8 +121,8 @@ extension PodListViewModel {
 		}
 	}
 	
-	func searchTopic(keyword:String, regionCode: String? = Locale.current.regionCode){
-		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword, regionCode), { (podlist) in
+	func searchTopic(keyword:String){
+		FmHttp<iTunsPod>().requestForItunes(PodAPI.searchTopic(keyword, countryCode), { (podlist) in
 			if let list = podlist {
 				self.itunsPodlist = list
 				self.delegate?.viewModelDidGetDataSuccess()

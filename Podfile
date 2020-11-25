@@ -21,7 +21,6 @@ def layout
     pod 'pop'
     pod 'SHFullscreenPopGestureSwift'
     pod 'lottie-ios'
-    pod 'JXSegmentedView'
     pod 'AutoInch'
     pod 'SCLAlertView'
 		pod 'DNSPageView'
@@ -37,6 +36,7 @@ def lib
     pod 'SwiftyStoreKit'
     pod 'ReachabilitySwift'
     pod 'EFQRCode', '~> 6.0.0'
+    pod 'Swift_PageMenu', '~> 1.4'
 end
 
 def network

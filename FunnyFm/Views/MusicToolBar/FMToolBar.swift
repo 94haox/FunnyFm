@@ -361,8 +361,8 @@ extension FMToolBar {
         self.containerView.addSubview(self.loadingView)
         self.containerView.addSubview(self.explainBtn)
         
-        let path = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: .topLeft, cornerRadii: CGSize.init(width: 25, height: 25))
-        let maskLayer = CAShapeLayer.init()
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: .topLeft, cornerRadii: CGSize.init(width: 25, height: 25))
+        let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         self.layer.mask = maskLayer
         self.backgroundColor = R.color.mainRed()

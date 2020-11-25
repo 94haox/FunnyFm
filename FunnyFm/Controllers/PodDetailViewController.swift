@@ -48,7 +48,9 @@ class PodDetailViewController: BaseViewController {
 		self.infoView.subscribeClosure = { [weak self] in
 			self?.subscribtionAction()
 		}
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareAction))
+//        if let _ = vm.pod?.podId {
+//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareAction))
+//        }
     }
     
     @objc func shareAction() {

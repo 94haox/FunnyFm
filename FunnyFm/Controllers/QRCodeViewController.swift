@@ -9,7 +9,7 @@
 import UIKit
 import EFQRCode
 
-class QRCodeViewController: UIViewController {
+class QRCodeViewController: BaseViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLB: UILabel!
@@ -18,19 +18,21 @@ class QRCodeViewController: UIViewController {
     @IBOutlet weak var wallImageView: UIImageView!
     @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var shareBtn: RoundedButton!
+    @IBOutlet weak var contentLB: UILabel!
     private let qrBoundingBox = BoundingBoxView()
     var podcast: iTunsPod?
     var episode: Episode?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "分享"
         view.addSubview(qrBoundingBox)
+        contentLB.numberOfLines = 0
         config()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         DispatchQueue.main.async {
             self.qrBoundingBox.borderColor = R.color.mainRed()!
             self.qrBoundingBox.backgroundOpacity = 0
@@ -40,12 +42,20 @@ class QRCodeViewController: UIViewController {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-
+    @IBAction func shareAction(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "http://funnyfm.top/#/podcast/\(podcast!.podId)")!)
+//        let textToShare = self.titleLB.text!
+//        let imageToShare = qrCodeImage.image
+//        let items = [textToShare,imageToShare!] as [Any]
+//        let activityVC = VisualActivityViewController(activityItems: items, applicationActivities: nil)
+//        self.present(activityVC, animated: true, completion: nil)
+    }
+    
     func config() {
         if let episode = self.episode {
             let podcast = DatabaseManager.getPodcast(feedUrl: episode.podcastUrl)
@@ -53,6 +63,7 @@ class QRCodeViewController: UIViewController {
             self.titleLB.text = episode.title
             self.subtitleLB.text = "播客: \(podcast!.trackName)"
             self.noteLB.text = "更新日期: \(episode.pubDate)"
+            self.contentLB.text = episode.intro
         }
         
         if let podcast = self.podcast {
@@ -66,6 +77,7 @@ class QRCodeViewController: UIViewController {
                 self.noteLB.text = "最新更新: \(podcast.releaseDate)"
             }
             self.wallImageView.isHidden = !podcast.isNeedVpn
+            self.contentLB.text = podcast.podDes
         }
         
         if let string = generalQRCodeData() {
