@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,7 @@
                     <color key="textColor" name="content"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6o-ca-Qd7" customClass="RoundedButton" customModule="FunnyFm" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6o-ca-Qd7" customClass="RoundedButton" customModule="FunnyFm" customModuleProvider="target">
                     <rect key="frame" x="147" y="508.5" width="120" height="35"/>
                     <color key="backgroundColor" name="mainRed"/>
                     <constraints>
@@ -57,6 +57,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="autoCornerRadius">
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="impactEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="authorAction:" destination="-1" eventType="touchUpInside" id="MUK-0i-mba"/>
@@ -82,6 +83,7 @@
                     </connections>
                 </button>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="ffWhite"/>
             <constraints>
                 <constraint firstItem="5Iy-j2-GnY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="2BC-5Z-joh"/>
@@ -99,7 +101,6 @@
                 <constraint firstItem="Z6o-ca-Qd7" firstAttribute="top" secondItem="yEp-VB-K0C" secondAttribute="bottom" constant="48" id="rkR-rJ-dfl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yEp-VB-K0C" secondAttribute="trailing" constant="40" id="vYk-bV-gjm"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </view>
     </objects>

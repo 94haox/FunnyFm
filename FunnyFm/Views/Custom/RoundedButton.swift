@@ -8,6 +8,8 @@ class RoundedButton: UIButton {
         }
     }
     
+    @IBInspectable var impactEnabled: Bool = false
+    
     var isBusy = false {
         didSet {
             if isBusy {
@@ -16,6 +18,9 @@ class RoundedButton: UIButton {
                 activityIndicator.startAnimating()
                 layer.insertSublayer(backgroundLayer, below: activityIndicator.layer)
             } else {
+                if impactEnabled {
+                    ImpactManager.impact()
+                }
                 backgroundLayer.removeFromSuperlayer()
                 activityIndicator.stopAnimating()
                 layer.insertSublayer(backgroundLayer, above: shadowLayer)
