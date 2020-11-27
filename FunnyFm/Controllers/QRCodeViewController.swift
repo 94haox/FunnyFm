@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import EFQRCode
 
 class QRCodeViewController: BaseViewController {
     
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var linkBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var subtitleLB: UILabel!
     @IBOutlet weak var noteLB: UILabel!
-    @IBOutlet weak var wallImageView: UIImageView!
     @IBOutlet weak var qrCodeImage: UIImageView!
-    @IBOutlet weak var shareBtn: RoundedButton!
     @IBOutlet weak var contentLB: UILabel!
     private let qrBoundingBox = BoundingBoxView()
     var podcast: iTunsPod?
@@ -26,20 +25,20 @@ class QRCodeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "分享"
-        view.addSubview(qrBoundingBox)
+//        view.addSubview(qrBoundingBox)
         contentLB.numberOfLines = 0
         config()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DispatchQueue.main.async {
-            self.qrBoundingBox.borderColor = R.color.mainRed()!
-            self.qrBoundingBox.backgroundOpacity = 0
-            let frame = CGRect(x: self.qrCodeImage.frame.minX - 10, y: self.qrCodeImage.frame.minY - 10, width:  self.qrCodeImage.frame.width + 20, height:  self.qrCodeImage.frame.height + 20)
-            self.qrBoundingBox.frame = frame
-            self.qrBoundingBox.perform(transition: .fadeIn, duration: 0.1)
-        }
+//        DispatchQueue.main.async {
+//            self.qrBoundingBox.borderColor = R.color.mainRed()!
+//            self.qrBoundingBox.backgroundOpacity = 0
+//            let frame = CGRect(x: self.qrCodeImage.frame.minX - 10, y: self.qrCodeImage.frame.minY - 10, width:  self.qrCodeImage.frame.width + 20, height:  self.qrCodeImage.frame.height + 20)
+//            self.qrBoundingBox.frame = frame
+//            self.qrBoundingBox.perform(transition: .fadeIn, duration: 0.1)
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,13 +46,29 @@ class QRCodeViewController: BaseViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    @IBAction func openLinkAction(_ sender: Any) {
+        guard let string = self.generalShareUrl(),
+              let url = URL(string: string) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [UIApplication.OpenExternalURLOptionsKey : Any](), completionHandler: nil)
+    }
+    
+    @IBAction func copylinkAction(_ sender: Any) {
+        guard let url = self.generalShareUrl()  else {
+            return
+        }
+        UIPasteboard.general.url = URL(string: url)
+    }
+    
     @IBAction func shareAction(_ sender: Any) {
-        UIApplication.shared.openURL(URL(string: "http://funnyfm.top/#/podcast/\(podcast!.podId)")!)
-//        let textToShare = self.titleLB.text!
-//        let imageToShare = qrCodeImage.image
-//        let items = [textToShare,imageToShare!] as [Any]
-//        let activityVC = VisualActivityViewController(activityItems: items, applicationActivities: nil)
-//        self.present(activityVC, animated: true, completion: nil)
+        guard let imageToShare = self.view.openglSnapshotImage(frame: containerView.frame)  else {
+            return
+        }
+        let textToShare = self.titleLB.text!
+        let items = [textToShare,imageToShare] as [Any]
+        let activityVC = VisualActivityViewController(activityItems: items, applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     func config() {
@@ -70,49 +85,29 @@ class QRCodeViewController: BaseViewController {
             let episodes = DatabaseManager.allEpisodes(pod: podcast)
             self.imageView.loadImage(url: podcast.artworkUrl600)
             self.titleLB.text = podcast.trackName
-            self.subtitleLB.text = "共有: \(episodes.count) 集"
+            self.subtitleLB.text = "\(episodes.count) 集"
             if let episode = episodes.first {
                 self.noteLB.text = "最新更新: \(episode.pubDate)"
             }else{
                 self.noteLB.text = "最新更新: \(podcast.releaseDate)"
             }
-            self.wallImageView.isHidden = !podcast.isNeedVpn
             self.contentLB.text = podcast.podDes
         }
         
-        if let string = generalQRCodeData() {
-            if let image = EFQRCode.generate(
-                content: string,
-                watermark: imageView.image!.cgImage
-            ){
-                qrCodeImage.image = UIImage(cgImage: image)
-            }
+        if let string = generalShareUrl() {
+            qrCodeImage.image = UIImage.qrCodeImageEncoder(withStr: string, imageSize: qrCodeImage.width * UIScreen.main.scale)
         }
     }
     
-    func generalQRCodeData() -> String? {
-        var dic = [String: String]()
-        dic["from"] = "funnyfm"
-        if let episode = self.episode {
-            dic["type"] = "episode"
-            dic["title"] = episode.title
-            dic["trackUrl"] = episode.trackUrl
-            dic["podcast"] = episode.podcastUrl
-        }
+    func generalShareUrl() -> String? {
+        var url: String? = nil
         
         if let podcast = self.podcast {
-            dic["type"] = "podcast"
-            dic["title"] = podcast.trackName
-            dic["feedUrl"] = podcast.feedUrl
-            dic["artwork"] = podcast.artworkUrl600
+            url = "http://funnyfm.top/#/podcast/\(podcast.podId)"
         }
-        do {
-            let data = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions(rawValue: 0))
-            let string = String(data: data, encoding: .utf8)
-            return string
-        }catch {
-            return nil
-        }
+        self.linkBtn.setTitle(url, for: .normal)
+        self.linkBtn.titleEdgeInsets = UIEdgeInsets(horizontal: 30, vertical: 0)
+        return url
     }
 
 }

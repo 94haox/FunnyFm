@@ -8,6 +8,7 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
+import CoreGraphics
 
 // MARK: - enums
 extension UIView {
@@ -624,6 +625,24 @@ extension UIView {
         maskLayer.frame = self.bounds
         maskLayer.path = path.cgPath
         self.layer.mask = maskLayer
+    }
+    
+    func openglSnapshotImage(frame: CGRect) -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(bounds: frame)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+    
+    func nomalSnapshotImage() -> UIImage? {
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.main.scale);
+        self.layer.render(in: context)
+        let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return snapshotImage
     }
 	
 }

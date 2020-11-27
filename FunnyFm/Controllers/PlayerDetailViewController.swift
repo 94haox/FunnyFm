@@ -573,7 +573,7 @@ extension PlayerDetailViewController {
         self.titleLB.numberOfLines = 2;
         self.titleLB.textAlignment = .center
         self.view.addSubview(self.titleLB)
-        self.subTitle = UILabel.init(text: self.episode.author)
+        self.subTitle = UILabel(text: self.episode.author)
         self.subTitle.isUserInteractionEnabled = true
         self.subTitle.font = pfont(fontsize2)
         self.view.addSubview(self.subTitle)

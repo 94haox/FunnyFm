@@ -36,7 +36,6 @@ def lib
     pod 'R.swift'
     pod 'SwiftyStoreKit'
     pod 'ReachabilitySwift'
-    pod 'EFQRCode', '~> 6.0.0'
     pod 'Swift_PageMenu', '~> 1.4'
 end
 

@@ -48,15 +48,16 @@ class PodDetailViewController: BaseViewController {
 		self.infoView.subscribeClosure = { [weak self] in
 			self?.subscribtionAction()
 		}
-//        if let _ = vm.pod?.podId {
-//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareAction))
-//        }
+        if let _ = vm.pod?.podId {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(shareAction))
+        }
     }
     
     @objc func shareAction() {
         let qrcodeVC = QRCodeViewController()
         qrcodeVC.podcast = self.vm.pod
-        navigationController?.pushViewController(qrcodeVC, animated: true)
+//        self.navigationController?.dw_presentAsStork(controller: qrcodeVC, heigth: kScreenHeight * 0.6, delegate: self)
+        self.navigationController?.pushViewController(qrcodeVC)
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
