@@ -69,6 +69,11 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
+  - InfiniteLayout (0.4.2):
+    - InfiniteLayout/Core (= 0.4.2)
+  - InfiniteLayout/CocoaProxy (0.4.2)
+  - InfiniteLayout/Core (0.4.2):
+    - InfiniteLayout/CocoaProxy
   - JCore (2.4.0)
   - JPush (3.3.6):
     - JCore (< 3.0.0, >= 2.0.0)
@@ -118,6 +123,7 @@ DEPENDENCIES:
   - FeedKit
   - FirebaseUI/Auth
   - FirebaseUI/Google
+  - InfiniteLayout
   - JPush
   - KeychainAccess
   - lottie-ios
@@ -157,6 +163,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - InfiniteLayout
     - JCore
     - JPush
     - KeychainAccess
@@ -202,6 +209,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: f734da554aade8cc7928a31c2f3311897933a1bd
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  InfiniteLayout: de51cfad9ed480a3e3a0af7d28242d3257c606d9
   JCore: a29e4b0ee54e1301446dc02d8e1c350404108b34
   JPush: a401b946dcc76b37335422487201bc1ecc8dd296
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
@@ -228,6 +236,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: cf04bb205116fe4733b63cc99294040e2e4fd565
+PODFILE CHECKSUM: 027d1409e75c7168a6ba56bc77d9aad2429a8b5a
 
 COCOAPODS: 1.10.0

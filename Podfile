@@ -26,6 +26,7 @@ def layout
 		pod 'DNSPageView'
     pod 'BSText'
 		pod 'SwipeCellKit'
+    pod 'InfiniteLayout'
 end
 
 def lib
