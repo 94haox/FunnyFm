@@ -18,6 +18,7 @@
                 <outlet property="linkBtn" destination="UA5-r3-jYq" id="GRc-3q-uAV"/>
                 <outlet property="noteLB" destination="YLs-8t-6Sg" id="hIe-Kz-nS9"/>
                 <outlet property="qrCodeImage" destination="A5n-mk-yt6" id="7VI-5d-U7Z"/>
+                <outlet property="shareBtn" destination="Axc-WB-Oxl" id="x7S-NY-hkW"/>
                 <outlet property="subtitleLB" destination="6A0-gc-nnk" id="SRG-8y-PdZ"/>
                 <outlet property="titleLB" destination="ncU-Qc-oky" id="0Un-hM-wlz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

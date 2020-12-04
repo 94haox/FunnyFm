@@ -10,6 +10,7 @@ import UIKit
 
 class QRCodeViewController: BaseViewController {
     
+    @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var linkBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -59,6 +60,12 @@ class QRCodeViewController: BaseViewController {
             return
         }
         UIPasteboard.general.url = URL(string: url)
+        Hud.shared.show(style: .notification, text: "已复制到剪切板", on: self.view)
+        self.shareBtn.isEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            Hud.shared.hide()
+            self.shareBtn.isEnabled = true
+        }
     }
     
     @IBAction func shareAction(_ sender: Any) {
