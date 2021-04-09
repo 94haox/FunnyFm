@@ -91,7 +91,7 @@ target "NowExtension" do
 	pod 'Nuke'
 end
 
-target "MenuBar" do
+target "FunnyFmForMac" do
   
 	platform :macos, '11'
   

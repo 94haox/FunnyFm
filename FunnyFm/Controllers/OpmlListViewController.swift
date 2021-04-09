@@ -12,7 +12,7 @@ class OpmlListViewController: BaseViewController {
 	
 	let vm: PodDetailViewModel = PodDetailViewModel()
 	
-	let tableview = UITableView.init(frame: CGRect.zero, style: .plain)
+	let tableview = UITableView.init(frame: CGRect.zero, style: .insetGrouped)
 
 	var items: [OPMLItem]?
 
@@ -103,6 +103,8 @@ extension OpmlListViewController {
 		tableview.snp.makeConstraints { (make) in
 			make.edges.equalToSuperview()
 		}
+        
+        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(systemName: <#T##String#>), style: .plain, target: <#T##Any?#>, action: <#T##Selector?#>)
 	}
 	
 	

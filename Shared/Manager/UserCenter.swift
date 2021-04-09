@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-class UserCenter: NSObject {
+class UserCenter: NSObject, ObservableObject {
     
     static let shared = UserCenter()
 	
@@ -54,8 +55,6 @@ class UserCenter: NSObject {
 		}
 	}
 	
-	
-	
     var isLogin : Bool {
         set {
             UserDefaults.standard.set(newValue, forKey: "isLogin")
@@ -65,8 +64,4 @@ class UserCenter: NSObject {
             return UserDefaults.standard.bool(forKey: "isLogin")
         }
     }
-    
-    
-    
-
 }

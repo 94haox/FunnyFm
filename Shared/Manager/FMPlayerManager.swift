@@ -47,9 +47,9 @@ class FMPlayerManager: NSObject, ObservableObject {
 	@Published var isPlay: Bool = false {
 		didSet {
 			PlayStateObserver.shared.isPlay = isPlay
-			#if canImport(WidgetKit)
-			WidgetCenter.shared.reloadTimelines(ofKind: "Now")
-			#endif
+//			#if canImport(WidgetKit)
+//			WidgetCenter.shared.reloadTimelines(ofKind: "Now")
+//			#endif
 		}
 	}
     
@@ -83,9 +83,9 @@ class FMPlayerManager: NSObject, ObservableObject {
 			if currentModel.isSome {
 				PlayStateObserver.shared.title = currentModel!.title
 				PlayStateObserver.shared.coverUrl = currentModel!.podCoverUrl
-				#if canImport(WidgetKit)
-				WidgetCenter.shared.reloadTimelines(ofKind: "Now")
-				#endif
+//				#if canImport(WidgetKit)
+//				WidgetCenter.shared.reloadTimelines(ofKind: "Now")
+//				#endif
 			}
 		}
 	}
@@ -372,7 +372,7 @@ extension FMPlayerManager {
 				print("音频初始化失败，请重试")
 				self.isCanPlay = false
 				self.playerDelegate?.playerStatusDidFailure()
-                DownloadManager.shared.deleteDownloaded(episode: self.currentModel!)
+//                DownloadManager.shared.deleteDownloaded(episode: self.currentModel!)
 			}else{
 				self.isCanPlay = true
 				self.delegate?.playerStatusDidChanged(isCanPlay: self.isCanPlay)
