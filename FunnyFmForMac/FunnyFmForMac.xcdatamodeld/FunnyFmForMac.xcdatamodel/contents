@@ -4,31 +4,30 @@
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="collectionId" optional="YES" attributeType="String"/>
         <attribute name="coverUrl" optional="YES" attributeType="String"/>
-        <attribute name="download_filpath" optional="YES" attributeType="String"/>
-        <attribute name="downloadSize" optional="YES" attributeType="String"/>
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="intro" optional="YES" attributeType="String"/>
         <attribute name="podcastUrl" optional="YES" attributeType="String"/>
         <attribute name="podCoverUrl" optional="YES" attributeType="String"/>
         <attribute name="pubDate" optional="YES" attributeType="String"/>
-        <attribute name="pubDateSecond" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="pubDateSecond" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="trackUrl" optional="YES" attributeType="String"/>
+        <relationship name="podcast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPodcast" inverseName="episodes" inverseEntity="CDPodcast"/>
     </entity>
     <entity name="CDPodcast" representedClassName="CDPodcast" syncable="YES" codeGenerationType="class">
-        <attribute name="artworkUrl600" optional="YES" attributeType="String"/>
-        <attribute name="collectionId" optional="YES" attributeType="String"/>
-        <attribute name="copyRight" optional="YES" attributeType="String"/>
-        <attribute name="feedUrl" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="isNeedVpn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="podAuthor" optional="YES" attributeType="String"/>
-        <attribute name="podDes" optional="YES" attributeType="String"/>
-        <attribute name="podId" optional="YES" attributeType="String"/>
-        <attribute name="releaseDate" optional="YES" attributeType="String"/>
-        <attribute name="trackCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="trackName" optional="YES" attributeType="String"/>
+        <attribute name="artwork_url" optional="YES" attributeType="String"/>
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="collection_id" optional="YES" attributeType="String"/>
+        <attribute name="copy_right" optional="YES" attributeType="String"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="needVpn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="pod_Id" optional="YES" attributeType="String"/>
+        <attribute name="rss_url" optional="YES" attributeType="String"/>
+        <attribute name="track_count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="track_name" optional="YES" attributeType="String"/>
+        <attribute name="update_time" optional="YES" attributeType="String"/>
+        <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDEpisode" inverseName="podcast" inverseEntity="CDEpisode"/>
     </entity>
     <entity name="CDUser" representedClassName="CDUser" syncable="YES" codeGenerationType="class">
         <attribute name="avatar" optional="YES" attributeType="String"/>
@@ -41,9 +40,9 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="CDEpisode" positionX="-54" positionY="36" width="128" height="209"/>
+        <element name="CDPodcast" positionX="-36" positionY="135" width="128" height="224"/>
         <element name="CDUser" positionX="-63" positionY="-9" width="128" height="104"/>
-        <element name="CDEpisode" positionX="-54" positionY="36" width="128" height="239"/>
-        <element name="CDPodcast" positionX="-36" positionY="135" width="128" height="209"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
     </elements>
 </model>

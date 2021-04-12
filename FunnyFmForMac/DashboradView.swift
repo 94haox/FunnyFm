@@ -7,44 +7,23 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DashboradView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject private var uiState: UIState
     
-    @ObservedObject var user: UserCenter = UserCenter.shared
+    @ObservedObject private var viewModel: DashboardViewModel = DashboardViewModel()
+    
+    @State public var showEpisodeInfo: Bool = false
+    
+    @State public private(set) var selectedEpisode: Episode?
     
     var body: some View {
-        if user.isLogin {
-            ZStack {
-                NavigationView {
-                    SlideBar()
-                        .frame(width: 100)
-                        .fixedSize(horizontal: true, vertical: false)
-                    MainContentView()
-                        .environment(\.managedObjectContext, viewContext)
-                }
-                .background(Color.white)
-                .toolbar {
-                    Spacer()
-                    Button(action: {}) {
-                        Label("Add Item", systemImage: "magnifyingglass.circle.fill")
-                    }
-                }
-                VStack {
-                    Spacer()
-                    PlayBarView()
-                        .frame(height: 80)
-                        .padding(.bottom, 0)
-                        .background(Color.white)
-                }
-            }
-        } else {
-            LoginView()
-                .frame(width: 500, height: 400, alignment: .center)
-                .background(Color.white)
-                .environment(\.managedObjectContext, viewContext)
-        }
+        NearestEpisodeView(viewModel: viewModel, showInfo: $showEpisodeInfo)
+            .equatable()
+            .padding(.leading, 12)
+            .navigationTitle(UIState.DefaultChannels.nearest.rawValue)
     }
 }
 

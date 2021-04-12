@@ -17,6 +17,8 @@ struct LoginView: View {
     
     @State var isShowPollicy: Bool = false
     
+    @State var isLoading: Bool = false
+    
     var body: some View {
         List {
             HStack {
@@ -27,7 +29,7 @@ struct LoginView: View {
             .font(.headline)
             HStack {
                 Spacer()
-                Image(systemName: "bolt.horizontal.circle")
+                Image("logo-white")
                     .imageScale(.large)
                     .font(.largeTitle)
                     .foregroundColor(.accentColor)
@@ -37,11 +39,16 @@ struct LoginView: View {
             HStack {
                 Spacer()
                 VStack {
-                    SignInWithAppleButton { (request) in
-                        request.requestedScopes = [.fullName, .email]
-                    } onCompletion: { (result) in
-                        viewModel.handle(result: result)
-                    }.signInWithAppleButtonStyle(.black)
+                    if self.isLoading {
+                        SignInWithAppleButton { (request) in
+                            request.requestedScopes = [.fullName, .email]
+                            isLoading = true
+                        } onCompletion: { (result) in
+                            viewModel.handle(result: result)
+                        }.signInWithAppleButtonStyle(.black)
+                    } else {
+                        Indicator(shown: $isLoading)
+                    }
                 }
                 Spacer()
             }

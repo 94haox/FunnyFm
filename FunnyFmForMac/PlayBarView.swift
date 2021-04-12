@@ -9,34 +9,87 @@
 import SwiftUI
 
 struct PlayBarView: View {
+    
+    @EnvironmentObject private var playState: PlayState
+    
     var body: some View {
-        HStack {
-            Image(systemName: "flame.fill")
-                .font(.largeTitle)
-                .padding(.horizontal, 32)
-            VStack(alignment: .leading) {
-                Text("打工人，打工魂")
-                    .font(.headline)
-                    .padding(.bottom, 12)
-                Text("屁事没干")
-                    .font(.callout)
-                    .foregroundColor(Color.gray)
-            }
-            .padding(.trailing, 32)
-            HStack(spacing: 16) {
-                Image(systemName: "gobackward.15")
-                    .font(.title3)
-                Image(systemName: "play.circle.fill")
-                    .font(.largeTitle)
-                Image(systemName: "goforward.30")
-                    .font(.title3)
-            }
+        VStack {
             Spacer()
             HStack {
-                Image(systemName: "circle.grid.2x2")
-                    .font(.largeTitle)
+                PlaybarInfo(episode: playState.currentItem)
+                    .padding(.horizontal, 32)
+                PlaybarControlView()
+                    .environmentObject(playState)
+                    .padding(.horizontal, 32)
+                PlaybarProgressView()
+                    .environmentObject(playState)
+                Spacer()
+                HStack {
+                    Image(systemName: "circle.grid.2x2")
+                        .font(.largeTitle)
+                }
+                .padding(.horizontal, 32)
             }
-            .padding(.horizontal, 32)
+            Spacer()
+        }
+        
+    }
+}
+
+struct PlaybarControlView: View {
+    
+    @EnvironmentObject private var playState: PlayState
+    
+    @State private var loading: Bool = true
+    
+    var body: some View {
+        HStack(spacing: 16) {
+            Image(systemName: "gobackward.15")
+                .font(.title3)
+                .onTapGesture {
+                    playState.seekAdditionSecond(-15)
+                }
+            HStack {
+                if playState.playerStatus == .playing {
+                    Image(systemName: "pause.circle.fill")
+                        .font(.largeTitle)
+                } else if playState.playerStatus == .loading {
+                    Indicator(shown: $loading)
+                } else if playState.playerStatus == .failed {
+                    Image(systemName: "play.slash.fill")
+                        .font(.largeTitle)
+                }  else {
+                    Image(systemName: "play.circle.fill")
+                        .font(.largeTitle)
+                }
+            }
+            .onTapGesture {
+                playState.play()
+            }
+            Image(systemName: "goforward.30")
+                .font(.title3)
+                .onTapGesture {
+                    playState.seekAdditionSecond(30)
+                }
+        }
+    }
+}
+
+struct Indicator: View {
+
+    @Binding var shown: Bool
+    @State private var rotating = false
+    var imageName: String = "arrow.triangle.2.circlepath"
+    
+    var body: some View {
+        if shown {
+            Image(systemName: imageName)
+                .rotationEffect(.degrees(rotating ? 360 : 0))
+                .onAppear {
+                    withAnimation(Animation.easeInOut.repeatForever()) {
+                        self.rotating = true
+                    }
+                }
         }
     }
 }

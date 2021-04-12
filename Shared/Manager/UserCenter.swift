@@ -13,6 +13,8 @@ class UserCenter: NSObject, ObservableObject {
     
     static let shared = UserCenter()
 	
+    @Published var isLoginStatus = false
+    
     var userId: String {
         set {
             UserDefaults.standard.set(newValue, forKey: "userId")
@@ -59,6 +61,7 @@ class UserCenter: NSObject, ObservableObject {
         set {
             UserDefaults.standard.set(newValue, forKey: "isLogin")
             UserDefaults.standard.synchronize()
+            isLoginStatus = newValue
         }
         get {
             return UserDefaults.standard.bool(forKey: "isLogin")

@@ -9,15 +9,52 @@
 import SwiftUI
 
 struct SlideBar: View {
+    
+    @EnvironmentObject private var uiState: UIState
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var body: some View {
-        List {
+        VStack {
             HStack {
-                Text("最新")
+                Image("logo-white")
+                    .resizable()
+                    .frame(width: 35, height: 35, alignment: .center)
+                    .cornerRadius(5)
+                    .shadow(color: Color.gray.opacity(0.4), radius: 12, x: 0, y: 0)
+                    .padding(.trailing, 4)
+                Text("趣播客")
+                    .bold()
                 Spacer()
             }
-            Text("浏览")
-            Text("个人中心")
+            .padding(.leading, 12)
+            .padding(.vertical, 32)
+            List (selection: $uiState.sidebarSelection) {
+                Text("在线")
+                Group{
+                    ForEach(UIState.DefaultChannels.allCases, id: \.self) { item in
+                        NavigationLink(
+                            destination: MainContentView(channel: item),
+                            label: {
+                                SlideItemView(title: item.rawValue,
+                                              iconName: item.icon())
+                            })
+                        .tag(item.rawValue)
+                        .frame(width: 200, height: 30, alignment: .leading)
+                        .padding(.bottom, 4)
+                    }
+                    .listItemTint(.accentColor)
+                }
+            }
+            .listStyle(SidebarListStyle())
+            Spacer()
+            VipIntroView()
+                .background(Color.white)
+                .cornerRadius(12)
+                .shadow(color: Color.gray.opacity(0.4), radius: 12, x: 0, y: 0)
+                .padding(.bottom, 10)
         }
+        .frame(minWidth: 180, idealWidth: 180, maxWidth: 180, maxHeight: .infinity)
     }
 }
 

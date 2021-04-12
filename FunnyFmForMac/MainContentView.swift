@@ -11,65 +11,36 @@ import CoreData
 import AuthenticationServices
 
 struct MainContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
     
-    @ObservedObject private var viewModel: MainViewModel = MainViewModel()
+    let channel: UIState.DefaultChannels
     
-    init() {
-        viewModel.getSubscribes()
-    }
+    @State private var searchText: String = ""
+    
+    @State private var isFocused = false
 
     var body: some View {
-        List {
-            ForEach(viewModel.pods) { item in
-                Text("Item at \(item.track_name), release \(item.update_time)")
-            }
-            .onDelete(perform: deleteItems)
-        }
-        .onAppear {
-            
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        VStack {
+            switch channel {
+                case .nearest:
+                    DashboradView()
+                case .subscribe:
+                    SubscribesView()
+                case .discover:
+                    DiscoverView()
             }
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        .toolbar(content: {
+            ToolbarItemGroup {
+                Spacer()
+                TextField("Search anything", text: $searchText) { editing in
+                    isFocused = editing
+                } onCommit: {
+                    
+                }
+                .textFieldStyle(PlainTextFieldStyle())
+                .frame(width: 300)
             }
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        })
+        .navigationTitle(channel.rawValue)
     }
 }

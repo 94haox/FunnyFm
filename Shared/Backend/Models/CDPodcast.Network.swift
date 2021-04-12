@@ -33,6 +33,24 @@ struct GPodcast: Codable, Identifiable {
         case needVPN
     }
     
+    init(podcast: CDPodcast) {
+        id = podcast.id!
+        artwork_url = podcast.artwork_url!
+        rss_url = podcast.rss_url!
+        author = podcast.author
+        update_time = podcast.update_time!
+        collection_id = podcast.collection_id
+        needVPN = podcast.needVpn
+        desc = podcast.desc
+        track_name = podcast.track_name!
+    }
+    
+}
+
+extension GPodcast: Equatable {
+    static func == (lhs: GPodcast, rhs: GPodcast) -> Bool {
+        return lhs.id == rhs.id || lhs.rss_url == rhs.rss_url
+    }
 }
 
 

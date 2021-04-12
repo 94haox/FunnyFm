@@ -94,7 +94,8 @@ end
 target "FunnyFmForMac" do
   
 	platform :macos, '11'
-  
+  pod 'SDWebImageSwiftUI'
+  pod 'Foil', '~> 1.0.0'
   apple_shared
   
 end
