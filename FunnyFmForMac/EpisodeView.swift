@@ -9,15 +9,13 @@
 import SwiftUI
 
 struct EpisodeView: View {
-    
-    @Binding var show: Bool
-    
-    @ObservedObject var viewModel: DashboardViewModel
+
+    let episode: Episode?
     
     var body: some View {
         VStack(alignment: .center) {
             HStack {
-                Text(viewModel.selectedEpisode?.title ?? "sssssss")
+                Text(episode?.title ?? "")
                 Spacer()
             }
             Spacer()
@@ -26,11 +24,7 @@ struct EpisodeView: View {
         .background(Color.white)
         .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
         .onAppear(perform: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                withAnimation(Animation.easeInOut(duration: 2)) {
-                    self.show = false
-                }
-            }
        })
+        .navigationTitle(episode?.title ?? "")
     }
 }

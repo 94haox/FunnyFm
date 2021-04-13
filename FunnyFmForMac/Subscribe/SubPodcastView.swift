@@ -12,6 +12,8 @@ struct SubPodcastView: View {
     
     let podcast: GPodcast
     
+    @Binding var selected: GPodcast?
+    
     @State private var isHover: Bool = false
     
     var body: some View {
@@ -24,6 +26,12 @@ struct SubPodcastView: View {
             Text(podcast.track_name)
                 .font(.headline)
                 .frame(maxWidth: 100)
+        }
+        .onTapGesture {
+            withAnimation(Animation.easeInOut(duration: 0.2)) {
+                selected = selected == podcast ? nil : podcast
+            }
+            UIState.shared.pageType = .podcast(rssUrl: podcast.rss_url)
         }
         .onHover { (isHover) in
             withAnimation(Animation.easeInOut(duration: 0.2)) {

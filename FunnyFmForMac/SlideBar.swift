@@ -42,8 +42,8 @@ struct SlideBar: View {
                         .frame(width: 200, height: 30, alignment: .leading)
                         .padding(.bottom, 4)
                     }
-                    .listItemTint(.accentColor)
                 }
+                .listItemTint(.accentColor)
             }
             .listStyle(SidebarListStyle())
             Spacer()

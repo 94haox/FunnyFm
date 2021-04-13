@@ -14,6 +14,8 @@ class SubscribeViewModel: ObservableObject {
     
     @Published public private(set) var podcasts: [GPodcast]
     
+    @Published public var selectionPodcast: GPodcast?
+    
     private var fetchSubscribesCancellable: AnyCancellable?
     
     private let subscribeRepo = SubscribRepo()
