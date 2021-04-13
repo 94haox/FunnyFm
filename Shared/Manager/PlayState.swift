@@ -57,10 +57,14 @@ class PlayState: NSObject, ObservableObject {
     /// 播放资源
     private var playerItem: AVPlayerItem?
     
+    /// 是否是获取上次播放单集
+    private var isLoadLast: Bool = false
+    
     override init() {
         super.init()
         if let ep = CDEpisode.fetchOne(with: PlayList.shared.lastItemTrackUrl) {
             self.config(ep)
+            isLoadLast = true
         }
     }
     
@@ -194,23 +198,22 @@ extension PlayState {
         self.playerItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
         self.playerItem = item
         self.playerStatus = .loading
-        UserDefaults.standard.set(1.0, forKey: "playrate")
-        UserDefaults.standard.synchronize()
+        PlaySettings.shared.defultRate = 1
         self.playerItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         self.playerItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
 
     }
     
     func config(_ chapter:Episode) {
+        isLoadLast = false
         PlayList.shared.lastItemTrackUrl = chapter.trackUrl
         self.currentItem = chapter
         let url = URL(string: chapter.trackUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!);
         let item = AVPlayerItem(url: url!)
     
-//        self.lastTime = self.checkProgress(chapter)
         self.changePlayItem(item)
         if self.player.isNone {
-            self.player = AVPlayer.init(playerItem: self.playerItem)
+            self.player = AVPlayer(playerItem: self.playerItem)
         }else{
             self.player?.replaceCurrentItem(with: self.playerItem)
         }
@@ -236,6 +239,9 @@ extension PlayState {
                 self.playerStatus = .failed
             }else{
                 self.playerStatus = .ready
+                if !isLoadLast {
+                    self.play()
+                }
             }
         }
         

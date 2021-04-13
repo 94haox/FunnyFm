@@ -22,7 +22,7 @@ class UIState: ObservableObject {
             switch self {
             case .nearest: return "rosette"
             case .discover: return "flame"
-            case .subscribe: return "calendar.circle"
+            case .subscribe: return "bookmark"
             }
         }
     }

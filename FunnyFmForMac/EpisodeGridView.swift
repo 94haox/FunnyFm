@@ -1,18 +1,16 @@
 //
-//  EpisodeItemView.swift
-//  FunnyFm
+//  EpisodeGridView.swift
+//  FunnyFmForMac
 //
-//  Created by 吴涛 on 2021/4/10.
+//  Created by 吴涛 on 2021/4/13.
 //  Copyright © 2021 Duke. All rights reserved.
 //
 
 import SwiftUI
 
-struct EpisodeItemView: View {
+struct EpisodeGridView: View {
     
     let episode: Episode
-    
-    let showPodcast: Bool = true
     
     @State var shown: Bool = true
     
@@ -23,24 +21,24 @@ struct EpisodeItemView: View {
     var body: some View {
         HStack {
             FFImageView(urlString: episode.coverUrl)
-                .frame(width: 50, height: 50, alignment: .center)
+                .frame(width: 50, height: 50)
                 .cornerRadius(12)
                 .padding(.leading, 12)
-                .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 0)
             VStack (alignment: .leading) {
-                if showPodcast, episode.author.count > 0 {
+                Spacer()
+                if episode.author.count > 0 {
                     HStack {
                         Text(episode.author)
                             .font(.caption)
                             .foregroundColor(Color.gray)
                         Spacer()
                     }
+                    .padding(.top, 4)
                 }
                 HStack {
                     Text(episode.title)
                         .font(.headline)
                         .bold()
-                        .padding(.bottom, 2)
                     Spacer()
                 }
                 HStack(spacing: 12){
@@ -48,9 +46,13 @@ struct EpisodeItemView: View {
                     Text(episode.pubDate)
                     Spacer()
                 }
+                .padding(.top, 4)
                 .font(.caption)
                 .foregroundColor(Color.gray)
-            }.padding(.horizontal, 12)
+                Spacer()
+            }
+            .padding(.horizontal, 12)
+            
             HStack {
                 Spacer()
                 if playState.currentItem == episode,
@@ -84,6 +86,9 @@ struct EpisodeItemView: View {
                 }
                 Spacer()
             }
+            Spacer()
         }
     }
 }
+
+

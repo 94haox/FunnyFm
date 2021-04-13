@@ -28,9 +28,8 @@ struct SlideBar: View {
                 Spacer()
             }
             .padding(.leading, 12)
-            .padding(.vertical, 32)
+            .padding(.vertical, 12)
             List (selection: $uiState.sidebarSelection) {
-                Text("在线")
                 Group{
                     ForEach(UIState.DefaultChannels.allCases, id: \.self) { item in
                         NavigationLink(
@@ -54,7 +53,7 @@ struct SlideBar: View {
                 .shadow(color: Color.gray.opacity(0.4), radius: 12, x: 0, y: 0)
                 .padding(.bottom, 10)
         }
-        .frame(minWidth: 180, idealWidth: 180, maxWidth: 180, maxHeight: .infinity)
+        .frame(minWidth: 180, idealWidth: 180, maxHeight: .infinity)
     }
 }
 

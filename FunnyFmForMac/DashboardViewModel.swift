@@ -18,9 +18,20 @@ class DashboardViewModel: ObservableObject {
     
     @Published public private(set) var nearestEpisodes: [Episode]
     
+    @Published public private(set) var todayEpisodes: [Episode]
+    
     @Published public var selection: String? {
         didSet {
             guard let id = selection else {
+                return
+            }
+            self.updatePlayEpisode(id: id)
+        }
+    }
+    
+    @Published public var todaySelection: String? {
+        didSet {
+            guard let id = todaySelection else {
                 return
             }
             self.updatePlayEpisode(id: id)
@@ -37,10 +48,11 @@ class DashboardViewModel: ObservableObject {
     
     init() {
         nearestEpisodes = []
+        todayEpisodes = []
     }
     
     func updatePlayEpisode(id: String){
-        guard let episode = nearestEpisodes.filter({$0.id == id}).first else {
+        guard let episode = (nearestEpisodes+todayEpisodes).filter({$0.id == id}).first else {
             return
         }
         self.selectedEpisode = episode
@@ -65,7 +77,7 @@ class DashboardViewModel: ObservableObject {
     
     func fetchEpisodes() {
         let exsitCount = CDEpisode.count()
-        nearestEpisodes = self.episodeRepo.fetchAllEpisodeFromDB(with: 100)
+        self.handleEpisode()
         DispatchQueue.global().async {
             self.episodeRepo.fetchAllEpisodesFromServer(with: self.pods) {[weak self] in
                 guard let self = self else {return}
@@ -73,9 +85,20 @@ class DashboardViewModel: ObservableObject {
                 if count == exsitCount {
                     return
                 }
-                self.nearestEpisodes = self.episodeRepo.fetchAllEpisodeFromDB(with: 100)
+                self.handleEpisode()
             }
         }
+    }
+    
+    private func handleEpisode() {
+        var nearestEpisodes = self.episodeRepo.fetchAllEpisodeFromDB(with: 100)
+        let date = Date().adding(.day, value: -1)
+        let today = nearestEpisodes.filter({$0.pubDate == date.dateString()})
+        nearestEpisodes.removeAll(where: {
+            today.contains($0)
+        })
+        self.todayEpisodes = today
+        self.nearestEpisodes = nearestEpisodes
     }
     
 }

@@ -134,6 +134,8 @@
 		38BDDD65262452EB001EA5C4 /* NearestEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDDD64262452EB001EA5C4 /* NearestEpisodeView.swift */; };
 		38BDDE4C2624783F001EA5C4 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDDE452624780A001EA5C4 /* AppSetting.swift */; };
 		38BDDE63262478D5001EA5C4 /* PlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDDE57262478D2001EA5C4 /* PlayList.swift */; };
+		38BDE217262546D2001EA5C4 /* SubPodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDE216262546D2001EA5C4 /* SubPodcastView.swift */; };
+		38BDE21E2625501F001EA5C4 /* EpisodeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDE21D2625501F001EA5C4 /* EpisodeGridView.swift */; };
 		38C2118424970FE10022ECE6 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
 		38C21231249717EF0022ECE6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C21230249717EF0022ECE6 /* ShareViewController.swift */; };
 		38C21234249717F00022ECE6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C21232249717EF0022ECE6 /* MainInterface.storyboard */; };
@@ -657,6 +659,8 @@
 		38BDDD64262452EB001EA5C4 /* NearestEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestEpisodeView.swift; sourceTree = "<group>"; };
 		38BDDE452624780A001EA5C4 /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		38BDDE57262478D2001EA5C4 /* PlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayList.swift; sourceTree = "<group>"; };
+		38BDE216262546D2001EA5C4 /* SubPodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPodcastView.swift; sourceTree = "<group>"; };
+		38BDE21D2625501F001EA5C4 /* EpisodeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeGridView.swift; sourceTree = "<group>"; };
 		38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFmShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C21230249717EF0022ECE6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		38C21233249717EF0022ECE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -1358,6 +1362,7 @@
 			isa = PBXGroup;
 			children = (
 				38BDDA782621B7FF001EA5C4 /* SubscribesView.swift */,
+				38BDE216262546D2001EA5C4 /* SubPodcastView.swift */,
 				38BDDA842621B80F001EA5C4 /* SubscribeViewModel.swift */,
 			);
 			path = Subscribe;
@@ -1387,6 +1392,7 @@
 			children = (
 				38BDDAEA2621F3A1001EA5C4 /* EpisodeView.swift */,
 				383C97322621524D0098A4C5 /* EpisodeItemView.swift */,
+				38BDE21D2625501F001EA5C4 /* EpisodeGridView.swift */,
 			);
 			name = Episode;
 			sourceTree = "<group>";
@@ -2730,6 +2736,7 @@
 				383C97342621524E0098A4C5 /* EpisodeItemView.swift in Sources */,
 				38BDDAEB2621F3A1001EA5C4 /* EpisodeView.swift in Sources */,
 				383C8B8426203F160098A4C5 /* NetworkError.swift in Sources */,
+				38BDE217262546D2001EA5C4 /* SubPodcastView.swift in Sources */,
 				38BDDB4526231C18001EA5C4 /* OptionalExtension.swift in Sources */,
 				383C8BA2262040160098A4C5 /* URL.swift in Sources */,
 				38BDDB5F2623F6FB001EA5C4 /* CDPodcast.Initial.swift in Sources */,
@@ -2745,6 +2752,7 @@
 				383C96E4262061DF0098A4C5 /* SlideBar.swift in Sources */,
 				383C972C26214F8F0098A4C5 /* Episode.swift in Sources */,
 				38BDDA932621D045001EA5C4 /* SlideItemView.swift in Sources */,
+				38BDE21E2625501F001EA5C4 /* EpisodeGridView.swift in Sources */,
 				383C7C4A261FFDE70098A4C5 /* TermView.swift in Sources */,
 				38BDDB4E2623EFE2001EA5C4 /* PlaybarProgressView.swift in Sources */,
 				383C8B58262039590098A4C5 /* DashboardViewModel.swift in Sources */,

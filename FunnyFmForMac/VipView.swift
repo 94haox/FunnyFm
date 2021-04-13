@@ -71,23 +71,29 @@ struct VipView: View {
                 .padding(.vertical, 32)
                 HStack (spacing: 12) {
                     Spacer()
-                    PlainButton(text: "￥3/月", action: {
+                    PlainButton(label: {
+                        Text("￥3/月")
+                    }) {
                         
-                    })
+                    }
                     .frame(width: 100, height: 45, alignment: .center)
                     .background(Color.accentColor)
                     .cornerRadius(8)
                     
-                    PlainButton(text: "￥18/年", action: {
+                    PlainButton(label: {
+                        Text("￥18/年")
+                    }){
                         
-                    })
+                    }
                     .frame(width: 100, height: 45, alignment: .center)
                     .background(Color.accentColor)
                     .cornerRadius(8)
                     
-                    PlainButton(text: "￥32/永久", action: {
+                    PlainButton(label: {
+                        Text("￥32/永久")
+                    }){
                         
-                    })
+                    }
                     .frame(width: 100, height: 45, alignment: .center)
                     .background(Color.accentColor)
                     .cornerRadius(8)

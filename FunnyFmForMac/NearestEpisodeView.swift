@@ -19,17 +19,33 @@ struct NearestEpisodeView: View, Equatable {
     @Binding var showInfo: Bool
     
     var body: some View {
-        List (selection: $viewModel.selection){
-            ForEach(viewModel.nearestEpisodes) { item in
-                EpisodeItemView(ep: item)
-                    .frame(height: 60)
-                    .tag(item.trackUrl)
-                    .onTapGesture {
-                        showInfo = true
+        VStack (alignment: .leading) {
+            
+            List () {
+                if viewModel.todayEpisodes.count > 0 {
+                    Text("今日更新")
+                        .bold()
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: Array(repeating: .init(.flexible()), count: 4)) {
+                            ForEach(viewModel.todayEpisodes) { item in
+                                EpisodeGridView(episode: item, selection: $viewModel.selection)
+                                    .frame(minHeight: 60)
+                            }
+                        }
                     }
+                    .frame(minHeight: 240)
+                }
+                Text("最近更新")
+                    .bold()
+                    .padding(.top, 32)
+                ForEach(viewModel.nearestEpisodes) { item in
+                    EpisodeItemView(episode: item, selection: $viewModel.selection)
+                        .frame(minHeight: 60)
+                        .tag(item.id)
+                }
             }
+            .listStyle(InsetListStyle())
         }
-        .listStyle(InsetListStyle())
         .onAppear {
             viewModel.fetchEpisodes()
         }

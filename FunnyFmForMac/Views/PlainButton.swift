@@ -8,15 +8,15 @@
 
 import SwiftUI
 
-struct PlainButton: View {
+struct PlainButton<Label>: View where Label: View {
     
-    private let text: String
+    private let label: Label
     
     private let action: (() -> Void)
     
-    init(text: String,
+    init(label: () -> Label,
          action: @escaping () -> Void) {
-        self.text = text
+        self.label = label()
         self.action = action
     }
     
@@ -26,7 +26,7 @@ struct PlainButton: View {
             HStack {
                 VStack {
                     Spacer()
-                    Text(text)
+                    label
                     Spacer()
                 }
             }

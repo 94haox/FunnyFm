@@ -75,7 +75,6 @@ class EpisodeRepo {
         }
         group.notify(queue: .main) {
             completion()
-            print("all podcast parser done")
         }
     }
     

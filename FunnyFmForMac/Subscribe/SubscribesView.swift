@@ -12,24 +12,21 @@ struct SubscribesView: View {
     
     @ObservedObject private var viewModel = SubscribeViewModel()
     var columns: [GridItem] =
-             Array(repeating: .init(.flexible()), count: 2)
+             Array(repeating: .init(.flexible()), count: 4)
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns) {
-                ForEach((0...79), id: \.self) {
-                    let codepoint = $0 + 0x1f600
-                    let codepointString = String(format: "%02X", codepoint)
-                    Text("\(codepointString)")
-                    let emoji = String(Character(UnicodeScalar(codepoint)!))
-                    Text("\(emoji)")
+        ScrollView(.horizontal) {
+            LazyHGrid(rows: columns) {
+                ForEach(viewModel.podcasts, id: \.self) { podcast in
+                    SubPodcastView(podcast: podcast)
                 }
             }
-            .font(.largeTitle)
+            .padding(.all, 12)
             .onAppear {
                 viewModel.fetchSubscribes()
             }
         }
         .navigationTitle(UIState.DefaultChannels.subscribe.rawValue)
+        .navigationSubtitle("\(viewModel.podcasts.count)")
     }
 }

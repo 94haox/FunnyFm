@@ -84,6 +84,7 @@ struct Indicator: View {
     var body: some View {
         if shown {
             Image(systemName: imageName)
+                .font(.title)
                 .rotationEffect(.degrees(rotating ? 360 : 0))
                 .onAppear {
                     withAnimation(Animation.easeInOut.repeatForever()) {

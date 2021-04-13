@@ -53,6 +53,14 @@ extension GPodcast: Equatable {
     }
 }
 
+extension GPodcast: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(rss_url)
+        hasher.combine(author)
+    }
+}
+
 
 extension GPodcast {
     static public func fetchSubscribes() -> AnyPublisher<ListingResponse<GPodcast>, NetworkError>? {
