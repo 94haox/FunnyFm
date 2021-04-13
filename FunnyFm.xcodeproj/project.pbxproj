@@ -137,7 +137,6 @@
 		38BDE217262546D2001EA5C4 /* SubPodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDE216262546D2001EA5C4 /* SubPodcastView.swift */; };
 		38BDE21E2625501F001EA5C4 /* EpisodeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDE21D2625501F001EA5C4 /* EpisodeGridView.swift */; };
 		38BDE22526256388001EA5C4 /* PodcastInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDE22426256388001EA5C4 /* PodcastInfoView.swift */; };
-		38BDE23826256E17001EA5C4 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDE23726256E17001EA5C4 /* InfoView.swift */; };
 		38C2118424970FE10022ECE6 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455CD332415209C004886EF /* ActivityIndicatorView.swift */; };
 		38C21231249717EF0022ECE6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C21230249717EF0022ECE6 /* ShareViewController.swift */; };
 		38C21234249717F00022ECE6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C21232249717EF0022ECE6 /* MainInterface.storyboard */; };
@@ -664,7 +663,6 @@
 		38BDE216262546D2001EA5C4 /* SubPodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPodcastView.swift; sourceTree = "<group>"; };
 		38BDE21D2625501F001EA5C4 /* EpisodeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeGridView.swift; sourceTree = "<group>"; };
 		38BDE22426256388001EA5C4 /* PodcastInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastInfoView.swift; sourceTree = "<group>"; };
-		38BDE23726256E17001EA5C4 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		38C2122E249717EF0022ECE6 /* FunnyFmShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FunnyFmShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C21230249717EF0022ECE6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		38C21233249717EF0022ECE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -1253,7 +1251,6 @@
 			isa = PBXGroup;
 			children = (
 				383C7B4A261FF5320098A4C5 /* MainContentView.swift */,
-				38BDE23726256E17001EA5C4 /* InfoView.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -2746,7 +2743,6 @@
 				38BDDB4526231C18001EA5C4 /* OptionalExtension.swift in Sources */,
 				383C8BA2262040160098A4C5 /* URL.swift in Sources */,
 				38BDDB5F2623F6FB001EA5C4 /* CDPodcast.Initial.swift in Sources */,
-				38BDE23826256E17001EA5C4 /* InfoView.swift in Sources */,
 				383C8B46262034B70098A4C5 /* DashboradView.swift in Sources */,
 				38BDDAF22622B270001EA5C4 /* PlayState.swift in Sources */,
 				383C7C56262006DE0098A4C5 /* PodAPI.swift in Sources */,
