@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class DiscoverViewModel: ObservableObject {
+ 
+    @Published var status: FetchStatus = .done
+    
+    public func fetchDiscoverData() {
+        
+    }
+    
+}

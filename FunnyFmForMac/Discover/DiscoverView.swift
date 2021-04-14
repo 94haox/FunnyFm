@@ -9,9 +9,28 @@
 import SwiftUI
 
 struct DiscoverView: View {
+    @State private var searchText: String = ""
+    
+    @State private var isFocused = false
+    
     var body: some View {
-        Text("Discover")
-            .navigationTitle(UIState.DefaultChannels.discover.rawValue)
+        VStack {
+            Text("Discover")
+            ProgressView()
+        }
+        .toolbar(content: {
+            ToolbarItemGroup {
+                Spacer()
+                TextField("Search anything", text: $searchText) { editing in
+                    isFocused = editing
+                } onCommit: {
+                    
+                }
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(width: 300)
+            }
+        })
+        .navigationTitle(UIState.DefaultChannels.discover.rawValue)
     }
 }
 
