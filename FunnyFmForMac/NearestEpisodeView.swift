@@ -26,14 +26,14 @@ struct NearestEpisodeView: View, Equatable {
                     Text("今日更新")
                         .bold()
                     ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: Array(repeating: .init(.flexible()), count: 4)) {
+                        LazyHGrid(rows: Array(repeating: .init(.flexible()), count: viewModel.todayEpisodes.count < 4 ? viewModel.todayEpisodes.count : 4)) {
                             ForEach(viewModel.todayEpisodes) { item in
                                 EpisodeGridView(episode: item, selection: $viewModel.selection)
                                     .frame(minHeight: 60)
                             }
                         }
                     }
-                    .frame(minHeight: 240)
+                    .frame(minHeight: viewModel.todayEpisodes.count < 4 ? CGFloat((60 * viewModel.todayEpisodes.count)) : 240 )
                 }
                 Text("最近更新")
                     .bold()

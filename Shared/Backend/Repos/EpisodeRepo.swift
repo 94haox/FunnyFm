@@ -74,6 +74,7 @@ class EpisodeRepo {
             }
         }
         group.notify(queue: .main) {
+            print("parser success")
             completion()
         }
     }

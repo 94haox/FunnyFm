@@ -66,7 +66,8 @@ class DashboardViewModel: ObservableObject {
         DispatchQueue.global().async {
             self.fetchSubscribesCancellable = self.subscribeRepo.getSubscribes { [weak self] items in
                 guard let self = self,
-                      let subs = items else {return}
+                      let subs = items,
+                      subs.count > 0 else {return}
                 DispatchQueue.main.async {
                     self.pods = subs.reversed()
                     self.fetchEpisodes()
@@ -76,6 +77,9 @@ class DashboardViewModel: ObservableObject {
     }
     
     func fetchEpisodes() {
+        if self.pods.count < 1 {
+            self.getSubscribes()
+        }
         let exsitCount = CDEpisode.count()
         self.handleEpisode()
         DispatchQueue.global().async {
@@ -92,13 +96,15 @@ class DashboardViewModel: ObservableObject {
     
     private func handleEpisode() {
         var nearestEpisodes = self.episodeRepo.fetchAllEpisodeFromDB(with: 100)
-        let date = Date().adding(.day, value: -1)
+        let date = Date()
         let today = nearestEpisodes.filter({$0.pubDate == date.dateString()})
         nearestEpisodes.removeAll(where: {
             today.contains($0)
         })
-        self.todayEpisodes = today
-        self.nearestEpisodes = nearestEpisodes
+        DispatchQueue.main.async {
+            self.todayEpisodes = today
+            self.nearestEpisodes = nearestEpisodes
+        }
     }
     
 }
