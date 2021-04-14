@@ -30,16 +30,16 @@ struct LoginView: View {
             HStack {
                 Spacer()
                 Image("logo-white")
-                    .imageScale(.large)
-                    .font(.largeTitle)
+                    .resizable()
                     .foregroundColor(.accentColor)
-                    .frame(width: 200, height: 200)
+                    .frame(width: 100, height: 100)
+                    .cornerRadius(25)
                 Spacer()
             }
             HStack {
                 Spacer()
                 VStack {
-                    if self.isLoading {
+                    if !self.isLoading {
                         SignInWithAppleButton { (request) in
                             request.requestedScopes = [.fullName, .email]
                             isLoading = true
@@ -52,7 +52,7 @@ struct LoginView: View {
                 }
                 Spacer()
             }
-            .padding(.bottom, 64)
+            .padding(.vertical, 32)
             HStack {
                 Spacer()
                 Label("Terms of Service", systemImage: "t.square.fill")

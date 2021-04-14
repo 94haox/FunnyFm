@@ -31,7 +31,6 @@ struct SubPodcastView: View {
             withAnimation(Animation.easeInOut(duration: 0.2)) {
                 selected = selected == podcast ? nil : podcast
             }
-            UIState.shared.pageType = .podcast(rssUrl: podcast.rss_url)
         }
         .onHover { (isHover) in
             withAnimation(Animation.easeInOut(duration: 0.2)) {
