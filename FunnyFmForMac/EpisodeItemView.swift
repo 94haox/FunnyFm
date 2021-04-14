@@ -79,6 +79,7 @@ struct EpisodeItemView: View {
                             .font(.largeTitle)
                     }) {
                         selection = episode.id
+                        PlayState.shared.config(episode)
                     }
                     .frame(width: 50, height: 50)
                 }

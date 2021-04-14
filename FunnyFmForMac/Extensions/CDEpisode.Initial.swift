@@ -87,6 +87,41 @@ extension CDEpisode {
         }
     }
     
+    
+    static func fetchAll(with rssUrl: String) -> [Episode]? {
+        let fetchRequest = NSFetchRequest<CDEpisode>(entityName: "CDEpisode")
+        let pre = NSPredicate.init(format: "podcastUrl = %@", rssUrl)
+        fetchRequest.predicate = pre
+        let viewContext = PersistenceController.shared.container.viewContext
+        objc_sync_enter(viewContext)
+        defer {
+            objc_sync_exit(viewContext)
+        }
+        do {
+            let eps = try viewContext.fetch(fetchRequest)
+            return eps.map { Episode(ep: $0)}
+        } catch let error {
+            print("CDEpisode.fetch error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    static func fetchAll() -> [Episode]? {
+        let fetchRequest = NSFetchRequest<CDEpisode>(entityName: "CDEpisode")
+        let viewContext = PersistenceController.shared.container.viewContext
+        objc_sync_enter(viewContext)
+        defer {
+            objc_sync_exit(viewContext)
+        }
+        do {
+            let eps = try viewContext.fetch(fetchRequest)
+            return eps.map { Episode(ep: $0)}
+        } catch let error {
+            print("CDEpisode.fetch error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     static func count() -> Int? {
         let fetchRequest = NSFetchRequest<CDEpisode>(entityName: "CDEpisode")
         let viewContext = PersistenceController.shared.container.viewContext

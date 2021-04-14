@@ -24,10 +24,8 @@ struct SubscribesView: View {
                     }
                 }
                 .padding(.all, 12)
-                .onAppear {
-                    viewModel.fetchSubscribes()
-                }
             }
+            .background(Color.white)
             if viewModel.selectionPodcast.isSome {
                 HStack {
                     Spacer()
@@ -36,7 +34,17 @@ struct SubscribesView: View {
                 }
                 .transition(AnyTransition.move(edge: .trailing))
             }
+            if viewModel.fetchStatus == .loading {
+                ProgressView()
+            }
         }
+        .onAppear {
+            viewModel.fetchSubscribes()
+        }
+        .toolbar(content: {
+            Spacer()
+            Text("")
+        })
         .navigationTitle(UIState.DefaultChannels.subscribe.rawValue)
         .navigationSubtitle("\(viewModel.podcasts.count)")
     }

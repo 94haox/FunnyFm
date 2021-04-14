@@ -14,9 +14,8 @@ class SubscribRepo {
     
     private var disposables: [AnyCancellable?] = []
     
-    func getSubscribes(completion: @escaping ([GPodcast]?) -> Void) -> AnyCancellable? {
+    func fetchSubscribes(completion: @escaping ([GPodcast]?) -> Void) -> AnyCancellable? {
         let dbResult = self.fetchPodcastsFromDB()
-        completion(dbResult)
         return self.fetchPodcastsFromServer { (podcasts) in
            guard let pods = podcasts else { return }
            let isEqual = dbResult.elementsEqual(pods) { (item, item2) -> Bool in
@@ -28,7 +27,7 @@ class SubscribRepo {
         }
     }
     
-    private func fetchPodcastsFromDB() -> [GPodcast] {
+    func fetchPodcastsFromDB() -> [GPodcast] {
         let fetchRequest = NSFetchRequest<CDPodcast>(entityName: "CDPodcast")
         let viewContext = PersistenceController.shared.container.viewContext
         objc_sync_enter(viewContext)
