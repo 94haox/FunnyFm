@@ -23,6 +23,10 @@ struct DashboradView: View {
         NearestEpisodeView(viewModel: viewModel, showInfo: $showEpisodeInfo)
             .equatable()
             .padding(.leading, 12)
+            .toolbar(content: {
+                Spacer()
+                Text("")
+            })
             .navigationTitle(UIState.DefaultChannels.nearest.rawValue)
     }
 }

@@ -12,6 +12,8 @@ import Combine
 
 class DashboardViewModel: ObservableObject {
     
+    @Published public private(set) var status: FetchStatus = .loading
+    
     @Published public private(set) var selectedEpisode: Episode?
     
     @Published public private(set) var pods: [GPodcast] = []
@@ -63,12 +65,18 @@ class DashboardViewModel: ObservableObject {
         guard fetchSubscribesCancellable == nil else {
             return
         }
+        let db = subscribeRepo.fetchPodcastsFromDB()
+        if db.count > 0 {
+            pods = db
+            status = .done
+        }
         DispatchQueue.global().async {
-            self.fetchSubscribesCancellable = self.subscribeRepo.getSubscribes { [weak self] items in
-                guard let self = self,
-                      let subs = items,
-                      subs.count > 0 else {return}
+            self.fetchSubscribesCancellable = self.subscribeRepo.fetchSubscribes { [weak self] items in
                 DispatchQueue.main.async {
+                    self?.status = .done
+                    guard let self = self,
+                          let subs = items,
+                          subs.count > 0 else {return}
                     self.pods = subs.reversed()
                     self.fetchEpisodes()
                 }

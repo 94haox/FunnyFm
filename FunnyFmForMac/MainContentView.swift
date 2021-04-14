@@ -13,10 +13,6 @@ import AuthenticationServices
 struct MainContentView: View {
     
     let channel: UIState.DefaultChannels
-    
-    @State private var searchText: String = ""
-    
-    @State private var isFocused = false
 
     var body: some View {
         VStack {
@@ -29,18 +25,6 @@ struct MainContentView: View {
                     DiscoverView()
             }
         }
-        .toolbar(content: {
-            ToolbarItemGroup {
-                Spacer()
-                TextField("Search anything", text: $searchText) { editing in
-                    isFocused = editing
-                } onCommit: {
-                    
-                }
-                .textFieldStyle(PlainTextFieldStyle())
-                .frame(width: 300)
-            }
-        })
         .navigationTitle(channel.rawValue)
     }
 }
