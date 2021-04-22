@@ -104,6 +104,10 @@ extension PlayState {
         if progress > 5 {
             progress = progress - 5
         }
+        if currentTime == totalTime,
+           currentTime != 0 {
+            self.pause()
+        }
     }
     
     func seekToProgress(_ progress: CGFloat) {

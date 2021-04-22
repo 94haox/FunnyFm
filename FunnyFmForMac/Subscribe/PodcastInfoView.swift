@@ -12,6 +12,10 @@ import SwiftUI
 struct PodcastInfoView: View {
     @Binding var podcast: GPodcast?
     
+    @State private var attributeContent: NSAttributedString?
+    
+    @State private var normalContent: String?
+    
     @State var width: CGFloat = 0
     
     @State private var items: [Episode]?
@@ -33,7 +37,12 @@ struct PodcastInfoView: View {
         guard let podcastUrl = podcast?.rss_url else {
             return
         }
-        items = CDEpisode.fetchAll(with: podcastUrl)
+        DispatchQueue.global().async {
+            let eps = CDEpisode.fetchAll(with: podcastUrl)
+            DispatchQueue.main.async {
+                items = eps
+            }
+        }
     }
     
     var body: some View {
@@ -70,44 +79,100 @@ struct PodcastInfoView: View {
                     Spacer()
                 }
                 .frame(idealHeight: 100, maxHeight: 100)
+                .padding(.top, 16)
                 HStack {
+                    Spacer()
                     Picker("", selection: $segmentSelection) {
                         Text("列表")
                             .tag(0)
                         Text("简介")
                             .tag(1)
                     }
+                    .frame(width: 200)
                     .pickerStyle(SegmentedPickerStyle())
+                    Spacer()
                 }
                 
                 VStack {
                     if segmentSelection == 0 {
-                        List {
-                            ForEach(items ?? []) { item in
-                                EpisodeItemView(episode: item, selection: $epSelection)
-                                    .tag(item.id)
-                                    .frame(height: 60)
+                        if items?.count ?? 0 > 0 {
+                            List {
+                                ForEach(items ?? []) { item in
+                                    EpisodeItemView(episode: item, selection: $epSelection)
+                                        .tag(item.id)
+                                        .frame(height: 60)
+                                }
+                            }
+                        } else {
+                            VStack {
+                                Spacer()
+                                ProgressView()
+                                Spacer()
                             }
                         }
                     } else {
-                        Spacer()
                         HStack {
-                            Text(podcast?.desc ?? "主播尚未添加简介")
-                                .padding(.all, 12)
-                            Spacer()
+                            if attributeContent.isNone {
+                                Text(normalContent ?? "主播尚未添加简介")
+                                    .padding(.all, 12)
+                            } else {
+                                ScrollView {
+                                    AttributedText(attributeContent!)
+                                        .padding(.all, 12)
+                                }
+                            }
                         }
                         Spacer()
                     }
                 }
             }
             .onChange(of: self.podcast, perform: { (item) in
+                items = nil
+                self.parserAttribute()
                 self.fetchEpisodes()
             })
             .onAppear {
+                self.parserAttribute()
                 self.fetchEpisodes()
             }
+            .toolbar(content: {
+                Spacer()
+                PlainButton {
+                    HStack {
+                        Image(systemName: "person.crop.circle.fill.badge.xmark")
+                        Text("取消订阅")
+                    }
+                } action: {
+                    podcast = nil
+                }
+                .frame(width: 100)
+            })
             .background(Color.white)
             .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 0)
         }
     }
+}
+
+extension PodcastInfoView {
+    
+    func parserAttribute() {
+        attributeContent = nil
+        guard let podcast = self.podcast,
+              let desc = podcast.desc else {
+            normalContent = nil
+            return
+        }
+        attributeContent = nil
+        normalContent = nil
+        do {
+            let srtData = desc.data(using: String.Encoding.unicode, allowLossyConversion: true)!
+            attributeContent = try NSMutableAttributedString(data: srtData, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            normalContent = desc
+        }
+        
+        
+    }
+    
+    
 }

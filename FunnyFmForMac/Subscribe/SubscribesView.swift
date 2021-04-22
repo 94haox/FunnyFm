@@ -25,6 +25,10 @@ struct SubscribesView: View {
                 }
                 .padding(.all, 12)
             }
+            .toolbar(content: {
+                Spacer()
+                Text("")
+            })
             .background(Color.white)
             if viewModel.selectionPodcast.isSome {
                 HStack {
@@ -41,10 +45,6 @@ struct SubscribesView: View {
         .onAppear {
             viewModel.fetchSubscribes()
         }
-        .toolbar(content: {
-            Spacer()
-            Text("")
-        })
         .navigationTitle(UIState.DefaultChannels.subscribe.rawValue)
         .navigationSubtitle("\(viewModel.podcasts.count)")
     }
