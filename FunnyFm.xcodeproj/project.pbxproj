@@ -144,6 +144,16 @@
 		38C2123C249718500022ECE6 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38332A5F24936A34009AC1A7 /* ActionViewController.swift */; };
 		38C212DD24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
 		38C212DE24971E120022ECE6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E6D5F21B9252500B85135 /* UIViewControllerExtensions.swift */; };
+		38C93ED726315A5B009DB600 /* NSLineBreakMode+TruncationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED226315A5A009DB600 /* NSLineBreakMode+TruncationMode.swift */; };
+		38C93ED826315A5B009DB600 /* NSLineBreakMode+TruncationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED226315A5A009DB600 /* NSLineBreakMode+TruncationMode.swift */; };
+		38C93ED926315A5B009DB600 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED326315A5A009DB600 /* AttributedText.swift */; };
+		38C93EDA26315A5B009DB600 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED326315A5A009DB600 /* AttributedText.swift */; };
+		38C93EDB26315A5B009DB600 /* TextViewWrapper+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED426315A5B009DB600 /* TextViewWrapper+UITextView.swift */; };
+		38C93EDC26315A5B009DB600 /* TextViewWrapper+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED426315A5B009DB600 /* TextViewWrapper+UITextView.swift */; };
+		38C93EDD26315A5B009DB600 /* TextViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED526315A5B009DB600 /* TextViewStore.swift */; };
+		38C93EDE26315A5B009DB600 /* TextViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED526315A5B009DB600 /* TextViewStore.swift */; };
+		38C93EDF26315A5B009DB600 /* TextViewWrapper+NSTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED626315A5B009DB600 /* TextViewWrapper+NSTextView.swift */; };
+		38C93EE026315A5B009DB600 /* TextViewWrapper+NSTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED626315A5B009DB600 /* TextViewWrapper+NSTextView.swift */; };
 		38CB77CB2512116800FECB0D /* SULottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB77392512109200FECB0D /* SULottieView.swift */; };
 		38DD7BAD2499E1050070F56D /* CountryCode.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BAA2499E1050070F56D /* CountryCode.xcassets */; };
 		38DD7BAE2499E1060070F56D /* CountryCodeLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BAB2499E1050070F56D /* CountryCodeLibrary.swift */; };
@@ -667,6 +677,11 @@
 		38C21230249717EF0022ECE6 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		38C21233249717EF0022ECE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		38C21235249717F00022ECE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C93ED226315A5A009DB600 /* NSLineBreakMode+TruncationMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLineBreakMode+TruncationMode.swift"; sourceTree = "<group>"; };
+		38C93ED326315A5A009DB600 /* AttributedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
+		38C93ED426315A5B009DB600 /* TextViewWrapper+UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextViewWrapper+UITextView.swift"; sourceTree = "<group>"; };
+		38C93ED526315A5B009DB600 /* TextViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewStore.swift; sourceTree = "<group>"; };
+		38C93ED626315A5B009DB600 /* TextViewWrapper+NSTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextViewWrapper+NSTextView.swift"; sourceTree = "<group>"; };
 		38CB77392512109200FECB0D /* SULottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SULottieView.swift; sourceTree = "<group>"; };
 		38CB786225121D6B00FECB0D /* FunnyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyMenu.swift; sourceTree = "<group>"; };
 		38DD7BAA2499E1050070F56D /* CountryCode.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CountryCode.xcassets; sourceTree = "<group>"; };
@@ -1430,6 +1445,18 @@
 			path = FunnyFmShare;
 			sourceTree = "<group>";
 		};
+		38C93ED126315A4D009DB600 /* AttributeString */ = {
+			isa = PBXGroup;
+			children = (
+				38C93ED326315A5A009DB600 /* AttributedText.swift */,
+				38C93ED226315A5A009DB600 /* NSLineBreakMode+TruncationMode.swift */,
+				38C93ED526315A5B009DB600 /* TextViewStore.swift */,
+				38C93ED626315A5B009DB600 /* TextViewWrapper+NSTextView.swift */,
+				38C93ED426315A5B009DB600 /* TextViewWrapper+UITextView.swift */,
+			);
+			name = AttributeString;
+			sourceTree = "<group>";
+		};
 		38D1132124E2377A00EBE3ED /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -1464,6 +1491,7 @@
 		38D1132324E237CC00EBE3ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38C93ED126315A4D009DB600 /* AttributeString */,
 				7423FDD424742B53008F7BFD /* PolicyView.swift */,
 				3898C7AE2474F1C200828A4A /* TermView.swift */,
 				38BC211124768999002B5CA4 /* SubscribtionView.swift */,
@@ -2724,12 +2752,14 @@
 				38BDDAA12621D6C8001EA5C4 /* UIState.swift in Sources */,
 				383C7C74262007020098A4C5 /* UserCenter.swift in Sources */,
 				383C8BBD262042FB0098A4C5 /* Listing.swift in Sources */,
+				38C93EDE26315A5B009DB600 /* TextViewStore.swift in Sources */,
 				383C7B52261FF5360098A4C5 /* Persistence.swift in Sources */,
 				38BDDABB2621EC26001EA5C4 /* DiscoverViewModel.swift in Sources */,
 				383C7B55261FF5360098A4C5 /* FunnyFmForMac.xcdatamodeld in Sources */,
 				383C8B9426203FA90098A4C5 /* FFError.swift in Sources */,
 				38BDDB662623FB98001EA5C4 /* EpisodeRepo.swift in Sources */,
 				383C94FA2620512A0098A4C5 /* SubscribeRepo.swift in Sources */,
+				38C93EE026315A5B009DB600 /* TextViewWrapper+NSTextView.swift in Sources */,
 				383C971C262146080098A4C5 /* CDEpisode.Initial.swift in Sources */,
 				383C8BAB2620410C0098A4C5 /* CDPodcast.Network.swift in Sources */,
 				383C7C2C261FF6AD0098A4C5 /* SignWithApple.swift in Sources */,
@@ -2745,6 +2775,7 @@
 				38BDDB5F2623F6FB001EA5C4 /* CDPodcast.Initial.swift in Sources */,
 				383C8B46262034B70098A4C5 /* DashboradView.swift in Sources */,
 				38BDDAF22622B270001EA5C4 /* PlayState.swift in Sources */,
+				38C93EDC26315A5B009DB600 /* TextViewWrapper+UITextView.swift in Sources */,
 				383C7C56262006DE0098A4C5 /* PodAPI.swift in Sources */,
 				383C7C50262006CD0098A4C5 /* FmHttp.swift in Sources */,
 				38BDDA852621B80F001EA5C4 /* SubscribeViewModel.swift in Sources */,
@@ -2752,6 +2783,7 @@
 				38BDDD5D26244A69001EA5C4 /* PlainButton.swift in Sources */,
 				383C96EC262065C90098A4C5 /* PlayBarView.swift in Sources */,
 				383C7C6E262006E80098A4C5 /* NoteAPI.swift in Sources */,
+				38C93ED826315A5B009DB600 /* NSLineBreakMode+TruncationMode.swift in Sources */,
 				383C96E4262061DF0098A4C5 /* SlideBar.swift in Sources */,
 				383C972C26214F8F0098A4C5 /* Episode.swift in Sources */,
 				38BDDA932621D045001EA5C4 /* SlideItemView.swift in Sources */,
@@ -2771,6 +2803,7 @@
 				383C7C68262006E50098A4C5 /* GeneralAPI.swift in Sources */,
 				38BDDE63262478D5001EA5C4 /* PlayList.swift in Sources */,
 				383C8B6F26203BF30098A4C5 /* Endpoint.swift in Sources */,
+				38C93EDA26315A5B009DB600 /* AttributedText.swift in Sources */,
 				383C9818262162C20098A4C5 /* FFImageView.swift in Sources */,
 				383C7C8E26200AA90098A4C5 /* User.swift in Sources */,
 				38BDDA792621B7FF001EA5C4 /* SubscribesView.swift in Sources */,
@@ -2814,6 +2847,7 @@
 				AB2A372F2328C6AA0097DAF7 /* CloudSyncCollectionViewCell.swift in Sources */,
 				AB62DF22239FB0450004BF6B /* SearchTopicCollectionViewCell.swift in Sources */,
 				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
+				38C93EDD26315A5B009DB600 /* TextViewStore.swift in Sources */,
 				AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */,
 				383C7C37261FF88E0098A4C5 /* LoginView.swift in Sources */,
 				7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */,
@@ -2899,6 +2933,7 @@
 				AB1E6D7521B9252500B85135 /* UINavigationItemExtensions.swift in Sources */,
 				AB441A2E23501F1D00411359 /* MessageViewController.swift in Sources */,
 				ABA6642E22D6145500AFAEE6 /* PodDetailViewController.swift in Sources */,
+				38C93EDB26315A5B009DB600 /* TextViewWrapper+UITextView.swift in Sources */,
 				386B063F2480E67A0095C7AB /* PerferenceViewController.swift in Sources */,
 				ABE765EE21D5D05F00470D8F /* HomeEpisodeTableViewCell.swift in Sources */,
 				AB2D266521DF7BCD00BF3391 /* VisualActivityViewController.swift in Sources */,
@@ -2958,6 +2993,7 @@
 				AB441A362350222A00411359 /* GeneralViewModel.swift in Sources */,
 				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
+				38C93ED926315A5B009DB600 /* AttributedText.swift in Sources */,
 				383C8B7B26203E6D0098A4C5 /* API.swift in Sources */,
 				38AF4990256DFF7800600FA1 /* CategoryValleyViewController.swift in Sources */,
 				7455CD372415216E004886EF /* R.generated.swift in Sources */,
@@ -2970,6 +3006,7 @@
 				3806C366248BC4960034F340 /* OpmlListViewController.swift in Sources */,
 				380434E8247DFC5500402AFA /* EpisodeCardTableViewCell.swift in Sources */,
 				AB8BD8E1236E7574006FEFF3 /* SPStorkCloseView.swift in Sources */,
+				38C93EDF26315A5B009DB600 /* TextViewWrapper+NSTextView.swift in Sources */,
 				ABE7ACBD21C22B9400FC6B8E /* DatabaseManager.swift in Sources */,
 				AB8BD8DE236E7574006FEFF3 /* SPStorkController.swift in Sources */,
 				AB1E6DB021BA5B4500B85135 /* OptionalExtension.swift in Sources */,
@@ -3094,6 +3131,7 @@
 				AB77891423EC5BE400DF8447 /* AnimatedTabBar.swift in Sources */,
 				AB62DE64239F9BF40004BF6B /* PodcastDetailHeader.swift in Sources */,
 				AB14632121D385FC00D41B83 /* AnimationButton.swift in Sources */,
+				38C93ED726315A5B009DB600 /* NSLineBreakMode+TruncationMode.swift in Sources */,
 				AB7789E823EC68E100DF8447 /* VerticalTabBarItemView.swift in Sources */,
 				744239E62441E2BD0015DB21 /* String+Extension.swift in Sources */,
 				386B063C2480E6240095C7AB /* SnappingSlider.swift in Sources */,

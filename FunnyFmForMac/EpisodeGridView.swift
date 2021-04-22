@@ -52,41 +52,9 @@ struct EpisodeGridView: View {
                 Spacer()
             }
             .padding(.horizontal, 12)
-            
-            HStack {
-                Spacer()
-                if playState.currentItem == episode,
-                   playState.playerStatus == .playing {
-                    ZStack {
-                        if playState.currentTime > 0 {
-                            ProgressView(value: Float(playState.currentTime), total: Float(playState.totalTime))
-                                .progressViewStyle(CircularProgressViewStyle())
-                                .font(.largeTitle)
-                        }
-                        PlainButton(label: {
-                            Image(systemName: "pause.circle")
-                                .font(.title)
-                        }) {
-                            playState.play()
-                        }
-                        .frame(width: 45, height: 45)
-                    }
-                } else if playState.currentItem == episode,
-                          playState.playerStatus == .loading {
-                    Indicator(shown: $shown)
-                        .frame(width: 45, height: 45)
-                } else {
-                    PlainButton(label: {
-                        Image(systemName: "play.circle")
-                            .font(.largeTitle)
-                    }) {
-                        selection = episode.id
-                    }
-                    .frame(width: 50, height: 50)
-                }
-                Spacer()
-            }
-            Spacer()
+            EpisodePlayControl(episode: episode,
+                               shown: $shown,
+                               selection: $selection)
         }
     }
 }

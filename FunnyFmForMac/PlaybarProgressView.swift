@@ -12,6 +12,17 @@ struct PlaybarProgressView: View {
     
     @EnvironmentObject private var playState: PlayState
     
+    @State var isDragging = false
+
+    var drag: some Gesture {
+        DragGesture()
+            .onChanged { value in
+                print(value)
+                self.isDragging = true
+            }
+            .onEnded { _ in self.isDragging = false }
+    }
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
@@ -29,6 +40,7 @@ struct PlaybarProgressView: View {
                 }
             }
         }
+        .gesture(drag)
     }
 }
 

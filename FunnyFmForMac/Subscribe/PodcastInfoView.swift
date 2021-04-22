@@ -40,7 +40,7 @@ struct PodcastInfoView: View {
         DispatchQueue.global().async {
             let eps = CDEpisode.fetchAll(with: podcastUrl)
             DispatchQueue.main.async {
-                items = eps
+                items = eps?.sorted(by: {$0.pubDateSecond < $1.pubDateSecond})
             }
         }
     }
