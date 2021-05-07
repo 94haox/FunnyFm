@@ -13,9 +13,14 @@ struct DiscoverView: View {
     
     @State private var isFocused = false
     
+    @State private var categorySelection: String?
+    
     var body: some View {
-        VStack {
-            Text("Discover")
+        VStack() {
+            HStack {
+                DiscoverCategoriesView(selection: $categorySelection)
+                Spacer()
+            }
             ProgressView()
         }
         .toolbar(content: {

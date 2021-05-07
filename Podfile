@@ -14,6 +14,7 @@ def apple_shared
   pod 'WCDB.swift'
   pod 'Moya'
   pod 'SwiftyJSON'
+  pod 'SDWebImageSwiftUI'
   
 end
 
@@ -74,7 +75,6 @@ end
 
 target "FunnyFm" do
 		platform :ios, '14.0'
-	
 		ads
 		performance
     layout

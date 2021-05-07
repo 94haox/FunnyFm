@@ -21,8 +21,8 @@ struct MainContentView: View {
                     DashboradView()
                 case .subscribe:
                     SubscribesView()
-                case .discover:
-                    DiscoverView()
+//                case .discover:
+//                    DiscoverView()
             }
         }
         .navigationTitle(channel.rawValue)

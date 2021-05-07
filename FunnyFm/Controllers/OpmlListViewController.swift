@@ -104,7 +104,7 @@ extension OpmlListViewController {
 			make.edges.equalToSuperview()
 		}
         
-        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(systemName: <#T##String#>), style: .plain, target: <#T##Any?#>, action: <#T##Selector?#>)
+//        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(systemName: <#T##String#>), style: .plain, target: <#T##Any?#>, action: <#T##Selector?#>)
 	}
 	
 	

@@ -39,7 +39,6 @@
 		383C7B55261FF5360098A4C5 /* FunnyFmForMac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 383C7B53261FF5360098A4C5 /* FunnyFmForMac.xcdatamodeld */; };
 		383C7C2B261FF6AD0098A4C5 /* SignWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C7C2A261FF6AD0098A4C5 /* SignWithApple.swift */; };
 		383C7C2C261FF6AD0098A4C5 /* SignWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C7C2A261FF6AD0098A4C5 /* SignWithApple.swift */; };
-		383C7C37261FF88E0098A4C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C7C36261FF88E0098A4C5 /* LoginView.swift */; };
 		383C7C38261FF88E0098A4C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C7C36261FF88E0098A4C5 /* LoginView.swift */; };
 		383C7C44261FFDE40098A4C5 /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7423FDD424742B53008F7BFD /* PolicyView.swift */; };
 		383C7C4A261FFDE70098A4C5 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898C7AE2474F1C200828A4A /* TermView.swift */; };
@@ -52,14 +51,12 @@
 		383C7C74262007020098A4C5 /* UserCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471321EAF7EE00212DCA /* UserCenter.swift */; };
 		383C7C7A2620070E0098A4C5 /* FunnyFm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAD821952A1300260851 /* FunnyFm.swift */; };
 		383C7C802620071F0098A4C5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE765FC21D7196700470D8F /* DateExtensions.swift */; };
-		383C7C8726200A080098A4C5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C7C8626200A080098A4C5 /* LoginViewModel.swift */; };
-		383C7C8826200A080098A4C5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C7C8626200A080098A4C5 /* LoginViewModel.swift */; };
+		383C7C8826200A080098A4C5 /* GeneralLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C7C8626200A080098A4C5 /* GeneralLoginViewModel.swift */; };
 		383C7C8E26200AA90098A4C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF471121E8B6E400212DCA /* User.swift */; };
 		383C8B46262034B70098A4C5 /* DashboradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B44262034B70098A4C5 /* DashboradView.swift */; };
 		383C8B58262039590098A4C5 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B56262039590098A4C5 /* DashboardViewModel.swift */; };
 		383C8B6E26203BF30098A4C5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B6D26203BF30098A4C5 /* Endpoint.swift */; };
 		383C8B6F26203BF30098A4C5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B6D26203BF30098A4C5 /* Endpoint.swift */; };
-		383C8B7B26203E6D0098A4C5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B7A26203E6D0098A4C5 /* API.swift */; };
 		383C8B7C26203E6D0098A4C5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B7A26203E6D0098A4C5 /* API.swift */; };
 		383C8B8326203F160098A4C5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B8226203F160098A4C5 /* NetworkError.swift */; };
 		383C8B8426203F160098A4C5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B8226203F160098A4C5 /* NetworkError.swift */; };
@@ -67,16 +64,12 @@
 		383C8B8C26203F9F0098A4C5 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B8A26203F9F0098A4C5 /* NetworkResponse.swift */; };
 		383C8B9326203FA90098A4C5 /* FFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B9226203FA90098A4C5 /* FFError.swift */; };
 		383C8B9426203FA90098A4C5 /* FFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8B9226203FA90098A4C5 /* FFError.swift */; };
-		383C8BA1262040160098A4C5 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8BA0262040160098A4C5 /* URL.swift */; };
 		383C8BA2262040160098A4C5 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8BA0262040160098A4C5 /* URL.swift */; };
 		383C8BAB2620410C0098A4C5 /* CDPodcast.Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8BA92620410C0098A4C5 /* CDPodcast.Network.swift */; };
 		383C8BBD262042FB0098A4C5 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C8BBB262042FB0098A4C5 /* Listing.swift */; };
 		383C94FA2620512A0098A4C5 /* SubscribeRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C94F82620512A0098A4C5 /* SubscribeRepo.swift */; };
-		383C96E3262061DF0098A4C5 /* SlideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C96E2262061DF0098A4C5 /* SlideBar.swift */; };
 		383C96E4262061DF0098A4C5 /* SlideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C96E2262061DF0098A4C5 /* SlideBar.swift */; };
-		383C96EB262065C90098A4C5 /* PlayBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C96EA262065C90098A4C5 /* PlayBarView.swift */; };
 		383C96EC262065C90098A4C5 /* PlayBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C96EA262065C90098A4C5 /* PlayBarView.swift */; };
-		383C970A262144D90098A4C5 /* PodcastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C9709262144D90098A4C5 /* PodcastParser.swift */; };
 		383C970B262144D90098A4C5 /* PodcastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C9709262144D90098A4C5 /* PodcastParser.swift */; };
 		383C971C262146080098A4C5 /* CDEpisode.Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C971A262146080098A4C5 /* CDEpisode.Initial.swift */; };
 		383C972C26214F8F0098A4C5 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41AAE121952EAA00260851 /* Episode.swift */; };
@@ -113,6 +106,8 @@
 		389B8ACA2499DCDC00F0F64A /* FluidTimingCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8AC92499DCDC00F0F64A /* FluidTimingCurve.swift */; };
 		389B8ACC2499DD1F00F0F64A /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8ACB2499DD1F00F0F64A /* SheetViewController.swift */; };
 		38AF4990256DFF7800600FA1 /* CategoryValleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF498F256DFF7800600FA1 /* CategoryValleyViewController.swift */; };
+		38B4436A2644E5F000B9BA34 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B443692644E5F000B9BA34 /* ShareView.swift */; };
+		38B4444F2644E68A00B9BA34 /* FFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C9817262162C20098A4C5 /* FFImageView.swift */; };
 		38BC211224768999002B5CA4 /* SubscribtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC211124768999002B5CA4 /* SubscribtionView.swift */; };
 		38BDDA792621B7FF001EA5C4 /* SubscribesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDDA782621B7FF001EA5C4 /* SubscribesView.swift */; };
 		38BDDA852621B80F001EA5C4 /* SubscribeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDDA842621B80F001EA5C4 /* SubscribeViewModel.swift */; };
@@ -154,6 +149,8 @@
 		38C93EDE26315A5B009DB600 /* TextViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED526315A5B009DB600 /* TextViewStore.swift */; };
 		38C93EDF26315A5B009DB600 /* TextViewWrapper+NSTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED626315A5B009DB600 /* TextViewWrapper+NSTextView.swift */; };
 		38C93EE026315A5B009DB600 /* TextViewWrapper+NSTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C93ED626315A5B009DB600 /* TextViewWrapper+NSTextView.swift */; };
+		38C94E0A2632633C009DB600 /* DiscoverCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C94E092632633C009DB600 /* DiscoverCategoriesView.swift */; };
+		38C94FF626327880009DB600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB25798321945E70004C5F5D /* Assets.xcassets */; };
 		38CB77CB2512116800FECB0D /* SULottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB77392512109200FECB0D /* SULottieView.swift */; };
 		38DD7BAD2499E1050070F56D /* CountryCode.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7BAA2499E1050070F56D /* CountryCode.xcassets */; };
 		38DD7BAE2499E1060070F56D /* CountryCodeLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7BAB2499E1050070F56D /* CountryCodeLibrary.swift */; };
@@ -600,7 +597,7 @@
 		383C7B57261FF5360098A4C5 /* FunnyFmForMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FunnyFmForMac.entitlements; sourceTree = "<group>"; };
 		383C7C2A261FF6AD0098A4C5 /* SignWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWithApple.swift; sourceTree = "<group>"; };
 		383C7C36261FF88E0098A4C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		383C7C8626200A080098A4C5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		383C7C8626200A080098A4C5 /* GeneralLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralLoginViewModel.swift; sourceTree = "<group>"; };
 		383C8B44262034B70098A4C5 /* DashboradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboradView.swift; sourceTree = "<group>"; };
 		383C8B56262039590098A4C5 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		383C8B6D26203BF30098A4C5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -651,6 +648,7 @@
 		389B8AC92499DCDC00F0F64A /* FluidTimingCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTimingCurve.swift; sourceTree = "<group>"; };
 		389B8ACB2499DD1F00F0F64A /* SheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
 		38AF498F256DFF7800600FA1 /* CategoryValleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryValleyViewController.swift; sourceTree = "<group>"; };
+		38B443692644E5F000B9BA34 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		38BC211124768999002B5CA4 /* SubscribtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionView.swift; sourceTree = "<group>"; };
 		38BDDA782621B7FF001EA5C4 /* SubscribesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribesView.swift; sourceTree = "<group>"; };
 		38BDDA842621B80F001EA5C4 /* SubscribeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewModel.swift; sourceTree = "<group>"; };
@@ -682,6 +680,7 @@
 		38C93ED426315A5B009DB600 /* TextViewWrapper+UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextViewWrapper+UITextView.swift"; sourceTree = "<group>"; };
 		38C93ED526315A5B009DB600 /* TextViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewStore.swift; sourceTree = "<group>"; };
 		38C93ED626315A5B009DB600 /* TextViewWrapper+NSTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextViewWrapper+NSTextView.swift"; sourceTree = "<group>"; };
+		38C94E092632633C009DB600 /* DiscoverCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCategoriesView.swift; sourceTree = "<group>"; };
 		38CB77392512109200FECB0D /* SULottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SULottieView.swift; sourceTree = "<group>"; };
 		38CB786225121D6B00FECB0D /* FunnyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyMenu.swift; sourceTree = "<group>"; };
 		38DD7BAA2499E1050070F56D /* CountryCode.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CountryCode.xcassets; sourceTree = "<group>"; };
@@ -1257,7 +1256,7 @@
 			isa = PBXGroup;
 			children = (
 				383C7C36261FF88E0098A4C5 /* LoginView.swift */,
-				383C7C8626200A080098A4C5 /* LoginViewModel.swift */,
+				383C7C8626200A080098A4C5 /* GeneralLoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1390,6 +1389,7 @@
 			isa = PBXGroup;
 			children = (
 				38BDDAAE2621EC18001EA5C4 /* DiscoverView.swift */,
+				38C94E092632633C009DB600 /* DiscoverCategoriesView.swift */,
 				38BDDABA2621EC26001EA5C4 /* DiscoverViewModel.swift */,
 			);
 			path = Discover;
@@ -1497,6 +1497,7 @@
 				38BC211124768999002B5CA4 /* SubscribtionView.swift */,
 				38CB77392512109200FECB0D /* SULottieView.swift */,
 				383C7C2A261FF6AD0098A4C5 /* SignWithApple.swift */,
+				38B443692644E5F000B9BA34 /* ShareView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2474,6 +2475,7 @@
 			files = (
 				38BDDD562624471E001EA5C4 /* colors.xcassets in Resources */,
 				383C7B50261FF5360098A4C5 /* Preview Assets.xcassets in Resources */,
+				38C94FF626327880009DB600 /* Assets.xcassets in Resources */,
 				383C7B4D261FF5360098A4C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2753,6 +2755,7 @@
 				383C7C74262007020098A4C5 /* UserCenter.swift in Sources */,
 				383C8BBD262042FB0098A4C5 /* Listing.swift in Sources */,
 				38C93EDE26315A5B009DB600 /* TextViewStore.swift in Sources */,
+				38C94E0A2632633C009DB600 /* DiscoverCategoriesView.swift in Sources */,
 				383C7B52261FF5360098A4C5 /* Persistence.swift in Sources */,
 				38BDDABB2621EC26001EA5C4 /* DiscoverViewModel.swift in Sources */,
 				383C7B55261FF5360098A4C5 /* FunnyFmForMac.xcdatamodeld in Sources */,
@@ -2764,7 +2767,7 @@
 				383C8BAB2620410C0098A4C5 /* CDPodcast.Network.swift in Sources */,
 				383C7C2C261FF6AD0098A4C5 /* SignWithApple.swift in Sources */,
 				383C7C62262006E30098A4C5 /* UserAPI.swift in Sources */,
-				383C7C8826200A080098A4C5 /* LoginViewModel.swift in Sources */,
+				383C7C8826200A080098A4C5 /* GeneralLoginViewModel.swift in Sources */,
 				38BDDD65262452EB001EA5C4 /* NearestEpisodeView.swift in Sources */,
 				383C97342621524E0098A4C5 /* EpisodeItemView.swift in Sources */,
 				38BDDAEB2621F3A1001EA5C4 /* EpisodeView.swift in Sources */,
@@ -2840,7 +2843,6 @@
 			files = (
 				AB8BD8DA236E7574006FEFF3 /* SPStorkControllerConfirmDelegate.swift in Sources */,
 				AB76EF67239C993E0096020B /* PodcastInfoView.swift in Sources */,
-				383C8BA1262040160098A4C5 /* URL.swift in Sources */,
 				383C8B9326203FA90098A4C5 /* FFError.swift in Sources */,
 				ABF9EC1421E1BE95001C94CF /* NeLoginViewController.swift in Sources */,
 				ABE9F4152329D45B000BED40 /* PreferenceCenter.swift in Sources */,
@@ -2849,7 +2851,7 @@
 				ABEF471C21EB038500212DCA /* UserViewModel.swift in Sources */,
 				38C93EDD26315A5B009DB600 /* TextViewStore.swift in Sources */,
 				AB57D5BB22DDE95100979994 /* PodDetailViewModel.swift in Sources */,
-				383C7C37261FF88E0098A4C5 /* LoginView.swift in Sources */,
+				38B4436A2644E5F000B9BA34 /* ShareView.swift in Sources */,
 				7493F6712417ACA1007E5319 /* BaseJob.swift in Sources */,
 				AB6CE3432330DA6A006D8D11 /* DownloadTableViewCell.swift in Sources */,
 				AB1E6DA721BA031B00B85135 /* FMToolBar.swift in Sources */,
@@ -2920,7 +2922,6 @@
 				AB76EF69239CCD8E0096020B /* GFLimitTextView.swift in Sources */,
 				744239E92441E2BD0015DB21 /* BCQResourceFragment.swift in Sources */,
 				AB1E6D8121B9252500B85135 /* UIImageExtensions.swift in Sources */,
-				383C970A262144D90098A4C5 /* PodcastParser.swift in Sources */,
 				ABEE40EB21E35EF800FCB16F /* VaildManager.swift in Sources */,
 				AB1E6D7321B9252500B85135 /* UITextFieldExtensions.swift in Sources */,
 				AB1E6D8D21B9252500B85135 /* UIDatePickerExtensions.swift in Sources */,
@@ -2966,7 +2967,6 @@
 				386B06D82480F2060095C7AB /* JellySlider.swift in Sources */,
 				389B8ACA2499DCDC00F0F64A /* FluidTimingCurve.swift in Sources */,
 				3806C36A248BC4BB0034F340 /* OpmlTableViewCell.swift in Sources */,
-				383C7C8726200A080098A4C5 /* LoginViewModel.swift in Sources */,
 				ABF5118421BF43E50083A81B /* NormalHeaderView.swift in Sources */,
 				383AFA18253A91DA00E9D243 /* QRCodeViewController.swift in Sources */,
 				ABEE40E721E35C3800FCB16F /* UserAPI.swift in Sources */,
@@ -2994,7 +2994,6 @@
 				AB8DA7452338F38000407FCB /* CleanyAlertActionTableViewCell.swift in Sources */,
 				AB1E6D8621B9252500B85135 /* UILabelExtensions.swift in Sources */,
 				38C93ED926315A5B009DB600 /* AttributedText.swift in Sources */,
-				383C8B7B26203E6D0098A4C5 /* API.swift in Sources */,
 				38AF4990256DFF7800600FA1 /* CategoryValleyViewController.swift in Sources */,
 				7455CD372415216E004886EF /* R.generated.swift in Sources */,
 				AB67FC3523E07ED2003D3380 /* ProfileCompleteViewController.swift in Sources */,
@@ -3031,7 +3030,6 @@
 				ABE7ACB421C20E7800FC6B8E /* FavouriteListController.swift in Sources */,
 				741F272D242379EA006F1DCE /* ChapterListViewController.swift in Sources */,
 				AB7B1A9B22F8413400790787 /* AdShowViewController.swift in Sources */,
-				383C96EB262065C90098A4C5 /* PlayBarView.swift in Sources */,
 				AB7E1884238AB0C200D1C8AD /* SpeechManager.swift in Sources */,
 				38CB77CB2512116800FECB0D /* SULottieView.swift in Sources */,
 				AB00BC342394A87900893325 /* NoteEditViewController.swift in Sources */,
@@ -3110,7 +3108,6 @@
 				AB57FE3822CEE2AC00BABEF2 /* ViewControllerExtension.swift in Sources */,
 				AB63D7672316680200F76F8E /* PlayListViewController.swift in Sources */,
 				AB143DE4221B936A0065B036 /* AnimationLoadButton.swift in Sources */,
-				383C96E3262061DF0098A4C5 /* SlideBar.swift in Sources */,
 				AB8BD8E4236E7574006FEFF3 /* SPStorkCodeDraw.swift in Sources */,
 				7423ED51248390CC006586C0 /* FeedParserJob.swift in Sources */,
 				AB41AB0B2195752B00260851 /* Extension.swift in Sources */,
@@ -3135,6 +3132,7 @@
 				AB7789E823EC68E100DF8447 /* VerticalTabBarItemView.swift in Sources */,
 				744239E62441E2BD0015DB21 /* String+Extension.swift in Sources */,
 				386B063C2480E6240095C7AB /* SnappingSlider.swift in Sources */,
+				38B4444F2644E68A00B9BA34 /* FFImageView.swift in Sources */,
 				ABA6643022D6158800AFAEE6 /* PodDetailHeader.swift in Sources */,
 				741F273024237A0B006F1DCE /* ChapterCollectionViewCell.swift in Sources */,
 				ABF5118C21BF6BDB0083A81B /* PodListViewModel.swift in Sources */,
@@ -3378,7 +3376,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3406,7 +3404,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3436,7 +3434,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taowu.www.FunnyFmForMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -3463,7 +3461,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taowu.www.FunnyFmForMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -3490,7 +3488,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.Now;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3519,7 +3517,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.Now;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3545,7 +3543,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3572,7 +3570,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm.FunnyFmShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3730,7 +3728,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3871,7 +3869,7 @@
 					"$(PROJECT_DIR)/FunnyFm/OC/lib",
 					"$(PROJECT_DIR)/FunnyFm/Helpers/tencentAds",
 				);
-				MARKETING_VERSION = 2.6.2;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duke.www.FunnyFm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

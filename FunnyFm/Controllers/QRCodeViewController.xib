@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -165,7 +165,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="x1A-hx-cLR">
-                    <rect key="frame" x="149" y="814" width="116" height="36"/>
+                    <rect key="frame" x="110" y="814" width="194" height="36"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09P-qA-ew2">
                             <rect key="frame" x="0.0" y="0.0" width="38" height="36"/>
@@ -178,8 +178,18 @@
                                 <action selector="copylinkAction:" destination="-1" eventType="touchUpInside" id="d56-85-mYx"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axc-WB-Oxl">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rn-HO-FWc">
                             <rect key="frame" x="78" y="0.0" width="38" height="36"/>
+                            <color key="tintColor" name="AccentColor"/>
+                            <state key="normal" image="wave.3.right.circle.fill" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="32"/>
+                            </state>
+                            <connections>
+                                <action selector="copyRssUrl:" destination="-1" eventType="touchUpInside" id="o9s-mq-wir"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axc-WB-Oxl">
+                            <rect key="frame" x="156" y="0.0" width="38" height="36"/>
                             <color key="tintColor" name="AccentColor"/>
                             <state key="normal">
                                 <imageReference key="image" image="arrow.uturn.right.circle.fill" catalog="system" symbolScale="default"/>
@@ -239,6 +249,7 @@
         <image name="arrow.uturn.right.circle.fill" catalog="system" width="128" height="121"/>
         <image name="link.circle.fill" catalog="system" width="128" height="121"/>
         <image name="logo-white" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="wave.3.right.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.0" blue="0.3059999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

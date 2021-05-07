@@ -17,13 +17,13 @@ class UIState: ObservableObject {
         
     enum DefaultChannels: String, CaseIterable {
         case nearest = "最新"
-        case discover = "探索"
+//        case discover = "探索"
         case subscribe = "已订阅"
         
         func icon() -> String {
             switch self {
             case .nearest: return "rosette"
-            case .discover: return "flame"
+//            case .discover: return "flame"
             case .subscribe: return "bookmark"
             }
         }

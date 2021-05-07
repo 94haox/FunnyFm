@@ -11,7 +11,7 @@ import AuthenticationServices
 
 struct LoginView: View {
     
-    @ObservedObject var viewModel = LoginViewModel()
+    @ObservedObject var viewModel = GeneralLoginViewModel()
     
     @State var isShowTerms: Bool = false
     

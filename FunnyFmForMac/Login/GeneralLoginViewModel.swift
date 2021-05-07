@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  GeneralLoginViewModel.swift
 //  FunnyFm
 //
 //  Created by 吴涛 on 2021/4/9.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import AuthenticationServices
 
-class LoginViewModel: NSObject, ObservableObject {
+class GeneralLoginViewModel: NSObject, ObservableObject {
     
     @Published var errorMsg: String?
     

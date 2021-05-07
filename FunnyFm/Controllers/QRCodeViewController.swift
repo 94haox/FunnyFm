@@ -27,7 +27,7 @@ class QRCodeViewController: BaseViewController {
         super.viewDidLoad()
         self.title = "分享"
 //        view.addSubview(qrBoundingBox)
-        contentLB.numberOfLines = 0
+        contentLB.numberOfLines = 8
         config()
     }
     
@@ -69,13 +69,15 @@ class QRCodeViewController: BaseViewController {
     }
     
     @IBAction func shareAction(_ sender: Any) {
-        guard let imageToShare = self.view.openglSnapshotImage(frame: containerView.frame)  else {
-            return
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            guard let imageToShare = self.view.openglSnapshotImage(frame: self.containerView.frame)  else {
+                return
+            }
+            let textToShare = self.titleLB.text!
+            let items = [textToShare,imageToShare] as [Any]
+            let activityVC = VisualActivityViewController(activityItems: items, applicationActivities: nil)
+            self.present(activityVC, animated: true, completion: nil)
         }
-        let textToShare = self.titleLB.text!
-        let items = [textToShare,imageToShare] as [Any]
-        let activityVC = VisualActivityViewController(activityItems: items, applicationActivities: nil)
-        self.present(activityVC, animated: true, completion: nil)
     }
     
     func config() {
@@ -117,4 +119,14 @@ class QRCodeViewController: BaseViewController {
         return url
     }
 
+    @IBAction func copyRssUrl(_ sender: Any) {
+        guard let podcast = podcast else {
+            return
+        }
+        UIPasteboard.general.url = URL(string: podcast.feedUrl)
+        Hud.shared.show(style: .notification, text: "RSS URL 已复制到剪切板", on: self.view)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            Hud.shared.hide()
+        }
+    }
 }
